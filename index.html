@@ -1,2122 +1,1745 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
-<title>Game Bridge — GABSI Kota Tanjungbalai</title>
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
 
-<meta name="theme-color" content="#063b66">
-<meta name="description" content="Game Bridge latihan GABSI Kota Tanjungbalai">
+<meta name="theme-color" content="#063b5c">
+
+<meta name="description"
+      content="Website resmi GABSI Kota Tanjungbalai — Bridge Duplicate Center, informasi organisasi, kegiatan, score sheet, kocokan kartu dan Game Bridge.">
+
+<title>GABSI Kota Tanjungbalai - Bridge Duplicate Center</title>
+
+<link rel="icon" href="favicon.svg">
 
 <style>
+
+/* =========================================================
+   DASAR
+========================================================= */
+
 *{
     box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
-    margin:0;
-    padding:0;
-    width:100%;
-    min-height:100%;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#071f33;
-    color:#fff;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    overflow-x:hidden;
+    margin:0;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    background:#f1f6f9;
+    color:#203442;
+    line-height:1.6;
 }
 
-/* HEADER */
-.header{
-    background:linear-gradient(135deg,#062d4d,#075b8f);
-    padding:12px 14px;
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1180px,94%);
+    margin:auto;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    background:#062d45;
+    color:#d9e9f2;
+    font-size:11px;
+    padding:6px 0;
+}
+
+.topbar-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    background:#fff;
+    border-bottom:1px solid #dce7ed;
     position:sticky;
     top:0;
-    z-index:1000;
-    box-shadow:0 3px 12px rgba(0,0,0,.35);
+    z-index:999;
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
 }
 
-.header-inner{
-    max-width:1100px;
-    margin:auto;
+.nav-inner{
+    min-height:68px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:10px;
+    gap:20px;
 }
 
 .brand{
     display:flex;
     align-items:center;
     gap:10px;
+    min-width:0;
 }
 
-.logo{
-    width:43px;
-    height:43px;
-    border-radius:50%;
-    background:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#075b8f;
-    font-size:24px;
-    font-weight:bold;
-    box-shadow:0 2px 8px rgba(0,0,0,.25);
+.brand img{
+    width:40px;
+    height:40px;
+    border-radius:8px;
+    object-fit:contain;
+}
+
+.brand-text{
+    min-width:0;
 }
 
 .brand-text strong{
     display:block;
-    font-size:14px;
+    color:#123b53;
+    font-size:15px;
+    white-space:nowrap;
 }
 
 .brand-text span{
     display:block;
-    font-size:10px;
-    opacity:.85;
-    margin-top:2px;
+    color:#83949e;
+    font-size:8px;
+    letter-spacing:.4px;
+    white-space:nowrap;
 }
 
-.home-btn{
-    color:#fff;
-    text-decoration:none;
-    background:rgba(255,255,255,.14);
-    padding:9px 12px;
-    border-radius:9px;
-    font-size:13px;
-    font-weight:bold;
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:4px;
 }
 
-/* MAIN */
-.container{
-    width:min(1100px,100%);
-    margin:auto;
-    padding:12px;
-}
-
-/* TITLE */
-.title{
-    text-align:center;
-    margin:5px 0 12px;
-}
-
-.title h1{
-    font-size:22px;
-    margin:0 0 4px;
-}
-
-.title p{
-    margin:0;
-    color:#b9d7e8;
+.nav-links a{
+    color:#203442;
     font-size:12px;
+    font-weight:bold;
+    padding:9px 10px;
+    border-radius:9px;
+    transition:.2s;
 }
 
-/* SCORE */
-.scorebar{
+.nav-links a:hover,
+.nav-links a.active{
+    background:#edf6fb;
+    color:#075b87;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:#edf5f9;
+    color:#063b5c;
+    width:40px;
+    height:40px;
+    border-radius:9px;
+    font-size:21px;
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    background:
+        linear-gradient(
+            120deg,
+            #064d70 0%,
+            #076a91 48%,
+            #0b789a 100%
+        );
+    color:#fff;
+    overflow:hidden;
+}
+
+.hero-inner{
+    min-height:410px;
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:7px;
-    margin-bottom:10px;
+    grid-template-columns:1.15fr .85fr;
+    align-items:center;
+    gap:45px;
+    padding:40px 0;
 }
 
-.scorebox{
-    background:#0d3551;
-    border:1px solid #235575;
-    border-radius:10px;
-    padding:8px 5px;
-    text-align:center;
-}
-
-.scorebox small{
-    display:block;
-    color:#9fc2d8;
+.hero-badge{
+    display:inline-block;
+    border:1px solid rgba(255,255,255,.4);
+    background:rgba(255,255,255,.1);
+    padding:6px 10px;
+    border-radius:20px;
     font-size:10px;
-}
-
-.scorebox strong{
-    display:block;
-    font-size:16px;
-    margin-top:3px;
-}
-
-/* SETUP */
-.setup{
-    background:#0c304b;
-    border:1px solid #235575;
-    border-radius:13px;
-    padding:11px;
+    font-weight:bold;
+    letter-spacing:.4px;
     margin-bottom:12px;
 }
 
-.setup-title{
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:8px;
+.hero h1{
+    margin:0;
+    font-size:clamp(36px,6vw,62px);
+    line-height:1.02;
+    letter-spacing:-1.5px;
 }
 
-.setup-row{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:7px;
+.hero h1 span{
+    color:#ffd84d;
 }
 
-select,button{
-    font-family:inherit;
-}
-
-select{
-    width:100%;
-    background:#fff;
-    color:#111;
-    border:0;
-    border-radius:8px;
-    padding:11px 8px;
+.hero-description{
+    max-width:610px;
+    margin:13px 0 20px;
+    color:#e1f1f7;
     font-size:14px;
-    font-weight:bold;
 }
 
-.action-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:7px;
-    margin-top:8px;
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
 .btn{
-    border:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:11px 16px;
     border-radius:9px;
-    padding:11px 8px;
-    font-size:13px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.btn-primary{
-    background:#18a957;
-    color:#fff;
-}
-
-.btn-secondary{
-    background:#176c9e;
-    color:#fff;
-}
-
-.btn-danger{
-    background:#b62e37;
-    color:#fff;
-}
-
-/* TABLE */
-.table-wrap{
-    background:#064f3b;
-    border:7px solid #3b2414;
-    border-radius:22px;
-    padding:9px;
-    box-shadow:
-        inset 0 0 0 2px #6c4629,
-        0 6px 20px rgba(0,0,0,.4);
-    position:relative;
-    min-height:610px;
-}
-
-.bridge-table{
-    position:relative;
-    width:100%;
-    height:590px;
-    max-width:900px;
-    margin:auto;
-}
-
-/* PLAYER AREAS */
-.player{
-    position:absolute;
-    z-index:10;
-}
-
-.player-label{
-    background:rgba(0,0,0,.65);
-    border-radius:7px;
-    padding:5px 8px;
-    text-align:center;
-    font-size:11px;
-    font-weight:bold;
-    margin-bottom:4px;
-}
-
-.north{
-    top:2px;
-    left:50%;
-    transform:translateX(-50%);
-    width:92%;
-}
-
-.south{
-    bottom:2px;
-    left:50%;
-    transform:translateX(-50%);
-    width:92%;
-}
-
-.west{
-    left:2px;
-    top:50%;
-    transform:translateY(-50%);
-    width:29%;
-}
-
-.east{
-    right:2px;
-    top:50%;
-    transform:translateY(-50%);
-    width:29%;
-}
-
-/* HAND */
-.hand{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:82px;
-}
-
-.side-hand{
-    display:flex;
-    flex-direction:column;
-    gap:2px;
-    align-items:center;
-}
-
-.card{
-    width:62px;
-    height:88px;
-    background:#fff;
-    color:#111;
-    border-radius:8px;
-    border:2px solid #ddd;
-    box-shadow:0 2px 5px rgba(0,0,0,.35);
-    position:relative;
-    flex-shrink:0;
-    user-select:none;
-}
-
-.card .rank{
-    position:absolute;
-    top:3px;
-    left:5px;
-    font-size:17px;
-    font-weight:bold;
-    line-height:1;
-}
-
-.card .suit{
-    position:absolute;
-    top:21px;
-    left:5px;
-    font-size:18px;
-    line-height:1;
-}
-
-.card .center{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-45%);
-    font-size:29px;
-    font-weight:bold;
-}
-
-.red{
-    color:#d71920;
-}
-
-.black{
-    color:#111;
-}
-
-.card.playable{
-    cursor:pointer;
-    transform:translateY(-5px);
-    box-shadow:0 0 0 3px #ffd43b,0 4px 10px rgba(0,0,0,.5);
-}
-
-.card.playable:hover{
-    transform:translateY(-8px);
-}
-
-.card.disabled{
-    opacity:.65;
-}
-
-/* SIDE CARDS */
-.side-hand .card{
-    width:47px;
-    height:63px;
-}
-
-.side-hand .card .rank{
-    font-size:13px;
-}
-
-.side-hand .card .suit{
-    top:16px;
-    font-size:14px;
-}
-
-.side-hand .card .center{
-    font-size:21px;
-}
-
-/* NORTH FAN */
-.north .hand .card{
-    margin-left:-12px;
-}
-
-.north .hand .card:first-child{
-    margin-left:0;
-}
-
-/* SOUTH FAN */
-.south .hand .card{
-    margin-left:-8px;
-}
-
-.south .hand .card:first-child{
-    margin-left:0;
-}
-
-/* CENTER TRICK */
-.trick-area{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:230px;
-    height:230px;
-    border-radius:50%;
-    background:rgba(0,0,0,.08);
-}
-
-.trick-card{
-    position:absolute;
-    width:55px;
-    height:77px;
-    background:#fff;
-    color:#111;
-    border-radius:7px;
-    border:2px solid #ddd;
-    box-shadow:0 2px 6px rgba(0,0,0,.45);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
-}
-
-.trick-card.n{
-    top:2px;
-    left:50%;
-    transform:translateX(-50%);
-}
-
-.trick-card.s{
-    bottom:2px;
-    left:50%;
-    transform:translateX(-50%);
-}
-
-.trick-card.w{
-    left:2px;
-    top:50%;
-    transform:translateY(-50%);
-}
-
-.trick-card.e{
-    right:2px;
-    top:50%;
-    transform:translateY(-50%);
-}
-
-.trick-rank{
-    font-size:18px;
-}
-
-.trick-suit{
-    font-size:22px;
-}
-
-/* STATUS */
-.status{
-    margin:10px 0;
-    background:#102f45;
-    border:1px solid #295877;
-    border-radius:10px;
-    padding:10px;
-    text-align:center;
-    font-size:13px;
-    line-height:1.4;
-}
-
-.status strong{
-    color:#ffd43b;
-}
-
-/* INFO */
-.info{
-    background:#0c304b;
-    border:1px solid #235575;
-    border-radius:12px;
-    padding:11px;
-    margin-top:12px;
-}
-
-.info h3{
-    margin:0 0 7px;
-    font-size:14px;
-}
-
-.info p{
-    margin:4px 0;
     font-size:12px;
-    color:#c4dbea;
+    font-weight:bold;
+    transition:.2s;
 }
 
-/* LOG */
-.log{
-    max-height:180px;
-    overflow:auto;
-    background:#061b2b;
-    border-radius:8px;
-    padding:8px;
-    margin-top:8px;
-    font-size:11px;
-    color:#c7dce9;
+.btn:hover{
+    transform:translateY(-2px);
 }
 
-.log div{
-    padding:3px 0;
-    border-bottom:1px solid rgba(255,255,255,.06);
+.btn-white{
+    background:#fff;
+    color:#074668;
 }
 
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:2000;
-    background:rgba(0,0,0,.72);
-    align-items:center;
-    justify-content:center;
-    padding:15px;
+.btn-outline{
+    border:1px solid rgba(255,255,255,.55);
+    color:#fff;
+    background:rgba(255,255,255,.06);
 }
 
-.modal.show{
+.btn-green{
+    background:#159653;
+    color:#fff;
+}
+
+.btn-blue{
+    background:#07547b;
+    color:#fff;
+}
+
+.hero-stats{
     display:flex;
+    margin-top:22px;
+    gap:0;
 }
 
-.modal-box{
-    width:min(420px,100%);
-    background:#0c304b;
-    border:1px solid #39779d;
-    border-radius:16px;
-    padding:18px;
-    box-shadow:0 15px 40px rgba(0,0,0,.5);
+.stat{
+    padding:0 22px;
+    border-left:1px solid rgba(255,255,255,.28);
 }
 
-.modal-box h2{
-    margin:0 0 10px;
-    text-align:center;
+.stat:first-child{
+    padding-left:0;
+    border-left:0;
+}
+
+.stat strong{
+    display:block;
     font-size:21px;
 }
 
-.result{
-    background:#08243a;
-    border-radius:10px;
-    padding:12px;
-    margin:10px 0;
+.stat span{
+    font-size:10px;
+    color:#d2e9f1;
 }
 
-.result-row{
+.hero-photo{
+    display:flex;
+    justify-content:center;
+}
+
+.photo-card{
+    width:min(350px,100%);
+    padding:10px;
+    background:#fff;
+    border-radius:22px;
+    transform:rotate(1.5deg);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.photo-card img{
+    width:100%;
+    height:360px;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:15px;
+}
+
+.photo-caption{
+    background:#062d45;
+    color:#fff;
+    border-radius:11px;
+    padding:8px 12px;
+    margin-top:-54px;
+    position:relative;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.photo-caption strong{
+    display:block;
+    font-size:11px;
+}
+
+.photo-caption span{
+    display:block;
+    font-size:9px;
+    color:#a9c4d1;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    padding:48px 0;
+}
+
+.section-label{
+    color:#08749c;
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.section-title{
+    margin:3px 0 5px;
+    color:#203442;
+    font-size:27px;
+    line-height:1.2;
+}
+
+.section-desc{
+    margin:0;
+    color:#70818b;
+    font-size:13px;
+    max-width:700px;
+}
+
+
+/* =========================================================
+   QUICK MENU
+========================================================= */
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:14px;
+    margin-top:22px;
+}
+
+.quick-card{
+    background:#fff;
+    border:1px solid #e1e9ed;
+    border-radius:16px;
+    padding:20px 18px;
+    min-height:128px;
+    box-shadow:
+        0 8px 25px rgba(20,55,75,.07);
+    transition:.2s;
+}
+
+.quick-card:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 12px 30px rgba(20,55,75,.12);
+}
+
+.quick-icon{
+    font-size:25px;
+    margin-bottom:6px;
+}
+
+.quick-card h3{
+    margin:0 0 4px;
+    font-size:15px;
+    color:#203442;
+}
+
+.quick-card p{
+    margin:0;
+    color:#778892;
+    font-size:11px;
+    line-height:1.5;
+}
+
+.quick-card.game{
+    border:2px solid #168c50;
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f0fff7
+        );
+}
+
+.quick-card.game h3{
+    color:#087c47;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:22px;
+}
+
+.about-card{
+    background:#fff;
+    border:1px solid #e0e8ec;
+    border-radius:17px;
+    padding:22px;
+    box-shadow:0 8px 25px rgba(20,55,75,.06);
+}
+
+.about-card .small{
+    color:#0a7398;
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.about-card h3{
+    margin:2px 0 10px;
+    font-size:16px;
+}
+
+.about-card p{
+    color:#687a84;
+    font-size:12px;
+    margin:0 0 14px;
+}
+
+.about-btn{
+    display:inline-block;
+    background:#075078;
+    color:#fff;
+    padding:10px 13px;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   APPLICATIONS
+========================================================= */
+
+.apps-section{
+    background:#f7fafc;
+}
+
+.apps-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,1fr);
+    gap:14px;
+    margin-top:22px;
+}
+
+.app-card{
+    border-radius:17px;
+    padding:22px;
+    color:#fff;
+    min-height:175px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:0 8px 22px rgba(0,0,0,.09);
+}
+
+.app-card.blue{
+    background:
+        linear-gradient(
+            135deg,
+            #0879c0,
+            #075b8d
+        );
+}
+
+.app-card.green{
+    background:
+        linear-gradient(
+            135deg,
+            #149b59,
+            #087645
+        );
+}
+
+/* GAME CARD */
+.app-card.game{
+    grid-column:1/-1;
+    min-height:205px;
+    background:
+        linear-gradient(
+            135deg,
+            #073a5b 0%,
+            #076a72 48%,
+            #159453 100%
+        );
+    position:relative;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,.25);
+}
+
+.app-card.game::after{
+    content:"♠ ♥ ♦ ♣";
+    position:absolute;
+    right:20px;
+    bottom:-20px;
+    font-size:80px;
+    letter-spacing:7px;
+    color:rgba(255,255,255,.08);
+    transform:rotate(-8deg);
+    pointer-events:none;
+}
+
+.app-content{
+    position:relative;
+    z-index:2;
+}
+
+.app-icon{
+    font-size:26px;
+    margin-bottom:5px;
+}
+
+.app-card h3{
+    margin:0 0 5px;
+    font-size:16px;
+}
+
+.app-card p{
+    margin:0;
+    color:rgba(255,255,255,.85);
+    font-size:11px;
+    max-width:650px;
+}
+
+.app-button{
+    align-self:flex-start;
+    display:inline-block;
+    margin-top:15px;
+    background:#fff;
+    color:#06486b;
+    padding:9px 13px;
+    border-radius:8px;
+    font-size:10px;
+    font-weight:bold;
+    position:relative;
+    z-index:3;
+}
+
+.game .app-button{
+    color:#087345;
+}
+
+
+/* =========================================================
+   GAME PROMO
+========================================================= */
+
+.game-promo{
+    margin-top:25px;
+    background:
+        linear-gradient(
+            135deg,
+            #062d45,
+            #074e70
+        );
+    color:#fff;
+    border-radius:18px;
+    padding:25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.game-promo h3{
+    margin:0 0 5px;
+    font-size:20px;
+}
+
+.game-promo p{
+    margin:0;
+    color:#c9e0eb;
+    font-size:12px;
+}
+
+.game-promo .cards{
+    font-size:35px;
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    background:#062d45;
+    color:#fff;
+    margin-top:20px;
+}
+
+.footer-main{
+    padding:32px 0;
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer h3{
+    margin:0 0 8px;
+    font-size:16px;
+}
+
+.footer h4{
+    margin:0 0 8px;
+    font-size:12px;
+}
+
+.footer p,
+.footer a{
+    color:#b9d0dc;
+    font-size:10px;
+}
+
+.footer a{
+    display:block;
+    margin:4px 0;
+}
+
+.footer a:hover{
+    color:#fff;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding:10px 0;
+    font-size:9px;
+    color:#88aab9;
     display:flex;
     justify-content:space-between;
-    padding:5px 0;
-    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.result-row:last-child{
-    border-bottom:0;
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:68px;
+        left:0;
+        right:0;
+        background:#fff;
+        border-bottom:1px solid #dce7ed;
+        box-shadow:0 8px 20px rgba(0,0,0,.1);
+        padding:10px;
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:11px 13px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+        padding:30px 0 38px;
+        gap:25px;
+    }
+
+    .hero-photo{
+        order:-1;
+    }
+
+    .photo-card{
+        width:260px;
+    }
+
+    .photo-card img{
+        height:290px;
+    }
+
+    .quick-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .apps-grid{
+        grid-template-columns:1fr;
+    }
+
+    .app-card.game{
+        grid-column:auto;
+    }
+
+    .game-promo{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr 1fr;
+    }
+
 }
 
-.big-result{
-    text-align:center;
-    font-size:30px;
-    font-weight:bold;
-    color:#ffd43b;
-    padding:8px;
-}
 
-/* FOOTER */
-.footer{
-    text-align:center;
-    color:#86aac0;
-    font-size:10px;
-    padding:18px 8px;
-}
+/* =========================================================
+   HP KECIL
+========================================================= */
 
-/* RESPONSIVE */
-@media(max-width:700px){
+@media(max-width:520px){
 
     .container{
-        padding:8px;
+        width:92%;
     }
 
-    .title h1{
-        font-size:19px;
+    .topbar{
+        font-size:8px;
     }
 
-    .scorebar{
-        gap:4px;
+    .topbar-inner{
+        gap:5px;
     }
 
-    .scorebox{
-        padding:6px 3px;
+    .nav-inner{
+        min-height:60px;
     }
 
-    .scorebox strong{
-        font-size:14px;
+    .brand img{
+        width:35px;
+        height:35px;
     }
-
-    .setup-row{
-        grid-template-columns:1fr 1fr 1fr;
-    }
-
-    .table-wrap{
-        min-height:560px;
-        padding:5px;
-        border-width:5px;
-    }
-
-    .bridge-table{
-        height:540px;
-    }
-
-    .north,.south{
-        width:96%;
-    }
-
-    .west,.east{
-        width:24%;
-    }
-
-    .hand{
-        min-height:76px;
-    }
-
-    .card{
-        width:52px;
-        height:76px;
-    }
-
-    .card .rank{
-        font-size:15px;
-    }
-
-    .card .suit{
-        top:19px;
-        font-size:16px;
-    }
-
-    .card .center{
-        font-size:25px;
-    }
-
-    .south .hand .card{
-        margin-left:-11px;
-    }
-
-    .north .hand .card{
-        margin-left:-15px;
-    }
-
-    .side-hand .card{
-        width:40px;
-        height:56px;
-    }
-
-    .side-hand .card .rank{
-        font-size:11px;
-    }
-
-    .side-hand .card .suit{
-        top:14px;
-        font-size:12px;
-    }
-
-    .side-hand .card .center{
-        font-size:18px;
-    }
-
-    .player-label{
-        font-size:9px;
-        padding:4px 5px;
-    }
-
-    .trick-area{
-        width:180px;
-        height:180px;
-    }
-
-    .trick-card{
-        width:44px;
-        height:63px;
-    }
-
-    .trick-rank{
-        font-size:15px;
-    }
-
-    .trick-suit{
-        font-size:18px;
-    }
-
-    .home-btn{
-        padding:8px 9px;
-        font-size:11px;
-    }
-}
-
-@media(max-width:420px){
 
     .brand-text strong{
         font-size:11px;
     }
 
     .brand-text span{
+        font-size:7px;
+    }
+
+    .nav-links{
+        top:60px;
+    }
+
+    .hero-inner{
+        padding:25px 0 30px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero-description{
+        font-size:12px;
+    }
+
+    .hero-buttons{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .btn{
+        width:100%;
+        padding:10px 8px;
+        font-size:10px;
+    }
+
+    .hero-stats{
+        justify-content:space-between;
+    }
+
+    .stat{
+        padding:0 10px;
+    }
+
+    .stat strong{
+        font-size:17px;
+    }
+
+    .stat span{
         font-size:8px;
     }
 
-    .logo{
-        width:37px;
-        height:37px;
-        font-size:20px;
+    .quick-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+        gap:10px;
     }
 
-    .bridge-table{
-        height:510px;
+    .quick-card{
+        padding:15px 13px;
+        min-height:125px;
+        border-radius:13px;
     }
 
-    .table-wrap{
-        min-height:530px;
+    .quick-icon{
+        font-size:22px;
     }
 
-    .card{
-        width:46px;
-        height:68px;
+    .quick-card h3{
+        font-size:13px;
     }
 
-    .south .hand .card{
-        margin-left:-13px;
+    .quick-card p{
+        font-size:9px;
     }
 
-    .north .hand .card{
-        margin-left:-17px;
+    .about-grid{
+        grid-template-columns:1fr;
     }
 
-    .side-hand .card{
-        width:35px;
-        height:50px;
+    .section{
+        padding:35px 0;
     }
+
+    .section-title{
+        font-size:22px;
+    }
+
+    .section-desc{
+        font-size:11px;
+    }
+
+    .app-card{
+        padding:18px;
+        min-height:165px;
+    }
+
+    .app-card.game{
+        min-height:190px;
+    }
+
+    .app-card h3{
+        font-size:15px;
+    }
+
+    .app-card p{
+        font-size:10px;
+    }
+
+    .game-promo{
+        padding:20px;
+    }
+
+    .game-promo h3{
+        font-size:17px;
+    }
+
+    .game-promo .cards{
+        font-size:27px;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr 1fr;
+        gap:20px;
+    }
+
+    .footer-main>div:first-child{
+        grid-column:1/-1;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:4px;
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<header class="header">
-    <div class="header-inner">
 
-        <div class="brand">
-            <div class="logo">♠</div>
+<!-- ======================================================
+     TOP BAR
+====================================================== -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <span>
+            GABSI Kota Tanjungbalai • Bridge Duplicate Center
+        </span>
+
+        <span>
+            Sportivitas • Persahabatan • Prestasi • Edukasi
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     NAVBAR
+====================================================== -->
+
+<nav class="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="index.html" class="brand">
+
+            <img src="favicon.svg"
+                 alt="Logo GABSI Kota Tanjungbalai">
 
             <div class="brand-text">
-                <strong>GABSI KOTA TANJUNGBALAI</strong>
-                <span>GAME BRIDGE — MODE LATIHAN</span>
-            </div>
-        </div>
 
-        <a class="home-btn" href="index.html">
-            🏠 Beranda
+                <strong>
+                    GABSI KOTA TANJUNGBALAI
+                </strong>
+
+                <span>
+                    GABUNGAN BRIDGE SELURUH INDONESIA
+                </span>
+
+            </div>
+
         </a>
 
-    </div>
-</header>
 
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()"
+            aria-label="Buka menu">
 
-<main class="container">
+            ☰
 
-    <div class="title">
-        <h1>♠ GAME BRIDGE GABSI ♠</h1>
-        <p>Latihan Bridge 4 Pemain Melawan Komputer</p>
-    </div>
-
-
-    <!-- SCORE -->
-    <div class="scorebar">
-
-        <div class="scorebox">
-            <small>Kontrak</small>
-            <strong id="scoreContract">-</strong>
-        </div>
-
-        <div class="scorebox">
-            <small>Trick Anda</small>
-            <strong id="scoreYou">0</strong>
-        </div>
-
-        <div class="scorebox">
-            <small>Trick Lawan</small>
-            <strong id="scoreOpp">0</strong>
-        </div>
-
-        <div class="scorebox">
-            <small>Board</small>
-            <strong id="boardNo">1</strong>
-        </div>
-
-    </div>
-
-
-    <!-- SETUP -->
-    <section class="setup">
-
-        <div class="setup-title">
-            🎯 PILIH KONTRAK
-        </div>
-
-        <div class="setup-row">
-
-            <select id="level">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3" selected>3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-            </select>
-
-            <select id="denom">
-                <option value="C">♣ CLUB</option>
-                <option value="D">♦ DIAMOND</option>
-                <option value="H">♥ HEART</option>
-                <option value="S" selected>♠ SPADE</option>
-                <option value="NT">NT</option>
-            </select>
-
-            <select id="multiplier">
-                <option value="1">Normal</option>
-                <option value="2">Double</option>
-                <option value="4">Redouble</option>
-            </select>
-
-        </div>
-
-        <div class="action-row">
-
-            <button class="btn btn-primary" onclick="startGame()">
-                🎴 DEAL & MULAI
-            </button>
-
-            <button class="btn btn-secondary" onclick="newBoard()">
-                🔄 BOARD BARU
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- STATUS -->
-    <div class="status" id="status">
-        Pilih kontrak kemudian tekan <strong>DEAL & MULAI</strong>.
-    </div>
-
-
-    <!-- TABLE -->
-    <section class="table-wrap">
-
-        <div class="bridge-table">
-
-            <!-- NORTH -->
-            <div class="player north">
-
-                <div class="player-label">
-                    NORTH — DUMMY
-                </div>
-
-                <div class="hand" id="northHand"></div>
-
-            </div>
-
-
-            <!-- WEST -->
-            <div class="player west">
-
-                <div class="player-label">
-                    WEST — KOMPUTER
-                </div>
-
-                <div class="side-hand" id="westHand"></div>
-
-            </div>
-
-
-            <!-- EAST -->
-            <div class="player east">
-
-                <div class="player-label">
-                    EAST — KOMPUTER
-                </div>
-
-                <div class="side-hand" id="eastHand"></div>
-
-            </div>
-
-
-            <!-- SOUTH -->
-            <div class="player south">
-
-                <div class="player-label">
-                    SOUTH — ANDA
-                </div>
-
-                <div class="hand" id="southHand"></div>
-
-            </div>
-
-
-            <!-- CENTER -->
-            <div class="trick-area">
-
-                <div id="trickN" class="trick-card n"></div>
-                <div id="trickS" class="trick-card s"></div>
-                <div id="trickW" class="trick-card w"></div>
-                <div id="trickE" class="trick-card e"></div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- INFO -->
-    <section class="info">
-
-        <h3>📘 Status Permainan</h3>
-
-        <p>
-            Kontrak:
-            <strong id="infoContract">-</strong>
-        </p>
-
-        <p>
-            Trump:
-            <strong id="infoTrump">-</strong>
-        </p>
-
-        <p>
-            Giliran:
-            <strong id="infoTurn">-</strong>
-        </p>
-
-        <p>
-            Trick:
-            <strong id="infoTrick">0 / 13</strong>
-        </p>
-
-        <div class="log" id="gameLog">
-            <div>Game belum dimulai.</div>
-        </div>
-
-    </section>
-
-</main>
-
-
-<div class="footer">
-    GABSI Kota Tanjungbalai © 2026<br>
-    Game Bridge Mode Latihan
-</div>
-
-
-<!-- RESULT MODAL -->
-<div class="modal" id="resultModal">
-
-    <div class="modal-box">
-
-        <h2>🏆 BOARD SELESAI</h2>
-
-        <div class="result">
-
-            <div class="result-row">
-                <span>Kontrak</span>
-                <strong id="resultContract">-</strong>
-            </div>
-
-            <div class="result-row">
-                <span>Trick Diperoleh</span>
-                <strong id="resultTricks">-</strong>
-            </div>
-
-            <div class="result-row">
-                <span>Target</span>
-                <strong id="resultTarget">-</strong>
-            </div>
-
-            <div class="result-row">
-                <span>Hasil</span>
-                <strong id="resultStatus">-</strong>
-            </div>
-
-        </div>
-
-        <div class="big-result" id="resultScore">
-            0
-        </div>
-
-        <button class="btn btn-primary" style="width:100%;"
-                onclick="closeResultAndDeal()">
-            🎴 BOARD BERIKUTNYA
         </button>
 
-        <button class="btn btn-secondary"
-                style="width:100%;margin-top:7px;"
-                onclick="closeModal()">
-            Tutup
-        </button>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="index.html"
+               class="active">
+                Beranda
+            </a>
+
+            <a href="profil.html">
+                Profil
+            </a>
+
+            <a href="pengurus.html">
+                Pengurus
+            </a>
+
+            <a href="kegiatan.html">
+                Kegiatan
+            </a>
+
+            <a href="galeri.html">
+                Galeri
+            </a>
+
+            <a href="aplikasi.html">
+                Aplikasi
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                ♠ Game Bridge
+            </a>
+
+            <a href="kontak.html">
+                Kontak
+            </a>
+
+        </div>
 
     </div>
 
-</div>
+</nav>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+    <div class="container hero-inner">
+
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ♠ BRIDGE CENTER • KOTA TANJUNGBALAI
+            </div>
+
+
+            <h1>
+                GABSI<br>
+                <span>Kota Tanjungbalai</span>
+            </h1>
+
+
+            <p class="hero-description">
+
+                Website resmi GABSI Kota Tanjungbalai sebagai pusat
+                informasi, kegiatan pembinaan, dokumentasi,
+                dan aplikasi olahraga Bridge Duplicate.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="game-bridge-gabsi.html"
+                   class="btn btn-green">
+
+                    ♠ Main Game Bridge
+
+                </a>
+
+                <a href="aplikasi.html"
+                   class="btn btn-white">
+
+                    💻 Buka Aplikasi
+
+                </a>
+
+                <a href="profil.html"
+                   class="btn btn-outline">
+
+                    Kenali GABSI
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-stats">
+
+                <div class="stat">
+
+                    <strong>52</strong>
+
+                    <span>
+                        Kartu per deal
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>4</strong>
+
+                    <span>
+                        Posisi pemain
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>IMP</strong>
+
+                    <span>
+                        Duplicate scoring
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-photo">
+
+            <div class="photo-card">
+
+                <img
+                    src="ketua-gabsi.jpg"
+                    alt="Ketua GABSI Kota Tanjungbalai">
+
+                <div class="photo-caption">
+
+                    <strong>
+                        Erick Hariyanto Hutabarat, S.Pd.
+                    </strong>
+
+                    <span>
+                        Ketua GABSI Kota Tanjungbalai
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     MENU UTAMA
+====================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-label">
+            Menu Utama
+        </div>
+
+        <h2 class="section-title">
+            Jelajahi Website GABSI
+        </h2>
+
+        <p class="section-desc">
+
+            Informasi website dipisahkan menjadi beberapa
+            halaman agar lebih rapi dan mudah digunakan.
+
+        </p>
+
+
+        <div class="quick-grid">
+
+
+            <!-- PROFIL -->
+
+            <a href="profil.html"
+               class="quick-card">
+
+                <div class="quick-icon">
+                    🏛️
+                </div>
+
+                <h3>
+                    Profil GABSI
+                </h3>
+
+                <p>
+                    Sejarah, visi, misi, dan informasi
+                    GABSI Kota Tanjungbalai.
+                </p>
+
+            </a>
+
+
+            <!-- PENGURUS -->
+
+            <a href="pengurus.html"
+               class="quick-card">
+
+                <div class="quick-icon">
+                    👥
+                </div>
+
+                <h3>
+                    Pengurus
+                </h3>
+
+                <p>
+                    Informasi ketua dan susunan
+                    kepengurusan organisasi.
+                </p>
+
+            </a>
+
+
+            <!-- KEGIATAN -->
+
+            <a href="kegiatan.html"
+               class="quick-card">
+
+                <div class="quick-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Kegiatan & Berita
+                </h3>
+
+                <p>
+                    Latihan, pembinaan atlet,
+                    turnamen, dan informasi terbaru.
+                </p>
+
+            </a>
+
+
+            <!-- GALERI -->
+
+            <a href="galeri.html"
+               class="quick-card">
+
+                <div class="quick-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Galeri GABSI
+                </h3>
+
+                <p>
+                    Dokumentasi foto kegiatan
+                    latihan dan pertandingan.
+                </p>
+
+            </a>
+
+
+            <!-- APLIKASI -->
+
+            <a href="aplikasi.html"
+               class="quick-card">
+
+                <div class="quick-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Aplikasi Bridge
+                </h3>
+
+                <p>
+                    Score Sheet dan Kocokan Kartu
+                    Bridge untuk latihan maupun pertandingan.
+                </p>
+
+            </a>
+
+
+            <!-- GAME -->
+
+            <a href="game-bridge-gabsi.html"
+               class="quick-card game">
+
+                <div class="quick-icon">
+                    ♠️
+                </div>
+
+                <h3>
+                    Game Bridge
+                </h3>
+
+                <p>
+                    Main Bridge 4 pemain melawan komputer
+                    langsung dari HP.
+                </p>
+
+            </a>
+
+
+            <!-- KONTAK -->
+
+            <a href="kontak.html"
+               class="quick-card">
+
+                <div class="quick-icon">
+                    📞
+                </div>
+
+                <h3>
+                    Kontak
+                </h3>
+
+                <p>
+                    Informasi kontak dan komunikasi
+                    GABSI Kota Tanjungbalai.
+                </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     TENTANG
+====================================================== -->
+
+<section class="section"
+         style="padding-top:0;">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+
+            <div class="about-card">
+
+                <div class="small">
+                    Tentang
+                </div>
+
+                <h3>
+                    GABSI Kota Tanjungbalai
+                </h3>
+
+                <p>
+
+                    GABSI Kota Tanjungbalai merupakan
+                    organisasi yang menjadi wadah pengembangan
+                    olahraga Bridge di Kota Tanjungbalai,
+                    termasuk pembinaan pemain, latihan,
+                    pertandingan dan pengembangan prestasi.
+
+                </p>
+
+                <a href="profil.html"
+                   class="about-btn">
+
+                    Lihat Profil Lengkap →
+
+                </a>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <div class="small">
+                    Aplikasi
+                </div>
+
+                <h3>
+                    Bridge Duplicate Center
+                </h3>
+
+                <p>
+
+                    Website menyediakan aplikasi digital
+                    untuk membantu pencatatan score sheet,
+                    pengaturan deal kartu Bridge,
+                    serta permainan Bridge latihan.
+
+                </p>
+
+                <a href="aplikasi.html"
+                   class="about-btn">
+
+                    Lihat Semua Aplikasi →
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     APLIKASI
+====================================================== -->
+
+<section class="section apps-section">
+
+    <div class="container">
+
+        <div class="section-label">
+            Aplikasi Bridge
+        </div>
+
+        <h2 class="section-title">
+            Aplikasi GABSI
+        </h2>
+
+        <p class="section-desc">
+
+            Akses cepat aplikasi Bridge yang telah dibuat
+            untuk kebutuhan latihan dan pertandingan.
+
+        </p>
+
+
+        <div class="apps-grid">
+
+
+            <!-- SCORE SHEET -->
+
+            <div class="app-card blue">
+
+                <div class="app-content">
+
+                    <div class="app-icon">
+                        🧮
+                    </div>
+
+                    <h3>
+                        Bridge Score Sheet
+                    </h3>
+
+                    <p>
+                        Pencatatan kontrak, score NS/EW,
+                        HCP, board, dan perhitungan IMP.
+                    </p>
+
+                </div>
+
+                <a href="score-sheet.html"
+                   class="app-button">
+
+                    BUKA SCORE SHEET →
+
+                </a>
+
+            </div>
+
+
+            <!-- KOCOKAN -->
+
+            <div class="app-card green">
+
+                <div class="app-content">
+
+                    <div class="app-icon">
+                        🃏
+                    </div>
+
+                    <h3>
+                        Kocokan Kartu Bridge
+                    </h3>
+
+                    <p>
+                        Membuat deal 52 kartu dan board
+                        pembanding untuk permainan Duplicate.
+                    </p>
+
+                </div>
+
+                <a href="kocokan-kartu.html"
+                   class="app-button">
+
+                    BUKA KOCOKAN →
+
+                </a>
+
+            </div>
+
+
+            <!-- GAME BRIDGE -->
+
+            <div class="app-card game">
+
+                <div class="app-content">
+
+                    <div class="app-icon">
+                        ♠️
+                    </div>
+
+                    <h3>
+                        Game Bridge
+                    </h3>
+
+                    <p>
+
+                        Permainan Bridge latihan 4 pemain.
+                        Anda bermain melawan komputer dengan
+                        kartu 52 buah, trick, trump, kontrak,
+                        dan perhitungan skor.
+
+                    </p>
+
+                </div>
+
+
+                <a href="game-bridge-gabsi.html"
+                   class="app-button">
+
+                    🎴 MAIN GAME BRIDGE →
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- GAME PROMO -->
+
+        <div class="game-promo">
+
+            <div>
+
+                <h3>
+                    ♠ Siap Bermain Bridge?
+                </h3>
+
+                <p>
+
+                    Buka Game Bridge GABSI dan mulai
+                    latihan permainan 4 pemain melawan komputer.
+
+                </p>
+
+                <a href="game-bridge-gabsi.html"
+                   class="btn btn-green"
+                   style="margin-top:12px;">
+
+                    MULAI PERMAINAN →
+
+                </a>
+
+            </div>
+
+
+            <div class="cards">
+                ♠ ♥ ♦ ♣
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+    <div class="container footer-main">
+
+
+        <div>
+
+            <h3>
+                GABSI Kota Tanjungbalai
+            </h3>
+
+            <p>
+                Gabungan Bridge Seluruh Indonesia
+                • Bridge Duplicate Center.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Navigasi
+            </h4>
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="profil.html">
+                Profil
+            </a>
+
+            <a href="pengurus.html">
+                Pengurus
+            </a>
+
+            <a href="kegiatan.html">
+                Kegiatan
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                Game Bridge
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Lainnya
+            </h4>
+
+            <a href="galeri.html">
+                Galeri
+            </a>
+
+            <a href="aplikasi.html">
+                Aplikasi
+            </a>
+
+            <a href="score-sheet.html">
+                Score Sheet
+            </a>
+
+            <a href="kocokan-kartu.html">
+                Kocokan Kartu
+            </a>
+
+            <a href="kontak.html">
+                Kontak
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+        <span>
+            © 2026 GABSI Kota Tanjungbalai.
+        </span>
+
+        <span>
+            Website Bridge Center
+        </span>
+
+    </div>
+
+</footer>
 
 
 <script>
 
 /* =========================================================
-   GABSI KOTA TANJUNGBALAI
-   GAME BRIDGE — MODE LATIHAN
-   ========================================================= */
+   MENU MOBILE
+========================================================= */
 
+function toggleMenu(){
 
-/* ---------- DATA ---------- */
+    const menu =
+        document.getElementById("navLinks");
 
-const suits = ["C","D","H","S"];
+    menu.classList.toggle("show");
 
-const suitSymbols = {
-    C:"♣",
-    D:"♦",
-    H:"♥",
-    S:"♠"
-};
-
-const suitNames = {
-    C:"Club",
-    D:"Diamond",
-    H:"Heart",
-    S:"Spade",
-    NT:"No Trump"
-};
-
-const ranks = [
-    {r:"2",v:2},
-    {r:"3",v:3},
-    {r:"4",v:4},
-    {r:"5",v:5},
-    {r:"6",v:6},
-    {r:"7",v:7},
-    {r:"8",v:8},
-    {r:"9",v:9},
-    {r:"10",v:10},
-    {r:"J",v:11},
-    {r:"Q",v:12},
-    {r:"K",v:13},
-    {r:"A",v:14}
-];
-
-let hands = {
-    N:[],
-    E:[],
-    S:[],
-    W:[]
-};
-
-let currentPlayer = "W";
-
-let trick = [];
-
-let trickNo = 0;
-
-let tricksWon = {
-    N:0,
-    E:0,
-    S:0,
-    W:0
-};
-
-let contract = {
-    level:3,
-    denom:"S",
-    multiplier:1
-};
-
-let boardNumber = 1;
-
-let gameStarted = false;
-
-let waitingAI = false;
-
-
-/* ---------- UTILITY ---------- */
-
-function shuffle(array){
-
-    for(let i=array.length-1;i>0;i--){
-
-        const j=Math.floor(Math.random()*(i+1));
-
-        [array[i],array[j]]=[array[j],array[i]];
-    }
-
-    return array;
 }
 
 
-function createDeck(){
+/* Tutup menu setelah memilih halaman */
 
-    const deck=[];
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link){
 
-    for(const s of suits){
+        link.addEventListener(
+            "click",
+            function(){
 
-        for(const r of ranks){
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("show");
 
-            deck.push({
-                suit:s,
-                rank:r.r,
-                value:r.v
-            });
-
-        }
-
-    }
-
-    return deck;
-}
-
-
-function cardText(card){
-
-    if(!card) return "";
-
-    return card.rank + suitSymbols[card.suit];
-}
-
-
-function cardColor(card){
-
-    return (card.suit==="H" || card.suit==="D")
-        ? "red"
-        : "black";
-}
-
-
-/* ---------- DEAL ---------- */
-
-function deal(){
-
-    const deck=shuffle(createDeck());
-
-    hands.N=deck.slice(0,13);
-    hands.E=deck.slice(13,26);
-    hands.S=deck.slice(26,39);
-    hands.W=deck.slice(39,52);
-
-    for(const p of ["N","E","S","W"]){
-
-        hands[p].sort(sortCards);
-
-    }
-}
-
-
-function sortCards(a,b){
-
-    const suitOrder={
-        S:4,
-        H:3,
-        D:2,
-        C:1
-    };
-
-    if(a.suit!==b.suit){
-
-        return suitOrder[b.suit]-suitOrder[a.suit];
-
-    }
-
-    return b.value-a.value;
-}
-
-
-/* ---------- GAME START ---------- */
-
-function startGame(){
-
-    const level=parseInt(document.getElementById("level").value);
-
-    const denom=document.getElementById("denom").value;
-
-    const multiplier=parseInt(
-        document.getElementById("multiplier").value
-    );
-
-    contract={
-        level,
-        denom,
-        multiplier
-    };
-
-    deal();
-
-    trick=[];
-
-    trickNo=0;
-
-    tricksWon={
-        N:0,
-        E:0,
-        S:0,
-        W:0
-    };
-
-    currentPlayer="W";
-
-    gameStarted=true;
-
-    waitingAI=false;
-
-    document.getElementById("scoreContract").textContent=
-        contractText();
-
-    document.getElementById("infoContract").textContent=
-        contractText();
-
-    document.getElementById("infoTrump").textContent=
-        suitNames[contract.denom];
-
-    clearLog();
-
-    addLog(
-        "Board "+boardNumber+
-        " dimulai. Kontrak "+contractText()+
-        ". West melakukan lead."
-    );
-
-    renderAll();
-
-    updateStatus(
-        "West sedang melakukan lead pertama..."
-    );
-
-    setTimeout(aiPlay,700);
-}
-
-
-/* ---------- CONTRACT ---------- */
-
-function contractText(){
-
-    const mult =
-        contract.multiplier===2 ? " X"
-        : contract.multiplier===4 ? " XX"
-        : "";
-
-    return contract.level+
-        (contract.denom==="NT"
-            ? "NT"
-            : suitSymbols[contract.denom])+
-        mult;
-}
-
-
-/* ---------- RENDER ---------- */
-
-function renderAll(){
-
-    renderHand("N");
-    renderHand("S");
-    renderSide("E");
-    renderSide("W");
-
-    renderTrick();
-
-    document.getElementById("scoreYou").textContent=
-        tricksWon.S + tricksWon.N;
-
-    document.getElementById("scoreOpp").textContent=
-        tricksWon.E + tricksWon.W;
-
-    document.getElementById("infoTurn").textContent=
-        playerName(currentPlayer);
-
-    document.getElementById("infoTrick").textContent=
-        trickNo+" / 13";
-}
-
-
-function renderHand(player){
-
-    const el=document.getElementById(
-        player==="N" ? "northHand" : "southHand"
-    );
-
-    el.innerHTML="";
-
-    hands[player].forEach((card,index)=>{
-
-        const div=createCardElement(
-            card,
-            player,
-            index
+            }
         );
-
-        el.appendChild(div);
 
     });
-}
 
 
-function renderSide(player){
+/* =========================================================
+   SERVICE WORKER
+========================================================= */
 
-    const el=document.getElementById(
-        player==="W" ? "westHand" : "eastHand"
-    );
+if("serviceWorker" in navigator){
 
-    el.innerHTML="";
+    window.addEventListener(
+        "load",
+        function(){
 
-    hands[player].forEach((card,index)=>{
+            navigator.serviceWorker
+                .register("sw.js")
+                .catch(function(error){
 
-        const div=document.createElement("div");
+                    console.log(
+                        "Service Worker:",
+                        error
+                    );
 
-        div.className=
-            "card "+
-            cardColor(card);
-
-        div.innerHTML=`
-            <span class="rank">${card.rank}</span>
-            <span class="suit">${suitSymbols[card.suit]}</span>
-            <span class="center">${suitSymbols[card.suit]}</span>
-        `;
-
-        el.appendChild(div);
-
-    });
-}
-
-
-function createCardElement(card,player,index){
-
-    const div=document.createElement("div");
-
-    div.className=
-        "card "+
-        cardColor(card);
-
-    div.innerHTML=`
-        <span class="rank">${card.rank}</span>
-        <span class="suit">${suitSymbols[card.suit]}</span>
-        <span class="center">${suitSymbols[card.suit]}</span>
-    `;
-
-    const canPlay =
-        gameStarted &&
-        !waitingAI &&
-        (player==="S" || player==="N") &&
-        currentPlayer===player &&
-        isLegalCard(player,card);
-
-    if(canPlay){
-
-        div.classList.add("playable");
-
-        div.onclick=()=>playCard(player,index);
-
-    }else{
-
-        div.classList.add("disabled");
-
-    }
-
-    return div;
-}
-
-
-/* ---------- TRICK ---------- */
-
-function renderTrick(){
-
-    const ids={
-        N:"trickN",
-        S:"trickS",
-        E:"trickE",
-        W:"trickW"
-    };
-
-    for(const p in ids){
-
-        const el=document.getElementById(ids[p]);
-
-        el.innerHTML="";
-
-    }
-
-    trick.forEach(item=>{
-
-        const el=document.getElementById(
-            ids[item.player]
-        );
-
-        el.innerHTML=`
-            <div class="trick-rank">
-                ${item.card.rank}
-            </div>
-            <div class="trick-suit ${cardColor(item.card)}">
-                ${suitSymbols[item.card.suit]}
-            </div>
-        `;
-
-    });
-}
-
-
-/* ---------- LEGAL MOVE ---------- */
-
-function isLegalCard(player,card){
-
-    const hand=hands[player];
-
-    if(trick.length===0){
-
-        return true;
-
-    }
-
-    const leadSuit=trick[0].card.suit;
-
-    const hasLead=hand.some(
-        c=>c.suit===leadSuit
-    );
-
-    if(hasLead){
-
-        return card.suit===leadSuit;
-
-    }
-
-    return true;
-}
-
-
-/* ---------- PLAY CARD ---------- */
-
-function playCard(player,index){
-
-    if(!gameStarted) return;
-
-    if(waitingAI) return;
-
-    if(currentPlayer!==player) return;
-
-    const card=hands[player][index];
-
-    if(!isLegalCard(player,card)){
-
-        updateStatus(
-            "❌ Anda wajib mengikuti suit "+suitSymbols[trick[0].card.suit]+"."
-        );
-
-        return;
-    }
-
-    hands[player].splice(index,1);
-
-    trick.push({
-        player,
-        card
-    });
-
-    addLog(
-        playerName(player)+
-        " memainkan "+
-        cardText(card)
-    );
-
-    renderAll();
-
-    if(trick.length===4){
-
-        setTimeout(resolveTrick,500);
-
-        return;
-    }
-
-    currentPlayer=nextPlayer(currentPlayer);
-
-    renderAll();
-
-    if(currentPlayer==="E" || currentPlayer==="W"){
-
-        waitingAI=true;
-
-        updateStatus(
-            playerName(currentPlayer)+
-            " sedang memilih kartu..."
-        );
-
-        setTimeout(aiPlay,550);
-
-    }else{
-
-        waitingAI=false;
-
-        updateStatus(
-            "Giliran Anda. Pilih kartu yang sah."
-        );
-
-    }
-}
-
-
-/* ---------- NEXT PLAYER ---------- */
-
-function nextPlayer(player){
-
-    const order=["W","N","E","S"];
-
-    const i=order.indexOf(player);
-
-    return order[(i+1)%4];
-}
-
-
-/* ---------- AI ---------- */
-
-function aiPlay(){
-
-    if(!gameStarted) return;
-
-    if(currentPlayer!=="E" &&
-       currentPlayer!=="W"){
-
-        waitingAI=false;
-
-        return;
-
-    }
-
-    const player=currentPlayer;
-
-    const legal=hands[player].filter(
-        c=>isLegalCard(player,c)
-    );
-
-    if(!legal.length) return;
-
-    const selected=chooseAIcard(
-        player,
-        legal
-    );
-
-    const index=hands[player].indexOf(
-        selected
-    );
-
-    waitingAI=false;
-
-    playCard(player,index);
-}
-
-
-/* ---------- AI LOGIC ---------- */
-
-function chooseAIcard(player,legal){
-
-    /*
-      AI sederhana:
-      - jika lead, pilih kartu relatif rendah
-      - jika bisa memenangkan trick, pertimbangkan kartu
-      - jika trump tersedia, gunakan bila diperlukan
-    */
-
-    if(trick.length===0){
-
-        return chooseLead(legal);
-
-    }
-
-    const leadSuit=trick[0].card.suit;
-
-    const currentWinner=
-        determineCurrentWinner();
-
-    const winningCards=
-        legal.filter(card=>
-            cardCanBeat(
-                card,
-                currentWinner.card,
-                leadSuit
-            )
-        );
-
-    if(winningCards.length){
-
-        winningCards.sort(
-            (a,b)=>a.value-b.value
-        );
-
-        return winningCards[0];
-
-    }
-
-    legal.sort(
-        (a,b)=>a.value-b.value
-    );
-
-    return legal[0];
-}
-
-
-function chooseLead(cards){
-
-    const nonTrump=cards.filter(
-        c=>contract.denom==="NT" ||
-           c.suit!==contract.denom
-    );
-
-    if(nonTrump.length){
-
-        nonTrump.sort(
-            (a,b)=>a.value-b.value
-        );
-
-        return nonTrump[0];
-
-    }
-
-    cards.sort(
-        (a,b)=>a.value-b.value
-    );
-
-    return cards[0];
-}
-
-
-/* ---------- WINNER ---------- */
-
-function determineCurrentWinner(){
-
-    if(!trick.length) return null;
-
-    const leadSuit=trick[0].card.suit;
-
-    let winner=trick[0];
-
-    for(let i=1;i<trick.length;i++){
-
-        const candidate=trick[i];
-
-        if(
-            cardCanBeat(
-                candidate.card,
-                winner.card,
-                leadSuit
-            )
-        ){
-
-            winner=candidate;
+                });
 
         }
-
-    }
-
-    return winner;
-}
-
-
-function cardCanBeat(
-    candidate,
-    current,
-    leadSuit
-){
-
-    const trump=contract.denom;
-
-    if(trump!=="NT"){
-
-        if(candidate.suit===trump &&
-           current.suit!==trump){
-
-            return true;
-
-        }
-
-        if(candidate.suit!==trump &&
-           current.suit===trump){
-
-            return false;
-
-        }
-
-    }
-
-    if(candidate.suit!==current.suit){
-
-        return candidate.suit===leadSuit &&
-               current.suit!==leadSuit;
-
-    }
-
-    return candidate.value>current.value;
-}
-
-
-/* ---------- RESOLVE TRICK ---------- */
-
-function resolveTrick(){
-
-    const winner=determineCurrentWinner();
-
-    tricksWon[winner.player]++;
-
-    trickNo++;
-
-    addLog(
-        "Trick "+trickNo+
-        " dimenangkan "+
-        playerName(winner.player)+
-        " dengan "+
-        cardText(winner.card)
     );
 
-    const winningPlayer=winner.player;
-
-    trick=[];
-
-    renderAll();
-
-    if(trickNo>=13){
-
-        setTimeout(endGame,700);
-
-        return;
-
-    }
-
-    /*
-      Pemenang trick memimpin trick berikutnya.
-    */
-
-    currentPlayer=winningPlayer;
-
-    waitingAI=false;
-
-    renderAll();
-
-    if(currentPlayer==="E" ||
-       currentPlayer==="W"){
-
-        waitingAI=true;
-
-        updateStatus(
-            playerName(currentPlayer)+
-            " akan memimpin trick berikutnya..."
-        );
-
-        setTimeout(aiPlay,600);
-
-    }else{
-
-        updateStatus(
-            "Anda memimpin. Pilih kartu."
-        );
-
-    }
 }
-
-
-/* ---------- SCORING ---------- */
-
-function calculateScore(){
-
-    const target=
-        contract.level+6;
-
-    const made=
-        tricksWon.S+tricksWon.N;
-
-    const diff=made-target;
-
-    let score=0;
-
-    if(diff>=0){
-
-        score=
-            contractMadeScore(
-                contract.level,
-                contract.denom,
-                contract.multiplier
-            );
-
-        if(diff>0){
-
-            score+=
-                overtrickScore(
-                    diff,
-                    contract.denom,
-                    contract.multiplier
-                );
-
-        }
-
-    }else{
-
-        score=
-            undertrickScore(
-                Math.abs(diff),
-                contract.multiplier
-            );
-
-    }
-
-    return {
-        target,
-        made,
-        diff,
-        score
-    };
-}
-
-
-function contractMadeScore(
-    level,
-    denom,
-    multiplier
-){
-
-    let trickValue;
-
-    if(denom==="C" || denom==="D"){
-
-        trickValue=20;
-
-    }else if(denom==="H" || denom==="S"){
-
-        trickValue=30;
-
-    }else{
-
-        trickValue=30;
-
-    }
-
-    let score;
-
-    if(denom==="NT"){
-
-        score=40+(level-1)*30;
-
-    }else{
-
-        score=level*trickValue;
-
-    }
-
-    if(multiplier===2){
-
-        score*=2;
-
-    }else if(multiplier===4){
-
-        score*=4;
-
-    }
-
-    /*
-      Bonus sederhana berdasarkan level game.
-    */
-
-    if(level>=6){
-
-        score+=
-            multiplier===1
-            ? 500
-            : 750;
-
-    }else if(level===7){
-
-        score+=
-            multiplier===1
-            ? 1000
-            : 1500;
-
-    }else if(score>=100){
-
-        score+=50;
-
-    }
-
-    return score;
-}
-
-
-function overtrickScore(
-    count,
-    denom,
-    multiplier
-){
-
-    let value;
-
-    if(denom==="C" || denom==="D"){
-
-        value=20;
-
-    }else{
-
-        value=30;
-
-    }
-
-    if(denom==="NT"){
-
-        value=30;
-
-    }
-
-    if(multiplier===2){
-
-        return count*100;
-
-    }
-
-    if(multiplier===4){
-
-        return count*200;
-
-    }
-
-    return count*value;
-}
-
-
-function undertrickScore(
-    count,
-    multiplier
-){
-
-    if(multiplier===1){
-
-        return -count*50;
-
-    }
-
-    if(multiplier===2){
-
-        if(count===1) return -100;
-
-        return -100-(count-1)*200;
-
-    }
-
-    if(multiplier===4){
-
-        if(count===1) return -200;
-
-        return -200-(count-1)*400;
-
-    }
-
-    return 0;
-}
-
-
-/* ---------- END GAME ---------- */
-
-function endGame(){
-
-    const result=calculateScore();
-
-    document.getElementById(
-        "resultContract"
-    ).textContent=contractText();
-
-    document.getElementById(
-        "resultTricks"
-    ).textContent=result.made;
-
-    document.getElementById(
-        "resultTarget"
-    ).textContent=result.target;
-
-    let status;
-
-    if(result.diff>0){
-
-        status=
-            "KONTRAK BERHASIL +"+
-            result.diff;
-
-    }else if(result.diff===0){
-
-        status="KONTRAK BERHASIL";
-
-    }else{
-
-        status=
-            "DOWN "+
-            Math.abs(result.diff);
-
-    }
-
-    document.getElementById(
-        "resultStatus"
-    ).textContent=status;
-
-    document.getElementById(
-        "resultScore"
-    ).textContent=
-        (result.score>=0?"+":"")+
-        result.score;
-
-    document.getElementById(
-        "resultModal"
-    ).classList.add("show");
-
-    addLog(
-        "BOARD SELESAI: "+
-        status+
-        ". Skor "+result.score
-    );
-
-    gameStarted=false;
-
-}
-
-
-/* ---------- NEW BOARD ---------- */
-
-function newBoard(){
-
-    boardNumber++;
-
-    document.getElementById(
-        "boardNo"
-    ).textContent=boardNumber;
-
-    startGame();
-}
-
-
-function closeModal(){
-
-    document.getElementById(
-        "resultModal"
-    ).classList.remove("show");
-
-}
-
-
-function closeResultAndDeal(){
-
-    closeModal();
-
-    boardNumber++;
-
-    document.getElementById(
-        "boardNo"
-    ).textContent=boardNumber;
-
-    startGame();
-}
-
-
-/* ---------- STATUS ---------- */
-
-function updateStatus(text){
-
-    document.getElementById(
-        "status"
-    ).innerHTML=text;
-}
-
-
-function playerName(player){
-
-    const names={
-        N:"North / Dummy",
-        E:"East / Komputer",
-        S:"South / Anda",
-        W:"West / Komputer"
-    };
-
-    return names[player] || player;
-}
-
-
-/* ---------- LOG ---------- */
-
-function clearLog(){
-
-    document.getElementById(
-        "gameLog"
-    ).innerHTML="";
-
-}
-
-
-function addLog(text){
-
-    const log=document.getElementById(
-        "gameLog"
-    );
-
-    const div=document.createElement("div");
-
-    const time=new Date()
-        .toLocaleTimeString("id-ID",{
-            hour:"2-digit",
-            minute:"2-digit",
-            second:"2-digit"
-        });
-
-    div.textContent=
-        time+" — "+text;
-
-    log.appendChild(div);
-
-    log.scrollTop=log.scrollHeight;
-}
-
-
-/* ---------- INITIAL DISPLAY ---------- */
-
-document.getElementById(
-    "boardNo"
-).textContent=boardNumber;
 
 </script>
+
 
 </body>
 </html>
