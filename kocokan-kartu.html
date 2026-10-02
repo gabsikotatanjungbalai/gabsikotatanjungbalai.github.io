@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a3d62">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.json">
+<title>GABSI Kota Tanjungbalai — Kocokan Kartu Pembanding</title>
+<style>
+:root{--navy:#073b61;--green:#0a6540;--bg:#f4f7f9;--line:#d8e1e7}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Segoe UI,sans-serif;background:var(--bg);color:#111}
+header{background:linear-gradient(135deg,#052f4c,#0a5e89);color:#fff;padding:15px}.head{max-width:980px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand b{font-size:18px}.brand small{display:block;margin-top:3px;opacity:.8}.home{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);padding:9px 11px;border-radius:10px;font-size:12px}
+main{max-width:980px;margin:auto;padding:12px}.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:11px;box-shadow:0 7px 24px rgba(8,39,61,.08)}.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}label{font-size:11px;font-weight:bold;color:#5f7382;display:block;margin-bottom:4px}input,select,button{width:100%;min-height:44px;border:1px solid #cbd1d8;border-radius:9px;padding:9px;font-size:14px}button{font-weight:bold;cursor:pointer}.primary{background:#0b3d62;color:#fff}.secondary{background:#eef3f6}.locked{background:#0a6540;color:#fff}.danger{background:#fee4e2;color:#b42318}.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}.info{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:9px}.stat{background:#f7f9fb;border:1px solid #ddd;border-radius:9px;text-align:center;padding:8px}.stat b{font-size:17px;display:block}.stat small{color:#667085}.hands{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.hand{border:1px solid #ccd2d8;border-radius:12px;padding:11px;background:#fbfdff}.hand h3{margin:0 0 7px;color:var(--navy)}.cards{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px;line-height:1.7}.s{color:#111}.r{color:#c62828}.dist{font-size:11px;color:#667085;margin-top:5px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px;min-width:700px}th,td{border:1px solid #ccc;padding:7px;text-align:center}th{background:#edf2f5}.note{font-size:12px;line-height:1.5;color:#475467}
+@media(max-width:750px){.controls,.actions,.info{grid-template-columns:1fr 1fr}.hands{grid-template-columns:1fr}}
+@media(max-width:440px){.controls,.actions{grid-template-columns:1fr}.info{grid-template-columns:1fr 1fr}}
+@media print{header,.controls,.actions,.no-print{display:none!important}body{background:#fff}.panel{border:0;box-shadow:none}.hands{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="head"><div class="brand"><b>GABSI KOTA TANJUNGBALAI</b><small>KOCOKAN KARTU BRIDGE • KARTU PEMBANDING</small></div><a class="home" href="index.html">← Beranda</a></div></header>
+<main>
+<section class="panel"><div class="controls">
+<div><label>NOMOR BOARD</label><input id="board" type="number" min="1" value="1"></div>
+<div><label>SEED / KODE KOCAKAN</label><input id="seed" type="number" value="20261001"></div>
+<div><label>DEALER</label><select id="dealer"><option>N</option><option>E</option><option>S</option><option>W</option></select></div>
+<div><label>VULNERABILITY</label><select id="vul"><option>None</option><option>N-S</option><option>E-W</option><option>Both</option></select></div>
+</div><div class="actions"><button class="primary" id="shuffle">🎴 KOCOK & BAGIKAN</button><button class="secondary" id="same">🔁 DEAL SAMA</button><button class="locked" id="lock">🔒 KUNCI BOARD</button><button class="secondary" id="print">🖨️ CETAK</button></div>
+<div class="info"><div class="stat"><b id="hcpN">0</b><small>HCP N</small></div><div class="stat"><b id="hcpE">0</b><small>HCP E</small></div><div class="stat"><b id="hcpS">0</b><small>HCP S</small></div><div class="stat"><b id="hcpW">0</b><small>HCP W</small></div></div>
+<p id="status" class="note">Siap mengocok. Untuk meja pembanding, gunakan Board dan Seed yang sama.</p></section>
+
+<section class="panel"><h3 style="margin-top:0">Deal Board <span id="boardLabel">1</span></h3><div id="hands" class="hands"></div></section>
+
+<section class="panel no-print"><h3 style="margin-top:0">Rekap Meja Pembanding</h3><div class="note">Tambahkan pasangan dan score setiap meja untuk board ini. Rata-rata otomatis menjadi benchmark.</div>
+<div class="controls" style="margin-top:8px"><div><label>MEJA</label><input id="tableNo" placeholder="1"></div><div><label>NS</label><input id="ns" placeholder="NS-01"></div><div><label>EW</label><input id="ew" placeholder="EW-01"></div><div><label>SCORE NS</label><input id="score" type="number" placeholder="420"></div></div>
+<button class="primary" id="add" style="margin-top:8px">Tambah Hasil Meja</button><div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Board</th><th>Meja</th><th>NS</th><th>EW</th><th>Score NS</th><th>Rata-rata</th><th>Selisih</th></tr></thead><tbody id="rows"></tbody></table></div>
+<button class="danger" id="clear" style="margin-top:8px">Hapus Rekap</button></section>
+
+<section class="panel no-print"><div class="note"><b>Cara penggunaan:</b> Meja utama menetapkan Board + Seed. Meja pembanding memasukkan Board + Seed yang sama lalu menekan <b>DEAL SAMA</b>. Hasilnya akan identik 52 kartu.</div></section>
+</main>
+<script>
+const suits=[['♠','s'],['♥','r'],['♦','r'],['♣','s']],ranks=['A','K','Q','J','10','9','8','7','6','5','4','3','2'];let deal=null,locked=false,results=JSON.parse(localStorage.getItem('gabsi_deal_results_v1')||'[]');const $=id=>document.getElementById(id);
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function makeDeal(){let deck=[];for(let s=0;s<4;s++)for(let r=0;r<13;r++)deck.push({s,r});let n=(Number($('seed').value)||1)+(Number($('board').value)||1)*7919,r=rng(n>>>0);for(let i=51;i>0;i--){let j=Math.floor(r()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}return{N:deck.slice(0,13),E:deck.slice(13,26),S:deck.slice(26,39),W:deck.slice(39,52)}}
+function hcp(h){return h.reduce((a,c)=>a+(c.r===0?4:c.r===1?3:c.r===2?2:c.r===3?1:0),0)}
+function dist(h){return[0,1,2,3].map(s=>h.filter(c=>c.s===s).length).join('-')}
+function handHTML(p,h){let names={N:'North',E:'East',S:'South',W:'West'};return '<div class="hand"><h3>'+names[p]+' ('+p+')</h3>'+suits.map((x,i)=>'<div class="cards '+x[1]+'">'+x[0]+' '+h.filter(c=>c.s===i).sort((a,b)=>a.r-b.r).map(c=>ranks[c.r]).join(' ')+'</div>').join('')+'<div class="dist">Distribusi '+dist(h)+' • '+hcp(h)+' HCP</div></div>'}
+function render(){if(!deal)return;$('hands').innerHTML=['N','E','S','W'].map(p=>handHTML(p,deal[p])).join('');['N','E','S','W'].forEach(p=>$('hcp'+p).textContent=hcp(deal[p]));$('boardLabel').textContent=$('board').value}
+function generate(){if(locked){$('status').textContent='Board sedang dikunci. Tekan BUKA KUNCI untuk mengganti deal.';return}deal=makeDeal();render();$('status').textContent='Deal baru dibuat. Simpan Board + Seed untuk meja pembanding.'}
+$('shuffle').onclick=generate;$('same').onclick=()=>{deal=makeDeal();render();$('status').textContent='Deal diulang menggunakan Board + Seed yang sama.'};
+$('lock').onclick=()=>{locked=!locked;$('lock').textContent=locked?'🔓 BUKA KUNCI':'🔒 KUNCI BOARD';$('lock').className=locked?'secondary':'locked';$('status').textContent=locked?'Board dikunci. Semua meja dapat menyalin Board + Seed.':'Board dibuka.'};
+$('print').onclick=()=>window.print();
+$('add').onclick=()=>{let board=Number($('board').value)||1,score=Number($('score').value);if(!Number.isFinite(score)){alert('Masukkan score NS.');return}results.push({board,table:$('tableNo').value||results.length+1,ns:$('ns').value,ew:$('ew').value,score});localStorage.setItem('gabsi_deal_results_v1',JSON.stringify(results));renderResults()};
+$('clear').onclick=()=>{results=[];localStorage.removeItem('gabsi_deal_results_v1');renderResults()};
+function renderResults(){let board=Number($('board').value)||1,a=results.filter(x=>x.board===board),avg=a.length?a.reduce((s,x)=>s+x.score,0)/a.length:0;$('rows').innerHTML=results.map(x=>'<tr><td>'+x.board+'</td><td>'+x.table+'</td><td>'+x.ns+'</td><td>'+x.ew+'</td><td>'+x.score+'</td><td>'+(x.board===board?avg.toFixed(0):'-')+'</td><td>'+(x.board===board?(x.score-avg).toFixed(0):'-')+'</td></tr>').join('')}
+$('board').onchange=()=>{if(!locked){$('boardLabel').textContent=$('board').value;generate()}renderResults()};generate();renderResults();
+</script>
+</body></html>

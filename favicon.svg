@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<rect width="128" height="128" rx="24" fill="#0a3d62"/>
+<path d="M64 24c-11-16-38-8-38 13 0 17 21 30 38 50 17-20 38-33 38-50 0-21-27-29-38-13z" fill="#d71920"/>
+<path d="M64 47c-8-10-22-13-28-5-7 10 8 19 28 42 20-23 35-32 28-42-6-8-20-5-28 5z" fill="#fff"/>
+<path d="M64 54l-5 13h10z" fill="#0a3d62"/>
+<text x="64" y="117" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#fff">GABSI</text>
+</svg>

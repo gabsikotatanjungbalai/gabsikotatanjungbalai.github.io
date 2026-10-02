@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a3d62">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<title>GABSI Kota Tanjungbalai — Bridge Score Sheet</title>
+<style>
+:root{--navy:#073b61;--blue:#1769aa;--green:#287a4d;--red:#ba3438;--bg:#f4f7f9;--line:#d8e1e7}
+*{box-sizing:border-box}html,body{width:100%;min-height:100%;overflow-x:hidden}body{margin:0;font-family:Arial,Segoe UI,sans-serif;background:var(--bg);color:#16232d}
+header{background:linear-gradient(135deg,#052f4c,#0a5e89);color:#fff;padding:17px}.head{max-width:720px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:900}.brand small{display:block;font-weight:400;opacity:.86;margin-top:3px}.home{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);padding:9px 11px;border-radius:10px;font-size:12px}
+main{max-width:700px;margin:0 auto;padding:12px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:0 7px 24px rgba(8,39,61,.08)}h2{margin:0 0 12px;color:var(--navy);font-size:18px}.grid{display:grid;grid-template-columns:1fr;gap:9px}label{display:block;font-size:11px;font-weight:bold;margin-bottom:4px;color:#5f7382}input,select,button{width:100%;padding:11px;border:1px solid #bbc6ce;border-radius:9px;font-size:14px}input[readonly]{background:#f2f5f7}button{border:0;color:#fff;font-weight:bold;cursor:pointer}.blue{background:var(--blue)}.green{background:var(--green)}.gray{background:#67757e}.red{background:var(--red)}.actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{padding:11px;background:#edf5fa;border-left:4px solid var(--blue);border-radius:9px}.stat small{display:block;color:#6d7f8a}.stat b{font-size:20px;display:block;margin-top:2px}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:11px}th,td{border:1px solid #ccd5db;padding:7px;text-align:center;white-space:nowrap}th{background:var(--navy);color:#fff}.msg{font-size:12px;line-height:1.55}.good{color:#19703b}.warn{color:#a25b00}.card-picker{display:grid;gap:8px}.suit-title{font-weight:900;margin:8px 0 4px}.card-row{display:grid;grid-template-columns:repeat(13,1fr);gap:4px}.card-row button{min-height:37px;padding:5px 2px;font-size:12px;background:var(--blue)}.card-row button.used-other{background:#9aa4aa}.card-row button.used-active{background:var(--green)}
+@media(min-width:650px){.grid{grid-template-columns:1fr 1fr}.actions{grid-template-columns:repeat(5,1fr)}.stats{grid-template-columns:repeat(5,1fr)}}
+@media print{@page{size:A4 portrait;margin:10mm}header{box-shadow:none}.actions,.no-print{display:none!important}.card{box-shadow:none;border:1px solid #bbb}}
+</style>
+</head>
+<body>
+<header><div class="head"><div class="brand">GABSI KOTA TANJUNGBALAI<small>BRIDGE DUPLICATE • AUTOMATIC SCORE SHEET</small></div><a class="home" href="index.html">← Beranda</a></div></header>
+<main>
+<div class="card"><h2>1. Pertandingan</h2><div class="grid">
+<div><label>Nama Pertandingan</label><input id="event" placeholder="Kejuaraan GABSI"></div><div><label>Pasangan NS</label><input id="nsPair" placeholder="NS"></div>
+<div><label>Pasangan EW</label><input id="ewPair" placeholder="EW"></div><div><label>Nomor Board</label><input id="board" type="number" min="1" value="1"></div>
+</div></div>
+
+<div class="card"><h2>2. Input Board</h2><div class="grid">
+<div><label>Dealer</label><select id="dealer"><option>N</option><option>E</option><option>S</option><option>W</option></select></div>
+<div><label>Vulnerability</label><select id="vul"><option value="none">None</option><option value="ns">NS</option><option value="ew">EW</option><option value="both">Both</option></select></div>
+<div><label>Declarer</label><select id="declarer"><option>N</option><option>E</option><option>S</option><option>W</option></select></div>
+<div><label>Level</label><select id="level"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></div>
+<div><label>Denomination</label><select id="strain"><option value="C">♣ CLUBS</option><option value="D">♦ DIAMONDS</option><option value="H">♥ HEARTS</option><option value="S">♠ SPADES</option><option value="NT">NT</option></select></div>
+<div><label>Contract</label><select id="mult"><option value="1">NORMAL</option><option value="2">DOUBLE (X)</option><option value="4">REDOUBLE (XX)</option></select></div>
+<div><label>Trick dibuat (0–13)</label><input id="tricks" type="number" min="0" max="13" value="7"></div>
+<div><label>Trick target</label><input id="target" readonly></div>
+</div><div class="actions">
+<button class="blue" onclick="calculate()">HITUNG OTOMATIS</button><button class="green" onclick="save()">SIMPAN BOARD</button><button class="gray" onclick="nextBoard()">BOARD BERIKUT</button><button class="red" onclick="clearAll()">HAPUS SEMUA</button><button class="gray" onclick="window.print()">PRINT</button>
+</div></div>
+
+<div class="card"><h2>3. Hasil Otomatis</h2><div class="stats">
+<div class="stat"><small>Kontrak</small><b id="contract">-</b></div><div class="stat"><small>Hasil</small><b id="result">-</b></div><div class="stat"><small>Score NS</small><b id="nsScore">0</b></div><div class="stat"><small>Score EW</small><b id="ewScore">0</b></div><div class="stat"><small>Skor kontrak</small><b id="contractPts">0</b></div>
+</div><p id="message" class="msg"></p></div>
+
+<div class="card"><h2>4. Pembagian 52 Kartu & HCP Otomatis</h2><p class="msg">Klik kartu untuk memasukkannya ke posisi N/E/S/W. Kartu yang sudah dipakai otomatis tidak dapat dipilih lagi. HCP: A=4, K=3, Q=2, J=1.</p>
+<div id="cardPicker" class="card-picker"></div>
+<div class="actions no-print" style="margin-top:10px"><button class="blue" onclick="setHand('N')">PILIH UTARA</button><button class="blue" onclick="setHand('E')">PILIH TIMUR</button><button class="blue" onclick="setHand('S')">PILIH SELATAN</button><button class="blue" onclick="setHand('W')">PILIH BARAT</button><button class="gray" onclick="clearCards()">RESET KARTU</button></div>
+<p class="msg"><b>Posisi aktif:</b> <span id="activeHand">N</span></p>
+<div class="stats"><div class="stat"><small>HCP N</small><b id="hcpN">0</b></div><div class="stat"><small>HCP E</small><b id="hcpE">0</b></div><div class="stat"><small>HCP S</small><b id="hcpS">0</b></div><div class="stat"><small>HCP W</small><b id="hcpW">0</b></div><div class="stat"><small>Kartu</small><b id="cardCount">0/52</b></div></div>
+<p id="hcpMsg" class="msg"></p><div class="scroll"><table><thead><tr><th>Posisi</th><th>Kartu</th><th>HCP</th></tr></thead><tbody id="handTable"></tbody></table></div></div>
+
+<div class="card"><h2>5. Duplicate IMP Otomatis</h2><div class="grid">
+<div><label>Score NS meja ini</label><input id="currentNS" readonly></div><div><label>Score NS meja pembanding</label><input id="compareNS" type="number" placeholder="Isi jika sudah ada meja lain"></div>
+<div><label>Selisih NS</label><input id="difference" readonly></div><div><label>IMP NS</label><input id="impNS" readonly></div>
+</div><p class="msg">Masukkan score NS meja pembanding untuk menghitung selisih dan IMP secara otomatis.</p></div>
+
+<div class="card"><h2>6. Rekap Score Sheet</h2><div class="scroll"><table><thead><tr><th>Board</th><th>Dealer</th><th>Vul</th><th>Contract</th><th>Declarer</th><th>Trick</th><th>NS</th><th>EW</th><th>IMP NS</th><th>Aksi</th></tr></thead><tbody id="tbody"></tbody></table></div>
+<div class="stats" style="margin-top:10px"><div class="stat"><small>Total Score NS</small><b id="totNS">0</b></div><div class="stat"><small>Total Score EW</small><b id="totEW">0</b></div><div class="stat"><small>Total IMP NS</small><b id="totIMP">0</b></div><div class="stat"><small>Total IMP EW</small><b id="totIMPEW">0</b></div><div class="stat"><small>Jumlah Board</small><b id="totBoards">0</b></div></div></div>
+</main>
+<script>
+const $=id=>document.getElementById(id);let rows=JSON.parse(localStorage.getItem('gabsi_rows_v3')||'[]');
+const suits=[{s:'♣',code:'C',name:'Club'},{s:'♦',code:'D',name:'Diamond'},{s:'♥',code:'H',name:'Heart'},{s:'♠',code:'S',name:'Spade'}],ranks=['A','K','Q','J','10','9','8','7','6','5','4','3','2'];
+let hands={N:[],E:[],S:[],W:[]},activeHand='N';
+function hcpCard(r){return ({A:4,K:3,Q:2,J:1}[r]||0)}
+function cardKey(s,r){return s.code+r}
+function setHand(h){activeHand=h;$('activeHand').textContent=h;renderCards()}
+function cardRank(k){return k.startsWith(k.slice(0,1))?k.replace(/^[CDHS]/,''):k}
+function renderCards(){let used=new Set(Object.values(hands).flat()),box=$('cardPicker');box.innerHTML='';
+suits.forEach(s=>{let t=document.createElement('div');t.className='suit-title';t.textContent=s.s+' '+s.name;box.appendChild(t);let row=document.createElement('div');row.className='card-row';
+ranks.forEach(r=>{let k=cardKey(s,r),btn=document.createElement('button');btn.textContent=r;let owner=Object.keys(hands).find(h=>hands[h].includes(k));btn.disabled=!!owner&&owner!==activeHand;btn.className=owner===activeHand?'used-active':owner?'used-other':'';btn.onclick=()=>toggleCard(k);row.appendChild(btn)});box.appendChild(row)});updateHands()}
+function toggleCard(k){let idx=hands[activeHand].indexOf(k);if(idx>=0){hands[activeHand].splice(idx,1)}else{if(Object.values(hands).flat().includes(k))return;if(hands[activeHand].length>=13){alert('Satu posisi maksimal 13 kartu.');return}hands[activeHand].push(k)}renderCards()}
+function updateHands(){const all=Object.values(hands).flat(),count=all.length;['N','E','S','W'].forEach(h=>{$('hcp'+h).textContent=hands[h].reduce((sum,k)=>sum+hcpCard(cardRank(k)),0)});
+$('cardCount').textContent=count+'/52';let tb=$('handTable');tb.innerHTML='';['N','E','S','W'].forEach(h=>{let tr=document.createElement('tr');tr.innerHTML='<td><b>'+h+'</b></td><td>'+hands[h].join(' ')+'</td><td>'+$('hcp'+h).textContent+'</td>';tb.appendChild(tr)});
+let msg=$('hcpMsg'),valid=count===52&&['N','E','S','W'].every(h=>hands[h].length===13);msg.textContent=valid?'✓ Pembagian valid: 52 kartu, 13 kartu per posisi, tidak ada kartu ganda.':'Belum lengkap: '+count+'/52 kartu. Setiap posisi harus memiliki 13 kartu.';msg.className='msg '+(valid?'good':'warn')}
+function clearCards(){hands={N:[],E:[],S:[],W:[]};activeHand='N';$('activeHand').textContent='N';renderCards()}
+function vulnerabilityForDeclarer(){const v=$('vul').value,d=$('declarer').value;return v==='both'||(v==='ns'&&'NS'.includes(d))||(v==='ew'&&'EW'.includes(d))}
+function trickTarget(){return 6+Number($('level').value)}
+function basePoints(){const l=Number($('level').value),s=$('strain').value;return s==='NT'?40+(l-1)*30:l*({C:20,D:20,H:30,S:30}[s])}
+function doubledPenalty(down,vul,redoubled){if(!down)return 0;let p=0;if(!vul){if(down>=1)p+=100;if(down>=2)p+=200;if(down>=3)p+=200;if(down>=4)p+=300*(down-3)}else{p=200+300*(down-1)}return redoubled?p*2:p}
+function calcScore(){const l=Number($('level').value),s=$('strain').value,m=Number($('mult').value),tricks=Number($('tricks').value),target=trickTarget(),made=tricks-target,vul=vulnerabilityForDeclarer();let score=0,cp=0,detail='';
+if(made>=0){cp=basePoints()*m;let over=made,overPts=m===1?((s==='C'||s==='D'?20:30)*over):(vul?(m===2?200:400):(m===2?100:200))*over;let bonus=l===6?(vul?750:500):l===7?(vul?1500:1000):(cp>=100?(vul?500:300):50);score=cp+overPts+bonus+(m===2?50:m===4?100:0);detail='Kontrak berhasil. Trick target '+target+', overtrick '+over+'. Bonus '+bonus+'.'}
+else{let down=-made;let penalty=m===1?(vul?100:50)*down:doubledPenalty(down,vul,m===4);score=-penalty;detail='Kontrak down '+down+'. Penalty '+penalty+'.'}
+let ns='NS'.includes($('declarer').value)?score:-score;return{ns,ew:-ns,cp,detail,made,target}}
+function calculate(){const r=calcScore(),m=Number($('mult').value);$('target').value=r.target;$('contract').textContent=$('level').value+$('strain').value+(m===2?'X':m===4?'XX':'');$('result').textContent=r.made===0?'Made':r.made>0?'+'+r.made:'-'+Math.abs(r.made);$('nsScore').textContent=r.ns;$('ewScore').textContent=r.ew;$('contractPts').textContent=r.cp;$('currentNS').value=r.ns;$('message').textContent=r.detail;calcIMP()}
+function impFromDiff(diff){const a=Math.abs(diff),limits=[20,50,90,130,170,220,270,320,370,430,500,600,750,900,1100,1300,1500,1750,2000,2250,2500,3000,3500],imps=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];if(a<20)return 0;for(let i=0;i<limits.length;i++)if(a<limits[i])return imps[i];return 24}
+function calcIMP(){const a=Number($('currentNS').value||0),b=Number($('compareNS').value);if(!Number.isFinite(b)||$('compareNS').value===''){$('difference').value='';$('impNS').value='';return}const d=a-b,imp=impFromDiff(d)*(d<0?-1:1);$('difference').value=d;$('impNS').value=imp}
+function save(){calculate();const r=calcScore(),m=Number($('mult').value);const item={board:Number($('board').value),dealer:$('dealer').value,vul:$('vul').value,contract:$('level').value+$('strain').value+(m===2?'X':m===4?'XX':''),declarer:$('declarer').value,tricks:Number($('tricks').value),ns:r.ns,ew:r.ew,imp:Number($('impNS').value||0)};rows=rows.filter(x=>x.board!==item.board);rows.push(item);rows.sort((a,b)=>a.board-b.board);localStorage.setItem('gabsi_rows_v3',JSON.stringify(rows));render()}
+function render(){const tb=$('tbody');tb.innerHTML='';let ns=0,ew=0,imp=0;rows.forEach(x=>{ns+=x.ns;ew+=x.ew;imp+=x.imp;const tr=document.createElement('tr');tr.innerHTML='<td>'+x.board+'</td><td>'+x.dealer+'</td><td>'+x.vul+'</td><td>'+x.contract+'</td><td>'+x.declarer+'</td><td>'+x.tricks+'</td><td>'+x.ns+'</td><td>'+x.ew+'</td><td>'+x.imp+'</td><td><button class="gray" onclick="loadBoard('+x.board+')">MUAT</button></td>';tb.appendChild(tr)});$('totNS').textContent=ns;$('totEW').textContent=ew;$('totIMP').textContent=imp;$('totIMPEW').textContent=-imp;$('totBoards').textContent=rows.length}
+function loadBoard(n){const x=rows.find(a=>a.board===n);if(!x)return;$('board').value=x.board;$('dealer').value=x.dealer;$('vul').value=x.vul;$('declarer').value=x.declarer;$('tricks').value=x.tricks;const c=x.contract,mm=c.endsWith('XX')?4:c.endsWith('X')?2:1;$('mult').value=mm;$('level').value=c[0];$('strain').value=c.slice(1).replace('XX','').replace('X','');calculate()}
+function nextBoard(){$('board').value=Number($('board').value)+1;$('tricks').value=7;$('compareNS').value='';calculate()}
+function clearAll(){if(confirm('Hapus seluruh score sheet?')){rows=[];localStorage.removeItem('gabsi_rows_v3');render()}}
+['level','strain','mult','declarer','vul','tricks'].forEach(id=>$(id).addEventListener('change',calculate));$('compareNS').addEventListener('input',calcIMP);calculate();render();renderCards();
+</script>
+</body></html>
