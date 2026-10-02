@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#073b61">
 
 <title>Kontak — GABSI Kota Tanjungbalai</title>
-<meta name="description" content="Kontak resmi GABSI Kota Tanjungbalai.">
+<meta name="description" content="Kontak Sekretariat GABSI Kota Tanjungbalai.">
 
 <link rel="icon" href="favicon.svg">
 <link rel="manifest" href="manifest.json">
@@ -46,6 +46,7 @@ a{
   text-decoration:none;
 }
 
+/* TOPBAR */
 .topbar{
   background:var(--navy);
   color:#fff;
@@ -62,6 +63,7 @@ a{
   flex-wrap:wrap;
 }
 
+/* NAVBAR */
 .nav{
   position:sticky;
   top:0;
@@ -142,11 +144,13 @@ a{
   cursor:pointer;
 }
 
+/* CONTAINER */
 .container{
   width:min(1180px,calc(100% - 36px));
   margin:auto;
 }
 
+/* HERO */
 .hero{
   background:
     linear-gradient(135deg,rgba(7,59,97,.98),rgba(10,86,127,.94));
@@ -200,6 +204,7 @@ a{
   color:#dcecf7;
 }
 
+/* SECTION */
 .section{
   padding:65px 0;
 }
@@ -219,6 +224,7 @@ a{
   color:var(--muted);
 }
 
+/* CONTACT */
 .contact-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -275,15 +281,67 @@ a{
   font-size:14px;
 }
 
-.notice{
-  background:#fff8df;
-  border:1px solid #f0d36c;
-  border-radius:14px;
-  padding:18px;
+/* BUTTON */
+.button-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
   margin-top:20px;
-  color:#654f00;
 }
 
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+}
+
+.btn-primary{
+  background:#25D366;
+  color:#fff;
+}
+
+.btn-secondary{
+  background:var(--red);
+  color:#fff;
+}
+
+.btn-blue{
+  background:var(--navy);
+  color:#fff;
+}
+
+/* MAP / ADDRESS */
+.address-box{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:28px;
+  margin-top:25px;
+  box-shadow:var(--shadow);
+}
+
+.address-box h3{
+  margin-top:0;
+  color:var(--navy);
+  font-size:22px;
+}
+
+.address{
+  background:#f4f7fa;
+  border-left:5px solid var(--red);
+  padding:18px 20px;
+  border-radius:10px;
+  font-size:17px;
+  line-height:1.8;
+}
+
+.address strong{
+  color:var(--navy);
+}
+
+/* INFO */
 .info-box{
   margin-top:25px;
   padding:25px;
@@ -301,32 +359,7 @@ a{
   color:#e2edf5;
 }
 
-.button-row{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:20px;
-}
-
-.btn{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:10px;
-  font-weight:700;
-  font-size:14px;
-}
-
-.btn-primary{
-  background:var(--red);
-  color:#fff;
-}
-
-.btn-secondary{
-  background:#fff;
-  color:var(--navy);
-  border:1px solid var(--line);
-}
-
+/* FOOTER */
 footer{
   background:#062f4e;
   color:#dbe8f0;
@@ -454,8 +487,13 @@ footer p{
     padding:45px 0;
   }
 
-  .card{
+  .card,
+  .address-box{
     padding:21px;
+  }
+
+  .address{
+    font-size:15px;
   }
 }
 </style>
@@ -466,4 +504,329 @@ footer p{
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-inner">
-    <div>GABSI Kota Tanjungbalai •
+    <div>GABSI Kota Tanjungbalai • Bridge Duplicate Center</div>
+    <div>Sportivitas • Persahabatan • Prestasi • Edukasi</div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+
+    <a class="brand" href="index.html">
+      <img src="favicon.svg" alt="Logo GABSI">
+      <div class="brand-text">
+        <strong>GABSI KOTA TANJUNGBALAI</strong>
+        <span>GABUNGAN BRIDGE SELURUH INDONESIA</span>
+      </div>
+    </a>
+
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+      ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Beranda</a>
+      <a href="profil.html">Profil</a>
+      <a href="pengurus.html">Pengurus</a>
+      <a href="kegiatan.html">Kegiatan</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="aplikasi.html">Aplikasi</a>
+      <a class="active" href="kontak.html">Kontak</a>
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+
+    <div class="hero-grid">
+
+      <div>
+        <span class="eyebrow">KONTAK RESMI</span>
+
+        <h1>Kontak GABSI Kota Tanjungbalai</h1>
+
+        <p>
+          Hubungi Sekretariat GABSI Kota Tanjungbalai
+          untuk informasi organisasi, latihan, pembinaan,
+          pertandingan dan kegiatan olahraga bridge.
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <strong>Sekretariat GABSI</strong>
+        <span>
+          Kota Tanjungbalai, Sumatera Utara
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+</header>
+
+<!-- CONTENT -->
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Informasi Sekretariat</h2>
+      <p>
+        Silakan gunakan informasi berikut untuk menghubungi
+        GABSI Kota Tanjungbalai.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- ALAMAT -->
+      <div class="card">
+
+        <h3>🏢 Kantor Sekretariat</h3>
+
+        <div class="contact-item">
+
+          <div class="icon">📍</div>
+
+          <div>
+            <strong>Alamat Sekretariat</strong>
+
+            <span>
+              Jln. R.A. Kartini Lk. IV<br>
+              Kelurahan Sijambi<br>
+              Kecamatan Datuk Bandar<br>
+              Kota Tanjungbalai<br>
+              Sumatera Utara
+            </span>
+          </div>
+
+        </div>
+
+        <div class="contact-item">
+
+          <div class="icon">♠</div>
+
+          <div>
+            <strong>Organisasi</strong>
+
+            <span>
+              GABSI Kota Tanjungbalai
+            </span>
+          </div>
+
+        </div>
+
+        <div class="contact-item">
+
+          <div class="icon">🏆</div>
+
+          <div>
+            <strong>Cabang Olahraga</strong>
+
+            <span>
+              Bridge
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- KONTAK -->
+      <div class="card">
+
+        <h3>📞 Hubungi Kami</h3>
+
+        <div class="contact-item">
+
+          <div class="icon">📱</div>
+
+          <div>
+            <strong>WhatsApp</strong>
+
+            <span>
+              0852-7040-7744
+            </span>
+          </div>
+
+        </div>
+
+        <div class="contact-item">
+
+          <div class="icon">✉️</div>
+
+          <div>
+            <strong>Email</strong>
+
+            <span>
+              erickhariyantohutabarat@gmail.com
+            </span>
+          </div>
+
+        </div>
+
+        <div class="button-row">
+
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/6285270407744"
+            target="_blank"
+            rel="noopener">
+            💬 WhatsApp
+          </a>
+
+          <a
+            class="btn btn-secondary"
+            href="mailto:erickhariyantohutabarat@gmail.com">
+            ✉️ Kirim Email
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ALAMAT LENGKAP -->
+    <div class="address-box">
+
+      <h3>📍 Lokasi Kantor Sekretariat</h3>
+
+      <div class="address">
+
+        <strong>Kantor Sekretariat GABSI Kota Tanjungbalai</strong><br>
+
+        Jln. R.A. Kartini Lk. IV<br>
+        Kelurahan Sijambi<br>
+        Kecamatan Datuk Bandar<br>
+        Kota Tanjungbalai<br>
+        Sumatera Utara
+
+      </div>
+
+    </div>
+
+    <!-- INFO -->
+    <div class="info-box">
+
+      <h3>GABSI Kota Tanjungbalai</h3>
+
+      <p>
+        Untuk informasi mengenai latihan, pembinaan atlet,
+        bridge duplicate, pertandingan dan kegiatan GABSI
+        Kota Tanjungbalai, silakan menghubungi sekretariat
+        melalui WhatsApp atau email.
+      </p>
+
+      <div class="button-row">
+
+        <a
+          class="btn btn-primary"
+          href="https://wa.me/6285270407744"
+          target="_blank"
+          rel="noopener">
+          💬 Hubungi WhatsApp
+        </a>
+
+        <a
+          class="btn btn-blue"
+          href="mailto:erickhariyantohutabarat@gmail.com">
+          ✉️ Email GABSI
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>GABSI Kota Tanjungbalai</h3>
+
+        <p>
+          Pusat informasi organisasi, pembinaan olahraga bridge,
+          bridge duplicate dan aplikasi digital GABSI Kota Tanjungbalai.
+        </p>
+      </div>
+
+      <div>
+        <h3>Menu</h3>
+
+        <div class="footer-links">
+          <a href="index.html">Beranda</a>
+          <a href="profil.html">Profil</a>
+          <a href="pengurus.html">Pengurus</a>
+          <a href="kegiatan.html">Kegiatan</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Kontak</h3>
+
+        <div class="footer-links">
+          <a href="galeri.html">Galeri</a>
+          <a href="aplikasi.html">Aplikasi</a>
+          <a href="kontak.html">Kontak</a>
+          <a href="score-sheet.html">Score Sheet</a>
+          <a href="kocokan-kartu.html">Kocokan Kartu</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 GABSI Kota Tanjungbalai. Seluruh hak cipta dilindungi.
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+document.querySelectorAll("#navLinks a").forEach(function(link){
+
+  link.addEventListener("click",function(){
+
+    document.getElementById("navLinks").classList.remove("show");
+
+  });
+
+});
+
+if("serviceWorker" in navigator){
+
+  window.addEventListener("load",function(){
+
+    navigator.serviceWorker.register("sw.js")
+      .catch(function(err){
+
+        console.log("Service Worker gagal:",err);
+
+      });
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
