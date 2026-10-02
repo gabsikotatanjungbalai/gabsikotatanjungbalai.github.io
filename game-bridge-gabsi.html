@@ -1,592 +1,886 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>GABSI Kota Tanjungbalai - Bridge</title>
+<meta charset="utf-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="theme-color" content="#101e25">
+
+<title>GABSI Bridge Online</title>
 
 <style>
+
 *{
     box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
-}
-
-html,body{
-    margin:0;
-    padding:0;
-    width:100%;
-    min-height:100%;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#063d2d;
 }
 
 body{
-    color:#111;
-}
-
-.app{
-    width:100%;
-    max-width:760px;
-    margin:auto;
-    min-height:100vh;
-    background:#08734f;
-}
-
-/* HEADER */
-
-.header{
-    background:#03281e;
-    color:white;
-    text-align:center;
-    padding:14px 8px;
-}
-
-.header h1{
     margin:0;
-    font-size:21px;
-}
-
-.header p{
-    margin:5px 0 0;
-    font-size:12px;
-}
-
-/* INFO */
-
-.info{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:6px;
-    padding:7px;
-}
-
-.infoBox{
-    background:white;
-    border-radius:9px;
-    padding:8px 4px;
-    text-align:center;
-    font-weight:bold;
-    font-size:12px;
-}
-
-.infoValue{
-    display:block;
-    font-size:17px;
-    margin-top:3px;
-}
-
-/* STATUS */
-
-.status{
-    margin:0 7px 7px;
-    background:#fff4c2;
-    border-radius:9px;
-    padding:10px;
-    text-align:center;
-    font-size:13px;
-    font-weight:bold;
-}
-
-/* TABLE */
-
-.table{
-    margin:7px;
-    padding:10px;
-    background:#075b40;
-    border-radius:20px;
-    box-shadow:0 4px 14px rgba(0,0,0,.45);
-}
-
-.seat{
-    background:#eeeeee;
-    border-radius:12px;
-    padding:7px;
-    text-align:center;
-}
-
-.seatTitle{
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:7px;
-}
-
-/* HAND */
-
-.hand{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    align-items:center;
-    gap:5px;
-    min-height:35px;
-}
-
-/* KARTU BESAR */
-
-.card{
-    width:52px;
-    height:76px;
-
-    background:#fff;
-    border:2px solid #999;
-    border-radius:9px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    font-weight:bold;
-    font-size:21px;
-
-    box-shadow:0 3px 6px rgba(0,0,0,.35);
-
-    cursor:pointer;
-    user-select:none;
-
-    transition:transform .1s,box-shadow .1s;
-}
-
-.card .rank{
-    font-size:22px;
-    line-height:24px;
-}
-
-.card .suit{
-    font-size:27px;
-    line-height:28px;
-}
-
-.redCard{
-    color:#d00000;
-}
-
-.blackCard{
-    color:#111;
-}
-
-.card.disabled{
-    opacity:.35;
-    cursor:not-allowed;
-}
-
-.card:not(.disabled):active{
-    transform:translateY(-6px);
-    box-shadow:0 8px 13px rgba(0,0,0,.45);
-}
-
-/* TENGAH MEJA */
-
-.middle{
-    display:grid;
-    grid-template-columns:72px 1fr 72px;
-    gap:7px;
-    align-items:center;
-    margin:8px 0;
-}
-
-.sideSeat{
-    min-height:135px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.center{
-    min-height:170px;
-
-    background:#064a35;
-    border:2px solid #9ad0b8;
-    border-radius:15px;
-
-    color:white;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
-
-.contract{
-    font-size:28px;
-    font-weight:bold;
-}
-
-.contractInfo{
-    font-size:12px;
-    margin-top:3px;
-}
-
-.playArea{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:5px;
-    margin-top:12px;
-}
-
-.playedCard{
-    width:58px;
-    height:76px;
-
-    margin:auto;
-
-    background:white;
-    color:#111;
-
-    border:2px solid #777;
-    border-radius:9px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:20px;
-    font-weight:bold;
-
-    box-shadow:0 3px 7px rgba(0,0,0,.4);
-}
-
-/* BIDDING */
-
-.panel{
-    margin:7px;
-    padding:10px;
-    background:white;
-    border-radius:11px;
-}
-
-.panelTitle{
-    font-weight:bold;
-    font-size:16px;
-    margin-bottom:8px;
-}
-
-.bidGrid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:5px;
+    background:#0a1820;
+    color:#e9f0f3;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:14px;
 }
 
 button{
-    border:none;
+    font:inherit;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top{
+    height:58px;
+    background:#101e25;
+    border-bottom:1px solid #2d414a;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 12px;
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.brand{
+    font-weight:700;
+}
+
+.brand small{
+    display:block;
+    color:#90a6af;
+    font-size:10px;
+    margin-top:2px;
+}
+
+.top button{
+    background:#19313a;
+    color:#fff;
+    border:1px solid #35515b;
     border-radius:7px;
-    padding:11px 4px;
-    font-weight:bold;
-    color:white;
-    background:#08734f;
+    padding:8px 11px;
     cursor:pointer;
 }
 
-button:active{
-    transform:scale(.97);
+
+/* =========================
+   LAYOUT
+========================= */
+
+.layout{
+    max-width:1100px;
+    margin:auto;
+    padding:8px;
 }
 
-button:disabled{
-    opacity:.35;
+
+/* =========================
+   INFORMATION BAR
+========================= */
+
+.bar{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:8px;
+}
+
+.pill{
+    background:#13272f;
+    border:1px solid #2b424a;
+    border-radius:6px;
+    padding:6px 9px;
+    font-size:11px;
+}
+
+.pill b{
+    color:#ffd34d;
+}
+
+
+/* =========================
+   BRIDGE TABLE
+========================= */
+
+.table{
+    position:relative;
+    height:590px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #1d7656 0%,
+            #176447 55%,
+            #105139 100%
+        );
+
+    border:8px solid #0c281e;
+    border-radius:28px;
+
+    box-shadow:
+        inset 0 0 0 2px #2b8b66,
+        0 8px 30px #0008;
+
+    overflow:hidden;
+}
+
+
+/* =========================
+   PLAYER SEATS
+========================= */
+
+.seat{
+    position:absolute;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.north{
+    top:7px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.south{
+    bottom:7px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.west{
+    left:5px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.east{
+    right:5px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.label{
+    font-size:10px;
+    background:#08171dcc;
+    border:1px solid #ffffff22;
+    border-radius:5px;
+    padding:4px 7px;
+    margin-bottom:4px;
+    white-space:nowrap;
+}
+
+.hand{
+    display:flex;
+    justify-content:center;
+    min-width:420px;
+}
+
+.sidehand{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+    width:51px;
+    height:73px;
+
+    background:#fff;
+    color:#111;
+
+    border:1px solid #ddd;
+    border-radius:6px;
+
+    position:relative;
+
+    box-shadow:
+        0 2px 4px #0008;
+
+    flex:none;
+}
+
+.south .card{
+    cursor:pointer;
+}
+
+.card.red{
+    color:#c11;
+}
+
+.r{
+    position:absolute;
+    left:4px;
+    top:3px;
+
+    font-weight:700;
+    font-size:15px;
+}
+
+.s{
+    position:absolute;
+    left:4px;
+    top:20px;
+
+    font-size:14px;
+}
+
+.big{
+    position:absolute;
+    inset:0;
+
+    display:grid;
+    place-items:center;
+
+    font-size:24px;
+}
+
+
+/* kartu aktif */
+
+.play{
+    outline:3px solid #ffd34d;
+    transform:translateY(-5px);
+    cursor:pointer;
+}
+
+
+/* kartu tertutup */
+
+.back{
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #1c4770 0,
+            #1c4770 5px,
+            #2e628e 5px,
+            #2e628e 8px
+        );
+
+    border-color:#fff;
+}
+
+.back:after{
+    content:"♠";
+
+    position:absolute;
+    inset:0;
+
+    display:grid;
+    place-items:center;
+
+    color:#d9e7ee;
+
+    font-size:24px;
+}
+
+
+/* kartu pemain samping */
+
+.west .card,
+.east .card{
+    width:42px;
+    height:58px;
+}
+
+.west .r,
+.east .r{
+    font-size:11px;
+}
+
+.west .s,
+.east .s{
+    top:16px;
+    font-size:11px;
+}
+
+.west .big,
+.east .big{
+    font-size:18px;
+}
+
+
+/* =========================
+   CENTER TABLE
+========================= */
+
+.center{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:230px;
+    height:230px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:#0b3c2b33;
+}
+
+.trick{
+    position:absolute;
+
+    width:49px;
+    height:70px;
+
+    background:#fff;
+    color:#111;
+
+    border-radius:6px;
+
+    border:1px solid #ddd;
+
+    box-shadow:
+        0 2px 5px #0009;
+
+    display:grid;
+    place-items:center;
+
+    font-size:24px;
+}
+
+.tn{
+    top:5px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.ts{
+    bottom:5px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.tw{
+    left:5px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.te{
+    right:5px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+
+/* =========================
+   CENTER MESSAGE
+========================= */
+
+.msg{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:210px;
+
+    text-align:center;
+
+    background:#071b14cc;
+
+    border:1px solid #ffffff22;
+
+    border-radius:8px;
+
+    padding:7px;
+
+    font-size:11px;
+
+    z-index:3;
+}
+
+
+/* =========================
+   PANELS
+========================= */
+
+.panel{
+    margin-top:8px;
+
+    background:#101f26;
+
+    border:1px solid #2c424a;
+
+    border-radius:8px;
+
+    padding:8px;
+}
+
+.status{
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+
+/* =========================
+   AUCTION
+========================= */
+
+.auction{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:4px;
+
+    max-height:145px;
+
+    overflow:auto;
+}
+
+.call{
+    background:#172d35;
+
+    border:1px solid #304952;
+
+    border-radius:5px;
+
+    padding:5px;
+
+    font-size:10px;
+}
+
+.call strong{
+    display:block;
+    color:#9eb4bc;
+}
+
+
+/* =========================
+   BIDDING BUTTONS
+========================= */
+
+.bids{
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:4px;
+
+    margin-top:8px;
+}
+
+.bid{
+    background:#203943;
+
+    border:1px solid #46606a;
+
+    color:#fff;
+
+    border-radius:5px;
+
+    padding:8px 3px;
+
+    font-size:12px;
+
+    cursor:pointer;
+}
+
+.bid:disabled{
+    opacity:.3;
     cursor:not-allowed;
 }
 
 .pass{
-    background:#555;
+    background:#34454b;
 }
 
 .double{
-    background:#a96800;
+    background:#6b4c16;
 }
 
 .redouble{
-    background:#76209b;
+    background:#673337;
 }
 
-.blue{
-    background:#145fa9;
+
+/* =========================
+   SCORE
+========================= */
+
+.score{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
-.danger{
-    background:#b00020;
+.score b{
+    color:#ffd34d;
 }
 
-/* KONTROL */
 
-.controls{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:7px;
-    margin:7px;
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.actions{
+    display:flex;
+    gap:6px;
+    margin-top:7px;
 }
 
-/* SKOR */
+.actions button{
+    flex:1;
 
-.scoreTable{
-    width:100%;
-    border-collapse:collapse;
-    font-size:12px;
+    padding:9px;
+
+    border:0;
+
+    border-radius:6px;
+
+    background:#1e6c50;
+
+    color:white;
+
+    cursor:pointer;
 }
 
-.scoreTable th,
-.scoreTable td{
-    border:1px solid #ccc;
-    padding:6px 3px;
-    text-align:center;
+
+/* =========================
+   HINT
+========================= */
+
+.hint{
+    color:#8fa7b0;
+    font-size:10px;
+    margin-top:5px;
 }
 
-/* MOBILE */
 
-@media(max-width:600px){
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    .table{
+        height:530px;
+        border-width:5px;
+    }
+
+    .hand{
+        min-width:0;
+    }
 
     .card{
-        width:51px;
-        height:75px;
+        width:42px;
+        height:61px;
     }
 
-    .card .rank{
-        font-size:21px;
+    .r{
+        font-size:12px;
     }
 
-    .card .suit{
-        font-size:26px;
+    .s{
+        top:17px;
+        font-size:12px;
     }
 
-}
-
-@media(max-width:390px){
-
-    .middle{
-        grid-template-columns:60px 1fr 60px;
+    .big{
+        font-size:20px;
     }
 
-    .card{
-        width:46px;
-        height:68px;
+    .north .card{
+        margin-left:-13px;
     }
 
-    .card .rank{
+    .south .card{
+        margin-left:-9px;
+    }
+
+    .north .card:first-child,
+    .south .card:first-child{
+        margin-left:0;
+    }
+
+    .west .card,
+    .east .card{
+        width:34px;
+        height:48px;
+    }
+
+    .west .r,
+    .east .r{
+        font-size:9px;
+    }
+
+    .west .s,
+    .east .s{
+        top:13px;
+        font-size:9px;
+    }
+
+    .west .big,
+    .east .big{
+        font-size:15px;
+    }
+
+    .center{
+        width:175px;
+        height:175px;
+    }
+
+    .trick{
+        width:40px;
+        height:57px;
         font-size:19px;
     }
 
-    .card .suit{
-        font-size:23px;
+    .bids{
+        grid-template-columns:
+            repeat(5,1fr);
     }
 
-    .playedCard{
-        width:52px;
-        height:68px;
-        font-size:18px;
+    .bid{
+        font-size:10px;
+        padding:7px 1px;
+    }
+
+    .auction{
+        max-height:125px;
+    }
+
+    .label{
+        font-size:9px;
     }
 
 }
+
 </style>
 </head>
 
+
 <body>
 
-<div class="app">
 
-<!-- HEADER -->
+<!-- =====================================================
+     TOP
+====================================================== -->
 
-<div class="header">
+<div class="top">
 
-<h1>♠ GABSI KOTA TANJUNGBALAI ♠</h1>
+    <div class="brand">
 
-<p>
-PERMAINAN OLAHRAGA BRIDGE
-</p>
+        ♠ GABSI KOTA TANJUNGBALAI
 
-</div>
+        <small>
+            Bridge Online • Latihan 4 Pemain
+        </small>
+
+    </div>
 
 
-<!-- INFORMASI -->
+    <div>
 
-<div class="info">
+        <button onclick="newBoard()">
+            Board Baru
+        </button>
 
-<div class="infoBox">
-BOARD
-<span id="boardNumber" class="infoValue">0</span>
-</div>
+        <button onclick="location.href='index.html'">
+            Beranda
+        </button>
 
-<div class="infoBox">
-TRIK
-<span id="trickNumber" class="infoValue">0 / 13</span>
-</div>
-
-<div class="infoBox">
-SKOR
-<span id="totalScore" class="infoValue">0</span>
-</div>
+    </div>
 
 </div>
 
 
-<!-- STATUS -->
+<div class="layout">
 
-<div id="status" class="status">
-Tekan BOARD BARU untuk memulai permainan.
+
+<!-- =====================================================
+     INFORMATION
+====================================================== -->
+
+<div class="bar">
+
+    <div class="pill">
+        Board <b id="board">1</b>
+    </div>
+
+    <div class="pill">
+        Dealer <b id="dealer">S</b>
+    </div>
+
+    <div class="pill">
+        Kontrak <b id="contract">-</b>
+    </div>
+
+    <div class="pill">
+        Trick Anda <b id="you">0</b>
+    </div>
+
+    <div class="pill">
+        Trick Lawan <b id="opp">0</b>
+    </div>
+
 </div>
 
 
-<!-- MEJA -->
+<!-- =====================================================
+     BRIDGE TABLE
+====================================================== -->
 
 <div class="table">
 
 
-<!-- UTARA -->
+    <!-- NORTH -->
 
-<div class="seat">
+    <div class="seat north">
 
-<div class="seatTitle">
-UTARA (N)
-</div>
+        <div class="label">
+            NORTH
+            <span id="nmark"></span>
+        </div>
 
-<div id="northHand" class="hand"></div>
+        <div class="hand" id="N"></div>
 
-</div>
-
-
-<!-- TENGAH -->
-
-<div class="middle">
+    </div>
 
 
-<!-- BARAT -->
+    <!-- WEST -->
 
-<div class="seat sideSeat">
+    <div class="seat west">
 
-<div class="seatTitle">
-BARAT (W)
-</div>
+        <div class="label">
+            WEST
+            <span id="wmark"></span>
+        </div>
 
-<div id="westHand" class="hand"></div>
+        <div class="sidehand" id="W"></div>
 
-</div>
-
-
-<!-- AREA TENGAH -->
-
-<div class="center">
-
-<div id="contract" class="contract">
-—
-</div>
-
-<div id="contractInfo" class="contractInfo">
-Belum ada kontrak
-</div>
-
-<div class="playArea">
-
-<div id="playedN" class="playedCard">
-—
-</div>
-
-<div id="playedS" class="playedCard">
-—
-</div>
-
-<div id="playedW" class="playedCard">
-—
-</div>
-
-<div id="playedE" class="playedCard">
-—
-</div>
-
-</div>
-
-</div>
+    </div>
 
 
-<!-- TIMUR -->
+    <!-- EAST -->
 
-<div class="seat sideSeat">
+    <div class="seat east">
 
-<div class="seatTitle">
-TIMUR (E)
-</div>
+        <div class="label">
+            EAST
+            <span id="emark"></span>
+        </div>
 
-<div id="eastHand" class="hand"></div>
+        <div class="sidehand" id="E"></div>
 
-</div>
+    </div>
+
+
+    <!-- SOUTH -->
+
+    <div class="seat south">
+
+        <div class="label">
+            SOUTH — ANDA
+            <span id="smark"></span>
+        </div>
+
+        <div class="hand" id="S"></div>
+
+    </div>
+
+
+    <!-- CENTER -->
+
+    <div class="center">
+
+        <div class="trick tn" id="TN"></div>
+
+        <div class="trick ts" id="TS"></div>
+
+        <div class="trick tw" id="TW"></div>
+
+        <div class="trick te" id="TE"></div>
+
+    </div>
+
+
+    <div class="msg" id="msg">
+        Memuat board...
+    </div>
 
 </div>
 
 
-<!-- SELATAN -->
-
-<div class="seat">
-
-<div class="seatTitle">
-SELATAN (S) — ANDA
-</div>
-
-<div id="southHand" class="hand"></div>
-
-</div>
-
-</div>
-
-
-<!-- BIDDING -->
+<!-- =====================================================
+     AUCTION / PLAY
+====================================================== -->
 
 <div class="panel">
 
-<div class="panelTitle">
-🎯 PENAWARAN / BIDDING
-</div>
+    <div class="status" id="status"></div>
 
-<div id="bidGrid" class="bidGrid"></div>
+    <div class="auction" id="auction"></div>
 
-</div>
+    <div class="bids" id="bids"></div>
 
+    <div class="hint">
 
-<!-- KONTROL -->
+        Aturan follow-suit diterapkan.
+        Saat menjadi declarer, Anda juga mengendalikan
+        dummy partner.
 
-<div class="controls">
-
-<button onclick="newBoard()">
-🔄 BOARD BARU
-</button>
-
-<button class="blue" onclick="showScore()">
-📊 SKOR
-</button>
-
-<button class="blue" onclick="showRules()">
-📖 ATURAN
-</button>
-
-<button class="danger" onclick="resetGame()">
-🗑 RESET
-</button>
+    </div>
 
 </div>
 
 
-<!-- REKAP -->
+<!-- =====================================================
+     SCORE
+====================================================== -->
 
 <div class="panel">
 
-<div class="panelTitle">
-📋 REKAP BOARD
-</div>
+    <div class="score">
 
-<table class="scoreTable">
+        <span>
+            Kontrak:
+            <b id="scContract">-</b>
+        </span>
 
-<thead>
+        <span>
+            Hasil:
+            <b id="scResult">-</b>
+        </span>
 
-<tr>
-<th>Board</th>
-<th>Kontrak</th>
-<th>Declarer</th>
-<th>Trik</th>
-<th>Skor</th>
-</tr>
+        <span>
+            Skor:
+            <b id="scScore">-</b>
+        </span>
 
-</thead>
+    </div>
 
-<tbody id="scoreBody"></tbody>
 
-</table>
+    <div class="actions">
+
+        <button onclick="newBoard()">
+            ♻ Deal Baru
+        </button>
+
+        <button onclick="redeal()">
+            🎴 Kocok Ulang
+        </button>
+
+    </div>
 
 </div>
 
@@ -595,772 +889,345 @@ SELATAN (S) — ANDA
 
 <script>
 
+
 /* =====================================================
-   GABSI BRIDGE GAME
-   VERSI DASAR STABIL
+   DATA
 ===================================================== */
 
+const P = [
+    "N",
+    "E",
+    "S",
+    "W"
+];
 
-/* ===============================
-   DATA KARTU
-================================ */
 
-const SUITS = ["♣","♦","♥","♠"];
+const suit = [
+    "C",
+    "D",
+    "H",
+    "S"
+];
 
-const RANKS = [
+
+const sym = {
+
+    C:"♣",
+    D:"♦",
+    H:"♥",
+    S:"♠"
+
+};
+
+
+const ranks = [
     "2","3","4","5","6","7",
     "8","9","10","J","Q","K","A"
 ];
 
-const VALUE = {
-    "2":2,
-    "3":3,
-    "4":4,
-    "5":5,
-    "6":6,
-    "7":7,
-    "8":8,
-    "9":9,
-    "10":10,
-    "J":11,
-    "Q":12,
-    "K":13,
-    "A":14
-};
 
-const PLAYERS = ["N","E","S","W"];
+let boardNo = 1;
 
+let dealer = "S";
 
-/* ===============================
-   VARIABEL PERMAINAN
-================================ */
-
-let deck = [];
-
-let hands = {
-    N:[],
-    E:[],
-    S:[],
-    W:[]
-};
-
-let board = 0;
-
-let turn = "N";
+let hands = {};
 
 let auction = [];
 
-let currentBid = null;
+let highest = null;
 
-let doubleState = 0;
+let doubled = 1;
+
+let bidTurn = "";
+
+let passCount = 0;
+
+let phase = "auction";
 
 let contract = null;
 
-let declarer = null;
+let declarer = "";
 
-let dummy = null;
+let dummy = "";
 
-let playing = false;
+let leader = "";
+
+let turn = "";
 
 let trick = [];
 
-let trickNumber = 0;
+let trickNo = 0;
 
-let tricks = {
+let won = {
     N:0,
     E:0,
     S:0,
     W:0
 };
 
-let totalScore = 0;
 
-let results = [];
+/* =====================================================
+   BASIC FUNCTIONS
+===================================================== */
+
+function next(p){
+
+    return P[
+        (P.indexOf(p)+1)%4
+    ];
+
+}
 
 
-/* ===============================
-   BUAT DECK
-================================ */
+function partner(p){
 
-function createDeck(){
+    return {
+        N:"S",
+        S:"N",
+        E:"W",
+        W:"E"
+    }[p];
 
-    let d = [];
+}
 
-    for(let suit of SUITS){
 
-        for(let rank of RANKS){
+function side(p){
+
+    return (
+        p==="N" ||
+        p==="S"
+    )
+    ? "NS"
+    : "EW";
+
+}
+
+
+function hcp(hand){
+
+    return hand.reduce(
+        (n,c)=>
+            n+
+            (
+                c.r==="A" ? 4 :
+                c.r==="K" ? 3 :
+                c.r==="Q" ? 2 :
+                c.r==="J" ? 1 :
+                0
+            ),
+        0
+    );
+
+}
+
+
+/* =====================================================
+   DECK
+===================================================== */
+
+function deck(){
+
+    let d=[];
+
+    for(const s of suit){
+
+        for(const r of ranks){
 
             d.push({
-                suit:suit,
-                rank:rank,
-                value:VALUE[rank],
-                id:suit+"-"+rank
+
+                s:s,
+
+                r:r,
+
+                v:ranks.indexOf(r)+2
+
             });
 
         }
 
     }
 
-    return d;
-
-}
-
-
-/* ===============================
-   KOCOK
-================================ */
-
-function shuffle(array){
-
-    for(let i=array.length-1;i>0;i--){
-
-        let j=Math.floor(
-            Math.random()*(i+1)
-        );
-
-        [array[i],array[j]]
-        =
-        [array[j],array[i]];
-
-    }
-
-    return array;
-
-}
-
-
-/* ===============================
-   URUTKAN KARTU
-================================ */
-
-function sortCards(a,b){
-
-    let suitDifference =
-        SUITS.indexOf(a.suit)
-        -
-        SUITS.indexOf(b.suit);
-
-    if(suitDifference!==0){
-
-        return suitDifference;
-
-    }
-
-    return b.value-a.value;
-
-}
-
-
-/* ===============================
-   PEMAIN BERIKUTNYA
-================================ */
-
-function nextPlayer(player){
-
-    if(player==="N") return "E";
-
-    if(player==="E") return "S";
-
-    if(player==="S") return "W";
-
-    return "N";
-
-}
-
-
-/* ===============================
-   BOARD BARU
-================================ */
-
-function newBoard(){
-
-    board++;
-
-    deck = shuffle(
-        createDeck()
+    return d.sort(
+        ()=>Math.random()-.5
     );
 
-    hands = {
-        N:[],
-        E:[],
-        S:[],
-        W:[]
+}
+
+
+function sortHand(h){
+
+    const so={
+        S:4,
+        H:3,
+        D:2,
+        C:1
     };
 
-    for(let i=0;i<52;i++){
+    return h.sort(
+        (a,b)=>
+            so[b.s]-so[a.s] ||
+            b.v-a.v
+    );
 
-        let player =
-            PLAYERS[i%4];
+}
 
-        hands[player].push(
-            deck[i]
+
+/* =====================================================
+   DEAL
+===================================================== */
+
+function deal(){
+
+    const d=deck();
+
+    hands={};
+
+    P.forEach(
+        (p,i)=>{
+
+            hands[p]=sortHand(
+                d.slice(
+                    i*13,
+                    i*13+13
+                )
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   BID VALUE
+===================================================== */
+
+function valSuit(s){
+
+    return {
+        C:0,
+        D:1,
+        H:2,
+        S:3,
+        NT:4
+    }[s];
+
+}
+
+
+function bidHigher(a,b){
+
+    return !b ||
+        a.l>b.l ||
+        (
+            a.l===b.l &&
+            valSuit(a.s)>valSuit(b.s)
         );
 
+}
+
+
+function bidText(b){
+
+    if(!b){
+        return "";
     }
 
-    for(let player of PLAYERS){
-
-        hands[player].sort(
-            sortCards
+    return b.l+
+        (
+            b.s==="NT"
+            ? "NT"
+            : sym[b.s]
         );
 
-    }
+}
 
 
-    auction = [];
+/* =====================================================
+   START BOARD
+===================================================== */
 
-    currentBid = null;
+function start(){
 
-    doubleState = 0;
+    dealer=
+        P[
+            (P.indexOf("S")+
+            boardNo-1)%4
+        ];
 
-    contract = null;
 
-    declarer = null;
+    deal();
 
-    dummy = null;
 
-    playing = false;
+    auction=[];
 
-    trick = [];
+    highest=null;
 
-    trickNumber = 0;
+    doubled=1;
 
-    tricks = {
+    passCount=0;
+
+    phase="auction";
+
+    contract=null;
+
+    declarer="";
+
+    dummy="";
+
+    trick=[];
+
+    trickNo=0;
+
+
+    won={
         N:0,
         E:0,
         S:0,
         W:0
     };
 
-    turn = "N";
 
+    bidTurn=dealer;
 
-    setStatus(
-        "Board "+board+
-        " dimulai. Komputer melakukan bidding."
-    );
+    turn="";
 
-    render();
 
-    setTimeout(
-        computerBid,
-        700
-    );
+    document.getElementById(
+        "board"
+    ).textContent=boardNo;
 
-}
 
+    document.getElementById(
+        "dealer"
+    ).textContent=dealer;
 
-/* ===============================
-   BIDDING LIST
-================================ */
 
-function getBidList(){
+    document.getElementById(
+        "contract"
+    ).textContent="-";
 
-    let list = [];
 
-    for(let level=1;level<=7;level++){
+    document.getElementById(
+        "scContract"
+    ).textContent="-";
 
-        for(let suit of SUITS){
 
-            list.push(
-                level+suit
-            );
+    document.getElementById(
+        "scResult"
+    ).textContent="-";
 
-        }
 
-        list.push(
-            level+"NT"
-        );
+    document.getElementById(
+        "scScore"
+    ).textContent="-";
 
-    }
 
-    return list;
-
-}
-
-
-function bidIndex(bid){
-
-    return getBidList()
-        .indexOf(bid);
-
-}
-
-
-function canBid(bid){
-
-    if(!currentBid){
-
-        return true;
-
-    }
-
-    return (
-        bidIndex(bid)
-        >
-        bidIndex(currentBid)
-    );
-
-}
-
-
-/* ===============================
-   HUMAN BID
-================================ */
-
-function humanBid(bid){
-
-    if(playing)return;
-
-    if(turn!=="S")return;
-
-    if(!canBid(bid))return;
-
-    auction.push({
-        player:"S",
-        call:bid
-    });
-
-    currentBid = bid;
-
-    doubleState = 0;
-
-    turn = nextPlayer("S");
-
-    processAuction();
-
-}
-
-
-/* ===============================
-   HUMAN PASS
-================================ */
-
-function humanPass(){
-
-    if(playing)return;
-
-    if(turn!=="S")return;
-
-    auction.push({
-        player:"S",
-        call:"PASS"
-    });
-
-    turn = nextPlayer("S");
-
-    processAuction();
-
-}
-
-
-/* ===============================
-   HUMAN DOUBLE
-================================ */
-
-function humanDouble(){
-
-    if(playing)return;
-
-    if(turn!=="S")return;
-
-    if(!currentBid)return;
-
-    if(doubleState!==0)return;
-
-    auction.push({
-        player:"S",
-        call:"X"
-    });
-
-    doubleState=1;
-
-    turn=nextPlayer("S");
-
-    processAuction();
-
-}
-
-
-/* ===============================
-   HUMAN REDOUBLE
-================================ */
-
-function humanRedouble(){
-
-    if(playing)return;
-
-    if(turn!=="S")return;
-
-    if(doubleState!==1)return;
-
-    auction.push({
-        player:"S",
-        call:"XX"
-    });
-
-    doubleState=2;
-
-    turn=nextPlayer("S");
-
-    processAuction();
-
-}
-
-
-/* ===============================
-   PROSES AUCTION
-================================ */
-
-function processAuction(){
-
-    render();
-
-
-    let passCount=0;
-
-    for(
-        let i=auction.length-1;
-        i>=0;
-        i--
-    ){
-
-        if(
-            auction[i].call==="PASS"
-        ){
-
-            passCount++;
-
-        }else{
-
-            break;
-
-        }
-
-    }
-
-
-    if(!currentBid){
-
-        if(auction.length>=4){
-
-            setStatus(
-                "Semua pemain PASS."
-            );
-
-            render();
-
-            return;
-
-        }
-
-    }else{
-
-        if(passCount>=3){
-
-            startPlay();
-
-            return;
-
-        }
-
-    }
-
-
-    if(turn==="S"){
-
-        setStatus(
-            "Giliran Anda. Pilih penawaran."
-        );
-
-        render();
-
-    }else{
-
-        setTimeout(
-            computerBid,
-            700
-        );
-
-    }
-
-}
-
-
-/* ===============================
-   COMPUTER BIDDING
-================================ */
-
-function computerBid(){
-
-    if(playing)return;
-
-    if(turn==="S")return;
-
-
-    let player=turn;
-
-    let hand=hands[player];
-
-    let hcp=0;
-
-
-    for(let card of hand){
-
-        if(card.rank==="A"){
-
-            hcp+=4;
-
-        }else if(
-            card.rank==="K"
-        ){
-
-            hcp+=3;
-
-        }else if(
-            card.rank==="Q"
-        ){
-
-            hcp+=2;
-
-        }else if(
-            card.rank==="J"
-        ){
-
-            hcp+=1;
-
-        }
-
-    }
-
-
-    let bid=null;
-
-
-    if(!currentBid){
-
-        if(hcp>=15){
-
-            bid="1NT";
-
-        }else if(hcp>=11){
-
-            let counts={
-                "♣":0,
-                "♦":0,
-                "♥":0,
-                "♠":0
-            };
-
-            for(let card of hand){
-
-                counts[card.suit]++;
-
-            }
-
-            let bestSuit="♣";
-
-            for(let suit of SUITS){
-
-                if(
-                    counts[suit]
-                    >
-                    counts[bestSuit]
-                ){
-
-                    bestSuit=suit;
-
-                }
-
-            }
-
-            bid="1"+bestSuit;
-
-        }
-
-    }else{
-
-        if(hcp>=16){
-
-            let list=getBidList();
-
-            let index =
-                bidIndex(currentBid);
-
-            if(
-                index+1
-                <
-                list.length
-            ){
-
-                bid=list[index+1];
-
-            }
-
-        }
-
-    }
-
-
-    if(
-        bid &&
-        canBid(bid)
-    ){
-
-        auction.push({
-            player:player,
-            call:bid
-        });
-
-        currentBid=bid;
-
-        doubleState=0;
-
-    }else{
-
-        auction.push({
-            player:player,
-            call:"PASS"
-        });
-
-    }
-
-
-    turn=nextPlayer(player);
-
-    processAuction();
-
-}
-
-
-/* ===============================
-   MULAI PERMAINAN
-================================ */
-
-function startPlay(){
-
-    let level =
-        parseInt(
-            currentBid.charAt(0)
-        );
-
-    let suit =
-        currentBid.substring(1);
-
-
-    contract={
-        level:level,
-        suit:suit
-    };
-
-
-    /*
-       Tentukan declarer:
-       pemain pertama dari pasangan
-       yang melakukan bid kontrak terakhir.
-    */
-
-    let finalBidIndex=-1;
-
-    for(
-        let i=auction.length-1;
-        i>=0;
-        i--
-    ){
-
-        if(
-            auction[i].call===currentBid
-        ){
-
-            finalBidIndex=i;
-
-            break;
-
-        }
-
-    }
-
-
-    let finalBidder =
-        auction[finalBidIndex].player;
-
-
-    let ns =
-        finalBidder==="N" ||
-        finalBidder==="S";
-
-
-    let team =
-        ns
-        ?["N","S"]
-        :["E","W"];
-
-
-    declarer=null;
-
-
-    for(
-        let item of auction
-    ){
-
-        if(
-            item.call===currentBid &&
-            team.includes(item.player)
-        ){
-
-            declarer=
-                item.player;
-
-            break;
-
-        }
-
-    }
-
-
-    if(!declarer){
-
-        declarer=
-            finalBidder;
-
-    }
-
-
-    dummy =
-        declarer==="N"
-        ?"S":
-        declarer==="S"
-        ?"N":
-        declarer==="E"
-        ?"W":
-        "E";
-
-
-    playing=true;
-
-    trick=[];
-
-    trickNumber=0;
-
-
-    /*
-       Leader adalah pemain di kiri declarer
-    */
-
-    let leader=
-        nextPlayer(declarer);
-
-
-    turn=leader;
-
-
-    setStatus(
-        "Kontrak "+
-        currentBid+
-        (doubleState===1?" X":
-         doubleState===2?" XX":"")+
-        ". Declarer "+
-        declarer+
+    log(
+        "Board "+
+        boardNo+
+        " dibagikan. Dealer "+
+        dealer+
         "."
     );
 
@@ -1368,194 +1235,200 @@ function startPlay(){
     render();
 
 
-    if(turn==="S"){
-
-        setStatus(
-            "Anda memimpin trik pertama."
-        );
-
-    }else{
-
-        setTimeout(
-            computerPlay,
-            800
-        );
-
-    }
-
-}
-
-
-/* ===============================
-   KARTU LEGAL
-================================ */
-
-function getLegalCards(player){
-
-    let hand =
-        hands[player];
-
-
-    if(trick.length===0){
-
-        return hand.slice();
-
-    }
-
-
-    let leadSuit =
-        trick[0].card.suit;
-
-
-    let sameSuit =
-        hand.filter(
-            card =>
-            card.suit===leadSuit
-        );
-
-
-    if(sameSuit.length>0){
-
-        return sameSuit;
-
-    }
-
-
-    return hand.slice();
-
-}
-
-
-/* ===============================
-   BOLEH MAIN
-================================ */
-
-function canPlay(card,player){
-
-    if(!playing)return false;
-
-    if(turn!==player)return false;
-
-    let legal =
-        getLegalCards(player);
-
-    return legal.some(
-        c =>
-        c.id===card.id
+    setTimeout(
+        aiIfNeeded,
+        500
     );
 
 }
 
 
-/* ===============================
-   MAIN KARTU
-================================ */
+/* =====================================================
+   LEGAL CALL
+===================================================== */
 
-function playCard(
-    player,
-    card
+function legalCall(
+    type,
+    l,
+    s
 ){
 
-    if(
-        !canPlay(
-            card,
-            player
-        )
-    ){
+    if(type==="P"){
 
-        return;
+        return true;
 
     }
 
 
-    let index =
-        hands[player].findIndex(
-            c =>
-            c.id===card.id
-        );
+    if(type==="X"){
+
+        return highest &&
+            highest.side!==side(bidTurn) &&
+            doubled===1;
+
+    }
 
 
-    if(index<0)return;
+    if(type==="XX"){
+
+        return highest &&
+            highest.side===side(bidTurn) &&
+            doubled===2;
+
+    }
 
 
-    hands[player].splice(
-        index,
-        1
+    return bidHigher(
+        {
+            l:l,
+            s:s
+        },
+        highest
     );
 
-
-    trick.push({
-        player:player,
-        card:card
-    });
+}
 
 
-    render();
+/* =====================================================
+   BIDDING
+===================================================== */
 
+function callsForUI(){
 
-    if(trick.length===4){
+    let arr=[];
 
-        setTimeout(
-            finishTrick,
-            700
-        );
+    for(let l=1;l<=7;l++){
 
-    }else{
-
-        turn=
-            nextPlayer(player);
-
-
-        render();
-
-
-        if(
-            turn==="S"
+        for(
+            const s
+            of ["C","D","H","S","NT"]
         ){
 
-            setStatus(
-                "Giliran Anda memilih kartu."
-            );
-
-        }else{
-
-            /*
-               Dummy dikendalikan declarer
-               apabila declarer adalah Selatan.
-            */
-
-            setTimeout(
-                computerPlay,
-                600
-            );
+            arr.push({
+                l:l,
+                s:s
+            });
 
         }
 
     }
 
+    return arr;
+
 }
 
 
-/* ===============================
-   COMPUTER PLAY
-================================ */
+function humanCanBid(){
 
-function computerPlay(){
+    return (
+        phase==="auction" &&
+        bidTurn==="S"
+    );
 
-    if(!playing)return;
+}
 
-    /*
-       Jika giliran dummy dan declarer
-       adalah Selatan, Selatan harus memilih.
-    */
+
+function userCall(c){
+
+    if(!humanCanBid()){
+        return;
+    }
+
 
     if(
-        turn===dummy &&
-        declarer==="S"
+        !legalCall(
+            c.type,
+            c.l,
+            c.s
+        )
     ){
 
-        setStatus(
-            "Dummy terbuka. Pilih kartu dummy."
+        log(
+            "Bid tidak legal."
+        );
+
+        return;
+
+    }
+
+
+    applyCall(c);
+
+}
+
+
+/* =====================================================
+   APPLY BID
+===================================================== */
+
+function applyCall(c){
+
+    auction.push({
+
+        ...c,
+
+        p:bidTurn,
+
+        side:side(bidTurn)
+
+    });
+
+
+    if(c.type==="P"){
+
+        passCount++;
+
+    }else{
+
+        passCount=0;
+
+
+        if(c.type==="B"){
+
+            highest={
+
+                ...c,
+
+                p:bidTurn,
+
+                side:side(bidTurn)
+
+            };
+
+            doubled=1;
+
+        }
+
+
+        else if(c.type==="X"){
+
+            doubled=2;
+
+        }
+
+
+        else if(c.type==="XX"){
+
+            doubled=4;
+
+        }
+
+    }
+
+
+    renderAuction();
+
+
+    if(
+        !highest &&
+        passCount>=4
+    ){
+
+        phase="done";
+
+        log(
+            "Semua pemain PASS. " +
+            "Board selesai tanpa kontrak."
         );
 
         render();
@@ -1565,85 +1438,583 @@ function computerPlay(){
     }
 
 
-    if(turn==="S"){
-
-        return;
-
-    }
-
-
-    let legal =
-        getLegalCards(turn);
-
-
-    if(legal.length===0){
-
-        return;
-
-    }
-
-
-    let card;
-
-
     if(
-        trick.length===0
+        highest &&
+        passCount>=3
     ){
 
-        /*
-           Komputer memimpin
-           dengan kartu rendah.
-        */
+        finishAuction();
 
-        card =
-            legal
-            .slice()
-            .sort(
-                (a,b)=>
-                a.value-b.value
-            )[0];
-
-    }else{
-
-        /*
-           Komputer mencoba kartu
-           rendah terlebih dahulu.
-        */
-
-        card =
-            legal
-            .slice()
-            .sort(
-                (a,b)=>
-                a.value-b.value
-            )[0];
+        return;
 
     }
 
 
-    playCard(
-        turn,
-        card
+    bidTurn=next(bidTurn);
+
+    render();
+
+
+    setTimeout(
+        aiIfNeeded,
+        650
     );
 
 }
 
 
-/* ===============================
-   PEMENANG TRIK
-================================ */
+/* =====================================================
+   COMPUTER BIDDING
+===================================================== */
 
-function getTrickWinner(){
+function aiBid(){
 
-    let winner=
-        trick[0];
+    const h=hands[bidTurn];
+
+    const pts=hcp(h);
+
+    const counts={
+        C:0,
+        D:0,
+        H:0,
+        S:0
+    };
 
 
-    let trump=
-        contract &&
-        contract.suit!=="NT"
-        ?contract.suit
-        :null;
+    h.forEach(
+        c=>{
+            counts[c.s]++;
+        }
+    );
+
+
+    const bal=
+        Object.values(counts)
+        .every(x=>x>=2) &&
+        Math.max(
+            ...Object.values(counts)
+        )<=5;
+
+
+    const last=highest;
+
+
+    let call={
+        type:"P"
+    };
+
+
+    /*
+       OPENING
+    */
+
+    if(!last){
+
+        if(
+            pts>=15 &&
+            pts<=17 &&
+            bal
+        ){
+
+            call={
+                type:"B",
+                l:1,
+                s:"NT"
+            };
+
+        }
+
+        else if(pts>=12){
+
+            const ss=[
+                "S",
+                "H",
+                "D",
+                "C"
+            ].sort(
+                (a,b)=>
+                    counts[b]-counts[a]
+            );
+
+
+            call={
+                type:"B",
+                l:1,
+                s:ss[0]
+            };
+
+        }
+
+    }
+
+
+    /*
+       PARTNER HAS BID
+    */
+
+    else if(
+        last.side===side(bidTurn)
+    ){
+
+        if(
+            pts>=10 &&
+            last.l<3
+        ){
+
+            const ss=[
+                "S",
+                "H",
+                "D",
+                "C"
+            ].sort(
+                (a,b)=>
+                    counts[b]-counts[a]
+            );
+
+
+            if(
+                counts[ss[0]]>=4
+            ){
+
+                call={
+                    type:"B",
+                    l:Math.min(
+                        2,
+                        last.l+1
+                    ),
+                    s:ss[0]
+                };
+
+            }
+
+        }
+
+    }
+
+
+    /*
+       OPPONENT BID
+    */
+
+    else{
+
+        if(
+            pts>=14 &&
+            last.l<3
+        ){
+
+            const ss=[
+                "S",
+                "H",
+                "D",
+                "C"
+            ].sort(
+                (a,b)=>
+                    counts[b]-counts[a]
+            );
+
+
+            const s=ss[0];
+
+
+            if(
+                counts[s]>=4
+            ){
+
+                call={
+                    type:"B",
+                    l:last.l+1,
+                    s:s
+                };
+
+            }
+
+            else if(
+                pts>=16 &&
+                bal
+            ){
+
+                call={
+                    type:"B",
+                    l:last.l+1,
+                    s:"NT"
+                };
+
+            }
+
+        }
+
+    }
+
+
+    if(
+        call.type==="B" &&
+        !legalCall(
+            call.type,
+            call.l,
+            call.s
+        )
+    ){
+
+        call={
+            type:"P"
+        };
+
+    }
+
+
+    if(
+        call.type==="P" &&
+        highest &&
+        highest.side!==side(bidTurn) &&
+        doubled===1 &&
+        pts>=16 &&
+        Math.random()<.12
+    ){
+
+        call={
+            type:"X"
+        };
+
+    }
+
+
+    return call;
+
+}
+
+
+/* =====================================================
+   AI TURN
+===================================================== */
+
+function aiIfNeeded(){
+
+    if(
+        phase==="auction" &&
+        bidTurn!=="S"
+    ){
+
+        applyCall(
+            aiBid()
+        );
+
+        return;
+
+    }
+
+
+    if(
+        phase==="play" &&
+        !humanCanPlay(turn)
+    ){
+
+        setTimeout(
+            aiPlay,
+            500
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FINISH AUCTION
+===================================================== */
+
+function finishAuction(){
+
+    const b=highest;
+
+
+    /*
+       Declarer adalah pemain pertama
+       dari partnership pemenang yang
+       pernah menyebut denomination final.
+    */
+
+    const dec=
+        auction.find(
+            x=>
+                x.type==="B" &&
+                x.s===b.s &&
+                x.side===b.side
+        ).p;
+
+
+    declarer=dec;
+
+    dummy=partner(dec);
+
+    leader=next(dec);
+
+    turn=leader;
+
+    phase="play";
+
+
+    let dbl="";
+
+    if(doubled===2){
+        dbl=" X";
+    }
+
+    if(doubled===4){
+        dbl=" XX";
+    }
+
+
+    contract={
+        l:b.l,
+        s:b.s,
+        m:doubled
+    };
+
+
+    log(
+        "Kontrak "+
+        bidText(b)+
+        dbl+
+        ". Declarer "+
+        declarer+
+        ". Dummy "+
+        dummy+
+        ". Lead "+
+        leader+
+        "."
+    );
+
+
+    document.getElementById(
+        "contract"
+    ).textContent=
+        bidText(b)+dbl;
+
+
+    document.getElementById(
+        "scContract"
+    ).textContent=
+        bidText(b)+dbl;
+
+
+    render();
+
+
+    setTimeout(
+        aiIfNeeded,
+        700
+    );
+
+}
+
+
+/* =====================================================
+   PLAY CONTROL
+===================================================== */
+
+function humanCanPlay(p){
+
+    /*
+       South selalu dapat dimainkan user.
+
+       Jika South menjadi declarer,
+       North adalah dummy dan juga
+       dikendalikan user.
+
+       Jika North menjadi declarer,
+       South menjadi dummy.
+
+       Jika EW declarer,
+       South menjadi defender.
+    */
+
+    return (
+        p==="S" ||
+        (
+            declarer==="S" &&
+            p==="N"
+        )
+    );
+
+}
+
+
+/* =====================================================
+   LEGAL CARD
+===================================================== */
+
+function legalCard(
+    p,
+    c
+){
+
+    if(!trick.length){
+
+        return true;
+
+    }
+
+
+    const lead=
+        trick[0].c.s;
+
+
+    const hasLead=
+        hands[p].some(
+            x=>x.s===lead
+        );
+
+
+    if(hasLead){
+
+        return c.s===lead;
+
+    }
+
+
+    return true;
+
+}
+
+
+/* =====================================================
+   AI CARD
+===================================================== */
+
+function chooseAI(p){
+
+    const legal=
+        hands[p].filter(
+            c=>legalCard(p,c)
+        );
+
+
+    if(!legal.length){
+
+        return null;
+
+    }
+
+
+    if(!trick.length){
+
+        return chooseLead(
+            legal
+        );
+
+    }
+
+
+    const lead=
+        trick[0].c.s;
+
+
+    const trump=
+        contract.s==="NT"
+        ? null
+        : contract.s;
+
+
+    let winning=[];
+
+
+    for(
+        const c
+        of legal
+    ){
+
+        if(
+            canBeat(
+                c,
+                currentWinner()?.c,
+                lead,
+                trump
+            )
+        ){
+
+            winning.push(c);
+
+        }
+
+    }
+
+
+    if(winning.length){
+
+        winning.sort(
+            (a,b)=>
+                a.v-b.v
+        );
+
+        return winning[0];
+
+    }
+
+
+    legal.sort(
+        (a,b)=>
+            a.v-b.v
+    );
+
+
+    return legal[0];
+
+}
+
+
+function chooseLead(cards){
+
+    cards.sort(
+        (a,b)=>
+            a.v-b.v
+    );
+
+
+    const nonTrump=
+        contract.s==="NT"
+        ? cards
+        : cards.filter(
+            c=>c.s!==contract.s
+        );
+
+
+    if(nonTrump.length){
+
+        return nonTrump[0];
+
+    }
+
+
+    return cards[0];
+
+}
+
+
+/* =====================================================
+   CURRENT WINNER
+===================================================== */
+
+function currentWinner(){
+
+    if(!trick.length){
+
+        return null;
+
+    }
+
+
+    const lead=
+        trick[0].c.s;
+
+
+    const trump=
+        contract.s==="NT"
+        ? null
+        : contract.s;
+
+
+    let w=trick[0];
 
 
     for(
@@ -1652,75 +2023,298 @@ function getTrickWinner(){
         i++
     ){
 
-        let item=
-            trick[i];
-
-
-        if(trump){
-
-            if(
-                item.card.suit===trump &&
-                winner.card.suit!==trump
-            ){
-
-                winner=item;
-
-                continue;
-
-            }
-
-
-            if(
-                item.card.suit!==trump &&
-                winner.card.suit===trump
-            ){
-
-                continue;
-
-            }
-
-        }
-
-
         if(
-            item.card.suit===
-            winner.card.suit &&
-            item.card.value>
-            winner.card.value
+            canBeat(
+                trick[i].c,
+                w.c,
+                lead,
+                trump
+            )
         ){
 
-            winner=item;
+            w=trick[i];
 
         }
 
     }
 
 
-    return winner.player;
+    return w;
 
 }
 
 
-/* ===============================
-   SELESAI TRIK
-================================ */
+/* =====================================================
+   CARD COMPARISON
+===================================================== */
 
-function finishTrick(){
+function canBeat(
+    current,
+    old,
+    lead,
+    trump
+){
 
-    let winner =
-        getTrickWinner();
+    if(!old){
+
+        return true;
+
+    }
 
 
-    tricks[winner]++;
+    /*
+       Trump beats non-trump
+    */
 
-    trickNumber++;
+    if(
+        trump &&
+        current.s===trump &&
+        old.s!==trump
+    ){
+
+        return true;
+
+    }
 
 
-    setStatus(
-        "Trik "+
-        trickNumber+
-        " dimenangkan oleh "+
-        winner+"."
+    if(
+        trump &&
+        current.s!==trump &&
+        old.s===trump
+    ){
+
+        return false;
+
+    }
+
+
+    /*
+       Different suits
+    */
+
+    if(
+        current.s!==old.s
+    ){
+
+        return (
+            current.s===lead &&
+            old.s!==lead
+        );
+
+    }
+
+
+    /*
+       Same suit
+    */
+
+    return current.v>old.v;
+
+}
+
+
+/* =====================================================
+   AI PLAY
+===================================================== */
+
+function aiPlay(){
+
+    if(
+        phase!=="play" ||
+        humanCanPlay(turn)
+    ){
+
+        return;
+
+    }
+
+
+    const c=
+        chooseAI(turn);
+
+
+    if(c){
+
+        play(
+            turn,
+            c
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   PLAY CARD
+===================================================== */
+
+function play(
+    p,
+    c
+){
+
+    if(!c){
+
+        return;
+
+    }
+
+
+    const i=
+        hands[p].indexOf(c);
+
+
+    if(i<0){
+
+        return;
+
+    }
+
+
+    if(
+        !legalCard(
+            p,
+            c
+        )
+    ){
+
+        return;
+
+    }
+
+
+    hands[p].splice(
+        i,
+        1
+    );
+
+
+    trick.push({
+
+        p:p,
+        c:c
+
+    });
+
+
+    render();
+
+
+    if(
+        trick.length===4
+    ){
+
+        setTimeout(
+            resolveTrick,
+            650
+        );
+
+        return;
+
+    }
+
+
+    turn=next(p);
+
+
+    render();
+
+
+    setTimeout(
+        aiIfNeeded,
+        450
+    );
+
+}
+
+
+/* =====================================================
+   HUMAN CARD CLICK
+===================================================== */
+
+function clickCard(
+    p,
+    i
+){
+
+    if(
+        phase!=="play"
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        turn!==p
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        !humanCanPlay(p)
+    ){
+
+        return;
+
+    }
+
+
+    const c=
+        hands[p][i];
+
+
+    if(
+        !legalCard(
+            p,
+            c
+        )
+    ){
+
+        log(
+            "Anda wajib mengikuti suit "+
+            sym[trick[0].c.s]+"."
+        );
+
+        return;
+
+    }
+
+
+    play(
+        p,
+        c
+    );
+
+}
+
+
+/* =====================================================
+   RESOLVE TRICK
+===================================================== */
+
+function resolveTrick(){
+
+    const w=
+        currentWinner();
+
+
+    won[w.p]++;
+
+    trickNo++;
+
+
+    log(
+        "Trick "+
+        trickNo+
+        " dimenangkan "+
+        w.p+
+        "."
     );
 
 
@@ -1728,925 +2322,792 @@ function finishTrick(){
 
 
     if(
-        trickNumber>=13
+        trickNo===13
     ){
 
-        setTimeout(
-            finishBoard,
-            700
-        );
+        finishPlay();
 
         return;
 
     }
 
 
-    turn=winner;
+    /*
+       Winner leads next trick.
+    */
+
+    turn=w.p;
 
 
     render();
 
 
-    if(
-        turn===dummy &&
-        declarer==="S"
-    ){
-
-        setStatus(
-            "Anda mengendalikan dummy."
-        );
-
-        return;
-
-    }
-
-
-    if(turn==="S"){
-
-        setStatus(
-            "Anda memilih kartu."
-        );
-
-    }else{
-
-        setTimeout(
-            computerPlay,
-            600
-        );
-
-    }
-
-}
-
-
-/* ===============================
-   SELESAI BOARD
-================================ */
-
-function finishBoard(){
-
-    playing=false;
-
-
-    let ns=
-        tricks.N+
-        tricks.S;
-
-
-    let ew=
-        tricks.E+
-        tricks.W;
-
-
-    let declarerNS=
-        declarer==="N" ||
-        declarer==="S";
-
-
-    let declarerTricks=
-        declarerNS
-        ?ns
-        :ew;
-
-
-    let target=
-        6+
-        contract.level;
-
-
-    let difference=
-        declarerTricks-
-        target;
-
-
-    let score=
-        calculateScore(
-            contract.level,
-            contract.suit,
-            difference,
-            doubleState
-        );
-
-
-    if(!declarerNS){
-
-        score=
-            -score;
-
-    }
-
-
-    totalScore+=score;
-
-
-    results.push({
-
-        board:board,
-
-        contract:
-            contract.level+
-            contract.suit+
-            (
-                doubleState===1
-                ?" X":
-                doubleState===2
-                ?" XX":
-                ""
-            ),
-
-        declarer:declarer,
-
-        tricks:declarerTricks,
-
-        score:score
-
-    });
-
-
-    setStatus(
-        "BOARD SELESAI. NS "+
-        ns+
-        " trik, EW "+
-        ew+
-        " trik. Skor "+
-        score
+    setTimeout(
+        aiIfNeeded,
+        500
     );
 
-
-    render();
-
 }
 
 
-/* ===============================
-   SCORING
-================================ */
+/* =====================================================
+   SCORE
+===================================================== */
 
-function calculateScore(
-    level,
-    suit,
-    difference,
-    doubled
-){
+function score(){
 
-    /*
-       Jika kontrak gagal
-    */
+    const target=
+        contract.l+6;
 
-    if(difference<0){
 
-        let down=
-            Math.abs(
-                difference
-            );
+    const made=
+        won[declarer]+
+        won[dummy];
 
 
-        if(doubled===0){
+    const diff=
+        made-target;
 
-            return -50*down;
 
-        }
+    if(diff>=0){
 
-
-        if(doubled===1){
-
-            if(down===1){
-
-                return -100;
-
-            }
-
-            return -
-                (
-                    100+
-                    (down-1)*200
-                );
-
-        }
-
-
-        if(doubled===2){
-
-            if(down===1){
-
-                return -200;
-
-            }
-
-            return -
-                (
-                    200+
-                    (down-1)*400
-                );
-
-        }
-
-    }
-
-
-    let trickValue;
-
-
-    if(
-        suit==="♣" ||
-        suit==="♦"
-    ){
-
-        trickValue=
-            level*20;
-
-    }else if(
-        suit==="♥" ||
-        suit==="♠"
-    ){
-
-        trickValue=
-            level*30;
-
-    }else{
-
-        trickValue=
-            40+
-            (level-1)*30;
-
-    }
-
-
-    if(doubled===1){
-
-        trickValue*=2;
-
-    }
-
-    if(doubled===2){
-
-        trickValue*=4;
-
-    }
-
-
-    let score=
-        trickValue;
-
-
-    if(suit==="NT"){
-
-        score+=10;
-
-    }
-
-
-    /*
-       Game / partscore
-    */
-
-    if(trickValue>=100){
-
-        score+=500;
-
-    }else{
-
-        score+=50;
-
-    }
-
-
-    /*
-       Slam bonus
-    */
-
-    if(level===6){
-
-        score+=750;
-
-    }
-
-
-    if(level===7){
-
-        score+=1500;
-
-    }
-
-
-    /*
-       Overtrick
-    */
-
-    if(difference>0){
-
-        let overValue=
+        let tv=
             (
-                suit==="♣" ||
-                suit==="♦"
+                contract.s==="C" ||
+                contract.s==="D"
             )
             ?20
             :30;
 
 
-        if(doubled===1){
+        let base;
 
-            overValue*=2;
+
+        if(
+            contract.s==="NT"
+        ){
+
+            base=
+                40+
+                (contract.l-1)*30;
+
+        }else{
+
+            base=
+                contract.l*tv;
 
         }
 
-        if(doubled===2){
 
-            overValue*=4;
+        if(
+            contract.m===2
+        ){
+
+            base*=2;
 
         }
 
 
-        score+=
-            difference*
-            overValue;
+        if(
+            contract.m===4
+        ){
 
-    }
+            base*=4;
 
-
-    return score;
-
-}
-
-
-/* ===============================
-   RENDER SEMUA
-================================ */
-
-function render(){
-
-    document.getElementById(
-        "boardNumber"
-    ).textContent=board;
-
-
-    document.getElementById(
-        "trickNumber"
-    ).textContent=
-        trickNumber+
-        " / 13";
-
-
-    document.getElementById(
-        "totalScore"
-    ).textContent=
-        totalScore;
-
-
-    renderHands();
-
-    renderPlayed();
-
-    renderBidding();
-
-    renderScoreTable();
-
-
-    if(contract){
-
-        document.getElementById(
-            "contract"
-        ).textContent=
-            contract.level+
-            contract.suit+
-            (
-                doubleState===1
-                ?" X":
-                doubleState===2
-                ?" XX":
-                ""
-            );
-
-
-        document.getElementById(
-            "contractInfo"
-        ).textContent=
-            "Declarer: "+
-            declarer+
-            " | Dummy: "+
-            dummy;
-
-    }else{
-
-        document.getElementById(
-            "contract"
-        ).textContent=
-            "BIDDING";
-
-
-        document.getElementById(
-            "contractInfo"
-        ).textContent=
-            auction.length+
-            " penawaran";
-
-    }
-
-}
-
-
-/* ===============================
-   RENDER KARTU
-================================ */
-
-function renderHands(){
-
-    let elements={
-        N:
-        document.getElementById(
-            "northHand"
-        ),
-
-        E:
-        document.getElementById(
-            "eastHand"
-        ),
-
-        S:
-        document.getElementById(
-            "southHand"
-        ),
-
-        W:
-        document.getElementById(
-            "westHand"
-        )
-    };
-
-
-    for(let player of PLAYERS){
-
-        let el=
-            elements[player];
-
-
-        el.innerHTML="";
+        }
 
 
         /*
-           Selatan selalu terlihat.
-           Dummy terlihat setelah play dimulai.
+           Game bonus sederhana
         */
 
-        let visible=
-            player==="S" ||
-            (
-                playing &&
-                player===dummy
-            );
+        if(
+            base>=100
+        ){
 
-
-        if(!visible){
-
-            if(
-                hands[player].length
-            ){
-
-                el.innerHTML=
-                    "<span style='font-size:11px'>"+
-                    hands[player].length+
-                    " kartu</span>";
-
-            }
-
-            continue;
+            base+=50;
 
         }
 
 
-        for(
-            let card of
-            hands[player]
+        let over=
+            diff*
+            (
+                contract.s==="C" ||
+                contract.s==="D"
+                ?20
+                :30
+            );
+
+
+        if(
+            contract.s==="NT"
         ){
 
-            let div=
+            over=
+                diff*30;
+
+        }
+
+
+        if(
+            contract.m===2
+        ){
+
+            over=
+                diff*100;
+
+        }
+
+
+        if(
+            contract.m===4
+        ){
+
+            over=
+                diff*200;
+
+        }
+
+
+        return {
+
+            made:made,
+
+            target:target,
+
+            diff:diff,
+
+            score:base+over
+
+        };
+
+    }
+
+
+    /*
+       Down
+    */
+
+    const n=
+        -diff;
+
+
+    let penalty;
+
+
+    if(
+        contract.m===1
+    ){
+
+        penalty=
+            n*50;
+
+    }
+
+    else if(
+        contract.m===2
+    ){
+
+        penalty=
+            n===1
+            ?100
+            :100+
+              (n-1)*200;
+
+    }
+
+    else{
+
+        penalty=
+            n===1
+            ?200
+            :200+
+              (n-1)*400;
+
+    }
+
+
+    return {
+
+        made:made,
+
+        target:target,
+
+        diff:diff,
+
+        score:-penalty
+
+    };
+
+}
+
+
+/* =====================================================
+   FINISH PLAY
+===================================================== */
+
+function finishPlay(){
+
+    phase="done";
+
+
+    const r=
+        score();
+
+
+    document.getElementById(
+        "scResult"
+    ).textContent=
+        r.diff>=0
+        ? "Made "+r.diff
+        : "Down "+(-r.diff);
+
+
+    document.getElementById(
+        "scScore"
+    ).textContent=
+        (
+            r.score>=0
+            ? "+"
+            : ""
+        )+
+        r.score;
+
+
+    log(
+        "Selesai: "+
+        r.made+
+        " trick dari target "+
+        r.target+
+        ". Skor "+
+        r.score+
+        "."
+    );
+
+
+    render();
+
+}
+
+
+/* =====================================================
+   CARD HTML
+===================================================== */
+
+function cardHTML(
+    c,
+    back=false
+){
+
+    if(back){
+
+        return `
+            <div class="card back"></div>
+        `;
+
+    }
+
+
+    const red=
+        c.s==="H" ||
+        c.s==="D";
+
+
+    return `
+        <div class="card ${red?"red":""}">
+
+            <span class="r">
+                ${c.r}
+            </span>
+
+            <span class="s">
+                ${sym[c.s]}
+            </span>
+
+            <span class="big">
+                ${sym[c.s]}
+            </span>
+
+        </div>
+    `;
+
+}
+
+
+/* =====================================================
+   RENDER HAND
+===================================================== */
+
+function renderHand(p){
+
+    const el=
+        document.getElementById(p);
+
+
+    el.innerHTML="";
+
+
+    /*
+       South selalu terlihat.
+
+       Dummy terlihat setelah auction.
+
+       N menjadi dummy bila S declarer.
+
+       E/W terlihat bila salah satunya
+       menjadi dummy.
+    */
+
+    const face=
+        p==="S" ||
+        (
+            phase==="play" &&
+            dummy===p
+        );
+
+
+    if(!face){
+
+        hands[p].forEach(
+            ()=>el.insertAdjacentHTML(
+                "beforeend",
+                cardHTML(
+                    null,
+                    true
+                )
+            )
+        );
+
+        return;
+
+    }
+
+
+    hands[p].forEach(
+        (c,i)=>{
+
+            const wrap=
                 document.createElement(
                     "div"
                 );
 
 
-            div.className=
-                "card "+
-                (
-                    card.suit==="♥" ||
-                    card.suit==="♦"
-                    ?"redCard"
-                    :"blackCard"
+            wrap.innerHTML=
+                cardHTML(c);
+
+
+            const node=
+                wrap.firstChild;
+
+
+            if(
+                phase==="play" &&
+                turn===p &&
+                humanCanPlay(p) &&
+                legalCard(p,c)
+            ){
+
+                node.classList.add(
+                    "play"
+                );
+
+            }
+
+
+            node.onclick=
+                ()=>clickCard(
+                    p,
+                    i
                 );
 
 
-            div.innerHTML=
-                "<div class='rank'>"+
-                card.rank+
-                "</div>"+
-                "<div class='suit'>"+
-                card.suit+
-                "</div>";
-
-
-            /*
-               Kartu Selatan
-            */
-
-            if(
-                player==="S" &&
-                playing &&
-                turn==="S"
-            ){
-
-                if(
-                    canPlay(
-                        card,
-                        "S"
-                    )
-                ){
-
-                    div.onclick=
-                        function(){
-
-                            playCard(
-                                "S",
-                                card
-                            );
-
-                        };
-
-                }else{
-
-                    div.classList.add(
-                        "disabled"
-                    );
-
-                }
-
-            }
-
-
-            /*
-               Dummy dikendalikan Selatan
-            */
-
-            if(
-                player===dummy &&
-                playing &&
-                declarer==="S" &&
-                turn===dummy
-            ){
-
-                if(
-                    canPlay(
-                        card,
-                        dummy
-                    )
-                ){
-
-                    div.onclick=
-                        function(){
-
-                            playCard(
-                                dummy,
-                                card
-                            );
-
-                        };
-
-                }else{
-
-                    div.classList.add(
-                        "disabled"
-                    );
-
-                }
-
-            }
-
-
-            el.appendChild(
-                div
-            );
+            el.appendChild(node);
 
         }
-
-    }
+    );
 
 }
 
 
-/* ===============================
-   KARTU DI TENGAH
-================================ */
+/* =====================================================
+   RENDER
+===================================================== */
 
-function renderPlayed(){
+function render(){
+
+    [
+        "N",
+        "E",
+        "S",
+        "W"
+    ].forEach(
+        renderHand
+    );
+
+
+    [
+        "TN",
+        "TS",
+        "TE",
+        "TW"
+    ].forEach(
+        x=>{
+            document.getElementById(
+                x
+            ).innerHTML="";
+        }
+    );
+
+
+    const map={
+        N:"TN",
+        S:"TS",
+        E:"TE",
+        W:"TW"
+    };
+
+
+    trick.forEach(
+        x=>{
+
+            const el=
+                document.getElementById(
+                    map[x.p]
+                );
+
+
+            const red=
+                x.c.s==="H" ||
+                x.c.s==="D";
+
+
+            el.innerHTML=`
+
+                <span class="${red?"red":""}">
+                    ${x.c.r}${sym[x.c.s]}
+                </span>
+
+            `;
+
+        }
+    );
+
+
+    /*
+       Skor partnership South/North
+    */
 
     document.getElementById(
-        "playedN"
-    ).textContent="—";
+        "you"
+    ).textContent=
+        won.N+
+        won.S;
 
 
     document.getElementById(
-        "playedS"
-    ).textContent="—";
+        "opp"
+    ).textContent=
+        won.E+
+        won.W;
 
 
     document.getElementById(
-        "playedE"
-    ).textContent="—";
+        "nmark"
+    ).textContent=
+        declarer==="N"
+        ? " ★"
+        : dummy==="N"
+        ? " ◇"
+        : "";
 
 
     document.getElementById(
-        "playedW"
-    ).textContent="—";
+        "smark"
+    ).textContent=
+        declarer==="S"
+        ? " ★"
+        : dummy==="S"
+        ? " ◇"
+        : "";
 
 
-    for(
-        let item of trick
-    ){
+    document.getElementById(
+        "emark"
+    ).textContent=
+        declarer==="E"
+        ? " ★"
+        : dummy==="E"
+        ? " ◇"
+        : "";
 
+
+    document.getElementById(
+        "wmark"
+    ).textContent=
+        declarer==="W"
+        ? " ★"
+        : dummy==="W"
+        ? " ◇"
+        : "";
+
+
+    renderAuction();
+
+    renderBids();
+
+}
+
+
+/* =====================================================
+   AUCTION DISPLAY
+===================================================== */
+
+function renderAuction(){
+
+    const a=
         document.getElementById(
-            "played"+
-            item.player
-        ).textContent=
-            item.card.rank+
-            item.card.suit;
+            "auction"
+        );
 
-    }
+
+    a.innerHTML="";
+
+
+    auction.forEach(
+        x=>{
+
+            const d=
+                document.createElement(
+                    "div"
+                );
+
+
+            d.className="call";
+
+
+            let text;
+
+
+            if(x.type==="P"){
+
+                text="Pass";
+
+            }
+
+            else if(x.type==="X"){
+
+                text="Double";
+
+            }
+
+            else if(x.type==="XX"){
+
+                text="Redouble";
+
+            }
+
+            else{
+
+                text=bidText(x);
+
+            }
+
+
+            d.innerHTML=`
+
+                <strong>
+                    ${x.p}
+                </strong>
+
+                ${text}
+
+            `;
+
+
+            a.appendChild(d);
+
+        }
+    );
 
 }
 
 
-/* ===============================
-   RENDER BIDDING
-================================ */
+/* =====================================================
+   BID BUTTONS
+===================================================== */
 
-function renderBidding(){
+function renderBids(){
 
-    let grid=
+    const b=
         document.getElementById(
-            "bidGrid"
+            "bids"
         );
 
 
-    grid.innerHTML="";
+    b.innerHTML="";
 
 
-    for(
-        let bid of getBidList()
-    ){
+    if(!humanCanBid()){
 
-        let button=
-            document.createElement(
-                "button"
-            );
+        b.style.opacity=.45;
 
-
-        button.textContent=bid;
-
-
-        button.disabled=
-            playing ||
-            turn!=="S" ||
-            !canBid(bid);
-
-
-        button.onclick=
-            function(){
-
-                humanBid(bid);
-
-            };
-
-
-        grid.appendChild(
-            button
-        );
+        return;
 
     }
 
 
-    /*
-       PASS
-    */
+    b.style.opacity=1;
 
-    let pass=
-        document.createElement(
-            "button"
-        );
 
-    pass.textContent="PASS";
+    callsForUI().forEach(
+        c=>{
 
-    pass.className="pass";
+            const q=
+                document.createElement(
+                    "button"
+                );
 
-    pass.disabled=
-        playing ||
-        turn!=="S";
 
-    pass.onclick=
-        humanPass;
+            q.className="bid";
 
-    grid.appendChild(
-        pass
+
+            q.textContent=
+                bidText(c);
+
+
+            q.disabled=
+                !legalCall(
+                    "B",
+                    c.l,
+                    c.s
+                );
+
+
+            q.onclick=
+                ()=>userCall({
+
+                    type:"B",
+
+                    l:c.l,
+
+                    s:c.s
+
+                });
+
+
+            b.appendChild(q);
+
+        }
     );
 
 
-    /*
-       DOUBLE
-    */
+    const extra=[
 
-    let dbl=
-        document.createElement(
-            "button"
-        );
+        {
+            t:"P",
+            txt:"PASS",
+            cl:"pass"
+        },
 
-    dbl.textContent="DOUBLE";
+        {
+            t:"X",
+            txt:"DOUBLE",
+            cl:"double"
+        },
 
-    dbl.className="double";
+        {
+            t:"XX",
+            txt:"REDOUBLE",
+            cl:"redouble"
+        }
 
-    dbl.disabled=
-        playing ||
-        turn!=="S" ||
-        !currentBid ||
-        doubleState!==0;
-
-    dbl.onclick=
-        humanDouble;
-
-    grid.appendChild(
-        dbl
-    );
+    ];
 
 
-    /*
-       REDOUBLE
-    */
+    extra.forEach(
+        x=>{
 
-    let redbl=
-        document.createElement(
-            "button"
-        );
+            const q=
+                document.createElement(
+                    "button"
+                );
 
-    redbl.textContent="REDOUBLE";
 
-    redbl.className="redouble";
+            q.className=
+                "bid "+
+                x.cl;
 
-    redbl.disabled=
-        playing ||
-        turn!=="S" ||
-        !currentBid ||
-        doubleState!==1;
 
-    redbl.onclick=
-        humanRedouble;
+            q.textContent=
+                x.txt;
 
-    grid.appendChild(
-        redbl
+
+            q.disabled=
+                !legalCall(
+                    x.t
+                );
+
+
+            q.onclick=
+                ()=>userCall({
+
+                    type:x.t
+
+                });
+
+
+            b.appendChild(q);
+
+        }
     );
 
 }
 
 
-/* ===============================
+/* =====================================================
    STATUS
-================================ */
+===================================================== */
 
-function setStatus(text){
+function log(t){
+
+    document.getElementById(
+        "msg"
+    ).textContent=t;
+
 
     document.getElementById(
         "status"
-    ).textContent=text;
+    ).textContent=t;
 
 }
 
 
-/* ===============================
-   SCORE TABLE
-================================ */
+/* =====================================================
+   NEW BOARD
+===================================================== */
 
-function renderScoreTable(){
+function newBoard(){
 
-    let body=
-        document.getElementById(
-            "scoreBody"
-        );
+    boardNo++;
 
-
-    body.innerHTML="";
-
-
-    for(
-        let result of results
-    ){
-
-        let row=
-            document.createElement(
-                "tr"
-            );
-
-
-        row.innerHTML=
-            "<td>"+
-            result.board+
-            "</td>"+
-
-            "<td>"+
-            result.contract+
-            "</td>"+
-
-            "<td>"+
-            result.declarer+
-            "</td>"+
-
-            "<td>"+
-            result.tricks+
-            "</td>"+
-
-            "<td>"+
-            result.score+
-            "</td>";
-
-
-        body.appendChild(
-            row
-        );
-
-    }
+    start();
 
 }
 
 
-/* ===============================
-   SCORE
-================================ */
+function redeal(){
 
-function showScore(){
-
-    alert(
-        "GABSI KOTA TANJUNGBALAI\n\n"+
-        "Total skor: "+
-        totalScore+
-        "\nBoard selesai: "+
-        results.length
-    );
+    start();
 
 }
 
 
-/* ===============================
-   ATURAN
-================================ */
+/* =====================================================
+   START
+===================================================== */
 
-function showRules(){
-
-    alert(
-`ATURAN BRIDGE
-
-• 4 pemain
-• 52 kartu
-• Masing-masing 13 kartu
-• Bidding 1♣ sampai 7NT
-• PASS
-• DOUBLE
-• REDOUBLE
-• 13 trik dalam satu board
-• Wajib mengikuti suit
-• Suit kontrak menjadi trump
-• NT tidak mempunyai trump
-• Setelah 13 trik skor dihitung`
-    );
-
-}
-
-
-/* ===============================
-   RESET
-================================ */
-
-function resetGame(){
-
-    let answer=
-        confirm(
-            "Hapus semua hasil permainan?"
-        );
-
-
-    if(!answer)return;
-
-
-    board=0;
-
-    totalScore=0;
-
-    results=[];
-
-    newBoard();
-
-}
-
-
-/* ===============================
-   TAMPILKAN KONDISI AWAL
-================================ */
-
-render();
+start();
 
 </script>
 
