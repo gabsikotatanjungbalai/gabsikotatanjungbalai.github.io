@@ -2,2492 +2,2474 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#102027">
-<title>GABSI Bridge Online</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#082b20">
+<meta name="description" content="GABSI Kota Tanjungbalai - Game Bridge melawan komputer">
+<title>Game Bridge — GABSI Kota Tanjungbalai</title>
 
 <style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0;background:#09151b;color:#eef4f6;font-family:Arial,Helvetica,sans-serif}
-button{font:inherit}
-
 :root{
- --bg:#09151b;
- --bar:#12232a;
- --bar2:#172c34;
- --line:#314952;
- --green:#176447;
- --green2:#20825e;
- --gold:#ffd44d;
- --white:#fff;
- --red:#d11f2f;
+  --bg:#071713;
+  --felt:#0b5b3c;
+  --felt2:#08452f;
+  --panel:#09241c;
+  --gold:#e7c66a;
+  --white:#f7f7f3;
+  --muted:#a9c1b8;
+  --red:#c83b3b;
+  --cardw:56px;
+  --cardh:78px;
 }
 
-body{min-height:100vh}
+*{box-sizing:border-box}
 
+html,body{
+  margin:0;
+  min-height:100%;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 50% 20%,#146b49 0,#062018 58%,#03110d 100%);
+  color:var(--white);
+}
+
+button{
+  font:inherit;
+}
+
+.app{
+  max-width:1100px;
+  margin:auto;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER */
 .top{
- height:55px;
- background:var(--bar);
- border-bottom:1px solid var(--line);
- display:flex;
- align-items:center;
- justify-content:space-between;
- padding:0 10px;
- position:sticky;
- top:0;
- z-index:100;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 12px;
+  background:rgba(3,16,12,.96);
+  border-bottom:1px solid #1e4b3c;
+  position:sticky;
+  top:0;
+  z-index:20;
 }
 
-.brand{
- font-size:14px;
- font-weight:bold;
+.logo{
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  background:linear-gradient(145deg,#e9ca6b,#9c7421);
+  color:#082015;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  font-size:22px;
+}
+
+.brand b{
+  display:block;
+  font-size:15px;
 }
 
 .brand small{
- display:block;
- color:#91a9b2;
- font-size:9px;
- margin-top:2px;
- font-weight:normal;
+  color:var(--muted);
 }
 
-.top-actions{
- display:flex;
- gap:5px;
+.spacer{
+  flex:1;
 }
 
-.top-actions button{
- background:#203941;
- border:1px solid #3b555e;
- color:#fff;
- border-radius:6px;
- padding:7px 9px;
- font-size:10px;
+.top button,
+.actions button{
+  border:1px solid #396d5a;
+  background:#102e25;
+  color:white;
+  border-radius:9px;
+  padding:9px 12px;
 }
 
-.wrap{
- max-width:1100px;
- margin:auto;
- padding:7px;
+/* LAYOUT */
+.board{
+  margin:10px;
+  display:grid;
+  grid-template-columns:1fr 250px;
+  gap:10px;
 }
 
-.info{
- display:flex;
- gap:5px;
- flex-wrap:wrap;
- margin-bottom:7px;
-}
-
-.info span{
- background:#12262e;
- border:1px solid var(--line);
- border-radius:5px;
- padding:5px 8px;
- font-size:10px;
-}
-
-.info b{color:var(--gold)}
-
+/* TABLE */
 .table{
- height:590px;
- position:relative;
- overflow:hidden;
- border:7px solid #071d16;
- border-radius:25px;
- background:
- radial-gradient(circle at center,#20805d 0%,#176447 48%,#0e4b36 100%);
- box-shadow:
- inset 0 0 0 2px #2c936c,
- 0 8px 30px #000b;
+  position:relative;
+  min-height:650px;
+  border:2px solid #195b42;
+  border-radius:20px;
+  background:
+    radial-gradient(
+      ellipse at center,
+      #0d7049,
+      #075438 60%,
+      #043324
+    );
+  box-shadow:
+    inset 0 0 50px #021b12,
+    0 8px 30px #0008;
+  overflow:hidden;
 }
 
+.table:before{
+  content:"GABSI";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#fff1;
+  font-size:90px;
+  font-weight:900;
+  letter-spacing:8px;
+  transform:rotate(-12deg);
+}
+
+/* SEATS */
 .seat{
- position:absolute;
- display:flex;
- flex-direction:column;
- align-items:center;
- z-index:5;
+  position:absolute;
+  z-index:6;
+  text-align:center;
 }
 
 .north{
- top:5px;
- left:50%;
- transform:translateX(-50%);
+  top:8px;
+  left:50%;
+  transform:translateX(-50%);
 }
 
 .south{
- bottom:5px;
- left:50%;
- transform:translateX(-50%);
+  bottom:8px;
+  left:50%;
+  transform:translateX(-50%);
 }
 
 .west{
- left:4px;
- top:50%;
- transform:translateY(-50%);
+  left:7px;
+  top:50%;
+  transform:translateY(-50%);
 }
 
 .east{
- right:4px;
- top:50%;
- transform:translateY(-50%);
+  right:7px;
+  top:50%;
+  transform:translateY(-50%);
 }
 
 .name{
- background:#081a20e8;
- border:1px solid #ffffff26;
- border-radius:5px;
- padding:4px 7px;
- font-size:9px;
- margin-bottom:4px;
- white-space:nowrap;
+  font-size:12px;
+  font-weight:bold;
+  background:#061912dd;
+  border:1px solid #396d5a;
+  border-radius:8px;
+  padding:5px 8px;
+  display:inline-block;
 }
 
+.you{
+  color:var(--gold);
+}
+
+/* BOARD INFO */
+.info{
+  position:absolute;
+  top:9px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:8;
+  background:#071b15dd;
+  border:1px solid #467c69;
+  border-radius:9px;
+  padding:6px 10px;
+  text-align:center;
+  white-space:nowrap;
+  font-size:12px;
+}
+
+/* CARDS */
 .hand{
- display:flex;
- justify-content:center;
- min-width:420px;
+  display:flex;
+  justify-content:center;
+  min-height:80px;
 }
 
 .sidehand{
- display:flex;
- flex-direction:column;
- align-items:center;
- gap:2px;
+  flex-direction:column;
+  align-items:center;
+}
+
+.sidehand .card{
+  margin:-17px 0;
+}
+
+.sidehand .card:first-child{
+  margin-top:0;
+}
+
+.sidehand .card:last-child{
+  margin-bottom:0;
 }
 
 .card{
- width:50px;
- height:72px;
- background:#fff;
- color:#111;
- border:1px solid #d6d6d6;
- border-radius:6px;
- position:relative;
- box-shadow:0 2px 5px #0009;
- flex:none;
- user-select:none;
+  width:var(--cardw);
+  height:var(--cardh);
+  background:linear-gradient(145deg,#fff,#e8e8e4);
+  color:#111;
+  border-radius:7px;
+  border:1px solid #aaa;
+  box-shadow:0 2px 5px #0008;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:5px;
+  cursor:pointer;
+  user-select:none;
+  transition:.12s;
+  position:relative;
 }
 
-.south .card{
- cursor:pointer;
+.card:hover{
+  transform:translateY(-8px);
+  z-index:10;
 }
 
-.card.red{color:#c51829}
-
-.rank{
- position:absolute;
- left:4px;
- top:3px;
- font-size:14px;
- font-weight:bold;
+.card.red{
+  color:#c52e2e;
 }
 
-.suit{
- position:absolute;
- left:4px;
- top:20px;
- font-size:13px;
+.card .corner{
+  font-weight:800;
+  line-height:1.05;
 }
 
-.center-suit{
- position:absolute;
- inset:0;
- display:grid;
- place-items:center;
- font-size:23px;
+.card .pip{
+  font-size:25px;
+  text-align:center;
+  align-self:center;
 }
 
-.playable{
- outline:3px solid var(--gold);
- transform:translateY(-5px);
+.back{
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #174c87 0 4px,
+      #dbe6f5 4px 7px
+    );
+  color:white;
+  border:3px solid #eee;
+  cursor:default;
 }
 
-.playable:active{
- transform:translateY(-9px);
+.dummy .card{
+  cursor:default;
 }
 
-.card.back{
- background:
- repeating-linear-gradient(
-  45deg,
-  #183e5f 0,
-  #183e5f 5px,
-  #2a5c82 5px,
-  #2a5c82 8px
- );
- border:1px solid #fff;
+.dummy .card:hover{
+  transform:none;
 }
 
-.card.back:after{
- content:"♠";
- position:absolute;
- inset:0;
- display:grid;
- place-items:center;
- font-size:24px;
- color:#dbeaf0;
-}
-
-.west .card,
-.east .card{
- width:38px;
- height:53px;
-}
-
-.west .rank,
-.east .rank{
- font-size:10px;
-}
-
-.west .suit,
-.east .suit{
- top:14px;
- font-size:9px;
-}
-
-.west .center-suit,
-.east .center-suit{
- font-size:17px;
-}
-
-.center{
- position:absolute;
- width:220px;
- height:220px;
- left:50%;
- top:50%;
- transform:translate(-50%,-50%);
- border-radius:50%;
- background:#092e22aa;
-}
-
+/* PLAYED CARDS */
 .trick{
- position:absolute;
- width:49px;
- height:70px;
- border-radius:6px;
- background:#fff;
- color:#111;
- display:grid;
- place-items:center;
- font-size:23px;
- font-weight:bold;
- box-shadow:0 2px 6px #000a;
- border:1px solid #ddd;
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:4;
 }
 
-.trick.red{color:#c51829}
-
-.trick.n{
- top:4px;
- left:50%;
- transform:translateX(-50%);
+.played{
+  position:absolute;
+  width:60px;
+  height:82px;
 }
 
-.trick.s{
- bottom:4px;
- left:50%;
- transform:translateX(-50%);
+.played.n{
+  top:35%;
+  left:50%;
+  transform:translate(-50%,-50%);
 }
 
-.trick.w{
- left:4px;
- top:50%;
- transform:translateY(-50%);
+.played.s{
+  bottom:34%;
+  left:50%;
+  transform:translate(-50%,50%);
 }
 
-.trick.e{
- right:4px;
- top:50%;
- transform:translateY(-50%);
+.played.w{
+  left:38%;
+  top:50%;
+  transform:translate(-50%,-50%);
 }
 
-.center-msg{
- position:absolute;
- left:50%;
- top:50%;
- transform:translate(-50%,-50%);
- width:175px;
- text-align:center;
- color:#d9eee6;
- font-size:10px;
- pointer-events:none;
+.played.e{
+  right:38%;
+  top:50%;
+  transform:translate(50%,-50%);
 }
 
-.bottom{
- margin-top:7px;
- background:var(--bar);
- border:1px solid var(--line);
- border-radius:8px;
- padding:8px;
+/* SIDE PANEL */
+.side{
+  background:rgba(4,20,15,.94);
+  border:1px solid #244f41;
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  max-height:650px;
 }
 
-.status{
- color:#dce9ed;
- font-size:11px;
- margin-bottom:6px;
- min-height:16px;
+.side h3{
+  margin:0;
+  padding:12px;
+  border-bottom:1px solid #244f41;
+  font-size:14px;
 }
 
 .auction{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:3px;
- max-height:125px;
- overflow:auto;
-}
-
-.call{
- background:#1a3038;
- border:1px solid #304851;
- border-radius:4px;
- padding:4px;
- font-size:10px;
- min-height:32px;
-}
-
-.call b{
- color:#91a9b2;
- display:block;
- font-size:8px;
-}
-
-.bid-area{
- margin-top:7px;
- display:grid;
- grid-template-columns:repeat(5,1fr);
- gap:3px;
+  padding:8px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:5px;
+  max-height:220px;
+  overflow:auto;
 }
 
 .bid{
- min-height:34px;
- border:1px solid #45616a;
- border-radius:5px;
- color:#fff;
- background:#203b44;
- font-size:10px;
- cursor:pointer;
+  background:#102f26;
+  border:1px solid #315e50;
+  border-radius:6px;
+  padding:5px;
+  text-align:center;
+  font-size:11px;
 }
 
-.bid:disabled{
- opacity:.25;
- cursor:not-allowed;
+.bid b{
+  display:block;
+  color:var(--gold);
 }
 
-.bid.pass{background:#46545a}
-.bid.double{background:#795b19}
-.bid.redouble{background:#70363d}
-
-.score{
- margin-top:7px;
- display:flex;
- justify-content:space-between;
- gap:6px;
- flex-wrap:wrap;
- font-size:10px;
- color:#a9bdc4;
-}
-
-.score b{color:var(--gold)}
-
-.actions{
- display:flex;
- gap:5px;
- margin-top:7px;
-}
-
-.actions button{
- flex:1;
- background:#176447;
- border:1px solid #3d9975;
- color:#fff;
- border-radius:5px;
- padding:8px;
- font-size:10px;
+.status{
+  padding:10px;
+  border-top:1px solid #244f41;
+  border-bottom:1px solid #244f41;
+  font-size:12px;
+  line-height:1.5;
 }
 
 .log{
- margin-top:7px;
- max-height:70px;
- overflow:auto;
- background:#08171d;
- border-radius:5px;
- padding:5px;
- font-size:9px;
- color:#8fa6ae;
-}
-
-.modal{
- display:none;
- position:fixed;
- inset:0;
- background:#000b;
- z-index:500;
- align-items:center;
- justify-content:center;
- padding:15px;
-}
-
-.modal.show{display:flex}
-
-.modal-box{
- width:min(390px,100%);
- background:#142a32;
- border:1px solid #45636c;
- border-radius:12px;
- padding:16px;
- box-shadow:0 20px 50px #000;
-}
-
-.modal-box h2{
- text-align:center;
- margin:0 0 12px;
- font-size:20px;
-}
-
-.result-row{
- display:flex;
- justify-content:space-between;
- border-bottom:1px solid #ffffff12;
- padding:7px 0;
- font-size:12px;
-}
-
-.result-row:last-child{border:0}
-
-.result-score{
- text-align:center;
- font-size:30px;
- color:var(--gold);
- font-weight:bold;
- padding:10px;
-}
-
-.modal button{
- width:100%;
- border:0;
- border-radius:6px;
- padding:10px;
- background:#197050;
- color:#fff;
-}
-
-@media(max-width:650px){
-
- .top{height:52px}
-
- .brand{font-size:11px}
- .brand small{font-size:8px}
-
- .top-actions button{
-  padding:6px 7px;
-  font-size:9px;
- }
-
- .table{
-  height:535px;
-  border-width:5px;
- }
-
- .hand{
-  min-width:0;
- }
-
- .card{
-  width:42px;
-  height:61px;
- }
-
- .north .card{
-  margin-left:-13px;
- }
-
- .south .card{
-  margin-left:-9px;
- }
-
- .north .card:first-child,
- .south .card:first-child{
-  margin-left:0;
- }
-
- .rank{
-  font-size:12px;
- }
-
- .suit{
-  top:17px;
+  padding:9px;
+  overflow:auto;
+  flex:1;
   font-size:11px;
- }
-
- .center-suit{
-  font-size:19px;
- }
-
- .west .card,
- .east .card{
-  width:33px;
-  height:47px;
- }
-
- .west .rank,
- .east .rank{
-  font-size:8px;
- }
-
- .west .suit,
- .east .suit{
-  top:12px;
-  font-size:8px;
- }
-
- .west .center-suit,
- .east .center-suit{
-  font-size:14px;
- }
-
- .center{
-  width:170px;
-  height:170px;
- }
-
- .trick{
-  width:40px;
-  height:57px;
-  font-size:18px;
- }
-
- .auction{
-  max-height:105px;
- }
-
- .bid{
-  font-size:9px;
- }
-
- .info span{
-  font-size:9px;
-  padding:4px 6px;
- }
-
+  color:#c7d9d2;
 }
 
-@media(max-width:390px){
+.log div{
+  padding:3px 0;
+  border-bottom:1px solid #173a30;
+}
 
- .card{
-  width:38px;
-  height:56px;
- }
+/* CONTROLS */
+.controls{
+  padding:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  background:#061812;
+}
 
- .south .card{
-  margin-left:-11px;
- }
+.controls button{
+  flex:1;
+  min-width:90px;
+  background:#12382c;
+  border:1px solid #39705d;
+  color:white;
+  border-radius:8px;
+  padding:9px;
+}
 
- .north .card{
-  margin-left:-15px;
- }
+.controls button.primary{
+  background:#a47b28;
+  border-color:#e2c66c;
+  color:#10150e;
+  font-weight:bold;
+}
 
- .center{
-  width:155px;
-  height:155px;
- }
+/* FOOTER */
+.bottom{
+  padding:10px;
+  text-align:center;
+  color:#91aaa1;
+  font-size:11px;
+}
 
- .west .card,
- .east .card{
-  width:30px;
-  height:43px;
- }
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:#000b;
+  display:none;
+  place-items:center;
+  z-index:100;
+  padding:18px;
+}
 
+.modal.show{
+  display:grid;
+}
+
+.dialog{
+  width:min(520px,100%);
+  background:#09241c;
+  border:1px solid #487565;
+  border-radius:15px;
+  box-shadow:0 20px 60px #000;
+  padding:16px;
+}
+
+.dialog h2{
+  margin-top:0;
+}
+
+.bidgrid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:6px;
+}
+
+.bidgrid button{
+  padding:10px 3px;
+  border-radius:7px;
+  background:#123a2d;
+  color:#fff;
+  border:1px solid #477464;
+}
+
+.bidgrid button:disabled{
+  opacity:.35;
+}
+
+.close{
+  margin-top:12px;
+  width:100%;
+  padding:10px;
+  border:0;
+  border-radius:8px;
+  background:#b78a31;
+  color:#111;
+  font-weight:bold;
+}
+
+/* MOBILE */
+@media(max-width:780px){
+
+  .board{
+    grid-template-columns:1fr;
+  }
+
+  .side{
+    max-height:none;
+  }
+
+  .table{
+    min-height:590px;
+  }
+
+  .side{
+    order:2;
+  }
+
+  :root{
+    --cardw:49px;
+    --cardh:70px;
+  }
+
+  .card .pip{
+    font-size:21px;
+  }
+
+  .west{
+    left:2px;
+  }
+
+  .east{
+    right:2px;
+  }
+
+  .played.w{
+    left:34%;
+  }
+
+  .played.e{
+    right:34%;
+  }
+}
+
+@media(max-width:430px){
+
+  :root{
+    --cardw:43px;
+    --cardh:63px;
+  }
+
+  .table{
+    min-height:555px;
+  }
+
+  .name{
+    font-size:10px;
+    padding:4px 6px;
+  }
+
+  .hand{
+    min-height:65px;
+  }
+
+  .info{
+    font-size:10px;
+  }
+
+  .brand small{
+    font-size:9px;
+  }
+
+  .top button{
+    padding:7px 8px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<div class="app">
+
 <header class="top">
 
- <div class="brand">
-  ♠ GABSI KOTA TANJUNGBALAI
-  <small>BRIDGE ONLINE • DUPLICATE CENTER</small>
- </div>
+  <div class="logo">♠</div>
 
- <div class="top-actions">
-  <button onclick="newBoard()">BOARD BARU</button>
-  <button onclick="location.href='index.html'">BERANDA</button>
- </div>
+  <div class="brand">
+    <b>GABSI KOTA TANJUNGBALAI</b>
+    <small>BRIDGE ONLINE • VS COMPUTER</small>
+  </div>
+
+  <div class="spacer"></div>
+
+  <button onclick="newGame()">↻ Game Baru</button>
 
 </header>
 
-<main class="wrap">
 
- <div class="info">
+<main class="board">
 
-  <span>BOARD <b id="board">1</b></span>
-  <span>DEALER <b id="dealer">S</b></span>
-  <span>VUL <b id="vul">-</b></span>
-  <span>KONTRAK <b id="contractTop">-</b></span>
-  <span>TRICK <b id="trickTop">0/13</b></span>
+<section class="table" id="table">
 
- </div>
+  <div class="info" id="boardInfo">
+    Board 1 • Dealer: N • Semua aman
+  </div>
 
 
- <section class="table">
+  <!-- NORTH -->
 
   <div class="seat north">
 
-   <div class="name">
-    NORTH <span id="northMark"></span>
-   </div>
+    <div class="name" id="nameN">
+      North • Komputer
+    </div>
 
-   <div class="hand" id="N"></div>
+    <div class="hand sidehand" id="handN"></div>
 
   </div>
 
+
+  <!-- WEST -->
 
   <div class="seat west">
 
-   <div class="name">
-    WEST <span id="westMark"></span>
-   </div>
+    <div class="name" id="nameW">
+      West • Komputer
+    </div>
 
-   <div class="sidehand" id="W"></div>
+    <div class="hand sidehand" id="handW"></div>
 
   </div>
 
+
+  <!-- EAST -->
 
   <div class="seat east">
 
-   <div class="name">
-    EAST <span id="eastMark"></span>
-   </div>
+    <div class="name" id="nameE">
+      East • Komputer
+    </div>
 
-   <div class="sidehand" id="E"></div>
+    <div class="hand sidehand" id="handE"></div>
 
   </div>
 
+
+  <!-- SOUTH / USER -->
 
   <div class="seat south">
 
-   <div class="name">
-    SOUTH — ANDA <span id="southMark"></span>
-   </div>
+    <div class="name you" id="nameS">
+      South • ANDA
+    </div>
 
-   <div class="hand" id="S"></div>
-
-  </div>
-
-
-  <div class="center">
-
-   <div class="trick n" id="TN"></div>
-   <div class="trick e" id="TE"></div>
-   <div class="trick s" id="TS"></div>
-   <div class="trick w" id="TW"></div>
-
-   <div class="center-msg" id="centerMsg">
-    Menunggu permainan...
-   </div>
+    <div class="hand" id="handS"></div>
 
   </div>
 
- </section>
+
+  <div class="trick" id="trick"></div>
+
+</section>
 
 
- <section class="bottom">
+<!-- PANEL KANAN -->
 
-  <div class="status" id="status">
-   Memulai board...
-  </div>
+<aside class="side">
+
+  <h3>
+    LELANG / AUCTION
+  </h3>
 
   <div class="auction" id="auction"></div>
 
-  <div class="bid-area" id="bidArea"></div>
 
-  <div class="score">
-
-   <span>
-    KONTRAK:
-    <b id="contract">-</b>
-   </span>
-
-   <span>
-    NS:
-    <b id="nsTricks">0</b>
-   </span>
-
-   <span>
-    EW:
-    <b id="ewTricks">0</b>
-   </span>
-
-   <span>
-    SKOR:
-    <b id="scoreValue">-</b>
-   </span>
-
-  </div>
-
-
-  <div class="actions">
-
-   <button onclick="newBoard()">
-    ♻ BOARD BARU
-   </button>
-
-   <button onclick="shuffleBoard()">
-    🎴 DEAL ULANG
-   </button>
-
+  <div class="status" id="status">
+    Memulai permainan...
   </div>
 
 
   <div class="log" id="log"></div>
 
- </section>
+
+  <div class="controls">
+
+    <button onclick="sortHand()">
+      Urutkan
+    </button>
+
+    <button onclick="showHelp()">
+      Bantuan
+    </button>
+
+    <button
+      class="primary"
+      onclick="openBid()"
+      id="bidBtn">
+      Pilih Bid
+    </button>
+
+  </div>
+
+</aside>
 
 </main>
 
 
-<div class="modal" id="resultModal">
+<div class="bottom">
+  Game Bridge GABSI • Single-file HTML • 4 pemain • AI komputer
+</div>
 
- <div class="modal-box">
+</div>
 
-  <h2>BOARD SELESAI</h2>
 
-  <div class="result-row">
-   <span>Kontrak</span>
-   <b id="rContract">-</b>
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+  <div class="dialog">
+
+    <h2 id="modalTitle">
+      Lelang
+    </h2>
+
+    <div id="modalBody"></div>
+
+    <button
+      class="close"
+      onclick="closeModal()">
+      Tutup
+    </button>
+
   </div>
-
-  <div class="result-row">
-   <span>Declarer</span>
-   <b id="rDeclarer">-</b>
-  </div>
-
-  <div class="result-row">
-   <span>Target</span>
-   <b id="rTarget">-</b>
-  </div>
-
-  <div class="result-row">
-   <span>Trick</span>
-   <b id="rMade">-</b>
-  </div>
-
-  <div class="result-row">
-   <span>Hasil</span>
-   <b id="rResult">-</b>
-  </div>
-
-  <div class="result-score" id="rScore">
-   0
-  </div>
-
-  <button onclick="closeResult()">
-   LANJUT KE BOARD BERIKUTNYA
-  </button>
-
- </div>
 
 </div>
 
 
 <script>
 
-/* =====================================================
-   GABSI BRIDGE ENGINE
-===================================================== */
+/* =========================================================
+   DATA DASAR
+========================================================= */
 
-const players=["N","E","S","W"];
+const SUITS = ['♣','♦','♥','♠'];
 
-const suits=["C","D","H","S"];
-
-const symbols={
- C:"♣",
- D:"♦",
- H:"♥",
- S:"♠"
-};
-
-const ranks=[
- "2","3","4","5","6","7","8",
- "9","10","J","Q","K","A"
+const RANKS = [
+  '2','3','4','5','6','7',
+  '8','9','T','J','Q','K','A'
 ];
 
-let board=1;
-let dealer="S";
-let vulnerability="None";
+const SEATS = ['N','E','S','W'];
 
-let hands={};
-
-let auction=[];
-let highest=null;
-let multiplier=1;
-let bidTurn="";
-
-let contract=null;
-let declarer="";
-let dummy="";
-let leader="";
-let turn="";
-
-let phase="auction";
-
-let trick=[];
-let trickNumber=0;
-
-let won={
- N:0,
- E:0,
- S:0,
- W:0
+const NAMES = {
+  N:'North',
+  E:'East',
+  S:'South',
+  W:'West'
 };
 
 
-/* =====================================================
-   BASIC
-===================================================== */
+/* =========================================================
+   STATE GAME
+========================================================= */
 
-function next(p){
- return players[
-  (players.indexOf(p)+1)%4
- ];
-}
+let players = {
+  N:[],
+  E:[],
+  S:[],
+  W:[]
+};
 
-function partner(p){
- return {
-  N:"S",
-  S:"N",
-  E:"W",
-  W:"E"
- }[p];
-}
+let deck = [];
 
-function side(p){
- return p==="N"||p==="S" ? "NS":"EW";
-}
+let auction = [];
 
-function hcp(hand){
- return hand.reduce((n,c)=>{
-  if(c.r==="A")return n+4;
-  if(c.r==="K")return n+3;
-  if(c.r==="Q")return n+2;
-  if(c.r==="J")return n+1;
-  return n;
- },0);
-}
+let phase = 'auction';
 
+let dealer = 'N';
 
-/* =====================================================
-   VULNERABILITY
-===================================================== */
+let turn = 0;
 
-function getVulnerability(b){
+let contract = null;
 
- const n=(b-1)%16;
+let declarer = null;
 
- if(n===0)return "None";
- if(n===1)return "NS";
- if(n===2)return "EW";
- if(n===3)return "Both";
- if(n===4)return "EW";
- if(n===5)return "Both";
- if(n===6)return "None";
- if(n===7)return "NS";
- if(n===8)return "NS";
- if(n===9)return "EW";
- if(n===10)return "Both";
- if(n===11)return "None";
- if(n===12)return "Both";
- if(n===13)return "None";
- if(n===14)return "NS";
+let dummy = null;
 
- return "EW";
-}
+let leadSuit = null;
 
-function isVulnerable(p){
- return vulnerability==="Both" ||
-  vulnerability===side(p);
-}
+let trick = [];
 
+let trickNo = 0;
 
-/* =====================================================
-   DECK
-===================================================== */
-
-function makeDeck(){
-
- let d=[];
-
- suits.forEach(s=>{
-  ranks.forEach((r,i=>{
-   d.push({
-    s:s,
-    r:r,
-    v:i+2
-   });
-  }));
- });
-
- return d.sort(()=>Math.random()-.5);
-}
-
-function sortHand(h){
-
- const order={
-  S:4,
-  H:3,
-  D:2,
-  C:1
- };
-
- return h.sort((a,b)=>
-  order[b.s]-order[a.s] ||
-  b.v-a.v
- );
-}
-
-function deal(){
-
- const d=makeDeck();
-
- hands={};
-
- players.forEach((p,i)=>{
-  hands[p]=sortHand(
-   d.slice(i*13,i*13+13)
-  );
- });
-}
-
-
-/* =====================================================
-   BID
-===================================================== */
-
-function suitValue(s){
- return {
-  C:0,
-  D:1,
-  H:2,
-  S:3,
-  NT:4
- }[s];
-}
-
-function higher(a,b){
-
- if(!b)return true;
-
- return a.level>b.level ||
-  (
-   a.level===b.level &&
-   suitValue(a.suit)>suitValue(b.suit)
-  );
-}
-
-function bidText(b){
-
- if(!b)return "";
-
- return b.level+
-  (
-   b.suit==="NT"
-   ? "NT"
-   : symbols[b.suit]
-  );
-}
-
-
-/* =====================================================
-   START
-===================================================== */
-
-function start(){
-
- dealer=
-  players[
-   (players.indexOf("S")+board-1)%4
-  ];
-
- vulnerability=
-  getVulnerability(board);
-
- deal();
-
- auction=[];
- highest=null;
- multiplier=1;
-
- contract=null;
- declarer="";
- dummy="";
-
- trick=[];
- trickNumber=0;
-
- won={
+let tricksWon = {
   N:0,
   E:0,
   S:0,
   W:0
- };
+};
 
- phase="auction";
- bidTurn=dealer;
+let boardNo = 1;
 
- updateInfo();
+let passCount = 0;
 
- logClear();
-
- addLog(
-  "Board "+board+
-  " | Dealer "+dealer+
-  " | Vulnerability "+vulnerability
- );
-
- render();
-
- setTimeout(aiAuction,500);
-}
+let lastBid = null;
 
 
-/* =====================================================
-   AUCTION LEGAL
-===================================================== */
+/* =========================================================
+   GAME BARU
+========================================================= */
 
-function legalBid(level,suit){
+function newGame(){
 
- if(!highest)return true;
+  boardNo =
+    Math.floor(Math.random()*16)+1;
 
- return higher(
-  {
-   level:level,
-   suit:suit
-  },
-  highest
- );
-}
+  dealer =
+    SEATS[(boardNo-1)%4];
 
-function legalDouble(){
-
- return highest &&
-  highest.side!==side(bidTurn) &&
-  multiplier===1;
-}
-
-function legalRedouble(){
-
- return highest &&
-  highest.side===side(bidTurn) &&
-  multiplier===2;
-}
-
-
-/* =====================================================
-   APPLY CALL
-===================================================== */
-
-function applyCall(call){
-
- auction.push({
-  ...call,
-  player:bidTurn
- });
-
- if(call.type==="PASS"){
-
- }else if(call.type==="DOUBLE"){
-
-  multiplier=2;
-
- }else if(call.type==="REDOUBLE"){
-
-  multiplier=4;
-
- }else{
-
-  highest={
-   level:call.level,
-   suit:call.suit,
-   player:bidTurn,
-   side:side(bidTurn)
+  players = {
+    N:[],
+    E:[],
+    S:[],
+    W:[]
   };
 
-  multiplier=1;
+  auction = [];
 
- }
+  phase = 'auction';
 
+  turn = SEATS.indexOf(dealer);
 
- renderAuction();
+  contract = null;
 
- /*
-  Empat pass awal = tidak ada kontrak.
- */
+  declarer = null;
 
- const nonPass=auction.filter(
-  x=>x.type!=="PASS"
- );
+  dummy = null;
 
- const trailing=auction
-  .slice(-3)
-  .every(x=>x.type==="PASS");
+  leadSuit = null;
 
- if(
-  !highest &&
-  auction.length>=4 &&
-  auction.every(x=>x.type==="PASS")
- ){
+  trick = [];
 
-  phase="done";
+  trickNo = 0;
 
-  status("Semua pemain PASS.");
+  tricksWon = {
+    N:0,
+    E:0,
+    S:0,
+    W:0
+  };
 
-  return;
- }
+  passCount = 0;
 
- if(
-  highest &&
-  trailing
- ){
+  lastBid = null;
 
-  finishAuction();
+  makeDeck();
 
-  return;
- }
-
- bidTurn=next(bidTurn);
-
- render();
-
- setTimeout(aiAuction,550);
-}
-
-
-/* =====================================================
-   AI BIDDING
-===================================================== */
-
-function aiAuction(){
-
- if(phase!=="auction")return;
-
- if(bidTurn==="S"){
-
-  status("Giliran Anda melakukan bidding.");
+  deal();
 
   render();
 
-  return;
- }
+  log(
+    'Board baru dibagikan. Dealer: ' +
+    NAMES[dealer] + '.'
+  );
 
- const call=computerBid(bidTurn);
+  if(SEATS[turn] !== 'S'){
 
- applyCall(call);
+    setTimeout(
+      computerBid,
+      700
+    );
+
+  }
+
 }
 
 
-function computerBid(p){
+/* =========================================================
+   DECK
+========================================================= */
 
- const hand=hands[p];
- const points=hcp(hand);
+function makeDeck(){
 
- const count={
-  C:0,
-  D:0,
-  H:0,
-  S:0
- };
+  deck = [];
 
- hand.forEach(c=>count[c.s]++);
+  for(const s of SUITS){
 
- const balanced=
-  Object.values(count).every(x=>x>=2) &&
-  Math.max(...Object.values(count))<=5;
+    for(const r of RANKS){
 
- let call={
-  type:"PASS"
- };
+      deck.push({
+        s:s,
+        r:r
+      });
 
- /*
-  Opening bid.
- */
+    }
 
- if(!highest){
-
-  if(points>=15&&points<=17&&balanced){
-
-   call={
-    type:"BID",
-    level:1,
-    suit:"NT"
-   };
-
-  }else if(points>=12){
-
-   let major=
-    count.S>=5 ? "S" :
-    count.H>=5 ? "H" :
-    null;
-
-   if(major){
-
-    call={
-     type:"BID",
-     level:1,
-     suit:major
-    };
-
-   }else{
-
-    let suitBest=
-     ["D","C"].sort(
-      (a,b)=>count[b]-count[a]
-     )[0];
-
-    call={
-     type:"BID",
-     level:1,
-     suit:suitBest
-    };
-
-   }
   }
 
- }else{
+  deck.sort(
+    () => Math.random()-.5
+  );
 
-  const partnerBid=
-   highest.side===side(p);
+}
 
-  if(partnerBid){
 
-   if(
-    points>=10 &&
-    highest.level<3
-   ){
+/* =========================================================
+   DEAL
+========================================================= */
 
-    const suitOrder=
-     ["S","H","D","C"];
+function deal(){
 
-    let best=suitOrder
-     .sort(
-      (a,b)=>count[b]-count[a]
-     )[0];
+  for(let i=0;i<52;i++){
 
-    if(count[best]>=4){
+    players[
+      SEATS[i%4]
+    ].push(deck[i]);
 
-     const lv=Math.min(
-      3,
-      highest.level+1
-     );
+  }
 
-     if(
-      legalBid(lv,best)
-     ){
+  for(const p of SEATS){
 
-      call={
-       type:"BID",
-       level:lv,
-       suit:best
-      };
+    players[p].sort(cardCmp);
 
-     }
-    }
-   }
+  }
 
-  }else{
+}
 
-   /*
-    Simple competitive bidding.
-   */
 
-   if(
-    points>=16 &&
-    multiplier===1 &&
-    Math.random()<.25
-   ){
+/* =========================================================
+   SORT
+========================================================= */
 
-    call={
-     type:"DOUBLE"
-    };
+function cardCmp(a,b){
 
-   }else if(
-    points>=11 &&
-    highest.level<=2
-   ){
+  let si =
+    SUITS.indexOf(a.s);
 
-    let best=
-     ["S","H","D","C"]
+  let sj =
+    SUITS.indexOf(b.s);
+
+  return (
+    si-sj ||
+    RANKS.indexOf(a.r) -
+    RANKS.indexOf(b.r)
+  );
+
+}
+
+
+/* =========================================================
+   HCP
+========================================================= */
+
+function hcp(hand){
+
+  return hand.reduce(
+    (n,c) =>
+      n +
+      ({
+        A:4,
+        K:3,
+        Q:2,
+        J:1
+      }[c.r] || 0),
+    0
+  );
+
+}
+
+
+/* =========================================================
+   BID INDEX
+========================================================= */
+
+function canBid(level,suit){
+
+  if(!lastBid)
+    return true;
+
+  let idx =
+    (level-1)*5 +
+    SUITS.indexOf(suit);
+
+  let old =
+    (lastBid.level-1)*5 +
+    SUITS.indexOf(lastBid.s);
+
+  return idx > old;
+
+}
+
+
+/* =========================================================
+   BID TEXT
+========================================================= */
+
+function bidText(b){
+
+  if(b.type === 'pass')
+    return 'PASS';
+
+  return (
+    b.level +
+    ' ' +
+    b.s
+  );
+
+}
+
+
+/* =========================================================
+   USER BID
+========================================================= */
+
+function bid(level,suit){
+
+  if(
+    phase !== 'auction' ||
+    SEATS[turn] !== 'S'
+  )
+    return;
+
+
+  if(level === 0){
+
+    auction.push({
+      who:'S',
+      type:'pass'
+    });
+
+    passCount++;
+
+    advanceAuction();
+
+    return;
+
+  }
+
+
+  if(!canBid(level,suit))
+    return;
+
+
+  auction.push({
+    who:'S',
+    type:'bid',
+    level:level,
+    s:suit
+  });
+
+  lastBid = {
+    level:level,
+    s:suit
+  };
+
+  passCount = 0;
+
+  advanceAuction();
+
+}
+
+
+/* =========================================================
+   NEXT AUCTION
+========================================================= */
+
+function advanceAuction(){
+
+  turn =
+    (turn+1)%4;
+
+
+  if(
+    passCount >= 3 &&
+    lastBid
+  ){
+
+    finishAuction();
+
+    return;
+
+  }
+
+
+  if(
+    passCount >= 4 &&
+    !lastBid
+  ){
+
+    log(
+      'Semua PASS — board dibagikan ulang.'
+    );
+
+    setTimeout(
+      newGame,
+      1200
+    );
+
+    return;
+
+  }
+
+
+  render();
+
+
+  if(
+    SEATS[turn] !== 'S'
+  ){
+
+    setTimeout(
+      computerBid,
+      650
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   AI BIDDING
+========================================================= */
+
+function computerBid(){
+
+  if(
+    phase !== 'auction' ||
+    SEATS[turn] === 'S'
+  )
+    return;
+
+
+  const p = SEATS[turn];
+
+  const hand =
+    players[p];
+
+  const pts =
+    hcp(hand);
+
+  const suits =
+    SUITS
+      .map(
+        s => [
+          s,
+          hand.filter(
+            c => c.s === s
+          ).length
+        ]
+      )
       .sort(
-       (a,b)=>count[b]-count[a]
-      )[0];
+        (a,b) => b[1]-a[1]
+      );
+
+
+  let chosen = null;
+
+
+  /*
+    Sistem AI sederhana:
+    - 15-17 HCP bisa membuka 1NT
+    - 13+ HCP membuka suit terpanjang
+    - tangan kuat melakukan raise
+  */
+
+  if(!lastBid){
 
     if(
-     count[best]>=5 &&
-     legalBid(
-      highest.level,
-      best
-     )
+      pts >= 15 &&
+      pts <= 17
     ){
 
-     call={
-      type:"BID",
-      level:highest.level,
-      suit:best
-     };
+      chosen = {
+        level:1,
+        s:'NT'
+      };
 
     }
-   }
+    else if(pts >= 13){
+
+      chosen = {
+        level:1,
+        s:suits[0][0]
+      };
+
+    }
+
   }
- }
+  else if(
+    pts >= 12 &&
+    lastBid.level < 4
+  ){
 
- return call;
-}
+    let s =
+      suits[0][0];
+
+    if(
+      suits[0][1] >= 5 &&
+      canBid(
+        lastBid.level,
+        s
+      )
+    ){
+
+      chosen = {
+        level:lastBid.level,
+        s:s
+      };
+
+    }
+    else if(
+      pts >= 15
+    ){
+
+      chosen = {
+        level:1,
+        s:'NT'
+      };
+
+    }
+
+  }
 
 
-/* =====================================================
-   USER BIDDING
-===================================================== */
+  if(
+    chosen &&
+    chosen.s !== 'NT' &&
+    !canBid(
+      chosen.level,
+      chosen.s
+    )
+  ){
 
-function userBid(level,suit){
+    chosen = null;
 
- if(
-  phase!=="auction" ||
-  bidTurn!=="S"
- )return;
+  }
 
- if(!legalBid(level,suit))return;
 
- applyCall({
-  type:"BID",
-  level:level,
-  suit:suit
- });
-}
+  if(!chosen){
 
-function userPass(){
+    auction.push({
+      who:p,
+      type:'pass'
+    });
 
- if(
-  phase==="auction" &&
-  bidTurn==="S"
- ){
+    passCount++;
 
-  applyCall({
-   type:"PASS"
+    advanceAuction();
+
+    return;
+
+  }
+
+
+  auction.push({
+    who:p,
+    type:'bid',
+    level:chosen.level,
+    s:chosen.s
   });
 
- }
-}
+  lastBid = chosen;
 
-function userDouble(){
+  passCount = 0;
 
- if(
-  phase==="auction" &&
-  bidTurn==="S" &&
-  legalDouble()
- ){
+  advanceAuction();
 
-  applyCall({
-   type:"DOUBLE"
-  });
-
- }
-}
-
-function userRedouble(){
-
- if(
-  phase==="auction" &&
-  bidTurn==="S" &&
-  legalRedouble()
- ){
-
-  applyCall({
-   type:"REDOUBLE"
-  });
-
- }
 }
 
 
-/* =====================================================
-   FINISH AUCTION
-===================================================== */
+/* =========================================================
+   SELESAI LELANG
+========================================================= */
 
 function finishAuction(){
 
- const b=highest;
-
- /*
-  Declarer = first member partnership
-  yang menyebut suit final.
- */
-
- const first=auction.find(
-  x=>
-   x.type==="BID" &&
-   x.suit===b.suit &&
-   side(x.player)===b.side
- );
-
- declarer=first.player;
- dummy=partner(declarer);
-
- leader=next(declarer);
- turn=leader;
-
- contract={
-  level:b.level,
-  suit:b.suit,
-  multiplier:multiplier,
-  side:b.side
- };
-
- phase="play";
-
- addLog(
-  "Kontrak "+
-  bidText(b)+
-  multiplierText()+
-  " | Declarer "+
-  declarer+
-  " | Dummy "+
-  dummy
- );
-
- render();
-
- setTimeout(aiPlay,700);
-}
-
-function multiplierText(){
-
- if(multiplier===2)return " X";
- if(multiplier===4)return " XX";
- return "";
-}
+  phase = 'play';
 
 
-/* =====================================================
-   PLAY
-===================================================== */
+  /*
+    Declarer:
+    pemain pertama yang menyebut
+    denomination kontrak terakhir.
+  */
 
-function humanControls(p){
+  let final =
+    lastBid;
 
- /*
-  South selalu dikontrol user.
-  Jika South declarer, North dummy.
-  Jika South dummy, North declarer maka South
-  juga dikontrol user.
- */
-
- return p==="S" ||
-  (
-   p==="N" &&
-   dummy==="N"
-  );
-}
-
-function legalCard(p,c){
-
- if(!trick.length)return true;
-
- const lead=trick[0].card.s;
-
- const hasLead=hands[p]
-  .some(x=>x.s===lead);
-
- return hasLead
-  ? c.s===lead
-  : true;
-}
+  let first = null;
 
 
-/* =====================================================
-   CARD STRENGTH
-===================================================== */
+  for(const a of auction){
 
-function beats(a,b,lead){
+    if(
+      a.type === 'bid' &&
+      a.s === final.s
+    ){
 
- if(!b)return true;
+      first = a.who;
 
- const trump=
-  contract.suit==="NT"
-   ? null
-   : contract.suit;
+      break;
 
- if(
-  trump &&
-  a.s===trump &&
-  b.s!==trump
- )return true;
-
- if(
-  trump &&
-  a.s!==trump &&
-  b.s===trump
- )return false;
-
- if(a.s!==b.s){
-
-  return a.s===lead &&
-   b.s!==lead;
- }
-
- return a.v>b.v;
-}
-
-function currentWinner(){
-
- if(!trick.length)return null;
-
- const lead=trick[0].card.s;
-
- let w=trick[0];
-
- for(let i=1;i<trick.length;i++){
-
-  if(
-   beats(
-    trick[i].card,
-    w.card,
-    lead
-   )
-  ){
-
-   w=trick[i];
+    }
 
   }
- }
 
- return w;
+
+  declarer = first;
+
+
+  dummy =
+    SEATS[
+      (SEATS.indexOf(declarer)+2)%4
+    ];
+
+
+  contract = final;
+
+
+  /*
+    Opening lead:
+    pemain di kiri declarer.
+  */
+
+  turn =
+    (SEATS.indexOf(declarer)+3)%4;
+
+
+  log(
+    'Kontrak ' +
+    final.level +
+    ' ' +
+    final.s +
+    ' • Declarer ' +
+    NAMES[declarer] +
+    ' • Dummy ' +
+    NAMES[dummy]
+  );
+
+
+  render();
+
+
+  if(
+    SEATS[turn] !== 'S'
+  ){
+
+    setTimeout(
+      computerPlay,
+      700
+    );
+
+  }
+
 }
 
 
-/* =====================================================
-   AI PLAY
-===================================================== */
+/* =========================================================
+   LEGAL CARD
+========================================================= */
 
-function computerCard(p){
+function legalCards(p){
 
- const legal=
-  hands[p].filter(
-   c=>legalCard(p,c)
+  const hand =
+    players[p];
+
+  if(!leadSuit)
+    return hand;
+
+
+  const follow =
+    hand.filter(
+      c => c.s === leadSuit
+    );
+
+
+  return follow.length
+    ? follow
+    : hand;
+
+}
+
+
+/* =========================================================
+   PLAY CARD
+========================================================= */
+
+function playCard(p,card){
+
+  if(
+    phase !== 'play' ||
+    SEATS[turn] !== p
+  )
+    return;
+
+
+  const legal =
+    legalCards(p);
+
+
+  if(
+    !legal.some(
+      c =>
+        c.s === card.s &&
+        c.r === card.r
+    )
+  )
+    return;
+
+
+  const index =
+    players[p].findIndex(
+      c =>
+        c.s === card.s &&
+        c.r === card.r
+    );
+
+
+  players[p].splice(
+    index,
+    1
   );
 
- if(!legal.length)return null;
 
- /*
-  Lead: buang kartu kecil.
- */
+  trick.push({
+    p:p,
+    card:card
+  });
 
- if(!trick.length){
 
-  legal.sort(
-   (a,b)=>a.v-b.v
-  );
+  if(!leadSuit)
+    leadSuit = card.s;
 
-  const trump=contract.suit;
 
-  const nonTrump=
-   trump==="NT"
-   ? legal
-   : legal.filter(
-    c=>c.s!==trump
-   );
+  render();
+
+
+  if(trick.length === 4){
+
+    setTimeout(
+      resolveTrick,
+      550
+    );
+
+  }
+  else{
+
+    turn =
+      (turn+1)%4;
+
+
+    if(
+      SEATS[turn] !== 'S'
+    ){
+
+      setTimeout(
+        computerPlay,
+        500
+      );
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   TRUMP
+========================================================= */
+
+function trump(){
+
+  if(
+    contract.s === 'NT'
+  )
+    return null;
+
+  return contract.s;
+
+}
+
+
+/* =========================================================
+   CARD COMPARISON
+========================================================= */
+
+function beats(a,b){
+
+  if(!b)
+    return true;
+
+
+  const t =
+    trump();
+
+
+  /*
+    Trump mengalahkan suit biasa.
+  */
+
+  if(
+    t &&
+    a.s === t &&
+    b.s !== t
+  )
+    return true;
+
+
+  if(
+    t &&
+    a.s !== t &&
+    b.s === t
+  )
+    return false;
+
+
+  /*
+    Harus suit yang sama
+  */
+
+  if(
+    a.s !== b.s
+  )
+    return false;
+
 
   return (
-   nonTrump.length
-    ? nonTrump[0]
-    : legal[0]
-  );
- }
-
- const lead=trick[0].card.s;
- const winner=currentWinner();
-
- /*
-  Cari kartu yang bisa menang.
- */
-
- const winners=legal.filter(
-  c=>
-   beats(
-    c,
-    winner.card,
-    lead
-   )
- );
-
- if(winners.length){
-
-  winners.sort(
-   (a,b)=>a.v-b.v
+    RANKS.indexOf(a.r) >
+    RANKS.indexOf(b.r)
   );
 
-  return winners[0];
- }
-
- /*
-  Kalau tidak bisa menang,
-  buang kartu terkecil.
- */
-
- legal.sort(
-  (a,b)=>a.v-b.v
- );
-
- return legal[0];
 }
 
 
-function aiPlay(){
+/* =========================================================
+   WINNER
+========================================================= */
 
- if(phase!=="play")return;
+function winningCard(){
 
- if(humanControls(turn)){
+  let win =
+    trick[0];
 
-  status(
-   turn==="S"
-    ? "Giliran Anda."
-    : "Giliran Anda memainkan dummy."
+
+  for(
+    let i=1;
+    i<trick.length;
+    i++
+  ){
+
+    if(
+      beats(
+        trick[i].card,
+        win.card
+      )
+    ){
+
+      win =
+        trick[i];
+
+    }
+
+  }
+
+
+  return win;
+
+}
+
+
+/* =========================================================
+   AI PLAY
+========================================================= */
+
+function computerPlay(){
+
+  if(
+    phase !== 'play' ||
+    SEATS[turn] === 'S'
+  )
+    return;
+
+
+  const p =
+    SEATS[turn];
+
+
+  const legal =
+    legalCards(p);
+
+
+  let c;
+
+
+  if(trick.length){
+
+    let best =
+      winningCard();
+
+
+    const winners =
+      legal.filter(
+        x =>
+          beats(
+            x,
+            best.card
+          )
+      );
+
+
+    if(winners.length){
+
+      winners.sort(
+        (a,b) =>
+          RANKS.indexOf(a.r) -
+          RANKS.indexOf(b.r)
+      );
+
+      c =
+        winners[0];
+
+    }
+    else{
+
+      c =
+        [...legal].sort(
+          (a,b) =>
+            RANKS.indexOf(a.r) -
+            RANKS.indexOf(b.r)
+        )[0];
+
+    }
+
+  }
+  else{
+
+    c =
+      leadChoice(legal);
+
+  }
+
+
+  playCard(
+    p,
+    c
+  );
+
+}
+
+
+/* =========================================================
+   AI LEAD
+========================================================= */
+
+function leadChoice(hand){
+
+  return (
+    [...hand].sort(
+      (a,b) =>
+        RANKS.indexOf(a.r) -
+        RANKS.indexOf(b.r)
+    )[Math.floor(hand.length/3)]
+    ||
+    hand[0]
+  );
+
+}
+
+
+/* =========================================================
+   TRICK SELESAI
+========================================================= */
+
+function resolveTrick(){
+
+  const win =
+    winningCard().p;
+
+
+  tricksWon[win]++;
+
+
+  log(
+    'Trick ' +
+    (trickNo+1) +
+    ': ' +
+    NAMES[win] +
+    ' menang.'
+  );
+
+
+  trickNo++;
+
+
+  trick = [];
+
+
+  leadSuit = null;
+
+
+  turn =
+    SEATS.indexOf(win);
+
+
+  if(
+    trickNo >= 13
+  ){
+
+    finishBoard();
+
+    return;
+
+  }
+
+
+  render();
+
+
+  if(
+    SEATS[turn] !== 'S'
+  ){
+
+    setTimeout(
+      computerPlay,
+      550
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   SCORE
+========================================================= */
+
+function scoreContract(
+  c,
+  diff
+){
+
+  /*
+    Perhitungan dasar:
+    berhasil kontrak / down.
+  */
+
+  if(diff < 0){
+
+    return -(
+      50 * (-diff) +
+      (c.level >= 4 ? 100 : 0)
+    );
+
+  }
+
+
+  let base;
+
+
+  if(c.s === 'NT'){
+
+    base =
+      40 +
+      (c.level-1)*30;
+
+  }
+  else if(
+    c.s === '♠' ||
+    c.s === '♥'
+  ){
+
+    base =
+      30*c.level;
+
+  }
+  else{
+
+    base =
+      20*c.level;
+
+  }
+
+
+  return (
+    base +
+    (c.s === 'NT' ? 10 : 0) +
+    50 +
+    Math.max(
+      0,
+      c.level-3
+    )*20
+  );
+
+}
+
+
+/* =========================================================
+   BOARD SELESAI
+========================================================= */
+
+function finishBoard(){
+
+  phase = 'done';
+
+
+  let declarerSide =
+    (
+      declarer === 'N' ||
+      declarer === 'S'
+    )
+    ? ['N','S']
+    : ['E','W'];
+
+
+  let made =
+    tricksWon[
+      declarerSide[0]
+    ] +
+    tricksWon[
+      declarerSide[1]
+    ];
+
+
+  let target =
+    6 +
+    contract.level;
+
+
+  let diff =
+    made-target;
+
+
+  let score =
+    scoreContract(
+      contract,
+      diff
+    );
+
+
+  log(
+    'SELESAI: ' +
+    made +
+    ' trick untuk pihak declarer. ' +
+    (
+      diff >= 0
+      ? 'Kontrak berhasil.'
+      : 'Kontrak down ' + (-diff) + '.'
+    ) +
+    ' Skor ' +
+    score +
+    '.'
+  );
+
+
+  render();
+
+
+  setTimeout(
+    () =>
+      showResult(
+        made,
+        target,
+        score
+      ),
+    350
+  );
+
+}
+
+
+/* =========================================================
+   RENDER
+========================================================= */
+
+function render(){
+
+  document
+    .getElementById(
+      'boardInfo'
+    )
+    .textContent =
+      `Board ${boardNo} • Dealer: ${NAMES[dealer]} • ` +
+      (
+        phase === 'auction'
+        ? 'Lelang'
+        : 'Kontrak ' +
+          (
+            contract
+            ? bidText(contract)
+            : ''
+          )
+      );
+
+
+  renderHand('S');
+
+  renderBack('N');
+
+  renderBack('W');
+
+  renderBack('E');
+
+  renderTrick();
+
+  renderAuction();
+
+
+  const status =
+    document.getElementById(
+      'status'
+    );
+
+
+  if(
+    phase === 'auction'
+  ){
+
+    status.innerHTML =
+      `Giliran: <b>${NAMES[SEATS[turn]]}</b><br>` +
+      `HCP Anda: <b>${hcp(players.S)}</b> • ` +
+      `Kartu: ${players.S.length}`;
+
+  }
+  else if(
+    phase === 'play'
+  ){
+
+    status.innerHTML =
+      `Kontrak: <b>${bidText(contract)}</b><br>` +
+      `Declarer: <b>${NAMES[declarer]}</b> • ` +
+      `Dummy: <b>${NAMES[dummy]}</b><br>` +
+      `Trick ${trickNo+1}/13 • ` +
+      `Giliran: <b>${NAMES[SEATS[turn]]}</b>`;
+
+  }
+  else{
+
+    status.innerHTML =
+      `<b>Board selesai.</b><br>` +
+      `Kontrak ${bidText(contract)}`;
+
+  }
+
+
+  document
+    .getElementById(
+      'bidBtn'
+    )
+    .disabled =
+      !(
+        phase === 'auction' &&
+        SEATS[turn] === 'S'
+      );
+
+}
+
+
+/* =========================================================
+   RENDER HAND
+========================================================= */
+
+function renderHand(p){
+
+  const el =
+    document.getElementById(
+      'hand'+p
+    );
+
+
+  el.innerHTML = '';
+
+
+  players[p].forEach(
+    c =>
+      el.appendChild(
+        cardEl(
+          c,
+          () => playCard(p,c)
+        )
+      )
+  );
+
+}
+
+
+/* =========================================================
+   RENDER BACK
+========================================================= */
+
+function renderBack(p){
+
+  const el =
+    document.getElementById(
+      'hand'+p
+    );
+
+
+  el.innerHTML = '';
+
+
+  const n =
+    players[p].length;
+
+
+  for(
+    let i=0;
+    i<n;
+    i++
+  ){
+
+    let x =
+      document.createElement(
+        'div'
+      );
+
+
+    x.className =
+      'card back';
+
+
+    el.appendChild(x);
+
+  }
+
+}
+
+
+/* =========================================================
+   CARD ELEMENT
+========================================================= */
+
+function cardEl(c,fn){
+
+  let x =
+    document.createElement(
+      'div'
+    );
+
+
+  x.className =
+    'card ' +
+    (
+      c.s === '♥' ||
+      c.s === '♦'
+      ? 'red'
+      : ''
+    );
+
+
+  x.innerHTML =
+    `<span class="corner">
+      ${c.r}<br>${c.s}
+    </span>
+    <span class="pip">
+      ${c.s}
+    </span>
+    <span></span>`;
+
+
+  x.onclick = fn;
+
+
+  return x;
+
+}
+
+
+/* =========================================================
+   TRICK DISPLAY
+========================================================= */
+
+function renderTrick(){
+
+  const t =
+    document.getElementById(
+      'trick'
+    );
+
+
+  t.innerHTML = '';
+
+
+  const pos = {
+    N:'n',
+    S:'s',
+    W:'w',
+    E:'e'
+  };
+
+
+  trick.forEach(
+    x => {
+
+      let d =
+        cardEl(
+          x.card,
+          () => {}
+        );
+
+
+      d.classList.add(
+        'played',
+        pos[x.p]
+      );
+
+
+      t.appendChild(d);
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   AUCTION DISPLAY
+========================================================= */
+
+function renderAuction(){
+
+  const a =
+    document.getElementById(
+      'auction'
+    );
+
+
+  a.innerHTML = '';
+
+
+  auction.forEach(
+    x => {
+
+      let d =
+        document.createElement(
+          'div'
+        );
+
+
+      d.className =
+        'bid';
+
+
+      d.innerHTML =
+        `${NAMES[x.who]}
+         <b>${bidText(x)}</b>`;
+
+
+      a.appendChild(d);
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   BID MODAL
+========================================================= */
+
+function openBid(){
+
+  if(
+    phase !== 'auction' ||
+    SEATS[turn] !== 'S'
+  )
+    return;
+
+
+  let modal =
+    document.getElementById(
+      'modal'
+    );
+
+
+  let body =
+    document.getElementById(
+      'modalBody'
+    );
+
+
+  body.innerHTML = '';
+
+
+  let grid =
+    document.createElement(
+      'div'
+    );
+
+
+  grid.className =
+    'bidgrid';
+
+
+  let pass =
+    document.createElement(
+      'button'
+    );
+
+
+  pass.textContent =
+    'PASS';
+
+
+  pass.onclick =
+    () => {
+
+      closeModal();
+
+      bid(0,'');
+
+    };
+
+
+  grid.appendChild(pass);
+
+
+  for(
+    let l=1;
+    l<=7;
+    l++
+  ){
+
+    for(
+      let s of [
+        '♣',
+        '♦',
+        '♥',
+        '♠',
+        'NT'
+      ]
+    ){
+
+      let bt =
+        document.createElement(
+          'button'
+        );
+
+
+      bt.textContent =
+        l+' '+s;
+
+
+      let disabled = false;
+
+
+      if(
+        s === 'NT'
+      ){
+
+        if(lastBid){
+
+          disabled =
+            (
+              (l-1)*5+4
+              <=
+              (lastBid.level-1)*5+
+              SUITS.indexOf(
+                lastBid.s
+              )
+            );
+
+        }
+
+      }
+      else{
+
+        disabled =
+          !canBid(
+            l,
+            s
+          );
+
+      }
+
+
+      bt.disabled =
+        disabled;
+
+
+      bt.onclick =
+        () => {
+
+          closeModal();
+
+          bid(
+            l,
+            s
+          );
+
+        };
+
+
+      grid.appendChild(bt);
+
+    }
+
+  }
+
+
+  body.appendChild(
+    grid
+  );
+
+
+  document
+    .getElementById(
+      'modal'
+    )
+    .classList.add(
+      'show'
+    );
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function showResult(
+  made,
+  target,
+  score
+){
+
+  document
+    .getElementById(
+      'modalTitle'
+    )
+    .textContent =
+      'Hasil Board';
+
+
+  document
+    .getElementById(
+      'modalBody'
+    )
+    .innerHTML =
+      `<p>
+        <b>${bidText(contract)}</b>
+      </p>
+
+      <p>
+        Trick declarer:
+        <b>${made}</b>
+        dari target
+        <b>${target}</b>.
+      </p>
+
+      <p>
+        Hasil board:
+        <b>
+          ${score>0?'+':''}${score}
+        </b>
+      </p>
+
+      <p>
+        Tekan Game Baru untuk
+        membagikan board berikutnya.
+      </p>`;
+
+
+  document
+    .getElementById(
+      'modal'
+    )
+    .classList.add(
+      'show'
+    );
+
+}
+
+
+/* =========================================================
+   HELP
+========================================================= */
+
+function showHelp(){
+
+  document
+    .getElementById(
+      'modalTitle'
+    )
+    .textContent =
+      'Cara Bermain';
+
+
+  document
+    .getElementById(
+      'modalBody'
+    )
+    .innerHTML =
+      `<p>
+        <b>1. Lelang:</b>
+        pilih kontrak atau PASS.
+        Nilai kontrak harus lebih tinggi
+        dari bid sebelumnya.
+      </p>
+
+      <p>
+        <b>2. Play:</b>
+        Anda wajib mengikuti suit
+        yang dipimpin jika memiliki
+        suit tersebut.
+      </p>
+
+      <p>
+        <b>3. Trump:</b>
+        bila kontrak bukan NT,
+        kartu trump mengalahkan
+        suit lain.
+      </p>
+
+      <p>
+        <b>4. Trick:</b>
+        kartu tertinggi dari suit
+        yang dipimpin menang,
+        kecuali dikalahkan trump.
+      </p>
+
+      <p>
+        Game ini merupakan simulator
+        latihan bridge melawan komputer.
+      </p>`;
+
+
+  document
+    .getElementById(
+      'modal'
+    )
+    .classList.add(
+      'show'
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(){
+
+  document
+    .getElementById(
+      'modal'
+    )
+    .classList.remove(
+      'show'
+    );
+
+}
+
+
+/* =========================================================
+   LOG
+========================================================= */
+
+function log(s){
+
+  let l =
+    document.getElementById(
+      'log'
+    );
+
+
+  let d =
+    document.createElement(
+      'div'
+    );
+
+
+  d.textContent = s;
+
+
+  l.prepend(d);
+
+}
+
+
+/* =========================================================
+   SORT HAND
+========================================================= */
+
+function sortHand(){
+
+  players.S.sort(
+    cardCmp
   );
 
   render();
 
-  return;
- }
-
- const card=
-  computerCard(turn);
-
- if(card){
-
-  playCard(
-   turn,
-   card
-  );
-
- }
 }
 
 
-/* =====================================================
-   PLAY CARD
-===================================================== */
-
-function userPlay(i){
-
- if(
-  phase!=="play" ||
-  !humanControls(turn)
- )return;
-
- const card=hands[turn][i];
-
- if(!legalCard(turn,card)){
-
-  status(
-   "Tidak sah. Anda wajib mengikuti suit "+
-   symbols[trick[0].card.s]+"."
-  );
-
-  return;
- }
-
- playCard(turn,card);
-}
-
-
-function playCard(p,card){
-
- const index=
-  hands[p].indexOf(card);
-
- if(index<0)return;
-
- hands[p].splice(index,1);
-
- trick.push({
-  player:p,
-  card:card
- });
-
- addLog(
-  p+" memainkan "+
-  card.r+
-  symbols[card.s]
- );
-
- render();
-
- if(trick.length===4){
-
-  setTimeout(
-   resolveTrick,
-   650
-  );
-
-  return;
- }
-
- turn=next(p);
-
- setTimeout(
-  aiPlay,
-  400
- );
-}
-
-
-/* =====================================================
-   RESOLVE TRICK
-===================================================== */
-
-function resolveTrick(){
-
- const winner=currentWinner();
-
- won[winner.player]++;
-
- trickNumber++;
-
- addLog(
-  "Trick "+
-  trickNumber+
-  " dimenangkan "+
-  winner.player
- );
-
- trick=[];
-
- if(trickNumber===13){
-
-  finishGame();
-
-  return;
- }
-
- turn=winner.player;
-
- render();
-
- setTimeout(
-  aiPlay,
-  500
- );
-}
-
-
-/* =====================================================
-   SCORING
-===================================================== */
-
-function contractScore(){
-
- const level=contract.level;
- const suit=contract.suit;
- const m=contract.multiplier;
-
- let trickValue=
-  suit==="C"||suit==="D"
-   ?20
-   :30;
-
- let base;
-
- if(suit==="NT"){
-
-  base=40+(level-1)*30;
-
- }else{
-
-  base=level*trickValue;
-
- }
-
- if(m===2)base*=2;
- if(m===4)base*=4;
-
- return base;
-}
-
-
-function calculateScore(){
-
- const target=
-  contract.level+6;
-
- const made=
-  won[declarer]+won[dummy];
-
- const diff=
-  made-target;
-
- const vul=
-  isVulnerable(declarer);
-
-
- if(diff>=0){
-
-  let score=contractScore();
-
-  /*
-   Overtricks
-  */
-
-  if(diff>0){
-
-   let overValue;
-
-   if(contract.suit==="C"||
-      contract.suit==="D"){
-
-    overValue=20;
-
-   }else{
-
-    overValue=30;
-
-   }
-
-   if(contract.suit==="NT")
-    overValue=30;
-
-   if(contract.multiplier===2)
-    overValue=100;
-
-   if(contract.multiplier===4)
-    overValue=200;
-
-   score+=
-    diff*overValue;
-  }
-
-
-  /*
-   Game / part score bonus.
-  */
-
-  if(contractScore()>=100){
-
-   score+=
-    vul ? 500 : 300;
-
-  }else{
-
-   score+=50;
-
-  }
-
-
-  /*
-   Slam bonuses.
-  */
-
-  if(contract.level===6){
-
-   score+=
-    vul ? 750 : 500;
-
-  }
-
-  if(contract.level===7){
-
-   score+=
-    vul ? 1500 : 1000;
-
-  }
-
-
-  /*
-   Double / redouble insult.
-  */
-
-  if(contract.multiplier===2)
-   score+=50;
-
-  if(contract.multiplier===4)
-   score+=100;
-
-
-  return{
-   target,
-   made,
-   diff,
-   score
-  };
- }
-
-
- /*
-  Undertricks.
- */
-
- const down=
-  Math.abs(diff);
-
- let penalty=0;
-
- if(contract.multiplier===1){
-
-  penalty=
-   down*
-   (vul?100:50);
-
- }else if(contract.multiplier===2){
-
-  if(vul){
-
-   penalty=
-    down===1
-     ?200
-     :200+
-       (down-1)*300;
-
-  }else{
-
-   penalty=
-    down===1
-     ?100
-     :100+
-       (down===2?200:
-        down===3?400:
-        (down-3)*300+600);
-  }
-
- }else{
-
-  penalty=
-   down===1
-    ?(vul?400:200)
-    :(vul
-      ?400+(down-1)*600
-      :200+(down-1)*400);
- }
-
- return{
-  target,
-  made,
-  diff,
-  score:-penalty
- };
-}
-
-
-/* =====================================================
-   FINISH
-===================================================== */
-
-function finishGame(){
-
- phase="done";
-
- const r=
-  calculateScore();
-
- document.getElementById(
-  "rContract"
- ).textContent=
-  bidText(contract)+
-  multiplierText();
-
- document.getElementById(
-  "rDeclarer"
- ).textContent=
-  declarer;
-
- document.getElementById(
-  "rTarget"
- ).textContent=
-  r.target;
-
- document.getElementById(
-  "rMade"
- ).textContent=
-  r.made;
-
- document.getElementById(
-  "rResult"
- ).textContent=
-  r.diff>=0
-   ? "Made "+r.diff
-   : "Down "+Math.abs(r.diff);
-
- document.getElementById(
-  "rScore"
- ).textContent=
-  (r.score>=0?"+":"")+
-  r.score;
-
- document.getElementById(
-  "resultModal"
- ).classList.add("show");
-
- addLog(
-  "BOARD SELESAI. "+
-  r.made+
-  " trick. Skor "+
-  r.score
- );
-
- render();
-}
-
-
-/* =====================================================
-   RENDER HAND
-===================================================== */
-
-function cardHTML(c,back=false){
-
- if(back){
-
-  return '<div class="card back"></div>';
-
- }
-
- const red=
-  c.s==="H"||
-  c.s==="D";
-
- return `
- <div class="card ${red?"red":""}">
-  <span class="rank">${c.r}</span>
-  <span class="suit">${symbols[c.s]}</span>
-  <span class="center-suit">${symbols[c.s]}</span>
- </div>
- `;
-}
-
-
-function renderHand(p){
-
- const el=
-  document.getElementById(p);
-
- el.innerHTML="";
-
- /*
-  South = user hand.
-  Dummy = face up.
-  Other hands = backs.
- */
-
- const visible=
-  p==="S" ||
-  p===dummy;
-
- if(!visible){
-
-  hands[p].forEach(
-   ()=>el.insertAdjacentHTML(
-    "beforeend",
-    cardHTML(null,true)
-   )
-  );
-
-  return;
- }
-
- hands[p].forEach(
-  (c,i)=>{
-
-   const box=
-    document.createElement("div");
-
-   box.innerHTML=
-    cardHTML(c);
-
-   const node=
-    box.firstElementChild;
-
-   if(
-    phase==="play" &&
-    turn===p &&
-    humanControls(p) &&
-    legalCard(p,c)
-   ){
-
-    node.classList.add(
-     "playable"
-    );
-
-    node.onclick=
-     ()=>userPlay(i);
-   }
-
-   el.appendChild(node);
-  }
- );
-}
-
-
-/* =====================================================
-   RENDER
-===================================================== */
-
-function render(){
-
- ["N","E","S","W"]
-  .forEach(renderHand);
-
- /*
-  Trick
- */
-
- ["TN","TE","TS","TW"]
-  .forEach(
-   id=>{
-    document.getElementById(
-     id
-    ).innerHTML="";
-   }
-  );
-
- const ids={
-  N:"TN",
-  E:"TE",
-  S:"TS",
-  W:"TW"
- };
-
- trick.forEach(x=>{
-
-  const el=
-   document.getElementById(
-    ids[x.player]
-   );
-
-  const red=
-   x.card.s==="H"||
-   x.card.s==="D";
-
-  el.className=
-   "trick"+
-   (red?" red":"");
-
-  el.textContent=
-   x.card.r+
-   symbols[x.card.s];
- });
-
-
- /*
-  Marks
- */
-
- ["N","E","S","W"]
-  .forEach(p=>{
-
-   const id=
-    p.toLowerCase()+
-    "Mark";
-
-   let text="";
-
-   if(p===declarer)
-    text=" ★";
-
-   if(p===dummy)
-    text=" ◇";
-
-   document.getElementById(
-    id
-   ).textContent=text;
-  });
-
-
- /*
-  center message
- */
-
- if(phase==="auction"){
-
-  document.getElementById(
-   "centerMsg"
-  ).textContent=
-   bidTurn==="S"
-    ? "Giliran Anda bidding"
-    : "Komputer sedang bidding...";
-
- }else if(phase==="play"){
-
-  document.getElementById(
-   "centerMsg"
-  ).textContent=
-   "Trick "+
-   (trickNumber+1)+
-   " / 13";
-
- }else{
-
-  document.getElementById(
-   "centerMsg"
-  ).textContent=
-   "Board selesai";
-
- }
-
-
- document.getElementById(
-  "nsTricks"
- ).textContent=
-  won.N+won.S;
-
- document.getElementById(
-  "ewTricks"
- ).textContent=
-  won.E+won.W;
-
- document.getElementById(
-  "trickTop"
- ).textContent=
-  trickNumber+
-  "/13";
-
- renderAuction();
- renderBids();
-}
-
-
-/* =====================================================
-   AUCTION RENDER
-===================================================== */
-
-function renderAuction(){
-
- const el=
-  document.getElementById(
-   "auction"
-  );
-
- el.innerHTML="";
-
- auction.forEach(x=>{
-
-  const d=
-   document.createElement("div");
-
-  d.className="call";
-
-  let text;
-
-  if(x.type==="PASS")
-   text="PASS";
-  else if(x.type==="DOUBLE")
-   text="X";
-  else if(x.type==="REDOUBLE")
-   text="XX";
-  else
-   text=bidText(x);
-
-  d.innerHTML=
-   "<b>"+x.player+"</b>"+
-   text;
-
-  el.appendChild(d);
- });
-}
-
-
-/* =====================================================
-   BID BUTTONS
-===================================================== */
-
-function renderBids(){
-
- const el=
-  document.getElementById(
-   "bidArea"
-  );
-
- el.innerHTML="";
-
- if(
-  phase!=="auction"||
-  bidTurn!=="S"
- ){
-
-  return;
- }
-
-
- for(let level=1;level<=7;level++){
-
-  for(
-   const suit
-   of ["C","D","H","S","NT"]
-  ){
-
-   const b=
-    document.createElement(
-     "button"
-    );
-
-   b.className="bid";
-
-   b.textContent=
-    level+
-    (
-     suit==="NT"
-      ?"NT"
-      :symbols[suit]
-    );
-
-   b.disabled=
-    !legalBid(level,suit);
-
-   b.onclick=
-    ()=>userBid(
-     level,
-     suit
-    );
-
-   el.appendChild(b);
-  }
- }
-
-
- const pass=
-  document.createElement(
-   "button"
-  );
-
- pass.className="bid pass";
- pass.textContent="PASS";
- pass.onclick=userPass;
-
- el.appendChild(pass);
-
-
- const dbl=
-  document.createElement(
-   "button"
-  );
-
- dbl.className="bid double";
- dbl.textContent="DOUBLE";
- dbl.disabled=!legalDouble();
- dbl.onclick=userDouble;
-
- el.appendChild(dbl);
-
-
- const rd=
-  document.createElement(
-   "button"
-  );
-
- rd.className="bid redouble";
- rd.textContent="REDOUBLE";
- rd.disabled=!legalRedouble();
- rd.onclick=userRedouble;
-
- el.appendChild(rd);
-}
-
-
-/* =====================================================
-   INFORMATION
-===================================================== */
-
-function updateInfo(){
-
- document.getElementById(
-  "board"
- ).textContent=board;
-
- document.getElementById(
-  "dealer"
- ).textContent=dealer;
-
- document.getElementById(
-  "vul"
- ).textContent=
-  vulnerability;
-
- document.getElementById(
-  "contractTop"
- ).textContent="-";
-
- document.getElementById(
-  "contract"
- ).textContent="-";
-}
-
-
-/* =====================================================
-   STATUS / LOG
-===================================================== */
-
-function status(text){
-
- document.getElementById(
-  "status"
- ).textContent=text;
-}
-
-function addLog(text){
-
- const el=
-  document.getElementById("log");
-
- const d=
-  document.createElement("div");
-
- d.textContent=text;
-
- el.appendChild(d);
-
- el.scrollTop=
-  el.scrollHeight;
-
- status(text);
-}
-
-function logClear(){
-
- document.getElementById(
-  "log"
- ).innerHTML="";
-}
-
-
-/* =====================================================
-   NEW BOARD
-===================================================== */
-
-function newBoard(){
-
- board++;
-
- closeResult();
-
- start();
-}
-
-function shuffleBoard(){
-
- closeResult();
-
- start();
-}
-
-function closeResult(){
-
- document.getElementById(
-  "resultModal"
- ).classList.remove("show");
-}
-
-
-/* =====================================================
+/* =========================================================
    START
-===================================================== */
+========================================================= */
 
-start();
+newGame();
 
 </script>
 
