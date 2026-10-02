@@ -3,398 +3,1275 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#073b61">
 
-<meta name="theme-color" content="#0a3d62">
+<title>Profil GABSI — GABSI Kota Tanjungbalai</title>
 
 <meta name="description"
-content="Profil resmi GABSI Kota Tanjungbalai — organisasi olahraga Bridge dan pusat pembinaan Bridge Duplicate.">
+content="Profil PB GABSI, Pengprov GABSI Sumatera Utara, dan Pengkot GABSI Kota Tanjungbalai.">
 
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.svg">
 <link rel="manifest" href="manifest.json">
 
-<title>Profil GABSI Kota Tanjungbalai</title>
-
 <style>
-
 :root{
- --navy:#073b61;
- --navy2:#0a567f;
- --red:#d71920;
- --gold:#f4c44e;
- --ink:#102538;
- --muted:#5f7282;
- --bg:#f4f8fb;
- --card:#ffffff;
- --line:#dce6ed;
- --shadow:0 14px 40px rgba(8,39,61,.11);
+  --navy:#073b61;
+  --navy2:#0a567f;
+  --red:#d71920;
+  --gold:#f4c44e;
+  --ink:#14202b;
+  --muted:#64748b;
+  --bg:#f4f7fa;
+  --card:#ffffff;
+  --line:#dbe3ea;
+  --green:#15803d;
+  --shadow:0 12px 30px rgba(7,59,97,.10);
 }
 
 *{
- box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 html{
- scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
- margin:0;
- font-family:Inter,Segoe UI,Arial,sans-serif;
- background:var(--bg);
- color:var(--ink);
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
 }
 
 a{
- color:inherit;
+  color:inherit;
+  text-decoration:none;
 }
 
-.container{
- max-width:1180px;
- margin:auto;
- padding:0 22px;
-}
-
-
-/* =========================
-   TOP BAR
-========================= */
-
+/* TOPBAR */
 .topbar{
- background:#032c49;
- color:#dfeaf1;
- font-size:12px;
+  background:var(--navy);
+  color:#fff;
+  padding:9px 18px;
+  font-size:13px;
 }
 
-.topbar .inner{
- display:flex;
- justify-content:space-between;
- gap:16px;
- padding:8px 0;
+.topbar-inner{
+  max-width:1180px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
-
-/* =========================
-   NAVIGASI
-========================= */
-
+/* NAVBAR */
 .nav{
- position:sticky;
- top:0;
- z-index:50;
- background:rgba(255,255,255,.96);
- backdrop-filter:blur(12px);
- border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#fff;
+  box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
 
 .nav-inner{
- height:72px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px;
+  max-width:1180px;
+  margin:auto;
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 18px;
+  gap:20px;
 }
 
 .brand{
- display:flex;
- align-items:center;
- gap:12px;
- text-decoration:none;
- min-width:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
 }
 
 .brand img{
- width:48px;
- height:48px;
+  width:48px;
+  height:48px;
+  object-fit:contain;
 }
 
-.brand strong{
- display:block;
- font-size:20px;
- line-height:1.05;
- color:var(--navy);
+.brand-text{
+  line-height:1.15;
 }
 
-.brand span{
- display:block;
- font-size:10px;
- letter-spacing:.4px;
- color:#607587;
- margin-top:3px;
+.brand-text strong{
+  display:block;
+  color:var(--navy);
+  font-size:17px;
+}
+
+.brand-text span{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:4px;
 }
 
 .nav-links{
- display:flex;
- align-items:center;
- gap:5px;
+  display:flex;
+  align-items:center;
+  gap:4px;
 }
 
 .nav-links a{
- padding:10px 11px;
- border-radius:10px;
- text-decoration:none;
- font-weight:700;
- font-size:13px;
- color:#294458;
+  padding:10px 11px;
+  border-radius:9px;
+  font-size:14px;
+  font-weight:700;
+  color:#334155;
 }
 
 .nav-links a:hover,
 .nav-links a.active{
- background:#eaf4fa;
- color:var(--navy);
+  background:var(--navy);
+  color:#fff;
 }
 
-.menu{
- display:none;
- border:1px solid var(--line);
- background:#fff;
- border-radius:10px;
- padding:10px 12px;
- cursor:pointer;
+.menu-btn{
+  display:none;
+  border:0;
+  background:var(--navy);
+  color:#fff;
+  border-radius:8px;
+  padding:10px 13px;
+  font-size:20px;
+  cursor:pointer;
 }
 
-
-/* =========================
-   HERO PROFIL
-========================= */
-
-.page-hero{
- background:linear-gradient(
-  125deg,
-  #052f4c,
-  #0a5e89 66%,
-  #0b7794
- );
- color:#fff;
- padding:75px 0;
+/* CONTAINER */
+.container{
+  width:min(1180px,calc(100% - 36px));
+  margin:auto;
 }
 
-.page-hero .eyebrow{
- color:#ffd76a;
+/* HERO */
+.hero{
+  background:
+    linear-gradient(135deg,rgba(7,59,97,.98),rgba(10,86,127,.94));
+  color:#fff;
+  padding:70px 0;
 }
 
-.page-hero h1{
- font-size:clamp(40px,5vw,60px);
- line-height:1;
- margin:12px 0 16px;
- letter-spacing:-1.5px;
-}
-
-.page-hero p{
- max-width:720px;
- color:#e5f2f8;
- line-height:1.75;
- font-size:16px;
- margin:0;
-}
-
-
-/* =========================
-   SECTION
-========================= */
-
-section{
- padding:65px 0;
-}
-
-.section-head{
- margin-bottom:25px;
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:35px;
+  align-items:center;
 }
 
 .eyebrow{
- color:var(--navy2);
- font-size:12px;
- font-weight:900;
- letter-spacing:1px;
- text-transform:uppercase;
+  display:inline-block;
+  color:var(--gold);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:12px;
 }
 
-.section-head h2{
- margin:7px 0;
- font-size:32px;
- letter-spacing:-.5px;
+.hero h1{
+  margin:0 0 15px;
+  font-size:clamp(34px,5vw,55px);
+  line-height:1.08;
 }
 
-.section-head p{
- color:var(--muted);
- line-height:1.7;
- max-width:760px;
+.hero p{
+  color:#e2edf5;
+  max-width:760px;
+  font-size:17px;
 }
 
-
-/* =========================
-   CARD
-========================= */
-
-.grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:22px;
+.hero-card{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:18px;
+  padding:28px;
+  backdrop-filter:blur(5px);
 }
 
-.panel{
- background:var(--card);
- border:1px solid var(--line);
- border-radius:20px;
- padding:27px;
- box-shadow:var(--shadow);
+.hero-card .symbol{
+  font-size:50px;
+  margin-bottom:10px;
 }
 
-.panel h3{
- margin:0 0 12px;
- font-size:22px;
+.hero-card strong{
+  display:block;
+  font-size:21px;
+  margin-bottom:7px;
 }
 
-.panel p{
- color:#526875;
- line-height:1.75;
- margin:10px 0;
+.hero-card span{
+  color:#dcecf7;
 }
 
-
-/* =========================
-   KETUA
-========================= */
-
-.profile-card{
- display:grid;
- grid-template-columns:240px 1fr;
- gap:28px;
- align-items:center;
+/* SECTION */
+.section{
+  padding:65px 0;
 }
 
-.profile-card img{
- width:240px;
- height:300px;
- object-fit:cover;
- object-position:center 25%;
- border-radius:18px;
+.section.alt{
+  background:#fff;
 }
 
-.tag{
- display:inline-block;
- padding:6px 10px;
- border-radius:999px;
- background:#eaf4fa;
- color:var(--navy);
- font-size:11px;
- font-weight:900;
+.section-title{
+  margin-bottom:32px;
 }
 
-.profile-card h3{
- margin:12px 0 8px;
- font-size:25px;
+.section-title h2{
+  color:var(--navy);
+  margin:0 0 8px;
+  font-size:32px;
+  line-height:1.2;
 }
 
-.profile-card .period{
- color:var(--navy);
- font-weight:800;
+.section-title p{
+  margin:0;
+  color:var(--muted);
 }
 
-
-/* =========================
-   NILAI
-========================= */
-
-.values{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:14px;
+/* ORGANIZATION CARD */
+.org-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:32px;
+  box-shadow:var(--shadow);
+  margin-bottom:28px;
 }
 
-.value{
- border:1px solid var(--line);
- border-radius:16px;
- padding:20px;
- background:#fbfdff;
+.org-header{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  margin-bottom:22px;
 }
 
-.value .icon{
- font-size:30px;
- margin-bottom:12px;
+.org-number{
+  width:48px;
+  height:48px;
+  flex:none;
+  border-radius:14px;
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+  font-weight:800;
 }
 
-.value b{
- display:block;
- margin-bottom:7px;
- color:var(--navy);
+.org-header h3{
+  color:var(--navy);
+  margin:0 0 5px;
+  font-size:25px;
+  line-height:1.25;
 }
 
-.value span{
- color:var(--muted);
- font-size:13px;
- line-height:1.55;
+.org-header p{
+  margin:0;
+  color:var(--muted);
+  font-weight:700;
+  font-size:14px;
 }
 
+.org-card h4{
+  color:var(--navy);
+  margin:25px 0 10px;
+  font-size:20px;
+}
 
-/* =========================
-   HIGHLIGHT
-========================= */
+.org-card p{
+  margin:8px 0 13px;
+}
+
+.org-card ol,
+.org-card ul{
+  margin-top:8px;
+  padding-left:25px;
+}
+
+.org-card li{
+  margin-bottom:10px;
+}
 
 .highlight{
- background:linear-gradient(
-  135deg,
-  #073b61,
-  #0a6b91
- );
- color:white;
+  background:#eef6fa;
+  border-left:5px solid var(--navy);
+  border-radius:10px;
+  padding:18px 20px;
+  margin:20px 0;
 }
 
-.highlight p{
- color:#dcecf5;
+.highlight strong{
+  color:var(--navy);
 }
 
-.highlight .tag{
- background:rgba(255,255,255,.15);
- color:white;
+/* PROGRAM GRID */
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:18px;
 }
 
+.program{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:20px;
+  background:#fff;
+}
 
-/* =========================
-   TOMBOL
-========================= */
+.program .icon{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.program h5{
+  margin:0 0 7px;
+  color:var(--navy);
+  font-size:17px;
+}
+
+.program p{
+  color:var(--muted);
+  font-size:14px;
+  margin:0;
+}
+
+/* ACHIEVEMENT */
+.achievement{
+  background:linear-gradient(135deg,#073b61,#0a567f);
+  color:#fff;
+  border-radius:18px;
+  padding:28px;
+  margin-top:20px;
+}
+
+.achievement h4{
+  color:#fff;
+  margin-top:0;
+}
+
+.achievement p{
+  color:#e2edf5;
+}
+
+.medal{
+  display:inline-block;
+  background:var(--gold);
+  color:#3d2e00;
+  font-weight:800;
+  padding:7px 13px;
+  border-radius:999px;
+  margin-bottom:12px;
+}
+
+/* PORPROV */
+.porprov{
+  background:linear-gradient(135deg,#7f1111,#d71920);
+  color:#fff;
+  border-radius:20px;
+  padding:35px;
+  margin-top:28px;
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+
+.porprov .date{
+  display:inline-block;
+  background:#fff;
+  color:var(--red);
+  padding:8px 16px;
+  border-radius:999px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.porprov h3{
+  margin:5px 0 12px;
+  font-size:30px;
+}
+
+.porprov p{
+  color:#ffe5e5;
+  max-width:800px;
+  margin:0 auto;
+}
+
+.support{
+  font-size:24px;
+  font-weight:800;
+  margin-top:22px;
+}
+
+/* TABLE */
+.simple-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+  overflow:hidden;
+  border-radius:12px;
+}
+
+.simple-table th,
+.simple-table td{
+  border:1px solid var(--line);
+  padding:13px;
+  text-align:left;
+}
+
+.simple-table th{
+  background:var(--navy);
+  color:#fff;
+}
+
+.simple-table td{
+  background:#fff;
+}
+
+/* BUTTON */
+.button-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
 
 .btn{
- display:inline-flex;
- align-items:center;
- justify-content:center;
- gap:8px;
- padding:12px 16px;
- border-radius:11px;
- text-decoration:none;
- font-weight:800;
- background:var(--navy);
- color:white;
- margin-top:10px;
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
 }
 
+.btn-primary{
+  background:var(--red);
+  color:#fff;
+}
 
-/* =========================
-   FOOTER
-========================= */
+.btn-secondary{
+  background:var(--navy);
+  color:#fff;
+}
 
+/* FOOTER */
 footer{
- background:#062f4b;
- color:#dfeaf1;
- padding:34px 0 18px;
+  background:#062f4e;
+  color:#dbe8f0;
+  padding:35px 0;
 }
 
 .footer-grid{
- display:grid;
- grid-template-columns:1.2fr .8fr .8fr;
- gap:25px;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:30px;
 }
 
-.footer-brand{
- font-size:23px;
- font-weight:900;
- color:#fff;
+footer h3{
+  color:#fff;
+  margin-top:0;
 }
 
-.footer-grid p{
- color:#b8cad5;
- line-height:1.6;
+footer p{
+  color:#b9ccd9;
+  font-size:14px;
 }
 
-.footer-grid a{
- display:block;
- text
+.footer-links{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.footer-links a{
+  color:#dbe8f0;
+  font-size:14px;
+}
+
+.footer-links a:hover{
+  color:var(--gold);
+}
+
+.copyright{
+  border-top:1px solid rgba(255,255,255,.12);
+  margin-top:25px;
+  padding-top:20px;
+  font-size:13px;
+  color:#a9bfce;
+}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    left:15px;
+    right:15px;
+    top:70px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    padding:10px;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .nav-links a{
+    width:100%;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .program-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .topbar-inner{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .container{
+    width:min(100% - 24px,1180px);
+  }
+
+  .nav-inner{
+    padding:9px 12px;
+  }
+
+  .brand-text strong{
+    font-size:14px;
+  }
+
+  .brand-text span{
+    font-size:9px;
+  }
+
+  .brand img{
+    width:42px;
+    height:42px;
+  }
+
+  .hero{
+    padding:50px 0;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .section{
+    padding:45px 0;
+  }
+
+  .org-card{
+    padding:21px;
+  }
+
+  .org-header h3{
+    font-size:21px;
+  }
+
+  .porprov{
+    padding:25px 18px;
+  }
+
+  .porprov h3{
+    font-size:25px;
+  }
+
+  .simple-table{
+    font-size:13px;
+  }
+
+  .simple-table th,
+  .simple-table td{
+    padding:9px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div>GABSI Kota Tanjungbalai • Bridge Duplicate Center</div>
+    <div>Sportivitas • Persahabatan • Prestasi • Edukasi</div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+
+    <a class="brand" href="index.html">
+      <img src="favicon.svg" alt="Logo GABSI">
+      <div class="brand-text">
+        <strong>GABSI KOTA TANJUNGBALAI</strong>
+        <span>GABUNGAN BRIDGE SELURUH INDONESIA</span>
+      </div>
+    </a>
+
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+      ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Beranda</a>
+      <a class="active" href="profil.html">Profil</a>
+      <a href="pengurus.html">Pengurus</a>
+      <a href="kegiatan.html">Kegiatan</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="aplikasi.html">Aplikasi</a>
+      <a href="kontak.html">Kontak</a>
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+
+    <div class="hero-grid">
+
+      <div>
+        <span class="eyebrow">PROFIL ORGANISASI BRIDGE</span>
+
+        <h1>Profil GABSI</h1>
+
+        <p>
+          Mengenal struktur organisasi dan arah pembinaan
+          Gabungan Bridge Seluruh Indonesia mulai dari tingkat
+          nasional, Provinsi Sumatera Utara, hingga Kota Tanjungbalai.
+        </p>
+      </div>
+
+      <div class="hero-card">
+
+        <div class="symbol">♠ ♥ ♦ ♣</div>
+
+        <strong>GABSI Kota Tanjungbalai</strong>
+
+        <span>
+          Pembinaan • Prestasi • Sportivitas • Pendidikan
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+</header>
+
+
+<!-- PB GABSI -->
+<section class="section">
+
+<div class="container">
+
+  <div class="section-title">
+    <h2>1. Profil Pengurus Besar Gabungan Bridge Seluruh Indonesia</h2>
+    <p>PB GABSI</p>
+  </div>
+
+  <div class="org-card">
+
+    <div class="org-header">
+
+      <div class="org-number">1</div>
+
+      <div>
+        <h3>Pengurus Besar Gabungan Bridge Seluruh Indonesia</h3>
+        <p>PB GABSI — Tingkat Nasional</p>
+      </div>
+
+    </div>
+
+    <h4>Deskripsi & Kedudukan Organisasi</h4>
+
+    <p>
+      Pengurus Besar Gabungan Bridge Seluruh Indonesia
+      (PB GABSI) merupakan induk organisasi cabang olahraga
+      bridge tertinggi di Indonesia.
+    </p>
+
+    <p>
+      Didirikan pada 12 Desember 1953 di Surabaya, PB GABSI
+      memegang otoritas tunggal dalam pembinaan, pengembangan,
+      dan regulasi olahraga bridge (mind sport) di seluruh
+      wilayah kedaulatan Republik Indonesia.
+    </p>
+
+    <p>
+      PB GABSI bernaung resmi di bawah Komite Olahraga Nasional
+      Indonesia (KONI) dan Komite Olimpiade Indonesia
+      (NOC Indonesia), serta terafiliasi dengan federasi
+      internasional, yakni World Bridge Federation (WBF)
+      dan Asia Pacific Bridge Federation (APBF).
+    </p>
+
+    <h4>Visi</h4>
+
+    <div class="highlight">
+      Menjadikan bridge sebagai olahraga intelektual unggulan
+      yang berkarakter, inklusif, dan konsisten mengharumkan
+      nama bangsa di panggung dunia.
+    </div>
+
+    <h4>Misi</h4>
+
+    <ol>
+      <li>
+        Mengembangkan ekosistem pembinaan berjenjang dan
+        berkesinambungan melalui program Bridge Masuk Sekolah
+        (BMS) dan kampus.
+      </li>
+
+      <li>
+        Menyelenggarakan kalender kompetisi nasional berkala
+        berstandar WBF (Kejuaraan Nasional, Sirkuit Nasional,
+        dan Liga Bridge).
+      </li>
+
+      <li>
+        Meningkatkan standardisasi kompetensi pelatih, wasit
+        (Tournament Director), dan perangkat pertandingan
+        bersertifikat internasional.
+      </li>
+
+      <li>
+        Menjaga tradisi prestasi kontingen Indonesia pada ajang
+        multi-event regional (SEA Games, Asian Games) dan
+        kejuaraan dunia WBF (Bermuda Bowl, Venice Cup,
+        D’Orsi Trophy).
+      </li>
+    </ol>
+
+    <h4>Pilar Program Strategis</h4>
+
+    <div class="program-grid">
+
+      <div class="program">
+        <div class="icon">🏆</div>
+
+        <h5>Regenerasi Atlet Muda</h5>
+
+        <p>
+          Penjaringan atlet junior terstruktur untuk menjaga
+          kesinambungan tim nasional.
+        </p>
+      </div>
+
+      <div class="program">
+        <div class="icon">💻</div>
+
+        <h5>Digitalisasi Pertandingan</h5>
+
+        <p>
+          Pemanfaatan platform turnamen digital
+          (Bridge Base Online dan peranti lunak lisensi WBF)
+          untuk pelatihan jarak jauh dan turnamen hibrida.
+        </p>
+      </div>
+
+      <div class="program">
+        <div class="icon">🇮🇩</div>
+
+        <h5>Penguatan Pengprov & Pengkab/Pengkot</h5>
+
+        <p>
+          Penguatan tata kelola organisasi di 38 provinsi
+          di Indonesia.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- PENGPROV SUMUT -->
+<section class="section alt">
+
+<div class="container">
+
+  <div class="section-title">
+
+    <h2>2. Profil Pengurus Provinsi GABSI Sumatera Utara</h2>
+
+    <p>
+      Pengprov GABSI Sumut
+    </p>
+
+  </div>
+
+  <div class="org-card">
+
+    <div class="org-header">
+
+      <div class="org-number">2</div>
+
+      <div>
+        <h3>Pengurus Provinsi GABSI Sumatera Utara</h3>
+        <p>Pengprov GABSI Sumut — Tingkat Provinsi</p>
+      </div>
+
+    </div>
+
+    <h4>Deskripsi & Kedudukan Organisasi</h4>
+
+    <p>
+      Pengurus Provinsi Gabungan Bridge Seluruh Indonesia
+      Sumatera Utara (Pengprov GABSI Sumut) merupakan
+      perpanjangan tangan PB GABSI di tingkat daerah yang
+      bertugas mengoordinasikan seluruh Pengurus Kota (Pengkot)
+      dan Pengurus Kabupaten (Pengkab) di wilayah Provinsi
+      Sumatera Utara.
+    </p>
+
+    <p>
+      Pengprov GABSI Sumut beroperasi di bawah koordinasi
+      KONI Provinsi Sumatera Utara dan Dinas Kepemudaan dan
+      Keolahragaan (Dispora) Sumatera Utara.
+    </p>
+
+    <h4>Visi</h4>
+
+    <div class="highlight">
+      Terwujudnya Sumatera Utara sebagai barometer dan lumbung
+      atlet bridge andalan di wilayah barat Indonesia dengan
+      prestasi konsisten di level nasional.
+    </div>
+
+    <h4>Misi</h4>
+
+    <ol>
+      <li>
+        Mengonsolidasikan dan memperluas kepengurusan cabang
+        GABSI di seluruh kabupaten/kota se-Sumatera Utara.
+      </li>
+
+      <li>
+        Menyelenggarakan Kejuaraan Provinsi (Kejurprov) dan
+        Seleksi Daerah (Selekda) secara teratur, transparan,
+        dan kompetitif.
+      </li>
+
+      <li>
+        Menyiapkan kontingen Sumatera Utara menghadapi agenda
+        multi-event nasional, termasuk Pekan Olahraga Nasional
+        (PON) dan Kejurnas.
+      </li>
+
+      <li>
+        Menjalin kemitraan strategis dengan institusi pendidikan
+        daerah untuk mempercepat sosialisasi bridge sebagai
+        sarana pembentukan logika dan sportivitas pelajar.
+      </li>
+    </ol>
+
+    <h4>Peran Kunci Organisasi</h4>
+
+    <div class="program-grid">
+
+      <div class="program">
+
+        <div class="icon">🎯</div>
+
+        <h5>Penyelenggara Selekda</h5>
+
+        <p>
+          Menjaring pasangan dan regu terbaik dari kabupaten/kota
+          untuk mewakili Sumatera Utara di tingkat nasional.
+        </p>
+
+      </div>
+
+      <div class="program">
+
+        <div class="icon">📚</div>
+
+        <h5>Standardisasi Teknikal</h5>
+
+        <p>
+          Memberikan pelatihan teknis bidding system,
+          play of the hand, dan etika pertandingan bagi
+          atlet dan ofisial daerah.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- PENGKOT TANJUNGBALAI -->
+<section class="section">
+
+<div class="container">
+
+  <div class="section-title">
+
+    <h2>3. Profil Pengurus Kota GABSI Kota Tanjungbalai</h2>
+
+    <p>
+      Pengkot GABSI Tanjungbalai
+    </p>
+
+  </div>
+
+  <div class="org-card">
+
+    <div class="org-header">
+
+      <div class="org-number">3</div>
+
+      <div>
+        <h3>Pengurus Kota GABSI Kota Tanjungbalai</h3>
+        <p>Pengkot GABSI Tanjungbalai</p>
+      </div>
+
+    </div>
+
+    <h4>Deskripsi & Kedudukan Organisasi</h4>
+
+    <p>
+      Pengurus Kota Gabungan Bridge Seluruh Indonesia Kota
+      Tanjungbalai (Pengkot GABSI Tanjungbalai) adalah badan
+      keolahragaan fungsional yang menaungi, membina, dan
+      memasyarakatkan olahraga bridge di Kota Tanjungbalai.
+    </p>
+
+    <p>
+      Bekerja sama erat dengan KONI Kota Tanjungbalai,
+      Pengkot GABSI Tanjungbalai berkomitmen mentransformasikan
+      citra bridge sebagai sarana asah otak, pendidikan karakter,
+      dan olahraga prestasi bagi generasi muda.
+    </p>
+
+    <h4>Visi</h4>
+
+    <div class="highlight">
+      Membangun ekosistem olahraga bridge yang aktif,
+      terstruktur, dan berprestasi di Kota Tanjungbalai
+      dengan fokus utama pada pembinaan usia muda dan pelajar.
+    </div>
+
+    <h4>Misi</h4>
+
+    <ol>
+
+      <li>
+        Mengintegrasikan olahraga bridge ke lingkungan sekolah
+        melalui program Bridge Masuk Sekolah (BMS) tingkat SMP
+        dan SMA sederajat di Kota Tanjungbalai.
+      </li>
+
+      <li>
+        Membentuk pusat pelatihan rutin (training center) guna
+        mengasah kemampuan taktik, strategi pembacaan kartu,
+        dan mentalitas tanding atlet lokal.
+      </li>
+
+      <li>
+        Berpartisipasi aktif dalam setiap kejuaraan resmi tingkat
+        regional dan provinsi Sumatera Utara.
+      </li>
+
+      <li>
+        Mengedukasi masyarakat luas mengenai bridge sebagai
+        olahraga resmi yang melatih logika, probabilitas,
+        kerja sama tim, dan integritas.
+      </li>
+
+    </ol>
+
+    <h4>Rekam Jejak Prestasi & Capaian Unggulan</h4>
+
+    <table class="simple-table">
+
+      <thead>
+
+        <tr>
+          <th>Tahun</th>
+          <th>Ajang</th>
+          <th>Kategori</th>
+          <th>Hasil</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>2022</td>
+          <td>Seleksi Daerah (Selekda) Provinsi Sumatera Utara</td>
+          <td>Junior / Pelajar</td>
+          <td>Juara 3 — Medali Perunggu</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <div class="achievement">
+
+      <span class="medal">🥉 PRESTASI 2022</span>
+
+      <h4>Selekda Sumut 2022</h4>
+
+      <p>
+        Raihan podium ke-3 pada Selekda Sumut 2022 merupakan
+        bukti validitas sistem pembinaan atlet usia muda di
+        Kota Tanjungbalai, sekaligus menjadi pijakan strategis
+        untuk meloloskan atlet ke jenjang kejuaraan nasional
+        di masa mendatang.
+      </p>
+
+    </div>
+
+    <h4>Program Prioritas Pengkot GABSI Tanjungbalai</h4>
+
+    <div class="program-grid">
+
+      <div class="program">
+
+        <div class="icon">🎓</div>
+
+        <h5>Klinik Pelatihan Pelajar</h5>
+
+        <p>
+          Workshop berkala pengenalan dasar bidding
+          (Standard American / Precision) dan etika meja
+          pertandingan bagi siswa-siswi sekolah.
+        </p>
+
+      </div>
+
+      <div class="program">
+
+        <div class="icon">♠️</div>
+
+        <h5>Turnamen Internal & Uji Tanding</h5>
+
+        <p>
+          Menyelenggarakan kompetisi mini antarpelajar
+          se-Tanjungbalai serta sparing berkala dengan
+          pengkab/pengkot tetangga seperti Asahan dan Batubara.
+        </p>
+
+      </div>
+
+      <div class="program">
+
+        <div class="icon">🃏</div>
+
+        <h5>Advokasi Sarana & Prasarana</h5>
+
+        <p>
+          Penyediaan fasilitas meja bridge resmi, bidding box,
+          duplicate boards, dan materi literatur bagi klub-klub
+          binaan di Tanjungbalai.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- PORPROVSU -->
+  <div class="porprov">
+
+    <span class="date">
+      9 — 12 NOVEMBER 2026
+    </span>
+
+    <h3>PORPROVSU 2026</h3>
+
+    <p>
+      Pada tanggal 9 s.d. 12 November 2026, GABSI Kota
+      Tanjungbalai akan berjuang di Porprovsu 2026 dalam
+      meraih prestasi terbaiknya dan semoga dapat memperoleh
+      hasil EMAS untuk Kota Tanjungbalai.
+    </p>
+
+    <div class="support">
+      Dukung Terus GABSI Kota Tanjungbalai! 👍
+    </div>
+
+  </div>
+
+
+  <div class="button-row">
+
+    <a class="btn btn-primary" href="kegiatan.html">
+      Lihat Kegiatan
+    </a>
+
+    <a class="btn btn-secondary" href="pengurus.html">
+      Lihat Pengurus
+    </a>
+
+    <a class="btn btn-secondary" href="kontak.html">
+      Hubungi GABSI
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<div class="container">
+
+  <div class="footer-grid">
+
+    <div>
+
+      <h3>GABSI Kota Tanjungbalai</h3>
+
+      <p>
+        Pusat informasi organisasi, pembinaan olahraga bridge,
+        bridge duplicate, kegiatan dan aplikasi digital
+        GABSI Kota Tanjungbalai.
+      </p>
+
+    </div>
+
+    <div>
+
+      <h3>Menu</h3>
+
+      <div class="footer-links">
+
+        <a href="index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="pengurus.html">Pengurus</a>
+        <a href="kegiatan.html">Kegiatan</a>
+
+      </div>
+
+    </div>
+
+    <div>
+
+      <h3>Lainnya</h3>
+
+      <div class="footer-links">
+
+        <a href="galeri.html">Galeri</a>
+        <a href="aplikasi.html">Aplikasi</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="score-sheet.html">Score Sheet</a>
+        <a href="kocokan-kartu.html">Kocokan Kartu</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 GABSI Kota Tanjungbalai. Seluruh hak cipta dilindungi.
+  </div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+
+  document
+    .getElementById("navLinks")
+    .classList
+    .toggle("show");
+
+}
+
+document
+  .querySelectorAll("#navLinks a")
+  .forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+      document
+        .getElementById("navLinks")
+        .classList
+        .remove("show");
+
+    });
+
+  });
+
+
+if("serviceWorker" in navigator){
+
+  window.addEventListener("load",function(){
+
+    navigator.serviceWorker
+      .register("sw.js")
+      .catch(function(err){
+
+        console.log(
+          "Service Worker gagal:",
+          err
+        );
+
+      });
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
