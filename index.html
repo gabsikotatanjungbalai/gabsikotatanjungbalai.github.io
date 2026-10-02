@@ -1,1019 +1,2120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0a3d62">
-<meta name="description" content="Website resmi GABSI Kota Tanjungbalai.">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="manifest" href="manifest.json">
-<title>GABSI Kota Tanjungbalai | Bridge Center</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<title>Game Bridge — GABSI Kota Tanjungbalai</title>
+
+<meta name="theme-color" content="#063b66">
+<meta name="description" content="Game Bridge latihan GABSI Kota Tanjungbalai">
 
 <style>
-:root{
- --navy:#073b61;
- --navy2:#0a567f;
- --red:#d71920;
- --gold:#f4c44e;
- --ink:#102538;
- --muted:#5f7282;
- --bg:#f4f8fb;
- --card:#fff;
- --line:#dce6ed;
- --shadow:0 14px 40px rgba(8,39,61,.11)
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#071f33;
+    color:#fff;
+}
 
 body{
- margin:0;
- font-family:Inter,Segoe UI,Arial,sans-serif;
- background:var(--bg);
- color:var(--ink)
+    overflow-x:hidden;
 }
 
-a{color:inherit}
-button{font:inherit}
-
-.container{
- max-width:1180px;
- margin:auto;
- padding:0 22px
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#062d4d,#075b8f);
+    padding:12px 14px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 12px rgba(0,0,0,.35);
 }
 
-/* TOPBAR */
-.topbar{
- background:#032c49;
- color:#dfeaf1;
- font-size:12px
-}
-
-.topbar .inner{
- display:flex;
- justify-content:space-between;
- gap:16px;
- padding:8px 0
-}
-
-/* NAV */
-.nav{
- position:sticky;
- top:0;
- z-index:50;
- background:rgba(255,255,255,.96);
- backdrop-filter:blur(12px);
- border-bottom:1px solid var(--line)
-}
-
-.nav-inner{
- height:72px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
 }
 
 .brand{
- display:flex;
- align-items:center;
- gap:12px;
- text-decoration:none;
- min-width:0
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
-.brand img{
- width:48px;
- height:48px
+.logo{
+    width:43px;
+    height:43px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#075b8f;
+    font-size:24px;
+    font-weight:bold;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
 }
 
-.brand strong{
- display:block;
- font-size:20px;
- line-height:1.05;
- color:var(--navy)
+.brand-text strong{
+    display:block;
+    font-size:14px;
 }
 
-.brand span{
- display:block;
- font-size:10px;
- letter-spacing:.4px;
- color:#607587;
- margin-top:3px
+.brand-text span{
+    display:block;
+    font-size:10px;
+    opacity:.85;
+    margin-top:2px;
 }
 
-.nav-links{
- display:flex;
- align-items:center;
- gap:5px
+.home-btn{
+    color:#fff;
+    text-decoration:none;
+    background:rgba(255,255,255,.14);
+    padding:9px 12px;
+    border-radius:9px;
+    font-size:13px;
+    font-weight:bold;
 }
 
-.nav-links a{
- padding:10px 11px;
- border-radius:10px;
- text-decoration:none;
- font-weight:700;
- font-size:13px;
- color:#294458
+/* MAIN */
+.container{
+    width:min(1100px,100%);
+    margin:auto;
+    padding:12px;
 }
 
-.nav-links a:hover,
-.nav-links a.active{
- background:#eaf4fa;
- color:var(--navy)
+/* TITLE */
+.title{
+    text-align:center;
+    margin:5px 0 12px;
 }
 
-.menu{
- display:none;
- border:1px solid var(--line);
- background:#fff;
- border-radius:10px;
- padding:10px 12px;
- cursor:pointer
+.title h1{
+    font-size:22px;
+    margin:0 0 4px;
 }
 
-/* HERO */
-.hero{
- background:linear-gradient(125deg,#052f4c,#0a5e89 66%,#0b7794);
- color:white;
- overflow:hidden
+.title p{
+    margin:0;
+    color:#b9d7e8;
+    font-size:12px;
 }
 
-.hero-grid{
- display:grid;
- grid-template-columns:1.1fr .9fr;
- align-items:center;
- min-height:540px;
- gap:25px;
- padding:38px 0
+/* SCORE */
+.scorebar{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:7px;
+    margin-bottom:10px;
 }
 
-.kicker{
- display:inline-flex;
- align-items:center;
- gap:8px;
- background:rgba(255,255,255,.11);
- border:1px solid rgba(255,255,255,.25);
- padding:7px 12px;
- border-radius:99px;
- font-weight:800;
- font-size:12px;
- letter-spacing:.5px
+.scorebox{
+    background:#0d3551;
+    border:1px solid #235575;
+    border-radius:10px;
+    padding:8px 5px;
+    text-align:center;
 }
 
-.hero h1{
- font-size:clamp(42px,5vw,70px);
- line-height:.96;
- margin:17px 0 14px;
- letter-spacing:-2px
+.scorebox small{
+    display:block;
+    color:#9fc2d8;
+    font-size:10px;
 }
 
-.hero h1 span{
- display:block;
- color:#ffd76a
+.scorebox strong{
+    display:block;
+    font-size:16px;
+    margin-top:3px;
 }
 
-.hero p{
- max-width:630px;
- color:#e8f4fa;
- line-height:1.7;
- font-size:16px;
- margin:0 0 24px
+/* SETUP */
+.setup{
+    background:#0c304b;
+    border:1px solid #235575;
+    border-radius:13px;
+    padding:11px;
+    margin-bottom:12px;
 }
 
-.hero-actions{
- display:flex;
- gap:12px;
- flex-wrap:wrap
+.setup-title{
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.setup-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:7px;
+}
+
+select,button{
+    font-family:inherit;
+}
+
+select{
+    width:100%;
+    background:#fff;
+    color:#111;
+    border:0;
+    border-radius:8px;
+    padding:11px 8px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.action-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+    margin-top:8px;
 }
 
 .btn{
- display:inline-flex;
- align-items:center;
- justify-content:center;
- gap:8px;
- padding:13px 17px;
- border-radius:12px;
- text-decoration:none;
- font-weight:800;
- border:1px solid transparent;
- cursor:pointer
+    border:0;
+    border-radius:9px;
+    padding:11px 8px;
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.btn.primary{
- background:#fff;
- color:var(--navy)
+.btn-primary{
+    background:#18a957;
+    color:#fff;
 }
 
-.btn.ghost{
- border-color:rgba(255,255,255,.35);
- color:#fff
+.btn-secondary{
+    background:#176c9e;
+    color:#fff;
 }
 
-.btn.blue{
- background:var(--navy);
- color:#fff
+.btn-danger{
+    background:#b62e37;
+    color:#fff;
 }
 
-.hero-note{
- display:flex;
- gap:18px;
- margin-top:28px;
- flex-wrap:wrap
+/* TABLE */
+.table-wrap{
+    background:#064f3b;
+    border:7px solid #3b2414;
+    border-radius:22px;
+    padding:9px;
+    box-shadow:
+        inset 0 0 0 2px #6c4629,
+        0 6px 20px rgba(0,0,0,.4);
+    position:relative;
+    min-height:610px;
 }
 
-.metric{
- padding-left:14px;
- border-left:2px solid rgba(255,255,255,.25)
+.bridge-table{
+    position:relative;
+    width:100%;
+    height:590px;
+    max-width:900px;
+    margin:auto;
 }
 
-.metric b{
- display:block;
- font-size:19px
+/* PLAYER AREAS */
+.player{
+    position:absolute;
+    z-index:10;
 }
 
-.metric small{
- opacity:.78
+.player-label{
+    background:rgba(0,0,0,.65);
+    border-radius:7px;
+    padding:5px 8px;
+    text-align:center;
+    font-size:11px;
+    font-weight:bold;
+    margin-bottom:4px;
 }
 
-/* FOTO KETUA */
-.portrait-wrap{
- position:relative;
- display:flex;
- justify-content:center
+.north{
+    top:2px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
 }
 
-.portrait-card{
- position:relative;
- width:min(410px,90vw);
- border-radius:28px;
- overflow:hidden;
- background:#fff;
- padding:10px;
- box-shadow:0 28px 70px rgba(0,0,0,.24);
- transform:rotate(1deg)
+.south{
+    bottom:2px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
 }
 
-.portrait-card img{
- display:block;
- width:100%;
- height:490px;
- object-fit:cover;
- object-position:50% 27%;
- border-radius:20px
+.west{
+    left:2px;
+    top:50%;
+    transform:translateY(-50%);
+    width:29%;
 }
 
-.portrait-badge{
- position:absolute;
- left:24px;
- right:24px;
- bottom:26px;
- background:rgba(4,25,41,.92);
- color:#fff;
- padding:12px 14px;
- border-radius:14px
+.east{
+    right:2px;
+    top:50%;
+    transform:translateY(-50%);
+    width:29%;
 }
 
-.portrait-badge b{
- display:block;
- font-size:14px
+/* HAND */
+.hand{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:82px;
 }
 
-.portrait-badge span{
- font-size:11px;
- color:#cfe1ed
+.side-hand{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    align-items:center;
 }
 
-/* SECTION */
-section{
- padding:68px 0
+.card{
+    width:62px;
+    height:88px;
+    background:#fff;
+    color:#111;
+    border-radius:8px;
+    border:2px solid #ddd;
+    box-shadow:0 2px 5px rgba(0,0,0,.35);
+    position:relative;
+    flex-shrink:0;
+    user-select:none;
 }
 
-.section-head{
- display:flex;
- justify-content:space-between;
- gap:20px;
- align-items:end;
- margin-bottom:24px
+.card .rank{
+    position:absolute;
+    top:3px;
+    left:5px;
+    font-size:17px;
+    font-weight:bold;
+    line-height:1;
 }
 
-.eyebrow{
- color:var(--navy2);
- font-size:12px;
- font-weight:900;
- letter-spacing:1px;
- text-transform:uppercase
+.card .suit{
+    position:absolute;
+    top:21px;
+    left:5px;
+    font-size:18px;
+    line-height:1;
 }
 
-.section-head h2{
- margin:6px 0 0;
- font-size:32px
+.card .center{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-45%);
+    font-size:29px;
+    font-weight:bold;
 }
 
-.section-head p{
- margin:8px 0 0;
- color:var(--muted);
- line-height:1.6;
- max-width:650px
+.red{
+    color:#d71920;
 }
 
-/* QUICK MENU */
-.quick-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:16px
+.black{
+    color:#111;
 }
 
-.quick-card{
- background:#fff;
- border:1px solid var(--line);
- border-radius:20px;
- padding:24px;
- box-shadow:var(--shadow);
- text-decoration:none;
- transition:.2s
+.card.playable{
+    cursor:pointer;
+    transform:translateY(-5px);
+    box-shadow:0 0 0 3px #ffd43b,0 4px 10px rgba(0,0,0,.5);
 }
 
-.quick-card:hover{
- transform:translateY(-4px)
+.card.playable:hover{
+    transform:translateY(-8px);
 }
 
-.quick-icon{
- font-size:32px;
- margin-bottom:14px
+.card.disabled{
+    opacity:.65;
 }
 
-.quick-card h3{
- margin:0 0 7px;
- font-size:20px
+/* SIDE CARDS */
+.side-hand .card{
+    width:47px;
+    height:63px;
 }
 
-.quick-card p{
- margin:0;
- color:var(--muted);
- line-height:1.55;
- font-size:13px
+.side-hand .card .rank{
+    font-size:13px;
 }
 
-/* ABOUT */
-.about{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:20px
+.side-hand .card .suit{
+    top:16px;
+    font-size:14px;
 }
 
-.panel{
- background:#fff;
- border:1px solid var(--line);
- border-radius:20px;
- padding:25px;
- box-shadow:var(--shadow)
+.side-hand .card .center{
+    font-size:21px;
 }
 
-.panel h3{
- margin:0 0 10px
+/* NORTH FAN */
+.north .hand .card{
+    margin-left:-12px;
 }
 
-.panel p{
- color:var(--muted);
- line-height:1.7
+.north .hand .card:first-child{
+    margin-left:0;
 }
 
-/* APPLICATION */
-.app-grid{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:16px
+/* SOUTH FAN */
+.south .hand .card{
+    margin-left:-8px;
 }
 
-.app-card{
- color:#fff;
- border-radius:20px;
- padding:25px;
- text-decoration:none;
- min-height:190px;
- display:flex;
- flex-direction:column;
- justify-content:space-between
+.south .hand .card:first-child{
+    margin-left:0;
 }
 
-.app-card.blue{
- background:linear-gradient(145deg,#0d73c4,#06508a)
+/* CENTER TRICK */
+.trick-area{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    background:rgba(0,0,0,.08);
 }
 
-.app-card.green{
- background:linear-gradient(145deg,#1b9854,#0a6540)
+.trick-card{
+    position:absolute;
+    width:55px;
+    height:77px;
+    background:#fff;
+    color:#111;
+    border-radius:7px;
+    border:2px solid #ddd;
+    box-shadow:0 2px 6px rgba(0,0,0,.45);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
 }
 
-.app-card h3{
- margin:8px 0;
- font-size:22px
+.trick-card.n{
+    top:2px;
+    left:50%;
+    transform:translateX(-50%);
 }
 
-.app-card p{
- margin:0;
- line-height:1.5;
- opacity:.9
+.trick-card.s{
+    bottom:2px;
+    left:50%;
+    transform:translateX(-50%);
 }
 
-.app-card .go{
- display:inline-block;
- margin-top:15px;
- background:#fff;
- color:#103b59;
- padding:9px 12px;
- border-radius:10px;
- font-weight:900;
- font-size:12px;
- align-self:flex-start
+.trick-card.w{
+    left:2px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.trick-card.e{
+    right:2px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.trick-rank{
+    font-size:18px;
+}
+
+.trick-suit{
+    font-size:22px;
+}
+
+/* STATUS */
+.status{
+    margin:10px 0;
+    background:#102f45;
+    border:1px solid #295877;
+    border-radius:10px;
+    padding:10px;
+    text-align:center;
+    font-size:13px;
+    line-height:1.4;
+}
+
+.status strong{
+    color:#ffd43b;
+}
+
+/* INFO */
+.info{
+    background:#0c304b;
+    border:1px solid #235575;
+    border-radius:12px;
+    padding:11px;
+    margin-top:12px;
+}
+
+.info h3{
+    margin:0 0 7px;
+    font-size:14px;
+}
+
+.info p{
+    margin:4px 0;
+    font-size:12px;
+    color:#c4dbea;
+}
+
+/* LOG */
+.log{
+    max-height:180px;
+    overflow:auto;
+    background:#061b2b;
+    border-radius:8px;
+    padding:8px;
+    margin-top:8px;
+    font-size:11px;
+    color:#c7dce9;
+}
+
+.log div{
+    padding:3px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,.72);
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(420px,100%);
+    background:#0c304b;
+    border:1px solid #39779d;
+    border-radius:16px;
+    padding:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,.5);
+}
+
+.modal-box h2{
+    margin:0 0 10px;
+    text-align:center;
+    font-size:21px;
+}
+
+.result{
+    background:#08243a;
+    border-radius:10px;
+    padding:12px;
+    margin:10px 0;
+}
+
+.result-row{
+    display:flex;
+    justify-content:space-between;
+    padding:5px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.result-row:last-child{
+    border-bottom:0;
+}
+
+.big-result{
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+    color:#ffd43b;
+    padding:8px;
 }
 
 /* FOOTER */
-footer{
- background:#062f4b;
- color:#dfeaf1;
- padding:34px 0 18px
+.footer{
+    text-align:center;
+    color:#86aac0;
+    font-size:10px;
+    padding:18px 8px;
 }
 
-.footer-grid{
- display:grid;
- grid-template-columns:1.2fr .8fr .8fr;
- gap:25px
+/* RESPONSIVE */
+@media(max-width:700px){
+
+    .container{
+        padding:8px;
+    }
+
+    .title h1{
+        font-size:19px;
+    }
+
+    .scorebar{
+        gap:4px;
+    }
+
+    .scorebox{
+        padding:6px 3px;
+    }
+
+    .scorebox strong{
+        font-size:14px;
+    }
+
+    .setup-row{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+
+    .table-wrap{
+        min-height:560px;
+        padding:5px;
+        border-width:5px;
+    }
+
+    .bridge-table{
+        height:540px;
+    }
+
+    .north,.south{
+        width:96%;
+    }
+
+    .west,.east{
+        width:24%;
+    }
+
+    .hand{
+        min-height:76px;
+    }
+
+    .card{
+        width:52px;
+        height:76px;
+    }
+
+    .card .rank{
+        font-size:15px;
+    }
+
+    .card .suit{
+        top:19px;
+        font-size:16px;
+    }
+
+    .card .center{
+        font-size:25px;
+    }
+
+    .south .hand .card{
+        margin-left:-11px;
+    }
+
+    .north .hand .card{
+        margin-left:-15px;
+    }
+
+    .side-hand .card{
+        width:40px;
+        height:56px;
+    }
+
+    .side-hand .card .rank{
+        font-size:11px;
+    }
+
+    .side-hand .card .suit{
+        top:14px;
+        font-size:12px;
+    }
+
+    .side-hand .card .center{
+        font-size:18px;
+    }
+
+    .player-label{
+        font-size:9px;
+        padding:4px 5px;
+    }
+
+    .trick-area{
+        width:180px;
+        height:180px;
+    }
+
+    .trick-card{
+        width:44px;
+        height:63px;
+    }
+
+    .trick-rank{
+        font-size:15px;
+    }
+
+    .trick-suit{
+        font-size:18px;
+    }
+
+    .home-btn{
+        padding:8px 9px;
+        font-size:11px;
+    }
 }
 
-.footer-brand{
- font-size:23px;
- font-weight:900;
- color:#fff
-}
+@media(max-width:420px){
 
-.footer-grid p{
- color:#b8cad5;
- line-height:1.6
-}
+    .brand-text strong{
+        font-size:11px;
+    }
 
-.footer-grid a{
- display:block;
- text-decoration:none;
- color:#dfeaf1;
- margin:8px 0;
- font-size:13px
-}
+    .brand-text span{
+        font-size:8px;
+    }
 
-.copyright{
- border-top:1px solid rgba(255,255,255,.14);
- margin-top:26px;
- padding-top:14px;
- font-size:11px;
- color:#a9bfcc;
- display:flex;
- justify-content:space-between
-}
+    .logo{
+        width:37px;
+        height:37px;
+        font-size:20px;
+    }
 
-/* MOBILE */
-@media(max-width:900px){
+    .bridge-table{
+        height:510px;
+    }
 
- .nav-inner{
-  height:64px
- }
+    .table-wrap{
+        min-height:530px;
+    }
 
- .menu{
-  display:block
- }
+    .card{
+        width:46px;
+        height:68px;
+    }
 
- .nav-links{
-  display:none;
-  position:absolute;
-  left:0;
-  right:0;
-  top:64px;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  padding:8px 18px 14px;
-  flex-direction:column;
-  align-items:stretch
- }
+    .south .hand .card{
+        margin-left:-13px;
+    }
 
- .nav-links.open{
-  display:flex
- }
+    .north .hand .card{
+        margin-left:-17px;
+    }
 
- .hero-grid{
-  grid-template-columns:1fr;
-  padding-top:55px
- }
-
- .portrait-wrap{
-  order:-1
- }
-
- .portrait-card img{
-  height:400px
- }
-
- .quick-grid,
- .app-grid{
-  grid-template-columns:1fr
- }
-
- .about{
-  grid-template-columns:1fr
- }
-
- .footer-grid{
-  grid-template-columns:1fr 1fr
- }
-}
-
-@media(max-width:560px){
-
- .topbar .inner{
-  justify-content:center
- }
-
- .topbar .inner span:last-child{
-  display:none
- }
-
- .container{
-  padding:0 14px
- }
-
- .brand img{
-  width:42px;
-  height:42px
- }
-
- .brand strong{
-  font-size:17px
- }
-
- .brand span{
-  font-size:9px
- }
-
- .hero h1{
-  font-size:44px
- }
-
- .portrait-card{
-  width:100%;
-  transform:none
- }
-
- .portrait-card img{
-  height:390px
- }
-
- .section-head{
-  align-items:start;
-  flex-direction:column
- }
-
- .section-head h2{
-  font-size:27px
- }
-
- .footer-grid{
-  grid-template-columns:1fr
- }
-
- .copyright{
-  flex-direction:column
- }
+    .side-hand .card{
+        width:35px;
+        height:50px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
- <div class="container inner">
-  <span>GABSI Kota Tanjungbalai • Bridge Duplicate Center</span>
-  <span>Sportivitas • Persahabatan • Prestasi • Edukasi</span>
- </div>
-</div>
+<header class="header">
+    <div class="header-inner">
 
-<nav class="nav">
+        <div class="brand">
+            <div class="logo">♠</div>
 
- <div class="container nav-inner">
+            <div class="brand-text">
+                <strong>GABSI KOTA TANJUNGBALAI</strong>
+                <span>GAME BRIDGE — MODE LATIHAN</span>
+            </div>
+        </div>
 
-  <a class="brand" href="index.html">
-   <img src="favicon.svg" alt="GABSI">
-   <div>
-    <strong>GABSI KOTA TANJUNGBALAI</strong>
-    <span>GABUNGAN BRIDGE SELURUH INDONESIA</span>
-   </div>
-  </a>
+        <a class="home-btn" href="index.html">
+            🏠 Beranda
+        </a>
 
-  <button class="menu" aria-label="Buka menu" onclick="toggleMenu()">☰</button>
-
-  <div class="nav-links" id="navLinks">
-
-   <a class="active" href="index.html">Beranda</a>
-   <a href="profil.html">Profil</a>
-   <a href="pengurus.html">Pengurus</a>
-   <a href="kegiatan.html">Kegiatan</a>
-   <a href="galeri.html">Galeri</a>
-   <a href="aplikasi.html">Aplikasi</a>
-   <a href="kontak.html">Kontak</a>
-
-  </div>
-
- </div>
-
-</nav>
-
-<header class="hero">
-
- <div class="container hero-grid">
-
-  <div>
-
-   <span class="kicker">
-    ♠ BRIDGE CENTER • KOTA TANJUNGBALAI
-   </span>
-
-   <h1>
-    GABSI
-    <span>Kota Tanjungbalai</span>
-   </h1>
-
-   <p>
-    Website resmi GABSI Kota Tanjungbalai sebagai pusat informasi,
-    kegiatan pembinaan, dokumentasi, dan aplikasi olahraga
-    Bridge Duplicate.
-   </p>
-
-   <div class="hero-actions">
-
-    <a class="btn primary" href="aplikasi.html">
-     Buka Aplikasi
-    </a>
-
-    <a class="btn ghost" href="profil.html">
-     Kenali GABSI
-    </a>
-
-   </div>
-
-   <div class="hero-note">
-
-    <div class="metric">
-     <b>52</b>
-     <small>Kartu per deal</small>
     </div>
-
-    <div class="metric">
-     <b>4</b>
-     <small>Posisi pemain</small>
-    </div>
-
-    <div class="metric">
-     <b>IMP</b>
-     <small>Duplicate scoring</small>
-    </div>
-
-   </div>
-
-  </div>
-
-  <div class="portrait-wrap">
-
-   <div class="portrait-card">
-
-    <img src="ketua-gabsi.jpg"
-         alt="Ketua GABSI Kota Tanjungbalai">
-
-    <div class="portrait-badge">
-     <b>Erick Hariyanto Hutabarat, S.Pd.</b>
-     <span>Ketua GABSI Kota Tanjungbalai</span>
-    </div>
-
-   </div>
-
-  </div>
-
- </div>
-
 </header>
 
-<main>
 
-<section>
+<main class="container">
 
- <div class="container">
-
-  <div class="section-head">
-
-   <div>
-
-    <div class="eyebrow">
-     MENU UTAMA
+    <div class="title">
+        <h1>♠ GAME BRIDGE GABSI ♠</h1>
+        <p>Latihan Bridge 4 Pemain Melawan Komputer</p>
     </div>
 
-    <h2>
-     Jelajahi Website GABSI
-    </h2>
 
-    <p>
-     Informasi website sekarang dipisahkan menjadi beberapa halaman
-     agar lebih rapi dan mudah digunakan.
-    </p>
+    <!-- SCORE -->
+    <div class="scorebar">
 
-   </div>
+        <div class="scorebox">
+            <small>Kontrak</small>
+            <strong id="scoreContract">-</strong>
+        </div>
 
-  </div>
+        <div class="scorebox">
+            <small>Trick Anda</small>
+            <strong id="scoreYou">0</strong>
+        </div>
 
-  <div class="quick-grid">
+        <div class="scorebox">
+            <small>Trick Lawan</small>
+            <strong id="scoreOpp">0</strong>
+        </div>
 
-   <a class="quick-card" href="profil.html">
-    <div class="quick-icon">🏛️</div>
-    <h3>Profil GABSI</h3>
-    <p>
-     Sejarah, visi, misi, dan informasi GABSI Kota Tanjungbalai.
-    </p>
-   </a>
-
-   <a class="quick-card" href="pengurus.html">
-    <div class="quick-icon">👥</div>
-    <h3>Pengurus</h3>
-    <p>
-     Informasi ketua dan susunan kepengurusan organisasi.
-    </p>
-   </a>
-
-   <a class="quick-card" href="kegiatan.html">
-    <div class="quick-icon">🏆</div>
-    <h3>Kegiatan & Berita</h3>
-    <p>
-     Latihan, pembinaan atlet, turnamen, dan informasi terbaru.
-    </p>
-   </a>
-
-   <a class="quick-card" href="galeri.html">
-    <div class="quick-icon">📷</div>
-    <h3>Galeri GABSI</h3>
-    <p>
-     Dokumentasi foto kegiatan latihan dan pertandingan.
-    </p>
-   </a>
-
-   <a class="quick-card" href="aplikasi.html">
-    <div class="quick-icon">💻</div>
-    <h3>Aplikasi Bridge</h3>
-    <p>
-     Score Sheet dan Kocokan Kartu Bridge untuk latihan maupun pertandingan.
-    </p>
-   </a>
-
-   <a class="quick-card" href="kontak.html">
-    <div class="quick-icon">📞</div>
-    <h3>Kontak</h3>
-    <p>
-     Informasi kontak dan komunikasi GABSI Kota Tanjungbalai.
-    </p>
-   </a>
-
-  </div>
-
- </div>
-
-</section>
-
-<section style="padding-top:0">
-
- <div class="container">
-
-  <div class="about">
-
-   <div class="panel">
-
-    <div class="eyebrow">
-     TENTANG
-    </div>
-
-    <h3>
-     GABSI Kota Tanjungbalai
-    </h3>
-
-    <p>
-     GABSI Kota Tanjungbalai merupakan organisasi yang menjadi
-     wadah pengembangan olahraga Bridge di Kota Tanjungbalai,
-     termasuk pembinaan pemain, latihan, pertandingan dan
-     pengembangan prestasi.
-    </p>
-
-    <a class="btn blue" href="profil.html">
-     Lihat Profil Lengkap →
-    </a>
-
-   </div>
-
-   <div class="panel">
-
-    <div class="eyebrow">
-     APLIKASI
-    </div>
-
-    <h3>
-     Bridge Duplicate Center
-    </h3>
-
-    <p>
-     Website menyediakan aplikasi digital untuk membantu
-     pencatatan score sheet dan pengaturan deal kartu Bridge.
-    </p>
-
-    <a class="btn blue" href="aplikasi.html">
-     Lihat Semua Aplikasi →
-    </a>
-
-   </div>
-
-  </div>
-
- </div>
-
-</section>
-
-<section>
-
- <div class="container">
-
-  <div class="section-head">
-
-   <div>
-
-    <div class="eyebrow">
-     APLIKASI BRIDGE
-    </div>
-
-    <h2>
-     Aplikasi GABSI
-    </h2>
-
-    <p>
-     Akses cepat aplikasi Bridge yang telah dibuat untuk
-     kebutuhan latihan dan pertandingan.
-    </p>
-
-   </div>
-
-  </div>
-
-  <div class="app-grid">
-
-   <a class="app-card blue" href="score-sheet.html">
-
-    <div>
-
-     <div style="font-size:32px">🧮</div>
-
-     <h3>
-      Bridge Score Sheet
-     </h3>
-
-     <p>
-      Pencatatan kontrak, score NS/EW, HCP, board,
-      dan perhitungan IMP.
-     </p>
+        <div class="scorebox">
+            <small>Board</small>
+            <strong id="boardNo">1</strong>
+        </div>
 
     </div>
 
-    <span class="go">
-     BUKA SCORE SHEET →
-    </span>
 
-   </a>
+    <!-- SETUP -->
+    <section class="setup">
 
-   <a class="app-card green" href="kocokan-kartu.html">
+        <div class="setup-title">
+            🎯 PILIH KONTRAK
+        </div>
 
-    <div>
+        <div class="setup-row">
 
-     <div style="font-size:32px">🃏</div>
+            <select id="level">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
 
-     <h3>
-      Kocokan Kartu Bridge
-     </h3>
+            <select id="denom">
+                <option value="C">♣ CLUB</option>
+                <option value="D">♦ DIAMOND</option>
+                <option value="H">♥ HEART</option>
+                <option value="S" selected>♠ SPADE</option>
+                <option value="NT">NT</option>
+            </select>
 
-     <p>
-      Membuat deal 52 kartu dan board pembanding
-      untuk permainan Duplicate.
-     </p>
+            <select id="multiplier">
+                <option value="1">Normal</option>
+                <option value="2">Double</option>
+                <option value="4">Redouble</option>
+            </select>
 
+        </div>
+
+        <div class="action-row">
+
+            <button class="btn btn-primary" onclick="startGame()">
+                🎴 DEAL & MULAI
+            </button>
+
+            <button class="btn btn-secondary" onclick="newBoard()">
+                🔄 BOARD BARU
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATUS -->
+    <div class="status" id="status">
+        Pilih kontrak kemudian tekan <strong>DEAL & MULAI</strong>.
     </div>
 
-    <span class="go">
-     BUKA KOCOKAN →
-    </span>
 
-   </a>
+    <!-- TABLE -->
+    <section class="table-wrap">
 
-  </div>
+        <div class="bridge-table">
 
- </div>
+            <!-- NORTH -->
+            <div class="player north">
 
-</section>
+                <div class="player-label">
+                    NORTH — DUMMY
+                </div>
+
+                <div class="hand" id="northHand"></div>
+
+            </div>
+
+
+            <!-- WEST -->
+            <div class="player west">
+
+                <div class="player-label">
+                    WEST — KOMPUTER
+                </div>
+
+                <div class="side-hand" id="westHand"></div>
+
+            </div>
+
+
+            <!-- EAST -->
+            <div class="player east">
+
+                <div class="player-label">
+                    EAST — KOMPUTER
+                </div>
+
+                <div class="side-hand" id="eastHand"></div>
+
+            </div>
+
+
+            <!-- SOUTH -->
+            <div class="player south">
+
+                <div class="player-label">
+                    SOUTH — ANDA
+                </div>
+
+                <div class="hand" id="southHand"></div>
+
+            </div>
+
+
+            <!-- CENTER -->
+            <div class="trick-area">
+
+                <div id="trickN" class="trick-card n"></div>
+                <div id="trickS" class="trick-card s"></div>
+                <div id="trickW" class="trick-card w"></div>
+                <div id="trickE" class="trick-card e"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFO -->
+    <section class="info">
+
+        <h3>📘 Status Permainan</h3>
+
+        <p>
+            Kontrak:
+            <strong id="infoContract">-</strong>
+        </p>
+
+        <p>
+            Trump:
+            <strong id="infoTrump">-</strong>
+        </p>
+
+        <p>
+            Giliran:
+            <strong id="infoTurn">-</strong>
+        </p>
+
+        <p>
+            Trick:
+            <strong id="infoTrick">0 / 13</strong>
+        </p>
+
+        <div class="log" id="gameLog">
+            <div>Game belum dimulai.</div>
+        </div>
+
+    </section>
 
 </main>
 
-<footer>
 
- <div class="container footer-grid">
+<div class="footer">
+    GABSI Kota Tanjungbalai © 2026<br>
+    Game Bridge Mode Latihan
+</div>
 
-  <div>
 
-   <div class="footer-brand">
-    GABSI Kota Tanjungbalai
-   </div>
+<!-- RESULT MODAL -->
+<div class="modal" id="resultModal">
 
-   <p>
-    Gabungan Bridge Seluruh Indonesia
-    • Bridge Duplicate Center.
-   </p>
+    <div class="modal-box">
 
-  </div>
+        <h2>🏆 BOARD SELESAI</h2>
 
-  <div>
+        <div class="result">
 
-   <b style="color:#fff">
-    Navigasi
-   </b>
+            <div class="result-row">
+                <span>Kontrak</span>
+                <strong id="resultContract">-</strong>
+            </div>
 
-   <a href="index.html">Beranda</a>
-   <a href="profil.html">Profil</a>
-   <a href="pengurus.html">Pengurus</a>
-   <a href="kegiatan.html">Kegiatan</a>
+            <div class="result-row">
+                <span>Trick Diperoleh</span>
+                <strong id="resultTricks">-</strong>
+            </div>
 
-  </div>
+            <div class="result-row">
+                <span>Target</span>
+                <strong id="resultTarget">-</strong>
+            </div>
 
-  <div>
+            <div class="result-row">
+                <span>Hasil</span>
+                <strong id="resultStatus">-</strong>
+            </div>
 
-   <b style="color:#fff">
-    Lainnya
-   </b>
+        </div>
 
-   <a href="galeri.html">Galeri</a>
-   <a href="aplikasi.html">Aplikasi</a>
-   <a href="kontak.html">Kontak</a>
+        <div class="big-result" id="resultScore">
+            0
+        </div>
 
-  </div>
+        <button class="btn btn-primary" style="width:100%;"
+                onclick="closeResultAndDeal()">
+            🎴 BOARD BERIKUTNYA
+        </button>
 
- </div>
+        <button class="btn btn-secondary"
+                style="width:100%;margin-top:7px;"
+                onclick="closeModal()">
+            Tutup
+        </button>
 
- <div class="container copyright">
+    </div>
 
-  <span>
-   © 2026 GABSI Kota Tanjungbalai.
-  </span>
+</div>
 
-  <span>
-   Website Bridge Center
-  </span>
-
- </div>
-
-</footer>
 
 <script>
 
-function toggleMenu(){
+/* =========================================================
+   GABSI KOTA TANJUNGBALAI
+   GAME BRIDGE — MODE LATIHAN
+   ========================================================= */
 
- document
- .getElementById('navLinks')
- .classList
- .toggle('open');
+
+/* ---------- DATA ---------- */
+
+const suits = ["C","D","H","S"];
+
+const suitSymbols = {
+    C:"♣",
+    D:"♦",
+    H:"♥",
+    S:"♠"
+};
+
+const suitNames = {
+    C:"Club",
+    D:"Diamond",
+    H:"Heart",
+    S:"Spade",
+    NT:"No Trump"
+};
+
+const ranks = [
+    {r:"2",v:2},
+    {r:"3",v:3},
+    {r:"4",v:4},
+    {r:"5",v:5},
+    {r:"6",v:6},
+    {r:"7",v:7},
+    {r:"8",v:8},
+    {r:"9",v:9},
+    {r:"10",v:10},
+    {r:"J",v:11},
+    {r:"Q",v:12},
+    {r:"K",v:13},
+    {r:"A",v:14}
+];
+
+let hands = {
+    N:[],
+    E:[],
+    S:[],
+    W:[]
+};
+
+let currentPlayer = "W";
+
+let trick = [];
+
+let trickNo = 0;
+
+let tricksWon = {
+    N:0,
+    E:0,
+    S:0,
+    W:0
+};
+
+let contract = {
+    level:3,
+    denom:"S",
+    multiplier:1
+};
+
+let boardNumber = 1;
+
+let gameStarted = false;
+
+let waitingAI = false;
+
+
+/* ---------- UTILITY ---------- */
+
+function shuffle(array){
+
+    for(let i=array.length-1;i>0;i--){
+
+        const j=Math.floor(Math.random()*(i+1));
+
+        [array[i],array[j]]=[array[j],array[i]];
+    }
+
+    return array;
+}
+
+
+function createDeck(){
+
+    const deck=[];
+
+    for(const s of suits){
+
+        for(const r of ranks){
+
+            deck.push({
+                suit:s,
+                rank:r.r,
+                value:r.v
+            });
+
+        }
+
+    }
+
+    return deck;
+}
+
+
+function cardText(card){
+
+    if(!card) return "";
+
+    return card.rank + suitSymbols[card.suit];
+}
+
+
+function cardColor(card){
+
+    return (card.suit==="H" || card.suit==="D")
+        ? "red"
+        : "black";
+}
+
+
+/* ---------- DEAL ---------- */
+
+function deal(){
+
+    const deck=shuffle(createDeck());
+
+    hands.N=deck.slice(0,13);
+    hands.E=deck.slice(13,26);
+    hands.S=deck.slice(26,39);
+    hands.W=deck.slice(39,52);
+
+    for(const p of ["N","E","S","W"]){
+
+        hands[p].sort(sortCards);
+
+    }
+}
+
+
+function sortCards(a,b){
+
+    const suitOrder={
+        S:4,
+        H:3,
+        D:2,
+        C:1
+    };
+
+    if(a.suit!==b.suit){
+
+        return suitOrder[b.suit]-suitOrder[a.suit];
+
+    }
+
+    return b.value-a.value;
+}
+
+
+/* ---------- GAME START ---------- */
+
+function startGame(){
+
+    const level=parseInt(document.getElementById("level").value);
+
+    const denom=document.getElementById("denom").value;
+
+    const multiplier=parseInt(
+        document.getElementById("multiplier").value
+    );
+
+    contract={
+        level,
+        denom,
+        multiplier
+    };
+
+    deal();
+
+    trick=[];
+
+    trickNo=0;
+
+    tricksWon={
+        N:0,
+        E:0,
+        S:0,
+        W:0
+    };
+
+    currentPlayer="W";
+
+    gameStarted=true;
+
+    waitingAI=false;
+
+    document.getElementById("scoreContract").textContent=
+        contractText();
+
+    document.getElementById("infoContract").textContent=
+        contractText();
+
+    document.getElementById("infoTrump").textContent=
+        suitNames[contract.denom];
+
+    clearLog();
+
+    addLog(
+        "Board "+boardNumber+
+        " dimulai. Kontrak "+contractText()+
+        ". West melakukan lead."
+    );
+
+    renderAll();
+
+    updateStatus(
+        "West sedang melakukan lead pertama..."
+    );
+
+    setTimeout(aiPlay,700);
+}
+
+
+/* ---------- CONTRACT ---------- */
+
+function contractText(){
+
+    const mult =
+        contract.multiplier===2 ? " X"
+        : contract.multiplier===4 ? " XX"
+        : "";
+
+    return contract.level+
+        (contract.denom==="NT"
+            ? "NT"
+            : suitSymbols[contract.denom])+
+        mult;
+}
+
+
+/* ---------- RENDER ---------- */
+
+function renderAll(){
+
+    renderHand("N");
+    renderHand("S");
+    renderSide("E");
+    renderSide("W");
+
+    renderTrick();
+
+    document.getElementById("scoreYou").textContent=
+        tricksWon.S + tricksWon.N;
+
+    document.getElementById("scoreOpp").textContent=
+        tricksWon.E + tricksWon.W;
+
+    document.getElementById("infoTurn").textContent=
+        playerName(currentPlayer);
+
+    document.getElementById("infoTrick").textContent=
+        trickNo+" / 13";
+}
+
+
+function renderHand(player){
+
+    const el=document.getElementById(
+        player==="N" ? "northHand" : "southHand"
+    );
+
+    el.innerHTML="";
+
+    hands[player].forEach((card,index)=>{
+
+        const div=createCardElement(
+            card,
+            player,
+            index
+        );
+
+        el.appendChild(div);
+
+    });
+}
+
+
+function renderSide(player){
+
+    const el=document.getElementById(
+        player==="W" ? "westHand" : "eastHand"
+    );
+
+    el.innerHTML="";
+
+    hands[player].forEach((card,index)=>{
+
+        const div=document.createElement("div");
+
+        div.className=
+            "card "+
+            cardColor(card);
+
+        div.innerHTML=`
+            <span class="rank">${card.rank}</span>
+            <span class="suit">${suitSymbols[card.suit]}</span>
+            <span class="center">${suitSymbols[card.suit]}</span>
+        `;
+
+        el.appendChild(div);
+
+    });
+}
+
+
+function createCardElement(card,player,index){
+
+    const div=document.createElement("div");
+
+    div.className=
+        "card "+
+        cardColor(card);
+
+    div.innerHTML=`
+        <span class="rank">${card.rank}</span>
+        <span class="suit">${suitSymbols[card.suit]}</span>
+        <span class="center">${suitSymbols[card.suit]}</span>
+    `;
+
+    const canPlay =
+        gameStarted &&
+        !waitingAI &&
+        (player==="S" || player==="N") &&
+        currentPlayer===player &&
+        isLegalCard(player,card);
+
+    if(canPlay){
+
+        div.classList.add("playable");
+
+        div.onclick=()=>playCard(player,index);
+
+    }else{
+
+        div.classList.add("disabled");
+
+    }
+
+    return div;
+}
+
+
+/* ---------- TRICK ---------- */
+
+function renderTrick(){
+
+    const ids={
+        N:"trickN",
+        S:"trickS",
+        E:"trickE",
+        W:"trickW"
+    };
+
+    for(const p in ids){
+
+        const el=document.getElementById(ids[p]);
+
+        el.innerHTML="";
+
+    }
+
+    trick.forEach(item=>{
+
+        const el=document.getElementById(
+            ids[item.player]
+        );
+
+        el.innerHTML=`
+            <div class="trick-rank">
+                ${item.card.rank}
+            </div>
+            <div class="trick-suit ${cardColor(item.card)}">
+                ${suitSymbols[item.card.suit]}
+            </div>
+        `;
+
+    });
+}
+
+
+/* ---------- LEGAL MOVE ---------- */
+
+function isLegalCard(player,card){
+
+    const hand=hands[player];
+
+    if(trick.length===0){
+
+        return true;
+
+    }
+
+    const leadSuit=trick[0].card.suit;
+
+    const hasLead=hand.some(
+        c=>c.suit===leadSuit
+    );
+
+    if(hasLead){
+
+        return card.suit===leadSuit;
+
+    }
+
+    return true;
+}
+
+
+/* ---------- PLAY CARD ---------- */
+
+function playCard(player,index){
+
+    if(!gameStarted) return;
+
+    if(waitingAI) return;
+
+    if(currentPlayer!==player) return;
+
+    const card=hands[player][index];
+
+    if(!isLegalCard(player,card)){
+
+        updateStatus(
+            "❌ Anda wajib mengikuti suit "+suitSymbols[trick[0].card.suit]+"."
+        );
+
+        return;
+    }
+
+    hands[player].splice(index,1);
+
+    trick.push({
+        player,
+        card
+    });
+
+    addLog(
+        playerName(player)+
+        " memainkan "+
+        cardText(card)
+    );
+
+    renderAll();
+
+    if(trick.length===4){
+
+        setTimeout(resolveTrick,500);
+
+        return;
+    }
+
+    currentPlayer=nextPlayer(currentPlayer);
+
+    renderAll();
+
+    if(currentPlayer==="E" || currentPlayer==="W"){
+
+        waitingAI=true;
+
+        updateStatus(
+            playerName(currentPlayer)+
+            " sedang memilih kartu..."
+        );
+
+        setTimeout(aiPlay,550);
+
+    }else{
+
+        waitingAI=false;
+
+        updateStatus(
+            "Giliran Anda. Pilih kartu yang sah."
+        );
+
+    }
+}
+
+
+/* ---------- NEXT PLAYER ---------- */
+
+function nextPlayer(player){
+
+    const order=["W","N","E","S"];
+
+    const i=order.indexOf(player);
+
+    return order[(i+1)%4];
+}
+
+
+/* ---------- AI ---------- */
+
+function aiPlay(){
+
+    if(!gameStarted) return;
+
+    if(currentPlayer!=="E" &&
+       currentPlayer!=="W"){
+
+        waitingAI=false;
+
+        return;
+
+    }
+
+    const player=currentPlayer;
+
+    const legal=hands[player].filter(
+        c=>isLegalCard(player,c)
+    );
+
+    if(!legal.length) return;
+
+    const selected=chooseAIcard(
+        player,
+        legal
+    );
+
+    const index=hands[player].indexOf(
+        selected
+    );
+
+    waitingAI=false;
+
+    playCard(player,index);
+}
+
+
+/* ---------- AI LOGIC ---------- */
+
+function chooseAIcard(player,legal){
+
+    /*
+      AI sederhana:
+      - jika lead, pilih kartu relatif rendah
+      - jika bisa memenangkan trick, pertimbangkan kartu
+      - jika trump tersedia, gunakan bila diperlukan
+    */
+
+    if(trick.length===0){
+
+        return chooseLead(legal);
+
+    }
+
+    const leadSuit=trick[0].card.suit;
+
+    const currentWinner=
+        determineCurrentWinner();
+
+    const winningCards=
+        legal.filter(card=>
+            cardCanBeat(
+                card,
+                currentWinner.card,
+                leadSuit
+            )
+        );
+
+    if(winningCards.length){
+
+        winningCards.sort(
+            (a,b)=>a.value-b.value
+        );
+
+        return winningCards[0];
+
+    }
+
+    legal.sort(
+        (a,b)=>a.value-b.value
+    );
+
+    return legal[0];
+}
+
+
+function chooseLead(cards){
+
+    const nonTrump=cards.filter(
+        c=>contract.denom==="NT" ||
+           c.suit!==contract.denom
+    );
+
+    if(nonTrump.length){
+
+        nonTrump.sort(
+            (a,b)=>a.value-b.value
+        );
+
+        return nonTrump[0];
+
+    }
+
+    cards.sort(
+        (a,b)=>a.value-b.value
+    );
+
+    return cards[0];
+}
+
+
+/* ---------- WINNER ---------- */
+
+function determineCurrentWinner(){
+
+    if(!trick.length) return null;
+
+    const leadSuit=trick[0].card.suit;
+
+    let winner=trick[0];
+
+    for(let i=1;i<trick.length;i++){
+
+        const candidate=trick[i];
+
+        if(
+            cardCanBeat(
+                candidate.card,
+                winner.card,
+                leadSuit
+            )
+        ){
+
+            winner=candidate;
+
+        }
+
+    }
+
+    return winner;
+}
+
+
+function cardCanBeat(
+    candidate,
+    current,
+    leadSuit
+){
+
+    const trump=contract.denom;
+
+    if(trump!=="NT"){
+
+        if(candidate.suit===trump &&
+           current.suit!==trump){
+
+            return true;
+
+        }
+
+        if(candidate.suit!==trump &&
+           current.suit===trump){
+
+            return false;
+
+        }
+
+    }
+
+    if(candidate.suit!==current.suit){
+
+        return candidate.suit===leadSuit &&
+               current.suit!==leadSuit;
+
+    }
+
+    return candidate.value>current.value;
+}
+
+
+/* ---------- RESOLVE TRICK ---------- */
+
+function resolveTrick(){
+
+    const winner=determineCurrentWinner();
+
+    tricksWon[winner.player]++;
+
+    trickNo++;
+
+    addLog(
+        "Trick "+trickNo+
+        " dimenangkan "+
+        playerName(winner.player)+
+        " dengan "+
+        cardText(winner.card)
+    );
+
+    const winningPlayer=winner.player;
+
+    trick=[];
+
+    renderAll();
+
+    if(trickNo>=13){
+
+        setTimeout(endGame,700);
+
+        return;
+
+    }
+
+    /*
+      Pemenang trick memimpin trick berikutnya.
+    */
+
+    currentPlayer=winningPlayer;
+
+    waitingAI=false;
+
+    renderAll();
+
+    if(currentPlayer==="E" ||
+       currentPlayer==="W"){
+
+        waitingAI=true;
+
+        updateStatus(
+            playerName(currentPlayer)+
+            " akan memimpin trick berikutnya..."
+        );
+
+        setTimeout(aiPlay,600);
+
+    }else{
+
+        updateStatus(
+            "Anda memimpin. Pilih kartu."
+        );
+
+    }
+}
+
+
+/* ---------- SCORING ---------- */
+
+function calculateScore(){
+
+    const target=
+        contract.level+6;
+
+    const made=
+        tricksWon.S+tricksWon.N;
+
+    const diff=made-target;
+
+    let score=0;
+
+    if(diff>=0){
+
+        score=
+            contractMadeScore(
+                contract.level,
+                contract.denom,
+                contract.multiplier
+            );
+
+        if(diff>0){
+
+            score+=
+                overtrickScore(
+                    diff,
+                    contract.denom,
+                    contract.multiplier
+                );
+
+        }
+
+    }else{
+
+        score=
+            undertrickScore(
+                Math.abs(diff),
+                contract.multiplier
+            );
+
+    }
+
+    return {
+        target,
+        made,
+        diff,
+        score
+    };
+}
+
+
+function contractMadeScore(
+    level,
+    denom,
+    multiplier
+){
+
+    let trickValue;
+
+    if(denom==="C" || denom==="D"){
+
+        trickValue=20;
+
+    }else if(denom==="H" || denom==="S"){
+
+        trickValue=30;
+
+    }else{
+
+        trickValue=30;
+
+    }
+
+    let score;
+
+    if(denom==="NT"){
+
+        score=40+(level-1)*30;
+
+    }else{
+
+        score=level*trickValue;
+
+    }
+
+    if(multiplier===2){
+
+        score*=2;
+
+    }else if(multiplier===4){
+
+        score*=4;
+
+    }
+
+    /*
+      Bonus sederhana berdasarkan level game.
+    */
+
+    if(level>=6){
+
+        score+=
+            multiplier===1
+            ? 500
+            : 750;
+
+    }else if(level===7){
+
+        score+=
+            multiplier===1
+            ? 1000
+            : 1500;
+
+    }else if(score>=100){
+
+        score+=50;
+
+    }
+
+    return score;
+}
+
+
+function overtrickScore(
+    count,
+    denom,
+    multiplier
+){
+
+    let value;
+
+    if(denom==="C" || denom==="D"){
+
+        value=20;
+
+    }else{
+
+        value=30;
+
+    }
+
+    if(denom==="NT"){
+
+        value=30;
+
+    }
+
+    if(multiplier===2){
+
+        return count*100;
+
+    }
+
+    if(multiplier===4){
+
+        return count*200;
+
+    }
+
+    return count*value;
+}
+
+
+function undertrickScore(
+    count,
+    multiplier
+){
+
+    if(multiplier===1){
+
+        return -count*50;
+
+    }
+
+    if(multiplier===2){
+
+        if(count===1) return -100;
+
+        return -100-(count-1)*200;
+
+    }
+
+    if(multiplier===4){
+
+        if(count===1) return -200;
+
+        return -200-(count-1)*400;
+
+    }
+
+    return 0;
+}
+
+
+/* ---------- END GAME ---------- */
+
+function endGame(){
+
+    const result=calculateScore();
+
+    document.getElementById(
+        "resultContract"
+    ).textContent=contractText();
+
+    document.getElementById(
+        "resultTricks"
+    ).textContent=result.made;
+
+    document.getElementById(
+        "resultTarget"
+    ).textContent=result.target;
+
+    let status;
+
+    if(result.diff>0){
+
+        status=
+            "KONTRAK BERHASIL +"+
+            result.diff;
+
+    }else if(result.diff===0){
+
+        status="KONTRAK BERHASIL";
+
+    }else{
+
+        status=
+            "DOWN "+
+            Math.abs(result.diff);
+
+    }
+
+    document.getElementById(
+        "resultStatus"
+    ).textContent=status;
+
+    document.getElementById(
+        "resultScore"
+    ).textContent=
+        (result.score>=0?"+":"")+
+        result.score;
+
+    document.getElementById(
+        "resultModal"
+    ).classList.add("show");
+
+    addLog(
+        "BOARD SELESAI: "+
+        status+
+        ". Skor "+result.score
+    );
+
+    gameStarted=false;
 
 }
 
-document
-.querySelectorAll('#navLinks a')
-.forEach(a=>{
 
- a.addEventListener('click',()=>{
+/* ---------- NEW BOARD ---------- */
 
-  document
-  .getElementById('navLinks')
-  .classList
-  .remove('open');
+function newBoard(){
 
- });
+    boardNumber++;
 
-});
+    document.getElementById(
+        "boardNo"
+    ).textContent=boardNumber;
 
-if('serviceWorker' in navigator){
+    startGame();
+}
 
- window.addEventListener('load',()=>{
 
-  navigator.serviceWorker
-  .register('sw.js')
-  .catch(()=>{});
+function closeModal(){
 
- });
+    document.getElementById(
+        "resultModal"
+    ).classList.remove("show");
 
 }
+
+
+function closeResultAndDeal(){
+
+    closeModal();
+
+    boardNumber++;
+
+    document.getElementById(
+        "boardNo"
+    ).textContent=boardNumber;
+
+    startGame();
+}
+
+
+/* ---------- STATUS ---------- */
+
+function updateStatus(text){
+
+    document.getElementById(
+        "status"
+    ).innerHTML=text;
+}
+
+
+function playerName(player){
+
+    const names={
+        N:"North / Dummy",
+        E:"East / Komputer",
+        S:"South / Anda",
+        W:"West / Komputer"
+    };
+
+    return names[player] || player;
+}
+
+
+/* ---------- LOG ---------- */
+
+function clearLog(){
+
+    document.getElementById(
+        "gameLog"
+    ).innerHTML="";
+
+}
+
+
+function addLog(text){
+
+    const log=document.getElementById(
+        "gameLog"
+    );
+
+    const div=document.createElement("div");
+
+    const time=new Date()
+        .toLocaleTimeString("id-ID",{
+            hour:"2-digit",
+            minute:"2-digit",
+            second:"2-digit"
+        });
+
+    div.textContent=
+        time+" — "+text;
+
+    log.appendChild(div);
+
+    log.scrollTop=log.scrollHeight;
+}
+
+
+/* ---------- INITIAL DISPLAY ---------- */
+
+document.getElementById(
+    "boardNo"
+).textContent=boardNumber;
 
 </script>
 
