@@ -1,0 +1,1217 @@
+<!doctype html>
+<html lang="id">
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<meta name="theme-color"
+content="#0a3d62">
+
+<meta name="description"
+content="Pusat aplikasi GABSI Kota Tanjungbalai untuk olahraga Bridge Duplicate.">
+
+<link rel="icon"
+href="favicon.svg"
+type="image/svg+xml">
+
+<link rel="manifest"
+href="manifest.json">
+
+<title>Aplikasi | GABSI Kota Tanjungbalai</title>
+
+<style>
+
+:root{
+ --navy:#073b61;
+ --navy2:#0a567f;
+ --red:#d71920;
+ --green:#137a45;
+ --gold:#f4c44e;
+ --ink:#102538;
+ --muted:#5f7282;
+ --bg:#f4f8fb;
+ --card:#fff;
+ --line:#dce6ed;
+ --shadow:0 14px 40px rgba(8,39,61,.11)
+}
+
+*{
+ box-sizing:border-box
+}
+
+body{
+ margin:0;
+ font-family:Inter,Segoe UI,Arial,sans-serif;
+ background:var(--bg);
+ color:var(--ink)
+}
+
+a{
+ color:inherit
+}
+
+.container{
+ max-width:1180px;
+ margin:auto;
+ padding:0 22px
+}
+
+
+/* TOPBAR */
+
+.topbar{
+ background:#032c49;
+ color:#dfeaf1;
+ font-size:12px
+}
+
+.topbar .inner{
+ display:flex;
+ justify-content:space-between;
+ gap:16px;
+ padding:8px 0
+}
+
+
+/* NAV */
+
+.nav{
+ position:sticky;
+ top:0;
+ z-index:50;
+ background:rgba(255,255,255,.96);
+ backdrop-filter:blur(12px);
+ border-bottom:1px solid var(--line)
+}
+
+.nav-inner{
+ height:72px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px
+}
+
+.brand{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ text-decoration:none
+}
+
+.brand img{
+ width:48px;
+ height:48px
+}
+
+.brand strong{
+ display:block;
+ font-size:20px;
+ line-height:1.05;
+ color:var(--navy)
+}
+
+.brand span{
+ display:block;
+ font-size:10px;
+ color:#607587;
+ margin-top:3px
+}
+
+.nav-links{
+ display:flex;
+ align-items:center;
+ gap:5px
+}
+
+.nav-links a{
+ padding:10px 11px;
+ border-radius:10px;
+ text-decoration:none;
+ font-weight:700;
+ font-size:13px;
+ color:#294458
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+ background:#eaf4fa;
+ color:var(--navy)
+}
+
+.menu{
+ display:none;
+ border:1px solid var(--line);
+ background:#fff;
+ border-radius:10px;
+ padding:10px 12px;
+ cursor:pointer
+}
+
+
+/* HERO */
+
+.page-hero{
+ background:linear-gradient(
+  125deg,
+  #052f4c,
+  #0a5e89 66%,
+  #0b7794
+ );
+ color:#fff;
+ padding:75px 0
+}
+
+.page-hero .eyebrow{
+ color:#ffd76a
+}
+
+.page-hero h1{
+ font-size:clamp(40px,5vw,60px);
+ line-height:1;
+ margin:12px 0 16px;
+ letter-spacing:-1.5px
+}
+
+.page-hero p{
+ max-width:720px;
+ color:#e5f2f8;
+ line-height:1.75;
+ font-size:16px;
+ margin:0
+}
+
+
+/* SECTION */
+
+section{
+ padding:65px 0
+}
+
+.section-head{
+ margin-bottom:28px
+}
+
+.eyebrow{
+ color:var(--navy2);
+ font-size:12px;
+ font-weight:900;
+ letter-spacing:1px;
+ text-transform:uppercase
+}
+
+.section-head h2{
+ margin:7px 0;
+ font-size:32px
+}
+
+.section-head p{
+ color:var(--muted);
+ line-height:1.7;
+ max-width:760px
+}
+
+
+/* APPLICATION */
+
+.app-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:20px
+}
+
+.app-card{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:22px;
+ padding:28px;
+ box-shadow:var(--shadow);
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+ min-height:310px
+}
+
+.app-card.blue{
+ border-top:6px solid #0d73c4
+}
+
+.app-card.green{
+ border-top:6px solid #137a45
+}
+
+.app-icon{
+ width:64px;
+ height:64px;
+ border-radius:18px;
+ display:grid;
+ place-items:center;
+ font-size:32px;
+ margin-bottom:18px
+}
+
+.app-card.blue .app-icon{
+ background:#e7f3fc
+}
+
+.app-card.green .app-icon{
+ background:#e8f7ef
+}
+
+.app-card h3{
+ margin:0 0 10px;
+ font-size:24px
+}
+
+.app-card p{
+ margin:0;
+ color:var(--muted);
+ line-height:1.7;
+ font-size:14px
+}
+
+.features{
+ margin:18px 0 20px;
+ padding:0;
+ list-style:none
+}
+
+.features li{
+ padding:7px 0;
+ color:#526875;
+ font-size:13px
+}
+
+.features li::before{
+ content:"✓";
+ color:var(--navy2);
+ font-weight:900;
+ margin-right:8px
+}
+
+.app-button{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ padding:13px 17px;
+ border-radius:11px;
+ text-decoration:none;
+ color:#fff;
+ font-weight:900
+}
+
+.app-button.blue{
+ background:#0d73c4
+}
+
+.app-button.green{
+ background:#137a45
+}
+
+
+/* INFO */
+
+.info-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:16px
+}
+
+.info-card{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:18px;
+ padding:22px;
+ box-shadow:var(--shadow)
+}
+
+.info-card .icon{
+ font-size:30px;
+ margin-bottom:10px
+}
+
+.info-card h3{
+ margin:0 0 8px
+}
+
+.info-card p{
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.6;
+ margin:0
+}
+
+
+/* DUPLICATE */
+
+.duplicate{
+ background:linear-gradient(
+  135deg,
+  #073b61,
+  #0a6b91
+ );
+ color:#fff;
+ border-radius:22px;
+ padding:30px
+}
+
+.duplicate h2{
+ margin:0 0 10px
+}
+
+.duplicate p{
+ color:#dcecf5;
+ line-height:1.7
+}
+
+.duplicate .cards{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
+ margin-top:20px
+}
+
+.duplicate .mini{
+ background:rgba(255,255,255,.1);
+ border:1px solid rgba(255,255,255,.16);
+ border-radius:14px;
+ padding:16px
+}
+
+.duplicate .mini b{
+ display:block;
+ font-size:20px;
+ margin-bottom:4px
+}
+
+.duplicate .mini span{
+ font-size:12px;
+ color:#dcecf5
+}
+
+
+/* FOOTER */
+
+footer{
+ background:#062f4b;
+ color:#dfeaf1;
+ padding:34px 0 18px
+}
+
+.footer-grid{
+ display:grid;
+ grid-template-columns:1.2fr .8fr .8fr;
+ gap:25px
+}
+
+.footer-brand{
+ font-size:23px;
+ font-weight:900;
+ color:#fff
+}
+
+.footer-grid p{
+ color:#b8cad5;
+ line-height:1.6
+}
+
+.footer-grid a{
+ display:block;
+ text-decoration:none;
+ color:#dfeaf1;
+ margin:8px 0;
+ font-size:13px
+}
+
+.copyright{
+ border-top:1px solid rgba(255,255,255,.14);
+ margin-top:26px;
+ padding-top:14px;
+ font-size:11px;
+ color:#a9bfcc;
+ display:flex;
+ justify-content:space-between;
+ gap:10px
+}
+
+
+/* TABLET */
+
+@media(max-width:900px){
+
+ .nav-inner{
+  height:64px
+ }
+
+ .menu{
+  display:block
+ }
+
+ .nav-links{
+  display:none;
+  position:absolute;
+  left:0;
+  right:0;
+  top:64px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  padding:8px 18px 14px;
+  flex-direction:column;
+  align-items:stretch
+ }
+
+ .nav-links.open{
+  display:flex
+ }
+
+ .app-grid{
+  grid-template-columns:1fr
+ }
+
+ .info-grid{
+  grid-template-columns:1fr 1fr
+ }
+
+ .duplicate .cards{
+  grid-template-columns:1fr 1fr
+ }
+
+ .footer-grid{
+  grid-template-columns:1fr 1fr
+ }
+
+}
+
+
+/* HP */
+
+@media(max-width:560px){
+
+ .container{
+  padding:0 14px
+ }
+
+ .topbar .inner{
+  justify-content:center
+ }
+
+ .topbar .inner span:last-child{
+  display:none
+ }
+
+ .brand img{
+  width:42px;
+  height:42px
+ }
+
+ .brand strong{
+  font-size:17px
+ }
+
+ .brand span{
+  font-size:9px
+ }
+
+ .page-hero{
+  padding:52px 0
+ }
+
+ .page-hero h1{
+  font-size:40px
+ }
+
+ .section-head h2{
+  font-size:28px
+ }
+
+ .info-grid{
+  grid-template-columns:1fr
+ }
+
+ .duplicate .cards{
+  grid-template-columns:1fr
+ }
+
+ .footer-grid{
+  grid-template-columns:1fr
+ }
+
+ .copyright{
+  flex-direction:column
+ }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+ <div class="container inner">
+
+  <span>
+   GABSI Kota Tanjungbalai • Bridge Duplicate Center
+  </span>
+
+  <span>
+   Sportivitas • Persahabatan • Prestasi • Edukasi
+  </span>
+
+ </div>
+
+</div>
+
+
+<!-- NAVIGASI -->
+
+<nav class="nav">
+
+ <div class="container nav-inner">
+
+
+  <a class="brand" href="index.html">
+
+   <img
+   src="favicon.svg"
+   alt="Logo GABSI">
+
+   <div>
+
+    <strong>
+     GABSI KOTA TANJUNGBALAI
+    </strong>
+
+    <span>
+     GABUNGAN BRIDGE SELURUH INDONESIA
+    </span>
+
+   </div>
+
+  </a>
+
+
+  <button
+  class="menu"
+  aria-label="Buka menu"
+  onclick="toggleMenu()">
+
+   ☰
+
+  </button>
+
+
+  <div
+  class="nav-links"
+  id="navLinks">
+
+   <a href="index.html">
+    Beranda
+   </a>
+
+   <a href="profil.html">
+    Profil
+   </a>
+
+   <a href="pengurus.html">
+    Pengurus
+   </a>
+
+   <a href="kegiatan.html">
+    Kegiatan
+   </a>
+
+   <a href="galeri.html">
+    Galeri
+   </a>
+
+   <a
+   class="active"
+   href="aplikasi.html">
+
+    Aplikasi
+
+   </a>
+
+   <a href="kontak.html">
+    Kontak
+   </a>
+
+  </div>
+
+ </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="page-hero">
+
+ <div class="container">
+
+  <div class="eyebrow">
+   BRIDGE DIGITAL CENTER
+  </div>
+
+  <h1>
+   Aplikasi GABSI
+  </h1>
+
+  <p>
+   Pusat aplikasi digital GABSI Kota Tanjungbalai
+   untuk membantu latihan, pencatatan hasil,
+   pengaturan board, dan permainan Bridge Duplicate.
+  </p>
+
+ </div>
+
+</header>
+
+
+<main>
+
+
+<!-- APLIKASI UTAMA -->
+
+<section>
+
+ <div class="container">
+
+
+  <div class="section-head">
+
+   <div class="eyebrow">
+    APLIKASI UTAMA
+   </div>
+
+   <h2>
+    Pilih Aplikasi
+   </h2>
+
+   <p>
+    Dua aplikasi utama yang tersedia untuk
+    digunakan dalam kegiatan Bridge.
+   </p>
+
+  </div>
+
+
+  <div class="app-grid">
+
+
+   <!-- SCORE SHEET -->
+
+   <div class="app-card blue">
+
+    <div>
+
+     <div class="app-icon">
+      🧮
+     </div>
+
+     <h3>
+      Bridge Score Sheet
+     </h3>
+
+     <p>
+      Aplikasi pencatatan dan perhitungan hasil
+      permainan Bridge Duplicate.
+     </p>
+
+
+     <ul class="features">
+
+      <li>
+       Pencatatan kontrak
+      </li>
+
+      <li>
+       Score NS dan EW
+      </li>
+
+      <li>
+       Perhitungan hasil
+      </li>
+
+      <li>
+       Perhitungan IMP
+      </li>
+
+      <li>
+       Rekap board
+      </li>
+
+     </ul>
+
+    </div>
+
+
+    <a
+    class="app-button blue"
+    href="score-sheet.html">
+
+     🧮 Buka Bridge Score Sheet →
+
+    </a>
+
+   </div>
+
+
+   <!-- KOCOKAN KARTU -->
+
+   <div class="app-card green">
+
+    <div>
+
+     <div class="app-icon">
+      🃏
+     </div>
+
+     <h3>
+      Kocokan Kartu Bridge
+     </h3>
+
+     <p>
+      Aplikasi untuk menghasilkan deal 52 kartu
+      dan board pembanding dalam latihan
+      Bridge Duplicate.
+     </p>
+
+
+     <ul class="features">
+
+      <li>
+       Kocokan 52 kartu
+      </li>
+
+      <li>
+       Pembagian Utara, Timur, Selatan, Barat
+      </li>
+
+      <li>
+       Nomor board
+      </li>
+
+      <li>
+       Seed untuk deal
+      </li>
+
+      <li>
+       Board pembanding
+      </li>
+
+     </ul>
+
+    </div>
+
+
+    <a
+    class="app-button green"
+    href="kocokan-kartu.html">
+
+     🃏 Buka Kocokan Kartu →
+
+    </a>
+
+   </div>
+
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- FITUR -->
+
+<section style="padding-top:0">
+
+ <div class="container">
+
+
+  <div class="section-head">
+
+   <div class="eyebrow">
+    FUNGSI
+   </div>
+
+   <h2>
+    Fitur Digital Bridge
+   </h2>
+
+   <p>
+    Website ini dapat menjadi pusat berbagai
+    kebutuhan digital dalam kegiatan Bridge.
+   </p>
+
+  </div>
+
+
+  <div class="info-grid">
+
+
+   <div class="info-card">
+
+    <div class="icon">
+     🧮
+    </div>
+
+    <h3>
+     Score
+    </h3>
+
+    <p>
+     Membantu pencatatan hasil permainan
+     setiap board.
+    </p>
+
+   </div>
+
+
+   <div class="info-card">
+
+    <div class="icon">
+     🃏
+    </div>
+
+    <h3>
+     Deal Kartu
+    </h3>
+
+    <p>
+     Membantu menghasilkan pembagian kartu
+     untuk permainan Duplicate.
+    </p>
+
+   </div>
+
+
+   <div class="info-card">
+
+    <div class="icon">
+     📊
+    </div>
+
+    <h3>
+     Rekap
+    </h3>
+
+    <p>
+     Hasil permainan dapat digunakan sebagai
+     bahan rekap dan evaluasi.
+    </p>
+
+   </div>
+
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- BRIDGE DUPLICATE -->
+
+<section style="padding-top:0">
+
+ <div class="container">
+
+  <div class="duplicate">
+
+   <h2>
+    Bridge Duplicate Center
+   </h2>
+
+   <p>
+    Dalam permainan Duplicate Bridge, board yang sama
+    dapat dimainkan oleh beberapa pasangan sehingga
+    hasil permainan dapat dibandingkan. Aplikasi GABSI
+    dibuat untuk membantu kebutuhan latihan dan
+    pencatatan tersebut.
+   </p>
+
+
+   <div class="cards">
+
+
+    <div class="mini">
+
+     <b>
+      52
+     </b>
+
+     <span>
+      Kartu dalam satu deck
+     </span>
+
+    </div>
+
+
+    <div class="mini">
+
+     <b>
+      4
+     </b>
+
+     <span>
+      Posisi pemain
+     </span>
+
+    </div>
+
+
+    <div class="mini">
+
+     <b>
+      IMP
+     </b>
+
+     <span>
+      Sistem perbandingan hasil
+     </span>
+
+    </div>
+
+
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- PANDUAN -->
+
+<section style="padding-top:0">
+
+ <div class="container">
+
+
+  <div class="section-head">
+
+   <div class="eyebrow">
+    CARA MENGGUNAKAN
+   </div>
+
+   <h2>
+    Alur Penggunaan
+   </h2>
+
+  </div>
+
+
+  <div class="info-grid">
+
+
+   <div class="info-card">
+
+    <div class="icon">
+     1️⃣
+    </div>
+
+    <h3>
+     Buat Deal
+    </h3>
+
+    <p>
+     Gunakan Kocokan Kartu untuk menentukan
+     pembagian kartu dan board.
+    </p>
+
+   </div>
+
+
+   <div class="info-card">
+
+    <div class="icon">
+     2️⃣
+    </div>
+
+    <h3>
+     Mainkan Board
+    </h3>
+
+    <p>
+     Pemain memainkan board sesuai aturan
+     permainan Bridge Duplicate.
+    </p>
+
+   </div>
+
+
+   <div class="info-card">
+
+    <div class="icon">
+     3️⃣
+    </div>
+
+    <h3>
+     Catat Score
+    </h3>
+
+    <p>
+     Masukkan hasil permainan ke dalam
+     Bridge Score Sheet.
+    </p>
+
+   </div>
+
+
+  </div>
+
+ </div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+ <div class="container footer-grid">
+
+
+  <div>
+
+   <div class="footer-brand">
+    GABSI Kota Tanjungbalai
+   </div>
+
+   <p>
+    Gabungan Bridge Seluruh Indonesia
+    • Bridge Duplicate Center.
+   </p>
+
+  </div>
+
+
+  <div>
+
+   <b style="color:#fff">
+    Navigasi
+   </b>
+
+   <a href="index.html">
+    Beranda
+   </a>
+
+   <a href="profil.html">
+    Profil
+   </a>
+
+   <a href="pengurus.html">
+    Pengurus
+   </a>
+
+   <a href="kegiatan.html">
+    Kegiatan
+   </a>
+
+  </div>
+
+
+  <div>
+
+   <b style="color:#fff">
+    Aplikasi
+   </b>
+
+   <a href="score-sheet.html">
+    Bridge Score Sheet
+   </a>
+
+   <a href="kocokan-kartu.html">
+    Kocokan Kartu
+   </a>
+
+   <a href="galeri.html">
+    Galeri
+   </a>
+
+   <a href="kontak.html">
+    Kontak
+   </a>
+
+  </div>
+
+
+ </div>
+
+
+ <div class="container copyright">
+
+  <span>
+   © 2026 GABSI Kota Tanjungbalai.
+  </span>
+
+  <span>
+   Website Bridge Center
+  </span>
+
+ </div>
+
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+
+ document
+ .getElementById('navLinks')
+ .classList
+ .toggle('open');
+
+}
+
+
+document
+ .querySelectorAll('#navLinks a')
+ .forEach(function(a){
+
+  a.addEventListener('click',function(){
+
+   document
+   .getElementById('navLinks')
+   .classList
+   .remove('open');
+
+  });
+
+ });
+
+
+if('serviceWorker' in navigator){
+
+ window.addEventListener('load',function(){
+
+  navigator.serviceWorker
+  .register('sw.js')
+  .catch(function(){});
+
+ });
+
+}
+
+</script>
+
+
+</body>
+</html>
