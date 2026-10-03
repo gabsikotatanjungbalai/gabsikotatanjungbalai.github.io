@@ -12,7 +12,7 @@
       content="#07558f">
 
 <meta name="description"
-      content="Website resmi GABSI Kota Tanjungbalai">
+      content="Website GABSI Kota Tanjungbalai - Kepengurusan">
 
 <title>
 GABSI Kota Tanjungbalai - Pengurus
@@ -37,9 +37,20 @@ GABSI Kota Tanjungbalai - Pengurus
 ===================================================== */
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #eef3f8;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #eef5fa 0%,
+            #f8fafc 100%
+        );
+
     color: #172033;
+
     min-height: 100vh;
 }
 
@@ -49,66 +60,118 @@ body {
 ===================================================== */
 
 .header {
-    background: linear-gradient(
-        135deg,
-        #063970,
-        #0874bd
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            #063970,
+            #0874bd
+        );
 
     color: white;
 
     text-align: center;
 
-    padding: 18px 10px;
+    padding:
+        24px 15px 20px;
 
     box-shadow:
-        0 3px 12px
-        rgba(0,0,0,0.20);
+        0 4px 14px
+        rgba(0,0,0,.20);
+}
+
+.logo-bulat {
+
+    width: 58px;
+    height: 58px;
+
+    margin:
+        0 auto 8px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.15);
+
+    border:
+        2px solid
+        rgba(255,255,255,.65);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    font-weight: bold;
 }
 
 .header h1 {
-    font-size: 23px;
-    margin-bottom: 4px;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing:
+        .3px;
+
+    margin-bottom: 5px;
 }
 
 .header p {
+
     font-size: 12px;
+
+    opacity: .95;
 }
 
 
 /* =====================================================
-   NAVIGASI
+   NAVIGASI UTAMA
 ===================================================== */
 
 .navbar {
-    background: #ffffff;
+
+    background: white;
 
     display: flex;
-
-    justify-content: center;
 
     align-items: center;
 
     gap: 7px;
 
-    padding: 10px;
+    padding:
+        9px 10px;
 
     border-bottom:
-        1px solid #dce4ec;
+        1px solid #dce5ed;
 
     box-shadow:
         0 2px 8px
-        rgba(0,0,0,0.08);
+        rgba(0,0,0,.08);
 
     overflow-x: auto;
 
     white-space: nowrap;
+
+    scrollbar-width: none;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
 }
 
-
-/* TOMBOL MENU */
+.navbar::-webkit-scrollbar {
+    display: none;
+}
 
 .navbar a {
+
+    flex-shrink: 0;
 
     text-decoration: none;
 
@@ -116,22 +179,28 @@ body {
 
     background: #f1f5f9;
 
-    border: 1px solid #dbe4ec;
+    border:
+        1px solid #dce5ed;
 
     padding:
-        8px 13px;
+        8px 12px;
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
-    font-size: 12px;
+    font-size: 11px;
 
-    font-weight: bold;
+    font-weight: 700;
 
-    transition: 0.2s;
+    transition: .2s;
 }
 
+.navbar a:hover {
 
-/* MENU AKTIF */
+    background: #07558f;
+
+    color: white;
+}
 
 .navbar a.active {
 
@@ -139,17 +208,8 @@ body {
 
     color: white;
 
-    border-color: #07558f;
-}
-
-
-/* EFEK */
-
-.navbar a:hover {
-
-    background: #07558f;
-
-    color: white;
+    border-color:
+        #07558f;
 }
 
 
@@ -161,45 +221,114 @@ body {
 
     width: 100%;
 
-    max-width: 1100px;
+    max-width:
+        1100px;
 
-    margin: auto;
+    margin:
+        auto;
 
     padding:
-        25px 15px 40px;
+        25px 15px 45px;
 }
 
 
 /* =====================================================
-   JUDUL
+   BANNER HALAMAN
 ===================================================== */
 
-.judul {
+.page-banner {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #eaf4fb
+        );
+
+    border:
+        1px solid #dbe7f0;
+
+    border-radius:
+        18px;
+
+    padding:
+        22px 18px;
+
+    margin-bottom:
+        25px;
 
     text-align: center;
 
-    margin-bottom: 25px;
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.07);
 }
 
-.judul h2 {
+.page-banner .icon {
+
+    font-size: 34px;
+
+    margin-bottom:
+        7px;
+}
+
+.page-banner h2 {
 
     color: #063970;
 
     font-size: 24px;
 
-    margin-bottom: 6px;
+    margin-bottom:
+        7px;
 }
 
-.judul p {
+.page-banner p {
 
     color: #64748b;
 
-    font-size: 14px;
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    max-width:
+        700px;
+
+    margin: auto;
 }
 
 
 /* =====================================================
-   DAFTAR PENGURUS
+   JUDUL BAGIAN
+===================================================== */
+
+.section-title {
+
+    text-align: center;
+
+    margin:
+        28px 0 18px;
+}
+
+.section-title h3 {
+
+    color: #063970;
+
+    font-size: 20px;
+
+    margin-bottom:
+        5px;
+}
+
+.section-title p {
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   KARTU PENGURUS
 ===================================================== */
 
 .daftar-pengurus {
@@ -207,32 +336,43 @@ body {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
     gap: 20px;
 }
 
 
-/* =====================================================
-   KARTU
-===================================================== */
-
 .kartu {
 
     background: white;
 
-    border-radius: 18px;
+    border-radius:
+        18px;
 
     overflow: hidden;
 
     border:
-        1px solid #dce4ec;
+        1px solid #dce5ed;
 
     box-shadow:
-        0 5px 18px
-        rgba(0,0,0,0.12);
+        0 6px 20px
+        rgba(0,0,0,.11);
 
     text-align: center;
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+.kartu:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(0,0,0,.16);
 }
 
 
@@ -244,20 +384,23 @@ body {
 
     width: 100%;
 
-    height: 380px;
+    height:
+        360px;
 
     display: block;
 
     object-fit: cover;
 
-    object-position: center top;
+    object-position:
+        center top;
 
-    background: #e5e7eb;
+    background:
+        #e5e7eb;
 }
 
 
 /* =====================================================
-   INFORMASI
+   INFO PENGURUS
 ===================================================== */
 
 .info {
@@ -266,45 +409,201 @@ body {
         16px 10px 20px;
 }
 
-
 .jabatan {
 
     display: inline-block;
 
-    background: #07558f;
+    background:
+        #07558f;
 
     color: white;
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    font-weight: bold;
+    font-weight:
+        800;
 
     padding:
         7px 15px;
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
-    margin-bottom: 9px;
+    margin-bottom:
+        9px;
 }
-
 
 .nama {
 
-    color: #111827;
+    color:
+        #111827;
 
-    font-size: 19px;
+    font-size:
+        19px;
 
-    font-weight: bold;
+    font-weight:
+        800;
 
-    margin-bottom: 5px;
+    margin-bottom:
+        5px;
 }
-
 
 .organisasi {
 
-    color: #64748b;
+    color:
+        #64748b;
 
-    font-size: 12px;
+    font-size:
+        12px;
+}
+
+
+/* =====================================================
+   INFORMASI ORGANISASI
+===================================================== */
+
+.info-organisasi {
+
+    margin-top:
+        30px;
+
+    background:
+        white;
+
+    border-radius:
+        18px;
+
+    border:
+        1px solid #dce5ed;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,.08);
+
+    padding:
+        22px 20px;
+}
+
+.info-organisasi h3 {
+
+    color:
+        #063970;
+
+    font-size:
+        19px;
+
+    margin-bottom:
+        10px;
+}
+
+.info-organisasi p {
+
+    color:
+        #64748b;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.7;
+}
+
+
+/* =====================================================
+   MENU CEPAT
+===================================================== */
+
+.quick-links {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:
+        12px;
+
+    margin-top:
+        18px;
+}
+
+
+.quick-link {
+
+    text-decoration:
+        none;
+
+    background:
+        white;
+
+    border:
+        1px solid #dce5ed;
+
+    border-radius:
+        14px;
+
+    padding:
+        15px 10px;
+
+    text-align:
+        center;
+
+    color:
+        #07558f;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0,0,0,.06);
+
+    transition:
+        .2s;
+}
+
+.quick-link:hover {
+
+    background:
+        #07558f;
+
+    color:
+        white;
+
+    transform:
+        translateY(-3px);
+}
+
+.quick-icon {
+
+    font-size:
+        25px;
+
+    margin-bottom:
+        7px;
+}
+
+.quick-link strong {
+
+    display:
+        block;
+
+    font-size:
+        12px;
+}
+
+.quick-link span {
+
+    display:
+        block;
+
+    font-size:
+        10px;
+
+    margin-top:
+        3px;
+
+    opacity:
+        .75;
 }
 
 
@@ -314,13 +613,198 @@ body {
 
 .footer {
 
-    text-align: center;
+    background:
+        #063970;
 
-    color: #64748b;
+    color:
+        white;
 
-    font-size: 12px;
+    text-align:
+        center;
 
-    padding-top: 28px;
+    padding:
+        25px 15px;
+
+    margin-top:
+        15px;
+}
+
+.footer strong {
+
+    display:
+        block;
+
+    font-size:
+        14px;
+
+    margin-bottom:
+        6px;
+}
+
+.footer p {
+
+    font-size:
+        11px;
+
+    opacity:
+        .85;
+
+    line-height:
+        1.6;
+}
+
+
+/* =====================================================
+   HP
+===================================================== */
+
+@media
+(max-width:700px) {
+
+    .header {
+
+        padding:
+            18px 10px;
+    }
+
+    .logo-bulat {
+
+        width:
+            48px;
+
+        height:
+            48px;
+
+        font-size:
+            21px;
+    }
+
+    .header h1 {
+
+        font-size:
+            20px;
+    }
+
+    .header p {
+
+        font-size:
+            10px;
+    }
+
+
+    .navbar {
+
+        padding:
+            8px;
+    }
+
+    .navbar a {
+
+        font-size:
+            10px;
+
+        padding:
+            7px 10px;
+    }
+
+
+    .container {
+
+        padding:
+            18px 10px 35px;
+    }
+
+
+    .page-banner {
+
+        padding:
+            19px 14px;
+
+        margin-bottom:
+            20px;
+    }
+
+    .page-banner h2 {
+
+        font-size:
+            20px;
+    }
+
+    .page-banner p {
+
+        font-size:
+            12px;
+    }
+
+
+    .section-title {
+
+        margin:
+            22px 0 15px;
+    }
+
+    .section-title h3 {
+
+        font-size:
+            18px;
+    }
+
+
+    .daftar-pengurus {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            18px;
+    }
+
+
+    .kartu {
+
+        width:
+            100%;
+
+        max-width:
+            430px;
+
+        margin:
+            auto;
+    }
+
+
+    .foto {
+
+        height:
+            auto;
+
+        max-height:
+            520px;
+
+        object-fit:
+            cover;
+
+        object-position:
+            center top;
+    }
+
+
+    .quick-links {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:
+            10px;
+    }
+
+
+    .quick-link {
+
+        padding:
+            13px 8px;
+    }
+
 }
 
 
@@ -329,14 +813,14 @@ body {
 ===================================================== */
 
 @media
-(min-width: 701px)
+(min-width:701px)
 and
-(max-width: 950px) {
+(max-width:950px) {
 
     .daftar-pengurus {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2,1fr);
     }
 
     .kartu:last-child {
@@ -344,121 +828,18 @@ and
         grid-column:
             1 / -1;
 
-        width: 50%;
+        width:
+            50%;
 
-        margin: auto;
-    }
-}
-
-
-/* =====================================================
-   HP
-===================================================== */
-
-@media (max-width: 700px) {
-
-    .header {
-
-        padding:
-            16px 8px;
-    }
-
-    .header h1 {
-
-        font-size: 19px;
-    }
-
-    .header p {
-
-        font-size: 10px;
+        margin:
+            auto;
     }
 
 
-    /* MENU HP */
+    .quick-links {
 
-    .navbar {
-
-        justify-content: flex-start;
-
-        overflow-x: auto;
-
-        padding:
-            9px 8px;
-
-        gap: 6px;
-
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .navbar a {
-
-        flex-shrink: 0;
-
-        font-size: 11px;
-
-        padding:
-            7px 11px;
-    }
-
-
-    .container {
-
-        padding:
-            20px 10px 30px;
-    }
-
-
-    .judul {
-
-        margin-bottom: 20px;
-    }
-
-    .judul h2 {
-
-        font-size: 20px;
-    }
-
-    .judul p {
-
-        font-size: 12px;
-    }
-
-
-    .daftar-pengurus {
-
-        grid-template-columns: 1fr;
-
-        gap: 18px;
-    }
-
-
-    .kartu {
-
-        width: 100%;
-
-        max-width: 430px;
-
-        margin: auto;
-    }
-
-
-    .foto {
-
-        width: 100%;
-
-        height: auto;
-
-        max-height: 520px;
-
-        object-fit: cover;
-
-        object-position: center top;
-    }
-
-
-    .nama {
-
-        font-size: 19px;
+        grid-template-columns:
+            repeat(3,1fr);
     }
 
 }
@@ -477,6 +858,10 @@ and
 
 <header class="header">
 
+    <div class="logo-bulat">
+        ♣
+    </div>
+
     <h1>
         GABSI KOTA TANJUNGBALAI
     </h1>
@@ -490,7 +875,7 @@ and
 
 
 <!-- =====================================================
-     MENU NAVIGASI
+     NAVIGASI
 ===================================================== -->
 
 <nav class="navbar">
@@ -541,22 +926,44 @@ and
 
 
 <!-- =====================================================
-     KONTEN
+     KONTEN UTAMA
 ===================================================== -->
 
 <main class="container">
 
 
-    <!-- JUDUL -->
+    <!-- BANNER -->
 
-    <div class="judul">
+    <section class="page-banner">
+
+        <div class="icon">
+            👥
+        </div>
 
         <h2>
             KEPENGURUSAN GABSI
         </h2>
 
         <p>
-            Kota Tanjungbalai
+            Struktur kepengurusan GABSI Kota Tanjungbalai
+            sebagai bagian dari pengembangan olahraga
+            bridge di Kota Tanjungbalai.
+        </p>
+
+    </section>
+
+
+
+    <!-- JUDUL PENGURUS -->
+
+    <div class="section-title">
+
+        <h3>
+            PENGURUS GABSI KOTA TANJUNGBALAI
+        </h3>
+
+        <p>
+            Periode Kepengurusan
         </p>
 
     </div>
@@ -564,22 +971,20 @@ and
 
 
     <!-- =================================================
-         DAFTAR PENGURUS
+         KARTU PENGURUS
     ================================================== -->
 
     <section class="daftar-pengurus">
 
 
-        <!-- =================================================
-             KETUA
-        ================================================== -->
+        <!-- KETUA -->
 
         <div class="kartu">
 
             <img
                 src="Ketua%20Gabsi%202.jpg"
                 class="foto"
-                alt="E. Hutabarat - Ketua GABSI Kota Tanjungbalai"
+                alt="E. Hutabarat"
             >
 
             <div class="info">
@@ -602,16 +1007,14 @@ and
 
 
 
-        <!-- =================================================
-             BENDAHARA
-        ================================================== -->
+        <!-- BENDAHARA -->
 
         <div class="kartu">
 
             <img
                 src="Bendahara%20Gabsi.jpg"
                 class="foto"
-                alt="S. Simbolon - Bendahara GABSI Kota Tanjungbalai"
+                alt="S. Simbolon"
             >
 
             <div class="info">
@@ -634,16 +1037,14 @@ and
 
 
 
-        <!-- =================================================
-             SEKERTARIS
-        ================================================== -->
+        <!-- SEKERTARIS -->
 
         <div class="kartu">
 
             <img
                 src="Sekertaris%20Gabsi.jpg"
                 class="foto"
-                alt="R. Manalu - Sekertaris GABSI Kota Tanjungbalai"
+                alt="R. Manalu"
             >
 
             <div class="info">
@@ -670,18 +1071,233 @@ and
 
 
     <!-- =================================================
-         FOOTER
+         INFORMASI
     ================================================== -->
 
-    <div class="footer">
+    <section class="info-organisasi">
 
-        © 2026 GABSI Kota Tanjungbalai
+        <h3>
+            🏆 Tentang Kepengurusan
+        </h3>
+
+        <p>
+            Halaman ini memuat informasi kepengurusan
+            GABSI Kota Tanjungbalai. Website ini juga
+            menyediakan informasi kegiatan, galeri,
+            aplikasi bridge, permainan bridge dan
+            perangkat pendukung latihan serta
+            pertandingan.
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MENU CEPAT
+    ================================================== -->
+
+    <div class="section-title">
+
+        <h3>
+            MENU GABSI KOTA TANJUNGBALAI
+        </h3>
+
+        <p>
+            Akses halaman lainnya
+        </p>
 
     </div>
+
+
+    <section class="quick-links">
+
+
+        <a
+            href="profil.html"
+            class="quick-link">
+
+            <div class="quick-icon">
+                👤
+            </div>
+
+            <strong>
+                Profil
+            </strong>
+
+            <span>
+                Tentang GABSI
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="kegiatan.html"
+            class="quick-link">
+
+            <div class="quick-icon">
+                📅
+            </div>
+
+            <strong>
+                Kegiatan
+            </strong>
+
+            <span>
+                Agenda kegiatan
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="galeri.html"
+            class="quick-link">
+
+            <div class="quick-icon">
+                🖼️
+            </div>
+
+            <strong>
+                Galeri
+            </strong>
+
+            <span>
+                Foto kegiatan
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="aplikasi.html"
+            class="quick-link">
+
+            <div class="quick-icon">
+                📱
+            </div>
+
+            <strong>
+                Aplikasi
+            </strong>
+
+            <span>
+                Aplikasi bridge
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="game-bridge-gabsi.html"
+            class="quick-link">
+
+            <div class="quick-icon">
+                🃏
+            </div>
+
+            <strong>
+                Game Bridge
+            </strong>
+
+            <span>
+                Bermain bridge
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="kocokan-kartu.html"
+            class="quick-link">
+
+            <div class="quick-icon">
+                🎴
+            </div>
+
+            <strong>
+                Kocokan Kartu
+            </strong>
+
+            <span>
+                Kartu latihan
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="score-sheet.html"
+            class="quick-link">
+
+            <div class="quick-icon">
+                📊
+            </div>
+
+            <strong>
+                Score Sheet
+            </strong>
+
+            <span>
+                Penilaian bridge
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="kontak.html"
+            class="quick-link">
+
+            <div class="quick-icon">
+                📞
+            </div>
+
+            <strong>
+                Kontak
+            </strong>
+
+            <span>
+                Hubungi GABSI
+            </span>
+
+        </a>
+
+
+    </section>
 
 
 </main>
 
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <strong>
+        GABSI KOTA TANJUNGBALAI
+    </strong>
+
+    <p>
+        Gabungan Bridge Seluruh Indonesia
+        <br>
+        © 2026 GABSI Kota Tanjungbalai
+    </p>
+
+</footer>
+
+
 </body>
+
 </html>
