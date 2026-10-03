@@ -6,24 +6,24 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-content="#07558f">
+      content="#07558f">
 
 <meta name="description"
-content="Kepengurusan GABSI Kota Tanjungbalai">
+      content="Website resmi GABSI Kota Tanjungbalai">
 
 <title>
-Pengurus GABSI Kota Tanjungbalai
+GABSI Kota Tanjungbalai - Pengurus
 </title>
 
 
 <style>
 
-/* =========================
+/* =====================================================
    RESET
-========================= */
+===================================================== */
 
 * {
     margin: 0;
@@ -32,9 +32,9 @@ Pengurus GABSI Kota Tanjungbalai
 }
 
 
-/* =========================
+/* =====================================================
    BODY
-========================= */
+===================================================== */
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -44,12 +44,11 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 .header {
-    width: 100%;
     background: linear-gradient(
         135deg,
         #063970,
@@ -57,32 +56,111 @@ body {
     );
 
     color: white;
+
     text-align: center;
 
-    padding: 20px 12px;
+    padding: 18px 10px;
 
     box-shadow:
-        0 3px 10px
+        0 3px 12px
         rgba(0,0,0,0.20);
 }
 
 .header h1 {
-    font-size: 25px;
-    font-weight: 700;
-    margin-bottom: 5px;
+    font-size: 23px;
+    margin-bottom: 4px;
 }
 
 .header p {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 
-/* =========================
+/* =====================================================
+   NAVIGASI
+===================================================== */
+
+.navbar {
+    background: #ffffff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 10px;
+
+    border-bottom:
+        1px solid #dce4ec;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.08);
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+}
+
+
+/* TOMBOL MENU */
+
+.navbar a {
+
+    text-decoration: none;
+
+    color: #07558f;
+
+    background: #f1f5f9;
+
+    border: 1px solid #dbe4ec;
+
+    padding:
+        8px 13px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+/* MENU AKTIF */
+
+.navbar a.active {
+
+    background: #07558f;
+
+    color: white;
+
+    border-color: #07558f;
+}
+
+
+/* EFEK */
+
+.navbar a:hover {
+
+    background: #07558f;
+
+    color: white;
+}
+
+
+/* =====================================================
    CONTAINER
-========================= */
+===================================================== */
 
 .container {
+
     width: 100%;
+
     max-width: 1100px;
 
     margin: auto;
@@ -92,30 +170,37 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    JUDUL
-========================= */
+===================================================== */
 
 .judul {
+
     text-align: center;
+
     margin-bottom: 25px;
 }
 
 .judul h2 {
+
     color: #063970;
+
     font-size: 24px;
+
     margin-bottom: 6px;
 }
 
 .judul p {
+
     color: #64748b;
+
     font-size: 14px;
 }
 
 
-/* =========================
+/* =====================================================
    DAFTAR PENGURUS
-========================= */
+===================================================== */
 
 .daftar-pengurus {
 
@@ -124,13 +209,13 @@ body {
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 22px;
+    gap: 20px;
 }
 
 
-/* =========================
+/* =====================================================
    KARTU
-========================= */
+===================================================== */
 
 .kartu {
 
@@ -151,9 +236,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    FOTO
-========================= */
+===================================================== */
 
 .foto {
 
@@ -171,14 +256,14 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    INFORMASI
-========================= */
+===================================================== */
 
 .info {
 
     padding:
-        17px 10px 20px;
+        16px 10px 20px;
 }
 
 
@@ -190,16 +275,16 @@ body {
 
     color: white;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: bold;
 
     padding:
-        7px 16px;
+        7px 15px;
 
     border-radius: 20px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 
 
@@ -207,7 +292,7 @@ body {
 
     color: #111827;
 
-    font-size: 20px;
+    font-size: 19px;
 
     font-weight: bold;
 
@@ -219,13 +304,13 @@ body {
 
     color: #64748b;
 
-    font-size: 13px;
+    font-size: 12px;
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 .footer {
 
@@ -239,9 +324,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    TABLET
-========================= */
+===================================================== */
 
 @media
 (min-width: 701px)
@@ -266,33 +351,62 @@ and
 }
 
 
-/* =========================
+/* =====================================================
    HP
-========================= */
+===================================================== */
 
 @media (max-width: 700px) {
 
     .header {
 
         padding:
-            18px 10px;
+            16px 8px;
     }
 
     .header h1 {
 
-        font-size: 20px;
+        font-size: 19px;
     }
 
     .header p {
 
-        font-size: 11px;
+        font-size: 10px;
     }
+
+
+    /* MENU HP */
+
+    .navbar {
+
+        justify-content: flex-start;
+
+        overflow-x: auto;
+
+        padding:
+            9px 8px;
+
+        gap: 6px;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar a {
+
+        flex-shrink: 0;
+
+        font-size: 11px;
+
+        padding:
+            7px 11px;
+    }
+
 
     .container {
 
         padding:
             20px 10px 30px;
     }
+
 
     .judul {
 
@@ -309,12 +423,14 @@ and
         font-size: 12px;
     }
 
+
     .daftar-pengurus {
 
         grid-template-columns: 1fr;
 
         gap: 18px;
     }
+
 
     .kartu {
 
@@ -324,6 +440,7 @@ and
 
         margin: auto;
     }
+
 
     .foto {
 
@@ -338,15 +455,12 @@ and
         object-position: center top;
     }
 
+
     .nama {
 
         font-size: 19px;
     }
 
-    .organisasi {
-
-        font-size: 12px;
-    }
 }
 
 </style>
@@ -357,9 +471,9 @@ and
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header class="header">
 
@@ -375,12 +489,65 @@ and
 
 
 
-<!-- =========================
+<!-- =====================================================
+     MENU NAVIGASI
+===================================================== -->
+
+<nav class="navbar">
+
+    <a href="index.html">
+        🏠 Beranda
+    </a>
+
+    <a href="profil.html">
+        👤 Profil
+    </a>
+
+    <a href="pengurus.html"
+       class="active">
+        👥 Pengurus
+    </a>
+
+    <a href="kegiatan.html">
+        📅 Kegiatan
+    </a>
+
+    <a href="galeri.html">
+        🖼️ Galeri
+    </a>
+
+    <a href="aplikasi.html">
+        📱 Aplikasi
+    </a>
+
+    <a href="game-bridge-gabsi.html">
+        🃏 Game Bridge
+    </a>
+
+    <a href="kocokan-kartu.html">
+        🎴 Kocokan
+    </a>
+
+    <a href="score-sheet.html">
+        📊 Score Sheet
+    </a>
+
+    <a href="kontak.html">
+        📞 Kontak
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
      KONTEN
-========================= -->
+===================================================== -->
 
 <main class="container">
 
+
+    <!-- JUDUL -->
 
     <div class="judul">
 
@@ -396,12 +563,16 @@ and
 
 
 
+    <!-- =================================================
+         DAFTAR PENGURUS
+    ================================================== -->
+
     <section class="daftar-pengurus">
 
 
-        <!-- =========================
+        <!-- =================================================
              KETUA
-        ========================== -->
+        ================================================== -->
 
         <div class="kartu">
 
@@ -431,9 +602,9 @@ and
 
 
 
-        <!-- =========================
+        <!-- =================================================
              BENDAHARA
-        ========================== -->
+        ================================================== -->
 
         <div class="kartu">
 
@@ -463,9 +634,9 @@ and
 
 
 
-        <!-- =========================
+        <!-- =================================================
              SEKERTARIS
-        ========================== -->
+        ================================================== -->
 
         <div class="kartu">
 
@@ -497,6 +668,10 @@ and
     </section>
 
 
+
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
 
     <div class="footer">
 
