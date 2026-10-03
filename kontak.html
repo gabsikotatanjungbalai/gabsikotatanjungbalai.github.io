@@ -3,497 +3,508 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#073b61">
+<meta name="theme-color" content="#073c59">
+<meta name="description" content="Kontak resmi GABSI Kota Tanjungbalai. Informasi komunikasi dan alamat GABSI Kota Tanjungbalai.">
 
 <title>Kontak — GABSI Kota Tanjungbalai</title>
-<meta name="description" content="Kontak Sekretariat GABSI Kota Tanjungbalai.">
-
-<link rel="icon" href="favicon.svg">
-<link rel="manifest" href="manifest.json">
 
 <style>
-:root{
-  --navy:#073b61;
-  --navy2:#0a567f;
-  --red:#d71920;
-  --gold:#f4c44e;
-  --ink:#14202b;
-  --muted:#64748b;
-  --bg:#f4f7fa;
-  --card:#ffffff;
-  --line:#dbe3ea;
-  --shadow:0 12px 30px rgba(7,59,97,.10);
-}
-
 *{
+  margin:0;
+  padding:0;
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
-  margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--ink);
+  background:#eef4f7;
+  color:#263746;
   line-height:1.6;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+/* ================= HEADER ================= */
+
+.site-header{
+  width:100%;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  position:relative;
+  z-index:100;
 }
 
-/* TOPBAR */
-.topbar{
-  background:var(--navy);
+.top-line{
+  background:#073c59;
   color:#fff;
-  padding:9px 18px;
-  font-size:13px;
-}
-
-.topbar-inner{
-  max-width:1180px;
-  margin:auto;
+  min-height:30px;
+  padding:6px 20px;
   display:flex;
   justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
+  align-items:center;
+  font-size:9px;
 }
 
-/* NAVBAR */
-.nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#fff;
-  box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
-
-.nav-inner{
-  max-width:1180px;
-  margin:auto;
-  min-height:74px;
+.header-main{
+  min-height:65px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:10px 18px;
-  gap:20px;
+  gap:15px;
+  padding:8px 20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
-  min-width:0;
+  gap:9px;
+  text-decoration:none;
+  color:#173b50;
+  flex-shrink:0;
 }
 
-.brand img{
-  width:48px;
-  height:48px;
-  object-fit:contain;
-}
-
-.brand-text{
-  line-height:1.15;
+.brand-logo{
+  width:38px;
+  height:38px;
+  border-radius:8px;
+  background:#0b5278;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  font-weight:bold;
 }
 
 .brand-text strong{
   display:block;
-  color:var(--navy);
-  font-size:17px;
+  font-size:13px;
 }
 
-.brand-text span{
+.brand-text small{
   display:block;
-  color:var(--muted);
-  font-size:10px;
-  margin-top:4px;
+  font-size:7px;
+  color:#8b9297;
+  margin-top:1px;
 }
 
-.nav-links{
+.main-nav{
   display:flex;
   align-items:center;
   gap:4px;
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
 }
 
-.nav-links a{
-  padding:10px 11px;
-  border-radius:9px;
-  font-size:14px;
-  font-weight:700;
-  color:#334155;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-  background:var(--navy);
-  color:#fff;
-}
-
-.menu-btn{
+.main-nav::-webkit-scrollbar{
   display:none;
-  border:0;
-  background:var(--navy);
-  color:#fff;
-  border-radius:8px;
-  padding:10px 13px;
-  font-size:20px;
-  cursor:pointer;
 }
 
-/* CONTAINER */
-.container{
-  width:min(1180px,calc(100% - 36px));
+.main-nav a{
+  text-decoration:none;
+  color:#172033;
+  padding:8px 10px;
+  border-radius:8px;
+  font-size:10px;
+  font-weight:600;
+  white-space:nowrap;
+  transition:.2s;
+}
+
+.main-nav a:hover{
+  background:#eaf4f9;
+  color:#07558f;
+}
+
+.main-nav a.active{
+  background:#eaf4f9;
+  color:#07558f;
+  font-weight:700;
+}
+
+/* ================= HERO ================= */
+
+.page-hero{
+  background:linear-gradient(135deg,#07558f,#087cab);
+  color:#fff;
+  padding:42px 20px;
+  text-align:center;
+}
+
+.page-hero-inner{
+  max-width:1000px;
   margin:auto;
 }
 
-/* HERO */
-.hero{
-  background:
-    linear-gradient(135deg,rgba(7,59,97,.98),rgba(10,86,127,.94));
-  color:#fff;
-  padding:70px 0;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.3fr .7fr;
-  gap:35px;
-  align-items:center;
-}
-
-.eyebrow{
+.hero-label{
   display:inline-block;
-  color:var(--gold);
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:1px;
-  margin-bottom:12px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.30);
+  padding:6px 13px;
+  border-radius:20px;
+  font-size:9px;
+  font-weight:bold;
+  margin-bottom:10px;
 }
 
-.hero h1{
-  margin:0 0 15px;
-  font-size:clamp(34px,5vw,56px);
-  line-height:1.05;
-}
-
-.hero p{
-  color:#e2edf5;
-  max-width:700px;
-  font-size:17px;
-}
-
-.hero-card{
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.20);
-  border-radius:18px;
-  padding:25px;
-  backdrop-filter:blur(5px);
-}
-
-.hero-card strong{
-  display:block;
-  font-size:22px;
-  margin-bottom:8px;
-}
-
-.hero-card span{
-  color:#dcecf7;
-}
-
-/* SECTION */
-.section{
-  padding:65px 0;
-}
-
-.section-title{
-  margin-bottom:30px;
-}
-
-.section-title h2{
-  color:var(--navy);
-  margin:0 0 8px;
+.page-hero h1{
   font-size:32px;
+  line-height:1.2;
+  margin-bottom:7px;
 }
 
-.section-title p{
-  margin:0;
-  color:var(--muted);
+.page-hero h1 span{
+  color:#ffd83d;
 }
 
-/* CONTACT */
+.page-hero p{
+  font-size:12px;
+  color:rgba(255,255,255,.9);
+  max-width:700px;
+  margin:auto;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  padding:35px 20px 50px;
+}
+
+/* ================= KONTAK ================= */
+
 .contact-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1.1fr .9fr;
   gap:25px;
 }
 
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:28px;
-  box-shadow:var(--shadow);
+.contact-card{
+  background:#fff;
+  border:1px solid #dce7ec;
+  border-radius:16px;
+  padding:25px;
+  box-shadow:0 5px 18px rgba(0,0,0,.06);
 }
 
-.card h3{
-  color:var(--navy);
-  margin-top:0;
-  margin-bottom:18px;
-  font-size:22px;
+.contact-card h2{
+  color:#07558f;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.contact-card > p{
+  font-size:11px;
+  color:#687783;
+  margin-bottom:20px;
 }
 
 .contact-item{
   display:flex;
-  gap:16px;
   align-items:flex-start;
-  padding:17px 0;
-  border-bottom:1px solid var(--line);
+  gap:14px;
+  padding:15px 0;
+  border-bottom:1px solid #e8eef1;
 }
 
 .contact-item:last-child{
   border-bottom:0;
 }
 
-.icon{
-  width:45px;
-  height:45px;
-  flex:none;
-  border-radius:12px;
-  background:#eaf3f8;
+.contact-icon{
+  width:42px;
+  height:42px;
+  min-width:42px;
+  border-radius:11px;
+  background:#eaf4f9;
+  color:#07558f;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:22px;
+  font-size:19px;
+  font-weight:bold;
 }
 
-.contact-item strong{
+.contact-info strong{
   display:block;
-  color:var(--navy);
-  margin-bottom:3px;
+  color:#173b50;
+  font-size:12px;
+  margin-bottom:2px;
 }
 
-.contact-item span{
-  color:var(--muted);
-  font-size:14px;
+.contact-info span,
+.contact-info a{
+  display:block;
+  color:#687783;
+  font-size:10px;
+  text-decoration:none;
+  line-height:1.6;
 }
 
-/* BUTTON */
-.button-row{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:20px;
+.contact-info a:hover{
+  color:#07558f;
 }
 
-.btn{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:10px;
-  font-weight:700;
-  font-size:14px;
+/* ================= FORM ================= */
+
+.form-title{
+  color:#07558f;
+  font-size:20px;
+  margin-bottom:8px;
 }
 
-.btn-primary{
-  background:#25D366;
-  color:#fff;
+.form-description{
+  font-size:11px;
+  color:#687783;
+  margin-bottom:20px;
 }
 
-.btn-secondary{
-  background:var(--red);
-  color:#fff;
+.form-group{
+  margin-bottom:15px;
 }
 
-.btn-blue{
-  background:var(--navy);
-  color:#fff;
+.form-group label{
+  display:block;
+  font-size:10px;
+  font-weight:bold;
+  color:#173b50;
+  margin-bottom:6px;
 }
 
-/* MAP / ADDRESS */
-.address-box{
+.form-group input,
+.form-group textarea{
+  width:100%;
+  border:1px solid #d7e2e7;
+  background:#f9fbfc;
+  border-radius:9px;
+  padding:11px 12px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11px;
+  color:#263746;
+  outline:none;
+  transition:.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:#087cab;
   background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:28px;
-  margin-top:25px;
-  box-shadow:var(--shadow);
+  box-shadow:0 0 0 3px rgba(8,124,171,.08);
 }
 
-.address-box h3{
-  margin-top:0;
-  color:var(--navy);
-  font-size:22px;
+.form-group textarea{
+  min-height:125px;
+  resize:vertical;
 }
 
-.address{
-  background:#f4f7fa;
-  border-left:5px solid var(--red);
-  padding:18px 20px;
-  border-radius:10px;
-  font-size:17px;
-  line-height:1.8;
+.btn-kirim{
+  width:100%;
+  border:0;
+  border-radius:9px;
+  background:#07558f;
+  color:#fff;
+  padding:12px 16px;
+  font-size:11px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
 }
 
-.address strong{
-  color:var(--navy);
+.btn-kirim:hover{
+  background:#063f69;
 }
 
-/* INFO */
+/* ================= INFO BOX ================= */
+
 .info-box{
   margin-top:25px;
-  padding:25px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#073b61,#0a567f);
+  background:linear-gradient(135deg,#07558f,#087cab);
   color:#fff;
+  border-radius:16px;
+  padding:25px;
 }
 
-.info-box h3{
-  margin-top:0;
-  color:#fff;
+.info-box h2{
+  font-size:18px;
+  margin-bottom:8px;
 }
 
 .info-box p{
-  color:#e2edf5;
+  font-size:10px;
+  color:rgba(255,255,255,.9);
 }
 
-/* FOOTER */
-footer{
-  background:#062f4e;
-  color:#dbe8f0;
-  padding:35px 0;
-}
-
-.footer-grid{
+.info-points{
   display:grid;
-  grid-template-columns:1.5fr 1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+
+.info-point{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:10px;
+  padding:13px;
+}
+
+.info-point strong{
+  display:block;
+  font-size:11px;
+  margin-bottom:3px;
+}
+
+.info-point span{
+  display:block;
+  font-size:9px;
+  color:rgba(255,255,255,.78);
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  background:#073c59;
+  color:#fff;
+  padding:30px 20px 18px;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
   gap:30px;
 }
 
-footer h3{
-  color:#fff;
-  margin-top:0;
+.footer h3{
+  font-size:14px;
+  margin-bottom:8px;
 }
 
-footer p{
-  color:#b9ccd9;
-  font-size:14px;
+.footer p{
+  color:rgba(255,255,255,.75);
+  font-size:10px;
+  line-height:1.7;
 }
 
 .footer-links{
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:5px;
 }
 
 .footer-links a{
-  color:#dbe8f0;
-  font-size:14px;
+  color:rgba(255,255,255,.75);
+  text-decoration:none;
+  font-size:10px;
 }
 
 .footer-links a:hover{
-  color:var(--gold);
+  color:#fff;
 }
 
-.copyright{
-  border-top:1px solid rgba(255,255,255,.12);
-  margin-top:25px;
-  padding-top:20px;
-  font-size:13px;
-  color:#a9bfce;
+.footer-bottom{
+  max-width:1100px;
+  margin:22px auto 0;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.15);
+  display:flex;
+  justify-content:space-between;
+  color:rgba(255,255,255,.6);
+  font-size:9px;
 }
 
-/* RESPONSIVE */
-@media(max-width:850px){
+/* ================= MOBILE ================= */
 
-  .nav-links{
-    display:none;
-    position:absolute;
-    left:15px;
-    right:15px;
-    top:70px;
-    background:#fff;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-    padding:10px;
-    flex-direction:column;
-    align-items:stretch;
+@media(max-width:700px){
+
+  .top-line{
+    padding:6px 10px;
+    font-size:7px;
+    gap:8px;
   }
 
-  .nav-links.show{
-    display:flex;
+  .header-main{
+    min-height:58px;
+    padding:6px 10px;
+    gap:8px;
   }
 
-  .nav-links a{
-    width:100%;
+  .brand-logo{
+    width:32px;
+    height:32px;
+    font-size:16px;
   }
 
-  .menu-btn{
-    display:block;
+  .brand-text strong{
+    font-size:10px;
   }
 
-  .hero-grid{
-    grid-template-columns:1fr;
+  .brand-text small{
+    font-size:5px;
+  }
+
+  .main-nav{
+    flex:1;
+    gap:2px;
+  }
+
+  .main-nav a{
+    font-size:8px;
+    padding:7px 8px;
+  }
+
+  .page-hero{
+    padding:30px 15px;
+  }
+
+  .page-hero h1{
+    font-size:27px;
+  }
+
+  .page-hero p{
+    font-size:10px;
+  }
+
+  .container{
+    padding:25px 12px 35px;
   }
 
   .contact-grid{
     grid-template-columns:1fr;
+    gap:18px;
   }
 
-  .footer-grid{
+  .contact-card{
+    padding:20px;
+  }
+
+  .contact-card h2,
+  .form-title{
+    font-size:18px;
+  }
+
+  .info-points{
     grid-template-columns:1fr;
   }
-}
 
-@media(max-width:500px){
-
-  .topbar-inner{
-    justify-content:center;
-    text-align:center;
+  .footer{
+    padding:25px 15px 15px;
   }
 
-  .container{
-    width:min(100% - 24px,1180px);
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+    gap:20px;
   }
 
-  .nav-inner{
-    padding:9px 12px;
+  .footer-inner > div:first-child{
+    grid-column:1 / -1;
   }
 
-  .brand-text strong{
-    font-size:14px;
-  }
-
-  .brand-text span{
-    font-size:9px;
-  }
-
-  .brand img{
-    width:42px;
-    height:42px;
-  }
-
-  .hero{
-    padding:50px 0;
-  }
-
-  .hero h1{
-    font-size:36px;
-  }
-
-  .section{
-    padding:45px 0;
-  }
-
-  .card,
-  .address-box{
-    padding:21px;
-  }
-
-  .address{
-    font-size:15px;
+  .footer-bottom{
+    flex-direction:column;
+    gap:5px;
   }
 }
 </style>
@@ -501,328 +512,433 @@ footer p{
 
 <body>
 
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <div>GABSI Kota Tanjungbalai • Bridge Duplicate Center</div>
-    <div>Sportivitas • Persahabatan • Prestasi • Edukasi</div>
+<!-- ================= HEADER ================= -->
+
+<header class="site-header">
+
+  <div class="top-line">
+    <span>GABSI KOTA TANJUNGBALAI</span>
+    <span>Bridge • Prestasi • Persaudaraan</span>
   </div>
-</div>
 
-<!-- NAVBAR -->
-<nav class="nav">
-  <div class="nav-inner">
+  <div class="header-main">
 
-    <a class="brand" href="index.html">
-      <img src="favicon.svg" alt="Logo GABSI">
+    <a href="index.html" class="brand">
+
+      <div class="brand-logo">♥</div>
+
       <div class="brand-text">
         <strong>GABSI KOTA TANJUNGBALAI</strong>
-        <span>GABUNGAN BRIDGE SELURUH INDONESIA</span>
+        <small>GABUNGAN BRIDGE SELURUH INDONESIA</small>
       </div>
+
     </a>
 
-    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
-      ☰
-    </button>
+    <nav class="main-nav">
 
-    <div class="nav-links" id="navLinks">
       <a href="index.html">Beranda</a>
+
       <a href="profil.html">Profil</a>
+
       <a href="pengurus.html">Pengurus</a>
+
       <a href="kegiatan.html">Kegiatan</a>
+
       <a href="galeri.html">Galeri</a>
+
       <a href="aplikasi.html">Aplikasi</a>
-      <a class="active" href="kontak.html">Kontak</a>
-    </div>
+
+      <a href="game-bridge-gabsi.html">♠ Game Bridge</a>
+
+      <a href="kontak.html" class="active">Kontak</a>
+
+    </nav>
 
   </div>
-</nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="container">
-
-    <div class="hero-grid">
-
-      <div>
-        <span class="eyebrow">KONTAK RESMI</span>
-
-        <h1>Kontak GABSI Kota Tanjungbalai</h1>
-
-        <p>
-          Hubungi Sekretariat GABSI Kota Tanjungbalai
-          untuk informasi organisasi, latihan, pembinaan,
-          pertandingan dan kegiatan olahraga bridge.
-        </p>
-      </div>
-
-      <div class="hero-card">
-        <strong>Sekretariat GABSI</strong>
-        <span>
-          Kota Tanjungbalai, Sumatera Utara
-        </span>
-      </div>
-
-    </div>
-
-  </div>
 </header>
 
-<!-- CONTENT -->
-<section class="section">
 
-  <div class="container">
+<!-- ================= HERO ================= -->
 
-    <div class="section-title">
-      <h2>Informasi Sekretariat</h2>
-      <p>
-        Silakan gunakan informasi berikut untuk menghubungi
-        GABSI Kota Tanjungbalai.
-      </p>
+<section class="page-hero">
+
+  <div class="page-hero-inner">
+
+    <div class="hero-label">
+      HUBUNGI KAMI
     </div>
 
-    <div class="contact-grid">
+    <h1>
+      Kontak <span>GABSI</span>
+    </h1>
 
-      <!-- ALAMAT -->
-      <div class="card">
-
-        <h3>🏢 Kantor Sekretariat</h3>
-
-        <div class="contact-item">
-
-          <div class="icon">📍</div>
-
-          <div>
-            <strong>Alamat Sekretariat</strong>
-
-            <span>
-              Jln. R.A. Kartini Lk. IV<br>
-              Kelurahan Sijambi<br>
-              Kecamatan Datuk Bandar<br>
-              Kota Tanjungbalai<br>
-              Sumatera Utara
-            </span>
-          </div>
-
-        </div>
-
-        <div class="contact-item">
-
-          <div class="icon">♠</div>
-
-          <div>
-            <strong>Organisasi</strong>
-
-            <span>
-              GABSI Kota Tanjungbalai
-            </span>
-          </div>
-
-        </div>
-
-        <div class="contact-item">
-
-          <div class="icon">🏆</div>
-
-          <div>
-            <strong>Cabang Olahraga</strong>
-
-            <span>
-              Bridge
-            </span>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- KONTAK -->
-      <div class="card">
-
-        <h3>📞 Hubungi Kami</h3>
-
-        <div class="contact-item">
-
-          <div class="icon">📱</div>
-
-          <div>
-            <strong>WhatsApp</strong>
-
-            <span>
-              0852-7040-7744
-            </span>
-          </div>
-
-        </div>
-
-        <div class="contact-item">
-
-          <div class="icon">✉️</div>
-
-          <div>
-            <strong>Email</strong>
-
-            <span>
-              erickhariyantohutabarat@gmail.com
-            </span>
-          </div>
-
-        </div>
-
-        <div class="button-row">
-
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/6285270407744"
-            target="_blank"
-            rel="noopener">
-            💬 WhatsApp
-          </a>
-
-          <a
-            class="btn btn-secondary"
-            href="mailto:erickhariyantohutabarat@gmail.com">
-            ✉️ Kirim Email
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- ALAMAT LENGKAP -->
-    <div class="address-box">
-
-      <h3>📍 Lokasi Kantor Sekretariat</h3>
-
-      <div class="address">
-
-        <strong>Kantor Sekretariat GABSI Kota Tanjungbalai</strong><br>
-
-        Jln. R.A. Kartini Lk. IV<br>
-        Kelurahan Sijambi<br>
-        Kecamatan Datuk Bandar<br>
-        Kota Tanjungbalai<br>
-        Sumatera Utara
-
-      </div>
-
-    </div>
-
-    <!-- INFO -->
-    <div class="info-box">
-
-      <h3>GABSI Kota Tanjungbalai</h3>
-
-      <p>
-        Untuk informasi mengenai latihan, pembinaan atlet,
-        bridge duplicate, pertandingan dan kegiatan GABSI
-        Kota Tanjungbalai, silakan menghubungi sekretariat
-        melalui WhatsApp atau email.
-      </p>
-
-      <div class="button-row">
-
-        <a
-          class="btn btn-primary"
-          href="https://wa.me/6285270407744"
-          target="_blank"
-          rel="noopener">
-          💬 Hubungi WhatsApp
-        </a>
-
-        <a
-          class="btn btn-blue"
-          href="mailto:erickhariyantohutabarat@gmail.com">
-          ✉️ Email GABSI
-        </a>
-
-      </div>
-
-    </div>
+    <p>
+      Hubungi GABSI Kota Tanjungbalai untuk informasi kegiatan,
+      latihan bridge, pertandingan, pembinaan pemain, dan informasi lainnya.
+    </p>
 
   </div>
 
 </section>
 
-<!-- FOOTER -->
-<footer>
 
-  <div class="container">
+<!-- ================= CONTENT ================= -->
 
-    <div class="footer-grid">
+<main class="container">
 
-      <div>
-        <h3>GABSI Kota Tanjungbalai</h3>
+  <div class="contact-grid">
 
-        <p>
-          Pusat informasi organisasi, pembinaan olahraga bridge,
-          bridge duplicate dan aplikasi digital GABSI Kota Tanjungbalai.
-        </p>
+    <!-- INFORMASI KONTAK -->
+
+    <section class="contact-card">
+
+      <h2>Informasi Kontak</h2>
+
+      <p>
+        Silakan gunakan informasi berikut untuk menghubungi
+        GABSI Kota Tanjungbalai.
+      </p>
+
+
+      <div class="contact-item">
+
+        <div class="contact-icon">📍</div>
+
+        <div class="contact-info">
+
+          <strong>Organisasi</strong>
+
+          <span>
+            GABSI Kota Tanjungbalai
+          </span>
+
+        </div>
+
       </div>
 
-      <div>
-        <h3>Menu</h3>
 
-        <div class="footer-links">
-          <a href="index.html">Beranda</a>
-          <a href="profil.html">Profil</a>
-          <a href="pengurus.html">Pengurus</a>
-          <a href="kegiatan.html">Kegiatan</a>
+      <div class="contact-item">
+
+        <div class="contact-icon">♠</div>
+
+        <div class="contact-info">
+
+          <strong>Kegiatan</strong>
+
+          <span>
+            Latihan dan kegiatan olahraga bridge
+          </span>
+
         </div>
+
       </div>
 
-      <div>
-        <h3>Kontak</h3>
 
-        <div class="footer-links">
-          <a href="galeri.html">Galeri</a>
-          <a href="aplikasi.html">Aplikasi</a>
-          <a href="kontak.html">Kontak</a>
-          <a href="score-sheet.html">Score Sheet</a>
-          <a href="kocokan-kartu.html">Kocokan Kartu</a>
+      <div class="contact-item">
+
+        <div class="contact-icon">✉</div>
+
+        <div class="contact-info">
+
+          <strong>Email</strong>
+
+          <a href="mailto:gabsikotatanjungbalai@gmail.com">
+            gabsikotatanjungbalai@gmail.com
+          </a>
+
         </div>
+
+      </div>
+
+
+      <div class="contact-item">
+
+        <div class="contact-icon">☎</div>
+
+        <div class="contact-info">
+
+          <strong>Hubungi Pengurus</strong>
+
+          <span>
+            Silakan menghubungi pengurus GABSI Kota Tanjungbalai
+            untuk informasi lebih lanjut.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FORM KONTAK -->
+
+    <section class="contact-card">
+
+      <h2 class="form-title">
+        Kirim Pesan
+      </h2>
+
+      <p class="form-description">
+        Isi formulir berikut untuk menyiapkan pesan kepada
+        GABSI Kota Tanjungbalai.
+      </p>
+
+      <form onsubmit="kirimPesan(event)">
+
+        <div class="form-group">
+
+          <label for="nama">
+            Nama
+          </label>
+
+          <input
+            type="text"
+            id="nama"
+            placeholder="Masukkan nama Anda"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="email">
+            Email
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Masukkan email Anda"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pesan">
+            Pesan
+          </label>
+
+          <textarea
+            id="pesan"
+            placeholder="Tuliskan pesan Anda..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <button type="submit" class="btn-kirim">
+          ✉ KIRIM PESAN
+        </button>
+
+      </form>
+
+    </section>
+
+  </div>
+
+
+  <!-- INFO -->
+
+  <section class="info-box">
+
+    <h2>
+      GABSI Kota Tanjungbalai
+    </h2>
+
+    <p>
+      Wadah komunikasi, pembinaan, latihan dan pengembangan
+      olahraga bridge di Kota Tanjungbalai.
+    </p>
+
+
+    <div class="info-points">
+
+      <div class="info-point">
+
+        <strong>♠ Bridge</strong>
+
+        <span>
+          Pengembangan olahraga bridge
+        </span>
+
+      </div>
+
+
+      <div class="info-point">
+
+        <strong>🏆 Prestasi</strong>
+
+        <span>
+          Pembinaan dan pertandingan
+        </span>
+
+      </div>
+
+
+      <div class="info-point">
+
+        <strong>🤝 Persaudaraan</strong>
+
+        <span>
+          Membangun komunitas bridge
+        </span>
+
       </div>
 
     </div>
 
-    <div class="copyright">
-      © 2026 GABSI Kota Tanjungbalai. Seluruh hak cipta dilindungi.
+  </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div>
+
+      <h3>
+        GABSI Kota Tanjungbalai
+      </h3>
+
+      <p>
+        Website informasi dan layanan digital
+        GABSI Kota Tanjungbalai untuk mendukung
+        perkembangan olahraga bridge.
+      </p>
+
     </div>
+
+
+    <div>
+
+      <h3>
+        Menu
+      </h3>
+
+      <div class="footer-links">
+
+        <a href="index.html">Beranda</a>
+
+        <a href="profil.html">Profil</a>
+
+        <a href="pengurus.html">Pengurus</a>
+
+        <a href="kegiatan.html">Kegiatan</a>
+
+        <a href="galeri.html">Galeri</a>
+
+        <a href="aplikasi.html">Aplikasi</a>
+
+      </div>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Layanan
+      </h3>
+
+      <div class="footer-links">
+
+        <a href="game-bridge-gabsi.html">
+          Game Bridge
+        </a>
+
+        <a href="aplikasi.html">
+          Aplikasi Bridge
+        </a>
+
+        <a href="kontak.html">
+          Kontak
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 GABSI Kota Tanjungbalai
+    </span>
+
+    <span>
+      Bridge • Prestasi • Persaudaraan
+    </span>
 
   </div>
 
 </footer>
 
+
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
-function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("show");
-}
+function kirimPesan(event){
 
-document.querySelectorAll("#navLinks a").forEach(function(link){
+  event.preventDefault();
 
-  link.addEventListener("click",function(){
+  const nama =
+    document.getElementById("nama").value.trim();
 
-    document.getElementById("navLinks").classList.remove("show");
+  const email =
+    document.getElementById("email").value.trim();
 
-  });
+  const pesan =
+    document.getElementById("pesan").value.trim();
 
-});
 
-if("serviceWorker" in navigator){
+  if(!nama || !email || !pesan){
 
-  window.addEventListener("load",function(){
+    alert("Mohon lengkapi semua kolom.");
 
-    navigator.serviceWorker.register("sw.js")
-      .catch(function(err){
+    return;
+  }
 
-        console.log("Service Worker gagal:",err);
 
-      });
+  const tujuan =
+    "gabsikotatanjungbalai@gmail.com";
 
-  });
+
+  const subjek =
+    encodeURIComponent(
+      "Pesan Website GABSI Kota Tanjungbalai"
+    );
+
+
+  const isi =
+    encodeURIComponent(
+      "Nama: " + nama +
+      "\nEmail: " + email +
+      "\n\nPesan:\n" + pesan
+    );
+
+
+  window.location.href =
+    "mailto:" +
+    tujuan +
+    "?subject=" +
+    subjek +
+    "&body=" +
+    isi;
 
 }
 
