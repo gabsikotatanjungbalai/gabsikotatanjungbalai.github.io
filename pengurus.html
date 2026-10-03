@@ -1,1030 +1,427 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0a3d62">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kepengurusan GABSI Kota Tanjungbalai</title>
 
 <meta name="description"
-content="Susunan Pengurus GABSI Kota Tanjungbalai.">
-
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="manifest" href="manifest.json">
-
-<title>Pengurus | GABSI Kota Tanjungbalai</title>
+content="Kepengurusan GABSI Kota Tanjungbalai">
 
 <style>
-
-:root{
- --navy:#073b61;
- --navy2:#0a567f;
- --red:#d71920;
- --gold:#f4c44e;
- --ink:#102538;
- --muted:#5f7282;
- --bg:#f4f8fb;
- --card:#fff;
- --line:#dce6ed;
- --shadow:0 14px 40px rgba(8,39,61,.11)
-}
-
 *{
- box-sizing:border-box
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
- margin:0;
- font-family:Inter,Segoe UI,Arial,sans-serif;
- background:var(--bg);
- color:var(--ink)
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f2f5f7;
+    color:#172b2f;
 }
 
-a{
- color:inherit
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#063f35,#08735d);
+    color:white;
+    padding:25px 15px 30px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
 }
 
-.container{
- max-width:1180px;
- margin:auto;
- padding:0 22px
+.logo{
+    width:72px;
+    height:72px;
+    margin:0 auto 12px;
+    border-radius:50%;
+    background:#d4af37;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    color:#063f35;
+    border:4px solid white;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
 }
 
-
-/* TOPBAR */
-
-.topbar{
- background:#032c49;
- color:#dfeaf1;
- font-size:12px
+.header h1{
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:.5px;
 }
 
-.topbar .inner{
- display:flex;
- justify-content:space-between;
- gap:16px;
- padding:8px 0
+.header p{
+    margin-top:7px;
+    font-size:14px;
+    opacity:.95;
 }
 
-
-/* NAVIGASI */
-
+/* NAVIGATION */
 .nav{
- position:sticky;
- top:0;
- z-index:50;
- background:rgba(255,255,255,.96);
- backdrop-filter:blur(12px);
- border-bottom:1px solid var(--line)
+    background:white;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:20;
 }
 
-.nav-inner{
- height:72px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px
+.nav a{
+    text-decoration:none;
+    color:#06483c;
+    font-weight:bold;
+    font-size:13px;
+    padding:9px 14px;
+    border-radius:20px;
 }
 
-.brand{
- display:flex;
- align-items:center;
- gap:12px;
- text-decoration:none;
- min-width:0
+.nav a:hover{
+    background:#e6f2ef;
 }
 
-.brand img{
- width:48px;
- height:48px
+/* CONTENT */
+.container{
+    max-width:1050px;
+    margin:auto;
+    padding:30px 15px 50px;
 }
 
-.brand strong{
- display:block;
- font-size:20px;
- line-height:1.05;
- color:var(--navy)
+.title{
+    text-align:center;
+    margin-bottom:28px;
 }
 
-.brand span{
- display:block;
- font-size:10px;
- letter-spacing:.4px;
- color:#607587;
- margin-top:3px
+.title h2{
+    color:#06483c;
+    font-size:27px;
+    margin-bottom:8px;
 }
 
-.nav-links{
- display:flex;
- align-items:center;
- gap:5px
+.title .line{
+    width:75px;
+    height:4px;
+    background:#d4af37;
+    border-radius:10px;
+    margin:0 auto 12px;
 }
 
-.nav-links a{
- padding:10px 11px;
- border-radius:10px;
- text-decoration:none;
- font-weight:700;
- font-size:13px;
- color:#294458
+.title p{
+    color:#667477;
+    font-size:14px;
 }
 
-.nav-links a:hover,
-.nav-links a.active{
- background:#eaf4fa;
- color:var(--navy)
+/* PROFILE GRID */
+.pengurus{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    max-width:850px;
+    margin:0 auto;
 }
 
-.menu{
- display:none;
- border:1px solid var(--line);
- background:#fff;
- border-radius:10px;
- padding:10px 12px;
- cursor:pointer
+/* CARD */
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+    border:1px solid #e0e7e5;
+    transition:.25s ease;
 }
 
-
-/* HERO */
-
-.page-hero{
- background:linear-gradient(
-  125deg,
-  #052f4c,
-  #0a5e89 66%,
-  #0b7794
- );
- color:#fff;
- padding:75px 0
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 28px rgba(0,0,0,.17);
 }
 
-.page-hero .eyebrow{
- color:#ffd76a
+/* FOTO */
+.photo{
+    background:linear-gradient(135deg,#0a4c40,#08735d);
+    padding:20px;
+    text-align:center;
 }
 
-.page-hero h1{
- font-size:clamp(40px,5vw,60px);
- line-height:1;
- margin:12px 0 16px;
- letter-spacing:-1.5px
+.photo img{
+    width:190px;
+    height:190px;
+    object-fit:cover;
+    border-radius:50%;
+    border:6px solid white;
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
 }
 
-.page-hero p{
- max-width:720px;
- color:#e5f2f8;
- line-height:1.75;
- font-size:16px;
- margin:0
+/* INFO */
+.info{
+    padding:22px 20px 25px;
+    text-align:center;
 }
 
-
-/* SECTION */
-
-section{
- padding:65px 0
+.jabatan{
+    display:inline-block;
+    background:#d4af37;
+    color:#17352f;
+    font-size:12px;
+    font-weight:800;
+    padding:7px 16px;
+    border-radius:20px;
+    margin-bottom:12px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
 }
 
-.section-head{
- margin-bottom:28px
+.nama{
+    font-size:24px;
+    font-weight:800;
+    color:#06483c;
+    margin-bottom:7px;
 }
 
-.eyebrow{
- color:var(--navy2);
- font-size:12px;
- font-weight:900;
- letter-spacing:1px;
- text-transform:uppercase
+.keterangan{
+    font-size:13px;
+    color:#718084;
+    line-height:1.5;
 }
-
-.section-head h2{
- margin:7px 0;
- font-size:32px
-}
-
-.section-head p{
- color:var(--muted);
- line-height:1.7;
- max-width:760px
-}
-
-
-/* KETUA */
-
-.leader{
- display:grid;
- grid-template-columns:250px 1fr;
- gap:30px;
- align-items:center;
- background:#fff;
- border:1px solid var(--line);
- border-radius:22px;
- padding:25px;
- box-shadow:var(--shadow)
-}
-
-.leader img{
- width:250px;
- height:310px;
- object-fit:cover;
- object-position:center 25%;
- border-radius:18px
-}
-
-.tag{
- display:inline-block;
- padding:6px 10px;
- border-radius:999px;
- background:#eaf4fa;
- color:var(--navy);
- font-size:11px;
- font-weight:900
-}
-
-.leader h2{
- margin:12px 0 8px;
- font-size:27px
-}
-
-.leader p{
- color:var(--muted);
- line-height:1.7
-}
-
-
-/* GRID PENGURUS */
-
-.management-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:18px
-}
-
-.person{
- background:#fff;
- border:1px solid var(--line);
- border-radius:20px;
- padding:22px;
- box-shadow:var(--shadow);
- text-align:center
-}
-
-.person-photo{
- width:120px;
- height:120px;
- border-radius:50%;
- margin:0 auto 17px;
- background:linear-gradient(
-  135deg,
-  #073b61,
-  #0b7794
- );
- display:grid;
- place-items:center;
- color:#fff;
- font-size:42px;
- font-weight:900
-}
-
-.person h3{
- margin:0 0 7px;
- font-size:18px
-}
-
-.person .position{
- color:var(--navy2);
- font-size:12px;
- font-weight:900;
- text-transform:uppercase;
- letter-spacing:.5px
-}
-
-.person p{
- color:var(--muted);
- font-size:13px;
- line-height:1.55
-}
-
-
-/* BIDANG */
-
-.bidang-grid{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:16px
-}
-
-.bidang{
- background:#fff;
- border:1px solid var(--line);
- border-radius:18px;
- padding:22px;
- box-shadow:var(--shadow)
-}
-
-.bidang h3{
- margin:0 0 8px;
- color:var(--navy)
-}
-
-.bidang p{
- color:var(--muted);
- line-height:1.6;
- margin:0
-}
-
-
-/* NOTICE */
-
-.notice{
- background:#edf7fc;
- border:1px solid #cfe3ef;
- border-radius:15px;
- padding:15px;
- color:#31566c;
- font-size:13px;
- line-height:1.6
-}
-
 
 /* FOOTER */
-
-footer{
- background:#062f4b;
- color:#dfeaf1;
- padding:34px 0 18px
+.footer{
+    background:#063f35;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:20px;
 }
 
-.footer-grid{
- display:grid;
- grid-template-columns:1.2fr .8fr .8fr;
- gap:25px
+.footer strong{
+    color:#d4af37;
 }
 
-.footer-brand{
- font-size:23px;
- font-weight:900;
- color:#fff
+.footer p{
+    font-size:13px;
+    margin:5px 0;
 }
-
-.footer-grid p{
- color:#b8cad5;
- line-height:1.6
-}
-
-.footer-grid a{
- display:block;
- text-decoration:none;
- color:#dfeaf1;
- margin:8px 0;
- font-size:13px
-}
-
-.copyright{
- border-top:1px solid rgba(255,255,255,.14);
- margin-top:26px;
- padding-top:14px;
- font-size:11px;
- color:#a9bfcc;
- display:flex;
- justify-content:space-between;
- gap:10px
-}
-
 
 /* MOBILE */
+@media(max-width:700px){
 
-@media(max-width:900px){
+    .header{
+        padding:20px 12px 25px;
+    }
 
- .nav-inner{
-  height:64px
- }
+    .logo{
+        width:62px;
+        height:62px;
+        font-size:35px;
+    }
 
- .menu{
-  display:block
- }
+    .header h1{
+        font-size:20px;
+    }
 
- .nav-links{
-  display:none;
-  position:absolute;
-  left:0;
-  right:0;
-  top:64px;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  padding:8px 18px 14px;
-  flex-direction:column;
-  align-items:stretch
- }
+    .header p{
+        font-size:12px;
+    }
 
- .nav-links.open{
-  display:flex
- }
+    .nav{
+        overflow-x:auto;
+        justify-content:flex-start;
+        white-space:nowrap;
+    }
 
- .leader{
-  grid-template-columns:1fr
- }
+    .nav a{
+        font-size:12px;
+        padding:8px 12px;
+    }
 
- .leader img{
-  width:100%;
-  height:400px
- }
+    .container{
+        padding:25px 12px 40px;
+    }
 
- .management-grid{
-  grid-template-columns:1fr 1fr
- }
+    .title h2{
+        font-size:23px;
+    }
 
- .bidang-grid{
-  grid-template-columns:1fr
- }
+    .pengurus{
+        grid-template-columns:1fr;
+        gap:20px;
+        max-width:500px;
+    }
 
- .footer-grid{
-  grid-template-columns:1fr 1fr
- }
+    .photo img{
+        width:180px;
+        height:180px;
+    }
 
+    .nama{
+        font-size:22px;
+    }
 }
 
+/* SMALL PHONE */
+@media(max-width:380px){
 
-@media(max-width:560px){
+    .photo img{
+        width:155px;
+        height:155px;
+    }
 
- .container{
-  padding:0 14px
- }
+    .nama{
+        font-size:20px;
+    }
 
- .topbar .inner{
-  justify-content:center
- }
-
- .topbar .inner span:last-child{
-  display:none
- }
-
- .brand img{
-  width:42px;
-  height:42px
- }
-
- .brand strong{
-  font-size:17px
- }
-
- .brand span{
-  font-size:9px
- }
-
- .page-hero{
-  padding:52px 0
- }
-
- .page-hero h1{
-  font-size:40px
- }
-
- .management-grid{
-  grid-template-columns:1fr
- }
-
- .footer-grid{
-  grid-template-columns:1fr
- }
-
- .copyright{
-  flex-direction:column
- }
-
+    .title h2{
+        font-size:21px;
+    }
 }
-
 </style>
 </head>
 
-
 <body>
 
+<!-- ================= HEADER ================= -->
 
-<!-- TOPBAR -->
+<header class="header">
 
-<div class="topbar">
+    <div class="logo">♠</div>
 
- <div class="container inner">
+    <h1>GABSI KOTA TANJUNGBALAI</h1>
 
-  <span>
-   GABSI Kota Tanjungbalai • Bridge Duplicate Center
-  </span>
-
-  <span>
-   Sportivitas • Persahabatan • Prestasi • Edukasi
-  </span>
-
- </div>
-
-</div>
-
-
-<!-- NAVIGASI -->
-
-<nav class="nav">
-
- <div class="container nav-inner">
-
-
-  <a class="brand" href="index.html">
-
-   <img src="favicon.svg" alt="Logo GABSI">
-
-   <div>
-
-    <strong>
-     GABSI KOTA TANJUNGBALAI
-    </strong>
-
-    <span>
-     GABUNGAN BRIDGE SELURUH INDONESIA
-    </span>
-
-   </div>
-
-  </a>
-
-
-  <button
-   class="menu"
-   aria-label="Buka menu"
-   onclick="toggleMenu()">
-
-   ☰
-
-  </button>
-
-
-  <div class="nav-links" id="navLinks">
-
-   <a href="index.html">
-    Beranda
-   </a>
-
-   <a href="profil.html">
-    Profil
-   </a>
-
-   <a class="active" href="pengurus.html">
-    Pengurus
-   </a>
-
-   <a href="kegiatan.html">
-    Kegiatan
-   </a>
-
-   <a href="galeri.html">
-    Galeri
-   </a>
-
-   <a href="aplikasi.html">
-    Aplikasi
-   </a>
-
-   <a href="kontak.html">
-    Kontak
-   </a>
-
-  </div>
-
- </div>
-
-</nav>
-
-
-<!-- HERO -->
-
-<header class="page-hero">
-
- <div class="container">
-
-  <div class="eyebrow">
-   ORGANISASI
-  </div>
-
-  <h1>
-   Pengurus GABSI
-  </h1>
-
-  <p>
-   Susunan kepengurusan GABSI Kota Tanjungbalai
-   sebagai bagian dari pengelolaan organisasi,
-   pembinaan pemain, kegiatan olahraga, dan
-   pengembangan prestasi Bridge.
-  </p>
-
- </div>
+    <p>
+        Gabungan Bridge Seluruh Indonesia
+    </p>
 
 </header>
 
 
-<main>
+<!-- ================= NAVIGASI ================= -->
 
+<nav class="nav">
 
-<!-- KETUA -->
+    <a href="index.html">Beranda</a>
 
-<section>
+    <a href="game-bridge-gabsi.html">
+        Bridge Online
+    </a>
 
- <div class="container">
+    <a href="kepengurusan.html">
+        Kepengurusan
+    </a>
 
+</nav>
 
-  <div class="section-head">
 
-   <div class="eyebrow">
-    PIMPINAN ORGANISASI
-   </div>
+<!-- ================= ISI ================= -->
 
-   <h2>
-    Ketua GABSI Kota Tanjungbalai
-   </h2>
+<main class="container">
 
-  </div>
+    <section class="title">
 
+        <h2>KEPENGURUSAN</h2>
 
-  <div class="leader">
+        <div class="line"></div>
 
-   <img
-    src="ketua-gabsi.jpg"
-    alt="Erick Hariyanto Hutabarat, S.Pd.">
+        <p>
+            Pengurus GABSI Kota Tanjungbalai
+        </p>
 
+    </section>
 
-   <div>
 
-    <span class="tag">
-     KETUA GABSI
-    </span>
+    <!-- ================= DUA PENGURUS ================= -->
 
-    <h2>
-     Erick Hariyanto Hutabarat, S.Pd.
-    </h2>
+    <section class="pengurus">
 
-    <p>
-     Ketua GABSI Kota Tanjungbalai
-     periode <strong>2021–2025</strong>
-     dan periode <strong>2025–2029</strong>.
-    </p>
 
-    <p>
-     Berperan dalam pengembangan organisasi,
-     pembinaan pemain, kegiatan latihan,
-     pertandingan, serta pengembangan olahraga
-     Bridge di Kota Tanjungbalai.
-    </p>
+        <!-- BENDahara -->
 
-   </div>
+        <article class="card">
 
-  </div>
+            <div class="photo">
 
- </div>
+                <img
+                    src="bendahara.jpg"
+                    alt="S. Simbolon - Bendahara GABSI Kota Tanjungbalai"
+                >
 
-</section>
+            </div>
 
+            <div class="info">
 
-<!-- PENGURUS INTI -->
+                <div class="jabatan">
+                    Bendahara
+                </div>
 
-<section style="padding-top:0">
+                <div class="nama">
+                    S. Simbolon
+                </div>
 
- <div class="container">
+                <div class="keterangan">
+                    Bendahara GABSI Kota Tanjungbalai
+                </div>
 
+            </div>
 
-  <div class="section-head">
+        </article>
 
-   <div class="eyebrow">
-    STRUKTUR ORGANISASI
-   </div>
 
-   <h2>
-    Pengurus Inti
-   </h2>
+        <!-- SEKRETARIS -->
 
-   <p>
-    Bagian berikut disiapkan untuk menampilkan
-    susunan pengurus GABSI Kota Tanjungbalai.
-   </p>
+        <article class="card">
 
-  </div>
+            <div class="photo">
 
+                <img
+                    src="sekretaris.jpg"
+                    alt="R. Manalu - Sekretaris GABSI Kota Tanjungbalai"
+                >
 
-  <div class="management-grid">
+            </div>
 
+            <div class="info">
 
-   <div class="person">
+                <div class="jabatan">
+                    Sekretaris
+                </div>
 
-    <div class="person-photo">
-     S
-    </div>
+                <div class="nama">
+                    R. Manalu
+                </div>
 
-    <h3>
-     Sekretaris
-    </h3>
+                <div class="keterangan">
+                    Sekretaris GABSI Kota Tanjungbalai
+                </div>
 
-    <div class="position">
-     Sekretaris GABSI
-    </div>
+            </div>
 
-    <p>
-     Data nama sekretaris dapat ditambahkan
-     pada bagian ini.
-    </p>
+        </article>
 
-   </div>
 
-
-   <div class="person">
-
-    <div class="person-photo">
-     B
-    </div>
-
-    <h3>
-     Bendahara
-    </h3>
-
-    <div class="position">
-     Bendahara GABSI
-    </div>
-
-    <p>
-     Data nama bendahara dapat ditambahkan
-     pada bagian ini.
-    </p>
-
-   </div>
-
-
-   <div class="person">
-
-    <div class="person-photo">
-     W
-    </div>
-
-    <h3>
-     Wakil Ketua
-    </h3>
-
-    <div class="position">
-     Wakil Ketua
-    </div>
-
-    <p>
-     Data wakil ketua dapat ditambahkan
-     pada bagian ini.
-    </p>
-
-   </div>
-
-
-  </div>
-
- </div>
-
-</section>
-
-
-<!-- BIDANG -->
-
-<section style="padding-top:0">
-
- <div class="container">
-
-
-  <div class="section-head">
-
-   <div class="eyebrow">
-    BIDANG ORGANISASI
-   </div>
-
-   <h2>
-    Bidang Kepengurusan
-   </h2>
-
-   <p>
-    Struktur bidang dapat disesuaikan dengan
-    susunan kepengurusan resmi GABSI Kota
-    Tanjungbalai.
-   </p>
-
-  </div>
-
-
-  <div class="bidang-grid">
-
-
-   <div class="bidang">
-
-    <h3>
-     ♠ Bidang Pembinaan
-    </h3>
-
-    <p>
-     Bertanggung jawab terhadap program latihan,
-     pembinaan pemain, dan pengembangan kemampuan
-     olahraga Bridge.
-    </p>
-
-   </div>
-
-
-   <div class="bidang">
-
-    <h3>
-     🏆 Bidang Pertandingan
-    </h3>
-
-    <p>
-     Mengelola kegiatan pertandingan, turnamen,
-     serta kebutuhan teknis pertandingan Bridge.
-    </p>
-
-   </div>
-
-
-   <div class="bidang">
-
-    <h3>
-     🃏 Bidang Bridge Duplicate
-    </h3>
-
-    <p>
-     Mendukung pelaksanaan Bridge Duplicate,
-     pengaturan board, score sheet, dan kebutuhan
-     teknis permainan.
-    </p>
-
-   </div>
-
-
-   <div class="bidang">
-
-    <h3>
-     📢 Bidang Informasi
-    </h3>
-
-    <p>
-     Mengelola informasi kegiatan, dokumentasi,
-     berita, dan publikasi organisasi.
-    </p>
-
-   </div>
-
-
-  </div>
-
- </div>
-
-</section>
-
-
-<!-- CATATAN -->
-
-<section style="padding-top:0">
-
- <div class="container">
-
-  <div class="notice">
-
-   <strong>Catatan:</strong>
-   Nama dan foto pengurus lainnya dapat ditambahkan
-   setelah data kepengurusan resmi tersedia.
-   Halaman ini sengaja dibuat terpisah agar data
-   pengurus dapat diperbarui tanpa mengubah
-   halaman Beranda.
-
-  </div>
-
- </div>
-
-</section>
-
+    </section>
 
 </main>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
-<footer>
+<footer class="footer">
 
- <div class="container footer-grid">
+    <p>
+        <strong>GABSI KOTA TANJUNGBALAI</strong>
+    </p>
 
+    <p>
+        Gabungan Bridge Seluruh Indonesia
+    </p>
 
-  <div>
-
-   <div class="footer-brand">
-    GABSI Kota Tanjungbalai
-   </div>
-
-   <p>
-    Gabungan Bridge Seluruh Indonesia
-    • Bridge Duplicate Center.
-   </p>
-
-  </div>
-
-
-  <div>
-
-   <b style="color:#fff">
-    Navigasi
-   </b>
-
-   <a href="index.html">
-    Beranda
-   </a>
-
-   <a href="profil.html">
-    Profil
-   </a>
-
-   <a href="pengurus.html">
-    Pengurus
-   </a>
-
-   <a href="kegiatan.html">
-    Kegiatan
-   </a>
-
-  </div>
-
-
-  <div>
-
-   <b style="color:#fff">
-    Lainnya
-   </b>
-
-   <a href="galeri.html">
-    Galeri
-   </a>
-
-   <a href="aplikasi.html">
-    Aplikasi
-   </a>
-
-   <a href="kontak.html">
-    Kontak
-   </a>
-
-  </div>
-
-
- </div>
-
-
- <div class="container copyright">
-
-  <span>
-   © 2026 GABSI Kota Tanjungbalai.
-  </span>
-
-  <span>
-   Website Bridge Center
-  </span>
-
- </div>
+    <p>
+        © 2026 GABSI Kota Tanjungbalai
+    </p>
 
 </footer>
-
-
-<script>
-
-function toggleMenu(){
-
- document
- .getElementById('navLinks')
- .classList
- .toggle('open');
-
-}
-
-
-document
- .querySelectorAll('#navLinks a')
- .forEach(function(a){
-
-  a.addEventListener('click',function(){
-
-   document
-    .getElementById('navLinks')
-    .classList
-    .remove('open');
-
-  });
-
- });
-
-
-if('serviceWorker' in navigator){
-
- window.addEventListener('load',function(){
-
-  navigator.serviceWorker
-   .register('sw.js')
-   .catch(function(){});
-
- });
-
-}
-
-</script>
 
 
 </body>
