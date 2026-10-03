@@ -1,1607 +1,778 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#073c59">
+<meta name="description" content="Aplikasi digital GABSI Kota Tanjungbalai untuk olahraga bridge.">
 
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-      content="#073c59">
-
-<meta name="description"
-      content="Pusat Aplikasi GABSI Kota Tanjungbalai">
-
-<title>
-Aplikasi GABSI Kota Tanjungbalai
-</title>
-
+<title>Aplikasi — GABSI Kota Tanjungbalai</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-
-
-/* =====================================================
-   BODY
-===================================================== */
 
 body{
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:#eef4f7;
-
-    color:#263746;
-
-    line-height:1.6;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#eef4f7;
+  color:#263746;
+  line-height:1.6;
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* ================= HEADER ================= */
 
 .site-header{
-
-    width:100%;
-
-    background:#ffffff;
-
-    box-shadow:
-        0 2px 10px
-        rgba(0,0,0,.08);
-
-    position:relative;
-
-    z-index:100;
+  width:100%;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  position:relative;
+  z-index:100;
 }
-
 
 .top-line{
-
-    background:#073c59;
-
-    color:#ffffff;
-
-    min-height:30px;
-
-    padding:6px 20px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    font-size:9px;
+  background:#073c59;
+  color:#fff;
+  min-height:30px;
+  padding:6px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:9px;
 }
-
 
 .header-main{
-
-    min-height:65px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    padding:8px 20px;
+  min-height:65px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:8px 20px;
 }
-
-
-/* =====================================================
-   BRAND
-===================================================== */
 
 .brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    text-decoration:none;
-
-    color:#173b50;
-
-    flex-shrink:0;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  text-decoration:none;
+  color:#173b50;
+  flex-shrink:0;
 }
-
 
 .brand-logo{
-
-    width:38px;
-
-    height:38px;
-
-    border-radius:8px;
-
-    background:#0b5278;
-
-    color:#ffffff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:19px;
-
-    font-weight:bold;
+  width:38px;
+  height:38px;
+  border-radius:8px;
+  background:#0b5278;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  font-weight:bold;
 }
-
 
 .brand-text strong{
-
-    display:block;
-
-    font-size:13px;
+  display:block;
+  font-size:13px;
 }
-
 
 .brand-text small{
-
-    display:block;
-
-    font-size:7px;
-
-    color:#8b9297;
-
-    margin-top:1px;
+  display:block;
+  font-size:7px;
+  color:#8b9297;
+  margin-top:1px;
 }
-
-
-/* =====================================================
-   NAVIGASI
-===================================================== */
 
 .main-nav{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:4px;
-
-    overflow-x:auto;
-
-    white-space:nowrap;
-
-    scrollbar-width:none;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
 }
-
 
 .main-nav::-webkit-scrollbar{
-
-    display:none;
+  display:none;
 }
-
 
 .main-nav a{
-
-    text-decoration:none;
-
-    color:#172033;
-
-    padding:8px 10px;
-
-    border-radius:8px;
-
-    font-size:10px;
-
-    font-weight:600;
-
-    white-space:nowrap;
-
-    transition:.2s;
+  text-decoration:none;
+  color:#172033;
+  padding:8px 10px;
+  border-radius:8px;
+  font-size:10px;
+  font-weight:600;
+  white-space:nowrap;
+  transition:.2s;
 }
-
 
 .main-nav a:hover{
-
-    background:#eaf4f9;
-
-    color:#07558f;
+  background:#eaf4f9;
+  color:#07558f;
 }
-
 
 .main-nav a.active{
-
-    background:#eaf4f9;
-
-    color:#07558f;
-
-    font-weight:700;
+  background:#eaf4f9;
+  color:#07558f;
+  font-weight:700;
 }
 
-
-/* =====================================================
-   HERO
-===================================================== */
+/* ================= HERO ================= */
 
 .page-hero{
-
-    background:
-        linear-gradient(
-            135deg,
-            #07558f,
-            #087cab
-        );
-
-    color:#ffffff;
-
-    padding:42px 20px;
-
-    text-align:center;
+  background:linear-gradient(135deg,#07558f,#087cab);
+  color:#fff;
+  padding:42px 20px;
+  text-align:center;
 }
-
 
 .page-hero-inner{
-
-    max-width:1000px;
-
-    margin:auto;
+  max-width:1000px;
+  margin:auto;
 }
-
 
 .hero-label{
-
-    display:inline-block;
-
-    background:
-        rgba(255,255,255,.15);
-
-    border:
-        1px solid
-        rgba(255,255,255,.30);
-
-    padding:6px 13px;
-
-    border-radius:20px;
-
-    font-size:9px;
-
-    font-weight:bold;
-
-    margin-bottom:10px;
+  display:inline-block;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.30);
+  padding:6px 13px;
+  border-radius:20px;
+  font-size:9px;
+  font-weight:bold;
+  margin-bottom:10px;
 }
-
 
 .page-hero h1{
-
-    font-size:32px;
-
-    line-height:1.2;
-
-    margin-bottom:7px;
+  font-size:32px;
+  line-height:1.2;
+  margin-bottom:7px;
 }
-
 
 .page-hero h1 span{
-
-    color:#ffd83d;
+  color:#ffd83d;
 }
-
 
 .page-hero p{
-
-    font-size:12px;
-
-    color:
-        rgba(255,255,255,.9);
-
-    max-width:700px;
-
-    margin:auto;
+  font-size:12px;
+  color:rgba(255,255,255,.9);
+  max-width:700px;
+  margin:auto;
 }
 
-
-/* =====================================================
-   CONTAINER
-===================================================== */
+/* ================= CONTAINER ================= */
 
 .container{
-
-    width:100%;
-
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:35px 20px 50px;
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  padding:35px 20px 50px;
 }
 
+/* ================= APPLICATIONS ================= */
 
-/* =====================================================
-   SECTION TITLE
-===================================================== */
-
-.section-heading{
-
-    margin-bottom:22px;
+.apps-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
-
-
-.section-heading .label{
-
-    color:#0874a8;
-
-    font-size:9px;
-
-    font-weight:800;
-
-    text-transform:uppercase;
-
-    letter-spacing:.7px;
-}
-
-
-.section-heading h2{
-
-    color:#263746;
-
-    font-size:25px;
-
-    margin-top:3px;
-}
-
-
-.section-heading p{
-
-    color:#75828c;
-
-    font-size:11px;
-
-    margin-top:3px;
-}
-
-
-/* =====================================================
-   GRID APLIKASI
-===================================================== */
-
-.app-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-}
-
-
-/* =====================================================
-   KARTU APLIKASI
-===================================================== */
 
 .app-card{
-
-    background:#ffffff;
-
-    border:
-        1px solid #dfe8ed;
-
-    border-radius:17px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 6px 20px
-        rgba(25,60,80,.08);
-
-    transition:
-        transform .2s,
-        box-shadow .2s;
+  background:#fff;
+  border:1px solid #dce7ec;
+  border-radius:16px;
+  padding:25px;
+  box-shadow:0 5px 18px rgba(0,0,0,.06);
+  display:flex;
+  flex-direction:column;
+  min-height:270px;
+  transition:.25s;
 }
-
 
 .app-card:hover{
-
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 12px 28px
-        rgba(25,60,80,.15);
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,.10);
 }
-
-
-/* =====================================================
-   ICON
-===================================================== */
 
 .app-icon{
-
-    height:155px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:60px;
-
-    color:#ffffff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #07558f,
-            #087cab
-        );
+  width:55px;
+  height:55px;
+  border-radius:14px;
+  background:#eaf4f9;
+  color:#07558f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  margin-bottom:18px;
 }
 
-
-.app-card:nth-child(2)
-.app-icon{
-
-    background:
-        linear-gradient(
-            135deg,
-            #087cab,
-            #087a75
-        );
+.app-card h2{
+  color:#173b50;
+  font-size:17px;
+  margin-bottom:8px;
 }
 
-
-.app-card:nth-child(3)
-.app-icon{
-
-    background:
-        linear-gradient(
-            135deg,
-            #073c59,
-            #07558f
-        );
+.app-card p{
+  color:#687783;
+  font-size:10px;
+  line-height:1.7;
+  flex:1;
 }
-
-
-.app-card:nth-child(4)
-.app-icon{
-
-    background:
-        linear-gradient(
-            135deg,
-            #1687b8,
-            #07558f
-        );
-}
-
-
-.app-card:nth-child(5)
-.app-icon{
-
-    background:
-        linear-gradient(
-            135deg,
-            #087a75,
-            #087cab
-        );
-}
-
-
-.app-card:nth-child(6)
-.app-icon{
-
-    background:
-        linear-gradient(
-            135deg,
-            #073c59,
-            #087cab
-        );
-}
-
-
-/* =====================================================
-   INFO APLIKASI
-===================================================== */
-
-.app-info{
-
-    padding:
-        17px;
-}
-
-
-.app-tag{
-
-    display:inline-block;
-
-    background:#e8f4f9;
-
-    color:#07558f;
-
-    padding:
-        4px 9px;
-
-    border-radius:20px;
-
-    font-size:8px;
-
-    font-weight:bold;
-
-    margin-bottom:8px;
-}
-
-
-.app-info h3{
-
-    color:#263746;
-
-    font-size:17px;
-
-    margin-bottom:6px;
-}
-
-
-.app-info p{
-
-    color:#6e7b84;
-
-    font-size:10px;
-
-    line-height:1.7;
-
-    margin-bottom:14px;
-}
-
-
-/* =====================================================
-   TOMBOL APLIKASI
-===================================================== */
 
 .app-button{
-
-    display:block;
-
-    width:100%;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    background:#07558f;
-
-    color:#ffffff;
-
-    padding:
-        9px 10px;
-
-    border-radius:9px;
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    transition:.2s;
+  display:block;
+  width:100%;
+  text-align:center;
+  text-decoration:none;
+  background:#07558f;
+  color:#fff;
+  padding:11px 14px;
+  border-radius:9px;
+  font-size:10px;
+  font-weight:bold;
+  margin-top:18px;
+  transition:.2s;
 }
-
 
 .app-button:hover{
-
-    background:#063970;
-
+  background:#063f69;
 }
 
+.app-button.secondary{
+  background:#eaf4f9;
+  color:#07558f;
+}
 
-/* =====================================================
-   INFO BOX
-===================================================== */
+.app-button.secondary:hover{
+  background:#d8ebf4;
+}
+
+/* ================= INFO ================= */
 
 .info-box{
-
-    margin-top:28px;
-
-    background:#ffffff;
-
-    border:
-        1px solid #dfe8ed;
-
-    border-radius:16px;
-
-    padding:23px;
-
-    box-shadow:
-        0 5px 18px
-        rgba(25,60,80,.07);
+  margin-top:25px;
+  background:linear-gradient(135deg,#07558f,#087cab);
+  color:#fff;
+  border-radius:16px;
+  padding:25px;
 }
 
-
-.info-box h3{
-
-    font-size:18px;
-
-    color:#263746;
-
-    margin-bottom:7px;
+.info-box h2{
+  font-size:18px;
+  margin-bottom:7px;
 }
-
 
 .info-box p{
-
-    color:#6e7b84;
-
-    font-size:11px;
-
-    line-height:1.8;
+  font-size:10px;
+  color:rgba(255,255,255,.9);
 }
 
-
-/* =====================================================
-   LINK HALAMAN LAIN
-===================================================== */
-
-.related{
-
-    margin-top:25px;
-
-    background:#ffffff;
-
-    border:
-        1px solid #dfe8ed;
-
-    border-radius:16px;
-
-    padding:22px;
-
-    box-shadow:
-        0 5px 18px
-        rgba(25,60,80,.07);
+.info-points{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:18px;
 }
 
-
-.related h3{
-
-    color:#263746;
-
-    font-size:18px;
-
-    margin-bottom:14px;
-
-    text-align:center;
+.info-point{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:10px;
+  padding:13px;
 }
 
-
-.related-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:10px;
+.info-point strong{
+  display:block;
+  font-size:11px;
+  margin-bottom:3px;
 }
 
-
-.related a{
-
-    text-decoration:none;
-
-    color:#07558f;
-
-    background:#eef6fa;
-
-    border-radius:10px;
-
-    padding:11px 7px;
-
-    text-align:center;
-
-    font-size:10px;
-
-    font-weight:700;
-
-    transition:.2s;
+.info-point span{
+  display:block;
+  font-size:9px;
+  color:rgba(255,255,255,.78);
 }
 
-
-.related a:hover{
-
-    background:#07558f;
-
-    color:#ffffff;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
+/* ================= FOOTER ================= */
 
 .footer{
-
-    background:#073c59;
-
-    color:#ffffff;
-
-    padding:30px 20px 18px;
+  background:#073c59;
+  color:#fff;
+  padding:30px 20px 18px;
 }
-
 
 .footer-inner{
-
-    max-width:1100px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        1.4fr 1fr 1fr;
-
-    gap:30px;
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:30px;
 }
-
 
 .footer h3{
-
-    font-size:14px;
-
-    margin-bottom:8px;
+  font-size:14px;
+  margin-bottom:8px;
 }
-
 
 .footer p{
-
-    color:
-        rgba(255,255,255,.75);
-
-    font-size:10px;
-
-    line-height:1.7;
+  color:rgba(255,255,255,.75);
+  font-size:10px;
+  line-height:1.7;
 }
-
 
 .footer-links{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:5px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
 }
-
 
 .footer-links a{
-
-    color:
-        rgba(255,255,255,.75);
-
-    text-decoration:none;
-
-    font-size:10px;
+  color:rgba(255,255,255,.75);
+  text-decoration:none;
+  font-size:10px;
 }
-
 
 .footer-links a:hover{
-
-    color:#ffffff;
+  color:#fff;
 }
-
 
 .footer-bottom{
-
-    max-width:1100px;
-
-    margin:22px auto 0;
-
-    padding-top:12px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.15);
-
-    display:flex;
-
-    justify-content:space-between;
-
-    color:
-        rgba(255,255,255,.6);
-
-    font-size:9px;
+  max-width:1100px;
+  margin:22px auto 0;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.15);
+  display:flex;
+  justify-content:space-between;
+  color:rgba(255,255,255,.6);
+  font-size:9px;
 }
 
+/* ================= MOBILE ================= */
 
-/* =====================================================
-   HP
-===================================================== */
+@media(max-width:800px){
+
+  .apps-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
 
 @media(max-width:700px){
 
-    .top-line{
-
-        padding:6px 10px;
-
-        font-size:7px;
-
-        gap:8px;
-    }
-
-
-    .header-main{
-
-        min-height:58px;
-
-        padding:6px 10px;
-
-        gap:8px;
-    }
-
-
-    .brand-logo{
-
-        width:32px;
-
-        height:32px;
-
-        font-size:16px;
-    }
-
-
-    .brand-text strong{
-
-        font-size:10px;
-    }
-
-
-    .brand-text small{
-
-        font-size:5px;
-    }
-
-
-    .main-nav{
-
-        flex:1;
-
-        gap:2px;
-    }
-
-
-    .main-nav a{
-
-        font-size:8px;
-
-        padding:7px 8px;
-    }
-
-
-    .page-hero{
-
-        padding:30px 15px;
-    }
-
-
-    .page-hero h1{
-
-        font-size:27px;
-    }
-
-
-    .page-hero p{
-
-        font-size:10px;
-    }
-
-
-    .container{
-
-        padding:25px 12px 35px;
-    }
-
-
-    .section-heading h2{
-
-        font-size:21px;
-    }
-
-
-    .app-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-        gap:11px;
-    }
-
-
-    .app-icon{
-
-        height:125px;
-
-        font-size:45px;
-    }
-
-
-    .app-info{
-
-        padding:12px;
-    }
-
-
-    .app-tag{
-
-        font-size:7px;
-
-        padding:4px 7px;
-    }
-
-
-    .app-info h3{
-
-        font-size:13px;
-    }
-
-
-    .app-info p{
-
-        font-size:9px;
-    }
-
-
-    .app-button{
-
-        font-size:9px;
-
-        padding:8px;
-    }
-
-
-    .info-box{
-
-        padding:18px 14px;
-    }
-
-
-    .info-box h3{
-
-        font-size:16px;
-    }
-
-
-    .info-box p{
-
-        font-size:10px;
-    }
-
-
-    .related-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-
-    .footer{
-
-        padding:25px 15px 15px;
-    }
-
-
-    .footer-inner{
-
-        grid-template-columns:
-            1fr 1fr;
-
-        gap:20px;
-    }
-
-
-    .footer-inner > div:first-child{
-
-        grid-column:
-            1 / -1;
-    }
-
-
-    .footer-bottom{
-
-        flex-direction:column;
-
-        gap:5px;
-    }
-
+  .top-line{
+    padding:6px 10px;
+    font-size:7px;
+    gap:8px;
+  }
+
+  .header-main{
+    min-height:58px;
+    padding:6px 10px;
+    gap:8px;
+  }
+
+  .brand-logo{
+    width:32px;
+    height:32px;
+    font-size:16px;
+  }
+
+  .brand-text strong{
+    font-size:10px;
+  }
+
+  .brand-text small{
+    font-size:5px;
+  }
+
+  .main-nav{
+    flex:1;
+    gap:2px;
+  }
+
+  .main-nav a{
+    font-size:8px;
+    padding:7px 8px;
+  }
+
+  .page-hero{
+    padding:30px 15px;
+  }
+
+  .page-hero h1{
+    font-size:27px;
+  }
+
+  .page-hero p{
+    font-size:10px;
+  }
+
+  .container{
+    padding:25px 12px 35px;
+  }
+
+  .apps-grid{
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+
+  .app-card{
+    min-height:auto;
+    padding:20px;
+  }
+
+  .info-points{
+    grid-template-columns:1fr;
+  }
+
+  .footer{
+    padding:25px 15px 15px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+
+  .footer-inner > div:first-child{
+    grid-column:1 / -1;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    gap:5px;
+  }
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- ================= HEADER ================= -->
 
 <header class="site-header">
 
+  <div class="top-line">
+    <span>GABSI KOTA TANJUNGBALAI</span>
+    <span>Bridge • Prestasi • Persaudaraan</span>
+  </div>
 
-    <div class="top-line">
+  <div class="header-main">
 
-        <span>
-            GABSI Kota Tanjungbalai • Bridge Duplicate Center
-        </span>
+    <a href="index.html" class="brand">
 
-        <span>
-            Sportivitas • Persahabatan • Prestasi • Edukasi
-        </span>
+      <div class="brand-logo">♥</div>
 
-    </div>
+      <div class="brand-text">
+        <strong>GABSI KOTA TANJUNGBALAI</strong>
+        <small>GABUNGAN BRIDGE SELURUH INDONESIA</small>
+      </div>
 
+    </a>
 
-    <div class="header-main">
+    <nav class="main-nav">
 
+      <a href="index.html">Beranda</a>
 
-        <a
-            href="index.html"
-            class="brand">
+      <a href="profil.html">Profil</a>
 
-            <div class="brand-logo">
-                ♥
-            </div>
+      <a href="pengurus.html">Pengurus</a>
 
-            <div class="brand-text">
+      <a href="kegiatan.html">Kegiatan</a>
 
-                <strong>
-                    GABSI KOTA TANJUNGBALAI
-                </strong>
+      <a href="galeri.html">Galeri</a>
 
-                <small>
-                    GABUNGAN BRIDGE SELURUH INDONESIA
-                </small>
+      <a href="aplikasi.html" class="active">Aplikasi</a>
 
-            </div>
+      <a href="game-bridge-gabsi.html">♠ Game Bridge</a>
 
-        </a>
+      <a href="kontak.html">Kontak</a>
 
+    </nav>
 
-        <nav class="main-nav">
-
-            <a href="index.html">
-                Beranda
-            </a>
-
-            <a href="profil.html">
-                Profil
-            </a>
-
-            <a href="pengurus.html">
-                Pengurus
-            </a>
-
-            <a href="kegiatan.html">
-                Kegiatan
-            </a>
-
-            <a href="galeri.html">
-                Galeri
-            </a>
-
-            <a
-                href="aplikasi.html"
-                class="active">
-                Aplikasi
-            </a>
-
-            <a href="game-bridge-gabsi.html">
-                ♠ Game Bridge
-            </a>
-
-            <a href="kontak.html">
-                Kontak
-            </a>
-
-        </nav>
-
-    </div>
+  </div>
 
 </header>
 
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <section class="page-hero">
 
-    <div class="page-hero-inner">
+  <div class="page-hero-inner">
 
-        <span class="hero-label">
-            💻 GABSI DIGITAL CENTER
-        </span>
-
-        <h1>
-            Aplikasi
-            <span>
-                GABSI Kota Tanjungbalai
-            </span>
-        </h1>
-
-        <p>
-            Kumpulan aplikasi digital untuk mendukung
-            latihan, permainan, pencatatan dan kegiatan
-            Bridge Duplicate GABSI Kota Tanjungbalai.
-        </p>
-
+    <div class="hero-label">
+      LAYANAN DIGITAL
     </div>
+
+    <h1>
+      Aplikasi <span>GABSI</span>
+    </h1>
+
+    <p>
+      Kumpulan aplikasi digital GABSI Kota Tanjungbalai
+      untuk mendukung latihan, permainan dan pengelolaan
+      olahraga bridge.
+    </p>
+
+  </div>
 
 </section>
 
 
-
-<!-- =====================================================
-     KONTEN
-===================================================== -->
+<!-- ================= CONTENT ================= -->
 
 <main class="container">
 
+  <div class="apps-grid">
 
-    <div class="section-heading">
 
-        <span class="label">
-            GABSI DIGITAL CENTER
+    <!-- GAME BRIDGE -->
+
+    <article class="app-card">
+
+      <div class="app-icon">
+        ♠
+      </div>
+
+      <h2>
+        Game Bridge
+      </h2>
+
+      <p>
+        Permainan bridge melawan komputer dengan
+        tampilan yang nyaman digunakan melalui
+        HP maupun komputer.
+      </p>
+
+      <a
+        href="game-bridge-gabsi.html"
+        class="app-button">
+        BUKA GAME BRIDGE
+      </a>
+
+    </article>
+
+
+    <!-- KOCOKAN KARTU -->
+
+    <article class="app-card">
+
+      <div class="app-icon">
+        🃏
+      </div>
+
+      <h2>
+        Kocokan Kartu
+      </h2>
+
+      <p>
+        Aplikasi untuk mengocok kartu bridge secara
+        digital dan membantu menentukan pembagian
+        kartu untuk latihan.
+      </p>
+
+      <a
+        href="kocokan-kartu.html"
+        class="app-button">
+        BUKA KOCOKAN KARTU
+      </a>
+
+    </article>
+
+
+    <!-- SCORE SHEET -->
+
+    <article class="app-card">
+
+      <div class="app-icon">
+        📊
+      </div>
+
+      <h2>
+        Score Sheet
+      </h2>
+
+      <p>
+        Aplikasi pencatatan dan perhitungan score
+        permainan bridge untuk membantu proses
+        pertandingan dan latihan.
+      </p>
+
+      <a
+        href="score-sheet.html"
+        class="app-button">
+        BUKA SCORE SHEET
+      </a>
+
+    </article>
+
+
+  </div>
+
+
+  <!-- ================= INFO ================= -->
+
+  <section class="info-box">
+
+    <h2>
+      Aplikasi Digital GABSI
+    </h2>
+
+    <p>
+      Gunakan aplikasi sesuai kebutuhan latihan dan
+      pertandingan. Seluruh aplikasi dirancang agar
+      mudah digunakan melalui perangkat HP.
+    </p>
+
+
+    <div class="info-points">
+
+      <div class="info-point">
+
+        <strong>♠ Game Bridge</strong>
+
+        <span>
+          Bermain bridge melawan komputer.
         </span>
 
-        <h2>
-            Aplikasi Bridge
-        </h2>
+      </div>
 
-        <p>
-            Pilih aplikasi yang ingin digunakan.
-        </p>
+
+      <div class="info-point">
+
+        <strong>🃏 Kocokan Kartu</strong>
+
+        <span>
+          Membantu pembagian kartu latihan.
+        </span>
+
+      </div>
+
+
+      <div class="info-point">
+
+        <strong>📊 Score Sheet</strong>
+
+        <span>
+          Membantu pencatatan skor bridge.
+        </span>
+
+      </div>
 
     </div>
 
-
-
-    <!-- =================================================
-         DAFTAR APLIKASI
-    ================================================== -->
-
-    <section class="app-grid">
-
-
-        <!-- GAME BRIDGE -->
-
-        <article class="app-card">
-
-            <div class="app-icon">
-                🃏
-            </div>
-
-            <div class="app-info">
-
-                <span class="app-tag">
-                    PERMAINAN
-                </span>
-
-                <h3>
-                    Game Bridge
-                </h3>
-
-                <p>
-                    Permainan Bridge melawan komputer
-                    untuk latihan dan memahami permainan.
-                </p>
-
-                <a
-                    href="game-bridge-gabsi.html"
-                    class="app-button">
-                    Buka Game Bridge
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- KOCOKAN -->
-
-        <article class="app-card">
-
-            <div class="app-icon">
-                🎴
-            </div>
-
-            <div class="app-info">
-
-                <span class="app-tag">
-                    LATIHAN
-                </span>
-
-                <h3>
-                    Kocokan Kartu
-                </h3>
-
-                <p>
-                    Mengacak kartu Bridge untuk latihan
-                    dan membuat board pembanding.
-                </p>
-
-                <a
-                    href="kocokan-kartu.html"
-                    class="app-button">
-                    Buka Kocokan
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- SCORE SHEET -->
-
-        <article class="app-card">
-
-            <div class="app-icon">
-                📊
-            </div>
-
-            <div class="app-info">
-
-                <span class="app-tag">
-                    PENILAIAN
-                </span>
-
-                <h3>
-                    Score Sheet
-                </h3>
-
-                <p>
-                    Membantu pencatatan skor pertandingan
-                    Bridge Duplicate dan perhitungan hasil.
-                </p>
-
-                <a
-                    href="score-sheet.html"
-                    class="app-button">
-                    Buka Score Sheet
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- KARTU PEMBANDING -->
-
-        <article class="app-card">
-
-            <div class="app-icon">
-                🔄
-            </div>
-
-            <div class="app-info">
-
-                <span class="app-tag">
-                    DUPLICATE
-                </span>
-
-                <h3>
-                    Kartu Pembanding
-                </h3>
-
-                <p>
-                    Alat bantu untuk menyiapkan kartu
-                    pembanding dalam latihan Bridge Duplicate.
-                </p>
-
-                <a
-                    href="kartu-pembanding.html"
-                    class="app-button">
-                    Buka Kartu Pembanding
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- KALKULATOR -->
-
-        <article class="app-card">
-
-            <div class="app-icon">
-                🧮
-            </div>
-
-            <div class="app-info">
-
-                <span class="app-tag">
-                    KALKULATOR
-                </span>
-
-                <h3>
-                    Kalkulator Bridge
-                </h3>
-
-                <p>
-                    Perangkat bantu untuk penghitungan
-                    skor dan kebutuhan pertandingan Bridge.
-                </p>
-
-                <a
-                    href="kalkulator-bridge.html"
-                    class="app-button">
-                    Buka Kalkulator
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- LATIHAN -->
-
-        <article class="app-card">
-
-            <div class="app-icon">
-                📚
-            </div>
-
-            <div class="app-info">
-
-                <span class="app-tag">
-                    EDUKASI
-                </span>
-
-                <h3>
-                    Latihan Bridge
-                </h3>
-
-                <p>
-                    Media pendukung latihan untuk memahami
-                    kartu, bidding, play dan permainan Bridge.
-                </p>
-
-                <a
-                    href="latihan-bridge.html"
-                    class="app-button">
-                    Buka Latihan
-                </a>
-
-            </div>
-
-        </article>
-
-
-    </section>
-
-
-
-    <!-- =================================================
-         INFORMASI
-    ================================================== -->
-
-    <section class="info-box">
-
-        <h3>
-            GABSI Digital Center
-        </h3>
-
-        <p>
-            Halaman ini menjadi pusat akses aplikasi
-            digital GABSI Kota Tanjungbalai. Aplikasi
-            dikembangkan sebagai alat bantu latihan,
-            permainan, pencatatan skor dan kegiatan
-            Bridge Duplicate. Beberapa aplikasi dapat
-            terus dikembangkan sesuai kebutuhan organisasi.
-        </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         LINK HALAMAN LAIN
-    ================================================== -->
-
-    <section class="related">
-
-        <h3>
-            Jelajahi Website GABSI
-        </h3>
-
-
-        <div class="related-grid">
-
-
-            <a href="index.html">
-                🏠<br>
-                Beranda
-            </a>
-
-
-            <a href="profil.html">
-                👤<br>
-                Profil
-            </a>
-
-
-            <a href="pengurus.html">
-                👥<br>
-                Pengurus
-            </a>
-
-
-            <a href="kegiatan.html">
-                📅<br>
-                Kegiatan
-            </a>
-
-
-            <a href="galeri.html">
-                📷<br>
-                Galeri
-            </a>
-
-
-            <a href="game-bridge-gabsi.html">
-                ♠<br>
-                Game Bridge
-            </a>
-
-
-            <a href="score-sheet.html">
-                📊<br>
-                Score Sheet
-            </a>
-
-
-            <a href="kontak.html">
-                📞<br>
-                Kontak
-            </a>
-
-
-        </div>
-
-    </section>
-
+  </section>
 
 </main>
 
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
+  <div class="footer-inner">
 
-    <div class="footer-inner">
+    <div>
 
+      <h3>
+        GABSI Kota Tanjungbalai
+      </h3>
 
-        <div>
-
-            <h3>
-                GABSI Kota Tanjungbalai
-            </h3>
-
-            <p>
-                Gabungan Bridge Seluruh Indonesia.
-                Website informasi, pembinaan dan
-                Bridge Duplicate Center Kota Tanjungbalai.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Navigasi
-            </h3>
-
-            <div class="footer-links">
-
-                <a href="index.html">
-                    Beranda
-                </a>
-
-                <a href="profil.html">
-                    Profil
-                </a>
-
-                <a href="pengurus.html">
-                    Pengurus
-                </a>
-
-                <a href="kegiatan.html">
-                    Kegiatan
-                </a>
-
-                <a href="galeri.html">
-                    Galeri
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Aplikasi
-            </h3>
-
-            <div class="footer-links">
-
-                <a href="aplikasi.html">
-                    Aplikasi Bridge
-                </a>
-
-                <a href="game-bridge-gabsi.html">
-                    Game Bridge
-                </a>
-
-                <a href="kocokan-kartu.html">
-                    Kocokan Kartu
-                </a>
-
-                <a href="score-sheet.html">
-                    Score Sheet
-                </a>
-
-                <a href="kontak.html">
-                    Kontak
-                </a>
-
-            </div>
-
-        </div>
-
+      <p>
+        Website resmi GABSI Kota Tanjungbalai
+        sebagai pusat informasi olahraga bridge,
+        kegiatan dan aplikasi digital.
+      </p>
 
     </div>
 
 
-    <div class="footer-bottom">
+    <div>
 
-        <span>
-            © 2026 GABSI Kota Tanjungbalai
-        </span>
+      <h3>
+        Menu
+      </h3>
 
-        <span>
-            Bridge Duplicate Center
-        </span>
+      <div class="footer-links">
+
+        <a href="index.html">
+          Beranda
+        </a>
+
+        <a href="profil.html">
+          Profil
+        </a>
+
+        <a href="pengurus.html">
+          Pengurus
+        </a>
+
+        <a href="kegiatan.html">
+          Kegiatan
+        </a>
+
+        <a href="galeri.html">
+          Galeri
+        </a>
+
+        <a href="aplikasi.html">
+          Aplikasi
+        </a>
+
+      </div>
 
     </div>
 
+
+    <div>
+
+      <h3>
+        Aplikasi
+      </h3>
+
+      <div class="footer-links">
+
+        <a href="game-bridge-gabsi.html">
+          Game Bridge
+        </a>
+
+        <a href="kocokan-kartu.html">
+          Kocokan Kartu
+        </a>
+
+        <a href="score-sheet.html">
+          Score Sheet
+        </a>
+
+        <a href="kontak.html">
+          Kontak
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 GABSI Kota Tanjungbalai
+    </span>
+
+    <span>
+      Bridge • Prestasi • Persaudaraan
+    </span>
+
+  </div>
 
 </footer>
 
-
 </body>
-
 </html>
