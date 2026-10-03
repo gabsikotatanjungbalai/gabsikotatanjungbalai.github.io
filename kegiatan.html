@@ -1,1241 +1,1715 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0a3d62">
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#073c59">
 
 <meta name="description"
-content="Berita dan kegiatan GABSI Kota Tanjungbalai.">
+      content="Kegiatan GABSI Kota Tanjungbalai">
 
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="manifest" href="manifest.json">
+<title>
+Kegiatan GABSI Kota Tanjungbalai
+</title>
 
-<title>Kegiatan & Berita | GABSI Kota Tanjungbalai</title>
 
 <style>
 
-:root{
- --navy:#073b61;
- --navy2:#0a567f;
- --red:#d71920;
- --gold:#f4c44e;
- --ink:#102538;
- --muted:#5f7282;
- --bg:#f4f8fb;
- --card:#fff;
- --line:#dce6ed;
- --shadow:0 14px 40px rgba(8,39,61,.11)
-}
+/* =====================================================
+   RESET
+===================================================== */
 
-*{
- box-sizing:border-box
-}
-
-body{
- margin:0;
- font-family:Inter,Segoe UI,Arial,sans-serif;
- background:var(--bg);
- color:var(--ink)
-}
-
-a{
- color:inherit
-}
-
-.container{
- max-width:1180px;
- margin:auto;
- padding:0 22px
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 
-/* TOPBAR */
+/* =====================================================
+   BODY
+===================================================== */
 
-.topbar{
- background:#032c49;
- color:#dfeaf1;
- font-size:12px
-}
+body {
 
-.topbar .inner{
- display:flex;
- justify-content:space-between;
- gap:16px;
- padding:8px 0
-}
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
+    background:
+        #eef4f7;
 
-/* NAVIGASI */
+    color:
+        #263746;
 
-.nav{
- position:sticky;
- top:0;
- z-index:50;
- background:rgba(255,255,255,.96);
- backdrop-filter:blur(12px);
- border-bottom:1px solid var(--line)
-}
-
-.nav-inner{
- height:72px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px
-}
-
-.brand{
- display:flex;
- align-items:center;
- gap:12px;
- text-decoration:none;
- min-width:0
-}
-
-.brand img{
- width:48px;
- height:48px
-}
-
-.brand strong{
- display:block;
- font-size:20px;
- line-height:1.05;
- color:var(--navy)
-}
-
-.brand span{
- display:block;
- font-size:10px;
- letter-spacing:.4px;
- color:#607587;
- margin-top:3px
-}
-
-.nav-links{
- display:flex;
- align-items:center;
- gap:5px
-}
-
-.nav-links a{
- padding:10px 11px;
- border-radius:10px;
- text-decoration:none;
- font-weight:700;
- font-size:13px;
- color:#294458
-}
-
-.nav-links a:hover,
-.nav-links a.active{
- background:#eaf4fa;
- color:var(--navy)
-}
-
-.menu{
- display:none;
- border:1px solid var(--line);
- background:#fff;
- border-radius:10px;
- padding:10px 12px;
- cursor:pointer
+    line-height:
+        1.6;
 }
 
 
-/* HERO */
+/* =====================================================
+   HEADER
+===================================================== */
 
-.page-hero{
- background:linear-gradient(
-  125deg,
-  #052f4c,
-  #0a5e89 66%,
-  #0b7794
- );
- color:#fff;
- padding:75px 0
-}
+.site-header {
 
-.page-hero .eyebrow{
- color:#ffd76a
-}
+    width: 100%;
 
-.page-hero h1{
- font-size:clamp(40px,5vw,60px);
- line-height:1;
- margin:12px 0 16px;
- letter-spacing:-1.5px
-}
+    background: #ffffff;
 
-.page-hero p{
- max-width:720px;
- color:#e5f2f8;
- line-height:1.75;
- font-size:16px;
- margin:0
+    box-shadow:
+        0 2px 10px
+        rgba(0,0,0,.08);
+
+    position: relative;
+
+    z-index: 100;
 }
 
 
-/* SECTION */
+.top-line {
 
-section{
- padding:65px 0
-}
+    background:
+        #073c59;
 
-.section-head{
- margin-bottom:28px
-}
+    color:
+        #ffffff;
 
-.eyebrow{
- color:var(--navy2);
- font-size:12px;
- font-weight:900;
- letter-spacing:1px;
- text-transform:uppercase
-}
+    min-height:
+        30px;
 
-.section-head h2{
- margin:7px 0;
- font-size:32px
-}
+    padding:
+        6px 20px;
 
-.section-head p{
- color:var(--muted);
- line-height:1.7;
- max-width:760px
-}
+    display:
+        flex;
 
+    justify-content:
+        space-between;
 
-/* BERITA */
+    align-items:
+        center;
 
-.news-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:18px
-}
-
-.news-card{
- background:#fff;
- border:1px solid var(--line);
- border-radius:20px;
- overflow:hidden;
- box-shadow:var(--shadow)
-}
-
-.news-image{
- height:180px;
- background:linear-gradient(
-  135deg,
-  #073b61,
-  #0b7794
- );
- display:grid;
- place-items:center;
- color:#fff;
- font-size:50px
-}
-
-.news-body{
- padding:21px
-}
-
-.news-date{
- color:#718594;
- font-size:11px;
- font-weight:900;
- letter-spacing:.5px;
- margin-bottom:8px
-}
-
-.news-card h3{
- margin:0 0 9px;
- font-size:19px
-}
-
-.news-card p{
- margin:0;
- color:var(--muted);
- font-size:13px;
- line-height:1.65
+    font-size:
+        9px;
 }
 
 
-/* JADWAL */
+.header-main {
 
-.schedule{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:18px
-}
+    min-height:
+        65px;
 
-.schedule-card{
- background:#fff;
- border:1px solid var(--line);
- border-radius:20px;
- padding:23px;
- box-shadow:var(--shadow)
-}
+    display:
+        flex;
 
-.schedule-card h3{
- margin:0 0 16px;
- font-size:20px
-}
+    align-items:
+        center;
 
-.schedule-row{
- display:flex;
- gap:15px;
- align-items:center;
- padding:14px 0;
- border-top:1px solid var(--line)
-}
+    justify-content:
+        space-between;
 
-.schedule-row:first-of-type{
- border-top:0
-}
+    gap:
+        15px;
 
-.day{
- min-width:75px;
- padding:9px;
- text-align:center;
- border-radius:11px;
- background:#eaf4fa;
- color:var(--navy);
- font-weight:900;
- font-size:12px
-}
-
-.schedule-info b{
- display:block;
- font-size:14px
-}
-
-.schedule-info span{
- color:var(--muted);
- font-size:12px
+    padding:
+        8px 20px;
 }
 
 
-/* AGENDA */
+/* =====================================================
+   BRAND
+===================================================== */
 
-.agenda{
- display:grid;
- gap:13px
-}
+.brand {
 
-.agenda-item{
- display:grid;
- grid-template-columns:90px 1fr;
- gap:17px;
- align-items:center;
- background:#fff;
- border:1px solid var(--line);
- border-radius:16px;
- padding:16px;
- box-shadow:var(--shadow)
-}
+    display:
+        flex;
 
-.agenda-date{
- text-align:center;
- background:var(--navy);
- color:#fff;
- border-radius:12px;
- padding:10px 5px
-}
+    align-items:
+        center;
 
-.agenda-date b{
- display:block;
- font-size:23px
-}
+    gap:
+        9px;
 
-.agenda-date span{
- font-size:10px;
- text-transform:uppercase
-}
+    text-decoration:
+        none;
 
-.agenda-item h3{
- margin:0 0 5px;
- font-size:17px
-}
+    color:
+        #173b50;
 
-.agenda-item p{
- margin:0;
- color:var(--muted);
- font-size:13px;
- line-height:1.5
+    flex-shrink:
+        0;
 }
 
 
-/* INFORMASI */
+.brand-logo {
 
-.info{
- background:linear-gradient(
-  135deg,
-  #073b61,
-  #0a6b91
- );
- color:#fff;
- border-radius:22px;
- padding:28px
-}
+    width:
+        38px;
 
-.info h2{
- margin:0 0 10px
-}
+    height:
+        38px;
 
-.info p{
- color:#dcecf5;
- line-height:1.7;
- margin:0
-}
+    border-radius:
+        8px;
 
+    background:
+        #0b5278;
 
-/* FOOTER */
+    color:
+        #ffffff;
 
-footer{
- background:#062f4b;
- color:#dfeaf1;
- padding:34px 0 18px
-}
+    display:
+        flex;
 
-.footer-grid{
- display:grid;
- grid-template-columns:1.2fr .8fr .8fr;
- gap:25px
-}
+    align-items:
+        center;
 
-.footer-brand{
- font-size:23px;
- font-weight:900;
- color:#fff
-}
+    justify-content:
+        center;
 
-.footer-grid p{
- color:#b8cad5;
- line-height:1.6
-}
+    font-size:
+        19px;
 
-.footer-grid a{
- display:block;
- text-decoration:none;
- color:#dfeaf1;
- margin:8px 0;
- font-size:13px
-}
-
-.copyright{
- border-top:1px solid rgba(255,255,255,.14);
- margin-top:26px;
- padding-top:14px;
- font-size:11px;
- color:#a9bfcc;
- display:flex;
- justify-content:space-between;
- gap:10px
+    font-weight:
+        bold;
 }
 
 
-/* MOBILE */
+.brand-text strong {
 
-@media(max-width:900px){
+    display:
+        block;
 
- .nav-inner{
-  height:64px
- }
-
- .menu{
-  display:block
- }
-
- .nav-links{
-  display:none;
-  position:absolute;
-  left:0;
-  right:0;
-  top:64px;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  padding:8px 18px 14px;
-  flex-direction:column;
-  align-items:stretch
- }
-
- .nav-links.open{
-  display:flex
- }
-
- .news-grid{
-  grid-template-columns:1fr 1fr
- }
-
- .schedule{
-  grid-template-columns:1fr
- }
-
- .footer-grid{
-  grid-template-columns:1fr 1fr
- }
-
+    font-size:
+        13px;
 }
 
 
-@media(max-width:560px){
+.brand-text small {
 
- .container{
-  padding:0 14px
- }
+    display:
+        block;
 
- .topbar .inner{
-  justify-content:center
- }
+    font-size:
+        7px;
 
- .topbar .inner span:last-child{
-  display:none
- }
+    color:
+        #8b9297;
 
- .brand img{
-  width:42px;
-  height:42px
- }
+    margin-top:
+        1px;
+}
 
- .brand strong{
-  font-size:17px
- }
 
- .brand span{
-  font-size:9px
- }
+/* =====================================================
+   NAVIGASI
+===================================================== */
 
- .page-hero{
-  padding:52px 0
- }
+.main-nav {
 
- .page-hero h1{
-  font-size:40px
- }
+    display:
+        flex;
 
- .section-head h2{
-  font-size:28px
- }
+    align-items:
+        center;
 
- .news-grid{
-  grid-template-columns:1fr
- }
+    gap:
+        4px;
 
- .agenda-item{
-  grid-template-columns:75px 1fr
- }
+    overflow-x:
+        auto;
 
- .footer-grid{
-  grid-template-columns:1fr
- }
+    white-space:
+        nowrap;
 
- .copyright{
-  flex-direction:column
- }
+    scrollbar-width:
+        none;
+}
+
+
+.main-nav::-webkit-scrollbar {
+    display:
+        none;
+}
+
+
+.main-nav a {
+
+    text-decoration:
+        none;
+
+    color:
+        #172033;
+
+    padding:
+        8px 10px;
+
+    border-radius:
+        8px;
+
+    font-size:
+        10px;
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+    transition:
+        .2s;
+}
+
+
+.main-nav a:hover {
+
+    background:
+        #eaf4f9;
+
+    color:
+        #07558f;
+}
+
+
+.main-nav a.active {
+
+    background:
+        #eaf4f9;
+
+    color:
+        #07558f;
+
+    font-weight:
+        700;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.page-hero {
+
+    background:
+        linear-gradient(
+            135deg,
+            #07558f,
+            #087cab
+        );
+
+    color:
+        #ffffff;
+
+    padding:
+        42px 20px;
+
+    text-align:
+        center;
+}
+
+
+.page-hero-inner {
+
+    max-width:
+        1000px;
+
+    margin:
+        auto;
+}
+
+
+.hero-label {
+
+    display:
+        inline-block;
+
+    background:
+        rgba(255,255,255,.15);
+
+    border:
+        1px solid
+        rgba(255,255,255,.30);
+
+    padding:
+        6px 13px;
+
+    border-radius:
+        20px;
+
+    font-size:
+        9px;
+
+    font-weight:
+        bold;
+
+    margin-bottom:
+        10px;
+}
+
+
+.page-hero h1 {
+
+    font-size:
+        32px;
+
+    line-height:
+        1.2;
+
+    margin-bottom:
+        7px;
+}
+
+
+.page-hero h1 span {
+
+    color:
+        #ffd83d;
+}
+
+
+.page-hero p {
+
+    font-size:
+        12px;
+
+    color:
+        rgba(255,255,255,.9);
+
+    max-width:
+        700px;
+
+    margin:
+        auto;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    width:
+        100%;
+
+    max-width:
+        1100px;
+
+    margin:
+        auto;
+
+    padding:
+        35px 20px 50px;
+}
+
+
+/* =====================================================
+   JUDUL SECTION
+===================================================== */
+
+.section-heading {
+
+    margin-bottom:
+        22px;
+}
+
+
+.section-heading .label {
+
+    color:
+        #0874a8;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .7px;
+}
+
+
+.section-heading h2 {
+
+    color:
+        #263746;
+
+    font-size:
+        25px;
+
+    margin-top:
+        3px;
+}
+
+
+.section-heading p {
+
+    color:
+        #75828c;
+
+    font-size:
+        11px;
+
+    margin-top:
+        3px;
+}
+
+
+/* =====================================================
+   GRID KEGIATAN
+===================================================== */
+
+.kegiatan-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        18px;
+}
+
+
+/* =====================================================
+   KARTU KEGIATAN
+===================================================== */
+
+.kegiatan-card {
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid
+        #dfe8ed;
+
+    border-radius:
+        16px;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        0 6px 20px
+        rgba(25,60,80,.08);
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+
+.kegiatan-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(25,60,80,.14);
+}
+
+
+/* =====================================================
+   ICON KEGIATAN
+===================================================== */
+
+.kegiatan-icon {
+
+    height:
+        150px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07558f,
+            #087cab
+        );
+
+    color:
+        #ffffff;
+
+    font-size:
+        58px;
+}
+
+
+.kegiatan-card:nth-child(2)
+.kegiatan-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cab,
+            #009688
+        );
+}
+
+
+.kegiatan-card:nth-child(3)
+.kegiatan-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b5278,
+            #073c59
+        );
+}
+
+
+.kegiatan-card:nth-child(4)
+.kegiatan-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #1687b8,
+            #07558f
+        );
+}
+
+
+.kegiatan-card:nth-child(5)
+.kegiatan-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #087a75,
+            #087cab
+        );
+}
+
+
+.kegiatan-card:nth-child(6)
+.kegiatan-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #073c59,
+            #07558f
+        );
+}
+
+
+/* =====================================================
+   ISI KARTU
+===================================================== */
+
+.kegiatan-info {
+
+    padding:
+        17px;
+}
+
+
+.kegiatan-tag {
+
+    display:
+        inline-block;
+
+    background:
+        #e8f4f9;
+
+    color:
+        #07558f;
+
+    padding:
+        4px 9px;
+
+    border-radius:
+        20px;
+
+    font-size:
+        8px;
+
+    font-weight:
+        bold;
+
+    margin-bottom:
+        8px;
+}
+
+
+.kegiatan-info h3 {
+
+    color:
+        #263746;
+
+    font-size:
+        16px;
+
+    margin-bottom:
+        6px;
+}
+
+
+.kegiatan-info p {
+
+    color:
+        #6e7b84;
+
+    font-size:
+        10px;
+
+    line-height:
+        1.7;
+
+    margin-bottom:
+        10px;
+}
+
+
+/* =====================================================
+   INFO BOX
+===================================================== */
+
+.info-box {
+
+    margin-top:
+        28px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid
+        #dfe8ed;
+
+    border-radius:
+        16px;
+
+    padding:
+        23px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(25,60,80,.07);
+}
+
+
+.info-box h3 {
+
+    font-size:
+        18px;
+
+    color:
+        #263746;
+
+    margin-bottom:
+        7px;
+}
+
+
+.info-box p {
+
+    color:
+        #6e7b84;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =====================================================
+   MENU TERKAIT
+===================================================== */
+
+.related {
+
+    margin-top:
+        25px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid
+        #dfe8ed;
+
+    border-radius:
+        16px;
+
+    padding:
+        22px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(25,60,80,.07);
+}
+
+
+.related h3 {
+
+    color:
+        #263746;
+
+    font-size:
+        18px;
+
+    margin-bottom:
+        14px;
+
+    text-align:
+        center;
+}
+
+
+.related-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        10px;
+}
+
+
+.related a {
+
+    text-decoration:
+        none;
+
+    color:
+        #07558f;
+
+    background:
+        #eef6fa;
+
+    border-radius:
+        10px;
+
+    padding:
+        11px 7px;
+
+    text-align:
+        center;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    transition:
+        .2s;
+}
+
+
+.related a:hover {
+
+    background:
+        #07558f;
+
+    color:
+        #ffffff;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    background:
+        #073c59;
+
+    color:
+        #ffffff;
+
+    padding:
+        30px 20px 18px;
+}
+
+
+.footer-inner {
+
+    max-width:
+        1100px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr;
+
+    gap:
+        30px;
+}
+
+
+.footer h3 {
+
+    font-size:
+        14px;
+
+    margin-bottom:
+        8px;
+}
+
+
+.footer p {
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-size:
+        10px;
+
+    line-height:
+        1.7;
+}
+
+
+.footer-links {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+}
+
+
+.footer-links a {
+
+    color:
+        rgba(255,255,255,.75);
+
+    text-decoration:
+        none;
+
+    font-size:
+        10px;
+}
+
+
+.footer-links a:hover {
+
+    color:
+        #ffffff;
+}
+
+
+.footer-bottom {
+
+    max-width:
+        1100px;
+
+    margin:
+        22px auto 0;
+
+    padding-top:
+        12px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.15);
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    color:
+        rgba(255,255,255,.6);
+
+    font-size:
+        9px;
+}
+
+
+/* =====================================================
+   RESPONSIVE HP
+===================================================== */
+
+@media(max-width:700px) {
+
+
+    .top-line {
+
+        padding:
+            6px 10px;
+
+        font-size:
+            7px;
+
+        gap:
+            8px;
+    }
+
+
+    .header-main {
+
+        min-height:
+            58px;
+
+        padding:
+            6px 10px;
+
+        gap:
+            8px;
+    }
+
+
+    .brand-logo {
+
+        width:
+            32px;
+
+        height:
+            32px;
+
+        font-size:
+            16px;
+    }
+
+
+    .brand-text strong {
+
+        font-size:
+            10px;
+    }
+
+
+    .brand-text small {
+
+        font-size:
+            5px;
+    }
+
+
+    .main-nav {
+
+        flex:
+            1;
+
+        gap:
+            2px;
+    }
+
+
+    .main-nav a {
+
+        font-size:
+            8px;
+
+        padding:
+            7px 8px;
+    }
+
+
+    .page-hero {
+
+        padding:
+            30px 15px;
+    }
+
+
+    .page-hero h1 {
+
+        font-size:
+            27px;
+    }
+
+
+    .page-hero p {
+
+        font-size:
+            10px;
+    }
+
+
+    .container {
+
+        padding:
+            25px 12px 35px;
+    }
+
+
+    .section-heading h2 {
+
+        font-size:
+            21px;
+    }
+
+
+    .kegiatan-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap:
+            11px;
+    }
+
+
+    .kegiatan-icon {
+
+        height:
+            125px;
+
+        font-size:
+            45px;
+    }
+
+
+    .kegiatan-info {
+
+        padding:
+            12px;
+    }
+
+
+    .kegiatan-tag {
+
+        font-size:
+            7px;
+
+        padding:
+            4px 7px;
+    }
+
+
+    .kegiatan-info h3 {
+
+        font-size:
+            13px;
+    }
+
+
+    .kegiatan-info p {
+
+        font-size:
+            9px;
+    }
+
+
+    .info-box {
+
+        padding:
+            18px 14px;
+    }
+
+
+    .related-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .footer {
+
+        padding:
+            25px 15px 15px;
+    }
+
+
+    .footer-inner {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:
+            20px;
+    }
+
+
+    .footer-inner > div:first-child {
+
+        grid-column:
+            1 / -1;
+    }
+
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+
+        gap:
+            5px;
+    }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- TOPBAR -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<div class="topbar">
-
- <div class="container inner">
-
-  <span>
-   GABSI Kota Tanjungbalai • Bridge Duplicate Center
-  </span>
-
-  <span>
-   Sportivitas • Persahabatan • Prestasi • Edukasi
-  </span>
-
- </div>
-
-</div>
+<header class="site-header">
 
 
-<!-- NAVIGASI -->
+    <div class="top-line">
 
-<nav class="nav">
+        <span>
+            GABSI Kota Tanjungbalai • Bridge Duplicate Center
+        </span>
 
- <div class="container nav-inner">
+        <span>
+            Sportivitas • Persahabatan • Prestasi • Edukasi
+        </span>
 
-
-  <a class="brand" href="index.html">
-
-   <img src="favicon.svg" alt="Logo GABSI">
-
-   <div>
-
-    <strong>
-     GABSI KOTA TANJUNGBALAI
-    </strong>
-
-    <span>
-     GABUNGAN BRIDGE SELURUH INDONESIA
-    </span>
-
-   </div>
-
-  </a>
+    </div>
 
 
-  <button
-   class="menu"
-   aria-label="Buka menu"
-   onclick="toggleMenu()">
-
-   ☰
-
-  </button>
+    <div class="header-main">
 
 
-  <div class="nav-links" id="navLinks">
+        <a
+            href="index.html"
+            class="brand">
 
-   <a href="index.html">
-    Beranda
-   </a>
+            <div class="brand-logo">
+                ♥
+            </div>
 
-   <a href="profil.html">
-    Profil
-   </a>
+            <div class="brand-text">
 
-   <a href="pengurus.html">
-    Pengurus
-   </a>
+                <strong>
+                    GABSI KOTA TANJUNGBALAI
+                </strong>
 
-   <a class="active" href="kegiatan.html">
-    Kegiatan
-   </a>
+                <small>
+                    GABUNGAN BRIDGE SELURUH INDONESIA
+                </small>
 
-   <a href="galeri.html">
-    Galeri
-   </a>
+            </div>
 
-   <a href="aplikasi.html">
-    Aplikasi
-   </a>
-
-   <a href="kontak.html">
-    Kontak
-   </a>
-
-  </div>
-
- </div>
-
-</nav>
+        </a>
 
 
-<!-- HERO -->
+        <nav class="main-nav">
 
-<header class="page-hero">
+            <a href="index.html">
+                Beranda
+            </a>
 
- <div class="container">
+            <a href="profil.html">
+                Profil
+            </a>
 
-  <div class="eyebrow">
-   INFORMASI GABSI
-  </div>
+            <a href="pengurus.html">
+                Pengurus
+            </a>
 
-  <h1>
-   Kegiatan & Berita
-  </h1>
+            <a
+                href="kegiatan.html"
+                class="active">
+                Kegiatan
+            </a>
 
-  <p>
-   Informasi latihan, pembinaan pemain, pertandingan,
-   turnamen, agenda organisasi, dan kegiatan GABSI
-   Kota Tanjungbalai.
-  </p>
+            <a href="galeri.html">
+                Galeri
+            </a>
 
- </div>
+            <a href="aplikasi.html">
+                Aplikasi
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                ♠ Game Bridge
+            </a>
+
+            <a href="kontak.html">
+                Kontak
+            </a>
+
+        </nav>
+
+    </div>
 
 </header>
 
 
-<main>
 
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<!-- BERITA TERBARU -->
+<section class="page-hero">
 
-<section>
+    <div class="page-hero-inner">
 
- <div class="container">
+        <span class="hero-label">
+            📅 KEGIATAN GABSI
+        </span>
 
+        <h1>
+            Kegiatan
+            <span>
+                GABSI Kota Tanjungbalai
+            </span>
+        </h1>
 
-  <div class="section-head">
-
-   <div class="eyebrow">
-    BERITA
-   </div>
-
-   <h2>
-    Berita & Informasi Terbaru
-   </h2>
-
-   <p>
-    Informasi kegiatan GABSI Kota Tanjungbalai
-    akan ditampilkan pada halaman ini.
-   </p>
-
-  </div>
-
-
-  <div class="news-grid">
-
-
-   <article class="news-card">
-
-    <div class="news-image">
-     🏆
-    </div>
-
-    <div class="news-body">
-
-     <div class="news-date">
-      LATIHAN RUTIN
-     </div>
-
-     <h3>
-      Persiapan Porprovsu XII 2026
-     </h3>
-
-     <p>
-      Latihan rutin dilaksanakan setiap Rabu,
-      Kamis, dan Jumat pukul 20.00 WIB sampai
-      23.30 WIB sebagai bagian dari persiapan
-      menghadapi Porprovsu XII Tahun 2026
-      di Medan.
-     </p>
+        <p>
+            Informasi kegiatan latihan, pembinaan,
+            pertandingan dan aktivitas olahraga Bridge
+            GABSI Kota Tanjungbalai.
+        </p>
 
     </div>
-
-   </article>
-
-
-   <article class="news-card">
-
-    <div class="news-image">
-     🃏
-    </div>
-
-    <div class="news-body">
-
-     <div class="news-date">
-      PEMBINAAN ATLET
-     </div>
-
-     <h3>
-      Pembinaan Pemain Bridge
-     </h3>
-
-     <p>
-      Kegiatan pembinaan difokuskan pada teknik
-      permainan, strategi, bidding, permainan
-      Duplicate, serta kesiapan pemain dalam
-      menghadapi pertandingan.
-     </p>
-
-    </div>
-
-   </article>
-
-
-   <article class="news-card">
-
-    <div class="news-image">
-     ♠
-    </div>
-
-    <div class="news-body">
-
-     <div class="news-date">
-      BRIDGE DUPLICATE
-     </div>
-
-     <h3>
-      Latihan Bridge Duplicate
-     </h3>
-
-     <p>
-      Kegiatan latihan dapat menggunakan aplikasi
-      Score Sheet dan Kocokan Kartu untuk membantu
-      pencatatan dan simulasi permainan.
-     </p>
-
-    </div>
-
-   </article>
-
-
-  </div>
-
- </div>
 
 </section>
 
 
-<!-- JADWAL LATIHAN -->
 
-<section style="padding-top:0">
+<!-- =====================================================
+     KONTEN
+===================================================== -->
 
- <div class="container">
-
-
-  <div class="section-head">
-
-   <div class="eyebrow">
-    JADWAL
-   </div>
-
-   <h2>
-    Jadwal Latihan
-   </h2>
-
-   <p>
-    Jadwal latihan rutin GABSI Kota Tanjungbalai.
-   </p>
-
-  </div>
+<main class="container">
 
 
-  <div class="schedule">
+    <div class="section-heading">
 
+        <span class="label">
+            KEGIATAN ORGANISASI
+        </span>
 
-   <div class="schedule-card">
+        <h2>
+            Program dan Aktivitas GABSI
+        </h2>
 
-    <h3>
-     🏆 Latihan Rutin
-    </h3>
-
-
-    <div class="schedule-row">
-
-     <div class="day">
-      RABU
-     </div>
-
-     <div class="schedule-info">
-
-      <b>
-       Latihan Bridge
-      </b>
-
-      <span>
-       20.00 WIB – 23.30 WIB
-      </span>
-
-     </div>
+        <p>
+            Berbagai kegiatan yang mendukung pembinaan
+            dan pengembangan olahraga Bridge.
+        </p>
 
     </div>
 
 
-    <div class="schedule-row">
 
-     <div class="day">
-      KAMIS
-     </div>
+    <!-- =================================================
+         GRID KEGIATAN
+    ================================================== -->
 
-     <div class="schedule-info">
+    <section class="kegiatan-grid">
 
-      <b>
-       Latihan Bridge
-      </b>
 
-      <span>
-       20.00 WIB – 23.30 WIB
-      </span>
+        <article class="kegiatan-card">
 
-     </div>
+            <div class="kegiatan-icon">
+                🃏
+            </div>
 
-    </div>
+            <div class="kegiatan-info">
 
+                <span class="kegiatan-tag">
+                    LATIHAN
+                </span>
 
-    <div class="schedule-row">
+                <h3>
+                    Latihan Bridge
+                </h3>
 
-     <div class="day">
-      JUMAT
-     </div>
+                <p>
+                    Kegiatan latihan untuk meningkatkan
+                    pemahaman pemain terhadap teknik,
+                    strategi dan permainan Bridge.
+                </p>
 
-     <div class="schedule-info">
+            </div>
 
-      <b>
-       Latihan Bridge
-      </b>
+        </article>
 
-      <span>
-       20.00 WIB – 23.30 WIB
-      </span>
 
-     </div>
 
-    </div>
+        <article class="kegiatan-card">
 
+            <div class="kegiatan-icon">
+                🏆
+            </div>
 
-   </div>
+            <div class="kegiatan-info">
 
+                <span class="kegiatan-tag">
+                    PERTANDINGAN
+                </span>
 
-   <div class="schedule-card">
+                <h3>
+                    Pertandingan Bridge
+                </h3>
 
-    <h3>
-     🃏 Materi Latihan
-    </h3>
+                <p>
+                    Kegiatan pertandingan sebagai sarana
+                    menguji kemampuan pemain dan membangun
+                    pengalaman kompetisi.
+                </p>
 
-    <div class="schedule-row">
+            </div>
 
-     <div class="day">
-      01
-     </div>
+        </article>
 
-     <div class="schedule-info">
 
-      <b>
-       Teknik Bidding
-      </b>
 
-      <span>
-       Latihan sistem penawaran dan komunikasi pasangan.
-      </span>
+        <article class="kegiatan-card">
 
-     </div>
+            <div class="kegiatan-icon">
+                👥
+            </div>
 
-    </div>
+            <div class="kegiatan-info">
 
+                <span class="kegiatan-tag">
+                    PEMBINAAN
+                </span>
 
-    <div class="schedule-row">
+                <h3>
+                    Pembinaan Pemain
+                </h3>
 
-     <div class="day">
-      02
-     </div>
+                <p>
+                    Pembinaan dilakukan untuk mendukung
+                    perkembangan kemampuan pemain Bridge
+                    secara bertahap dan berkelanjutan.
+                </p>
 
-     <div class="schedule-info">
+            </div>
 
-      <b>
-       Permainan Duplicate
-      </b>
+        </article>
 
-      <span>
-       Latihan board dan perbandingan hasil.
-      </span>
 
-     </div>
 
-    </div>
+        <article class="kegiatan-card">
 
+            <div class="kegiatan-icon">
+                📊
+            </div>
 
-    <div class="schedule-row">
+            <div class="kegiatan-info">
 
-     <div class="day">
-      03
-     </div>
+                <span class="kegiatan-tag">
+                    DUPLICATE
+                </span>
 
-     <div class="schedule-info">
+                <h3>
+                    Bridge Duplicate
+                </h3>
 
-      <b>
-       Score & IMP
-      </b>
+                <p>
+                    Latihan dan pertandingan Duplicate
+                    menggunakan board, score sheet dan
+                    perhitungan hasil pertandingan.
+                </p>
 
-      <span>
-       Pencatatan score dan perhitungan hasil.
-      </span>
+            </div>
 
-     </div>
+        </article>
 
-    </div>
 
 
-   </div>
+        <article class="kegiatan-card">
 
-  </div>
+            <div class="kegiatan-icon">
+                📚
+            </div>
 
- </div>
+            <div class="kegiatan-info">
 
-</section>
+                <span class="kegiatan-tag">
+                    EDUKASI
+                </span>
 
+                <h3>
+                    Edukasi Bridge
+                </h3>
 
-<!-- AGENDA -->
+                <p>
+                    Kegiatan belajar mengenai aturan,
+                    sistem permainan, bidding, play dan
+                    pencatatan skor Bridge.
+                </p>
 
-<section style="padding-top:0">
+            </div>
 
- <div class="container">
+        </article>
 
 
-  <div class="section-head">
 
-   <div class="eyebrow">
-    AGENDA
-   </div>
+        <article class="kegiatan-card">
 
-   <h2>
-    Agenda GABSI
-   </h2>
+            <div class="kegiatan-icon">
+                🎯
+            </div>
 
-   <p>
-    Tempat untuk menampilkan agenda pertandingan,
-    latihan khusus, rapat, turnamen, dan kegiatan
-    organisasi lainnya.
-   </p>
+            <div class="kegiatan-info">
 
-  </div>
+                <span class="kegiatan-tag">
+                    PRESTASI
+                </span>
 
+                <h3>
+                    Pengembangan Prestasi
+                </h3>
 
-  <div class="agenda">
+                <p>
+                    Mendukung pemain dalam meningkatkan
+                    kemampuan dan pengalaman melalui
+                    latihan serta kegiatan kompetisi.
+                </p>
 
+            </div>
 
-   <div class="agenda-item">
+        </article>
 
-    <div class="agenda-date">
 
-     <b>01</b>
+    </section>
 
-     <span>
-      Agenda
-     </span>
 
-    </div>
 
-    <div>
+    <!-- =================================================
+         INFORMASI
+    ================================================== -->
 
-     <h3>
-      Latihan Rutin GABSI
-     </h3>
+    <section class="info-box">
 
-     <p>
-      Kegiatan latihan pemain Bridge secara rutin.
-     </p>
+        <h3>
+            Kegiatan GABSI Kota Tanjungbalai
+        </h3>
 
-    </div>
+        <p>
+            Halaman ini menjadi pusat informasi kegiatan
+            GABSI Kota Tanjungbalai. Informasi seperti
+            latihan, pertandingan, pembinaan, kegiatan
+            Duplicate Bridge dan aktivitas lainnya dapat
+            ditampilkan dan diperbarui melalui halaman ini.
+        </p>
 
-   </div>
+    </section>
 
 
-   <div class="agenda-item">
 
-    <div class="agenda-date">
+    <!-- =================================================
+         LINK HALAMAN LAIN
+    ================================================== -->
 
-     <b>02</b>
+    <section class="related">
 
-     <span>
-      Agenda
-     </span>
+        <h3>
+            Jelajahi Website GABSI
+        </h3>
 
-    </div>
 
-    <div>
+        <div class="related-grid">
 
-     <h3>
-      Pembinaan Atlet
-     </h3>
 
-     <p>
-      Program pembinaan dan persiapan pemain
-      menghadapi pertandingan.
-     </p>
+            <a href="index.html">
+                🏠<br>
+                Beranda
+            </a>
 
-    </div>
 
-   </div>
+            <a href="profil.html">
+                👤<br>
+                Profil
+            </a>
 
 
-   <div class="agenda-item">
+            <a href="pengurus.html">
+                👥<br>
+                Pengurus
+            </a>
 
-    <div class="agenda-date">
 
-     <b>03</b>
+            <a href="galeri.html">
+                📷<br>
+                Galeri
+            </a>
 
-     <span>
-      Agenda
-     </span>
 
-    </div>
+            <a href="aplikasi.html">
+                💻<br>
+                Aplikasi
+            </a>
 
-    <div>
 
-     <h3>
-      Pertandingan & Turnamen
-     </h3>
+            <a href="game-bridge-gabsi.html">
+                ♠<br>
+                Game Bridge
+            </a>
 
-     <p>
-      Informasi pertandingan dan turnamen
-      akan ditambahkan pada halaman ini.
-     </p>
 
-    </div>
+            <a href="score-sheet.html">
+                📊<br>
+                Score Sheet
+            </a>
 
-   </div>
 
+            <a href="kontak.html">
+                📞<br>
+                Kontak
+            </a>
 
-  </div>
 
- </div>
+        </div>
 
-</section>
-
-
-<!-- INFORMASI -->
-
-<section style="padding-top:0">
-
- <div class="container">
-
-  <div class="info">
-
-   <h2>
-    Informasi Kegiatan
-   </h2>
-
-   <p>
-    Halaman ini dapat terus diperbarui setiap ada
-    kegiatan baru. Nantinya setiap berita dapat
-    dibuat lebih lengkap dengan foto kegiatan,
-    tanggal, lokasi, keterangan kegiatan,
-    dan dokumentasi.
-   </p>
-
-  </div>
-
- </div>
-
-</section>
+    </section>
 
 
 </main>
 
 
-<!-- FOOTER -->
 
-<footer>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
- <div class="container footer-grid">
-
-
-  <div>
-
-   <div class="footer-brand">
-    GABSI Kota Tanjungbalai
-   </div>
-
-   <p>
-    Gabungan Bridge Seluruh Indonesia
-    • Bridge Duplicate Center.
-   </p>
-
-  </div>
+<footer class="footer">
 
 
-  <div>
-
-   <b style="color:#fff">
-    Navigasi
-   </b>
-
-   <a href="index.html">
-    Beranda
-   </a>
-
-   <a href="profil.html">
-    Profil
-   </a>
-
-   <a href="pengurus.html">
-    Pengurus
-   </a>
-
-   <a href="kegiatan.html">
-    Kegiatan
-   </a>
-
-  </div>
+    <div class="footer-inner">
 
 
-  <div>
+        <div>
 
-   <b style="color:#fff">
-    Lainnya
-   </b>
+            <h3>
+                GABSI Kota Tanjungbalai
+            </h3>
 
-   <a href="galeri.html">
-    Galeri
-   </a>
+            <p>
+                Gabungan Bridge Seluruh Indonesia.
+                Website informasi, pembinaan dan
+                Bridge Duplicate Center Kota Tanjungbalai.
+            </p>
 
-   <a href="aplikasi.html">
-    Aplikasi
-   </a>
-
-   <a href="kontak.html">
-    Kontak
-   </a>
-
-  </div>
+        </div>
 
 
- </div>
+        <div>
+
+            <h3>
+                Navigasi
+            </h3>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Beranda
+                </a>
+
+                <a href="profil.html">
+                    Profil
+                </a>
+
+                <a href="pengurus.html">
+                    Pengurus
+                </a>
+
+                <a href="kegiatan.html">
+                    Kegiatan
+                </a>
+
+                <a href="galeri.html">
+                    Galeri
+                </a>
+
+            </div>
+
+        </div>
 
 
- <div class="container copyright">
+        <div>
 
-  <span>
-   © 2026 GABSI Kota Tanjungbalai.
-  </span>
+            <h3>
+                Aplikasi
+            </h3>
 
-  <span>
-   Website Bridge Center
-  </span>
+            <div class="footer-links">
 
- </div>
+                <a href="aplikasi.html">
+                    Aplikasi Bridge
+                </a>
+
+                <a href="game-bridge-gabsi.html">
+                    Game Bridge
+                </a>
+
+                <a href="kocokan-kartu.html">
+                    Kocokan Kartu
+                </a>
+
+                <a href="score-sheet.html">
+                    Score Sheet
+                </a>
+
+                <a href="kontak.html">
+                    Kontak
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 GABSI Kota Tanjungbalai
+        </span>
+
+        <span>
+            Bridge Duplicate Center
+        </span>
+
+    </div>
+
 
 </footer>
 
 
-<script>
-
-function toggleMenu(){
-
- document
- .getElementById('navLinks')
- .classList
- .toggle('open');
-
-}
-
-
-document
- .querySelectorAll('#navLinks a')
- .forEach(function(a){
-
-  a.addEventListener('click',function(){
-
-   document
-   .getElementById('navLinks')
-   .classList
-   .remove('open');
-
-  });
-
- });
-
-
-if('serviceWorker' in navigator){
-
- window.addEventListener('load',function(){
-
-  navigator.serviceWorker
-  .register('sw.js')
-  .catch(function(){});
-
- });
-
-}
-
-</script>
-
-
 </body>
+
 </html>
