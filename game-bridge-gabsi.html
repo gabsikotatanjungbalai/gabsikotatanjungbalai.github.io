@@ -42,11 +42,6 @@ body{
   justify-content:center;
 }
 
-button{
-  font:inherit;
-  cursor:pointer;
-}
-
 .app{
   width:100%;
   max-width:620px;
@@ -54,6 +49,11 @@ button{
   background:
     radial-gradient(circle at 50% 20%,#0b513c 0,#031c16 70%);
   overflow:hidden;
+}
+
+button{
+  font:inherit;
+  cursor:pointer;
 }
 
 /* HEADER */
@@ -380,6 +380,15 @@ button{
   font-size:18px;
 }
 
+/* DUMMY HIGHLIGHT */
+
+.dummy-active .card.playable{
+  border-color:#ffe184;
+  box-shadow:
+    0 0 0 2px #d6ad52,
+    0 8px 14px #0009;
+}
+
 /* TRICK */
 
 .trick{
@@ -614,28 +623,10 @@ button{
   background:#d9b45b18;
 }
 
-/* SCORE */
-
-.score-table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:10px;
-}
-
-.score-table th,
-.score-table td{
-  padding:7px 4px;
-  border-bottom:1px solid #ffffff12;
-  text-align:center;
-}
-
-.score-table th{
-  color:#d9c07a;
-}
-
 /* RESPONSIVE */
 
 @media(max-width:390px){
+
   .table{
     min-height:490px;
   }
@@ -660,6 +651,7 @@ button{
 }
 
 @media(min-width:500px){
+
   .table{
     min-height:600px;
   }
@@ -672,88 +664,217 @@ button{
 <div class="app">
 
 <header class="header">
+
   <div class="brand">
+
     <div class="logo">♠</div>
+
     <div>
-      <div class="brand-title">GABSI KOTA TANJUNGBALAI</div>
-      <div class="brand-sub">BRIDGE ONLINE • COMPUTER TABLE</div>
+      <div class="brand-title">
+        GABSI KOTA TANJUNGBALAI
+      </div>
+
+      <div class="brand-sub">
+        BRIDGE ONLINE • COMPUTER TABLE
+      </div>
     </div>
+
   </div>
 
   <div class="top-actions">
-    <button class="icon-btn" onclick="newGame()">↻</button>
-    <button class="icon-btn" onclick="openSettings()">⚙</button>
+
+    <button
+      class="icon-btn"
+      onclick="newGame()">
+      ↻
+    </button>
+
+    <button
+      class="icon-btn"
+      onclick="openSettings()">
+      ⚙
+    </button>
+
   </div>
+
 </header>
 
 <section class="gamebar">
+
   <div class="info-box">
     <span class="info-label">Board</span>
-    <span class="info-value" id="boardNo">1</span>
+    <span
+      class="info-value"
+      id="boardNo">
+      1
+    </span>
   </div>
 
   <div class="info-box">
     <span class="info-label">Dealer</span>
-    <span class="info-value" id="dealer">N</span>
+    <span
+      class="info-value"
+      id="dealer">
+      N
+    </span>
   </div>
 
   <div class="info-box">
     <span class="info-label">Vul</span>
-    <span class="info-value" id="vul">None</span>
+    <span
+      class="info-value"
+      id="vul">
+      None
+    </span>
   </div>
+
 </section>
 
 <main class="table-area">
 
-<div class="table">
+<div class="table" id="bridgeTable">
+
+  <!-- NORTH -->
 
   <div class="seat north">
+
     <div class="player">
-      <div class="avatar">N</div>
-      <div class="player-name">North • Komputer</div>
-      <div class="level" id="northLevel">Menengah</div>
-      <div class="hand" id="handN"></div>
+
+      <div class="avatar">
+        N
+      </div>
+
+      <div class="player-name">
+        North • Komputer
+      </div>
+
+      <div
+        class="level"
+        id="northLevel">
+        Menengah
+      </div>
+
+      <div
+        class="hand"
+        id="handN">
+      </div>
+
     </div>
+
   </div>
+
+  <!-- WEST -->
 
   <div class="seat west">
+
     <div class="player">
-      <div class="avatar">W</div>
-      <div class="player-name">West • Komputer</div>
-      <div class="level" id="westLevel">Menengah</div>
-      <div class="hand" id="handW"></div>
+
+      <div class="avatar">
+        W
+      </div>
+
+      <div class="player-name">
+        West • Komputer
+      </div>
+
+      <div
+        class="level"
+        id="westLevel">
+        Menengah
+      </div>
+
+      <div
+        class="hand"
+        id="handW">
+      </div>
+
     </div>
+
   </div>
+
+  <!-- EAST -->
 
   <div class="seat east">
+
     <div class="player">
-      <div class="player">
-        <div class="avatar">E</div>
-        <div class="player-name">East • Komputer</div>
-        <div class="level" id="eastLevel">Menengah</div>
-        <div class="hand" id="handE"></div>
+
+      <div class="avatar">
+        E
       </div>
+
+      <div class="player-name">
+        East • Komputer
+      </div>
+
+      <div
+        class="level"
+        id="eastLevel">
+        Menengah
+      </div>
+
+      <div
+        class="hand"
+        id="handE">
+      </div>
+
     </div>
+
   </div>
+
+  <!-- CENTER -->
 
   <div class="table-center">
+
     <div class="contract-card">
-      <div class="contract-title">Kontrak</div>
-      <div class="contract-main" id="contractText">Lelang</div>
-      <div class="contract-extra" id="centerInfo">
+
+      <div class="contract-title">
+        Kontrak
+      </div>
+
+      <div
+        class="contract-main"
+        id="contractText">
+        Lelang
+      </div>
+
+      <div
+        class="contract-extra"
+        id="centerInfo">
         Menunggu pembukaan lelang
       </div>
+
     </div>
+
   </div>
 
-  <div class="trick" id="trick"></div>
+  <!-- CURRENT TRICK -->
+
+  <div
+    class="trick"
+    id="trick">
+  </div>
+
+  <!-- SOUTH -->
 
   <div class="seat south">
+
     <div class="player">
-      <div class="player-name">South • ANDA</div>
-      <div class="level">PEMAIN</div>
-      <div class="hand" id="handS"></div>
+
+      <div class="player-name">
+        South • ANDA
+      </div>
+
+      <div class="level">
+        PEMAIN
+      </div>
+
+      <div
+        class="hand"
+        id="handS">
+      </div>
+
     </div>
+
   </div>
 
 </div>
@@ -763,139 +884,279 @@ button{
 <footer class="bottom">
 
   <div class="status">
-    <span id="statusText">Memulai permainan...</span>
-    <strong id="trickText">0 / 13</strong>
+
+    <span id="statusText">
+      Memulai permainan...
+    </span>
+
+    <strong id="trickText">
+      0 / 13
+    </strong>
+
   </div>
 
   <div class="actions">
-    <button class="btn" onclick="sortHand()">URUTKAN</button>
-    <button class="btn green" onclick="openHelp()">BANTUAN</button>
-    <button class="btn gold" onclick="openBid()">PILIH BID</button>
+
+    <button
+      class="btn"
+      onclick="sortHand()">
+      URUTKAN
+    </button>
+
+    <button
+      class="btn green"
+      onclick="openHelp()">
+      BANTUAN
+    </button>
+
+    <button
+      class="btn gold"
+      onclick="openBid()">
+      PILIH BID
+    </button>
+
   </div>
 
 </footer>
 
 </div>
 
-<!-- BID SHEET -->
 
-<div class="overlay" id="bidOverlay">
-<div class="sheet">
+<!-- BID -->
 
-  <div class="sheet-head">
-    <div class="sheet-title">Lelang Bridge</div>
-    <button class="close" onclick="closeBid()">×</button>
+<div
+  class="overlay"
+  id="bidOverlay">
+
+  <div class="sheet">
+
+    <div class="sheet-head">
+
+      <div class="sheet-title">
+        Lelang Bridge
+      </div>
+
+      <button
+        class="close"
+        onclick="closeBid()">
+        ×
+      </button>
+
+    </div>
+
+    <div
+      class="auction-history"
+      id="auctionHistory">
+    </div>
+
+    <div
+      class="bid-grid"
+      id="bidGrid">
+    </div>
+
   </div>
 
-  <div class="auction-history" id="auctionHistory"></div>
-
-  <div class="bid-grid" id="bidGrid"></div>
-
 </div>
-</div>
+
 
 <!-- SETTINGS -->
 
-<div class="overlay" id="settingsOverlay">
-<div class="sheet">
+<div
+  class="overlay"
+  id="settingsOverlay">
 
-  <div class="sheet-head">
-    <div class="sheet-title">Tingkat Lawan Komputer</div>
-    <button class="close" onclick="closeSettings()">×</button>
-  </div>
+  <div class="sheet">
 
-  <div class="level-grid">
+    <div class="sheet-head">
 
-    <button class="level-btn"
-            data-level="easy"
-            onclick="setLevel('easy')">
-      <strong>🟢 PEMULA</strong>
-      <span>Strategi sederhana. Cocok untuk belajar.</span>
-    </button>
+      <div class="sheet-title">
+        Tingkat Lawan Komputer
+      </div>
 
-    <button class="level-btn"
-            data-level="medium"
-            onclick="setLevel('medium')">
-      <strong>🔵 MENENGAH</strong>
-      <span>Permainan dan bidding lebih teratur.</span>
-    </button>
+      <button
+        class="close"
+        onclick="closeSettings()">
+        ×
+      </button>
 
-    <button class="level-btn"
-            data-level="hard"
-            onclick="setLevel('hard')">
-      <strong>🟠 SULIT</strong>
-      <span>Komputer mempertimbangkan HCP, distribusi dan trik.</span>
-    </button>
+    </div>
 
-    <button class="level-btn"
-            data-level="expert"
-            onclick="setLevel('expert')">
-      <strong>🔴 AHLI</strong>
-      <span>Strategi kompetitif dengan perhitungan kartu lebih kuat.</span>
-    </button>
+    <div class="level-grid">
+
+      <button
+        class="level-btn"
+        data-level="easy"
+        onclick="setLevel('easy')">
+
+        <strong>
+          🟢 PEMULA
+        </strong>
+
+        <span>
+          Strategi sederhana. Cocok untuk belajar.
+        </span>
+
+      </button>
+
+      <button
+        class="level-btn"
+        data-level="medium"
+        onclick="setLevel('medium')">
+
+        <strong>
+          🔵 MENENGAH
+        </strong>
+
+        <span>
+          Permainan dan bidding lebih teratur.
+        </span>
+
+      </button>
+
+      <button
+        class="level-btn"
+        data-level="hard"
+        onclick="setLevel('hard')">
+
+        <strong>
+          🟠 SULIT
+        </strong>
+
+        <span>
+          Komputer mempertimbangkan HCP dan distribusi.
+        </span>
+
+      </button>
+
+      <button
+        class="level-btn"
+        data-level="expert"
+        onclick="setLevel('expert')">
+
+        <strong>
+          🔴 AHLI
+        </strong>
+
+        <span>
+          Strategi kompetitif dengan permainan lebih agresif.
+        </span>
+
+      </button>
+
+    </div>
 
   </div>
 
 </div>
-</div>
+
 
 <!-- HELP -->
 
-<div class="overlay" id="helpOverlay">
-<div class="sheet">
+<div
+  class="overlay"
+  id="helpOverlay">
 
-  <div class="sheet-head">
-    <div class="sheet-title">Bantuan Bridge</div>
-    <button class="close" onclick="closeHelp()">×</button>
+  <div class="sheet">
+
+    <div class="sheet-head">
+
+      <div class="sheet-title">
+        Bantuan Bridge
+      </div>
+
+      <button
+        class="close"
+        onclick="closeHelp()">
+        ×
+      </button>
+
+    </div>
+
+    <p style="font-size:12px;line-height:1.6;color:#c4ddd3">
+
+      Tujuan permainan adalah memenangkan jumlah
+      trik sesuai kontrak. Saat bermain kartu,
+      pemain wajib mengikuti jenis kartu yang
+      dimainkan jika masih memiliki jenis tersebut.
+
+    </p>
+
+    <p style="font-size:12px;line-height:1.6;color:#c4ddd3">
+
+      ♠ Sekop &nbsp;
+      ♥ Hati &nbsp;
+      ♦ Wajik &nbsp;
+      ♣ Keriting
+
+    </p>
+
+    <p style="font-size:12px;line-height:1.6;color:#c4ddd3">
+
+      HCP:
+      As = 4,
+      King = 3,
+      Queen = 2,
+      Jack = 1.
+
+    </p>
+
+    <button
+      class="btn gold"
+      style="width:100%"
+      onclick="closeHelp()">
+
+      MENGERTI
+
+    </button>
+
   </div>
 
-  <p style="font-size:12px;line-height:1.6;color:#c4ddd3">
-    Tujuan permainan adalah memenangkan jumlah trik sesuai kontrak.
-    Saat bermain kartu, Anda wajib mengikuti jenis kartu yang dimainkan
-    jika masih memiliki jenis tersebut.
-  </p>
-
-  <p style="font-size:12px;line-height:1.6;color:#c4ddd3">
-    ♠ Sekop &nbsp; ♥ Hati &nbsp; ♦ Wajik &nbsp; ♣ Keriting
-  </p>
-
-  <p style="font-size:12px;line-height:1.6;color:#c4ddd3">
-    HCP: As = 4, King = 3, Queen = 2, Jack = 1.
-  </p>
-
-  <button class="btn gold"
-          style="width:100%"
-          onclick="closeHelp()">
-    MENGERTI
-  </button>
-
 </div>
-</div>
+
 
 <script>
+
 /* =========================================================
-   GABSI BRIDGE ONLINE
-   Single File • Mobile Portrait
+   GABSI KOTA TANJUNGBALAI
+   BRIDGE ONLINE
+   DUMMY CONTROL FIX
    ========================================================= */
 
-const SUITS = ["♣","♦","♥","♠"];
-const RANKS = [
-  "2","3","4","5","6","7","8","9","10",
-  "J","Q","K","A"
+const SUITS = [
+  "♣",
+  "♦",
+  "♥",
+  "♠"
 ];
 
-const SEATS = ["N","E","S","W"];
+const RANKS = [
+  "2","3","4","5","6","7",
+  "8","9","10","J","Q","K","A"
+];
+
+const SEATS = [
+  "N",
+  "E",
+  "S",
+  "W"
+];
 
 const state = {
+
   board:1,
+
   dealer:"N",
+
   vul:"None",
+
   level:"medium",
 
   phase:"auction",
+
   turn:"N",
 
   deck:[],
+
   hands:{
     N:[],
     E:[],
@@ -904,104 +1165,179 @@ const state = {
   },
 
   auction:[],
+
   currentBid:null,
 
   contract:null,
+
   declarer:null,
+
   dummy:null,
+
   trump:null,
 
+  openingLeader:null,
+
+  dummyRevealed:false,
+
   leadSuit:null,
+
   trick:[],
+
   tricksNS:0,
+
   tricksEW:0,
+
   completed:0
+
 };
 
+
 const LEVELS = {
+
   easy:{
     name:"Pemula",
     delay:900
   },
+
   medium:{
     name:"Menengah",
     delay:700
   },
+
   hard:{
     name:"Sulit",
     delay:500
   },
+
   expert:{
     name:"Ahli",
     delay:350
   }
+
 };
 
-/* ---------- UTILITY ---------- */
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
 
 function $(id){
   return document.getElementById(id);
 }
 
+
 function nextSeat(seat){
-  const i=SEATS.indexOf(seat);
-  return SEATS[(i+1)%4];
+
+  const i =
+    SEATS.indexOf(seat);
+
+  return SEATS[
+    (i+1)%4
+  ];
 }
 
-function leftSeat(seat){
-  return nextSeat(seat);
-}
 
 function hcp(card){
+
   if(card.rank==="A") return 4;
+
   if(card.rank==="K") return 3;
+
   if(card.rank==="Q") return 2;
+
   if(card.rank==="J") return 1;
+
   return 0;
 }
 
+
 function handHCP(hand){
-  return hand.reduce((a,c)=>a+hcp(c),0);
+
+  return hand.reduce(
+    (total,card)=>
+      total+hcp(card),
+    0
+  );
 }
+
 
 function suitCount(hand,suit){
-  return hand.filter(c=>c.suit===suit).length;
+
+  return hand.filter(
+    card=>card.suit===suit
+  ).length;
 }
 
+
 function sortCards(hand){
-  const suitOrder = {
+
+  const order={
     "♣":0,
     "♦":1,
     "♥":2,
     "♠":3
   };
 
-  return [...hand].sort((a,b)=>{
-    if(suitOrder[a.suit]!==suitOrder[b.suit]){
-      return suitOrder[a.suit]-suitOrder[b.suit];
+  return [...hand].sort(
+    (a,b)=>{
+
+      if(
+        order[a.suit] !==
+        order[b.suit]
+      ){
+        return order[a.suit]-
+               order[b.suit];
+      }
+
+      return RANKS.indexOf(b.rank)-
+             RANKS.indexOf(a.rank);
     }
-    return RANKS.indexOf(b.rank)-RANKS.indexOf(a.rank);
-  });
+  );
 }
 
-function shuffle(arr){
-  for(let i=arr.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [arr[i],arr[j]]=[arr[j],arr[i]];
+
+function shuffle(array){
+
+  for(
+    let i=array.length-1;
+    i>0;
+    i--
+  ){
+
+    const j=
+      Math.floor(
+        Math.random()*(i+1)
+      );
+
+    [
+      array[i],
+      array[j]
+    ]=[
+      array[j],
+      array[i]
+    ];
   }
-  return arr;
+
+  return array;
 }
 
-/* ---------- BOARD ---------- */
+
+/* =========================================================
+   BOARD
+   ========================================================= */
 
 function boardInfo(board){
 
-  const dealer =
-    ["N","E","S","W"][(board-1)%4];
+  const dealer=
+    SEATS[
+      (board-1)%4
+    ];
+
+  const cycle=
+    (board-1)%16;
 
   let vul="None";
-
-  const cycle = (board-1)%16;
 
   if(
     [0,3,6,9].includes(cycle)
@@ -1010,86 +1346,148 @@ function boardInfo(board){
   }
 
   if(
-    [1,2,5,8,11,12,15].includes(cycle)
+    [1,2,5,8,11,12,15]
+      .includes(cycle)
   ){
     vul="E-W";
   }
 
   if(
-    [4,7,10,13].includes(cycle)
+    [4,7,10,13]
+      .includes(cycle)
   ){
     vul="Both";
   }
 
-  return {dealer,vul};
+  return {
+    dealer,
+    vul
+  };
 }
 
-/* ---------- NEW GAME ---------- */
+
+/* =========================================================
+   NEW GAME
+   ========================================================= */
 
 function newGame(){
 
-  const info=boardInfo(state.board);
+  const info=
+    boardInfo(state.board);
 
-  state.dealer=info.dealer;
-  state.vul=info.vul;
+  state.dealer=
+    info.dealer;
+
+  state.vul=
+    info.vul;
 
   state.phase="auction";
-  state.turn=state.dealer;
+
+  state.turn=
+    state.dealer;
 
   state.auction=[];
+
   state.currentBid=null;
 
   state.contract=null;
+
   state.declarer=null;
+
   state.dummy=null;
+
   state.trump=null;
 
+  state.openingLeader=null;
+
+  state.dummyRevealed=false;
+
   state.leadSuit=null;
+
   state.trick=[];
+
   state.tricksNS=0;
+
   state.tricksEW=0;
+
   state.completed=0;
 
   makeDeck();
+
   deal();
 
-  $("boardNo").textContent=state.board;
-  $("dealer").textContent=state.dealer;
-  $("vul").textContent=state.vul;
+  $("boardNo").textContent=
+    state.board;
 
-  $("contractText").textContent="Lelang";
-  $("centerInfo").textContent="Menunggu pembukaan lelang";
+  $("dealer").textContent=
+    state.dealer;
 
-  $("statusText").textContent =
+  $("vul").textContent=
+    state.vul;
+
+  $("contractText").textContent=
+    "Lelang";
+
+  $("centerInfo").textContent=
+    "Menunggu pembukaan lelang";
+
+  $("statusText").textContent=
     state.turn==="S"
       ? "Giliran Anda membuka lelang"
       : "Komputer sedang membuka lelang";
 
   render();
 
-  if(state.turn!=="S"){
-    setTimeout(computerBid,LEVELS[state.level].delay);
+  if(
+    state.turn!=="S"
+  ){
+
+    setTimeout(
+      computerBid,
+      LEVELS[state.level].delay
+    );
+
   }
+
 }
 
-/* ---------- DECK ---------- */
+
+/* =========================================================
+   DECK
+   ========================================================= */
 
 function makeDeck(){
 
   state.deck=[];
 
-  for(const suit of SUITS){
-    for(const rank of RANKS){
+  for(
+    const suit of SUITS
+  ){
+
+    for(
+      const rank of RANKS
+    ){
+
       state.deck.push({
-        suit,
-        rank,
-        id:suit+rank+Math.random()
+
+        suit:suit,
+
+        rank:rank,
+
+        id:
+          suit+
+          rank+
+          Math.random()
+
       });
+
     }
+
   }
 
   shuffle(state.deck);
 }
+
 
 function deal(){
 
@@ -1100,135 +1498,287 @@ function deal(){
     W:[]
   };
 
-  state.deck.forEach((card,i)=>{
-    state.hands[SEATS[i%4]].push(card);
-  });
+  state.deck.forEach(
+    (card,index)=>{
 
-  for(const seat of SEATS){
-    state.hands[seat]=sortCards(state.hands[seat]);
+      const seat=
+        SEATS[index%4];
+
+      state.hands[seat]
+        .push(card);
+
+    }
+  );
+
+  for(
+    const seat of SEATS
+  ){
+
+    state.hands[seat]=
+      sortCards(
+        state.hands[seat]
+      );
+
   }
+
 }
 
-/* ---------- RENDER ---------- */
+
+/* =========================================================
+   RENDER
+   ========================================================= */
 
 function render(){
 
   renderHand("N");
+
   renderHand("E");
+
   renderHand("S");
+
   renderHand("W");
 
   renderTrick();
 
-  $("trickText").textContent =
-    `${state.tricksNS + state.tricksEW} / 13`;
+  $("trickText").textContent=
+    `${
+      state.tricksNS+
+      state.tricksEW
+    } / 13`;
 
   updateContractDisplay();
+
 }
 
-function renderHand(seat){
 
-  const el=$("hand"+seat);
-  el.innerHTML="";
+/* =========================================================
+   DUMMY LOGIC
+   ========================================================= */
 
-  const hand=state.hands[seat];
+function shouldRevealDummy(){
 
-  const reveal =
-    seat==="S" ||
-    (
-      state.phase==="play" &&
-      seat===state.dummy
-    );
+  /*
+   Dummy TIDAK langsung dibuka ketika
+   kontrak selesai.
 
-  hand.forEach(card=>{
+   Dummy baru terbuka setelah kartu
+   opening lead dimainkan.
+  */
 
-    const div=document.createElement("div");
-
-    div.className="card";
-
-    if(!reveal){
-
-      div.classList.add("back");
-
-    }else{
-
-      if(card.suit==="♥" || card.suit==="♦"){
-        div.classList.add("red");
-      }
-
-      div.innerHTML=
-        `<span class="rank">${card.rank}</span>
-         <span class="suit">${card.suit}</span>`;
-
-      if(
-        state.phase==="play" &&
-        isUserControlled(seat) &&
-        legalCard(card,seat)
-      ){
-        div.classList.add("playable");
-
-        div.onclick=()=>{
-          playCard(seat,card);
-        };
-      }
-
-    }
-
-    el.appendChild(div);
-  });
+  return (
+    state.phase==="play" &&
+    state.dummyRevealed===true
+  );
 }
 
-/* ---------- USER CONTROL ---------- */
 
 function isUserControlled(seat){
 
-  if(state.phase!=="play") return false;
+  if(
+    state.phase!=="play"
+  ){
+    return false;
+  }
 
-  if(seat==="S") return true;
+  /*
+   Jika South adalah declarer,
+   South mengendalikan:
+
+   1. kartu South sendiri
+   2. kartu Dummy
+  */
 
   if(
     state.declarer==="S" &&
-    seat===state.dummy
+    (
+      seat==="S" ||
+      seat===state.dummy
+    )
   ){
     return true;
+  }
+
+  /*
+   Jika South bukan declarer,
+   hanya South sendiri yang
+   dapat dikendalikan.
+  */
+
+  if(
+    seat==="S" &&
+    state.declarer!=="S"
+  ){
+    return false;
   }
 
   return false;
 }
 
-/* ---------- TRICK ---------- */
+
+/* =========================================================
+   RENDER HAND
+   ========================================================= */
+
+function renderHand(seat){
+
+  const el=
+    $("hand"+seat);
+
+  if(!el) return;
+
+  el.innerHTML="";
+
+  const hand=
+    state.hands[seat];
+
+  /*
+   South selalu terlihat.
+   Dummy terlihat hanya setelah
+   opening lead.
+  */
+
+  const reveal=
+    seat==="S" ||
+    (
+      seat===state.dummy &&
+      shouldRevealDummy()
+    );
+
+  hand.forEach(
+    card=>{
+
+      const div=
+        document.createElement("div");
+
+      div.className="card";
+
+      if(!reveal){
+
+        div.classList.add("back");
+
+      }else{
+
+        if(
+          card.suit==="♥" ||
+          card.suit==="♦"
+        ){
+          div.classList.add("red");
+        }
+
+        div.innerHTML=
+          `<span class="rank">
+             ${card.rank}
+           </span>
+           <span class="suit">
+             ${card.suit}
+           </span>`;
+
+        /*
+         Jika kartu bisa dimainkan
+         oleh user, berikan efek
+         playable.
+        */
+
+        if(
+          state.phase==="play" &&
+          isUserControlled(seat) &&
+          seat===state.turn &&
+          legalCard(card,seat)
+        ){
+
+          div.classList.add(
+            "playable"
+          );
+
+          div.onclick=()=>{
+            playCard(
+              seat,
+              card
+            );
+          };
+
+        }
+
+      }
+
+      el.appendChild(div);
+
+    }
+  );
+
+  /*
+   Tandai area dummy saat
+   South menjadi declarer.
+  */
+
+  const table=
+    $("bridgeTable");
+
+  if(
+    state.declarer==="S" &&
+    state.dummy===seat &&
+    shouldRevealDummy() &&
+    state.turn===seat
+  ){
+
+    table.classList.add(
+      "dummy-active"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   CURRENT TRICK
+   ========================================================= */
 
 function renderTrick(){
 
-  const el=$("trick");
+  const el=
+    $("trick");
+
   el.innerHTML="";
 
-  state.trick.forEach(item=>{
+  state.trick.forEach(
+    item=>{
 
-    const div=document.createElement("div");
+      const div=
+        document.createElement("div");
 
-    div.className=
-      "trick-card "+item.seat.toLowerCase();
+      div.className=
+        "trick-card "+
+        item.seat.toLowerCase();
 
-    if(
-      item.card.suit==="♥" ||
-      item.card.suit==="♦"
-    ){
-      div.classList.add("red");
+      if(
+        item.card.suit==="♥" ||
+        item.card.suit==="♦"
+      ){
+        div.classList.add(
+          "red"
+        );
+      }
+
+      div.textContent=
+        item.card.rank+
+        item.card.suit;
+
+      el.appendChild(div);
+
     }
+  );
 
-    div.textContent =
-      item.card.rank+item.card.suit;
-
-    el.appendChild(div);
-  });
 }
 
-/* ---------- BIDDING ---------- */
+
+/* =========================================================
+   BIDDING
+   ========================================================= */
 
 function bidRank(level,suit){
 
-  const suitOrder={
+  const order={
     "♣":0,
     "♦":1,
     "♥":2,
@@ -1236,73 +1786,134 @@ function bidRank(level,suit){
     "NT":4
   };
 
-  return level*5+suitOrder[suit];
+  return (
+    level*5+
+    order[suit]
+  );
 }
+
 
 function isHigherBid(bid){
 
-  if(!state.currentBid) return true;
+  if(
+    !state.currentBid
+  ){
+    return true;
+  }
 
-  return bidRank(bid.level,bid.suit) >
-         bidRank(
-           state.currentBid.level,
-           state.currentBid.suit
-         );
+  return (
+    bidRank(
+      bid.level,
+      bid.suit
+    ) >
+    bidRank(
+      state.currentBid.level,
+      state.currentBid.suit
+    )
+  );
 }
+
 
 function makeBid(bid){
 
   state.auction.push({
-    seat:state.turn,
-    bid
+
+    seat:
+      state.turn,
+
+    bid:bid
+
   });
 
-  if(bid!=="PASS"){
-    state.currentBid=bid;
+  if(
+    bid!=="PASS"
+  ){
+
+    state.currentBid=
+      bid;
+
   }
 
-  if(checkAuctionEnd()){
+  if(
+    checkAuctionEnd()
+  ){
 
     finishAuction();
+
     return;
   }
 
-  state.turn=nextSeat(state.turn);
+  state.turn=
+    nextSeat(
+      state.turn
+    );
 
   renderAuctionHistory();
 
   render();
 
-  if(state.turn==="S"){
-    $("statusText").textContent="Giliran Anda melakukan bid";
+  if(
+    state.turn==="S"
+  ){
+
+    $("statusText").textContent=
+      "Giliran Anda melakukan bid";
+
     openBid();
+
   }else{
+
     $("statusText").textContent=
       `Komputer ${state.turn} sedang berpikir...`;
 
-    setTimeout(computerBid,LEVELS[state.level].delay);
+    setTimeout(
+      computerBid,
+      LEVELS[state.level].delay
+    );
+
   }
+
 }
+
 
 function checkAuctionEnd(){
 
-  const bids=state.auction;
+  if(
+    state.auction.length<4
+  ){
+    return false;
+  }
 
-  if(bids.length<4) return false;
+  const last4=
+    state.auction.slice(-4);
 
-  const last4=bids.slice(-4);
+  /*
+   Empat PASS setelah ada bid
+   mengakhiri lelang.
+  */
+
+  const nonPass=
+    state.auction.filter(
+      x=>x.bid!=="PASS"
+    );
 
   if(
-    last4.every(x=>x.bid==="PASS")
+    nonPass.length>0 &&
+    last4.every(
+      x=>x.bid==="PASS"
+    )
   ){
     return true;
   }
 
-  const nonPass=bids.filter(x=>x.bid!=="PASS");
+  /*
+   Empat PASS sejak awal =
+   semua pass.
+  */
 
   if(
-    nonPass.length>0 &&
-    last4.every(x=>x.bid==="PASS")
+    nonPass.length===0 &&
+    state.auction.length>=4
   ){
     return true;
   }
@@ -1310,212 +1921,425 @@ function checkAuctionEnd(){
   return false;
 }
 
+
+/* =========================================================
+   COMPUTER BID
+   ========================================================= */
+
 function computerBid(){
 
-  if(state.phase!=="auction") return;
-  if(state.turn==="S") return;
+  if(
+    state.phase!=="auction"
+  ){
+    return;
+  }
 
-  const seat=state.turn;
-  const hand=state.hands[seat];
-  const points=handHCP(hand);
+  if(
+    state.turn==="S"
+  ){
+    return;
+  }
+
+  const seat=
+    state.turn;
+
+  const hand=
+    state.hands[seat];
+
+  const points=
+    handHCP(hand);
 
   let bid="PASS";
 
-  const longest=SUITS
-    .map(s=>({
-      suit:s,
-      count:suitCount(hand,s)
-    }))
-    .sort((a,b)=>b.count-a.count)[0];
+  const longest=
+    SUITS
+      .map(
+        suit=>({
+          suit:suit,
+          count:
+            suitCount(
+              hand,
+              suit
+            )
+        })
+      )
+      .sort(
+        (a,b)=>
+          b.count-a.count
+      )[0];
 
-  if(!state.currentBid){
+  /*
+   Opening bid.
+  */
 
-    if(points>=15 && points<=17){
+  if(
+    !state.currentBid
+  ){
+
+    if(
+      points>=15 &&
+      points<=17
+    ){
 
       bid={
         level:1,
         suit:"NT"
       };
 
-    }else if(points>=13 && longest.count>=4){
+    }else if(
+      points>=13 &&
+      longest.count>=4
+    ){
 
       bid={
         level:1,
-        suit:longest.suit
+        suit:
+          longest.suit
       };
 
     }
 
   }else{
 
+    /*
+     Basic competitive
+     computer bidding.
+    */
+
+    const threshold=
+      state.level==="easy"
+        ? 14
+        : state.level==="medium"
+          ? 12
+          : state.level==="hard"
+            ? 11
+            : 10;
+
     if(
-      points>=
-      (state.level==="easy"?14:
-       state.level==="medium"?12:
-       state.level==="hard"?11:10)
-      &&
+      points>=threshold &&
       longest.count>=5
     ){
 
       const candidate={
         level:1,
-        suit:longest.suit
+        suit:
+          longest.suit
       };
 
-      if(isHigherBid(candidate)){
-        bid=candidate;
+      if(
+        isHigherBid(candidate)
+      ){
+
+        bid=
+          candidate;
+
       }
+
     }
+
   }
 
   makeBid(bid);
+
 }
 
-/* ---------- BID UI ---------- */
+
+/* =========================================================
+   AUCTION UI
+   ========================================================= */
 
 function openBid(){
 
-  if(state.phase!=="auction") return;
+  if(
+    state.phase!=="auction"
+  ){
+    return;
+  }
 
   renderAuctionHistory();
 
-  const grid=$("bidGrid");
+  const grid=
+    $("bidGrid");
+
   grid.innerHTML="";
 
-  const bids=[];
+  for(
+    let level=1;
+    level<=7;
+    level++
+  ){
 
-  for(let level=1;level<=7;level++){
-
-    for(const suit of ["♣","♦","♥","♠","NT"]){
+    for(
+      const suit of
+      ["♣","♦","♥","♠","NT"]
+    ){
 
       const bid={
-        level,
-        suit
+        level:level,
+        suit:suit
       };
 
-      const b=document.createElement("button");
+      const button=
+        document.createElement(
+          "button"
+        );
 
-      b.className="bid";
+      button.className=
+        "bid";
 
       if(
         !isHigherBid(bid)
       ){
-        b.classList.add("disabled");
+
+        button.classList.add(
+          "disabled"
+        );
+
       }
 
       if(
         suit==="♥" ||
         suit==="♦"
       ){
-        b.style.color="#ff7474";
+
+        button.style.color=
+          "#ff7474";
+
       }
 
-      b.textContent=
+      button.textContent=
         level+suit;
 
-      b.onclick=()=>{
+      button.onclick=()=>{
+
         makeBid(bid);
+
         closeBid();
+
       };
 
-      grid.appendChild(b);
+      grid.appendChild(
+        button
+      );
+
     }
+
   }
 
-  const pass=document.createElement("button");
+  const pass=
+    document.createElement(
+      "button"
+    );
 
-  pass.className="bid pass";
-  pass.textContent="PASS";
+  pass.className=
+    "bid pass";
+
+  pass.textContent=
+    "PASS";
 
   pass.onclick=()=>{
+
     makeBid("PASS");
+
     closeBid();
+
   };
 
-  grid.appendChild(pass);
+  grid.appendChild(
+    pass
+  );
 
-  $("bidOverlay").classList.add("show");
+  $("bidOverlay")
+    .classList.add("show");
+
 }
+
 
 function closeBid(){
-  $("bidOverlay").classList.remove("show");
+
+  $("bidOverlay")
+    .classList.remove("show");
+
 }
+
 
 function renderAuctionHistory(){
 
-  const el=$("auctionHistory");
+  const el=
+    $("auctionHistory");
+
   el.innerHTML="";
 
-  for(const seat of SEATS){
+  for(
+    const seat of SEATS
+  ){
 
-    const div=document.createElement("div");
+    const div=
+      document.createElement(
+        "div"
+      );
 
-    div.className="auction-seat";
+    div.className=
+      "auction-seat";
 
     const records=
-      state.auction.filter(x=>x.seat===seat);
+      state.auction.filter(
+        x=>x.seat===seat
+      );
 
     div.innerHTML=
       `<b>${seat}</b>`+
       (
         records.length
-          ? records.map(x=>formatBid(x.bid)).join("<br>")
+          ? records
+              .map(
+                x=>formatBid(x.bid)
+              )
+              .join("<br>")
           : "—"
       );
 
-    el.appendChild(div);
+    el.appendChild(
+      div
+    );
+
   }
+
 }
+
 
 function formatBid(bid){
 
-  if(bid==="PASS") return "PASS";
+  if(
+    bid==="PASS"
+  ){
+    return "PASS";
+  }
 
-  return bid.level+bid.suit;
+  return (
+    bid.level+
+    bid.suit
+  );
 }
 
-/* ---------- FINISH AUCTION ---------- */
+
+/* =========================================================
+   FINISH AUCTION
+   ========================================================= */
 
 function finishAuction(){
 
   const active=
-    state.auction.filter(x=>x.bid!=="PASS");
+    state.auction.filter(
+      x=>x.bid!=="PASS"
+    );
 
-  if(active.length===0){
+  /*
+   Jika semua PASS,
+   board diulang dengan
+   board berikutnya.
+  */
 
-    state.board++;
+  if(
+    active.length===0
+  ){
 
-    newGame();
+    $("statusText").textContent=
+      "Semua pemain PASS.";
+
+    setTimeout(
+      ()=>{
+        state.board++;
+        newGame();
+      },
+      900
+    );
+
     return;
   }
 
   const finalBid=
-    active[active.length-1].bid;
+    active[
+      active.length-1
+    ].bid;
+
+  /*
+   Declarer adalah pemain
+   pertama dari partnership
+   yang membuat bid terakhir
+   pada denomination kontrak.
+  */
+
+  const bidderSide=
+    ["N","S"].includes(
+      active[active.length-1].seat
+    )
+      ? ["N","S"]
+      : ["E","W"];
 
   const declarerRecord=
     active.find(
-      x=>x.bid.level===finalBid.level &&
-          x.bid.suit===finalBid.suit
+      x=>
+        bidderSide.includes(x.seat) &&
+        x.bid!=="PASS" &&
+        x.bid.level===finalBid.level &&
+        x.bid.suit===finalBid.suit
     );
 
-  state.contract=finalBid;
-  state.declarer=declarerRecord.seat;
+  state.contract=
+    finalBid;
 
-  state.dummy=nextSeat(state.declarer);
+  state.declarer=
+    declarerRecord
+      ? declarerRecord.seat
+      : active[
+          active.length-1
+        ].seat;
+
+  /*
+   Dummy adalah partner declarer.
+  */
+
+  state.dummy=
+    nextSeat(
+      state.declarer
+    );
+
   state.trump=
     finalBid.suit==="NT"
       ? null
       : finalBid.suit;
 
+  /*
+   OPENING LEADER = pemain
+   di sebelah kiri declarer.
+
+   Urutan SEATS:
+   N -> E -> S -> W -> N
+
+   Jadi left/dealer berikutnya
+   menggunakan nextSeat().
+  */
+
+  state.openingLeader=
+    nextSeat(
+      state.declarer
+    );
+
+  /*
+   Dummy masih tertutup.
+  */
+
+  state.dummyRevealed=false;
+
   state.phase="play";
 
-  const openingLeader=
-    nextSeat(state.declarer);
-
-  state.turn=openingLeader;
+  state.turn=
+    state.openingLeader;
 
   $("contractText").textContent=
-    finalBid.level+finalBid.suit;
+    finalBid.level+
+    finalBid.suit;
 
   $("centerInfo").textContent=
     `Declarer: ${state.declarer} • Dummy: ${state.dummy}`;
@@ -1523,21 +2347,51 @@ function finishAuction(){
   render();
 
   $("statusText").textContent=
-    `Kontrak ${finalBid.level}${finalBid.suit}. Pembukaan ${openingLeader}.`;
+    `Opening lead: ${state.openingLeader}`;
 
-  if(openingLeader!=="S"){
+  /*
+   Opening lead dimainkan oleh
+   pemain yang berada di kiri
+   declarer.
+  */
+
+  if(
+    state.openingLeader!=="S"
+  ){
+
     setTimeout(
-      ()=>computerPlay(openingLeader),
+      ()=>{
+        computerPlay(
+          state.openingLeader
+        );
+      },
       LEVELS[state.level].delay
     );
+
+  }else{
+
+    $("statusText").textContent=
+      "Anda melakukan opening lead.";
   }
+
 }
+
+
+/* =========================================================
+   CONTRACT DISPLAY
+   ========================================================= */
 
 function updateContractDisplay(){
 
-  if(state.phase==="auction") return;
+  if(
+    state.phase==="auction"
+  ){
+    return;
+  }
 
-  if(state.contract){
+  if(
+    state.contract
+  ){
 
     $("contractText").textContent=
       state.contract.level+
@@ -1545,210 +2399,485 @@ function updateContractDisplay(){
 
     $("centerInfo").textContent=
       `Trik NS ${state.tricksNS} • EW ${state.tricksEW}`;
+
   }
+
 }
 
-/* ---------- PLAY ---------- */
+
+/* =========================================================
+   LEGAL CARD
+   ========================================================= */
 
 function legalCard(card,seat){
 
-  if(state.trick.length===0){
+  /*
+   Jika belum ada kartu
+   di trick, semua kartu sah.
+  */
+
+  if(
+    state.trick.length===0
+  ){
     return true;
   }
 
   const lead=
-    state.trick[0].card.suit;
+    state.trick[0]
+      .card
+      .suit;
 
   const hasLead=
     state.hands[seat]
-      .some(c=>c.suit===lead);
+      .some(
+        c=>c.suit===lead
+      );
+
+  /*
+   Jika punya suit lead,
+   WAJIB mengikuti.
+  */
 
   if(hasLead){
-    return card.suit===lead;
+
+    return (
+      card.suit===lead
+    );
+
   }
+
+  /*
+   Jika tidak punya suit lead,
+   boleh kartu apa saja.
+  */
 
   return true;
 }
 
+
+/* =========================================================
+   USER PLAY
+   ========================================================= */
+
 function playCard(seat,card){
 
-  if(state.phase!=="play") return;
-
-  if(!isUserControlled(seat)) return;
-
-  if(!legalCard(card,seat)){
-    $("statusText").textContent=
-      "Anda harus mengikuti jenis kartu yang dimainkan.";
+  if(
+    state.phase!=="play"
+  ){
     return;
   }
 
-  executeCard(seat,card);
+  /*
+   Hanya pemain yang sedang
+   dikendalikan user.
+  */
+
+  if(
+    !isUserControlled(seat)
+  ){
+    return;
+  }
+
+  /*
+   Sangat penting:
+   seat harus sama dengan
+   pemain yang sedang mendapat
+   giliran.
+
+   Ini memungkinkan declarer
+   South memainkan dummy saat
+   giliran dummy.
+  */
+
+  if(
+    seat!==state.turn
+  ){
+    return;
+  }
+
+  if(
+    !legalCard(
+      card,
+      seat
+    )
+  ){
+
+    $("statusText").textContent=
+      "Anda harus mengikuti jenis kartu yang dimainkan.";
+
+    return;
+  }
+
+  executeCard(
+    seat,
+    card
+  );
+
 }
+
+
+/* =========================================================
+   EXECUTE CARD
+   ========================================================= */
 
 function executeCard(seat,card){
 
   const index=
-    state.hands[seat].findIndex(
-      c=>c.id===card.id
+    state.hands[seat]
+      .findIndex(
+        c=>c.id===card.id
+      );
+
+  if(
+    index<0
+  ){
+    return;
+  }
+
+  /*
+   Hapus kartu dari hand.
+  */
+
+  state.hands[seat]
+    .splice(
+      index,
+      1
     );
 
-  if(index<0) return;
-
-  state.hands[seat].splice(index,1);
+  /*
+   Simpan ke current trick.
+  */
 
   state.trick.push({
-    seat,
-    card
+
+    seat:seat,
+
+    card:card
+
   });
 
-  if(state.trick.length===1){
-    state.leadSuit=card.suit;
+  /*
+   Suit pertama menjadi
+   lead suit.
+  */
+
+  if(
+    state.trick.length===1
+  ){
+
+    state.leadSuit=
+      card.suit;
+
+    /*
+     Setelah opening lead
+     dimainkan, dummy resmi
+     terbuka.
+    */
+
+    if(
+      state.completed===0 &&
+      state.dummyRevealed===false
+    ){
+
+      state.dummyRevealed=true;
+
+    }
+
   }
 
   render();
 
-  if(state.trick.length===4){
+  /*
+   Empat kartu sudah dimainkan.
+  */
 
-    setTimeout(resolveTrick,500);
+  if(
+    state.trick.length===4
+  ){
 
-  }else{
+    setTimeout(
+      resolveTrick,
+      600
+    );
 
-    state.turn=nextSeat(seat);
+    return;
+  }
 
-    render();
+  /*
+   Giliran pemain berikutnya.
+  */
+
+  state.turn=
+    nextSeat(seat);
+
+  render();
+
+  /*
+   Jika giliran dikendalikan
+   user, jangan panggil AI.
+
+   Ini berlaku untuk:
+   - South
+   - Dummy ketika South declarer
+  */
+
+  if(
+    isUserControlled(
+      state.turn
+    )
+  ){
 
     if(
-      state.turn!=="S" &&
-      !isUserControlled(state.turn)
+      state.turn===state.dummy &&
+      state.declarer==="S"
     ){
 
-      setTimeout(
-        ()=>computerPlay(state.turn),
-        LEVELS[state.level].delay
-      );
+      $("statusText").textContent=
+        "Giliran Anda memainkan kartu DUMMY.";
 
     }else{
 
       $("statusText").textContent=
         "Giliran Anda memilih kartu.";
+
     }
+
+    render();
+
+    return;
   }
+
+  /*
+   Komputer memainkan kartu.
+  */
+
+  if(
+    state.turn!=="S"
+  ){
+
+    setTimeout(
+      ()=>{
+        computerPlay(
+          state.turn
+        );
+      },
+      LEVELS[state.level].delay
+    );
+
+  }
+
 }
 
-/* ---------- COMPUTER PLAY ---------- */
+
+/* =========================================================
+   COMPUTER PLAY
+   ========================================================= */
 
 function computerPlay(seat){
 
-  if(state.phase!=="play") return;
+  if(
+    state.phase!=="play"
+  ){
+    return;
+  }
 
-  if(isUserControlled(seat)) return;
+  /*
+   Jika seat adalah dummy dan
+   South declarer, komputer
+   TIDAK boleh memainkan dummy.
+  */
 
-  const hand=state.hands[seat];
+  if(
+    state.declarer==="S" &&
+    seat===state.dummy
+  ){
+
+    $("statusText").textContent=
+      "Giliran Anda memainkan kartu DUMMY.";
+
+    render();
+
+    return;
+  }
+
+  /*
+   South bukan declarer:
+   kartu South tetap milik user,
+   tetapi komputer declarer tidak
+   dapat mengaksesnya sebagai
+   pemain manusia.
+  */
+
+  if(
+    seat==="S"
+  ){
+
+    return;
+  }
+
+  const hand=
+    state.hands[seat];
 
   const legal=
-    hand.filter(c=>legalCard(c,seat));
+    hand.filter(
+      card=>
+        legalCard(
+          card,
+          seat
+        )
+    );
 
-  if(!legal.length) return;
+  if(
+    legal.length===0
+  ){
+    return;
+  }
 
   let card;
 
-  if(state.level==="easy"){
+  if(
+    state.level==="easy"
+  ){
 
     card=
       legal[
-        Math.floor(Math.random()*legal.length)
+        Math.floor(
+          Math.random()*
+          legal.length
+        )
       ];
 
   }else{
 
-    card=chooseComputerCard(
-      seat,
-      legal
-    );
+    card=
+      chooseComputerCard(
+        seat,
+        legal
+      );
+
   }
 
-  executeCard(seat,card);
+  executeCard(
+    seat,
+    card
+  );
+
 }
 
-function chooseComputerCard(seat,legal){
 
-  const declarerSide =
-    ["N","S"].includes(state.declarer)
+/* =========================================================
+   COMPUTER STRATEGY
+   ========================================================= */
+
+function chooseComputerCard(
+  seat,
+  legal
+){
+
+  const declarerSide=
+    ["N","S"].includes(
+      state.declarer
+    )
       ? ["N","S"]
       : ["E","W"];
 
-  const mySide =
-    declarerSide.includes(seat);
+  const mySide=
+    declarerSide.includes(
+      seat
+    );
 
-  /* lead */
+  /*
+   OPENING LEAD
+  */
 
-  if(state.trick.length===0){
+  if(
+    state.trick.length===0
+  ){
 
-    if(state.trump){
-
-      const nonTrump=
-        legal.filter(
-          c=>c.suit!==state.trump
-        );
-
-      if(nonTrump.length){
-        return nonTrump
-          .sort(
-            (a,b)=>
-              RANKS.indexOf(a.rank)-
-              RANKS.indexOf(b.rank)
-          )[0];
-      }
-    }
+    /*
+     Prioritaskan kartu
+     kecil untuk level rendah.
+    */
 
     return [...legal].sort(
       (a,b)=>
         RANKS.indexOf(a.rank)-
         RANKS.indexOf(b.rank)
     )[0];
-  }
 
-  /* follow */
+  }
 
   const winning=
     currentWinningCard();
 
-  if(!mySide){
+  /*
+   Jika bukan partnership declarer,
+   coba memenangkan trick.
+  */
+
+  if(
+    !mySide
+  ){
 
     const winners=
-      legal.filter(c=>
-        beats(
-          c,
-          winning,
-          state.leadSuit,
-          state.trump
-        )
+      legal.filter(
+        card=>
+          beats(
+            card,
+            winning.card,
+            state.leadSuit,
+            state.trump
+          )
       );
 
-    if(winners.length){
+    if(
+      winners.length
+    ){
 
       return winners.sort(
         (a,b)=>
           RANKS.indexOf(a.rank)-
           RANKS.indexOf(b.rank)
       )[0];
+
     }
+
   }
+
+  /*
+   Jika tidak perlu menang,
+   buang kartu terendah.
+  */
 
   return [...legal].sort(
     (a,b)=>
       RANKS.indexOf(a.rank)-
       RANKS.indexOf(b.rank)
   )[0];
+
 }
+
+
+/* =========================================================
+   CURRENT WINNER
+   ========================================================= */
 
 function currentWinningCard(){
 
-  if(!state.trick.length) return null;
+  if(
+    state.trick.length===0
+  ){
+    return null;
+  }
 
-  let winner=state.trick[0];
+  let winner=
+    state.trick[0];
 
-  for(let i=1;i<state.trick.length;i++){
+  for(
+    let i=1;
+    i<state.trick.length;
+    i++
+  ){
 
     if(
       beats(
@@ -1758,81 +2887,207 @@ function currentWinningCard(){
         state.trump
       )
     ){
-      winner=state.trick[i];
+
+      winner=
+        state.trick[i];
+
     }
+
   }
 
   return winner;
 }
 
-function beats(a,b,lead,trump){
 
-  if(a.suit===trump && b.suit!==trump)
+/* =========================================================
+   COMPARE CARDS
+   ========================================================= */
+
+function beats(
+  a,
+  b,
+  lead,
+  trump
+){
+
+  /*
+   Trump mengalahkan
+   suit non-trump.
+  */
+
+  if(
+    trump &&
+    a.suit===trump &&
+    b.suit!==trump
+  ){
+
     return true;
+  }
 
-  if(a.suit!==trump && b.suit===trump)
+  if(
+    trump &&
+    a.suit!==trump &&
+    b.suit===trump
+  ){
+
     return false;
+  }
 
-  if(a.suit!==b.suit)
+  /*
+   Jika berbeda suit,
+   kartu tidak mengalahkan.
+  */
+
+  if(
+    a.suit!==b.suit
+  ){
+
     return false;
+  }
 
-  return RANKS.indexOf(a.rank)>
-         RANKS.indexOf(b.rank);
+  return (
+    RANKS.indexOf(a.rank)>
+    RANKS.indexOf(b.rank)
+  );
+
 }
 
-/* ---------- TRICK RESULT ---------- */
+
+/* =========================================================
+   RESOLVE TRICK
+   ========================================================= */
 
 function resolveTrick(){
 
-  const winner=currentWinningCard();
+  const winner=
+    currentWinningCard();
 
-  if(!winner) return;
+  if(
+    !winner
+  ){
+    return;
+  }
 
-  if(["N","S"].includes(winner.seat)){
+  /*
+   Hitung trick berdasarkan
+   partnership.
+  */
+
+  if(
+    ["N","S"].includes(
+      winner.seat
+    )
+  ){
+
     state.tricksNS++;
+
   }else{
+
     state.tricksEW++;
+
   }
 
   state.completed++;
 
-  const wonBy=winner.seat;
+  const winnerSeat=
+    winner.seat;
+
+  /*
+   Bersihkan trick.
+  */
 
   state.trick=[];
 
-  if(state.completed>=13){
+  state.leadSuit=null;
 
-    finishBoard();
-    return;
-  }
+  /*
+   Trick berikutnya dipimpin
+   oleh pemenang trick.
+  */
 
-  state.turn=wonBy;
-
-  $("statusText").textContent=
-    `Trik dimenangkan ${wonBy}.`;
+  state.turn=
+    winnerSeat;
 
   render();
 
   if(
-    state.turn!=="S" &&
-    !isUserControlled(state.turn)
+    state.completed>=13
+  ){
+
+    finishBoard();
+
+    return;
+  }
+
+  $("statusText").textContent=
+    `Trik dimenangkan ${winnerSeat}.`;
+
+  /*
+   Jika winner adalah dummy
+   dan South declarer, South
+   mengontrol dummy.
+  */
+
+  if(
+    isUserControlled(
+      state.turn
+    )
+  ){
+
+    if(
+      state.turn===state.dummy &&
+      state.declarer==="S"
+    ){
+
+      $("statusText").textContent=
+        "Anda memimpin dari DUMMY.";
+
+    }else{
+
+      $("statusText").textContent=
+        "Anda memimpin trick berikutnya.";
+
+    }
+
+    render();
+
+    return;
+  }
+
+  /*
+   Komputer memimpin.
+  */
+
+  if(
+    state.turn!=="S"
   ){
 
     setTimeout(
-      ()=>computerPlay(state.turn),
+      ()=>{
+        computerPlay(
+          state.turn
+        );
+      },
       LEVELS[state.level].delay
     );
+
   }
+
 }
 
-/* ---------- SCORE ---------- */
+
+/* =========================================================
+   FINISH BOARD
+   ========================================================= */
 
 function finishBoard(){
 
   state.phase="finished";
 
   const declarerNS=
-    ["N","S"].includes(state.declarer);
+    ["N","S"].includes(
+      state.declarer
+    );
 
   const made=
     declarerNS
@@ -1840,7 +3095,8 @@ function finishBoard(){
       : state.tricksEW;
 
   const target=
-    6+state.contract.level;
+    6+
+    state.contract.level;
 
   const score=
     calculateScore(
@@ -1856,158 +3112,279 @@ function finishBoard(){
       : `KONTRAK GAGAL • Skor ${score}`;
 
   $("contractText").textContent=
-    `${state.contract.level}${state.contract.suit}`;
+    state.contract.level+
+    state.contract.suit;
 
   $("centerInfo").textContent=
     `Trik ${made}/${target} • Skor ${score}`;
 
   render();
 
-  setTimeout(()=>{
+  setTimeout(
+    ()=>{
 
-    if(
-      confirm(
-        `Board selesai.\n\n`+
-        `Kontrak: ${state.contract.level}${state.contract.suit}\n`+
-        `Trik: ${made}\n`+
-        `Skor: ${score}\n\n`+
-        `Main board berikutnya?`
-      )
-    ){
-      state.board++;
-      newGame();
-    }
+      const again=
+        confirm(
+          `Board selesai.\n\n`+
+          `Kontrak: `+
+          `${state.contract.level}`+
+          `${state.contract.suit}\n`+
+          `Trik: ${made}\n`+
+          `Target: ${target}\n`+
+          `Skor: ${score}\n\n`+
+          `Main board berikutnya?`
+        );
 
-  },400);
+      if(
+        again
+      ){
+
+        state.board++;
+
+        newGame();
+
+      }
+
+    },
+    500
+  );
+
 }
 
-function calculateScore(contract,made,vul,declarerNS){
 
-  const target=6+contract.level;
+/* =========================================================
+   SIMPLE DUPLICATE SCORE
+   ========================================================= */
 
-  if(made<target){
+function calculateScore(
+  contract,
+  made,
+  vul,
+  declarerNS
+){
 
-    const down=target-made;
+  const target=
+    6+
+    contract.level;
 
-    let penalty=50*down;
+  /*
+   KONTRAK GAGAL
+  */
 
-    if(vul!=="None") penalty=100*down;
+  if(
+    made<target
+  ){
 
-    return declarerNS ? -penalty : penalty;
+    const down=
+      target-made;
+
+    const penalty=
+      vul==="None"
+        ? 50*down
+        : 100*down;
+
+    return declarerNS
+      ? -penalty
+      : penalty;
+
   }
 
-  const trickPoints=
+  /*
+   CONTRACT POINTS
+  */
+
+  let trickPoints=0;
+
+  if(
     contract.suit==="♣" ||
     contract.suit==="♦"
-      ? contract.level*20
-      : contract.suit==="♥" ||
-        contract.suit==="♠"
-          ? contract.level*30
-          : contract.level*30;
+  ){
 
-  let score=trickPoints;
+    trickPoints=
+      contract.level*20;
 
-  if(contract.suit==="NT"){
-    score+=10;
+  }else{
+
+    trickPoints=
+      contract.level*30;
+
   }
 
-  if(trickPoints>=100){
+  if(
+    contract.suit==="NT"
+  ){
+
+    trickPoints+=10;
+
+  }
+
+  let score=
+    trickPoints;
+
+  /*
+   GAME BONUS
+  */
+
+  if(
+    trickPoints>=100
+  ){
+
     score+=
       vul==="None"
         ? 300
         : 500;
+
   }else{
+
     score+=50;
+
   }
 
-  const over=madediff(made,target);
+  /*
+   OVERTRICK
+  */
 
-  if(over>0){
+  const over=
+    Math.max(
+      0,
+      made-target
+    );
+
+  if(
+    over>0
+  ){
 
     const value=
-      contract.suit==="♣" ||
-      contract.suit==="♦"
+      (
+        contract.suit==="♣" ||
+        contract.suit==="♦"
+      )
         ? 20
         : 30;
 
-    score+=over*value;
+    score+=
+      over*value;
+
   }
 
-  return declarerNS ? score : -score;
+  return declarerNS
+    ? score
+    : -score;
+
 }
 
-function madediff(a,b){
-  return Math.max(0,a-b);
-}
 
-/* ---------- SORT ---------- */
+/* =========================================================
+   SORT HAND
+   ========================================================= */
 
 function sortHand(){
 
   state.hands.S=
-    sortCards(state.hands.S);
+    sortCards(
+      state.hands.S
+    );
 
   render();
 
   $("statusText").textContent=
     "Kartu Anda sudah diurutkan.";
+
 }
 
-/* ---------- SETTINGS ---------- */
+
+/* =========================================================
+   SETTINGS
+   ========================================================= */
 
 function openSettings(){
 
   document
-    .querySelectorAll(".level-btn")
-    .forEach(btn=>{
-      btn.classList.toggle(
-        "active",
-        btn.dataset.level===state.level
-      );
-    });
+    .querySelectorAll(
+      ".level-btn"
+    )
+    .forEach(
+      btn=>{
 
-  $("settingsOverlay").classList.add("show");
+        btn.classList.toggle(
+          "active",
+          btn.dataset.level===
+          state.level
+        );
+
+      }
+    );
+
+  $("settingsOverlay")
+    .classList.add(
+      "show"
+    );
+
 }
+
 
 function closeSettings(){
-  $("settingsOverlay").classList.remove("show");
+
+  $("settingsOverlay")
+    .classList.remove(
+      "show"
+    );
+
 }
+
 
 function setLevel(level){
 
-  state.level=level;
+  state.level=
+    level;
 
   const name=
     LEVELS[level].name;
 
-  $("northLevel").textContent=name;
-  $("eastLevel").textContent=name;
-  $("westLevel").textContent=name;
+  $("northLevel").textContent=
+    name;
+
+  $("eastLevel").textContent=
+    name;
+
+  $("westLevel").textContent=
+    name;
 
   closeSettings();
 
   $("statusText").textContent=
     `Level komputer: ${name}`;
 
-  setTimeout(()=>{
-    if(state.phase==="auction" &&
-       state.turn!=="S"){
-      computerBid();
-    }
-  },300);
 }
 
-/* ---------- HELP ---------- */
+
+/* =========================================================
+   HELP
+   ========================================================= */
 
 function openHelp(){
-  $("helpOverlay").classList.add("show");
+
+  $("helpOverlay")
+    .classList.add(
+      "show"
+    );
+
 }
+
 
 function closeHelp(){
-  $("helpOverlay").classList.remove("show");
+
+  $("helpOverlay")
+    .classList.remove(
+      "show"
+    );
+
 }
 
-/* ---------- START ---------- */
+
+/* =========================================================
+   START
+   ========================================================= */
 
 newGame();
 
