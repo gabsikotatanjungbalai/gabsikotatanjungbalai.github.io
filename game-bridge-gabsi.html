@@ -2,8 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
 <title>GABSI Kota Tanjungbalai — Bridge Online</title>
 
@@ -380,8 +379,6 @@ button{
   font-size:18px;
 }
 
-/* DUMMY HIGHLIGHT */
-
 .dummy-active .card.playable{
   border-color:#ffe184;
   box-shadow:
@@ -441,7 +438,7 @@ button{
   top:30px;
 }
 
-/* BOTTOM PANEL */
+/* BOTTOM */
 
 .bottom{
   padding:7px 8px calc(8px + env(safe-area-inset-bottom));
@@ -494,7 +491,7 @@ button{
   background:#7f2828;
 }
 
-/* AUCTION */
+/* SHEET */
 
 .overlay{
   position:fixed;
@@ -590,7 +587,7 @@ button{
   pointer-events:none;
 }
 
-/* MENU */
+/* LEVEL */
 
 .level-grid{
   display:grid;
@@ -623,8 +620,6 @@ button{
   background:#d9b45b18;
 }
 
-/* RESPONSIVE */
-
 @media(max-width:390px){
 
   .table{
@@ -648,6 +643,7 @@ button{
   .player-name{
     font-size:9px;
   }
+
 }
 
 @media(min-width:500px){
@@ -655,6 +651,7 @@ button{
   .table{
     min-height:600px;
   }
+
 }
 </style>
 </head>
@@ -670,6 +667,7 @@ button{
     <div class="logo">♠</div>
 
     <div>
+
       <div class="brand-title">
         GABSI KOTA TANJUNGBALAI
       </div>
@@ -677,6 +675,7 @@ button{
       <div class="brand-sub">
         BRIDGE ONLINE • COMPUTER TABLE
       </div>
+
     </div>
 
   </div>
@@ -740,9 +739,7 @@ button{
 
     <div class="player">
 
-      <div class="avatar">
-        N
-      </div>
+      <div class="avatar">N</div>
 
       <div class="player-name">
         North • Komputer
@@ -769,9 +766,7 @@ button{
 
     <div class="player">
 
-      <div class="avatar">
-        W
-      </div>
+      <div class="avatar">W</div>
 
       <div class="player-name">
         West • Komputer
@@ -798,9 +793,7 @@ button{
 
     <div class="player">
 
-      <div class="avatar">
-        E
-      </div>
+      <div class="avatar">E</div>
 
       <div class="player-name">
         East • Komputer
@@ -847,7 +840,7 @@ button{
 
   </div>
 
-  <!-- CURRENT TRICK -->
+  <!-- TRICK -->
 
   <div
     class="trick"
@@ -922,7 +915,7 @@ button{
 </div>
 
 
-<!-- BID -->
+<!-- BID SHEET -->
 
 <div
   class="overlay"
@@ -1117,31 +1110,23 @@ button{
 <script>
 
 /* =========================================================
-   GABSI KOTA TANJUNGBALAI
-   BRIDGE ONLINE
-   DUMMY CONTROL FIX
+   GABSI BRIDGE ENGINE
    ========================================================= */
 
-const SUITS = [
-  "♣",
-  "♦",
-  "♥",
-  "♠"
+const SUITS=[
+  "♣","♦","♥","♠"
 ];
 
-const RANKS = [
+const RANKS=[
   "2","3","4","5","6","7",
   "8","9","10","J","Q","K","A"
 ];
 
-const SEATS = [
-  "N",
-  "E",
-  "S",
-  "W"
+const SEATS=[
+  "N","E","S","W"
 ];
 
-const state = {
+const state={
 
   board:1,
 
@@ -1192,8 +1177,7 @@ const state = {
 
 };
 
-
-const LEVELS = {
+const LEVELS={
 
   easy:{
     name:"Pemula",
@@ -1229,36 +1213,58 @@ function $(id){
 
 function nextSeat(seat){
 
-  const i =
+  const index=
     SEATS.indexOf(seat);
 
   return SEATS[
-    (i+1)%4
+    (index+1)%4
   ];
+
 }
 
 
-function hcp(card){
+function partnerSeat(seat){
 
-  if(card.rank==="A") return 4;
+  if(seat==="N") return "S";
 
-  if(card.rank==="K") return 3;
+  if(seat==="S") return "N";
 
-  if(card.rank==="Q") return 2;
+  if(seat==="E") return "W";
 
-  if(card.rank==="J") return 1;
+  return "E";
 
-  return 0;
+}
+
+
+function isNS(seat){
+
+  return (
+    seat==="N" ||
+    seat==="S"
+  );
+
 }
 
 
 function handHCP(hand){
 
   return hand.reduce(
-    (total,card)=>
-      total+hcp(card),
+    (sum,card)=>{
+
+      if(card.rank==="A") return sum+4;
+
+      if(card.rank==="K") return sum+3;
+
+      if(card.rank==="Q") return sum+2;
+
+      if(card.rank==="J") return sum+1;
+
+      return sum;
+
+    },
     0
   );
+
 }
 
 
@@ -1267,6 +1273,7 @@ function suitCount(hand,suit){
   return hand.filter(
     card=>card.suit===suit
   ).length;
+
 }
 
 
@@ -1283,17 +1290,25 @@ function sortCards(hand){
     (a,b)=>{
 
       if(
-        order[a.suit] !==
+        order[a.suit]!==
         order[b.suit]
       ){
-        return order[a.suit]-
-               order[b.suit];
+
+        return (
+          order[a.suit]-
+          order[b.suit]
+        );
+
       }
 
-      return RANKS.indexOf(b.rank)-
-             RANKS.indexOf(a.rank);
+      return (
+        RANKS.indexOf(b.rank)-
+        RANKS.indexOf(a.rank)
+      );
+
     }
   );
+
 }
 
 
@@ -1317,9 +1332,11 @@ function shuffle(array){
       array[j],
       array[i]
     ];
+
   }
 
   return array;
+
 }
 
 
@@ -1340,29 +1357,37 @@ function boardInfo(board){
   let vul="None";
 
   if(
-    [0,3,6,9].includes(cycle)
+    [0,3,6,9]
+      .includes(cycle)
   ){
+
     vul="N-S";
+
   }
 
   if(
     [1,2,5,8,11,12,15]
       .includes(cycle)
   ){
+
     vul="E-W";
+
   }
 
   if(
     [4,7,10,13]
       .includes(cycle)
   ){
+
     vul="Both";
+
   }
 
-  return {
+  return{
     dealer,
     vul
   };
+
 }
 
 
@@ -1373,7 +1398,9 @@ function boardInfo(board){
 function newGame(){
 
   const info=
-    boardInfo(state.board);
+    boardInfo(
+      state.board
+    );
 
   state.dealer=
     info.dealer;
@@ -1381,7 +1408,8 @@ function newGame(){
   state.vul=
     info.vul;
 
-  state.phase="auction";
+  state.phase=
+    "auction";
 
   state.turn=
     state.dealer;
@@ -1434,7 +1462,7 @@ function newGame(){
   $("statusText").textContent=
     state.turn==="S"
       ? "Giliran Anda membuka lelang"
-      : "Komputer sedang membuka lelang";
+      : `Komputer ${state.turn} sedang membuka lelang`;
 
   render();
 
@@ -1442,10 +1470,7 @@ function newGame(){
     state.turn!=="S"
   ){
 
-    setTimeout(
-      computerBid,
-      LEVELS[state.level].delay
-    );
+    scheduleComputerBid();
 
   }
 
@@ -1470,9 +1495,9 @@ function makeDeck(){
 
       state.deck.push({
 
-        suit:suit,
+        suit,
 
-        rank:rank,
+        rank,
 
         id:
           suit+
@@ -1485,7 +1510,10 @@ function makeDeck(){
 
   }
 
-  shuffle(state.deck);
+  shuffle(
+    state.deck
+  );
+
 }
 
 
@@ -1501,11 +1529,9 @@ function deal(){
   state.deck.forEach(
     (card,index)=>{
 
-      const seat=
-        SEATS[index%4];
-
-      state.hands[seat]
-        .push(card);
+      state.hands[
+        SEATS[index%4]
+      ].push(card);
 
     }
   );
@@ -1520,6 +1546,73 @@ function deal(){
       );
 
   }
+
+}
+
+
+/* =========================================================
+   USER / COMPUTER CONTROL
+   ========================================================= */
+
+function isUserControlled(seat){
+
+  /*
+   Hanya ketika South menjadi
+   declarer, user mengontrol
+   South + Dummy.
+  */
+
+  if(
+    state.phase!=="play"
+  ){
+
+    return false;
+
+  }
+
+  if(
+    state.declarer==="S"
+  ){
+
+    return (
+      seat==="S" ||
+      seat===state.dummy
+    );
+
+  }
+
+  return false;
+
+}
+
+
+function isComputerControlled(seat){
+
+  if(
+    state.phase!=="play"
+  ){
+
+    return false;
+
+  }
+
+  return !isUserControlled(
+    seat
+  );
+
+}
+
+
+/* =========================================================
+   DUMMY
+   ========================================================= */
+
+function shouldRevealDummy(){
+
+  return (
+    state.phase==="play" &&
+    state.dummyRevealed
+  );
 
 }
 
@@ -1541,10 +1634,11 @@ function render(){
   renderTrick();
 
   $("trickText").textContent=
-    `${
+    (
       state.tricksNS+
       state.tricksEW
-    } / 13`;
+    )+
+    " / 13";
 
   updateContractDisplay();
 
@@ -1552,71 +1646,7 @@ function render(){
 
 
 /* =========================================================
-   DUMMY LOGIC
-   ========================================================= */
-
-function shouldRevealDummy(){
-
-  /*
-   Dummy TIDAK langsung dibuka ketika
-   kontrak selesai.
-
-   Dummy baru terbuka setelah kartu
-   opening lead dimainkan.
-  */
-
-  return (
-    state.phase==="play" &&
-    state.dummyRevealed===true
-  );
-}
-
-
-function isUserControlled(seat){
-
-  if(
-    state.phase!=="play"
-  ){
-    return false;
-  }
-
-  /*
-   Jika South adalah declarer,
-   South mengendalikan:
-
-   1. kartu South sendiri
-   2. kartu Dummy
-  */
-
-  if(
-    state.declarer==="S" &&
-    (
-      seat==="S" ||
-      seat===state.dummy
-    )
-  ){
-    return true;
-  }
-
-  /*
-   Jika South bukan declarer,
-   hanya South sendiri yang
-   dapat dikendalikan.
-  */
-
-  if(
-    seat==="S" &&
-    state.declarer!=="S"
-  ){
-    return false;
-  }
-
-  return false;
-}
-
-
-/* =========================================================
-   RENDER HAND
+   HAND RENDER
    ========================================================= */
 
 function renderHand(seat){
@@ -1631,12 +1661,6 @@ function renderHand(seat){
   const hand=
     state.hands[seat];
 
-  /*
-   South selalu terlihat.
-   Dummy terlihat hanya setelah
-   opening lead.
-  */
-
   const reveal=
     seat==="S" ||
     (
@@ -1648,13 +1672,18 @@ function renderHand(seat){
     card=>{
 
       const div=
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
-      div.className="card";
+      div.className=
+        "card";
 
       if(!reveal){
 
-        div.classList.add("back");
+        div.classList.add(
+          "back"
+        );
 
       }else{
 
@@ -1662,7 +1691,11 @@ function renderHand(seat){
           card.suit==="♥" ||
           card.suit==="♦"
         ){
-          div.classList.add("red");
+
+          div.classList.add(
+            "red"
+          );
+
         }
 
         div.innerHTML=
@@ -1673,17 +1706,14 @@ function renderHand(seat){
              ${card.suit}
            </span>`;
 
-        /*
-         Jika kartu bisa dimainkan
-         oleh user, berikan efek
-         playable.
-        */
-
         if(
           state.phase==="play" &&
           isUserControlled(seat) &&
-          seat===state.turn &&
-          legalCard(card,seat)
+          state.turn===seat &&
+          legalCard(
+            card,
+            seat
+          )
         ){
 
           div.classList.add(
@@ -1706,24 +1736,27 @@ function renderHand(seat){
     }
   );
 
-  /*
-   Tandai area dummy saat
-   South menjadi declarer.
-  */
-
   const table=
     $("bridgeTable");
 
-  if(
-    state.declarer==="S" &&
-    state.dummy===seat &&
-    shouldRevealDummy() &&
-    state.turn===seat
-  ){
+  if(table){
 
-    table.classList.add(
+    table.classList.remove(
       "dummy-active"
     );
+
+    if(
+      state.declarer==="S" &&
+      state.dummy===seat &&
+      state.dummyRevealed &&
+      state.turn===seat
+    ){
+
+      table.classList.add(
+        "dummy-active"
+      );
+
+    }
 
   }
 
@@ -1731,7 +1764,7 @@ function renderHand(seat){
 
 
 /* =========================================================
-   CURRENT TRICK
+   TRICK
    ========================================================= */
 
 function renderTrick(){
@@ -1739,13 +1772,17 @@ function renderTrick(){
   const el=
     $("trick");
 
+  if(!el) return;
+
   el.innerHTML="";
 
   state.trick.forEach(
     item=>{
 
       const div=
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
       div.className=
         "trick-card "+
@@ -1755,9 +1792,11 @@ function renderTrick(){
         item.card.suit==="♥" ||
         item.card.suit==="♦"
       ){
+
         div.classList.add(
           "red"
         );
+
       }
 
       div.textContent=
@@ -1790,6 +1829,7 @@ function bidRank(level,suit){
     level*5+
     order[suit]
   );
+
 }
 
 
@@ -1798,7 +1838,9 @@ function isHigherBid(bid){
   if(
     !state.currentBid
   ){
+
     return true;
+
   }
 
   return (
@@ -1811,6 +1853,7 @@ function isHigherBid(bid){
       state.currentBid.suit
     )
   );
+
 }
 
 
@@ -1821,7 +1864,7 @@ function makeBid(bid){
     seat:
       state.turn,
 
-    bid:bid
+    bid
 
   });
 
@@ -1841,6 +1884,7 @@ function makeBid(bid){
     finishAuction();
 
     return;
+
   }
 
   state.turn=
@@ -1866,10 +1910,7 @@ function makeBid(bid){
     $("statusText").textContent=
       `Komputer ${state.turn} sedang berpikir...`;
 
-    setTimeout(
-      computerBid,
-      LEVELS[state.level].delay
-    );
+    scheduleComputerBid();
 
   }
 
@@ -1881,16 +1922,13 @@ function checkAuctionEnd(){
   if(
     state.auction.length<4
   ){
+
     return false;
+
   }
 
   const last4=
     state.auction.slice(-4);
-
-  /*
-   Empat PASS setelah ada bid
-   mengakhiri lelang.
-  */
 
   const nonPass=
     state.auction.filter(
@@ -1903,59 +1941,68 @@ function checkAuctionEnd(){
       x=>x.bid==="PASS"
     )
   ){
-    return true;
-  }
 
-  /*
-   Empat PASS sejak awal =
-   semua pass.
-  */
+    return true;
+
+  }
 
   if(
     nonPass.length===0 &&
     state.auction.length>=4
   ){
+
     return true;
+
   }
 
   return false;
+
 }
 
 
 /* =========================================================
-   COMPUTER BID
+   COMPUTER BIDDING
    ========================================================= */
+
+function scheduleComputerBid(){
+
+  setTimeout(
+    computerBid,
+    LEVELS[state.level].delay
+  );
+
+}
+
 
 function computerBid(){
 
   if(
     state.phase!=="auction"
   ){
+
     return;
+
   }
 
   if(
     state.turn==="S"
   ){
+
     return;
+
   }
 
-  const seat=
-    state.turn;
-
   const hand=
-    state.hands[seat];
+    state.hands[state.turn];
 
   const points=
     handHCP(hand);
-
-  let bid="PASS";
 
   const longest=
     SUITS
       .map(
         suit=>({
-          suit:suit,
+          suit,
           count:
             suitCount(
               hand,
@@ -1968,9 +2015,7 @@ function computerBid(){
           b.count-a.count
       )[0];
 
-  /*
-   Opening bid.
-  */
+  let bid="PASS";
 
   if(
     !state.currentBid
@@ -2001,11 +2046,6 @@ function computerBid(){
 
   }else{
 
-    /*
-     Basic competitive
-     computer bidding.
-    */
-
     const threshold=
       state.level==="easy"
         ? 14
@@ -2027,7 +2067,9 @@ function computerBid(){
       };
 
       if(
-        isHigherBid(candidate)
+        isHigherBid(
+          candidate
+        )
       ){
 
         bid=
@@ -2053,7 +2095,9 @@ function openBid(){
   if(
     state.phase!=="auction"
   ){
+
     return;
+
   }
 
   renderAuctionHistory();
@@ -2075,8 +2119,8 @@ function openBid(){
     ){
 
       const bid={
-        level:level,
-        suit:suit
+        level,
+        suit
       };
 
       const button=
@@ -2150,7 +2194,9 @@ function openBid(){
   );
 
   $("bidOverlay")
-    .classList.add("show");
+    .classList.add(
+      "show"
+    );
 
 }
 
@@ -2158,7 +2204,9 @@ function openBid(){
 function closeBid(){
 
   $("bidOverlay")
-    .classList.remove("show");
+    .classList.remove(
+      "show"
+    );
 
 }
 
@@ -2199,9 +2247,7 @@ function renderAuctionHistory(){
           : "—"
       );
 
-    el.appendChild(
-      div
-    );
+    el.appendChild(div);
 
   }
 
@@ -2213,13 +2259,16 @@ function formatBid(bid){
   if(
     bid==="PASS"
   ){
+
     return "PASS";
+
   }
 
   return (
     bid.level+
     bid.suit
   );
+
 }
 
 
@@ -2233,12 +2282,6 @@ function finishAuction(){
     state.auction.filter(
       x=>x.bid!=="PASS"
     );
-
-  /*
-   Jika semua PASS,
-   board diulang dengan
-   board berikutnya.
-  */
 
   if(
     active.length===0
@@ -2256,6 +2299,7 @@ function finishAuction(){
     );
 
     return;
+
   }
 
   const finalBid=
@@ -2263,45 +2307,73 @@ function finishAuction(){
       active.length-1
     ].bid;
 
+  const finalSide=
+    isNS(
+      active[
+        active.length-1
+      ].seat
+    )
+      ? "NS"
+      : "EW";
+
   /*
-   Declarer adalah pemain
-   pertama dari partnership
-   yang membuat bid terakhir
-   pada denomination kontrak.
+    Declarer adalah pemain pertama
+    dari partnership pemenang yang
+    menawar denomination final.
   */
 
-  const bidderSide=
-    ["N","S"].includes(
-      active[active.length-1].seat
-    )
-      ? ["N","S"]
-      : ["E","W"];
+  let declarerRecord=null;
 
-  const declarerRecord=
-    active.find(
-      x=>
-        bidderSide.includes(x.seat) &&
-        x.bid!=="PASS" &&
-        x.bid.level===finalBid.level &&
-        x.bid.suit===finalBid.suit
-    );
+  for(
+    const item of active
+  ){
+
+    const side=
+      isNS(item.seat)
+        ? "NS"
+        : "EW";
+
+    if(
+      side===finalSide &&
+      item.bid.level===
+        finalBid.level &&
+      item.bid.suit===
+        finalBid.suit
+    ){
+
+      declarerRecord=
+        item;
+
+      break;
+
+    }
+
+  }
+
+  if(
+    !declarerRecord
+  ){
+
+    declarerRecord=
+      active[
+        active.length-1
+      ];
+
+  }
 
   state.contract=
     finalBid;
 
   state.declarer=
-    declarerRecord
-      ? declarerRecord.seat
-      : active[
-          active.length-1
-        ].seat;
+    declarerRecord.seat;
 
   /*
-   Dummy adalah partner declarer.
+    DUMMY adalah PARTNER DECLARER,
+    bukan pemain di sebelah declarer.
   */
 
   state.dummy=
-    nextSeat(
+    partnerSeat(
       state.declarer
     );
 
@@ -2311,14 +2383,8 @@ function finishAuction(){
       : finalBid.suit;
 
   /*
-   OPENING LEADER = pemain
-   di sebelah kiri declarer.
-
-   Urutan SEATS:
-   N -> E -> S -> W -> N
-
-   Jadi left/dealer berikutnya
-   menggunakan nextSeat().
+    OPENING LEADER adalah pemain
+    di sebelah kiri declarer.
   */
 
   state.openingLeader=
@@ -2326,13 +2392,11 @@ function finishAuction(){
       state.declarer
     );
 
-  /*
-   Dummy masih tertutup.
-  */
+  state.dummyRevealed=
+    false;
 
-  state.dummyRevealed=false;
-
-  state.phase="play";
+  state.phase=
+    "play";
 
   state.turn=
     state.openingLeader;
@@ -2350,35 +2414,30 @@ function finishAuction(){
     `Opening lead: ${state.openingLeader}`;
 
   /*
-   Opening lead dimainkan oleh
-   pemain yang berada di kiri
-   declarer.
+    Opening lead selalu dimainkan
+    oleh lawan declarer.
+
+    Jika South adalah declarer,
+    opening leader pasti komputer.
+
+    Jika South bukan declarer,
+    opening leader juga komputer.
   */
 
-  if(
-    state.openingLeader!=="S"
-  ){
-
-    setTimeout(
-      ()=>{
-        computerPlay(
-          state.openingLeader
-        );
-      },
-      LEVELS[state.level].delay
-    );
-
-  }else{
-
-    $("statusText").textContent=
-      "Anda melakukan opening lead.";
-  }
+  setTimeout(
+    ()=>{
+      computerPlay(
+        state.openingLeader
+      );
+    },
+    LEVELS[state.level].delay
+  );
 
 }
 
 
 /* =========================================================
-   CONTRACT DISPLAY
+   CONTRACT
    ========================================================= */
 
 function updateContractDisplay(){
@@ -2386,7 +2445,9 @@ function updateContractDisplay(){
   if(
     state.phase==="auction"
   ){
+
     return;
+
   }
 
   if(
@@ -2411,15 +2472,12 @@ function updateContractDisplay(){
 
 function legalCard(card,seat){
 
-  /*
-   Jika belum ada kartu
-   di trick, semua kartu sah.
-  */
-
   if(
     state.trick.length===0
   ){
+
     return true;
+
   }
 
   const lead=
@@ -2433,11 +2491,6 @@ function legalCard(card,seat){
         c=>c.suit===lead
       );
 
-  /*
-   Jika punya suit lead,
-   WAJIB mengikuti.
-  */
-
   if(hasLead){
 
     return (
@@ -2446,17 +2499,13 @@ function legalCard(card,seat){
 
   }
 
-  /*
-   Jika tidak punya suit lead,
-   boleh kartu apa saja.
-  */
-
   return true;
+
 }
 
 
 /* =========================================================
-   USER PLAY
+   USER CARD
    ========================================================= */
 
 function playCard(seat,card){
@@ -2464,35 +2513,25 @@ function playCard(seat,card){
   if(
     state.phase!=="play"
   ){
-    return;
-  }
 
-  /*
-   Hanya pemain yang sedang
-   dikendalikan user.
-  */
+    return;
+
+  }
 
   if(
     !isUserControlled(seat)
   ){
+
     return;
+
   }
 
-  /*
-   Sangat penting:
-   seat harus sama dengan
-   pemain yang sedang mendapat
-   giliran.
-
-   Ini memungkinkan declarer
-   South memainkan dummy saat
-   giliran dummy.
-  */
-
   if(
-    seat!==state.turn
+    state.turn!==seat
   ){
+
     return;
+
   }
 
   if(
@@ -2506,6 +2545,7 @@ function playCard(seat,card){
       "Anda harus mengikuti jenis kartu yang dimainkan.";
 
     return;
+
   }
 
   executeCard(
@@ -2531,12 +2571,10 @@ function executeCard(seat,card){
   if(
     index<0
   ){
-    return;
-  }
 
-  /*
-   Hapus kartu dari hand.
-  */
+    return;
+
+  }
 
   state.hands[seat]
     .splice(
@@ -2544,21 +2582,20 @@ function executeCard(seat,card){
       1
     );
 
-  /*
-   Simpan ke current trick.
-  */
-
   state.trick.push({
 
-    seat:seat,
+    seat,
 
-    card:card
+    card
 
   });
 
   /*
-   Suit pertama menjadi
-   lead suit.
+    Kartu pertama pada trick
+    menentukan lead suit.
+
+    Jika ini opening lead,
+    dummy dibuka.
   */
 
   if(
@@ -2568,18 +2605,12 @@ function executeCard(seat,card){
     state.leadSuit=
       card.suit;
 
-    /*
-     Setelah opening lead
-     dimainkan, dummy resmi
-     terbuka.
-    */
-
     if(
-      state.completed===0 &&
-      state.dummyRevealed===false
+      state.completed===0
     ){
 
-      state.dummyRevealed=true;
+      state.dummyRevealed=
+        true;
 
     }
 
@@ -2588,7 +2619,7 @@ function executeCard(seat,card){
   render();
 
   /*
-   Empat kartu sudah dimainkan.
+    4 kartu sudah masuk.
   */
 
   if(
@@ -2597,14 +2628,15 @@ function executeCard(seat,card){
 
     setTimeout(
       resolveTrick,
-      600
+      650
     );
 
     return;
+
   }
 
   /*
-   Giliran pemain berikutnya.
+    Giliran berikutnya.
   */
 
   state.turn=
@@ -2612,13 +2644,29 @@ function executeCard(seat,card){
 
   render();
 
-  /*
-   Jika giliran dikendalikan
-   user, jangan panggil AI.
+  continueTurn();
 
-   Ini berlaku untuk:
-   - South
-   - Dummy ketika South declarer
+}
+
+
+/* =========================================================
+   CONTINUE TURN
+   ========================================================= */
+
+function continueTurn(){
+
+  if(
+    state.phase!=="play"
+  ){
+
+    return;
+
+  }
+
+  /*
+    Jika South declarer dan
+    giliran South atau Dummy,
+    tunggu input user.
   */
 
   if(
@@ -2628,8 +2676,7 @@ function executeCard(seat,card){
   ){
 
     if(
-      state.turn===state.dummy &&
-      state.declarer==="S"
+      state.turn===state.dummy
     ){
 
       $("statusText").textContent=
@@ -2645,15 +2692,25 @@ function executeCard(seat,card){
     render();
 
     return;
+
   }
 
   /*
-   Komputer memainkan kartu.
+    Semua seat lainnya
+    dimainkan komputer.
+
+    Ini termasuk SOUTH jika
+    komputer menjadi declarer.
   */
 
   if(
-    state.turn!=="S"
+    isComputerControlled(
+      state.turn
+    )
   ){
+
+    $("statusText").textContent=
+      `Komputer ${state.turn} sedang memilih kartu...`;
 
     setTimeout(
       ()=>{
@@ -2678,13 +2735,15 @@ function computerPlay(seat){
   if(
     state.phase!=="play"
   ){
+
     return;
+
   }
 
   /*
-   Jika seat adalah dummy dan
-   South declarer, komputer
-   TIDAK boleh memainkan dummy.
+    Jika South declarer,
+    komputer tidak boleh memainkan
+    Dummy.
   */
 
   if(
@@ -2698,21 +2757,20 @@ function computerPlay(seat){
     render();
 
     return;
+
   }
 
   /*
-   South bukan declarer:
-   kartu South tetap milik user,
-   tetapi komputer declarer tidak
-   dapat mengaksesnya sebagai
-   pemain manusia.
+    Jika user mengontrol seat,
+    komputer berhenti.
   */
 
   if(
-    seat==="S"
+    isUserControlled(seat)
   ){
 
     return;
+
   }
 
   const hand=
@@ -2730,7 +2788,9 @@ function computerPlay(seat){
   if(
     legal.length===0
   ){
+
     return;
+
   }
 
   let card;
@@ -2775,31 +2835,28 @@ function chooseComputerCard(
 ){
 
   const declarerSide=
-    ["N","S"].includes(
+    isNS(
       state.declarer
     )
-      ? ["N","S"]
-      : ["E","W"];
+      ? "NS"
+      : "EW";
 
   const mySide=
-    declarerSide.includes(
-      seat
-    );
+    isNS(seat)
+      ? "NS"
+      : "EW";
 
   /*
-   OPENING LEAD
+    OPENING LEAD
   */
 
   if(
     state.trick.length===0
   ){
 
-    /*
-     Prioritaskan kartu
-     kecil untuk level rendah.
-    */
-
-    return [...legal].sort(
+    return [
+      ...legal
+    ].sort(
       (a,b)=>
         RANKS.indexOf(a.rank)-
         RANKS.indexOf(b.rank)
@@ -2807,49 +2864,76 @@ function chooseComputerCard(
 
   }
 
-  const winning=
+  const current=
     currentWinningCard();
 
-  /*
-   Jika bukan partnership declarer,
-   coba memenangkan trick.
-  */
+  if(!current){
 
-  if(
-    !mySide
-  ){
-
-    const winners=
-      legal.filter(
-        card=>
-          beats(
-            card,
-            winning.card,
-            state.leadSuit,
-            state.trump
-          )
-      );
-
-    if(
-      winners.length
-    ){
-
-      return winners.sort(
-        (a,b)=>
-          RANKS.indexOf(a.rank)-
-          RANKS.indexOf(b.rank)
-      )[0];
-
-    }
+    return legal[0];
 
   }
 
   /*
-   Jika tidak perlu menang,
-   buang kartu terendah.
+    Cari kartu yang dapat
+    memenangkan trick.
   */
 
-  return [...legal].sort(
+  const winners=
+    legal.filter(
+      card=>
+        beats(
+          card,
+          current.card,
+          state.leadSuit,
+          state.trump
+        )
+    );
+
+  /*
+    Lawan declarer:
+    usahakan mengambil trick.
+  */
+
+  if(
+    mySide!==declarerSide &&
+    winners.length
+  ){
+
+    return winners.sort(
+      (a,b)=>
+        RANKS.indexOf(a.rank)-
+        RANKS.indexOf(b.rank)
+    )[0];
+
+  }
+
+  /*
+    Partnership declarer:
+    ambil trick jika tersedia.
+  */
+
+  if(
+    mySide===declarerSide &&
+    winners.length &&
+    state.level!=="easy"
+  ){
+
+    return winners.sort(
+      (a,b)=>
+        RANKS.indexOf(a.rank)-
+        RANKS.indexOf(b.rank)
+    )[0];
+
+  }
+
+  /*
+    Jika tidak menang,
+    buang kartu terendah.
+  */
+
+  return [
+    ...legal
+  ].sort(
     (a,b)=>
       RANKS.indexOf(a.rank)-
       RANKS.indexOf(b.rank)
@@ -2859,7 +2943,7 @@ function chooseComputerCard(
 
 
 /* =========================================================
-   CURRENT WINNER
+   WINNING CARD
    ========================================================= */
 
 function currentWinningCard(){
@@ -2867,7 +2951,9 @@ function currentWinningCard(){
   if(
     state.trick.length===0
   ){
+
     return null;
+
   }
 
   let winner=
@@ -2896,11 +2982,12 @@ function currentWinningCard(){
   }
 
   return winner;
+
 }
 
 
 /* =========================================================
-   COMPARE CARDS
+   CARD COMPARISON
    ========================================================= */
 
 function beats(
@@ -2910,11 +2997,6 @@ function beats(
   trump
 ){
 
-  /*
-   Trump mengalahkan
-   suit non-trump.
-  */
-
   if(
     trump &&
     a.suit===trump &&
@@ -2922,6 +3004,7 @@ function beats(
   ){
 
     return true;
+
   }
 
   if(
@@ -2931,18 +3014,15 @@ function beats(
   ){
 
     return false;
-  }
 
-  /*
-   Jika berbeda suit,
-   kartu tidak mengalahkan.
-  */
+  }
 
   if(
     a.suit!==b.suit
   ){
 
     return false;
+
   }
 
   return (
@@ -2962,21 +3042,14 @@ function resolveTrick(){
   const winner=
     currentWinningCard();
 
-  if(
-    !winner
-  ){
+  if(!winner){
+
     return;
+
   }
 
-  /*
-   Hitung trick berdasarkan
-   partnership.
-  */
-
   if(
-    ["N","S"].includes(
-      winner.seat
-    )
+    isNS(winner.seat)
   ){
 
     state.tricksNS++;
@@ -2992,18 +3065,9 @@ function resolveTrick(){
   const winnerSeat=
     winner.seat;
 
-  /*
-   Bersihkan trick.
-  */
-
   state.trick=[];
 
   state.leadSuit=null;
-
-  /*
-   Trick berikutnya dipimpin
-   oleh pemenang trick.
-  */
 
   state.turn=
     winnerSeat;
@@ -3017,15 +3081,16 @@ function resolveTrick(){
     finishBoard();
 
     return;
+
   }
 
-  $("statusText").textContent=
-    `Trik dimenangkan ${winnerSeat}.`;
-
   /*
-   Jika winner adalah dummy
-   dan South declarer, South
-   mengontrol dummy.
+    Pemenang trick menjadi
+    leader berikutnya.
+
+    Jika user adalah declarer
+    dan pemenang adalah dummy,
+    user memainkan dummy.
   */
 
   if(
@@ -3035,8 +3100,7 @@ function resolveTrick(){
   ){
 
     if(
-      state.turn===state.dummy &&
-      state.declarer==="S"
+      state.turn===state.dummy
     ){
 
       $("statusText").textContent=
@@ -3052,26 +3116,20 @@ function resolveTrick(){
     render();
 
     return;
-  }
-
-  /*
-   Komputer memimpin.
-  */
-
-  if(
-    state.turn!=="S"
-  ){
-
-    setTimeout(
-      ()=>{
-        computerPlay(
-          state.turn
-        );
-      },
-      LEVELS[state.level].delay
-    );
 
   }
+
+  $("statusText").textContent=
+    `Trik dimenangkan ${winnerSeat}.`;
+
+  setTimeout(
+    ()=>{
+      computerPlay(
+        state.turn
+      );
+    },
+    LEVELS[state.level].delay
+  );
 
 }
 
@@ -3082,10 +3140,11 @@ function resolveTrick(){
 
 function finishBoard(){
 
-  state.phase="finished";
+  state.phase=
+    "finished";
 
   const declarerNS=
-    ["N","S"].includes(
+    isNS(
       state.declarer
     );
 
@@ -3125,19 +3184,19 @@ function finishBoard(){
 
       const again=
         confirm(
-          `Board selesai.\n\n`+
+          `BOARD SELESAI\n\n`+
           `Kontrak: `+
           `${state.contract.level}`+
           `${state.contract.suit}\n`+
+          `Declarer: ${state.declarer}\n`+
+          `Dummy: ${state.dummy}\n`+
           `Trik: ${made}\n`+
           `Target: ${target}\n`+
           `Skor: ${score}\n\n`+
           `Main board berikutnya?`
         );
 
-      if(
-        again
-      ){
+      if(again){
 
         state.board++;
 
@@ -3153,7 +3212,7 @@ function finishBoard(){
 
 
 /* =========================================================
-   SIMPLE DUPLICATE SCORE
+   SCORE
    ========================================================= */
 
 function calculateScore(
@@ -3166,10 +3225,6 @@ function calculateScore(
   const target=
     6+
     contract.level;
-
-  /*
-   KONTRAK GAGAL
-  */
 
   if(
     made<target
@@ -3189,11 +3244,7 @@ function calculateScore(
 
   }
 
-  /*
-   CONTRACT POINTS
-  */
-
-  let trickPoints=0;
+  let trickPoints;
 
   if(
     contract.suit==="♣" ||
@@ -3221,10 +3272,6 @@ function calculateScore(
   let score=
     trickPoints;
 
-  /*
-   GAME BONUS
-  */
-
   if(
     trickPoints>=100
   ){
@@ -3239,10 +3286,6 @@ function calculateScore(
     score+=50;
 
   }
-
-  /*
-   OVERTRICK
-  */
 
   const over=
     Math.max(
@@ -3275,7 +3318,7 @@ function calculateScore(
 
 
 /* =========================================================
-   SORT HAND
+   SORT
    ========================================================= */
 
 function sortHand(){
