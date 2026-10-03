@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kepengurusan GABSI Kota Tanjungbalai</title>
-
-<meta name="description"
-content="Kepengurusan GABSI Kota Tanjungbalai">
+<title>Pengurus GABSI Kota Tanjungbalai</title>
 
 <style>
 *{
@@ -18,110 +15,59 @@ content="Kepengurusan GABSI Kota Tanjungbalai">
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#f2f5f7;
-    color:#172b2f;
+    background:#f1f5f9;
+    color:#172033;
 }
 
 /* HEADER */
 .header{
-    background:linear-gradient(135deg,#063f35,#08735d);
+    background:linear-gradient(135deg,#063970,#0b5fa5);
     color:white;
-    padding:25px 15px 30px;
+    padding:25px 15px;
     text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,.18);
-}
-
-.logo{
-    width:72px;
-    height:72px;
-    margin:0 auto 12px;
-    border-radius:50%;
-    background:#d4af37;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:42px;
-    color:#063f35;
-    border:4px solid white;
-    box-shadow:0 3px 10px rgba(0,0,0,.25);
+    box-shadow:0 3px 10px rgba(0,0,0,.18);
 }
 
 .header h1{
-    font-size:25px;
-    font-weight:800;
-    letter-spacing:.5px;
+    font-size:26px;
+    margin-bottom:6px;
 }
 
 .header p{
-    margin-top:7px;
-    font-size:14px;
+    font-size:15px;
     opacity:.95;
 }
 
-/* NAVIGATION */
-.nav{
-    background:white;
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    padding:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-    position:sticky;
-    top:0;
-    z-index:20;
-}
-
-.nav a{
-    text-decoration:none;
-    color:#06483c;
-    font-weight:bold;
-    font-size:13px;
-    padding:9px 14px;
-    border-radius:20px;
-}
-
-.nav a:hover{
-    background:#e6f2ef;
-}
-
-/* CONTENT */
+/* CONTAINER */
 .container{
-    max-width:1050px;
+    width:100%;
+    max-width:1000px;
     margin:auto;
-    padding:30px 15px 50px;
+    padding:25px 15px 40px;
 }
 
+/* JUDUL */
 .title{
     text-align:center;
-    margin-bottom:28px;
+    margin-bottom:25px;
 }
 
 .title h2{
-    color:#06483c;
-    font-size:27px;
-    margin-bottom:8px;
-}
-
-.title .line{
-    width:75px;
-    height:4px;
-    background:#d4af37;
-    border-radius:10px;
-    margin:0 auto 12px;
+    color:#063970;
+    font-size:23px;
+    margin-bottom:7px;
 }
 
 .title p{
-    color:#667477;
+    color:#64748b;
     font-size:14px;
 }
 
-/* PROFILE GRID */
+/* GRID */
 .pengurus{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-    max-width:850px;
-    margin:0 auto;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
 /* CARD */
@@ -129,300 +75,232 @@ body{
     background:white;
     border-radius:18px;
     overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.12);
-    border:1px solid #e0e7e5;
-    transition:.25s ease;
+    box-shadow:0 5px 18px rgba(0,0,0,.12);
+    text-align:center;
+    transition:.25s;
+    border:1px solid #e2e8f0;
 }
 
 .card:hover{
     transform:translateY(-5px);
-    box-shadow:0 10px 28px rgba(0,0,0,.17);
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
 
 /* FOTO */
-.photo{
-    background:linear-gradient(135deg,#0a4c40,#08735d);
-    padding:20px;
-    text-align:center;
-}
-
-.photo img{
-    width:190px;
-    height:190px;
+.foto{
+    width:100%;
+    height:350px;
     object-fit:cover;
-    border-radius:50%;
-    border:6px solid white;
-    box-shadow:0 5px 15px rgba(0,0,0,.25);
+    object-position:center top;
+    display:block;
+    background:#e5e7eb;
 }
 
-/* INFO */
+/* INFORMASI */
 .info{
-    padding:22px 20px 25px;
-    text-align:center;
+    padding:18px 12px 20px;
 }
 
 .jabatan{
     display:inline-block;
-    background:#d4af37;
-    color:#17352f;
-    font-size:12px;
-    font-weight:800;
+    background:#063970;
+    color:white;
     padding:7px 16px;
     border-radius:20px;
-    margin-bottom:12px;
-    text-transform:uppercase;
-    letter-spacing:.5px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
 .nama{
-    font-size:24px;
-    font-weight:800;
-    color:#06483c;
-    margin-bottom:7px;
+    font-size:20px;
+    font-weight:bold;
+    color:#111827;
+    margin-bottom:5px;
 }
 
-.keterangan{
+.organisasi{
     font-size:13px;
-    color:#718084;
-    line-height:1.5;
+    color:#64748b;
 }
 
 /* FOOTER */
 .footer{
-    background:#063f35;
-    color:white;
+    margin-top:30px;
     text-align:center;
-    padding:25px 15px;
-    margin-top:20px;
-}
-
-.footer strong{
-    color:#d4af37;
-}
-
-.footer p{
+    color:#64748b;
     font-size:13px;
-    margin:5px 0;
+    padding:15px;
 }
 
-/* MOBILE */
+/* HP */
 @media(max-width:700px){
 
     .header{
-        padding:20px 12px 25px;
-    }
-
-    .logo{
-        width:62px;
-        height:62px;
-        font-size:35px;
+        padding:20px 12px;
     }
 
     .header h1{
-        font-size:20px;
+        font-size:21px;
     }
 
     .header p{
-        font-size:12px;
-    }
-
-    .nav{
-        overflow-x:auto;
-        justify-content:flex-start;
-        white-space:nowrap;
-    }
-
-    .nav a{
-        font-size:12px;
-        padding:8px 12px;
+        font-size:13px;
     }
 
     .container{
-        padding:25px 12px 40px;
+        padding:20px 12px 30px;
     }
 
     .title h2{
-        font-size:23px;
+        font-size:20px;
     }
 
     .pengurus{
         grid-template-columns:1fr;
-        gap:20px;
-        max-width:500px;
+        gap:18px;
     }
 
-    .photo img{
-        width:180px;
-        height:180px;
+    .card{
+        max-width:430px;
+        width:100%;
+        margin:auto;
+    }
+
+    .foto{
+        height:auto;
+        max-height:500px;
+        object-fit:cover;
     }
 
     .nama{
-        font-size:22px;
+        font-size:19px;
     }
 }
 
-/* SMALL PHONE */
-@media(max-width:380px){
+/* TABLET */
+@media(min-width:701px) and (max-width:900px){
 
-    .photo img{
-        width:155px;
-        height:155px;
+    .pengurus{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .nama{
-        font-size:20px;
+    .card:last-child{
+        grid-column:1 / -1;
+        max-width:430px;
+        width:100%;
+        margin:auto;
     }
 
-    .title h2{
-        font-size:21px;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
+<!-- HEADER -->
 <header class="header">
-
-    <div class="logo">♠</div>
-
     <h1>GABSI KOTA TANJUNGBALAI</h1>
-
-    <p>
-        Gabungan Bridge Seluruh Indonesia
-    </p>
-
+    <p>Gabungan Bridge Seluruh Indonesia</p>
 </header>
 
-
-<!-- ================= NAVIGASI ================= -->
-
-<nav class="nav">
-
-    <a href="index.html">Beranda</a>
-
-    <a href="game-bridge-gabsi.html">
-        Bridge Online
-    </a>
-
-    <a href="kepengurusan.html">
-        Kepengurusan
-    </a>
-
-</nav>
-
-
-<!-- ================= ISI ================= -->
-
+<!-- KONTEN -->
 <main class="container">
 
-    <section class="title">
-
-        <h2>KEPENGURUSAN</h2>
-
-        <div class="line"></div>
-
-        <p>
-            Pengurus GABSI Kota Tanjungbalai
-        </p>
-
-    </section>
-
-
-    <!-- ================= DUA PENGURUS ================= -->
+    <div class="title">
+        <h2>KEPENGURUSAN GABSI</h2>
+        <p>Kota Tanjungbalai</p>
+    </div>
 
     <section class="pengurus">
 
+        <!-- KETUA -->
+        <div class="card">
 
-        <!-- BENDahara -->
-
-        <article class="card">
-
-            <div class="photo">
-
-                <img
-                    src="bendahara.jpg"
-                    alt="S. Simbolon - Bendahara GABSI Kota Tanjungbalai"
-                >
-
-            </div>
+            <img
+                src="ketua.jpg"
+                alt="E. Hutabarat - Ketua GABSI Kota Tanjungbalai"
+                class="foto"
+            >
 
             <div class="info">
 
                 <div class="jabatan">
+                    KETUA
+                </div>
+
+                <div class="nama">
+                    E. Hutabarat
+                </div>
+
+                <div class="organisasi">
+                    GABSI Kota Tanjungbalai
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- BENDAHARA -->
+        <div class="card">
+
+            <img
+                src="bendahara.jpg"
+                alt="Bendahara GABSI Kota Tanjungbalai"
+                class="foto"
+            >
+
+            <div class="info">
+
+                <div class="jabatan">
+                    BENDAHARA
+                </div>
+
+                <div class="nama">
                     Bendahara
                 </div>
 
-                <div class="nama">
-                    S. Simbolon
-                </div>
-
-                <div class="keterangan">
-                    Bendahara GABSI Kota Tanjungbalai
+                <div class="organisasi">
+                    GABSI Kota Tanjungbalai
                 </div>
 
             </div>
-
-        </article>
+        </div>
 
 
         <!-- SEKRETARIS -->
+        <div class="card">
 
-        <article class="card">
-
-            <div class="photo">
-
-                <img
-                    src="sekretaris.jpg"
-                    alt="R. Manalu - Sekretaris GABSI Kota Tanjungbalai"
-                >
-
-            </div>
+            <img
+                src="sekretaris.jpg"
+                alt="Sekretaris GABSI Kota Tanjungbalai"
+                class="foto"
+            >
 
             <div class="info">
 
                 <div class="jabatan">
-                    Sekretaris
+                    SEKRETARIS
                 </div>
 
                 <div class="nama">
-                    R. Manalu
+                    Sekretaris
                 </div>
 
-                <div class="keterangan">
-                    Sekretaris GABSI Kota Tanjungbalai
+                <div class="organisasi">
+                    GABSI Kota Tanjungbalai
                 </div>
 
             </div>
-
-        </article>
-
+        </div>
 
     </section>
 
-</main>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-    <p>
-        <strong>GABSI KOTA TANJUNGBALAI</strong>
-    </p>
-
-    <p>
-        Gabungan Bridge Seluruh Indonesia
-    </p>
-
-    <p>
+    <div class="footer">
         © 2026 GABSI Kota Tanjungbalai
-    </p>
+    </div>
 
-</footer>
-
+</main>
 
 </body>
 </html>
