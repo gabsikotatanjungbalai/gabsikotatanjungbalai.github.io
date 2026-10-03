@@ -1,495 +1,644 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
+
 <head>
 
-<meta charset="utf-8">
+<meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color"
-content="#0a3d62">
+<meta name="theme-color" content="#073c59">
 
 <meta name="description"
-content="Galeri foto kegiatan GABSI Kota Tanjungbalai.">
+content="Galeri kegiatan GABSI Kota Tanjungbalai">
 
-<link rel="icon"
-href="favicon.svg"
-type="image/svg+xml">
-
-<link rel="manifest"
-href="manifest.json">
-
-<title>Galeri | GABSI Kota Tanjungbalai</title>
+<title>Galeri GABSI Kota Tanjungbalai</title>
 
 
 <style>
 
-:root{
- --navy:#073b61;
- --navy2:#0a567f;
- --gold:#f4c44e;
- --ink:#102538;
- --muted:#5f7282;
- --bg:#f4f8fb;
- --card:#fff;
- --line:#dce6ed;
- --shadow:0 14px 40px rgba(8,39,61,.11)
-}
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
- box-sizing:border-box
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
+
+
+/* =====================================================
+   BODY
+===================================================== */
 
 body{
- margin:0;
- font-family:Inter,Segoe UI,Arial,sans-serif;
- background:var(--bg);
- color:var(--ink)
-}
-
-a{
- color:inherit
-}
-
-.container{
- max-width:1180px;
- margin:auto;
- padding:0 22px
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eef4f7;
+    color:#263746;
+    line-height:1.6;
 }
 
 
-/* TOPBAR */
+/* =====================================================
+   HEADER
+===================================================== */
 
-.topbar{
- background:#032c49;
- color:#dfeaf1;
- font-size:12px
-}
-
-.topbar .inner{
- display:flex;
- justify-content:space-between;
- gap:16px;
- padding:8px 0
+.site-header{
+    width:100%;
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    position:relative;
+    z-index:100;
 }
 
 
-/* NAVIGASI */
-
-.nav{
- position:sticky;
- top:0;
- z-index:50;
- background:rgba(255,255,255,.96);
- backdrop-filter:blur(12px);
- border-bottom:1px solid var(--line)
+.top-line{
+    background:#073c59;
+    color:#fff;
+    min-height:30px;
+    padding:6px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:9px;
 }
 
-.nav-inner{
- height:72px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px
+
+.header-main{
+    min-height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:8px 20px;
 }
+
+
+/* =====================================================
+   BRAND
+===================================================== */
 
 .brand{
- display:flex;
- align-items:center;
- gap:12px;
- text-decoration:none
-}
-
-.brand img{
- width:48px;
- height:48px
-}
-
-.brand strong{
- display:block;
- font-size:20px;
- line-height:1.05;
- color:var(--navy)
-}
-
-.brand span{
- display:block;
- font-size:10px;
- color:#607587;
- margin-top:3px
-}
-
-.nav-links{
- display:flex;
- align-items:center;
- gap:5px
-}
-
-.nav-links a{
- padding:10px 11px;
- border-radius:10px;
- text-decoration:none;
- font-weight:700;
- font-size:13px;
- color:#294458
-}
-
-.nav-links a:hover,
-.nav-links a.active{
- background:#eaf4fa;
- color:var(--navy)
-}
-
-.menu{
- display:none;
- border:1px solid var(--line);
- background:#fff;
- border-radius:10px;
- padding:10px 12px;
- cursor:pointer
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+    color:#173b50;
+    flex-shrink:0;
 }
 
 
-/* HERO */
+.brand-logo{
+    width:38px;
+    height:38px;
+    border-radius:8px;
+    background:#0b5278;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    font-weight:bold;
+}
+
+
+.brand-text strong{
+    display:block;
+    font-size:13px;
+}
+
+
+.brand-text small{
+    display:block;
+    font-size:7px;
+    color:#8b9297;
+    margin-top:1px;
+}
+
+
+/* =====================================================
+   NAVIGASI
+===================================================== */
+
+.main-nav{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+}
+
+
+.main-nav::-webkit-scrollbar{
+    display:none;
+}
+
+
+.main-nav a{
+    text-decoration:none;
+    color:#172033;
+    padding:8px 10px;
+    border-radius:8px;
+    font-size:10px;
+    font-weight:600;
+    white-space:nowrap;
+    transition:.2s;
+}
+
+
+.main-nav a:hover{
+    background:#eaf4f9;
+    color:#07558f;
+}
+
+
+.main-nav a.active{
+    background:#eaf4f9;
+    color:#07558f;
+    font-weight:700;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .page-hero{
- background:linear-gradient(
-  125deg,
-  #052f4c,
-  #0a5e89 66%,
-  #0b7794
- );
- color:#fff;
- padding:75px 0
+    background:linear-gradient(
+        135deg,
+        #07558f,
+        #087cab
+    );
+    color:#fff;
+    padding:42px 20px;
+    text-align:center;
 }
 
-.page-hero .eyebrow{
- color:#ffd76a
+
+.page-hero-inner{
+    max-width:1000px;
+    margin:auto;
 }
+
+
+.hero-label{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.30);
+    padding:6px 13px;
+    border-radius:20px;
+    font-size:9px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
 
 .page-hero h1{
- font-size:clamp(40px,5vw,60px);
- line-height:1;
- margin:12px 0 16px;
- letter-spacing:-1.5px
+    font-size:32px;
+    line-height:1.2;
+    margin-bottom:7px;
 }
+
+
+.page-hero h1 span{
+    color:#ffd83d;
+}
+
 
 .page-hero p{
- max-width:720px;
- color:#e5f2f8;
- line-height:1.75;
- font-size:16px;
- margin:0
+    font-size:12px;
+    color:rgba(255,255,255,.9);
+    max-width:700px;
+    margin:auto;
 }
 
 
-/* SECTION */
+/* =====================================================
+   CONTAINER
+===================================================== */
 
-section{
- padding:65px 0
-}
-
-.section-head{
- margin-bottom:28px
-}
-
-.eyebrow{
- color:var(--navy2);
- font-size:12px;
- font-weight:900;
- letter-spacing:1px;
- text-transform:uppercase
-}
-
-.section-head h2{
- margin:7px 0;
- font-size:32px
-}
-
-.section-head p{
- color:var(--muted);
- line-height:1.7;
- max-width:760px
+.container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    padding:35px 20px 50px;
 }
 
 
-/* GALERI */
+/* =====================================================
+   JUDUL
+===================================================== */
+
+.section-heading{
+    margin-bottom:22px;
+}
+
+
+.section-heading .label{
+    color:#0874a8;
+    font-size:9px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+}
+
+
+.section-heading h2{
+    color:#263746;
+    font-size:25px;
+    margin-top:3px;
+}
+
+
+.section-heading p{
+    color:#75828c;
+    font-size:11px;
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   GALERI GRID
+===================================================== */
 
 .gallery-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:16px
-}
-
-.gallery-item{
- position:relative;
- overflow:hidden;
- background:#dcecf5;
- border-radius:20px;
- border:1px solid var(--line);
- box-shadow:var(--shadow);
- aspect-ratio:4/3;
- cursor:pointer
-}
-
-.gallery-item img{
- width:100%;
- height:100%;
- object-fit:cover;
- display:block;
- transition:transform .35s ease
-}
-
-.gallery-item:hover img{
- transform:scale(1.06)
-}
-
-.gallery-caption{
- position:absolute;
- left:0;
- right:0;
- bottom:0;
- padding:14px;
- color:#fff;
- background:linear-gradient(
-  transparent,
-  rgba(0,0,0,.78)
- );
- font-size:13px;
- font-weight:800
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
 
-/* FOTO BESAR */
+/* =====================================================
+   KARTU FOTO
+===================================================== */
 
-.gallery-item.featured{
- grid-column:span 2;
- grid-row:span 2;
- aspect-ratio:auto;
- min-height:420px
+.gallery-card{
+    background:#fff;
+    border:1px solid #dfe8ed;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(25,60,80,.08);
+    transition:
+        transform .2s,
+        box-shadow .2s;
 }
 
 
-/* LIGHTBOX */
-
-.lightbox{
- display:none;
- position:fixed;
- z-index:999;
- inset:0;
- background:rgba(0,0,0,.92);
- align-items:center;
- justify-content:center;
- padding:20px
-}
-
-.lightbox.show{
- display:flex
-}
-
-.lightbox img{
- max-width:95vw;
- max-height:88vh;
- object-fit:contain;
- border-radius:10px
-}
-
-.close{
- position:absolute;
- top:18px;
- right:22px;
- width:45px;
- height:45px;
- border:0;
- border-radius:50%;
- background:#fff;
- color:#073b61;
- font-size:25px;
- font-weight:bold;
- cursor:pointer
-}
-
-.lightbox-title{
- position:absolute;
- bottom:20px;
- left:20px;
- right:20px;
- text-align:center;
- color:#fff;
- font-size:14px;
- font-weight:700
+.gallery-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(25,60,80,.16);
 }
 
 
-/* INFO */
+/* =====================================================
+   FOTO
+===================================================== */
 
-.info{
- background:#fff;
- border:1px solid var(--line);
- border-radius:20px;
- padding:25px;
- box-shadow:var(--shadow)
-}
-
-.info h3{
- margin:0 0 10px
-}
-
-.info p{
- color:var(--muted);
- line-height:1.7;
- margin:0
+.gallery-image{
+    width:100%;
+    height:230px;
+    background:#dfe8ed;
+    overflow:hidden;
 }
 
 
-/* FOOTER */
-
-footer{
- background:#062f4b;
- color:#dfeaf1;
- padding:34px 0 18px
-}
-
-.footer-grid{
- display:grid;
- grid-template-columns:1.2fr .8fr .8fr;
- gap:25px
-}
-
-.footer-brand{
- font-size:23px;
- font-weight:900;
- color:#fff
-}
-
-.footer-grid p{
- color:#b8cad5;
- line-height:1.6
-}
-
-.footer-grid a{
- display:block;
- text-decoration:none;
- color:#dfeaf1;
- margin:8px 0;
- font-size:13px
-}
-
-.copyright{
- border-top:1px solid rgba(255,255,255,.14);
- margin-top:26px;
- padding-top:14px;
- font-size:11px;
- color:#a9bfcc;
- display:flex;
- justify-content:space-between;
- gap:10px
+.gallery-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    transition:transform .3s;
 }
 
 
-/* TABLET */
-
-@media(max-width:900px){
-
- .nav-inner{
-  height:64px
- }
-
- .menu{
-  display:block
- }
-
- .nav-links{
-  display:none;
-  position:absolute;
-  left:0;
-  right:0;
-  top:64px;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  padding:8px 18px 14px;
-  flex-direction:column;
-  align-items:stretch
- }
-
- .nav-links.open{
-  display:flex
- }
-
- .gallery-grid{
-  grid-template-columns:repeat(2,1fr)
- }
-
- .gallery-item.featured{
-  grid-column:span 2
- }
-
- .footer-grid{
-  grid-template-columns:1fr 1fr
- }
-
+.gallery-card:hover .gallery-image img{
+    transform:scale(1.04);
 }
 
 
-/* HP */
+/* =====================================================
+   INFO FOTO
+===================================================== */
 
-@media(max-width:560px){
+.gallery-info{
+    padding:14px 15px 16px;
+}
 
- .container{
-  padding:0 14px
- }
 
- .topbar .inner{
-  justify-content:center
- }
+.gallery-tag{
+    display:inline-block;
+    background:#e8f4f9;
+    color:#07558f;
+    padding:4px 9px;
+    border-radius:20px;
+    font-size:8px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
 
- .topbar .inner span:last-child{
-  display:none
- }
 
- .brand img{
-  width:42px;
-  height:42px
- }
+.gallery-info h3{
+    color:#263746;
+    font-size:14px;
+    margin-bottom:3px;
+}
 
- .brand strong{
-  font-size:17px
- }
 
- .brand span{
-  font-size:9px
- }
+.gallery-info p{
+    color:#7a858d;
+    font-size:9px;
+}
 
- .page-hero{
-  padding:52px 0
- }
 
- .page-hero h1{
-  font-size:40px
- }
+/* =====================================================
+   INFORMASI GALERI
+===================================================== */
 
- .section-head h2{
-  font-size:28px
- }
+.info-box{
+    margin-top:28px;
+    background:#fff;
+    border:1px solid #dfe8ed;
+    border-radius:16px;
+    padding:23px;
+    box-shadow:0 5px 18px rgba(25,60,80,.07);
+}
 
- .gallery-grid{
-  grid-template-columns:1fr
- }
 
- .gallery-item.featured{
-  grid-column:span 1;
-  grid-row:span 1;
-  min-height:auto
- }
+.info-box h3{
+    font-size:18px;
+    color:#263746;
+    margin-bottom:7px;
+}
 
- .footer-grid{
-  grid-template-columns:1fr
- }
 
- .copyright{
-  flex-direction:column
- }
+.info-box p{
+    color:#6e7b84;
+    font-size:11px;
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   LINK HALAMAN LAIN
+===================================================== */
+
+.related{
+    margin-top:25px;
+    background:#fff;
+    border:1px solid #dfe8ed;
+    border-radius:16px;
+    padding:22px;
+    box-shadow:0 5px 18px rgba(25,60,80,.07);
+}
+
+
+.related h3{
+    color:#263746;
+    font-size:18px;
+    margin-bottom:14px;
+    text-align:center;
+}
+
+
+.related-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+
+.related a{
+    text-decoration:none;
+    color:#07558f;
+    background:#eef6fa;
+    border-radius:10px;
+    padding:11px 7px;
+    text-align:center;
+    font-size:10px;
+    font-weight:700;
+    transition:.2s;
+}
+
+
+.related a:hover{
+    background:#07558f;
+    color:#fff;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    background:#073c59;
+    color:#fff;
+    padding:30px 20px 18px;
+}
+
+
+.footer-inner{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:30px;
+}
+
+
+.footer h3{
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+
+.footer p{
+    color:rgba(255,255,255,.75);
+    font-size:10px;
+    line-height:1.7;
+}
+
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+
+.footer-links a{
+    color:rgba(255,255,255,.75);
+    text-decoration:none;
+    font-size:10px;
+}
+
+
+.footer-links a:hover{
+    color:#fff;
+}
+
+
+.footer-bottom{
+    max-width:1100px;
+    margin:22px auto 0;
+    padding-top:12px;
+    border-top:1px solid rgba(255,255,255,.15);
+    display:flex;
+    justify-content:space-between;
+    color:rgba(255,255,255,.6);
+    font-size:9px;
+}
+
+
+/* =====================================================
+   RESPONSIVE HP
+===================================================== */
+
+@media(max-width:700px){
+
+    .top-line{
+        padding:6px 10px;
+        font-size:7px;
+        gap:8px;
+    }
+
+
+    .header-main{
+        min-height:58px;
+        padding:6px 10px;
+        gap:8px;
+    }
+
+
+    .brand-logo{
+        width:32px;
+        height:32px;
+        font-size:16px;
+    }
+
+
+    .brand-text strong{
+        font-size:10px;
+    }
+
+
+    .brand-text small{
+        font-size:5px;
+    }
+
+
+    .main-nav{
+        flex:1;
+        gap:2px;
+    }
+
+
+    .main-nav a{
+        font-size:8px;
+        padding:7px 8px;
+    }
+
+
+    .page-hero{
+        padding:30px 15px;
+    }
+
+
+    .page-hero h1{
+        font-size:27px;
+    }
+
+
+    .page-hero p{
+        font-size:10px;
+    }
+
+
+    .container{
+        padding:25px 12px 35px;
+    }
+
+
+    .section-heading h2{
+        font-size:21px;
+    }
+
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:11px;
+    }
+
+
+    .gallery-image{
+        height:170px;
+    }
+
+
+    .gallery-info{
+        padding:11px 9px 13px;
+    }
+
+
+    .gallery-tag{
+        font-size:7px;
+        padding:4px 7px;
+    }
+
+
+    .gallery-info h3{
+        font-size:12px;
+    }
+
+
+    .gallery-info p{
+        font-size:8px;
+    }
+
+
+    .info-box{
+        padding:18px 14px;
+    }
+
+
+    .info-box h3{
+        font-size:16px;
+    }
+
+
+    .info-box p{
+        font-size:10px;
+    }
+
+
+    .related-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+
+    .footer{
+        padding:25px 15px 15px;
+    }
+
+
+    .footer-inner{
+        grid-template-columns:1fr 1fr;
+        gap:20px;
+    }
+
+
+    .footer-inner > div:first-child{
+        grid-column:1 / -1;
+    }
+
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:5px;
+    }
 
 }
 
@@ -501,608 +650,696 @@ footer{
 <body>
 
 
-<!-- TOPBAR -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<div class="topbar">
-
- <div class="container inner">
-
-  <span>
-   GABSI Kota Tanjungbalai • Bridge Duplicate Center
-  </span>
-
-  <span>
-   Sportivitas • Persahabatan • Prestasi • Edukasi
-  </span>
-
- </div>
-
-</div>
+<header class="site-header">
 
 
-<!-- NAVIGASI -->
+    <div class="top-line">
 
-<nav class="nav">
+        <span>
+            GABSI Kota Tanjungbalai • Bridge Duplicate Center
+        </span>
 
- <div class="container nav-inner">
+        <span>
+            Sportivitas • Persahabatan • Prestasi • Edukasi
+        </span>
 
-
-  <a class="brand" href="index.html">
-
-   <img
-   src="favicon.svg"
-   alt="Logo GABSI">
-
-   <div>
-
-    <strong>
-     GABSI KOTA TANJUNGBALAI
-    </strong>
-
-    <span>
-     GABUNGAN BRIDGE SELURUH INDONESIA
-    </span>
-
-   </div>
-
-  </a>
+    </div>
 
 
-  <button
-  class="menu"
-  aria-label="Buka menu"
-  onclick="toggleMenu()">
-
-   ☰
-
-  </button>
+    <div class="header-main">
 
 
-  <div
-  class="nav-links"
-  id="navLinks">
+        <a
+            href="index.html"
+            class="brand">
 
-   <a href="index.html">
-    Beranda
-   </a>
+            <div class="brand-logo">
+                ♥
+            </div>
 
-   <a href="profil.html">
-    Profil
-   </a>
+            <div class="brand-text">
 
-   <a href="pengurus.html">
-    Pengurus
-   </a>
+                <strong>
+                    GABSI KOTA TANJUNGBALAI
+                </strong>
 
-   <a href="kegiatan.html">
-    Kegiatan
-   </a>
+                <small>
+                    GABUNGAN BRIDGE SELURUH INDONESIA
+                </small>
 
-   <a
-   class="active"
-   href="galeri.html">
+            </div>
 
-    Galeri
-
-   </a>
-
-   <a href="aplikasi.html">
-    Aplikasi
-   </a>
-
-   <a href="kontak.html">
-    Kontak
-   </a>
-
-  </div>
-
- </div>
-
-</nav>
+        </a>
 
 
-<!-- HERO -->
+        <nav class="main-nav">
 
-<header class="page-hero">
+            <a href="index.html">
+                Beranda
+            </a>
 
- <div class="container">
+            <a href="profil.html">
+                Profil
+            </a>
 
-  <div class="eyebrow">
-   DOKUMENTASI
-  </div>
+            <a href="pengurus.html">
+                Pengurus
+            </a>
 
-  <h1>
-   Galeri GABSI
-  </h1>
+            <a href="kegiatan.html">
+                Kegiatan
+            </a>
 
-  <p>
-   Dokumentasi kegiatan latihan, pembinaan,
-   pertandingan, dan aktivitas GABSI Kota
-   Tanjungbalai.
-  </p>
+            <a
+                href="galeri.html"
+                class="active">
+                Galeri
+            </a>
 
- </div>
+            <a href="aplikasi.html">
+                Aplikasi
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                ♠ Game Bridge
+            </a>
+
+            <a href="kontak.html">
+                Kontak
+            </a>
+
+        </nav>
+
+    </div>
 
 </header>
 
 
-<main>
 
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<!-- GALERI FOTO -->
+<section class="page-hero">
 
-<section>
+    <div class="page-hero-inner">
 
- <div class="container">
+        <span class="hero-label">
+            📷 DOKUMENTASI GABSI
+        </span>
 
+        <h1>
+            Galeri
+            <span>
+                GABSI Kota Tanjungbalai
+            </span>
+        </h1>
 
-  <div class="section-head">
+        <p>
+            Dokumentasi kegiatan latihan dan aktivitas
+            olahraga Bridge GABSI Kota Tanjungbalai.
+        </p>
 
-   <div class="eyebrow">
-    FOTO KEGIATAN
-   </div>
-
-   <h2>
-    Dokumentasi GABSI
-   </h2>
-
-   <p>
-    Klik salah satu foto untuk melihat gambar
-    dalam ukuran lebih besar.
-   </p>
-
-  </div>
-
-
-  <div class="gallery-grid">
-
-
-   <!-- FOTO 01 -->
-
-   <div
-   class="gallery-item featured"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-01.jpg',
-   'Latihan Bridge GABSI 01'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-01.jpg"
-    alt="Latihan Bridge GABSI 01">
-
-    <div class="gallery-caption">
-     Latihan Bridge 01
     </div>
-
-   </div>
-
-
-   <!-- FOTO 02 -->
-
-   <div
-   class="gallery-item"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-02.jpg',
-   'Latihan Bridge GABSI 02'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-02.jpg"
-    alt="Latihan Bridge GABSI 02">
-
-    <div class="gallery-caption">
-     Latihan Bridge 02
-    </div>
-
-   </div>
-
-
-   <!-- FOTO 03 -->
-
-   <div
-   class="gallery-item"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-03.jpg',
-   'Latihan Bridge GABSI 03'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-03.jpg"
-    alt="Latihan Bridge GABSI 03">
-
-    <div class="gallery-caption">
-     Latihan Bridge 03
-    </div>
-
-   </div>
-
-
-   <!-- FOTO 04 -->
-
-   <div
-   class="gallery-item"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-04.jpg',
-   'Latihan Bridge GABSI 04'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-04.jpg"
-    alt="Latihan Bridge GABSI 04">
-
-    <div class="gallery-caption">
-     Latihan Bridge 04
-    </div>
-
-   </div>
-
-
-   <!-- FOTO 05 -->
-
-   <div
-   class="gallery-item"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-05.jpg',
-   'Latihan Bridge GABSI 05'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-05.jpg"
-    alt="Latihan Bridge GABSI 05">
-
-    <div class="gallery-caption">
-     Latihan Bridge 05
-    </div>
-
-   </div>
-
-
-   <!-- FOTO 06 -->
-
-   <div
-   class="gallery-item"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-06.jpg',
-   'Latihan Bridge GABSI 06'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-06.jpg"
-    alt="Latihan Bridge GABSI 06">
-
-    <div class="gallery-caption">
-     Latihan Bridge 06
-    </div>
-
-   </div>
-
-
-   <!-- FOTO 07 -->
-
-   <div
-   class="gallery-item"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-07.jpg',
-   'Latihan Bridge GABSI 07'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-07.jpg"
-    alt="Latihan Bridge GABSI 07">
-
-    <div class="gallery-caption">
-     Latihan Bridge 07
-    </div>
-
-   </div>
-
-
-   <!-- FOTO 08 -->
-
-   <div
-   class="gallery-item"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-08.jpg',
-   'Latihan Bridge GABSI 08'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-08.jpg"
-    alt="Latihan Bridge GABSI 08">
-
-    <div class="gallery-caption">
-     Latihan Bridge 08
-    </div>
-
-   </div>
-
-
-   <!-- FOTO 09 -->
-
-   <div
-   class="gallery-item"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-09.jpg',
-   'Latihan Bridge GABSI 09'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-09.jpg"
-    alt="Latihan Bridge GABSI 09">
-
-    <div class="gallery-caption">
-     Latihan Bridge 09
-    </div>
-
-   </div>
-
-
-   <!-- FOTO 10 -->
-
-   <div
-   class="gallery-item"
-   onclick="openLightbox(
-   'latihan-bridge-gabsi-10.jpg',
-   'Latihan Bridge GABSI 10'
-   )">
-
-    <img
-    src="latihan-bridge-gabsi-10.jpg"
-    alt="Latihan Bridge GABSI 10">
-
-    <div class="gallery-caption">
-     Latihan Bridge 10
-    </div>
-
-   </div>
-
-
-  </div>
-
- </div>
 
 </section>
 
 
-<!-- INFORMASI GALERI -->
 
-<section style="padding-top:0">
+<!-- =====================================================
+     KONTEN
+===================================================== -->
 
- <div class="container">
+<main class="container">
 
-  <div class="info">
 
-   <h3>
-    Dokumentasi Kegiatan
-   </h3>
+    <div class="section-heading">
 
-   <p>
-    Galeri ini dapat terus ditambahkan dengan foto
-    kegiatan GABSI Kota Tanjungbalai. Foto baru
-    cukup diunggah ke repository GitHub dan
-    ditambahkan ke halaman ini.
-   </p>
+        <span class="label">
+            GALERI KEGIATAN
+        </span>
 
-  </div>
+        <h2>
+            Dokumentasi Bridge
+        </h2>
 
- </div>
+        <p>
+            Kumpulan foto kegiatan latihan dan aktivitas
+            GABSI Kota Tanjungbalai.
+        </p>
 
-</section>
+    </div>
+
+
+
+    <!-- =================================================
+         GALERI FOTO
+    ================================================== -->
+
+    <section class="gallery-grid">
+
+
+        <!-- FOTO 01 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-01.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 01"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 01
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOTO 02 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-02.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 02"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 02
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOTO 03 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-03.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 03"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 03
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOTO 04 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-04.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 04"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 04
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOTO 05 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-05.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 05"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 05
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOTO 06 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-06.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 06"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 06
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOTO 07 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-07.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 07"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 07
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOTO 08 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-08.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 08"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 08
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOTO 09 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-09.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 09"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 09
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FOTO 10 -->
+
+        <article class="gallery-card">
+
+            <div class="gallery-image">
+
+                <img
+                    src="latihan-bridge-gabsi-10.jpg"
+                    alt="Latihan Bridge GABSI Kota Tanjungbalai 10"
+                    loading="lazy">
+
+            </div>
+
+            <div class="gallery-info">
+
+                <span class="gallery-tag">
+                    LATIHAN
+                </span>
+
+                <h3>
+                    Latihan Bridge 10
+                </h3>
+
+                <p>
+                    Dokumentasi kegiatan latihan Bridge.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         INFORMASI
+    ================================================== -->
+
+    <section class="info-box">
+
+        <h3>
+            Galeri Kegiatan GABSI
+        </h3>
+
+        <p>
+            Halaman galeri digunakan untuk menyimpan
+            dokumentasi kegiatan GABSI Kota Tanjungbalai,
+            termasuk latihan, pembinaan, pertandingan dan
+            aktivitas olahraga Bridge lainnya. Foto baru
+            dapat ditambahkan ke repository kemudian
+            ditampilkan pada halaman ini.
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         LINK HALAMAN LAIN
+    ================================================== -->
+
+    <section class="related">
+
+        <h3>
+            Jelajahi Website GABSI
+        </h3>
+
+
+        <div class="related-grid">
+
+
+            <a href="index.html">
+                🏠<br>
+                Beranda
+            </a>
+
+
+            <a href="profil.html">
+                👤<br>
+                Profil
+            </a>
+
+
+            <a href="pengurus.html">
+                👥<br>
+                Pengurus
+            </a>
+
+
+            <a href="kegiatan.html">
+                📅<br>
+                Kegiatan
+            </a>
+
+
+            <a href="aplikasi.html">
+                💻<br>
+                Aplikasi
+            </a>
+
+
+            <a href="game-bridge-gabsi.html">
+                ♠<br>
+                Game Bridge
+            </a>
+
+
+            <a href="score-sheet.html">
+                📊<br>
+                Score Sheet
+            </a>
+
+
+            <a href="kontak.html">
+                📞<br>
+                Kontak
+            </a>
+
+
+        </div>
+
+    </section>
 
 
 </main>
 
 
-<!-- LIGHTBOX -->
 
-<div
-class="lightbox"
-id="lightbox"
-onclick="closeLightbox(event)">
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-
- <button
- class="close"
- onclick="closeLightbox()">
-
-  ×
-
- </button>
+<footer class="footer">
 
 
- <img
- id="lightboxImage"
- src=""
- alt="Foto GABSI">
+    <div class="footer-inner">
 
 
- <div
- class="lightbox-title"
- id="lightboxTitle">
- </div>
+        <div>
+
+            <h3>
+                GABSI Kota Tanjungbalai
+            </h3>
+
+            <p>
+                Gabungan Bridge Seluruh Indonesia.
+                Website informasi, pembinaan dan
+                Bridge Duplicate Center Kota Tanjungbalai.
+            </p>
+
+        </div>
 
 
-</div>
+        <div>
+
+            <h3>
+                Navigasi
+            </h3>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Beranda
+                </a>
+
+                <a href="profil.html">
+                    Profil
+                </a>
+
+                <a href="pengurus.html">
+                    Pengurus
+                </a>
+
+                <a href="kegiatan.html">
+                    Kegiatan
+                </a>
+
+                <a href="galeri.html">
+                    Galeri
+                </a>
+
+            </div>
+
+        </div>
 
 
-<!-- FOOTER -->
+        <div>
 
-<footer>
+            <h3>
+                Aplikasi
+            </h3>
 
- <div class="container footer-grid">
+            <div class="footer-links">
 
+                <a href="aplikasi.html">
+                    Aplikasi Bridge
+                </a>
 
-  <div>
+                <a href="game-bridge-gabsi.html">
+                    Game Bridge
+                </a>
 
-   <div class="footer-brand">
-    GABSI Kota Tanjungbalai
-   </div>
+                <a href="kocokan-kartu.html">
+                    Kocokan Kartu
+                </a>
 
-   <p>
-    Gabungan Bridge Seluruh Indonesia
-    • Bridge Duplicate Center.
-   </p>
+                <a href="score-sheet.html">
+                    Score Sheet
+                </a>
 
-  </div>
+                <a href="kontak.html">
+                    Kontak
+                </a>
 
+            </div>
 
-  <div>
-
-   <b style="color:#fff">
-    Navigasi
-   </b>
-
-   <a href="index.html">
-    Beranda
-   </a>
-
-   <a href="profil.html">
-    Profil
-   </a>
-
-   <a href="pengurus.html">
-    Pengurus
-   </a>
-
-   <a href="kegiatan.html">
-    Kegiatan
-   </a>
-
-  </div>
+        </div>
 
 
-  <div>
-
-   <b style="color:#fff">
-    Lainnya
-   </b>
-
-   <a href="galeri.html">
-    Galeri
-   </a>
-
-   <a href="aplikasi.html">
-    Aplikasi
-   </a>
-
-   <a href="kontak.html">
-    Kontak
-   </a>
-
-  </div>
+    </div>
 
 
- </div>
+    <div class="footer-bottom">
 
+        <span>
+            © 2026 GABSI Kota Tanjungbalai
+        </span>
 
- <div class="container copyright">
+        <span>
+            Bridge Duplicate Center
+        </span>
 
-  <span>
-   © 2026 GABSI Kota Tanjungbalai.
-  </span>
+    </div>
 
-  <span>
-   Website Bridge Center
-  </span>
-
- </div>
 
 </footer>
 
 
-<script>
-
-
-/* MENU MOBILE */
-
-function toggleMenu(){
-
- document
- .getElementById('navLinks')
- .classList
- .toggle('open');
-
-}
-
-
-/* TUTUP MENU */
-
-document
-.querySelectorAll('#navLinks a')
-.forEach(function(a){
-
- a.addEventListener('click',function(){
-
-  document
-  .getElementById('navLinks')
-  .classList
-  .remove('open');
-
- });
-
-});
-
-
-/* LIGHTBOX */
-
-function openLightbox(image,title){
-
- document
- .getElementById('lightboxImage')
- .src=image;
-
- document
- .getElementById('lightboxTitle')
- .textContent=title;
-
- document
- .getElementById('lightbox')
- .classList
- .add('show');
-
- document.body.style.overflow='hidden';
-
-}
-
-
-/* TUTUP LIGHTBOX */
-
-function closeLightbox(event){
-
- if(
- event &&
- event.target.id!=='lightbox' &&
- event.target.className!=='close'
- ){
-  return;
- }
-
- document
- .getElementById('lightbox')
- .classList
- .remove('show');
-
- document.body.style.overflow='';
-
-}
-
-
-/* SERVICE WORKER */
-
-if('serviceWorker' in navigator){
-
- window.addEventListener('load',function(){
-
-  navigator.serviceWorker
-  .register('sw.js')
-  .catch(function(){});
-
- });
-
-}
-
-</script>
-
-
 </body>
+
 </html>
