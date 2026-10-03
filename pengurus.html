@@ -3,222 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07558f">
 
 <title>Pengurus GABSI Kota Tanjungbalai</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f1f5f9;
-    color:#172033;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #172033;
 }
 
-/* HEADER */
-.header{
-    background:linear-gradient(135deg,#063970,#0b5fa5);
-    color:white;
-    padding:25px 15px;
-    text-align:center;
-    box-shadow:0 3px 10px rgba(0,0,0,.18);
+/* =========================
+   HEADER
+========================= */
+.header {
+    background: linear-gradient(135deg, #063970, #0b65a8);
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.18);
 }
 
-.header h1{
-    font-size:26px;
-    margin-bottom:6px;
+.header h1 {
+    font-size: 25px;
+    margin-bottom: 5px;
 }
 
-.header p{
-    font-size:15px;
-    opacity:.95;
+.header p {
+    font-size: 13px;
 }
 
-/* CONTAINER */
-.container{
-    width:100%;
-    max-width:1000px;
-    margin:auto;
-    padding:25px 15px 40px;
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 15px 40px;
 }
 
-/* JUDUL */
-.title{
-    text-align:center;
-    margin-bottom:25px;
+/* =========================
+   JUDUL
+========================= */
+.title {
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-.title h2{
-    color:#063970;
-    font-size:23px;
-    margin-bottom:7px;
+.title h2 {
+    color: #063970;
+    font-size: 24px;
+    margin-bottom: 6px;
 }
 
-.title p{
-    color:#64748b;
-    font-size:14px;
+.title p {
+    color: #64748b;
+    font-size: 14px;
 }
 
-/* GRID */
-.pengurus{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+/* =========================
+   GRID PENGURUS
+========================= */
+.pengurus {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
 }
 
-/* CARD */
-.card{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 5px 18px rgba(0,0,0,.12);
-    text-align:center;
-    transition:.25s;
-    border:1px solid #e2e8f0;
+/* =========================
+   KARTU
+========================= */
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+    text-align: center;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 10px 25px rgba(0,0,0,.18);
+/* =========================
+   FOTO
+========================= */
+.foto {
+    width: 100%;
+    height: 390px;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+    background: #e5e7eb;
 }
 
-/* FOTO */
-.foto{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-    object-position:center top;
-    display:block;
-    background:#e5e7eb;
+/* =========================
+   INFORMASI
+========================= */
+.info {
+    padding: 17px 10px 20px;
 }
 
-/* INFORMASI */
-.info{
-    padding:18px 12px 20px;
+.jabatan {
+    display: inline-block;
+    background: #07558f;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 7px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
 }
 
-.jabatan{
-    display:inline-block;
-    background:#063970;
-    color:white;
-    padding:7px 16px;
-    border-radius:20px;
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:10px;
+.nama {
+    font-size: 20px;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 5px;
 }
 
-.nama{
-    font-size:20px;
-    font-weight:bold;
-    color:#111827;
-    margin-bottom:5px;
+.organisasi {
+    font-size: 13px;
+    color: #64748b;
 }
 
-.organisasi{
-    font-size:13px;
-    color:#64748b;
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    text-align: center;
+    color: #64748b;
+    font-size: 12px;
+    padding-top: 28px;
 }
 
-/* FOOTER */
-.footer{
-    margin-top:30px;
-    text-align:center;
-    color:#64748b;
-    font-size:13px;
-    padding:15px;
-}
+/* =========================
+   TAMPILAN HP
+========================= */
+@media (max-width: 700px) {
 
-/* HP */
-@media(max-width:700px){
-
-    .header{
-        padding:20px 12px;
+    .header {
+        padding: 18px 10px;
     }
 
-    .header h1{
-        font-size:21px;
+    .header h1 {
+        font-size: 20px;
     }
 
-    .header p{
-        font-size:13px;
+    .header p {
+        font-size: 11px;
     }
 
-    .container{
-        padding:20px 12px 30px;
+    .container {
+        padding: 20px 10px 30px;
     }
 
-    .title h2{
-        font-size:20px;
+    .title {
+        margin-bottom: 20px;
     }
 
-    .pengurus{
-        grid-template-columns:1fr;
-        gap:18px;
+    .title h2 {
+        font-size: 20px;
     }
 
-    .card{
-        max-width:430px;
-        width:100%;
-        margin:auto;
+    .title p {
+        font-size: 12px;
     }
 
-    .foto{
-        height:auto;
-        max-height:500px;
-        object-fit:cover;
+    .pengurus {
+        grid-template-columns: 1fr;
+        gap: 18px;
     }
 
-    .nama{
-        font-size:19px;
+    .card {
+        width: 100%;
+        max-width: 430px;
+        margin: auto;
+    }
+
+    .foto {
+        width: 100%;
+        height: auto;
+        max-height: 520px;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .nama {
+        font-size: 19px;
+    }
+
+    .organisasi {
+        font-size: 12px;
     }
 }
 
-/* TABLET */
-@media(min-width:701px) and (max-width:900px){
+/* =========================
+   TABLET
+========================= */
+@media (min-width: 701px) and (max-width: 900px) {
 
-    .pengurus{
-        grid-template-columns:repeat(2,1fr);
+    .pengurus {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .card:last-child{
-        grid-column:1 / -1;
-        max-width:430px;
-        width:100%;
-        margin:auto;
+    .card:last-child {
+        grid-column: 1 / -1;
+        max-width: 430px;
+        width: 100%;
+        margin: auto;
     }
-
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
+
 <header class="header">
-    <h1>GABSI KOTA TANJUNGBALAI</h1>
-    <p>Gabungan Bridge Seluruh Indonesia</p>
+
+    <h1>
+        GABSI KOTA TANJUNGBALAI
+    </h1>
+
+    <p>
+        Gabungan Bridge Seluruh Indonesia
+    </p>
+
 </header>
 
-<!-- KONTEN -->
+
+<!-- =========================
+     KONTEN
+========================= -->
+
 <main class="container">
 
     <div class="title">
-        <h2>KEPENGURUSAN GABSI</h2>
-        <p>Kota Tanjungbalai</p>
+
+        <h2>
+            KEPENGURUSAN GABSI
+        </h2>
+
+        <p>
+            Kota Tanjungbalai
+        </p>
+
     </div>
+
 
     <section class="pengurus">
 
-        <!-- KETUA -->
+
+        <!-- =====================
+             KETUA
+        ====================== -->
+
         <div class="card">
 
             <img
-                src="ketua.jpg"
+                src="./p1.jpg"
                 alt="E. Hutabarat - Ketua GABSI Kota Tanjungbalai"
                 class="foto"
             >
@@ -238,15 +290,19 @@ body{
                 </div>
 
             </div>
+
         </div>
 
 
-        <!-- BENDAHARA -->
+        <!-- =====================
+             BENDAHARA
+        ====================== -->
+
         <div class="card">
 
             <img
-                src="bendahara.jpg"
-                alt="Bendahara GABSI Kota Tanjungbalai"
+                src="./p2.jpg"
+                alt="S. Simbolon - Bendahara GABSI Kota Tanjungbalai"
                 class="foto"
             >
 
@@ -257,7 +313,7 @@ body{
                 </div>
 
                 <div class="nama">
-                    Bendahara
+                    S. Simbolon
                 </div>
 
                 <div class="organisasi">
@@ -265,26 +321,30 @@ body{
                 </div>
 
             </div>
+
         </div>
 
 
-        <!-- SEKRETARIS -->
+        <!-- =====================
+             SEKERTARIS
+        ====================== -->
+
         <div class="card">
 
             <img
-                src="sekretaris.jpg"
-                alt="Sekretaris GABSI Kota Tanjungbalai"
+                src="./p3.jpg"
+                alt="R. Manalu - Sekertaris GABSI Kota Tanjungbalai"
                 class="foto"
             >
 
             <div class="info">
 
                 <div class="jabatan">
-                    SEKRETARIS
+                    SEKERTARIS
                 </div>
 
                 <div class="nama">
-                    Sekretaris
+                    R. Manalu
                 </div>
 
                 <div class="organisasi">
@@ -292,12 +352,17 @@ body{
                 </div>
 
             </div>
+
         </div>
+
 
     </section>
 
+
     <div class="footer">
+
         © 2026 GABSI Kota Tanjungbalai
+
     </div>
 
 </main>
