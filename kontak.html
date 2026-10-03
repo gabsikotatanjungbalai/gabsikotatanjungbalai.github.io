@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#073c59">
-<meta name="description" content="Kontak resmi GABSI Kota Tanjungbalai. Informasi komunikasi dan alamat GABSI Kota Tanjungbalai.">
+
+<meta name="description"
+content="Kontak resmi GABSI Kota Tanjungbalai — Gabungan Bridge Seluruh Indonesia.">
 
 <title>Kontak — GABSI Kota Tanjungbalai</title>
 
@@ -172,13 +174,15 @@ body{
   padding:35px 20px 50px;
 }
 
-/* ================= KONTAK ================= */
+/* ================= CONTACT GRID ================= */
 
 .contact-grid{
   display:grid;
-  grid-template-columns:1.1fr .9fr;
+  grid-template-columns:1fr 1fr;
   gap:25px;
 }
+
+/* ================= CARD ================= */
 
 .contact-card{
   background:#fff;
@@ -199,6 +203,8 @@ body{
   color:#687783;
   margin-bottom:20px;
 }
+
+/* ================= CONTACT ITEM ================= */
 
 .contact-item{
   display:flex;
@@ -222,15 +228,19 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:19px;
+  font-size:18px;
   font-weight:bold;
+}
+
+.contact-info{
+  min-width:0;
 }
 
 .contact-info strong{
   display:block;
   color:#173b50;
   font-size:12px;
-  margin-bottom:2px;
+  margin-bottom:3px;
 }
 
 .contact-info span,
@@ -239,11 +249,81 @@ body{
   color:#687783;
   font-size:10px;
   text-decoration:none;
-  line-height:1.6;
+  line-height:1.7;
+  word-break:break-word;
 }
 
 .contact-info a:hover{
   color:#07558f;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp-button{
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:6px;
+  padding:8px 12px;
+  border-radius:8px;
+  background:#128c7e;
+  color:#fff !important;
+  font-size:10px !important;
+  font-weight:bold;
+}
+
+.whatsapp-button:hover{
+  background:#075e54;
+}
+
+/* ================= MAP ================= */
+
+.map-card{
+  margin-top:25px;
+  background:#fff;
+  border:1px solid #dce7ec;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+
+.map-header{
+  padding:20px 25px 15px;
+}
+
+.map-header h2{
+  color:#07558f;
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.map-header p{
+  color:#687783;
+  font-size:10px;
+}
+
+.map-frame{
+  width:100%;
+  height:380px;
+  border:0;
+  display:block;
+}
+
+.map-button{
+  display:inline-block;
+  margin:15px 25px 20px;
+  padding:10px 15px;
+  background:#07558f;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.map-button:hover{
+  background:#063f69;
 }
 
 /* ================= FORM ================= */
@@ -308,14 +388,13 @@ body{
   font-size:11px;
   font-weight:bold;
   cursor:pointer;
-  transition:.2s;
 }
 
 .btn-kirim:hover{
   background:#063f69;
 }
 
-/* ================= INFO BOX ================= */
+/* ================= INFO ================= */
 
 .info-box{
   margin-top:25px;
@@ -485,6 +564,19 @@ body{
     font-size:18px;
   }
 
+  .map-frame{
+    height:300px;
+  }
+
+  .map-header{
+    padding:18px 20px 12px;
+  }
+
+  .map-button{
+    margin-left:20px;
+    margin-right:20px;
+  }
+
   .info-points{
     grid-template-columns:1fr;
   }
@@ -574,8 +666,9 @@ body{
     </h1>
 
     <p>
-      Hubungi GABSI Kota Tanjungbalai untuk informasi kegiatan,
-      latihan bridge, pertandingan, pembinaan pemain, dan informasi lainnya.
+      Hubungi GABSI Kota Tanjungbalai untuk informasi
+      kegiatan, latihan, pertandingan, pembinaan pemain,
+      dan informasi olahraga bridge.
     </p>
 
   </div>
@@ -596,10 +689,11 @@ body{
       <h2>Informasi Kontak</h2>
 
       <p>
-        Silakan gunakan informasi berikut untuk menghubungi
-        GABSI Kota Tanjungbalai.
+        Informasi resmi GABSI Kota Tanjungbalai.
       </p>
 
+
+      <!-- ALAMAT -->
 
       <div class="contact-item">
 
@@ -607,10 +701,14 @@ body{
 
         <div class="contact-info">
 
-          <strong>Organisasi</strong>
+          <strong>Alamat</strong>
 
           <span>
-            GABSI Kota Tanjungbalai
+            Jl. R A. Kartini Lk. IV<br>
+            Kecamatan Datuk Bandar<br>
+            Kelurahan Sijambi<br>
+            Kota Tanjungbalai<br>
+            Kode Pos 21361
           </span>
 
         </div>
@@ -618,22 +716,7 @@ body{
       </div>
 
 
-      <div class="contact-item">
-
-        <div class="contact-icon">♠</div>
-
-        <div class="contact-info">
-
-          <strong>Kegiatan</strong>
-
-          <span>
-            Latihan dan kegiatan olahraga bridge
-          </span>
-
-        </div>
-
-      </div>
-
+      <!-- EMAIL -->
 
       <div class="contact-item">
 
@@ -643,8 +726,8 @@ body{
 
           <strong>Email</strong>
 
-          <a href="mailto:gabsikotatanjungbalai@gmail.com">
-            gabsikotatanjungbalai@gmail.com
+          <a href="mailto:gabunganbridgeseluruhindonesia@gmail.com">
+            gabunganbridgeseluruhindonesia@gmail.com
           </a>
 
         </div>
@@ -652,17 +735,45 @@ body{
       </div>
 
 
+      <!-- WHATSAPP -->
+
       <div class="contact-item">
 
-        <div class="contact-icon">☎</div>
+        <div class="contact-icon">☏</div>
 
         <div class="contact-info">
 
-          <strong>Hubungi Pengurus</strong>
+          <strong>WhatsApp</strong>
 
           <span>
-            Silakan menghubungi pengurus GABSI Kota Tanjungbalai
-            untuk informasi lebih lanjut.
+            0852 7040 7744
+          </span>
+
+          <a
+            class="whatsapp-button"
+            href="https://wa.me/6285270407744"
+            target="_blank"
+            rel="noopener">
+            💬 Chat WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- KODE POS -->
+
+      <div class="contact-item">
+
+        <div class="contact-icon">✦</div>
+
+        <div class="contact-info">
+
+          <strong>Kode Pos</strong>
+
+          <span>
+            21361
           </span>
 
         </div>
@@ -672,7 +783,7 @@ body{
     </section>
 
 
-    <!-- FORM KONTAK -->
+    <!-- KIRIM PESAN -->
 
     <section class="contact-card">
 
@@ -681,8 +792,8 @@ body{
       </h2>
 
       <p class="form-description">
-        Isi formulir berikut untuk menyiapkan pesan kepada
-        GABSI Kota Tanjungbalai.
+        Isi formulir berikut. Setelah menekan tombol kirim,
+        aplikasi email akan dibuka dengan pesan yang sudah disiapkan.
       </p>
 
       <form onsubmit="kirimPesan(event)">
@@ -697,8 +808,7 @@ body{
             type="text"
             id="nama"
             placeholder="Masukkan nama Anda"
-            required
-          >
+            required>
 
         </div>
 
@@ -713,8 +823,7 @@ body{
             type="email"
             id="email"
             placeholder="Masukkan email Anda"
-            required
-          >
+            required>
 
         </div>
 
@@ -728,8 +837,7 @@ body{
           <textarea
             id="pesan"
             placeholder="Tuliskan pesan Anda..."
-            required
-          ></textarea>
+            required></textarea>
 
         </div>
 
@@ -745,7 +853,44 @@ body{
   </div>
 
 
-  <!-- INFO -->
+  <!-- ================= MAP ================= -->
+
+  <section class="map-card">
+
+    <div class="map-header">
+
+      <h2>Lokasi GABSI Kota Tanjungbalai</h2>
+
+      <p>
+        Jl. R A. Kartini Lk. IV, Kelurahan Sijambi,
+        Kecamatan Datuk Bandar, Kota Tanjungbalai,
+        Sumatera Utara — Kode Pos 21361.
+      </p>
+
+    </div>
+
+
+    <iframe
+      class="map-frame"
+      src="https://www.google.com/maps?q=Jl.%20R.A.%20Kartini%20Lk.%20IV,%20Sijambi,%20Datuk%20Bandar,%20Kota%20Tanjungbalai,%20Sumatera%20Utara%2021361&output=embed"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+
+    <a
+      class="map-button"
+      href="https://www.google.com/maps/search/?api=1&query=Jl.%20R.A.%20Kartini%20Lk.%20IV,%20Sijambi,%20Datuk%20Bandar,%20Kota%20Tanjungbalai,%20Sumatera%20Utara%2021361"
+      target="_blank"
+      rel="noopener">
+      📍 Buka Lokasi di Google Maps
+    </a>
+
+  </section>
+
+
+  <!-- ================= INFO ================= -->
 
   <section class="info-box">
 
@@ -754,8 +899,10 @@ body{
     </h2>
 
     <p>
-      Wadah komunikasi, pembinaan, latihan dan pengembangan
-      olahraga bridge di Kota Tanjungbalai.
+      Gabungan Bridge Seluruh Indonesia —
+      wadah pembinaan, latihan, pertandingan,
+      pengembangan dan silaturahmi olahraga bridge
+      di Kota Tanjungbalai.
     </p>
 
 
@@ -813,9 +960,9 @@ body{
       </h3>
 
       <p>
-        Website informasi dan layanan digital
-        GABSI Kota Tanjungbalai untuk mendukung
-        perkembangan olahraga bridge.
+        Website resmi GABSI Kota Tanjungbalai
+        sebagai pusat informasi olahraga bridge,
+        kegiatan, aplikasi dan layanan digital.
       </p>
 
     </div>
@@ -823,9 +970,7 @@ body{
 
     <div>
 
-      <h3>
-        Menu
-      </h3>
+      <h3>Menu</h3>
 
       <div class="footer-links">
 
@@ -848,9 +993,7 @@ body{
 
     <div>
 
-      <h3>
-        Layanan
-      </h3>
+      <h3>Layanan</h3>
 
       <div class="footer-links">
 
@@ -864,6 +1007,13 @@ body{
 
         <a href="kontak.html">
           Kontak
+        </a>
+
+        <a
+          href="https://wa.me/6285270407744"
+          target="_blank"
+          rel="noopener">
+          WhatsApp
         </a>
 
       </div>
@@ -915,7 +1065,7 @@ function kirimPesan(event){
 
 
   const tujuan =
-    "gabsikotatanjungbalai@gmail.com";
+    "gabunganbridgeseluruhindonesia@gmail.com";
 
 
   const subjek =
