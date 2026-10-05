@@ -1,309 +1,64 @@
-GABSI Kota Tanjungbalai — Bridge Online
-<div class="logo">♠</div>  
-
-<div>  
-
-  <div class="brand-title">  
-    GABSI KOTA TANJUNGBALAI  
-  </div>  
-
-  <div class="brand-sub">  
-    BRIDGE ONLINE • COMPUTER TABLE  
-  </div>  
-
-</div> 
-
-<button  
-  class="icon-btn"  
-  onclick="newGame()">  
-  ↻  
-</button>  
-
-<button  
-  class="icon-btn"  
-  onclick="openSettings()">  
-  ⚙  
-</button> 
-
-Board 1
-Dealer N
-Vul None
-<div class="player">  
-
-  <div class="avatar">N</div>  
-
-  <div class="player-name">  
-    North • Komputer  
-  </div>  
-
-  <div  
-    class="level"  
-    id="northLevel">  
-    Menengah  
-  </div>  
-
-  <div  
-    class="hand"  
-    id="handN">  
-  </div>  
-
-</div> 
-
-<div class="player">  
-
-  <div class="avatar">W</div>  
-
-  <div class="player-name">  
-    West • Komputer  
-  </div>  
-
-  <div  
-    class="level"  
-    id="westLevel">  
-    Menengah  
-  </div>  
-
-  <div  
-    class="hand"  
-    id="handW">  
-  </div>  
-
-</div> 
-
-<div class="player">  
-
-  <div class="avatar">E</div>  
-
-  <div class="player-name">  
-    East • Komputer  
-  </div>  
-
-  <div  
-    class="level"  
-    id="eastLevel">  
-    Menengah  
-  </div>  
-
-  <div  
-    class="hand"  
-    id="handE">  
-  </div>  
-
-</div> 
-
-<div class="contract-card">  
-
-  <div class="contract-title">  
-    Kontrak  
-  </div>  
-
-  <div  
-    class="contract-main"  
-    id="contractText">  
-    Lelang  
-  </div>  
-
-  <div  
-    class="contract-extra"  
-    id="centerInfo">  
-    Menunggu pembukaan lelang  
-  </div>  
-
-</div> 
-
-<div class="player">  
-
-  <div class="player-name">  
-    South • ANDA  
-  </div>  
-
-  <div class="level">  
-    PEMAIN  
-  </div>  
-
-  <div  
-    class="hand"  
-    id="handS">  
-  </div>  
-
-</div> 
-
-<span id="statusText">  
-  Memulai permainan...  
-</span>  
-
-<strong id="trickText">  
-  0 / 13  
-</strong> 
-
-<button  
-  class="btn"  
-  onclick="sortHand()">  
-  URUTKAN  
-</button>  
-
-<button  
-  class="btn green"  
-  onclick="openHelp()">  
-  BANTUAN  
-</button>  
-
-<button  
-  class="btn gold"  
-  onclick="openBid()">  
-  PILIH BID  
-</button> 
-
-<div class="sheet-head">  
-
-  <div class="sheet-title">  
-    Lelang Bridge  
-  </div>  
-
-  <button  
-    class="close"  
-    onclick="closeBid()">  
-    ×  
-  </button>  
-
-</div>  
-
-<div  
-  class="auction-history"  
-  id="auctionHistory">  
-</div>  
-
-<div  
-  class="bid-grid"  
-  id="bidGrid">  
-</div> 
-
-<div class="sheet-head">  
-
-  <div class="sheet-title">  
-    Tingkat Lawan Komputer  
-  </div>  
-
-  <button  
-    class="close"  
-    onclick="closeSettings()">  
-    ×  
-  </button>  
-
-</div>  
-
-<div class="level-grid">  
-
-  <button  
-    class="level-btn"  
-    data-level="easy"  
-    onclick="setLevel('easy')">  
-
-    <strong>  
-      🟢 PEMULA  
-    </strong>  
-
-    <span>  
-      Strategi sederhana. Cocok untuk belajar.  
-    </span>  
-
-  </button>  
-
-  <button  
-    class="level-btn"  
-    data-level="medium"  
-    onclick="setLevel('medium')">  
-
-    <strong>  
-      🔵 MENENGAH  
-    </strong>  
-
-    <span>  
-      Permainan dan bidding lebih teratur.  
-    </span>  
-
-  </button>  
-
-  <button  
-    class="level-btn"  
-    data-level="hard"  
-    onclick="setLevel('hard')">  
-
-    <strong>  
-      🟠 SULIT  
-    </strong>  
-
-    <span>  
-      Komputer mempertimbangkan HCP dan distribusi.  
-    </span>  
-
-  </button>  
-
-  <button  
-    class="level-btn"  
-    data-level="expert"  
-    onclick="setLevel('expert')">  
-
-    <strong>  
-      🔴 AHLI  
-    </strong>  
-
-    <span>  
-      Strategi kompetitif dengan permainan lebih agresif.  
-    </span>  
-
-  </button>  
-
-</div> 
-
-<div class="sheet-head">  
-
-  <div class="sheet-title">  
-    Bantuan Bridge  
-  </div>  
-
-  <button  
-    class="close"  
-    onclick="closeHelp()">  
-    ×  
-  </button>  
-
-</div>  
-
-<p style="font-size:12px;line-height:1.6;color:#c4ddd3">  
-
-  Tujuan permainan adalah memenangkan jumlah  
-  trik sesuai kontrak. Saat bermain kartu,  
-  pemain wajib mengikuti jenis kartu yang  
-  dimainkan jika masih memiliki jenis tersebut.  
-
-</p>  
-
-<p style="font-size:12px;line-height:1.6;color:#c4ddd3">  
-
-  ♠ Sekop &nbsp;  
-  ♥ Hati &nbsp;  
-  ♦ Wajik &nbsp;  
-  ♣ Keriting  
-
-</p>  
-
-<p style="font-size:12px;line-height:1.6;color:#c4ddd3">  
-
-  HCP:  
-  As = 4,  
-  King = 3,  
-  Queen = 2,  
-  Jack = 1.  
-
-</p>  
-
-<button  
-  class="btn gold"  
-  style="width:100%"  
-  onclick="closeHelp()">  
-
-  MENGERTI  
-
-</button> 
-
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#071712">
+<title>GABSI Kota Tanjungbalai — Bridge Online</title>
+
+<style>
+:root{
+  --bg:#071712;
+  --panel:#0d241c;
+  --panel2:#102c22;
+  --line:#214a3b;
+  --green:#19a974;
+  --green2:#0d7d55;
+  --gold:#d7a83d;
+  --gold2:#9d7220;
+  --text:#f2f7f4;
+  --muted:#a9c4b8;
+  --danger:#d85b5b;
+  --shadow:0 10px 30px rgba(0,0,0,.28);
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:
+    radial-gradient(circle at top, #143c2d 0, var(--bg) 45%);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100%;
+}
+
+body{
+  padding:12px;
+}
+
+button{
+  font-family:inherit;
+}
+
+.app{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* HEADER */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(13,36,28,.96);
+  box-shadow:var(--shadow);
