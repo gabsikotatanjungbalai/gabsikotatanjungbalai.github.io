@@ -1,28 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073c59">
-<meta name="description" content="Aplikasi digital GABSI Kota Tanjungbalai untuk olahraga bridge.">
 
-<title>Aplikasi — GABSI Kota Tanjungbalai</title>
+<title>Belajar Penawaran Bridge — GABSI Kota Tanjungbalai</title>
 
 <style>
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
 }
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#eef4f7;
-  color:#263746;
+  background:#f4f7fa;
+  color:#173044;
   line-height:1.6;
 }
 
-/* ================= HEADER ================= */
+/* ================= HEADER GABSI ================= */
 
 .site-header{
   width:100%;
@@ -44,7 +43,9 @@ body{
 }
 
 .header-main{
+  max-width:1100px;
   min-height:65px;
+  margin:auto;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -52,7 +53,7 @@ body{
   padding:8px 20px;
 }
 
-.brand{
+.brand-gabsi{
   display:flex;
   align-items:center;
   gap:9px;
@@ -82,14 +83,13 @@ body{
 .brand-text small{
   display:block;
   font-size:7px;
-  color:#8b9297;
-  margin-top:1px;
+  color:#6b8297;
 }
 
 .main-nav{
   display:flex;
   align-items:center;
-  gap:4px;
+  gap:2px;
   overflow-x:auto;
   white-space:nowrap;
   scrollbar-width:none;
@@ -100,45 +100,38 @@ body{
 }
 
 .main-nav a{
-  text-decoration:none;
   color:#172033;
-  padding:8px 10px;
+  padding:8px 9px;
   border-radius:8px;
-  font-size:10px;
-  font-weight:600;
-  white-space:nowrap;
-  transition:.2s;
+  font-size:12px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-.main-nav a:hover{
-  background:#eaf4f9;
-  color:#07558f;
-}
-
+.main-nav a:hover,
 .main-nav a.active{
   background:#eaf4f9;
   color:#07558f;
-  font-weight:700;
 }
 
-/* ================= HERO ================= */
+/* ================= JUDUL ================= */
 
-.page-hero{
+.page-title{
   background:linear-gradient(135deg,#07558f,#087cab);
   color:#fff;
-  padding:42px 20px;
+  padding:32px 16px;
   text-align:center;
 }
 
-.page-hero-inner{
-  max-width:1000px;
+.page-title-inner{
+  max-width:1100px;
   margin:auto;
 }
 
-.hero-label{
+.page-label{
   display:inline-block;
   background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.30);
+  border:1px solid rgba(255,255,255,.3);
   padding:6px 13px;
   border-radius:20px;
   font-size:9px;
@@ -146,166 +139,503 @@ body{
   margin-bottom:10px;
 }
 
-.page-hero h1{
-  font-size:32px;
+.page-title h1{
+  font-size:31px;
   line-height:1.2;
-  margin-bottom:7px;
+  margin-bottom:8px;
 }
 
-.page-hero h1 span{
-  color:#ffd83d;
-}
-
-.page-hero p{
+.page-title p{
+  max-width:760px;
+  margin:auto;
   font-size:12px;
   color:rgba(255,255,255,.9);
-  max-width:700px;
-  margin:auto;
 }
 
 /* ================= CONTAINER ================= */
 
 .container{
-  width:100%;
-  max-width:1100px;
+  max-width:1150px;
   margin:auto;
-  padding:35px 20px 50px;
+  padding:22px 15px 45px;
 }
 
-/* ================= APPLICATIONS ================= */
-
-.apps-grid{
+.grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  grid-template-columns:repeat(12,1fr);
+  gap:15px;
 }
 
-.app-card{
+.col-12{grid-column:span 12;}
+.col-8{grid-column:span 8;}
+.col-4{grid-column:span 4;}
+
+.card{
   background:#fff;
-  border:1px solid #dce7ec;
-  border-radius:16px;
-  padding:25px;
-  box-shadow:0 5px 18px rgba(0,0,0,.06);
-  display:flex;
-  flex-direction:column;
-  min-height:270px;
-  transition:.25s;
+  border:1px solid #dce5ec;
+  border-radius:15px;
+  padding:17px;
+  box-shadow:0 5px 18px rgba(0,0,0,.05);
 }
 
-.app-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(0,0,0,.10);
-}
-
-.app-icon{
-  width:55px;
-  height:55px;
-  border-radius:14px;
-  background:#eaf4f9;
-  color:#07558f;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:25px;
-  margin-bottom:18px;
-}
-
-.app-card h2{
+.card h2{
   color:#173b50;
-  font-size:17px;
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  font-size:14px;
   margin-bottom:8px;
 }
 
-.app-card p{
-  color:#687783;
-  font-size:10px;
-  line-height:1.7;
-  flex:1;
+.help{
+  color:#65788b;
+  font-size:12px;
+  line-height:1.6;
 }
 
-.app-button{
+label{
   display:block;
-  width:100%;
-  text-align:center;
-  text-decoration:none;
-  background:#07558f;
-  color:#fff;
-  padding:11px 14px;
-  border-radius:9px;
-  font-size:10px;
+  font-size:12px;
   font-weight:bold;
-  margin-top:18px;
-  transition:.2s;
+  color:#526a7d;
+  margin-bottom:5px;
 }
 
-.app-button:hover{
-  background:#063f69;
+input,
+select{
+  width:100%;
+  border:1px solid #d5e0e8;
+  border-radius:9px;
+  padding:10px;
+  background:#fff;
+  color:#173044;
+  outline:none;
 }
 
-.app-button.secondary{
-  background:#eaf4f9;
+input:focus,
+select:focus{
+  border-color:#087cab;
+  box-shadow:0 0 0 3px rgba(8,124,171,.1);
+}
+
+.row4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.row3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.row2{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+  border:1px solid #d4dfe7;
+  background:#fff;
+  color:#173044;
+  border-radius:9px;
+  padding:9px 12px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.btn:hover{
+  background:#f0f7fb;
+}
+
+.btn.primary{
+  background:#075f8c;
+  border-color:#075f8c;
+  color:#fff;
+}
+
+.btn.primary:hover{
+  background:#064d73;
+}
+
+.btn.danger{
+  background:#fff1f1;
+  border-color:#efc7c7;
+  color:#b32020;
+}
+
+.button-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* ================= ALERT ================= */
+
+.alert{
+  background:#eef7fc;
+  border:1px solid #cde5f3;
+  color:#225572;
+  border-radius:10px;
+  padding:11px;
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* ================= FOTO ================= */
+
+.seats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:13px;
+}
+
+.seat{
+  background:#fbfcfd;
+  border:1px solid #dce5ec;
+  border-radius:13px;
+  padding:11px;
+}
+
+.seat-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.seat-name{
+  font-weight:bold;
+  font-size:14px;
+}
+
+.seat-tag{
+  font-size:10px;
+  background:#eaf1f6;
+  padding:3px 6px;
+  border-radius:6px;
+}
+
+.photo{
+  width:100%;
+  height:140px;
+  background:#edf2f6;
+  border:1px dashed #c3d0da;
+  border-radius:9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  color:#8292a0;
+  font-size:11px;
+  text-align:center;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.photo-buttons{
+  display:flex;
+  gap:5px;
+  margin-top:7px;
+}
+
+.photo-buttons .btn{
+  flex:1;
+  padding:8px 5px;
+  font-size:11px;
+}
+
+.file-input{
+  display:none;
+}
+
+/* ================= KARTU ================= */
+
+.card-board{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:12px;
+}
+
+.suit-panel{
+  border:1px solid #dce5ec;
+  border-radius:12px;
+  padding:10px;
+  background:#fbfcfd;
+}
+
+.suit-title{
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:5px;
+}
+
+.card-btn{
+  min-height:35px;
+  border:1px solid #d5dfe7;
+  background:#fff;
+  border-radius:7px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.card-btn.N{
+  background:#eaf2ff;
+  border-color:#8eb2ef;
+}
+
+.card-btn.E{
+  background:#eaf9f1;
+  border-color:#8bc9a8;
+}
+
+.card-btn.S{
+  background:#fff4e3;
+  border-color:#e5bb72;
+}
+
+.card-btn.W{
+  background:#f3ecff;
+  border-color:#c3a3e5;
+}
+
+.owner-summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-top:10px;
+}
+
+.owner{
+  border:1px solid #dce5ec;
+  border-radius:9px;
+  padding:9px;
+  font-size:12px;
+  background:#fff;
+}
+
+.owner strong{
+  font-size:16px;
+}
+
+/* ================= BADGE ================= */
+
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:10px;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:20px;
+  background:#edf3f7;
+  color:#40576b;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.badge.good{
+  background:#e7f7ef;
+  color:#08794d;
+}
+
+.badge.warn{
+  background:#fff3df;
+  color:#8b5a00;
+}
+
+/* ================= AUCTION ================= */
+
+.auction{
+  overflow-x:auto;
+}
+
+.auction table{
+  width:100%;
+  min-width:600px;
+  border-collapse:collapse;
+}
+
+.auction th,
+.auction td{
+  padding:8px;
+  border-bottom:1px solid #e0e6eb;
+  text-align:center;
+  font-size:12px;
+}
+
+.auction th{
+  background:#f3f6f8;
+  color:#526a7d;
+}
+
+.bid-controls{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:6px;
+  margin-top:10px;
+}
+
+.bid-btn{
+  border:1px solid #d4dfe7;
+  background:#fff;
+  border-radius:8px;
+  padding:8px 4px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.bid-btn:hover{
+  background:#edf6fb;
+}
+
+/* ================= REKOMENDASI ================= */
+
+.recommendation{
+  background:#073c59;
+  color:#fff;
+  border-radius:13px;
+  padding:16px;
+}
+
+.recommendation-title{
+  font-size:11px;
+  font-weight:bold;
+}
+
+.recommendation-bid{
+  font-size:29px;
+  font-weight:900;
+  margin-top:5px;
+}
+
+.recommendation-note{
+  color:#c9dbe6;
+  font-size:12px;
+  line-height:1.5;
+}
+
+/* ================= SISTEM ================= */
+
+.system-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.system{
+  border:1px solid #dce5ec;
+  border-radius:10px;
+  padding:11px;
+}
+
+.system h3{
   color:#07558f;
 }
 
-.app-button.secondary:hover{
-  background:#d8ebf4;
+.system p{
+  color:#65788b;
+  font-size:12px;
 }
 
-/* ================= INFO ================= */
+/* ================= SCORE ================= */
 
-.info-box{
-  margin-top:25px;
-  background:linear-gradient(135deg,#07558f,#087cab);
-  color:#fff;
-  border-radius:16px;
-  padding:25px;
-}
-
-.info-box h2{
-  font-size:18px;
-  margin-bottom:7px;
-}
-
-.info-box p{
-  font-size:10px;
-  color:rgba(255,255,255,.9);
-}
-
-.info-points{
+.contract-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-top:18px;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
 }
 
-.info-point{
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.16);
+.score-box{
+  margin-top:12px;
+  background:#073c59;
+  color:#fff;
+  border-radius:12px;
+  padding:15px;
+}
+
+.score{
+  font-size:29px;
+  font-weight:900;
+}
+
+.score-note{
+  font-size:12px;
+  color:#cbdde7;
+}
+
+/* ================= MODAL KAMERA ================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  z-index:500;
+}
+
+.modal-box{
+  width:min(650px,100%);
+  background:#fff;
+  border-radius:15px;
+  padding:14px;
+}
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+video{
+  width:100%;
   border-radius:10px;
-  padding:13px;
+  background:#000;
 }
 
-.info-point strong{
-  display:block;
-  font-size:11px;
-  margin-bottom:3px;
+.camera-actions{
+  display:flex;
+  gap:8px;
+  margin-top:9px;
 }
 
-.info-point span{
-  display:block;
-  font-size:9px;
-  color:rgba(255,255,255,.78);
+#canvas{
+  display:none;
 }
 
 /* ================= FOOTER ================= */
 
-.footer{
+.site-footer{
   background:#073c59;
   color:#fff;
-  padding:30px 20px 18px;
+  padding:28px 20px 18px;
 }
 
-.footer-inner{
+.site-footer-inner{
   max-width:1100px;
   margin:auto;
   display:grid;
@@ -313,157 +643,145 @@ body{
   gap:30px;
 }
 
-.footer h3{
+.site-footer h3{
   font-size:14px;
   margin-bottom:8px;
 }
 
-.footer p{
+.site-footer p{
   color:rgba(255,255,255,.75);
   font-size:10px;
-  line-height:1.7;
 }
 
-.footer-links{
+.site-footer-links{
   display:flex;
   flex-direction:column;
   gap:5px;
 }
 
-.footer-links a{
+.site-footer-links a{
   color:rgba(255,255,255,.75);
   text-decoration:none;
   font-size:10px;
 }
 
-.footer-links a:hover{
+.site-footer-links a:hover{
   color:#fff;
 }
 
 .footer-bottom{
   max-width:1100px;
-  margin:22px auto 0;
+  margin:20px auto 0;
   padding-top:12px;
   border-top:1px solid rgba(255,255,255,.15);
   display:flex;
   justify-content:space-between;
-  color:rgba(255,255,255,.6);
   font-size:9px;
+  color:rgba(255,255,255,.65);
+}
+
+/* ================= TOAST ================= */
+
+#toast{
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  background:#17243c;
+  color:#fff;
+  padding:11px 15px;
+  border-radius:9px;
+  font-size:12px;
+  display:none;
+  z-index:1000;
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:800px){
+@media(max-width:950px){
 
-  .apps-grid{
+  .seats{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .col-8,
+  .col-4{
+    grid-column:span 12;
   }
 
 }
 
 @media(max-width:700px){
 
-  .top-line{
-    padding:6px 10px;
-    font-size:7px;
-    gap:8px;
-  }
-
   .header-main{
-    min-height:58px;
-    padding:6px 10px;
-    gap:8px;
-  }
-
-  .brand-logo{
-    width:32px;
-    height:32px;
-    font-size:16px;
-  }
-
-  .brand-text strong{
-    font-size:10px;
-  }
-
-  .brand-text small{
-    font-size:5px;
+    flex-direction:column;
+    align-items:flex-start;
   }
 
   .main-nav{
-    flex:1;
-    gap:2px;
+    width:100%;
   }
 
-  .main-nav a{
-    font-size:8px;
-    padding:7px 8px;
+  .page-title h1{
+    font-size:25px;
   }
 
-  .page-hero{
-    padding:30px 15px;
-  }
-
-  .page-hero h1{
-    font-size:27px;
-  }
-
-  .page-hero p{
-    font-size:10px;
-  }
-
-  .container{
-    padding:25px 12px 35px;
-  }
-
-  .apps-grid{
-    grid-template-columns:1fr;
-    gap:15px;
-  }
-
-  .app-card{
-    min-height:auto;
-    padding:20px;
-  }
-
-  .info-points{
+  .row4,
+  .row3,
+  .row2,
+  .contract-grid{
     grid-template-columns:1fr;
   }
 
-  .footer{
-    padding:25px 15px 15px;
+  .seats{
+    grid-template-columns:1fr;
   }
 
-  .footer-inner{
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+  .card-board{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .footer-inner > div:first-child{
-    grid-column:1 / -1;
+  .owner-summary{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .system-grid{
+    grid-template-columns:1fr;
+  }
+
+  .bid-controls{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .site-footer-inner{
+    grid-template-columns:1fr;
   }
 
   .footer-bottom{
     flex-direction:column;
     gap:5px;
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="site-header">
 
   <div class="top-line">
     <span>GABSI KOTA TANJUNGBALAI</span>
-    <span>Bridge • Prestasi • Persaudaraan</span>
+    <span>Bridge · Prestasi · Persaudaraan</span>
   </div>
 
   <div class="header-main">
 
-    <a href="index.html" class="brand">
+    <a href="index.html" class="brand-gabsi">
 
       <div class="brand-logo">♥</div>
 
@@ -499,24 +817,26 @@ body{
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =====================================================
+     JUDUL
+===================================================== -->
 
-<section class="page-hero">
+<section class="page-title">
 
-  <div class="page-hero-inner">
+  <div class="page-title-inner">
 
-    <div class="hero-label">
-      LAYANAN DIGITAL
+    <div class="page-label">
+      APLIKASI DIGITAL GABSI
     </div>
 
     <h1>
-      Aplikasi <span>GABSI</span>
+      Belajar Penawaran Bridge
     </h1>
 
     <p>
-      Kumpulan aplikasi digital GABSI Kota Tanjungbalai
-      untuk mendukung latihan, permainan dan pengelolaan
-      olahraga bridge.
+      Media pembelajaran untuk memahami kartu, sistem penawaran,
+      auction, HCP, distribusi, dan pengambilan keputusan
+      dalam permainan olahraga bridge.
     </p>
 
   </div>
@@ -524,255 +844,3131 @@ body{
 </section>
 
 
-<!-- ================= CONTENT ================= -->
+<!-- =====================================================
+     KONTEN
+===================================================== -->
 
 <main class="container">
 
-  <div class="apps-grid">
+<div class="grid">
 
 
-    <!-- GAME BRIDGE -->
+<!-- =====================================================
+     1. PENGATURAN
+===================================================== -->
 
-    <article class="app-card">
+<section class="card col-12">
 
-      <div class="app-icon">
-        ♠
-      </div>
+<h2>1. Pengaturan Permainan</h2>
 
-      <h2>
-        Game Bridge
-      </h2>
+<div class="row4">
 
-      <p>
-        Permainan bridge melawan komputer dengan
-        tampilan yang nyaman digunakan melalui
-        HP maupun komputer.
-      </p>
+<div>
+<label>Board</label>
+<input id="boardNo" type="number" min="1" value="1">
+</div>
 
-      <a
-        href="game-bridge-gabsi.html"
-        class="app-button">
-        BUKA GAME BRIDGE
-      </a>
+<div>
+<label>Dealer</label>
+<select id="dealer">
+<option value="N">Utara</option>
+<option value="E">Timur</option>
+<option value="S">Selatan</option>
+<option value="W">Barat</option>
+</select>
+</div>
 
-    </article>
+<div>
+<label>Vulnerability</label>
+<select id="vuln">
+<option value="None">None</option>
+<option value="NS">NS</option>
+<option value="EW">EW</option>
+<option value="Both">Both</option>
+</select>
+</div>
 
+<div>
+<label>Sistem Penawaran</label>
+<select id="system">
 
-    <!-- KOCOKAN KARTU -->
+<option value="johan">
+Sistem Johan
+</option>
 
-    <article class="app-card">
+<option value="four">
+Four Card Major
+</option>
 
-      <div class="app-icon">
-        🃏
-      </div>
+<option value="five">
+Five Card Major
+</option>
 
-      <h2>
-        Kocokan Kartu
-      </h2>
+<option value="sayc">
+SAYC
+</option>
 
-      <p>
-        Aplikasi untuk mengocok kartu bridge secara
-        digital dan membantu menentukan pembagian
-        kartu untuk latihan.
-      </p>
+<option value="twooverone">
+2/1 Game Force
+</option>
 
-      <a
-        href="kocokan-kartu.html"
-        class="app-button">
-        BUKA KOCOKAN KARTU
-      </a>
+<option value="acol">
+Acol
+</option>
 
-    </article>
+<option value="precision">
+Precision
+</option>
 
+<option value="precisionclub">
+Precision Club
+</option>
 
-    <!-- SCORE SHEET -->
+<option value="natural">
+Natural Standard
+</option>
 
-    <article class="app-card">
+</select>
+</div>
 
-      <div class="app-icon">
-        📊
-      </div>
+</div>
 
-      <h2>
-        Score Sheet
-      </h2>
+<div
+id="systemInfo"
+class="alert"
+style="margin-top:12px">
+</div>
 
-      <p>
-        Aplikasi pencatatan dan perhitungan score
-        permainan bridge untuk membantu proses
-        pertandingan dan latihan.
-      </p>
-
-      <a
-        href="score-sheet.html"
-        class="app-button">
-        BUKA SCORE SHEET
-      </a>
-
-    </article>
-
-
-  </div>
-
-
-  <!-- ================= INFO ================= -->
-
-  <section class="info-box">
-
-    <h2>
-      Aplikasi Digital GABSI
-    </h2>
-
-    <p>
-      Gunakan aplikasi sesuai kebutuhan latihan dan
-      pertandingan. Seluruh aplikasi dirancang agar
-      mudah digunakan melalui perangkat HP.
-    </p>
+</section>
 
 
-    <div class="info-points">
+<!-- =====================================================
+     2. FOTO KARTU
+===================================================== -->
 
-      <div class="info-point">
+<section class="card col-12">
 
-        <strong>♠ Game Bridge</strong>
+<h2>
+2. Foto Kartu Utara, Timur, Selatan dan Barat
+</h2>
 
-        <span>
-          Bermain bridge melawan komputer.
-        </span>
+<p class="help">
 
-      </div>
+Gunakan kamera HP untuk mengambil foto kartu masing-masing
+pemain. Foto disimpan di halaman ini. Pembacaan otomatis
+kartu dari foto belum menggunakan AI/OCR eksternal.
 
+</p>
 
-      <div class="info-point">
-
-        <strong>🃏 Kocokan Kartu</strong>
-
-        <span>
-          Membantu pembagian kartu latihan.
-        </span>
-
-      </div>
+<div class="seats">
 
 
-      <div class="info-point">
+<!-- UTARA -->
 
-        <strong>📊 Score Sheet</strong>
+<div class="seat">
 
-        <span>
-          Membantu pencatatan skor bridge.
-        </span>
+<div class="seat-head">
 
-      </div>
+<span class="seat-name">
+Utara (N)
+</span>
 
-    </div>
+<span class="seat-tag">
+North
+</span>
 
-  </section>
+</div>
+
+<div class="photo" id="photo-N">
+Belum ada foto
+</div>
+
+<div class="photo-buttons">
+
+<button
+class="btn primary"
+onclick="openCamera('N')">
+Kamera
+</button>
+
+<button
+class="btn"
+onclick="document.getElementById('file-N').click()">
+Foto
+</button>
+
+</div>
+
+<input
+id="file-N"
+class="file-input"
+type="file"
+accept="image/*"
+capture="environment"
+onchange="loadPhoto(event,'N')">
+
+</div>
+
+
+<!-- TIMUR -->
+
+<div class="seat">
+
+<div class="seat-head">
+
+<span class="seat-name">
+Timur (E)
+</span>
+
+<span class="seat-tag">
+East
+</span>
+
+</div>
+
+<div class="photo" id="photo-E">
+Belum ada foto
+</div>
+
+<div class="photo-buttons">
+
+<button
+class="btn primary"
+onclick="openCamera('E')">
+Kamera
+</button>
+
+<button
+class="btn"
+onclick="document.getElementById('file-E').click()">
+Foto
+</button>
+
+</div>
+
+<input
+id="file-E"
+class="file-input"
+type="file"
+accept="image/*"
+capture="environment"
+onchange="loadPhoto(event,'E')">
+
+</div>
+
+
+<!-- SELATAN -->
+
+<div class="seat">
+
+<div class="seat-head">
+
+<span class="seat-name">
+Selatan (S)
+</span>
+
+<span class="seat-tag">
+South
+</span>
+
+</div>
+
+<div class="photo" id="photo-S">
+Belum ada foto
+</div>
+
+<div class="photo-buttons">
+
+<button
+class="btn primary"
+onclick="openCamera('S')">
+Kamera
+</button>
+
+<button
+class="btn"
+onclick="document.getElementById('file-S').click()">
+Foto
+</button>
+
+</div>
+
+<input
+id="file-S"
+class="file-input"
+type="file"
+accept="image/*"
+capture="environment"
+onchange="loadPhoto(event,'S')">
+
+</div>
+
+
+<!-- BARAT -->
+
+<div class="seat">
+
+<div class="seat-head">
+
+<span class="seat-name">
+Barat (W)
+</span>
+
+<span class="seat-tag">
+West
+</span>
+
+</div>
+
+<div class="photo" id="photo-W">
+Belum ada foto
+</div>
+
+<div class="photo-buttons">
+
+<button
+class="btn primary"
+onclick="openCamera('W')">
+Kamera
+</button>
+
+<button
+class="btn"
+onclick="document.getElementById('file-W').click()">
+Foto
+</button>
+
+</div>
+
+<input
+id="file-W"
+class="file-input"
+type="file"
+accept="image/*"
+capture="environment"
+onchange="loadPhoto(event,'W')">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     3. PEGANGAN KARTU
+===================================================== -->
+
+<section class="card col-12">
+
+<h2>
+3. Rekap Pegangan Kartu
+</h2>
+
+<p class="help">
+
+Format contoh:
+
+<b>♠ AKQJ98 | ♥ K32 | ♦ A4 | ♣ J76</b>
+
+Sistem akan menghitung HCP.
+
+</p>
+
+<div class="row2" style="margin-top:12px">
+
+<div>
+<label>Utara</label>
+<input
+id="hand-N"
+placeholder="♠ AKQJ98 | ♥ K32 | ♦ A4 | ♣ J76">
+</div>
+
+<div>
+<label>Timur</label>
+<input
+id="hand-E"
+placeholder="♠ AKQJ98 | ♥ K32 | ♦ A4 | ♣ J76">
+</div>
+
+<div>
+<label>Selatan</label>
+<input
+id="hand-S"
+placeholder="♠ AKQJ98 | ♥ K32 | ♦ A4 | ♣ J76">
+</div>
+
+<div>
+<label>Barat</label>
+<input
+id="hand-W"
+placeholder="♠ AKQJ98 | ♥ K32 | ♦ A4 | ♣ J76">
+</div>
+
+</div>
+
+<div class="badges">
+
+<span class="badge good" id="hcp-N">
+N HCP: —
+</span>
+
+<span class="badge good" id="hcp-E">
+E HCP: —
+</span>
+
+<span class="badge good" id="hcp-S">
+S HCP: —
+</span>
+
+<span class="badge good" id="hcp-W">
+W HCP: —
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     4. 52 KARTU
+===================================================== -->
+
+<section class="card col-12">
+
+<h2>
+4. Distribusi 52 Kartu & Mesin Rekomendasi
+</h2>
+
+<div class="alert">
+
+Klik kartu untuk menetapkan pemilik:
+
+<b>
+N → E → S → W → kosong
+</b>
+
+Sistem memastikan setiap pemain memiliki maksimal
+13 kartu dan seluruh deck terdiri dari 52 kartu.
+
+</div>
+
+<div class="row3" style="margin-top:12px">
+
+<div>
+
+<label>
+Pemain yang Dianalisis
+</label>
+
+<select id="decisionSeat">
+
+<option value="N">
+Utara (N)
+</option>
+
+<option value="E">
+Timur (E)
+</option>
+
+<option value="S">
+Selatan (S)
+</option>
+
+<option value="W">
+Barat (W)
+</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>
+Status Deck
+</label>
+
+<span
+id="deckStatus"
+class="badge warn">
+Belum lengkap
+</span>
+
+</div>
+
+<div>
+
+<label>
+Sistem
+</label>
+
+<span
+id="systemBadge"
+class="badge">
+Sistem Johan
+</span>
+
+</div>
+
+</div>
+
+
+<div id="cardBoard"
+class="card-board">
+</div>
+
+
+<div
+class="button-row"
+style="margin-top:12px">
+
+<button
+class="btn"
+onclick="clearCards()">
+Kosongkan 52 Kartu
+</button>
+
+<button
+class="btn primary"
+onclick="autoDeal()">
+Bagikan 52 Kartu Otomatis
+</button>
+
+<button
+class="btn"
+onclick="validateDeck()">
+Validasi Kartu
+</button>
+
+</div>
+
+
+<div class="owner-summary" id="ownerSummary">
+</div>
+
+
+<div
+class="row2"
+style="margin-top:13px">
+
+<div class="card">
+
+<h3>
+Analisis Tangan
+</h3>
+
+<div
+id="handAnalysis"
+class="help">
+Lengkapi 13 kartu.
+</div>
+
+</div>
+
+
+<div class="recommendation">
+
+<div class="recommendation-title">
+REKOMENDASI KOMPUTER
+</div>
+
+<div
+id="recommendation"
+class="recommendation-bid">
+—
+</div>
+
+<div
+id="recommendationWhy"
+class="recommendation-note">
+Lengkapi kartu untuk memperoleh rekomendasi.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     5. AUCTION
+===================================================== -->
+
+<section class="card col-8">
+
+<h2>
+5. Auction / Penawaran
+</h2>
+
+<div class="auction">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Putaran</th>
+<th>Utara</th>
+<th>Timur</th>
+<th>Selatan</th>
+<th>Barat</th>
+</tr>
+
+</thead>
+
+<tbody id="auctionBody">
+</tbody>
+
+</table>
+
+</div>
+
+<p
+class="help"
+style="margin-top:10px">
+
+Giliran:
+<b id="turnLabel">
+Utara (N)
+</b>
+
+</p>
+
+<div
+id="bidControls"
+class="bid-controls">
+</div>
+
+<div
+class="button-row"
+style="margin-top:10px">
+
+<button
+class="btn"
+onclick="undoBid()">
+Undo
+</button>
+
+<button
+class="btn danger"
+onclick="clearAuction()">
+Hapus Auction
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     6. SCORE
+===================================================== -->
+
+<section class="card col-4">
+
+<h2>
+6. Kontrak Akhir
+</h2>
+
+<div class="contract-grid">
+
+<div>
+<label>Level</label>
+
+<select id="level">
+
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option selected>5</option>
+<option>6</option>
+<option>7</option>
+
+</select>
+</div>
+
+
+<div>
+<label>Denom</label>
+
+<select id="denom">
+
+<option value="C">♣</option>
+<option value="D">♦</option>
+<option value="H">♥</option>
+<option value="S">♠</option>
+<option value="NT">NT</option>
+
+</select>
+</div>
+
+
+<div>
+<label>Double</label>
+
+<select id="mult">
+
+<option value="1">Normal</option>
+<option value="2">X</option>
+<option value="4">XX</option>
+
+</select>
+</div>
+
+
+<div>
+<label>Declarer</label>
+
+<select id="declarer">
+
+<option>N</option>
+<option>E</option>
+<option>S</option>
+<option>W</option>
+
+</select>
+</div>
+
+
+<div>
+<label>Trick</label>
+
+<input
+id="tricks"
+type="number"
+min="0"
+max="13"
+value="11">
+
+</div>
+
+</div>
+
+
+<div class="score-box">
+
+<div
+id="score"
+class="score">
+—
+</div>
+
+<div
+id="scoreNote"
+class="score-note">
+Pilih kontrak dan hitung score.
+</div>
+
+</div>
+
+<button
+class="btn primary"
+style="width:100%;margin-top:10px"
+onclick="calculateScore()">
+
+Hitung Score
+
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     7. SISTEM BRIDGE
+===================================================== -->
+
+<section class="card col-12">
+
+<h2>
+7. Pilihan Sistem Bridge
+</h2>
+
+<div class="system-grid">
+
+
+<div class="system">
+
+<h3>
+Sistem Johan
+</h3>
+
+<p>
+Sistem kustom yang mengikuti kesepakatan pasangan.
+Detail konvensi harus disesuaikan dengan convention card.
+</p>
+
+</div>
+
+
+<div class="system">
+
+<h3>
+Four Card Major
+</h3>
+
+<p>
+Kerangka yang memungkinkan pembukaan major dengan
+empat kartu pada sistem tertentu.
+</p>
+
+</div>
+
+
+<div class="system">
+
+<h3>
+Five Card Major
+</h3>
+
+<p>
+Pembukaan 1♥ atau 1♠ umumnya menunjukkan minimal
+lima kartu major.
+</p>
+
+</div>
+
+
+<div class="system">
+
+<h3>
+SAYC
+</h3>
+
+<p>
+Kerangka natural standard yang banyak digunakan
+sebagai sistem pembelajaran.
+</p>
+
+</div>
+
+
+<div class="system">
+
+<h3>
+2/1 Game Force
+</h3>
+
+<p>
+Sistem natural dengan prinsip respons 2-over-1
+game forcing pada situasi tertentu.
+</p>
+
+</div>
+
+
+<div class="system">
+
+<h3>
+Acol
+</h3>
+
+<p>
+Sistem natural yang dalam banyak implementasi
+menggunakan four-card major.
+</p>
+
+</div>
+
+
+<div class="system">
+
+<h3>
+Precision
+</h3>
+
+<p>
+Keluarga sistem strong club dengan 1♣ yang
+umumnya bersifat artifisial.
+</p>
+
+</div>
+
+
+<div class="system">
+
+<h3>
+Natural Standard
+</h3>
+
+<p>
+Mode netral untuk latihan sistem natural dan
+kesepakatan pasangan.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
 
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+     MODAL KAMERA
+===================================================== -->
 
-<footer class="footer">
+<div
+id="cameraModal"
+class="modal">
 
-  <div class="footer-inner">
+<div class="modal-box">
 
-    <div>
+<div class="modal-header">
 
-      <h3>
-        GABSI Kota Tanjungbalai
-      </h3>
+<strong id="cameraTitle">
+Kamera Kartu
+</strong>
 
-      <p>
-        Website resmi GABSI Kota Tanjungbalai
-        sebagai pusat informasi olahraga bridge,
-        kegiatan dan aplikasi digital.
-      </p>
+<button
+class="btn"
+onclick="closeCamera()">
+Tutup
+</button>
 
-    </div>
+</div>
 
+<video
+id="cameraVideo"
+autoplay
+playsinline>
+</video>
 
-    <div>
+<canvas id="canvas"></canvas>
 
-      <h3>
-        Menu
-      </h3>
+<div class="camera-actions">
 
-      <div class="footer-links">
+<button
+class="btn primary"
+onclick="takePhoto()">
+Ambil Foto
+</button>
 
-        <a href="index.html">
-          Beranda
-        </a>
+<button
+class="btn"
+onclick="switchCamera()">
+Ganti Kamera
+</button>
 
-        <a href="profil.html">
-          Profil
-        </a>
+</div>
 
-        <a href="pengurus.html">
-          Pengurus
-        </a>
+</div>
 
-        <a href="kegiatan.html">
-          Kegiatan
-        </a>
-
-        <a href="galeri.html">
-          Galeri
-        </a>
-
-        <a href="aplikasi.html">
-          Aplikasi
-        </a>
-
-      </div>
-
-    </div>
+</div>
 
 
-    <div>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-      <h3>
-        Aplikasi
-      </h3>
+<footer class="site-footer">
 
-      <div class="footer-links">
-
-        <a href="game-bridge-gabsi.html">
-          Game Bridge
-        </a>
-
-        <a href="kocokan-kartu.html">
-          Kocokan Kartu
-        </a>
-
-        <a href="score-sheet.html">
-          Score Sheet
-        </a>
-
-        <a href="kontak.html">
-          Kontak
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
+<div class="site-footer-inner">
 
 
-  <div class="footer-bottom">
+<div>
 
-    <span>
-      © 2026 GABSI Kota Tanjungbalai
-    </span>
+<h3>
+GABSI Kota Tanjungbalai
+</h3>
 
-    <span>
-      Bridge • Prestasi • Persaudaraan
-    </span>
+<p>
+Website GABSI Kota Tanjungbalai sebagai pusat informasi
+olahraga bridge, pembelajaran, kegiatan dan aplikasi digital.
+</p>
 
-  </div>
+</div>
+
+
+<div>
+
+<h3>
+Menu
+</h3>
+
+<div class="site-footer-links">
+
+<a href="index.html">
+Beranda
+</a>
+
+<a href="profil.html">
+Profil
+</a>
+
+<a href="pengurus.html">
+Pengurus
+</a>
+
+<a href="kegiatan.html">
+Kegiatan
+</a>
+
+<a href="galeri.html">
+Galeri
+</a>
+
+<a href="aplikasi.html">
+Aplikasi
+</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h3>
+Aplikasi
+</h3>
+
+<div class="site-footer-links">
+
+<a href="game-bridge-gabsi.html">
+Game Bridge
+</a>
+
+<a href="kokokan-kartu.html">
+Kocokan Kartu
+</a>
+
+<a href="score-sheet.html">
+Score Sheet
+</a>
+
+<a href="kontak.html">
+Kontak
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 GABSI Kota Tanjungbalai
+</span>
+
+<span>
+Bridge · Prestasi · Persaudaraan
+</span>
+
+</div>
 
 </footer>
+
+
+<div id="toast"></div>
+
+
+<script>
+
+"use strict";
+
+
+/* =====================================================
+   DATA KARTU
+===================================================== */
+
+const SUITS = [
+  {code:"S",symbol:"♠",name:"Spade"},
+  {code:"H",symbol:"♥",name:"Heart"},
+  {code:"D",symbol:"♦",name:"Diamond"},
+  {code:"C",symbol:"♣",name:"Club"}
+];
+
+const RANKS = [
+  "A","K","Q","J","10","9","8","7","6","5","4","3","2"
+];
+
+const PLAYERS = ["N","E","S","W"];
+
+const PLAYER_NAMES = {
+  N:"Utara (N)",
+  E:"Timur (E)",
+  S:"Selatan (S)",
+  W:"Barat (W)"
+};
+
+const HCP = {
+  A:4,
+  K:3,
+  Q:2,
+  J:1
+};
+
+const DECK = [];
+
+SUITS.forEach(function(suit){
+
+  RANKS.forEach(function(rank){
+
+    DECK.push(rank+suit.code);
+
+  });
+
+});
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let cardOwners = {};
+
+let photos = {
+  N:null,
+  E:null,
+  S:null,
+  W:null
+};
+
+let auction = [];
+
+let dealer = "N";
+
+let cameraSeat = null;
+
+let cameraStream = null;
+
+let cameraFacing = "environment";
+
+
+/* =====================================================
+   UTILITAS
+===================================================== */
+
+function $(id){
+  return document.getElementById(id);
+}
+
+
+function showToast(message){
+
+  const box = $("toast");
+
+  box.textContent = message;
+
+  box.style.display = "block";
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer = setTimeout(function(){
+
+    box.style.display = "none";
+
+  },2200);
+
+}
+
+
+/* =====================================================
+   SISTEM
+===================================================== */
+
+const SYSTEM_INFO = {
+
+  johan:
+  "Sistem Johan adalah sistem kustom. Gunakan convention card pasangan sebagai acuan utama.",
+
+  four:
+  "Four Card Major menggunakan pendekatan major 4 kartu pada sistem tertentu.",
+
+  five:
+  "Five Card Major menggunakan minimal 5 kartu untuk pembukaan major pada kerangka natural umum.",
+
+  sayc:
+  "SAYC merupakan kerangka natural standard untuk pembelajaran bridge.",
+
+  twooverone:
+  "2/1 Game Force menggunakan respons 2-over-1 dengan prinsip game forcing pada situasi yang sesuai.",
+
+  acol:
+  "Acol adalah sistem natural yang pada banyak implementasinya menggunakan four-card major.",
+
+  precision:
+  "Precision merupakan keluarga strong-club. Detail respons harus mengikuti convention card.",
+
+  precisionclub:
+  "Precision Club menggunakan 1♣ sebagai pembukaan strong/artificial pada varian umumnya.",
+
+  natural:
+  "Natural Standard merupakan mode netral untuk latihan sistem natural."
+
+};
+
+
+function updateSystemInfo(){
+
+  const value = $("system").value;
+
+  $("systemInfo").textContent =
+    SYSTEM_INFO[value];
+
+  $("systemBadge").textContent =
+    $("system").options[
+      $("system").selectedIndex
+    ].text;
+
+}
+
+
+/* =====================================================
+   HCP
+===================================================== */
+
+function calculateHCP(cards){
+
+  let total = 0;
+
+  cards.forEach(function(card){
+
+    const rank =
+      card.slice(0,-1);
+
+    total += HCP[rank] || 0;
+
+  });
+
+  return total;
+
+}
+
+
+/* =====================================================
+   DISTRIBUSI
+===================================================== */
+
+function getPlayerCards(player){
+
+  return DECK.filter(function(card){
+
+    return cardOwners[card] === player;
+
+  });
+
+}
+
+
+function getDistribution(player){
+
+  const result = {
+    S:[],
+    H:[],
+    D:[],
+    C:[]
+  };
+
+  getPlayerCards(player).forEach(function(card){
+
+    const suit =
+      card.slice(-1);
+
+    const rank =
+      card.slice(0,-1);
+
+    result[suit].push(rank);
+
+  });
+
+  return result;
+
+}
+
+
+function isBalanced(distribution){
+
+  const lengths = SUITS.map(function(suit){
+
+    return distribution[suit.code].length;
+
+  }).sort(function(a,b){
+
+    return b-a;
+
+  });
+
+  const key =
+    lengths.join("-");
+
+  return (
+    key === "5-3-3-2" ||
+    key === "4-4-3-2" ||
+    key === "4-3-3-3"
+  );
+
+}
+
+
+/* =====================================================
+   MEMBANGUN PAPAN 52 KARTU
+===================================================== */
+
+function buildCardBoard(){
+
+  const board =
+    $("cardBoard");
+
+  board.innerHTML = "";
+
+
+  SUITS.forEach(function(suit){
+
+    const panel =
+      document.createElement("div");
+
+    panel.className =
+      "suit-panel";
+
+
+    panel.innerHTML =
+      '<div class="suit-title">'+
+      suit.symbol+" "+suit.name+
+      '</div>'+
+      '<div class="card-grid"></div>';
+
+
+    const grid =
+      panel.querySelector(".card-grid");
+
+
+    RANKS.forEach(function(rank){
+
+      const card =
+        rank+suit.code;
+
+
+      const button =
+        document.createElement("button");
+
+
+      button.className =
+        "card-btn";
+
+
+      button.textContent =
+        rank;
+
+
+      button.type =
+        "button";
+
+
+      button.onclick =
+        function(){
+
+          cycleCard(card);
+
+        };
+
+
+      button.dataset.card =
+        card;
+
+
+      grid.appendChild(button);
+
+    });
+
+
+    board.appendChild(panel);
+
+  });
+
+
+  refreshCardButtons();
+
+}
+
+
+/* =====================================================
+   KARTU
+===================================================== */
+
+function cycleCard(card){
+
+  const current =
+    cardOwners[card] || "";
+
+
+  let next = "";
+
+
+  if(current === ""){
+    next = "N";
+  }
+
+  else if(current === "N"){
+    next = "E";
+  }
+
+  else if(current === "E"){
+    next = "S";
+  }
+
+  else if(current === "S"){
+    next = "W";
+  }
+
+  else{
+    next = "";
+  }
+
+
+  cardOwners[card] =
+    next;
+
+
+  refreshCardButtons();
+
+  updateAnalysis();
+
+}
+
+
+function refreshCardButtons(){
+
+  document
+    .querySelectorAll(".card-btn")
+    .forEach(function(button){
+
+      const owner =
+        cardOwners[
+          button.dataset.card
+        ] || "";
+
+      button.className =
+        "card-btn "+owner;
+
+    });
+
+}
+
+
+/* =====================================================
+   BAGIKAN KARTU OTOMATIS
+===================================================== */
+
+function shuffle(array){
+
+  const result =
+    array.slice();
+
+
+  for(
+    let i=result.length-1;
+    i>0;
+    i--
+  ){
+
+    const j =
+      Math.floor(
+        Math.random()*(i+1)
+      );
+
+
+    const temp =
+      result[i];
+
+    result[i] =
+      result[j];
+
+    result[j] =
+      temp;
+
+  }
+
+
+  return result;
+
+}
+
+
+function autoDeal(){
+
+  cardOwners = {};
+
+  const shuffled =
+    shuffle(DECK);
+
+
+  shuffled.forEach(function(card,index){
+
+    const player =
+      PLAYERS[
+        Math.floor(index/13)
+      ];
+
+
+    cardOwners[card] =
+      player;
+
+  });
+
+
+  refreshCardButtons();
+
+  updateAnalysis();
+
+  showToast(
+    "52 kartu telah dibagikan. Masing-masing 13 kartu."
+  );
+
+}
+
+
+/* =====================================================
+   VALIDASI
+===================================================== */
+
+function validateDeck(){
+
+  const counts =
+    PLAYERS.map(function(player){
+
+      return getPlayerCards(player).length;
+
+    });
+
+
+  const total =
+    counts.reduce(
+      function(a,b){
+        return a+b;
+      },
+      0
+    );
+
+
+  const valid =
+    total === 52 &&
+    counts.every(
+      function(value){
+        return value === 13;
+      }
+    );
+
+
+  $("deckStatus").textContent =
+    valid
+      ? "52/52 valid"
+      : "Terisi "+total+"/52";
+
+
+  $("deckStatus").className =
+    "badge "+
+    (valid?"good":"warn");
+
+
+  if(valid){
+
+    showToast(
+      "Valid: 52 kartu, masing-masing 13."
+    );
+
+  }
+  else{
+
+    showToast(
+      "Deck belum lengkap."
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   KOSONGKAN KARTU
+===================================================== */
+
+function clearCards(){
+
+  if(
+    !confirm(
+      "Kosongkan seluruh pembagian kartu?"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  cardOwners = {};
+
+  refreshCardButtons();
+
+  updateAnalysis();
+
+}
+
+
+/* =====================================================
+   ANALISIS
+===================================================== */
+
+function updateAnalysis(){
+
+  const player =
+    $("decisionSeat").value;
+
+
+  const cards =
+    getPlayerCards(player);
+
+
+  const distribution =
+    getDistribution(player);
+
+
+  const hcp =
+    calculateHCP(cards);
+
+
+  const counts =
+    PLAYERS.map(function(p){
+
+      return getPlayerCards(p).length;
+
+    });
+
+
+  const total =
+    counts.reduce(
+      function(a,b){
+        return a+b;
+      },
+      0
+    );
+
+
+  const valid =
+    counts.every(
+      function(value){
+        return value===13;
+      }
+    );
+
+
+  $("deckStatus").textContent =
+    valid
+      ? "52/52 valid"
+      : "Terisi "+total+"/52";
+
+
+  $("deckStatus").className =
+    "badge "+
+    (valid?"good":"warn");
+
+
+  let html =
+    "<b>"+PLAYER_NAMES[player]+"</b><br>";
+
+  html +=
+    "♠ "+
+    (distribution.S.join("")||"—")+
+    " | ♥ "+
+    (distribution.H.join("")||"—")+
+    " | ♦ "+
+    (distribution.D.join("")||"—")+
+    " | ♣ "+
+    (distribution.C.join("")||"—");
+
+
+  html +=
+    '<div class="badges">'+
+    '<span class="badge good">HCP '+hcp+
+    '</span>'+
+    '<span class="badge">'+
+    (isBalanced(distribution)
+      ?"Balanced"
+      :"Unbalanced")+
+    '</span>'+
+    '</div>';
+
+
+  $("handAnalysis").innerHTML =
+    html;
+
+
+  updateOwnerSummary();
+
+
+  if(cards.length !== 13){
+
+    $("recommendation").textContent =
+      "Lengkapi 13 kartu";
+
+    $("recommendationWhy").textContent =
+      "Pemain ini memiliki "+
+      cards.length+
+      " kartu.";
+
+    return;
+
+  }
+
+
+  const recommendation =
+    getRecommendation(
+      player,
+      hcp,
+      distribution
+    );
+
+
+  $("recommendation").textContent =
+    recommendation.bid;
+
+
+  $("recommendationWhy").textContent =
+    recommendation.reason;
+
+}
+
+
+function updateOwnerSummary(){
+
+  const box =
+    $("ownerSummary");
+
+  box.innerHTML = "";
+
+
+  PLAYERS.forEach(function(player){
+
+    const cards =
+      getPlayerCards(player);
+
+    const distribution =
+      getDistribution(player);
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "owner";
+
+
+    div.innerHTML =
+      "<strong>"+player+
+      "</strong><br>"+
+      cards.length+
+      "/13 kartu<br>"+
+      calculateHCP(cards)+
+      " HCP<br>"+
+      distribution.S.length+
+      "♠ "+
+      distribution.H.length+
+      "♥ "+
+      distribution.D.length+
+      "♦ "+
+      distribution.C.length+
+      "♣";
+
+
+    box.appendChild(div);
+
+  });
+
+}
+
+
+/* =====================================================
+   MESIN REKOMENDASI
+===================================================== */
+
+function getRecommendation(
+  player,
+  hcp,
+  distribution
+){
+
+  const spades =
+    distribution.S.length;
+
+  const hearts =
+    distribution.H.length;
+
+  const diamonds =
+    distribution.D.length;
+
+  const clubs =
+    distribution.C.length;
+
+
+  const system =
+    $("system").value;
+
+
+  const isOpening =
+    auction.length === 0 &&
+    dealer === player;
+
+
+  if(!isOpening){
+
+    return getResponseRecommendation(
+      hcp,
+      distribution
+    );
+
+  }
+
+
+  if(hcp < 12){
+
+    return {
+      bid:"PASS",
+      reason:
+        "HCP "+hcp+
+        ". Nilai ini berada di bawah kisaran pembukaan natural umum 12+ HCP."
+    };
+
+  }
+
+
+  if(hcp >= 22){
+
+    return {
+      bid:"2♣",
+      reason:
+        "HCP "+hcp+
+        ". Tangan sangat kuat; 2♣ dapat digunakan sebagai strong opening pada banyak sistem natural."
+    };
+
+  }
+
+
+  if(
+    isBalanced(distribution) &&
+    hcp >= 15 &&
+    hcp <= 17
+  ){
+
+    return {
+      bid:"1NT",
+      reason:
+        "Balanced dengan 15–17 HCP."
+    };
+
+  }
+
+
+  if(
+    ["five","sayc","twooverone","natural"]
+    .includes(system)
+  ){
+
+    if(
+      spades >= 5 &&
+      spades >= hearts
+    ){
+
+      return {
+        bid:"1♠",
+        reason:
+          "♠ memiliki "+spades+
+          " kartu dan memenuhi prinsip Five Card Major."
+      };
+
+    }
+
+
+    if(hearts >= 5){
+
+      return {
+        bid:"1♥",
+        reason:
+          "♥ memiliki "+hearts+
+          " kartu dan memenuhi prinsip Five Card Major."
+      };
+
+    }
+
+  }
+
+
+  if(
+    ["four","acol"]
+    .includes(system)
+  ){
+
+    if(
+      spades >= 4 ||
+      hearts >= 4
+    ){
+
+      if(spades > hearts){
+
+        return {
+          bid:"1♠",
+          reason:
+            "♠ merupakan major terpanjang dengan "+
+            spades+" kartu."
+        };
+
+      }
+
+
+      return {
+        bid:"1♥",
+        reason:
+          "♥ merupakan major terpilih dengan "+
+          hearts+" kartu."
+      };
+
+    }
+
+  }
+
+
+  if(
+    ["precision","precisionclub"]
+    .includes(system) &&
+    hcp >= 16
+  ){
+
+    return {
+      bid:"1♣",
+      reason:
+        "Mode Precision: 1♣ digunakan sebagai strong/artificial opening pada preset latihan."
+    };
+
+  }
+
+
+  if(
+    clubs >= diamonds &&
+    clubs >= 3
+  ){
+
+    return {
+      bid:"1♣",
+      reason:
+        "Tidak ada major yang memenuhi preset. ♣ dipilih sebagai minor latihan."
+    };
+
+  }
+
+
+  return {
+    bid:"1♦",
+    reason:
+      "Tidak ada major yang memenuhi preset. ♦ dipilih sebagai minor latihan."
+  };
+
+}
+
+
+/* =====================================================
+   RESPONS AUCTION
+===================================================== */
+
+function getResponseRecommendation(
+  hcp,
+  distribution
+){
+
+  const last =
+    auction.length
+      ? auction[auction.length-1]
+      : "";
+
+
+  if(hcp < 6){
+
+    return {
+      bid:"PASS",
+      reason:
+        "HCP rendah dan belum terdapat sequence forcing yang dapat dipastikan."
+    };
+
+  }
+
+
+  if(
+    last === "1♠" &&
+    distribution.S.length >= 3
+  ){
+
+    return {
+      bid:"2♠",
+      reason:
+        "Terdapat dukungan minimal 3 kartu ♠ untuk latihan respons sederhana."
+    };
+
+  }
+
+
+  if(
+    last === "1♥" &&
+    distribution.H.length >= 3
+  ){
+
+    return {
+      bid:"2♥",
+      reason:
+        "Terdapat dukungan minimal 3 kartu ♥ untuk latihan respons sederhana."
+    };
+
+  }
+
+
+  if(
+    last === "1NT" &&
+    hcp >= 8
+  ){
+
+    return {
+      bid:"3NT",
+      reason:
+        "Nilai latihan cukup untuk mempertimbangkan game. Periksa sistem pasangan."
+    };
+
+  }
+
+
+  if(hcp >= 10){
+
+    return {
+      bid:"1NT",
+      reason:
+        "Rekomendasi latihan berdasarkan kekuatan HCP; sequence forcing belum diketahui."
+    };
+
+  }
+
+
+  return {
+    bid:"PASS",
+    reason:
+      "Tidak terdapat informasi sequence yang cukup untuk menentukan forcing bid."
+  };
+
+}
+
+
+/* =====================================================
+   AUCTION
+===================================================== */
+
+function renderAuction(){
+
+  const body =
+    $("auctionBody");
+
+
+  body.innerHTML = "";
+
+
+  const rows =
+    Math.max(
+      1,
+      Math.ceil(
+        auction.length/4
+      )
+    );
+
+
+  for(
+    let row=0;
+    row<rows;
+    row++
+  ){
+
+    let html =
+      "<tr><td>"+
+      (row+1)+
+      "</td>";
+
+
+    for(
+      let col=0;
+      col<4;
+      col++
+    ){
+
+      const bid =
+        auction[
+          row*4+col
+        ] || "";
+
+
+      html +=
+        "<td><b>"+
+        escapeHTML(bid)+
+        "</b></td>";
+
+    }
+
+
+    html += "</tr>";
+
+    body.innerHTML +=
+      html;
+
+  }
+
+
+  const turnIndex =
+    (
+      PLAYERS.indexOf(dealer)+
+      auction.length
+    )%4;
+
+
+  $("turnLabel").textContent =
+    PLAYER_NAMES[
+      PLAYERS[turnIndex]
+    ];
+
+}
+
+
+function escapeHTML(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   TOMBOL BID
+===================================================== */
+
+function buildBidButtons(){
+
+  const box =
+    $("bidControls");
+
+
+  box.innerHTML = "";
+
+
+  const levels =
+    [1,2,3,4,5,6,7];
+
+
+  const suits =
+    [
+      ["♣","C"],
+      ["♦","D"],
+      ["♥","H"],
+      ["♠","S"],
+      ["NT","NT"]
+    ];
+
+
+  levels.forEach(function(level){
+
+    suits.forEach(function(item){
+
+      const button =
+        document.createElement("button");
+
+
+      button.className =
+        "bid-btn";
+
+
+      button.textContent =
+        level+item[0];
+
+
+      button.onclick =
+        function(){
+
+          addBid(
+            level+item[0]
+          );
+
+        };
+
+
+      box.appendChild(
+        button
+      );
+
+    });
+
+  });
+
+
+  ["PASS","X","XX"].forEach(
+    function(value){
+
+      const button =
+        document.createElement("button");
+
+
+      button.className =
+        "bid-btn";
+
+
+      button.textContent =
+        value;
+
+
+      button.onclick =
+        function(){
+
+          addBid(value);
+
+        };
+
+
+      box.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
+
+
+function addBid(bid){
+
+  if(
+    auction.length >= 40
+  ){
+
+    showToast(
+      "Auction terlalu panjang."
+    );
+
+    return;
+
+  }
+
+
+  auction.push(bid);
+
+  renderAuction();
+
+  updateAnalysis();
+
+}
+
+
+function undoBid(){
+
+  if(
+    auction.length === 0
+  ){
+
+    showToast(
+      "Belum ada penawaran."
+    );
+
+    return;
+
+  }
+
+
+  auction.pop();
+
+  renderAuction();
+
+  updateAnalysis();
+
+}
+
+
+function clearAuction(){
+
+  if(
+    !confirm(
+      "Hapus seluruh auction?"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  auction = [];
+
+  renderAuction();
+
+  updateAnalysis();
+
+}
+
+
+/* =====================================================
+   KAMERA
+===================================================== */
+
+async function openCamera(player){
+
+  cameraSeat =
+    player;
+
+
+  $("cameraTitle").textContent =
+    "Kamera — "+
+    PLAYER_NAMES[player];
+
+
+  $("cameraModal").style.display =
+    "flex";
+
+
+  try{
+
+    if(
+      !navigator.mediaDevices ||
+      !navigator.mediaDevices.getUserMedia
+    ){
+
+      throw new Error(
+        "Browser tidak mendukung kamera."
+      );
+
+    }
+
+
+    cameraStream =
+      await navigator.mediaDevices
+      .getUserMedia({
+
+        video:{
+          facingMode:{
+            ideal:cameraFacing
+          },
+
+          width:{
+            ideal:1920
+          },
+
+          height:{
+            ideal:1080
+          }
+
+        },
+
+        audio:false
+
+      });
+
+
+    $("cameraVideo").srcObject =
+      cameraStream;
+
+
+  }
+  catch(error){
+
+    closeCamera();
+
+    showToast(
+      error.message ||
+      "Kamera tidak dapat dibuka."
+    );
+
+  }
+
+}
+
+
+function closeCamera(){
+
+  if(cameraStream){
+
+    cameraStream
+      .getTracks()
+      .forEach(function(track){
+
+        track.stop();
+
+      });
+
+    cameraStream =
+      null;
+
+  }
+
+
+  $("cameraVideo").srcObject =
+    null;
+
+
+  $("cameraModal").style.display =
+    "none";
+
+}
+
+
+async function switchCamera(){
+
+  cameraFacing =
+    cameraFacing ===
+    "environment"
+      ? "user"
+      : "environment";
+
+
+  if(cameraSeat){
+
+    await openCamera(
+      cameraSeat
+    );
+
+  }
+
+}
+
+
+function takePhoto(){
+
+  const video =
+    $("cameraVideo");
+
+  const canvas =
+    $("canvas");
+
+
+  if(
+    !video.videoWidth
+  ){
+
+    showToast(
+      "Kamera belum siap."
+    );
+
+    return;
+
+  }
+
+
+  canvas.width =
+    video.videoWidth;
+
+
+  canvas.height =
+    video.videoHeight;
+
+
+  const context =
+    canvas.getContext("2d");
+
+
+  context.drawImage(
+    video,
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+
+  const image =
+    canvas.toDataURL(
+      "image/jpeg",
+      .88
+    );
+
+
+  photos[cameraSeat] =
+    image;
+
+
+  showPhoto(
+    cameraSeat,
+    image
+  );
+
+
+  closeCamera();
+
+}
+
+
+function showPhoto(
+  player,
+  image
+){
+
+  const box =
+    $("photo-"+player);
+
+
+  box.innerHTML =
+    "";
+
+
+  const img =
+    document.createElement("img");
+
+
+  img.src =
+    image;
+
+
+  img.alt =
+    "Foto kartu "+
+    PLAYER_NAMES[player];
+
+
+  box.appendChild(
+    img
+  );
+
+}
+
+
+function loadPhoto(
+  event,
+  player
+){
+
+  const file =
+    event.target.files[0];
+
+
+  if(!file){
+
+    return;
+
+  }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload =
+    function(){
+
+      photos[player] =
+        reader.result;
+
+
+      showPhoto(
+        player,
+        reader.result
+      );
+
+    };
+
+
+  reader.readAsDataURL(
+    file
+  );
+
+}
+
+
+/* =====================================================
+   SCORE
+===================================================== */
+
+function vulnerable(player){
+
+  const value =
+    $("vuln").value;
+
+
+  if(value === "Both"){
+    return true;
+  }
+
+
+  if(
+    value === "NS" &&
+    (player==="N"||player==="S")
+  ){
+
+    return true;
+
+  }
+
+
+  if(
+    value === "EW" &&
+    (player==="E"||player==="W")
+  ){
+
+    return true;
+
+  }
+
+
+  return false;
+
+}
+
+
+function calculateScore(){
+
+  const level =
+    Number(
+      $("level").value
+    );
+
+
+  const denom =
+    $("denom").value;
+
+
+  const multiplier =
+    Number(
+      $("mult").value
+    );
+
+
+  const declarer =
+    $("declarer").value;
+
+
+  const tricks =
+    Number(
+      $("tricks").value
+    );
+
+
+  const target =
+    level+6;
+
+
+  const difference =
+    tricks-target;
+
+
+  const isVul =
+    vulnerable(
+      declarer
+    );
+
+
+  let score = 0;
+
+  let note = "";
+
+
+  let trickValue;
+
+
+  if(
+    denom === "C" ||
+    denom === "D"
+  ){
+
+    trickValue = 20;
+
+  }
+
+  else if(
+    denom === "H" ||
+    denom === "S"
+  ){
+
+    trickValue = 30;
+
+  }
+
+  else{
+
+    trickValue = 40;
+
+  }
+
+
+  if(
+    difference < 0
+  ){
+
+    const down =
+      Math.abs(
+        difference
+      );
+
+
+    if(
+      multiplier === 1
+    ){
+
+      score =
+        -down*
+        (isVul?100:50);
+
+    }
+
+    else if(
+      multiplier === 2
+    ){
+
+      score =
+        isVul
+          ? -(200+(down-1)*300)
+          : -(100+(down-1)*200);
+
+    }
+
+    else{
+
+      score =
+        isVul
+          ? -(400+(down-1)*600)
+          : -(200+(down-1)*400);
+
+    }
+
+
+    note =
+      "Down "+
+      down+
+      " trick.";
+
+  }
+
+  else{
+
+    const contractPoints =
+      level*
+      trickValue*
+      multiplier;
+
+
+    const overtrick =
+      difference;
+
+
+    let overPoints =
+      0;
+
+
+    if(
+      multiplier === 1
+    ){
+
+      overPoints =
+        overtrick*
+        trickValue;
+
+    }
+
+    else if(
+      multiplier === 2
+    ){
+
+      overPoints =
+        overtrick*
+        (isVul?200:100);
+
+    }
+
+    else{
+
+      overPoints =
+        overtrick*
+        (isVul?400:200);
+
+    }
+
+
+    let bonus =
+      0;
+
+
+    if(multiplier === 2){
+      bonus += 50;
+    }
+
+
+    if(multiplier === 4){
+      bonus += 100;
+    }
+
+
+    if(
+      contractPoints >= 100
+    ){
+
+      bonus +=
+        isVul
+          ? 500
+          : 300;
+
+    }
+
+    else{
+
+      bonus += 50;
+
+    }
+
+
+    if(level === 6){
+
+      bonus +=
+        isVul
+          ? 750
+          : 500;
+
+    }
+
+
+    if(level === 7){
+
+      bonus +=
+        isVul
+          ? 1500
+          : 1000;
+
+    }
+
+
+    score =
+      contractPoints+
+      overPoints+
+      bonus;
+
+
+    note =
+      "Kontrak berhasil dibuat "+
+      target+
+      " trick.";
+
+  }
+
+
+  $("score").textContent =
+    score >= 0
+      ? "+"+score
+      : score;
+
+
+  $("scoreNote").textContent =
+    note+
+    (
+      isVul
+        ? " Vulnerable."
+        : " Non-vulnerable."
+    );
+
+}
+
+
+/* =====================================================
+   SIMPAN SESI
+===================================================== */
+
+function saveSession(){
+
+  const data = {
+
+    board:
+      $("boardNo").value,
+
+    dealer:
+      dealer,
+
+    vuln:
+      $("vuln").value,
+
+    system:
+      $("system").value,
+
+    cards:
+      cardOwners,
+
+    photos:
+      photos,
+
+    auction:
+      auction,
+
+    hands:{
+      N:$("hand-N").value,
+      E:$("hand-E").value,
+      S:$("hand-S").value,
+      W:$("hand-W").value
+    }
+
+  };
+
+
+  localStorage.setItem(
+    "GABSI_BRIDGE_SESSION",
+    JSON.stringify(data)
+  );
+
+
+  showToast(
+    "Sesi berhasil disimpan."
+  );
+
+}
+
+
+/* =====================================================
+   MUAT SESI
+===================================================== */
+
+function loadSession(){
+
+  const raw =
+    localStorage.getItem(
+      "GABSI_BRIDGE_SESSION"
+    );
+
+
+  if(!raw){
+
+    showToast(
+      "Belum ada sesi tersimpan."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const data =
+      JSON.parse(raw);
+
+
+    $("boardNo").value =
+      data.board || 1;
+
+
+    dealer =
+      data.dealer || "N";
+
+
+    $("dealer").value =
+      dealer;
+
+
+    $("vuln").value =
+      data.vuln || "None";
+
+
+    $("system").value =
+      data.system || "johan";
+
+
+    cardOwners =
+      data.cards || {};
+
+
+    photos =
+      data.photos || {
+        N:null,
+        E:null,
+        S:null,
+        W:null
+      };
+
+
+    auction =
+      data.auction || [];
+
+
+    const hands =
+      data.hands || {};
+
+
+    $("hand-N").value =
+      hands.N || "";
+
+
+    $("hand-E").value =
+      hands.E || "";
+
+
+    $("hand-S").value =
+      hands.S || "";
+
+
+    $("hand-W").value =
+      hands.W || "";
+
+
+    PLAYERS.forEach(function(player){
+
+      if(
+        photos[player]
+      ){
+
+        showPhoto(
+          player,
+          photos[player]
+        );
+
+      }
+
+    });
+
+
+    refreshCardButtons();
+
+    updateSystemInfo();
+
+    renderAuction();
+
+    updateAnalysis();
+
+
+    showToast(
+      "Sesi berhasil dimuat."
+    );
+
+  }
+  catch(error){
+
+    showToast(
+      "Data sesi rusak atau tidak dapat dibaca."
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   PAPAN BARU
+===================================================== */
+
+function newBoard(){
+
+  if(
+    !confirm(
+      "Mulai papan baru?"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  cardOwners = {};
+
+  photos = {
+    N:null,
+    E:null,
+    S:null,
+    W:null
+  };
+
+
+  auction = [];
+
+
+  PLAYERS.forEach(function(player){
+
+    $("hand-"+player).value =
+      "";
+
+
+    $("photo-"+player).innerHTML =
+      "Belum ada foto";
+
+  });
+
+
+  refreshCardButtons();
+
+  renderAuction();
+
+  updateAnalysis();
+
+  showToast(
+    "Papan baru siap."
+  );
+
+}
+
+
+/* =====================================================
+   EVENT
+===================================================== */
+
+$("system")
+.addEventListener(
+  "change",
+  function(){
+
+    updateSystemInfo();
+
+    updateAnalysis();
+
+  }
+);
+
+
+$("decisionSeat")
+.addEventListener(
+  "change",
+  updateAnalysis
+);
+
+
+$("dealer")
+.addEventListener(
+  "change",
+  function(){
+
+    dealer =
+      $("dealer").value;
+
+    renderAuction();
+
+    updateAnalysis();
+
+  }
+);
+
+
+PLAYERS.forEach(function(player){
+
+  $("hand-"+player)
+  .addEventListener(
+    "input",
+    updateAnalysis
+  );
+
+});
+
+
+/* =====================================================
+   START
+===================================================== */
+
+buildCardBoard();
+
+buildBidButtons();
+
+updateSystemInfo();
+
+renderAuction();
+
+updateAnalysis();
+
+</script>
 
 </body>
 </html>
