@@ -1,2777 +1,2383 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="theme-color" content="#071712">
-<title>GABSI Kota Tanjungbalai — Bridge Online</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#073c59">
+<title>Aplikasi Bridge — GABSI Kota Tanjungbalai</title>
 
 <style>
 :root{
-  --bg:#071712;
-  --panel:#0d241c;
-  --panel2:#102c22;
-  --line:#214a3b;
-  --green:#19a974;
-  --green2:#0d7d55;
-  --gold:#d7a83d;
-  --gold2:#9d7220;
-  --text:#f2f7f4;
-  --muted:#a9c4b8;
-  --danger:#d85b5b;
-  --shadow:0 10px 30px rgba(0,0,0,.28);
+--bg:#f4f7fb;
+--card:#fff;
+--ink:#142033;
+--muted:#66758b;
+--navy:#073c59;
+--blue:#087cab;
+--line:#dfe6ef;
+--accent:#1e6bff;
+--good:#08784e;
+--bad:#c92a2a;
+--warn:#9a6200;
+--shadow:0 8px 24px rgba(16,35,68,.08)
 }
 
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
-
-html,body{
-  margin:0;
-  padding:0;
-  background:
-    radial-gradient(circle at top, #143c2d 0, var(--bg) 45%);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-  min-height:100%;
-}
+*{box-sizing:border-box}
 
 body{
-  padding:12px;
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+background:var(--bg);
+color:var(--ink)
 }
 
-button{
-  font-family:inherit;
+button,input,select{font:inherit}
+button{cursor:pointer}
+
+.site-header{
+background:#fff;
+box-shadow:0 2px 10px #0001;
+position:sticky;
+top:0;
+z-index:20
 }
 
-.app{
-  width:100%;
-  max-width:1100px;
-  margin:auto;
+.top-line{
+background:var(--navy);
+color:#fff;
+padding:6px 20px;
+display:flex;
+justify-content:space-between;
+font-size:10px
 }
 
-/* HEADER */
-.topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:12px 14px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:rgba(13,36,28,.96);
-  box-shadow:var(--shadow);
-  position:sticky;
-  top:8px;
-  z-index:50;
-  backdrop-filter:blur(12px);
+.header-main{
+max-width:1200px;
+margin:auto;
+min-height:64px;
+padding:8px 14px;
+display:flex;
+align-items:center;
+gap:14px;
+justify-content:space-between
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:0;
+display:flex;
+align-items:center;
+gap:9px;
+text-decoration:none;
+color:#173b50
 }
 
 .logo{
-  width:46px;
-  height:46px;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
-  font-size:27px;
-  font-weight:900;
-  background:linear-gradient(135deg,#173e30,#0a2119);
-  border:1px solid #2b5c49;
-  flex:none;
+width:38px;
+height:38px;
+border-radius:8px;
+background:#0b5278;
+color:#fff;
+display:grid;
+place-items:center;
+font-size:20px
 }
 
-.brand-title{
-  font-weight:900;
-  font-size:15px;
-  letter-spacing:.5px;
-  white-space:nowrap;
+.brand strong{display:block;font-size:13px}
+.brand small{font-size:7px;color:#6b8297}
+
+.nav{
+display:flex;
+gap:3px;
+overflow:auto;
+white-space:nowrap
 }
 
-.brand-sub{
-  margin-top:3px;
-  font-size:10px;
-  color:var(--muted);
-  letter-spacing:.8px;
+.nav a{
+color:#172033;
+padding:8px 9px;
+border-radius:8px;
+font-size:12px;
+font-weight:700;
+text-decoration:none
 }
 
-.header-actions{
-  display:flex;
-  gap:7px;
+.nav a:hover,
+.nav a.active{
+background:#eaf4f9;
+color:#07558f
 }
 
-.icon-btn{
-  width:42px;
-  height:42px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  color:#fff;
-  background:#132f25;
-  font-size:21px;
-  cursor:pointer;
+.hero{
+background:linear-gradient(135deg,#07558f,#087cab);
+color:#fff;
+text-align:center;
+padding:28px 15px
 }
 
-.icon-btn:active{
-  transform:scale(.96);
+.hero h1{
+margin:0 0 7px;
+font-size:30px
 }
 
-/* MENU */
-.menu{
-  display:flex;
-  gap:7px;
-  overflow:auto;
-  padding:10px 1px;
-  scrollbar-width:none;
+.hero p{
+max-width:760px;
+margin:auto;
+font-size:12px;
+line-height:1.6
 }
 
-.menu::-webkit-scrollbar{
-  display:none;
+.wrap{
+max-width:1200px;
+margin:18px auto;
+padding:0 14px 40px
 }
 
-.menu button{
-  border:1px solid var(--line);
-  background:#0c2119;
-  color:var(--muted);
-  border-radius:10px;
-  padding:9px 14px;
-  font-size:12px;
-  font-weight:700;
-  white-space:nowrap;
-  cursor:pointer;
+.grid{
+display:grid;
+grid-template-columns:repeat(12,1fr);
+gap:14px
 }
 
-.menu button.active,
-.menu button:hover{
-  background:var(--green2);
-  color:#fff;
+.c12{grid-column:span 12}
+.c8{grid-column:span 8}
+.c4{grid-column:span 4}
+
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:16px;
+padding:16px;
+box-shadow:var(--shadow)
 }
 
-/* GAME */
-.game-card{
-  border:1px solid var(--line);
-  border-radius:20px;
-  background:rgba(10,29,22,.96);
-  box-shadow:var(--shadow);
-  overflow:hidden;
+h2{
+font-size:18px;
+margin:0 0 11px
 }
 
-.game-head{
-  padding:13px 15px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:center;
+h3{
+font-size:15px;
+margin:0 0 8px
 }
 
-.board-title{
-  font-size:15px;
-  font-weight:900;
+.help,.note{
+font-size:12px;
+color:var(--muted);
+line-height:1.5
 }
 
-.board-info{
-  font-size:11px;
-  color:var(--muted);
-  margin-top:4px;
+label{
+display:block;
+font-size:12px;
+font-weight:800;
+color:var(--muted);
+margin-bottom:6px
 }
 
-.score-box{
-  text-align:right;
-  font-size:11px;
-  color:var(--muted);
+input,select{
+width:100%;
+border:1px solid var(--line);
+border-radius:10px;
+padding:10px;
+background:#fff;
+color:var(--ink)
 }
 
-.score-value{
-  color:var(--gold);
-  font-size:20px;
-  font-weight:900;
-  margin-top:2px;
+input:focus,
+select:focus{
+outline:0;
+border-color:#7fa9ff;
+box-shadow:0 0 0 3px #1e6bff18
 }
 
-/* TABLE */
-.table{
-  position:relative;
-  min-height:690px;
-  padding:22px 12px 24px;
-  background:
-    radial-gradient(ellipse at center,
-      rgba(22,108,73,.48),
-      rgba(5,22,16,.82) 62%);
-  overflow:hidden;
+.row{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px
 }
 
-.table-felt{
-  position:absolute;
-  inset:80px 4%;
-  border:1px solid rgba(52,138,101,.26);
-  border-radius:50%;
-  pointer-events:none;
+.row2{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px
 }
 
-/* PLAYERS */
-.player{
-  position:absolute;
-  width:min(240px,42%);
-  padding:8px;
-  border-radius:15px;
-  z-index:4;
-}
-
-.player.north{
-  left:50%;
-  top:18px;
-  transform:translateX(-50%);
-  text-align:center;
-}
-
-.player.west{
-  left:8px;
-  top:50%;
-  transform:translateY(-50%);
-}
-
-.player.east{
-  right:8px;
-  top:50%;
-  transform:translateY(-50%);
-  text-align:right;
-}
-
-.player.south{
-  left:50%;
-  bottom:14px;
-  transform:translateX(-50%);
-  text-align:center;
-}
-
-.player.active{
-  background:rgba(28,127,89,.19);
-  box-shadow:inset 0 0 0 1px rgba(41,182,132,.28);
-}
-
-.avatar{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  margin-bottom:5px;
-  display:inline-grid;
-  place-items:center;
-  background:#163a2d;
-  border:1px solid #2d624e;
-  font-weight:900;
-  font-size:13px;
-}
-
-.player-name{
-  font-size:11px;
-  font-weight:800;
-  color:#edf7f2;
-}
-
-.level{
-  display:inline-block;
-  margin-top:4px;
-  border:1px solid #2c5d4b;
-  color:#a9d4c4;
-  border-radius:20px;
-  padding:3px 7px;
-  font-size:8px;
-  font-weight:800;
-  text-transform:uppercase;
-}
-
-/* HANDS */
-.hand{
-  margin-top:8px;
-  display:flex;
-  gap:3px;
-  flex-wrap:wrap;
-}
-
-.player.north .hand,
-.player.south .hand{
-  justify-content:center;
-}
-
-.player.east .hand{
-  justify-content:flex-end;
-}
-
-.mini-card{
-  width:19px;
-  height:27px;
-  border-radius:4px;
-  background:#f7f5ee;
-  color:#1c201d;
-  display:grid;
-  place-items:center;
-  font-size:9px;
-  font-weight:900;
-  border:1px solid rgba(0,0,0,.14);
-}
-
-.mini-card.red{
-  color:#c52222;
-}
-
-/* CENTER */
-.center-area{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  width:min(310px,78%);
-  z-index:5;
-}
-
-.contract-card{
-  border:1px solid #426f5d;
-  border-radius:18px;
-  background:rgba(6,25,18,.9);
-  padding:13px;
-  text-align:center;
-  box-shadow:0 8px 22px rgba(0,0,0,.22);
-}
-
-.contract-title{
-  color:var(--muted);
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1.2px;
-  font-weight:900;
-}
-
-.contract-main{
-  color:var(--gold);
-  font-size:26px;
-  font-weight:900;
-  margin-top:5px;
-}
-
-.contract-extra{
-  margin-top:5px;
-  color:#c4ddd3;
-  font-size:11px;
-}
-
-.trick-area{
-  margin-top:12px;
-  height:195px;
-  position:relative;
-}
-
-.played{
-  position:absolute;
-  width:67px;
-  height:93px;
-  border-radius:9px;
-  background:#fbfaf4;
-  color:#161a17;
-  border:1px solid #d5d3ca;
-  box-shadow:0 5px 12px rgba(0,0,0,.22);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding:6px;
-  font-weight:900;
-}
-
-.played.red{
-  color:#c52222;
-}
-
-.played .rank{
-  font-size:17px;
-  line-height:1;
-}
-
-.played .suit{
-  font-size:29px;
-  line-height:1;
-  text-align:center;
-}
-
-.played .pos{
-  font-size:8px;
-  text-align:right;
-  color:#666;
-}
-
-.played.n{
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.played.s{
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.played.w{
-  left:0;
-  top:50%;
-  transform:translateY(-50%);
-}
-
-.played.e{
-  right:0;
-  top:50%;
-  transform:translateY(-50%);
-}
-
-/* ACTION AREA */
-.game-actions{
-  padding:12px 13px;
-  border-top:1px solid var(--line);
-  background:#091b15;
-}
-
-.status-row{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:10px;
-  font-size:11px;
-  color:#c4ddd3;
-}
-
-#statusText{
-  min-width:0;
-}
-
-#trickText{
-  white-space:nowrap;
-  color:var(--gold);
-}
-
-.action-buttons{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
+.row3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px
 }
 
 .btn{
-  border:1px solid #2c604c;
-  border-radius:11px;
-  min-height:42px;
-  background:#173a2e;
-  color:#fff;
-  cursor:pointer;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.4px;
+border:1px solid var(--line);
+border-radius:10px;
+padding:9px 12px;
+background:#fff;
+color:var(--ink);
+font-weight:800
 }
 
-.btn:hover{
-  filter:brightness(1.08);
+.btn.primary{
+background:var(--accent);
+border-color:var(--accent);
+color:#fff
 }
 
-.btn.green{
-  background:#116e4d;
+.btn.dark{
+background:#17243c;
+color:#fff
 }
 
-.btn.gold{
-  background:linear-gradient(135deg,#a37925,#d3a83c);
-  color:#17120a;
-  border-color:#e1bc61;
+.btn.danger{
+background:#fff2f2;
+color:var(--bad)
 }
 
-.btn:disabled{
-  opacity:.42;
-  cursor:not-allowed;
+.actions{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-top:10px
 }
 
-/* SOUTH HAND */
-.south-panel{
-  padding:12px 13px 15px;
-  border-top:1px solid var(--line);
-  background:#081a14;
+.alert{
+padding:11px 12px;
+border-radius:10px;
+background:#eef5ff;
+border:1px solid #cfe0ff;
+color:#224b90;
+font-size:12px;
+line-height:1.5
 }
 
-.hand-label{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:11px;
-  color:var(--muted);
-  margin-bottom:8px;
+.badges{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-top:10px
 }
 
-.hand-count{
-  color:var(--gold);
-  font-weight:900;
+.badge{
+font-size:11px;
+font-weight:900;
+padding:6px 9px;
+border-radius:999px;
+background:#eef3fb;
+color:#30415c
 }
 
-#handS{
-  justify-content:center;
-  gap:6px;
+.good{
+background:#e7f8f1;
+color:var(--good)
 }
 
-.card{
-  width:57px;
-  height:80px;
-  border-radius:8px;
-  background:#fbfaf4;
-  color:#181c19;
-  border:1px solid #d5d3ca;
-  box-shadow:0 5px 12px rgba(0,0,0,.18);
-  cursor:pointer;
-  padding:5px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  transition:.15s;
-  user-select:none;
+.warn{
+background:#fff3df;
+color:var(--warn)
 }
 
-.card:hover{
-  transform:translateY(-5px);
+.seats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px
 }
 
-.card.red{
-  color:#c52222;
+.seat{
+border:1px solid var(--line);
+border-radius:14px;
+padding:12px
 }
 
-.card.disabled{
-  opacity:.35;
-  cursor:not-allowed;
-  transform:none;
+.seat-head{
+display:flex;
+justify-content:space-between
 }
 
-.card .top{
-  font-size:17px;
-  line-height:1;
-  font-weight:900;
+.seat-name{
+font-weight:900
 }
 
-.card .center-suit{
-  font-size:29px;
-  line-height:1;
-  text-align:center;
+.seat-tag{
+font-size:10px;
+padding:4px 7px;
+background:#edf2f8;
+border-radius:7px
 }
 
-.card .bottom{
-  font-size:10px;
-  text-align:right;
-  color:#606660;
+.photo{
+width:100%;
+height:145px;
+border-radius:10px;
+background:#e9eef5;
+object-fit:cover;
+border:1px dashed #c2ccda;
+display:grid;
+place-items:center;
+color:#8290a3;
+font-size:12px;
+margin-top:9px;
+overflow:hidden
 }
 
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  display:none;
-  align-items:flex-end;
-  justify-content:center;
-  background:rgba(0,0,0,.62);
-  padding:0;
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover
 }
 
-.modal.show{
-  display:flex;
+.holdings{
+border:1px solid var(--line);
+border-radius:10px;
+padding:9px;
+margin-top:9px;
+font-size:12px
 }
 
-.sheet{
-  width:min(720px,100%);
-  max-height:88vh;
-  overflow:auto;
-  background:#0b2119;
-  border:1px solid #2a5947;
-  border-bottom:0;
-  border-radius:22px 22px 0 0;
-  box-shadow:0 -10px 35px rgba(0,0,0,.35);
-  padding:15px;
+.card-board{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-top:12px
 }
 
-.sheet-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-bottom:13px;
+.suit-panel{
+border:1px solid var(--line);
+border-radius:12px;
+padding:10px
 }
 
-.sheet-title{
-  font-size:16px;
-  font-weight:900;
+.suit-title{
+font-weight:900;
+margin-bottom:8px
 }
 
-.close{
-  width:36px;
-  height:36px;
-  border-radius:10px;
-  border:1px solid var(--line);
-  background:#16352a;
-  color:#fff;
-  font-size:23px;
-  cursor:pointer;
+.card-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:5px
 }
 
-/* BIDDING */
-.auction-history{
-  display:flex;
-  flex-wrap:wrap;
-  gap:5px;
-  margin-bottom:12px;
-  min-height:36px;
-  padding:7px;
-  border:1px solid #1f4637;
-  border-radius:11px;
-  background:#081b14;
+.card-pick{
+border:1px solid var(--line);
+background:#fff;
+border-radius:7px;
+padding:7px 2px;
+font-weight:900
 }
 
-.auction-item{
-  border-radius:8px;
-  padding:6px 8px;
-  font-size:10px;
-  background:#143328;
-  color:#cde0d8;
-  border:1px solid #245340;
+.card-pick[data-owner=N]{
+background:#eaf2ff;
+border-color:#8fb4ff
 }
 
-.bid-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:7px;
+.card-pick[data-owner=E]{
+background:#eefbf5;
+border-color:#8ed2af
+}
+
+.card-pick[data-owner=S]{
+background:#fff5e7;
+border-color:#e9bf79
+}
+
+.card-pick[data-owner=W]{
+background:#f4edff;
+border-color:#c3a1e9
+}
+
+.owner-summary{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+margin-top:10px
+}
+
+.owner-mini{
+border:1px solid var(--line);
+border-radius:10px;
+padding:8px;
+font-size:12px
+}
+
+.owner-mini b{
+font-size:15px
+}
+
+.auction{
+overflow:auto
+}
+
+.auction table{
+border-collapse:collapse;
+width:100%;
+min-width:620px
+}
+
+.auction th,
+.auction td{
+padding:8px;
+border-bottom:1px solid var(--line);
+text-align:center;
+font-size:12px
+}
+
+.auction th{
+background:#f5f7fa
+}
+
+.bid-controls{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:6px
 }
 
 .bid-btn{
-  min-height:42px;
-  border:1px solid #285943;
-  border-radius:10px;
-  background:#123126;
-  color:#fff;
-  cursor:pointer;
-  font-weight:900;
-  font-size:11px;
-}
-
-.bid-btn.suit-s{
-  color:#111;
-  background:#f6f5ef;
-}
-
-.bid-btn.suit-h,
-.bid-btn.suit-d{
-  color:#c52222;
-  background:#f6f5ef;
+border:1px solid var(--line);
+background:#fff;
+border-radius:9px;
+padding:8px;
+font-weight:900
 }
 
 .bid-btn.pass{
-  background:#6a4b16;
-  border-color:#9f792a;
+background:#f6f7f9
 }
 
-.bid-btn.double{
-  background:#533131;
-  border-color:#855050;
+.bid-btn.x{
+background:#fff0f0;
+color:#a21d1d
 }
 
-.bid-btn:disabled{
-  opacity:.35;
-  cursor:not-allowed;
+.bid-btn.xx{
+background:#f3ecff;
+color:#6532a8
 }
 
-/* SETTINGS */
-.level-grid{
-  display:grid;
-  gap:9px;
+.contract{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:8px
 }
 
-.level-btn{
-  text-align:left;
-  padding:12px;
-  border-radius:13px;
-  border:1px solid #275842;
-  background:#102b21;
-  color:#fff;
-  cursor:pointer;
+.score-box{
+background:#0b1324;
+color:#fff;
+border-radius:14px;
+padding:15px;
+margin-top:12px
 }
 
-.level-btn.selected{
-  border-color:var(--gold);
-  box-shadow:0 0 0 1px rgba(215,168,61,.25) inset;
+.score{
+font-size:29px;
+font-weight:950
 }
 
-.level-btn strong{
-  display:block;
-  font-size:12px;
-  margin-bottom:5px;
+.score-note{
+font-size:12px;
+color:#c9d4e7
 }
 
-.level-btn span{
-  color:#aac5b9;
-  font-size:10px;
-  line-height:1.45;
+.system-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px
 }
 
-/* HELP */
-.help-text{
-  font-size:12px;
-  line-height:1.65;
-  color:#c4ddd3;
+.system-card{
+border:1px solid var(--line);
+border-radius:12px;
+padding:12px
 }
 
-.help-text p{
-  margin:0 0 11px;
+.system-card p{
+margin:0;
+color:var(--muted);
+font-size:12px;
+line-height:1.45
 }
 
-/* ABOUT */
-.about{
-  display:none;
-  border:1px solid var(--line);
-  background:#0b2119;
-  border-radius:20px;
-  padding:18px;
-  box-shadow:var(--shadow);
+.modal{
+position:fixed;
+inset:0;
+background:#06101ccc;
+z-index:50;
+display:none;
+align-items:center;
+justify-content:center;
+padding:15px
 }
 
-.about.show{
-  display:block;
+.modal-box{
+width:min(680px,100%);
+background:#fff;
+border-radius:16px;
+padding:14px
 }
 
-.about h2{
-  margin:0 0 8px;
-  font-size:19px;
+.modal-top{
+display:flex;
+justify-content:space-between;
+align-items:center
 }
 
-.about p{
-  color:#b9d0c6;
-  font-size:12px;
-  line-height:1.65;
+video{
+width:100%;
+aspect-ratio:4/3;
+background:#000;
+border-radius:12px;
+object-fit:cover;
+margin-top:10px
 }
 
-/* TOAST */
+.footer{
+background:var(--navy);
+color:#fff;
+padding:28px 20px;
+text-align:center;
+font-size:11px
+}
+
 .toast{
-  position:fixed;
-  left:50%;
-  bottom:20px;
-  transform:translate(-50%,20px);
-  opacity:0;
-  pointer-events:none;
-  z-index:200;
-  padding:10px 14px;
-  border-radius:10px;
-  border:1px solid #305e4d;
-  background:#0d2a20;
-  color:#fff;
-  font-size:11px;
-  box-shadow:var(--shadow);
-  transition:.2s;
+position:fixed;
+right:16px;
+bottom:16px;
+background:#17243c;
+color:#fff;
+padding:11px 14px;
+border-radius:10px;
+display:none;
+z-index:100
 }
 
-.toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
+@media(max-width:960px){
+.c8,.c4{grid-column:span 12}
+.seats{grid-template-columns:repeat(2,1fr)}
+.row{grid-template-columns:repeat(2,1fr)}
+.contract{grid-template-columns:repeat(2,1fr)}
 }
 
-/* RESPONSIVE */
-@media(max-width:700px){
-  body{
-    padding:7px;
-  }
-
-  .topbar{
-    border-radius:15px;
-    top:5px;
-  }
-
-  .brand-title{
-    font-size:12px;
-  }
-
-  .brand-sub{
-    font-size:8px;
-  }
-
-  .table{
-    min-height:610px;
-  }
-
-  .player{
-    width:34%;
-  }
-
-  .player.west{
-    left:2px;
-  }
-
-  .player.east{
-    right:2px;
-  }
-
-  .player-name{
-    font-size:9px;
-  }
-
-  .center-area{
-    width:66%;
-  }
-
-  .played{
-    width:54px;
-    height:76px;
-  }
-
-  .played .rank{
-    font-size:14px;
-  }
-
-  .played .suit{
-    font-size:24px;
-  }
-
-  .trick-area{
-    height:160px;
-  }
-
-  .card{
-    width:48px;
-    height:69px;
-  }
-
-  .card .top{
-    font-size:15px;
-  }
-
-  .card .center-suit{
-    font-size:24px;
-  }
-
-  .action-buttons{
-    grid-template-columns:1fr;
-  }
-
-  .bid-grid{
-    grid-template-columns:repeat(4,1fr);
-  }
+@media(max-width:640px){
+.top-line{font-size:8px}
+.header-main{
+align-items:flex-start;
+flex-direction:column
 }
-
-@media(max-width:430px){
-  .table{
-    min-height:580px;
-  }
-
-  .card{
-    width:43px;
-    height:63px;
-  }
-
-  .card .top{
-    font-size:13px;
-  }
-
-  .card .center-suit{
-    font-size:21px;
-  }
-
-  .hand{
-    gap:2px;
-  }
-
-  .mini-card{
-    width:15px;
-    height:23px;
-    font-size:7px;
-  }
-
-  .center-area{
-    width:61%;
-  }
-
-  .contract-main{
-    font-size:21px;
-  }
+.nav{width:100%}
+.hero h1{font-size:24px}
+.row,
+.row2,
+.row3,
+.seats,
+.system-grid,
+.contract{
+grid-template-columns:1fr
+}
+.card-board{
+grid-template-columns:repeat(2,1fr)
+}
+.owner-summary{
+grid-template-columns:repeat(2,1fr)
+}
+.bid-controls{
+grid-template-columns:repeat(3,1fr)
+}
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<header class="site-header">
 
-  <!-- HEADER -->
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">♠</div>
-      <div>
-        <div class="brand-title">GABSI KOTA TANJUNGBALAI</div>
-        <div class="brand-sub">BRIDGE ONLINE • COMPUTER TABLE</div>
-      </div>
-    </div>
+<div class="top-line">
+<span>GABSI KOTA TANJUNGBALAI</span>
+<span>Bridge · Prestasi · Persaudaraan</span>
+</div>
 
-    <div class="header-actions">
-      <button class="icon-btn" onclick="newGame()" title="Permainan Baru">↻</button>
-      <button class="icon-btn" onclick="openSettings()" title="Pengaturan">⚙</button>
-    </div>
-  </header>
+<div class="header-main">
 
-  <!-- MENU -->
-  <nav class="menu">
-    <button id="menuGame" class="active" onclick="showPage('game')">♠ PERMAINAN</button>
-    <button onclick="openBid()">♣ LELANG</button>
-    <button onclick="openHelp()">?</button>
-    <button onclick="showPage('about')">ℹ TENTANG</button>
-  </nav>
+<a class="brand" href="index.html">
+<div class="logo">♥</div>
+<div>
+<strong>GABSI KOTA TANJUNGBALAI</strong>
+<small>GABUNGAN BRIDGE SELURUH INDONESIA</small>
+</div>
+</a>
 
-  <!-- GAME -->
-  <section id="gamePage">
+<nav class="nav">
+<a href="index.html">Beranda</a>
+<a href="profil.html">Profil</a>
+<a href="pengurus.html">Pengurus</a>
+<a href="kegiatan.html">Kegiatan</a>
+<a href="galeri.html">Galeri</a>
+<a class="active" href="aplikasi.html">Aplikasi</a>
+<a href="game-bridge-gabsi.html">♠ Game Bridge</a>
+<a href="kontak.html">Kontak</a>
+</nav>
 
-    <div class="game-card">
+</div>
+</header>
 
-      <div class="game-head">
-        <div>
-          <div class="board-title">Board <span id="boardNo">1</span></div>
-          <div class="board-info">
-            Dealer <b id="dealerText">N</b>
-            &nbsp;&nbsp;•&nbsp;&nbsp;
-            Vul <b id="vulText">None</b>
-          </div>
-        </div>
+<section class="hero">
+<h1>Belajar Penawaran Bridge</h1>
+<p>
+Media latihan membaca kartu, HCP, distribusi,
+auction, sistem penawaran dan perhitungan score bridge.
+</p>
+</section>
 
-        <div class="score-box">
-          SKOR
-          <div class="score-value" id="scoreText">0</div>
-        </div>
-      </div>
+<main class="wrap">
 
-      <div class="table">
+<div class="card c12" style="margin-bottom:14px">
 
-        <div class="table-felt"></div>
+<h2>Pengaturan Permainan</h2>
 
-        <!-- NORTH -->
-        <div class="player north" id="playerN">
-          <div class="avatar">N</div>
-          <div class="player-name">North • Komputer</div>
-          <div class="level" id="northLevel">Menengah</div>
-          <div class="hand" id="handN"></div>
-        </div>
+<div class="row">
 
-        <!-- WEST -->
-        <div class="player west" id="playerW">
-          <div class="avatar">W</div>
-          <div class="player-name">West • Komputer</div>
-          <div class="level" id="westLevel">Menengah</div>
-          <div class="hand" id="handW"></div>
-        </div>
+<div>
+<label>Board</label>
+<input id="boardNo" type="number" min="1" value="1">
+</div>
 
-        <!-- EAST -->
-        <div class="player east" id="playerE">
-          <div class="avatar">E</div>
-          <div class="player-name">East • Komputer</div>
-          <div class="level" id="eastLevel">Menengah</div>
-          <div class="hand" id="handE"></div>
-        </div>
+<div>
+<label>Dealer</label>
+<select id="dealer">
+<option>N</option>
+<option>E</option>
+<option>S</option>
+<option>W</option>
+</select>
+</div>
 
-        <!-- SOUTH -->
-        <div class="player south" id="playerS">
-          <div class="avatar">S</div>
-          <div class="player-name">South • ANDA</div>
-          <div class="level">PEMAIN</div>
-          <div class="hand" id="southMini"></div>
-        </div>
+<div>
+<label>Vulnerability</label>
+<select id="vuln">
+<option>None</option>
+<option>NS</option>
+<option>EW</option>
+<option>Both</option>
+</select>
+</div>
 
-        <!-- CENTER -->
-        <div class="center-area">
-
-          <div class="contract-card">
-
-            <div class="contract-title">Kontrak</div>
-
-            <div class="contract-main" id="contractText">
-              Lelang
-            </div>
-
-            <div class="contract-extra" id="centerInfo">
-              Menunggu pembukaan lelang
-            </div>
-
-          </div>
-
-          <div class="trick-area" id="trickArea">
-            <!-- Kartu yang sedang dimainkan muncul di sini -->
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- ACTIONS -->
-      <div class="game-actions">
-
-        <div class="status-row">
-          <span id="statusText">Memulai permainan...</span>
-          <strong id="trickText">0 / 13</strong>
-        </div>
-
-        <div class="action-buttons">
-
-          <button class="btn" onclick="sortHand()">
-            URUTKAN
-          </button>
-
-          <button class="btn green" onclick="openHelp()">
-            BANTUAN
-          </button>
-
-          <button class="btn gold" id="bidActionBtn" onclick="openBid()">
-            PILIH BID
-          </button>
-
-        </div>
-
-      </div>
-
-      <!-- SOUTH HAND -->
-      <div class="south-panel">
-
-        <div class="hand-label">
-          <span>KARTU ANDA • SOUTH</span>
-          <span class="hand-count" id="handCount">13 kartu</span>
-        </div>
-
-        <div class="hand" id="handS"></div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ABOUT -->
-  <section id="aboutPage" class="about">
-    <h2>GABSI Kota Tanjungbalai</h2>
-    <p>
-      Bridge Online adalah permainan bridge sederhana dengan
-      lawan komputer yang dibuat untuk latihan dan simulasi.
-    </p>
-
-    <p>
-      <b>GABSI KOTA TANJUNGBALAI</b><br>
-      BRIDGE ONLINE • COMPUTER TABLE
-    </p>
-
-    <p>
-      Gunakan tombol <b>↻</b> untuk membuat board baru,
-      <b>⚙</b> untuk mengatur tingkat lawan,
-      dan <b>PILIH BID</b> untuk melakukan penawaran.
-    </p>
-  </section>
+<div>
+<label>Sistem Penawaran</label>
+<select id="system">
+<option value="johan">Sistem Johan (Kustom)</option>
+<option value="four">Four Card Major</option>
+<option value="five">Five Card Major</option>
+<option value="sayc">SAYC</option>
+<option value="twooverone">2/1 Game Force</option>
+<option value="acol">Acol</option>
+<option value="precision">Precision</option>
+<option value="precisionclub">Precision Club</option>
+<option value="natural">Natural Standard</option>
+</select>
+</div>
 
 </div>
 
+<div id="systemInfo" class="alert" style="margin-top:10px"></div>
 
-<!-- MODAL BID -->
-<div class="modal" id="bidModal">
-  <div class="sheet">
-
-    <div class="sheet-head">
-      <div class="sheet-title">Lelang Bridge</div>
-      <button class="close" onclick="closeBid()">×</button>
-    </div>
-
-    <div class="auction-history" id="auctionHistory"></div>
-
-    <div class="bid-grid" id="bidGrid"></div>
-
-  </div>
+<div class="actions">
+<button class="btn primary" id="newBoardBtn">Papan Baru</button>
+<button class="btn" id="saveBtn">Simpan Sesi</button>
+<button class="btn" id="loadBtn">Muat Sesi</button>
+<button class="btn dark" id="exportBtn">Ekspor HTML</button>
 </div>
 
-
-<!-- MODAL SETTINGS -->
-<div class="modal" id="settingsModal">
-  <div class="sheet">
-
-    <div class="sheet-head">
-      <div class="sheet-title">Tingkat Lawan Komputer</div>
-      <button class="close" onclick="closeSettings()">×</button>
-    </div>
-
-    <div class="level-grid">
-
-      <button class="level-btn" data-level="easy" onclick="setLevel('easy')">
-        <strong>🟢 PEMULA</strong>
-        <span>
-          Strategi sederhana. Cocok untuk belajar.
-        </span>
-      </button>
-
-      <button class="level-btn" data-level="medium" onclick="setLevel('medium')">
-        <strong>🔵 MENENGAH</strong>
-        <span>
-          Permainan dan bidding lebih teratur.
-        </span>
-      </button>
-
-      <button class="level-btn" data-level="hard" onclick="setLevel('hard')">
-        <strong>🟠 SULIT</strong>
-        <span>
-          Komputer mempertimbangkan HCP dan distribusi.
-        </span>
-      </button>
-
-      <button class="level-btn" data-level="expert" onclick="setLevel('expert')">
-        <strong>🔴 AHLI</strong>
-        <span>
-          Strategi kompetitif dengan permainan lebih agresif.
-        </span>
-      </button>
-
-    </div>
-
-  </div>
 </div>
 
+<div class="grid">
 
-<!-- MODAL HELP -->
-<div class="modal" id="helpModal">
-  <div class="sheet">
+<section class="card c12">
 
-    <div class="sheet-head">
-      <div class="sheet-title">Bantuan Bridge</div>
-      <button class="close" onclick="closeHelp()">×</button>
-    </div>
+<h2>1. Foto Kartu Utara, Timur, Selatan & Barat</h2>
 
-    <div class="help-text">
-
-      <p>
-        Tujuan permainan adalah memenangkan jumlah trik
-        sesuai kontrak. Saat bermain kartu, pemain wajib
-        mengikuti jenis kartu yang dimainkan jika masih
-        memiliki jenis tersebut.
-      </p>
-
-      <p>
-        ♠ Sekop &nbsp;&nbsp;
-        ♥ Hati &nbsp;&nbsp;
-        ♦ Wajik &nbsp;&nbsp;
-        ♣ Keriting
-      </p>
-
-      <p>
-        <b>HCP:</b><br>
-        As = 4<br>
-        King = 3<br>
-        Queen = 2<br>
-        Jack = 1
-      </p>
-
-      <p>
-        <b>Bidding:</b> pilih level kontrak dan jenis kartu.
-        PASS digunakan ketika tidak ingin melakukan penawaran.
-      </p>
-
-      <p>
-        Setelah lelang selesai, permainan kartu dimulai.
-        Pemain harus mengikuti suit yang dibuka bila memiliki
-        suit tersebut.
-      </p>
-
-    </div>
-
-    <button
-      class="btn gold"
-      style="width:100%"
-      onclick="closeHelp()">
-      MENGERTI
-    </button>
-
-  </div>
+<div class="help">
+Foto hanya disimpan di halaman/perangkat ini.
+Untuk pembacaan kartu otomatis diperlukan OCR/computer vision;
+input manual tetap tersedia.
 </div>
 
+<div class="seats" style="margin-top:12px">
+
+<div class="seat" data-seat="N">
+<div class="seat-head">
+<div class="seat-name">Utara (N)</div>
+<span class="seat-tag">N</span>
+</div>
+<div class="photo" id="ph-N">Belum ada foto</div>
+<div class="actions">
+<button class="btn primary camBtn">Ambil Kamera</button>
+<button class="btn fileBtn">Pilih Foto</button>
+</div>
+<input class="fileInput" type="file" accept="image/*" capture="environment" hidden>
+<div class="holdings" id="hold-N">Kartu: belum diinput</div>
+</div>
+
+<div class="seat" data-seat="E">
+<div class="seat-head">
+<div class="seat-name">Timur (E)</div>
+<span class="seat-tag">E</span>
+</div>
+<div class="photo" id="ph-E">Belum ada foto</div>
+<div class="actions">
+<button class="btn primary camBtn">Ambil Kamera</button>
+<button class="btn fileBtn">Pilih Foto</button>
+</div>
+<input class="fileInput" type="file" accept="image/*" capture="environment" hidden>
+<div class="holdings" id="hold-E">Kartu: belum diinput</div>
+</div>
+
+<div class="seat" data-seat="S">
+<div class="seat-head">
+<div class="seat-name">Selatan (S)</div>
+<span class="seat-tag">S</span>
+</div>
+<div class="photo" id="ph-S">Belum ada foto</div>
+<div class="actions">
+<button class="btn primary camBtn">Ambil Kamera</button>
+<button class="btn fileBtn">Pilih Foto</button>
+</div>
+<input class="fileInput" type="file" accept="image/*" capture="environment" hidden>
+<div class="holdings" id="hold-S">Kartu: belum diinput</div>
+</div>
+
+<div class="seat" data-seat="W">
+<div class="seat-head">
+<div class="seat-name">Barat (W)</div>
+<span class="seat-tag">W</span>
+</div>
+<div class="photo" id="ph-W">Belum ada foto</div>
+<div class="actions">
+<button class="btn primary camBtn">Ambil Kamera</button>
+<button class="btn fileBtn">Pilih Foto</button>
+</div>
+<input class="fileInput" type="file" accept="image/*" capture="environment" hidden>
+<div class="holdings" id="hold-W">Kartu: belum diinput</div>
+</div>
+
+</div>
+</section>
+
+<section class="card c12">
+
+<h2>2. Rekap Pegangan Kartu</h2>
+
+<div class="help">
+Contoh:
+♠ AKQJ98 | ♥ K32 | ♦ A4 | ♣ J76
+</div>
+
+<div class="row2" style="margin-top:10px">
+
+<div>
+<label>Utara</label>
+<input id="hand-N" placeholder="♠ AKQJ98 | ♥ K32 | ♦ A4 | ♣ J76">
+</div>
+
+<div>
+<label>Timur</label>
+<input id="hand-E">
+</div>
+
+<div>
+<label>Selatan</label>
+<input id="hand-S">
+</div>
+
+<div>
+<label>Barat</label>
+<input id="hand-W">
+</div>
+
+</div>
+
+<div class="badges">
+<span class="badge good" id="hcpN">N HCP: —</span>
+<span class="badge good" id="hcpE">E HCP: —</span>
+<span class="badge good" id="hcpS">S HCP: —</span>
+<span class="badge good" id="hcpW">W HCP: —</span>
+</div>
+
+</section>
+
+<section class="card c12">
+
+<h2>3. Distribusi 52 Kartu & Rekomendasi</h2>
+
+<div class="alert">
+Klik kartu untuk mengubah pemilik secara berurutan
+N → E → S → W → kosong.
+Gunakan “Bagikan Otomatis” untuk membagi 13 kartu per pemain.
+</div>
+
+<div class="row3" style="margin-top:10px">
+
+<div>
+<label>Pemain yang dianalisis</label>
+<select id="decisionSeat">
+<option value="N">Utara (N)</option>
+<option value="E">Timur (E)</option>
+<option value="S">Selatan (S)</option>
+<option value="W">Barat (W)</option>
+</select>
+</div>
+
+<div>
+<label>Input</label>
+<select id="cardInputMode">
+<option value="buttons">Tombol kartu</option>
+<option value="text">Dari tangan teks</option>
+</select>
+</div>
+
+<div>
+<label>Status</label>
+<div class="badges">
+<span class="badge warn" id="deckStatus">Belum lengkap</span>
+</div>
+</div>
+
+</div>
+
+<div id="cardBoard"></div>
+
+<div class="actions">
+<button class="btn" id="resetCardsBtn">Kosongkan 52 Kartu</button>
+<button class="btn primary" id="autoDealBtn">Bagikan 52 Kartu Otomatis</button>
+<button class="btn" id="validateDeckBtn">Validasi Kartu</button>
+</div>
+
+<div class="row2" style="margin-top:12px">
+
+<div class="card" style="box-shadow:none">
+<h3>Analisis Tangan</h3>
+<div id="handAnalysis" class="help"></div>
+</div>
+
+<div class="score-box" style="margin-top:0">
+<b>REKOMENDASI KOMPUTER</b>
+<div id="recommendation" style="font-size:22px;font-weight:950;margin-top:7px">—</div>
+<div id="recommendationWhy" class="score-note">
+Belum ada rekomendasi.
+</div>
+</div>
+
+</div>
+
+<div class="card" style="margin-top:12px;box-shadow:none">
+<h3>Alternatif Penawaran</h3>
+<div id="bidAlternatives" class="system-grid"></div>
+</div>
+
+</section>
+
+<section class="card c8">
+
+<h2>4. Auction / Penawaran</h2>
+
+<div class="auction">
+
+<table>
+
+<thead>
+<tr>
+<th>Putaran</th>
+<th>Utara</th>
+<th>Timur</th>
+<th>Selatan</th>
+<th>Barat</th>
+</tr>
+</thead>
+
+<tbody id="auctionBody"></tbody>
+
+</table>
+
+</div>
+
+<div class="help" style="margin:10px 0">
+Giliran:
+<b id="turnLabel">Utara (N)</b>
+</div>
+
+<div id="bidControls" class="bid-controls"></div>
+
+<div class="actions">
+<button class="btn" id="undoBidBtn">Undo</button>
+<button class="btn danger" id="clearAuctionBtn">Hapus Auction</button>
+</div>
+
+</section>
+
+<section class="card c4">
+
+<h2>5. Kontrak Akhir</h2>
+
+<div class="contract">
+
+<div>
+<label>Level</label>
+<select id="level">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option selected>5</option>
+<option>6</option>
+<option>7</option>
+</select>
+</div>
+
+<div>
+<label>Denom</label>
+<select id="denom">
+<option value="C">♣</option>
+<option value="D">♦</option>
+<option value="H">♥</option>
+<option value="S">♠</option>
+<option value="NT" selected>NT</option>
+</select>
+</div>
+
+<div>
+<label>Dobel</label>
+<select id="mult">
+<option value="1">Normal</option>
+<option value="2">X</option>
+<option value="4">XX</option>
+</select>
+</div>
+
+<div>
+<label>Declarer</label>
+<select id="declarer">
+<option>N</option>
+<option>E</option>
+<option selected>S</option>
+<option>W</option>
+</select>
+</div>
+
+<div>
+<label>Trick dibuat</label>
+<input id="tricks" type="number" min="0" max="13" value="11">
+</div>
+
+</div>
+
+<div class="score-box">
+<div id="score" class="score">—</div>
+<div id="scoreNote" class="score-note">
+Klik Hitung Score.
+</div>
+</div>
+
+<button class="btn primary" id="calcBtn"
+style="width:100%;margin-top:10px">
+Hitung Score
+</button>
+
+</section>
+
+<section class="card c12">
+
+<h2>6. Referensi Sistem Bridge</h2>
+
+<div class="system-grid">
+
+<div class="system-card">
+<h3>Sistem Johan</h3>
+<p>Mode kustom sesuai kesepakatan pasangan.</p>
+</div>
+
+<div class="system-card">
+<h3>Four Card Major</h3>
+<p>Kerangka natural yang dapat menggunakan major empat kartu, tergantung konvensi.</p>
+</div>
+
+<div class="system-card">
+<h3>Five Card Major</h3>
+<p>Pembukaan 1♥/1♠ umumnya menunjukkan minimal lima kartu major.</p>
+</div>
+
+<div class="system-card">
+<h3>SAYC</h3>
+<p>Preset referensi sistem natural untuk latihan.</p>
+</div>
+
+<div class="system-card">
+<h3>2/1 Game Force</h3>
+<p>Kerangka natural dengan respons 2-over-1 game forcing sesuai situasi sistem.</p>
+</div>
+
+<div class="system-card">
+<h3>Acol</h3>
+<p>Sistem natural yang banyak implementasinya menggunakan four-card major.</p>
+</div>
+
+<div class="system-card">
+<h3>Precision</h3>
+<p>Keluarga strong-club dengan banyak variasi konvensi.</p>
+</div>
+
+<div class="system-card">
+<h3>Natural Standard</h3>
+<p>Preset netral untuk latihan natural bidding.</p>
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+<footer class="footer">
+© 2026 GABSI Kota Tanjungbalai · Bridge · Prestasi · Persaudaraan
+</footer>
+
+<div class="modal" id="cameraModal">
+
+<div class="modal-box">
+
+<div class="modal-top">
+<b id="cameraTitle">Kamera</b>
+<button class="btn" id="closeCamera">Tutup</button>
+</div>
+
+<video id="video" autoplay playsinline muted></video>
+
+<canvas id="canvas" hidden></canvas>
+
+<div class="actions">
+<button class="btn primary" id="snapBtn">Ambil Foto</button>
+<button class="btn" id="switchBtn">Ganti Kamera</button>
+</div>
+
+</div>
+
+</div>
 
 <div class="toast" id="toast"></div>
 
-
 <script>
-"use strict";
+'use strict';
 
-/* =========================================================
-   GABSI KOTA TANJUNGBALAI — BRIDGE ONLINE
-   Single-file HTML
-   ========================================================= */
+const $=id=>document.getElementById(id);
 
-const SUITS = [
-  {key:"S", symbol:"♠", name:"Sekop", red:false},
-  {key:"H", symbol:"♥", name:"Hati", red:true},
-  {key:"D", symbol:"♦", name:"Wajik", red:true},
-  {key:"C", symbol:"♣", name:"Keriting", red:false}
+const seats=['N','E','S','W'];
+
+const names={
+N:'Utara (N)',
+E:'Timur (E)',
+S:'Selatan (S)',
+W:'Barat (W)'
+};
+
+const ranks=[
+'A','K','Q','J','10','9','8','7','6','5','4','3','2'
 ];
 
-const RANKS = [
-  {key:"2", value:2},
-  {key:"3", value:3},
-  {key:"4", value:4},
-  {key:"5", value:5},
-  {key:"6", value:6},
-  {key:"7", value:7},
-  {key:"8", value:8},
-  {key:"9", value:9},
-  {key:"T", value:10},
-  {key:"J", value:11},
-  {key:"Q", value:12},
-  {key:"K", value:13},
-  {key:"A", value:14}
+const suits=['S','H','D','C'];
+
+const owners=['N','E','S','W'];
+
+const deck=[];
+
+suits.forEach(s=>{
+ranks.forEach(r=>{
+deck.push(r+s);
+});
+});
+
+const HCP={
+A:4,
+K:3,
+Q:2,
+J:1
+};
+
+const state={
+photos:{N:null,E:null,S:null,W:null},
+hands:{N:'',E:'',S:'',W:''},
+bids:[],
+turnStart:0,
+cameraSeat:null,
+stream:null,
+facing:'environment'
+};
+
+const systemInfo={
+
+johan:'Mode kustom: gunakan kesepakatan Sistem Johan pasangan Anda.',
+
+four:'Preset Four Card Major untuk latihan natural.',
+
+five:'Preset Five Card Major: major opening umumnya minimal 5 kartu.',
+
+sayc:'SAYC sebagai preset referensi natural standard.',
+
+twooverone:'Kerangka 2/1 Game Force untuk latihan.',
+
+acol:'Acol: sistem natural dengan four-card major dalam banyak implementasi.',
+
+precision:'Precision: keluarga strong-club; detail konvensi dapat berbeda.',
+
+precisionclub:'Precision Club: strong/artificial club dengan variasi.',
+
+natural:'Natural Standard: preset netral untuk sistem natural.'
+
+};
+
+function toast(x){
+
+const t=$('toast');
+
+t.textContent=x;
+
+t.style.display='block';
+
+clearTimeout(window.tt);
+
+window.tt=setTimeout(()=>{
+t.style.display='none';
+},2200);
+
+}
+
+function hcp(s){
+
+s=String(s||'').toUpperCase();
+
+return
+(s.match(/A/g)||[]).length*4+
+(s.match(/K/g)||[]).length*3+
+(s.match(/Q/g)||[]).length*2+
+(s.match(/J/g)||[]).length;
+
+}
+
+function symbol(s){
+
+return {
+S:'♠',
+H:'♥',
+D:'♦',
+C:'♣'
+}[s];
+
+}
+
+function escapeHtml(s){
+
+return String(s??'').replace(
+/[&<>"']/g,
+c=>({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#039;'
+}[c])
+);
+
+}
+
+function cardsFor(o){
+
+return deck.filter(id=>
+document.querySelector(
+`[data-card="${id}"]`
+)?.dataset.owner===o
+);
+
+}
+
+function analyze(o){
+
+const by={
+S:[],
+H:[],
+D:[],
+C:[]
+};
+
+let pts=0;
+
+cardsFor(o).forEach(id=>{
+
+let r=id.slice(0,-1);
+
+let s=id.slice(-1);
+
+by[s].push(r);
+
+pts+=HCP[r]||0;
+
+});
+
+const lens=suits
+.map(s=>by[s].length)
+.sort((a,b)=>b-a);
+
+return{
+cards:cardsFor(o),
+by,
+pts,
+lens,
+balanced:[
+'5,3,3,2',
+'4,4,3,2',
+'4,3,3,3'
+].includes(lens.join(','))
+};
+
+}
+
+function buildCards(){
+
+const root=$('cardBoard');
+
+root.innerHTML='';
+
+const labels={
+S:'♠ Spade',
+H:'♥ Heart',
+D:'♦ Diamond',
+C:'♣ Club'
+};
+
+suits.forEach(s=>{
+
+let p=document.createElement('div');
+
+p.className='suit-panel';
+
+p.innerHTML=
+`<div class="suit-title">
+${labels[s]}
+</div>
+<div class="card-grid"></div>`;
+
+let g=p.querySelector('.card-grid');
+
+ranks.forEach(r=>{
+
+let b=document.createElement('button');
+
+b.type='button';
+
+b.className='card-pick';
+
+b.dataset.card=r+s;
+
+b.textContent=r;
+
+b.onclick=()=>cycle(r+s);
+
+g.appendChild(b);
+
+});
+
+root.appendChild(p);
+
+});
+
+}
+
+function setOwner(id,o){
+
+let b=document.querySelector(
+`[data-card="${id}"]`
+);
+
+if(b)b.dataset.owner=o||'';
+
+}
+
+function cycle(id){
+
+let b=document.querySelector(
+`[data-card="${id}"]`
+);
+
+let i=owners.indexOf(
+b.dataset.owner||''
+);
+
+setOwner(
+id,
+i<0?'N':
+i<3?owners[i+1]:
+''
+);
+
+updateAnalysis();
+
+}
+
+function updateAnalysis(){
+
+let seat=$('decisionSeat').value;
+
+let a=analyze(seat);
+
+let counts=owners.map(o=>
+cardsFor(o).length
+);
+
+let total=counts.reduce(
+(x,y)=>x+y,
+0
+);
+
+let valid=
+total===52 &&
+counts.every(x=>x===13);
+
+$('deckStatus').textContent=
+valid
+?'52/52 valid'
+:`Terisi ${total}/52 • ${
+owners.map(
+(o,i)=>o+':'+counts[i]
+).join(' ')
+}`;
+
+$('deckStatus').className=
+'badge '+(valid?'good':'warn');
+
+let by=a.by;
+
+$('handAnalysis').innerHTML=
+`<b>${names[seat]}</b><br>
+♠ ${by.S.join('')||'—'} |
+♥ ${by.H.join('')||'—'} |
+♦ ${by.D.join('')||'—'} |
+♣ ${by.C.join('')||'—'}
+
+<div class="badges">
+
+<span class="badge good">
+HCP ${a.pts}
+</span>
+
+<span class="badge">
+${a.balanced?'Balanced':'Unbalanced'}
+</span>
+
+<span class="badge">
+${a.lens.join('-')}
+</span>
+
+</div>`;
+
+renderOwners();
+
+if(a.cards.length!==13){
+
+$('recommendation').textContent=
+'Lengkapi 13 kartu';
+
+$('recommendationWhy').textContent=
+`Saat ini ${a.cards.length} kartu.`;
+
+return;
+
+}
+
+let rec=recommend(
+a,
+$('system').value,
+state.bids.length===0 &&
+$('dealer').value===seat
+);
+
+$('recommendation').textContent=rec[0];
+
+$('recommendationWhy').textContent=rec[1];
+
+$('bidAlternatives').innerHTML=
+
+'<div class="system-card">'+
+'<h3>Dasar keputusan</h3>'+
+'<p>Rekomendasi adalah alat latihan berbasis aturan sederhana. Ikuti convention card pasangan untuk permainan resmi.</p>'+
+'</div>'+
+
+'<div class="system-card">'+
+'<h3>Catatan</h3>'+
+'<p>HCP, distribusi dan sequence auction harus diperiksa bersama.</p>'+
+'</div>';
+
+}
+
+function renderOwners(){
+
+let old=$('ownerSummary');
+
+if(!old){
+
+old=document.createElement('div');
+
+old.id='ownerSummary';
+
+$('cardBoard').after(old);
+
+}
+
+old.className='owner-summary';
+
+old.innerHTML=owners.map(o=>{
+
+let a=analyze(o);
+
+return`
+<div class="owner-mini">
+
+<b>${o}</b><br>
+
+${a.cards.length}/13 kartu · ${a.pts} HCP<br>
+
+${a.by.S.length}♠
+${a.by.H.length}♥
+${a.by.D.length}♦
+${a.by.C.length}♣
+
+</div>`;
+
+}).join('');
+
+}
+
+function recommend(a,sys,opening){
+
+if(!opening){
+
+let h=a.pts;
+
+let last=
+state.bids
+.filter(Boolean)
+.slice(-1)[0]||'';
+
+if(h<6)
+return[
+'PASS',
+`HCP ${h} — respons konservatif.`
 ];
 
-const PLAYERS = ["N","E","S","W"];
+if(last==='1♠'&&a.by.S.length>=3)
+return[
+'2♠',
+'Ada dukungan ♠.'
+];
 
-const PLAYER_NAMES = {
-  N:"North",
-  E:"East",
-  S:"South",
-  W:"West"
-};
+if(last==='1♥'&&a.by.H.length>=3)
+return[
+'2♥',
+'Ada dukungan ♥.'
+];
 
-let boardNo = 1;
-let dealerIndex = 0;
+if(last==='1NT'&&h>=8)
+return[
+'3NT',
+'Nilai latihan mengarah ke game.'
+];
 
-let difficulty = localStorage.getItem("gabsiDifficulty") || "medium";
-
-let hands = {
-  N:[],
-  E:[],
-  S:[],
-  W:[]
-};
-
-let auction = [];
-let auctionTurn = 0;
-let auctionFinished = false;
-
-let contract = null;
-let declarer = null;
-let dummy = null;
-
-let playStarted = false;
-let currentPlayer = null;
-let leader = null;
-
-let currentTrick = [];
-let completedTricks = 0;
-
-let tricksWon = {
-  N:0,
-  E:0,
-  S:0,
-  W:0
-};
-
-let score = 0;
-
-
-/* =========================================================
-   UTILITY
-   ========================================================= */
-
-function $(id){
-  return document.getElementById(id);
-}
-
-function suitInfo(key){
-  return SUITS.find(s => s.key === key);
-}
-
-function cardLabel(card){
-  const s = suitInfo(card.suit);
-  return card.rank + s.symbol;
-}
-
-function playerNext(p){
-  const i = PLAYERS.indexOf(p);
-  return PLAYERS[(i + 1) % 4];
-}
-
-function partner(p){
-  if(p === "N") return "S";
-  if(p === "S") return "N";
-  if(p === "E") return "W";
-  return "E";
-}
-
-function showToast(message){
-  const el = $("toast");
-  el.textContent = message;
-  el.classList.add("show");
-
-  clearTimeout(showToast.timer);
-
-  showToast.timer = setTimeout(() => {
-    el.classList.remove("show");
-  }, 1800);
-}
-
-function setStatus(text){
-  $("statusText").textContent = text;
-}
-
-function updateTrickText(){
-  $("trickText").textContent =
-    completedTricks + " / 13";
-}
-
-
-/* =========================================================
-   DECK
-   ========================================================= */
-
-function createDeck(){
-
-  const deck = [];
-
-  for(const s of SUITS){
-    for(const r of RANKS){
-
-      deck.push({
-        suit:s.key,
-        rank:r.key,
-        value:r.value
-      });
-
-    }
-  }
-
-  return deck;
-}
-
-function shuffle(array){
-
-  for(let i=array.length-1;i>0;i--){
-
-    const j = Math.floor(Math.random() * (i+1));
-
-    [array[i],array[j]] =
-    [array[j],array[i]];
-  }
-
-  return array;
-}
-
-function dealCards(){
-
-  const deck = shuffle(createDeck());
-
-  hands = {
-    N:[],
-    E:[],
-    S:[],
-    W:[]
-  };
-
-  let index = 0;
-
-  /*
-    Bridge dibagikan searah jarum jam,
-    mulai dari dealer.
-  */
-
-  for(let i=0;i<52;i++){
-
-    const player =
-      PLAYERS[(dealerIndex + i) % 4];
-
-    hands[player].push(deck[index++]);
-  }
-
-  sortAllHands();
-}
-
-function sortHandData(hand){
-
-  const suitOrder = {
-    S:0,
-    H:1,
-    D:2,
-    C:3
-  };
-
-  hand.sort((a,b) => {
-
-    if(suitOrder[a.suit] !== suitOrder[b.suit]){
-      return suitOrder[a.suit] - suitOrder[b.suit];
-    }
-
-    return b.value - a.value;
-  });
-}
-
-function sortAllHands(){
-
-  for(const p of PLAYERS){
-    sortHandData(hands[p]);
-  }
+return[
+h>=10?'1NT':'PASS',
+'Rekomendasi latihan berdasarkan HCP.'
+];
 
 }
 
+let h=a.pts;
 
-/* =========================================================
-   DISPLAY HAND
-   ========================================================= */
+let sp=a.by.S.length;
 
-function renderMiniHand(player){
+let he=a.by.H.length;
 
-  const el = $("hand" + player);
+let di=a.by.D.length;
 
-  if(!el) return;
+let cl=a.by.C.length;
 
-  el.innerHTML = "";
+if(h<12)
+return[
+'PASS',
+`HCP ${h} — di bawah kisaran pembukaan natural umum.`
+];
 
-  for(const card of hands[player]){
+if(h>=22)
+return[
+'2♣',
+`HCP ${h} — strong hand; cek convention card.`
+];
 
-    const d = document.createElement("div");
+if(a.balanced&&h>=15&&h<=17)
+return[
+'1NT',
+'Balanced dengan 15–17 HCP.'
+];
 
-    const s = suitInfo(card.suit);
+if([
+'five',
+'sayc',
+'twooverone',
+'natural'
+].includes(sys)){
 
-    d.className =
-      "mini-card" + (s.red ? " red" : "");
+if(sp>=5&&sp>=he)
+return[
+'1♠',
+`♠ memiliki ${sp} kartu.`
+];
 
-    d.textContent = cardLabel(card);
+if(he>=5)
+return[
+'1♥',
+`♥ memiliki ${he} kartu.`
+];
 
-    el.appendChild(d);
-  }
 }
 
-function renderSouthMini(){
+if([
+'four',
+'acol'
+].includes(sys)&&
+Math.max(sp,he)>=4)
 
-  const el = $("southMini");
+return[
+sp>he?'1♠':'1♥',
+'Major terpanjang dipilih untuk latihan.'
+];
 
-  el.innerHTML = "";
+if([
+'precision',
+'precisionclub'
+].includes(sys)&&h>=16)
 
-  /*
-    Ketika kartu masih berada di tangan,
-    South ditampilkan sebagai mini-card
-    pada posisi pemain.
-  */
+return[
+'1♣',
+'Preset Precision strong-club.'
+];
 
-  for(const card of hands.S){
+return[
+cl>di&&cl>=3?'1♣':'1♦',
+'Minor terpanjang/default latihan.'
+];
 
-    const d = document.createElement("div");
-
-    const s = suitInfo(card.suit);
-
-    d.className =
-      "mini-card" + (s.red ? " red" : "");
-
-    d.textContent =
-      cardLabel(card);
-
-    el.appendChild(d);
-  }
 }
 
-function canPlayCard(card){
+function renderSystem(){
 
-  if(!playStarted) return false;
+$('systemInfo').textContent=
+systemInfo[$('system').value]||'';
 
-  if(currentPlayer !== "S") return false;
-
-  if(!isLegalPlay("S", card)) return false;
-
-  return true;
-}
-
-function renderSouthHand(){
-
-  const el = $("handS");
-
-  el.innerHTML = "";
-
-  for(const card of hands.S){
-
-    const s = suitInfo(card.suit);
-
-    const button =
-      document.createElement("button");
-
-    button.className =
-      "card" +
-      (s.red ? " red" : "");
-
-    if(!canPlayCard(card)){
-      button.classList.add("disabled");
-    }
-
-    button.innerHTML = `
-      <div class="top">${card.rank}</div>
-      <div class="center-suit">${s.symbol}</div>
-      <div class="bottom">${s.name}</div>
-    `;
-
-    button.onclick = () => {
-
-      if(!canPlayCard(card)){
-
-        if(playStarted && currentPlayer !== "S"){
-          showToast("Tunggu giliran Anda.");
-        }
-        else if(playStarted){
-          showToast("Anda wajib mengikuti suit yang dibuka.");
-        }
-
-        return;
-      }
-
-      playCard("S", card);
-    };
-
-    el.appendChild(button);
-  }
-
-  $("handCount").textContent =
-    hands.S.length + " kartu";
-}
-
-function renderAllHands(){
-
-  renderMiniHand("N");
-  renderMiniHand("E");
-  renderMiniHand("W");
-
-  renderSouthMini();
-  renderSouthHand();
-}
-
-
-/* =========================================================
-   BOARD INFORMATION
-   ========================================================= */
-
-function getVulnerability(board){
-
-  const pattern = [
-    "None",
-    "NS",
-    "EW",
-    "Both"
-  ];
-
-  return pattern[(board - 1) % 4];
-}
-
-function updateBoardHeader(){
-
-  const dealer =
-    PLAYERS[dealerIndex];
-
-  $("boardNo").textContent = boardNo;
-  $("dealerText").textContent = dealer;
-  $("vulText").textContent = getVulnerability(boardNo);
-
-  updateDifficultyDisplay();
-}
-
-function updateDifficultyDisplay(){
-
-  const names = {
-    easy:"Pemula",
-    medium:"Menengah",
-    hard:"Sulit",
-    expert:"Ahli"
-  };
-
-  $("northLevel").textContent = names[difficulty];
-  $("westLevel").textContent = names[difficulty];
-  $("eastLevel").textContent = names[difficulty];
-
-  document.querySelectorAll(".level-btn")
-    .forEach(btn => {
-
-      btn.classList.toggle(
-        "selected",
-        btn.dataset.level === difficulty
-      );
-    });
-}
-
-
-/* =========================================================
-   HCP / AI
-   ========================================================= */
-
-function getHCP(hand){
-
-  let hcp = 0;
-
-  for(const card of hand){
-
-    if(card.rank === "A") hcp += 4;
-    else if(card.rank === "K") hcp += 3;
-    else if(card.rank === "Q") hcp += 2;
-    else if(card.rank === "J") hcp += 1;
-  }
-
-  return hcp;
-}
-
-function getSuitCount(hand,suit){
-
-  return hand.filter(c => c.suit === suit).length;
-}
-
-function handStrength(player){
-
-  const hand = hands[player];
-
-  let hcp = getHCP(hand);
-
-  const lengths =
-    SUITS.map(s => getSuitCount(hand,s.key));
-
-  const longest =
-    Math.max(...lengths);
-
-  if(longest >= 5) hcp += 1;
-
-  if(longest >= 6) hcp += 1;
-
-  return hcp;
-}
-
-
-/* =========================================================
-   BIDDING
-   ========================================================= */
-
-function makeBid(level,suit){
-
-  return {
-    type:"bid",
-    level,
-    suit
-  };
-}
-
-function makePass(){
-
-  return {
-    type:"pass"
-  };
-}
-
-function bidText(bid){
-
-  if(bid.type === "pass"){
-    return "PASS";
-  }
-
-  if(bid.type === "double"){
-    return "X";
-  }
-
-  if(bid.type === "redouble"){
-    return "XX";
-  }
-
-  const s = suitInfo(bid.suit);
-
-  return bid.level + s.symbol;
-}
-
-function bidValue(bid){
-
-  if(bid.type !== "bid"){
-    return -1;
-  }
-
-  const suitRank = {
-    C:0,
-    D:1,
-    H:2,
-    S:3,
-    NT:4
-  };
-
-  return (
-    bid.level * 5 +
-    suitRank[bid.suit]
-  );
-}
-
-function getLastContractBid(){
-
-  for(let i=auction.length-1;i>=0;i--){
-
-    if(auction[i].bid.type === "bid"){
-      return auction[i].bid;
-    }
-  }
-
-  return null;
-}
-
-function getBidderNumber(){
-
-  return PLAYERS
-    .filter(() => true)
-    .indexOf(PLAYERS[auctionTurn]);
-}
-
-function legalBid(level,suit){
-
-  const current = getLastContractBid();
-
-  if(!current) return true;
-
-  return bidValue(makeBid(level,suit))
-    > bidValue(current);
-}
-
-function aiChooseBid(player){
-
-  const hcp = handStrength(player);
-
-  /*
-    AI disederhanakan tetapi tetap memakai HCP
-    sehingga board dapat dimainkan dengan nyaman.
-  */
-
-  if(difficulty === "easy"){
-
-    if(Math.random() < .48)
-      return makePass();
-
-  }
-
-  if(difficulty === "medium"){
-
-    if(hcp < 10 && Math.random() < .75)
-      return makePass();
-  }
-
-  if(difficulty === "hard"){
-
-    if(hcp < 8 && Math.random() < .7)
-      return makePass();
-  }
-
-  if(difficulty === "expert"){
-
-    if(hcp < 7 && Math.random() < .65)
-      return makePass();
-  }
-
-  let level = 1;
-
-  if(hcp >= 18) level = 3;
-  else if(hcp >= 15) level = 2;
-  else level = 1;
-
-  if(hcp >= 22) level = 4;
-
-  const lengths = {};
-
-  for(const s of SUITS){
-    lengths[s.key] =
-      getSuitCount(hands[player],s.key);
-  }
-
-  let bestSuit = "C";
-
-  for(const s of ["S","H","D","C"]){
-
-    if(lengths[s] > lengths[bestSuit]){
-      bestSuit = s;
-    }
-  }
-
-  const proposed =
-    makeBid(level,bestSuit);
-
-  if(!legalBid(level,bestSuit)){
-    return makePass();
-  }
-
-  return proposed;
-}
-
-function startAuction(){
-
-  auction = [];
-  auctionTurn = dealerIndex;
-  auctionFinished = false;
-
-  contract = null;
-  declarer = null;
-  dummy = null;
-
-  renderAuction();
-  renderBidButtons();
-
-  setStatus(
-    "Giliran lelang: " +
-    PLAYER_NAMES[PLAYERS[auctionTurn]]
-  );
-
-  $("bidActionBtn").disabled = false;
-
-  setTimeout(processAITurn,500);
-}
-
-function addAuction(player,bid){
-
-  auction.push({
-    player,
-    bid
-  });
-
-  renderAuction();
-}
-
-function countPassesAfterLastBid(){
-
-  let count = 0;
-
-  for(let i=auction.length-1;i>=0;i--){
-
-    if(auction[i].bid.type === "pass"){
-      count++;
-    }else{
-      break;
-    }
-  }
-
-  return count;
-}
-
-function processHumanBid(bid){
-
-  if(auctionFinished) return;
-
-  const player =
-    PLAYERS[auctionTurn];
-
-  if(player !== "S") return;
-
-  if(
-    bid.type === "bid" &&
-    !legalBid(bid.level,bid.suit)
-  ){
-    showToast("Bid harus lebih tinggi.");
-    return;
-  }
-
-  addAuction("S",bid);
-
-  if(checkAuctionFinished()){
-    finishAuction();
-    return;
-  }
-
-  auctionTurn =
-    (auctionTurn + 1) % 4;
-
-  renderBidButtons();
-
-  setStatus(
-    "Giliran: " +
-    PLAYER_NAMES[PLAYERS[auctionTurn]]
-  );
-
-  processAITurn();
-}
-
-function processAITurn(){
-
-  if(auctionFinished) return;
-
-  const player =
-    PLAYERS[auctionTurn];
-
-  if(player === "S"){
-
-    renderBidButtons();
-    return;
-  }
-
-  setTimeout(() => {
-
-    const bid =
-      aiChooseBid(player);
-
-    addAuction(player,bid);
-
-    if(checkAuctionFinished()){
-      finishAuction();
-      return;
-    }
-
-    auctionTurn =
-      (auctionTurn + 1) % 4;
-
-    renderBidButtons();
-
-    if(PLAYERS[auctionTurn] === "S"){
-
-      setStatus("Giliran lelang Anda.");
-
-    }else{
-
-      setStatus(
-        "Giliran: " +
-        PLAYER_NAMES[PLAYERS[auctionTurn]]
-      );
-
-    }
-
-    processAITurn();
-
-  },650);
-}
-
-function checkAuctionFinished(){
-
-  /*
-    Empat PASS tanpa bid = passed out.
-    Tiga PASS setelah sebuah bid = kontrak selesai.
-  */
-
-  if(
-    auction.length >= 4 &&
-    !getLastContractBid()
-  ){
-
-    return true;
-  }
-
-  if(
-    auction.length >= 4 &&
-    getLastContractBid() &&
-    countPassesAfterLastBid() >= 3
-  ){
-
-    return true;
-  }
-
-  return false;
-}
-
-function finishAuction(){
-
-  auctionFinished = true;
-
-  const finalBid =
-    getLastContractBid();
-
-  if(!finalBid){
-
-    contract = null;
-
-    $("contractText").textContent = "PASS";
-    $("centerInfo").textContent =
-      "Tidak ada kontrak.";
-
-    setStatus(
-      "Lelang selesai — board passed out."
-    );
-
-    $("bidActionBtn").disabled = true;
-
-    return;
-  }
-
-  contract = finalBid;
-
-  /*
-    Declarer = pemain pertama dari partnership
-    pemenang yang melakukan bid dengan strain akhir.
-  */
-
-  declarer = null;
-
-  for(const item of auction){
-
-    if(
-      item.bid.type === "bid" &&
-      item.bid.suit === contract.suit &&
-      item.player % 1 === 0
-    ){
-
-      const isSamePair =
-        item.player === getWinningSideFirstBidder();
-
-      if(
-        item.player === getWinningSideFirstBidder()
-      ){
-
-        declarer = item.player;
-        break;
-      }
-    }
-  }
-
-  /*
-    Fallback aman.
-  */
-  if(!declarer){
-    declarer = auction
-      .find(x =>
-        x.bid.type === "bid" &&
-        x.bid.suit === contract.suit
-      )?.player || "S";
-  }
-
-  dummy = partner(declarer);
-
-  $("contractText").textContent =
-    contract.level +
-    suitInfo(contract.suit).symbol;
-
-  $("centerInfo").textContent =
-    "Declarer: " +
-    PLAYER_NAMES[declarer] +
-    " • Dummy: " +
-    PLAYER_NAMES[dummy];
-
-  $("bidActionBtn").disabled = true;
-
-  closeBid();
-
-  setStatus(
-    "Kontrak selesai. Permainan kartu dimulai."
-  );
-
-  setTimeout(startPlay,900);
-}
-
-function getWinningSideFirstBidder(){
-
-  /*
-    Ambil pemain pertama dari pasangan declarer
-    yang pernah menawar suit kontrak.
-  */
-  if(!contract) return "S";
-
-  for(const item of auction){
-
-    if(
-      item.bid.type === "bid" &&
-      item.bid.suit === contract.suit
-    ){
-
-      return item.player;
-    }
-  }
-
-  return "S";
 }
 
 function renderAuction(){
 
-  const el = $("auctionHistory");
-
-  el.innerHTML = "";
-
-  if(auction.length === 0){
-
-    el.innerHTML =
-      '<span style="font-size:10px;color:#8eaa9f">Belum ada penawaran.</span>';
-
-    return;
-  }
-
-  for(const item of auction){
-
-    const d =
-      document.createElement("div");
-
-    d.className = "auction-item";
-
-    d.innerHTML =
-      "<b>" +
-      PLAYER_NAMES[item.player] +
-      "</b> " +
-      bidText(item.bid);
-
-    el.appendChild(d);
-  }
-}
-
-function renderBidButtons(){
-
-  const el = $("bidGrid");
-
-  el.innerHTML = "";
-
-  const currentPlayer =
-    PLAYERS[auctionTurn];
-
-  if(currentPlayer !== "S"){
-
-    el.innerHTML =
-      '<div style="grid-column:1/-1;text-align:center;padding:15px;color:#a9c4b8;font-size:11px">Menunggu komputer...</div>';
-
-    return;
-  }
-
-  /* PASS */
-  const passBtn =
-    document.createElement("button");
-
-  passBtn.className =
-    "bid-btn pass";
-
-  passBtn.textContent =
-    "PASS";
-
-  passBtn.onclick = () =>
-    processHumanBid(makePass());
-
-  el.appendChild(passBtn);
-
-
-  /* CONTRACT BIDS */
-  const suits = [
-    "C",
-    "D",
-    "H",
-    "S",
-    "NT"
-  ];
-
-  for(let level=1;level<=7;level++){
-
-    for(const suit of suits){
-
-      const button =
-        document.createElement("button");
-
-      button.className =
-        "bid-btn";
-
-      if(suit === "H" || suit === "D"){
-        button.classList.add("suit-h");
-      }
-
-      if(suit === "S" || suit === "C"){
-        button.classList.add("suit-s");
-      }
-
-      const label =
-        suit === "NT"
-        ? level + " NT"
-        : level + suitInfo(suit).symbol;
-
-      button.textContent = label;
-
-      const legal =
-        legalBid(level,suit);
-
-      button.disabled = !legal;
-
-      button.onclick = () =>
-        processHumanBid(
-          makeBid(level,suit)
-        );
-
-      el.appendChild(button);
-    }
-  }
-}
-
-
-/* =========================================================
-   PLAY
-   ========================================================= */
-
-function startPlay(){
-
-  playStarted = true;
-  completedTricks = 0;
-
-  tricksWon = {
-    N:0,
-    E:0,
-    S:0,
-    W:0
-  };
-
-  currentTrick = [];
-
-  /*
-    Setelah kontrak, lead pertama dilakukan
-    oleh pemain setelah declarer.
-  */
-
-  leader = playerNext(declarer);
-  currentPlayer = leader;
-
-  renderTrick();
-  updateTrickText();
-  updatePlayers();
-
-  setStatus(
-    "Permainan kartu dimulai."
-  );
-
-  setTimeout(processCurrentTurn,600);
-}
-
-function isLegalPlay(player,card){
-
-  if(currentTrick.length === 0){
-    return true;
-  }
-
-  const ledSuit =
-    currentTrick[0].card.suit;
-
-  const hasLed =
-    hands[player].some(
-      c => c.suit === ledSuit
-    );
-
-  if(hasLed){
-
-    return card.suit === ledSuit;
-  }
-
-  return true;
-}
-
-function aiChooseCard(player){
-
-  const hand = hands[player];
-
-  const legal =
-    hand.filter(
-      card => isLegalPlay(player,card)
-    );
-
-  if(legal.length === 0)
-    return hand[0];
-
-  const ledSuit =
-    currentTrick.length
-    ? currentTrick[0].card.suit
-    : null;
-
-  /*
-    AI sederhana berdasarkan difficulty.
-  */
-
-  if(ledSuit){
-
-    const same =
-      legal
-      .filter(c => c.suit === ledSuit)
-      .sort((a,b) => a.value - b.value);
-
-    if(same.length){
-
-      if(
-        difficulty === "expert" ||
-        difficulty === "hard"
-      ){
-
-        return same[same.length - 1];
-      }
-
-      return same[0];
-    }
-  }
-
-  if(contract){
-
-    const trump =
-      legal.filter(
-        c => c.suit === contract.suit
-      );
-
-    if(trump.length){
-
-      return trump[0];
-    }
-  }
-
-  return legal
-    .slice()
-    .sort((a,b)=>a.value-b.value)[0];
-}
-
-function removeCard(player,card){
-
-  const index =
-    hands[player].findIndex(
-      c =>
-        c.suit === card.suit &&
-        c.rank === card.rank
-    );
-
-  if(index >= 0){
-    hands[player].splice(index,1);
-    return true;
-  }
-
-  return false;
-}
-
-function playCard(player,card){
-
-  if(
-    !isLegalPlay(player,card)
-  ){
-    return;
-  }
-
-  removeCard(player,card);
-
-  currentTrick.push({
-    player,
-    card
-  });
-
-  renderAllHands();
-  renderTrick();
-  updatePlayers();
-
-  if(currentTrick.length < 4){
-
-    currentPlayer =
-      playerNext(player);
-
-    processCurrentTurn();
-
-  }else{
-
-    currentPlayer = null;
-
-    setTimeout(completeTrick,1000);
-  }
-}
-
-function processCurrentTurn(){
-
-  updatePlayers();
-
-  if(!playStarted) return;
-
-  if(currentPlayer === "S"){
-
-    renderSouthHand();
-
-    setStatus(
-      currentTrick.length === 0
-      ? "Giliran Anda — silakan membuka kartu."
-      : "Giliran Anda — pilih kartu."
-    );
-
-    return;
-  }
-
-  /*
-    Komputer mengendalikan dummy dan lawan.
-  */
-
-  setStatus(
-    PLAYER_NAMES[currentPlayer] +
-    " sedang bermain..."
-  );
-
-  setTimeout(() => {
-
-    const card =
-      aiChooseCard(currentPlayer);
-
-    playCard(currentPlayer,card);
-
-  },600);
-}
-
-function getTrickWinner(){
-
-  if(currentTrick.length !== 4)
-    return null;
-
-  const ledSuit =
-    currentTrick[0].card.suit;
-
-  let winner =
-    currentTrick[0];
-
-  for(let i=1;i<currentTrick.length;i++){
-
-    const item = currentTrick[i];
-
-    if(
-      beatsCard(
-        item.card,
-        winner.card,
-        ledSuit
-      )
-    ){
-
-      winner = item;
-    }
-  }
-
-  return winner.player;
-}
-
-function beatsCard(candidate,current,ledSuit){
-
-  if(contract){
-
-    const trump =
-      contract.suit;
-
-    if(candidate.suit === trump &&
-       current.suit !== trump){
-
-      return true;
-    }
-
-    if(candidate.suit !== trump &&
-       current.suit === trump){
-
-      return false;
-    }
-  }
-
-  if(candidate.suit !== current.suit){
-
-    return candidate.suit === ledSuit;
-  }
-
-  return candidate.value > current.value;
-}
-
-function completeTrick(){
-
-  const winner =
-    getTrickWinner();
-
-  if(!winner){
-    return;
-  }
-
-  tricksWon[winner]++;
-  completedTricks++;
-
-  renderTrick();
-
-  updateTrickText();
-
-  showToast(
-    PLAYER_NAMES[winner] +
-    " memenangkan trik."
-  );
-
-  currentTrick = [];
-
-  leader = winner;
-  currentPlayer = winner;
-
-  updatePlayers();
-
-  if(completedTricks >= 13){
-
-    endBoard();
-    return;
-  }
-
-  setTimeout(() => {
-
-    renderTrick();
-    processCurrentTurn();
-
-  },700);
-}
-
-function endBoard(){
-
-  playStarted = false;
-
-  renderSouthHand();
-
-  const ns =
-    tricksWon.N + tricksWon.S;
-
-  const ew =
-    tricksWon.E + tricksWon.W;
-
-  let humanScore =
-    tricksWon.S;
-
-  /*
-    Skor latihan sederhana.
-  */
-  score += humanScore;
-
-  $("scoreText").textContent =
-    score;
-
-  $("contractText").textContent =
-    contract
-    ? contract.level +
-      suitInfo(contract.suit).symbol
-    : "PASS";
-
-  $("centerInfo").textContent =
-    "NS " + ns +
-    " trik • EW " + ew + " trik";
-
-  setStatus(
-    "Board selesai. South memenangkan " +
-    tricksWon.S +
-    " trik."
-  );
-
-  $("bidActionBtn").disabled = true;
-
-  updatePlayers();
-}
-
-function renderTrick(){
-
-  const el = $("trickArea");
-
-  el.innerHTML = "";
-
-  for(const item of currentTrick){
-
-    const s =
-      suitInfo(item.card.suit);
-
-    const d =
-      document.createElement("div");
-
-    d.className =
-      "played " +
-      item.player.toLowerCase() +
-      (s.red ? " red" : "");
-
-    d.innerHTML = `
-      <div class="rank">${item.card.rank}</div>
-      <div class="suit">${s.symbol}</div>
-      <div class="pos">${PLAYER_NAMES[item.player]}</div>
-    `;
-
-    el.appendChild(d);
-  }
-}
-
-function updatePlayers(){
-
-  document
-    .querySelectorAll(".player")
-    .forEach(el =>
-      el.classList.remove("active")
-    );
-
-  if(currentPlayer){
-
-    const el =
-      $("player" + currentPlayer);
-
-    if(el)
-      el.classList.add("active");
-  }
-}
-
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
-
-function sortHand(){
-
-  sortHandData(hands.S);
-
-  renderSouthHand();
-  renderSouthMini();
-
-  showToast("Kartu South sudah diurutkan.");
-}
-
-function newGame(){
-
-  boardNo++;
-  dealerIndex =
-    (dealerIndex + 1) % 4;
-
-  playStarted = false;
-  auctionFinished = false;
-  currentTrick = [];
-  completedTricks = 0;
-  contract = null;
-  declarer = null;
-  dummy = null;
-
-  $("contractText").textContent =
-    "Lelang";
-
-  $("centerInfo").textContent =
-    "Menunggu pembukaan lelang";
-
-  $("bidActionBtn").disabled =
-    false;
-
-  $("trickArea").innerHTML = "";
-
-  updateBoardHeader();
-
-  dealCards();
-  renderAllHands();
-
-  startAuction();
-
-  showToast("Board baru dimulai.");
-}
-
-function openBid(){
-
-  $("bidModal")
-    .classList.add("show");
-
-  renderAuction();
-  renderBidButtons();
-}
-
-function closeBid(){
-
-  $("bidModal")
-    .classList.remove("show");
-}
-
-function openSettings(){
-
-  updateDifficultyDisplay();
-
-  $("settingsModal")
-    .classList.add("show");
-}
-
-function closeSettings(){
-
-  $("settingsModal")
-    .classList.remove("show");
-}
-
-function openHelp(){
-
-  $("helpModal")
-    .classList.add("show");
-}
-
-function closeHelp(){
-
-  $("helpModal")
-    .classList.remove("show");
-}
-
-function setLevel(level){
-
-  difficulty = level;
-
-  localStorage.setItem(
-    "gabsiDifficulty",
-    level
-  );
-
-  updateDifficultyDisplay();
-
-  closeSettings();
-
-  showToast(
-    "Tingkat komputer: " +
-    levelName(level)
-  );
-}
-
-function levelName(level){
-
-  return {
-    easy:"Pemula",
-    medium:"Menengah",
-    hard:"Sulit",
-    expert:"Ahli"
-  }[level] || "Menengah";
-}
-
-
-/* =========================================================
-   PAGE MENU
-   ========================================================= */
-
-function showPage(page){
-
-  const gamePage =
-    $("gamePage");
-
-  const aboutPage =
-    $("aboutPage");
-
-  if(page === "game"){
-
-    gamePage.style.display = "block";
-    aboutPage.classList.remove("show");
-
-  }else{
-
-    gamePage.style.display = "none";
-    aboutPage.classList.add("show");
-
-  }
-
-  document.querySelectorAll(".menu button")
-    .forEach(btn =>
-      btn.classList.remove("active")
-    );
-
-  if(page === "game"){
-
-    $("menuGame")
-      .classList.add("active");
-  }
-}
-
-
-/* =========================================================
-   MODAL BACKDROP
-   ========================================================= */
-
-document.querySelectorAll(".modal")
-  .forEach(modal => {
-
-    modal.addEventListener("click", function(e){
-
-      if(e.target === modal){
-
-        modal.classList.remove("show");
-      }
-
-    });
-
-  });
-
-
-/* =========================================================
-   INITIALIZE
-   ========================================================= */
-
-function init(){
-
-  updateBoardHeader();
-
-  dealCards();
-
-  renderAllHands();
-
-  startAuction();
+let b=$('auctionBody');
+
+b.innerHTML='';
+
+for(
+let r=0;
+r<Math.max(1,Math.ceil(state.bids.length/4));
+r++
+){
+
+let tr=`<tr>
+<td>${r+1}</td>`;
+
+for(
+let c=0;
+c<4;
+c++
+){
+
+tr+=`<td>
+${escapeHtml(state.bids[r*4+c]||'')}
+</td>`;
 
 }
 
-init();
+b.innerHTML+=tr+'</tr>';
+
+}
+
+$('turnLabel').textContent=
+names[
+seats[
+(state.turnStart+state.bids.length)%4
+]
+];
+
+}
+
+function addBid(x){
+
+if(state.bids.length<40){
+
+state.bids.push(x);
+
+renderAuction();
+
+updateAnalysis();
+
+}
+
+}
+
+function renderBids(){
+
+let c=$('bidControls');
+
+c.innerHTML='';
+
+for(
+let l=1;
+l<=7;
+l++
+){
+
+for(
+let s of suits.concat(['NT'])
+){
+
+let b=document.createElement('button');
+
+b.className='bid-btn';
+
+b.textContent=
+l+(s==='NT'?'NT':symbol(s));
+
+b.onclick=()=>
+addBid(b.textContent);
+
+c.appendChild(b);
+
+}
+
+}
+
+[
+['Pass','pass'],
+['X','x'],
+['XX','xx']
+].forEach(([x,cl])=>{
+
+let b=document.createElement('button');
+
+b.className='bid-btn '+cl;
+
+b.textContent=x;
+
+b.onclick=()=>addBid(x);
+
+c.appendChild(b);
+
+});
+
+}
+
+function updateHands(){
+
+seats.forEach(s=>{
+
+$('hcp'+s).textContent=
+s+' HCP: '+
+(state.hands[s].trim()
+?hcp(state.hands[s])
+:'—');
+
+$('hold-'+s).innerHTML=
+state.hands[s].trim()
+?`<b>HCP ${hcp(state.hands[s])}</b>`
+:'Kartu: belum diinput';
+
+});
+
+}
+
+function clearOwners(){
+
+deck.forEach(id=>
+setOwner(id,'')
+);
+
+updateAnalysis();
+
+}
+
+function autoDeal(){
+
+clearOwners();
+
+deck
+.slice()
+.sort(()=>Math.random()-.5)
+.forEach((id,i)=>
+setOwner(
+id,
+owners[Math.floor(i/13)]
+)
+);
+
+updateAnalysis();
+
+toast(
+'52 kartu dibagikan, 13 per pemain.'
+);
+
+}
+
+function validate(){
+
+let n=owners.map(o=>
+cardsFor(o).length
+);
+
+toast(
+n.reduce((a,b)=>a+b,0)===52 &&
+n.every(x=>x===13)
+?'Valid: 52 kartu lengkap.'
+:'Belum valid: '+n.join('/')
+);
+
+}
+
+function isVul(side){
+
+let v=$('vuln').value;
+
+return v==='Both'||v===side;
+
+}
+
+function score(
+level,
+denom,
+mult,
+decl,
+tricks
+){
+
+let target=level+6;
+
+let made=tricks-target;
+
+let vul=isVul(
+decl==='N'||decl==='S'
+?'NS'
+:'EW'
+);
+
+let m=Number(mult);
+
+let base=
+['C','D'].includes(denom)
+?20
+:['H','S'].includes(denom)
+?30
+:40;
+
+if(made<0){
+
+let u=-made;
+
+let p=
+m===1
+?(vul?100:50)*u
+:m===2
+?(vul?200:100)+
+Math.max(0,u-1)*
+(vul?300:200)
+:(vul?400:200)+
+Math.max(0,u-1)*
+(vul?600:400);
+
+return[
+-p,
+`Down ${u} trick · ${
+vul?'Vulnerable':'Non-vulnerable'
+}`
+];
+
+}
+
+let over=
+made*
+(
+m===1
+?base
+:m===2
+?(vul?200:100)
+:(vul?400:200)
+);
+
+let tp=level*base*m;
+
+let game=tp>=100;
+
+let bonus=
+m===2
+?50
+:m===4
+?100
+:0;
+
+bonus+=game
+?(vul?500:300)
+:50;
+
+if(level===6)
+bonus+=vul?750:500;
+
+if(level===7)
+bonus+=vul?1500:1000;
+
+return[
+tp+over+bonus,
+`Made ${target}+${made} · ${
+game?'Game':'Part-score'
+}`
+];
+
+}
+
+function calc(){
+
+let r=score(
++$('level').value,
+$('denom').value,
++$('mult').value,
+$('declarer').value,
++$('tricks').value
+);
+
+$('score').textContent=
+(r[0]>=0?'+':'')+r[0];
+
+$('scoreNote').textContent=r[1];
+
+}
+
+function photo(seat,data){
+
+state.photos[seat]=data;
+
+$('ph-'+seat).innerHTML=
+data
+?`<img src="${data}" alt="Foto kartu ${names[seat]}">`
+:'Belum ada foto';
+
+}
+
+async function camera(seat){
+
+closeCamera();
+
+state.cameraSeat=seat;
+
+$('cameraTitle').textContent=
+'Kamera — '+names[seat];
+
+$('cameraModal').style.display='flex';
+
+try{
+
+if(!navigator.mediaDevices?.getUserMedia)
+throw Error(
+'Browser tidak mendukung kamera.'
+);
+
+state.stream=
+await navigator.mediaDevices.getUserMedia({
+video:{
+facingMode:{
+ideal:state.facing
+}
+},
+audio:false
+});
+
+$('video').srcObject=
+state.stream;
+
+}catch(e){
+
+closeCamera();
+
+toast(e.message);
+
+}
+
+}
+
+function closeCamera(){
+
+if(state.stream){
+
+state.stream
+.getTracks()
+.forEach(t=>t.stop());
+
+state.stream=null;
+
+}
+
+$('video').srcObject=null;
+
+$('cameraModal').style.display='none';
+
+}
+
+function snap(){
+
+let v=$('video');
+
+let c=$('canvas');
+
+if(!v.videoWidth){
+
+toast('Kamera belum siap.');
+
+return;
+
+}
+
+c.width=v.videoWidth;
+
+c.height=v.videoHeight;
+
+c.getContext('2d')
+.drawImage(v,0,0);
+
+photo(
+state.cameraSeat,
+c.toDataURL(
+'image/jpeg',
+.88
+)
+);
+
+closeCamera();
+
+toast('Foto tersimpan.');
+
+}
+
+function collect(){
+
+return{
+
+board:$('boardNo').value,
+
+dealer:$('dealer').value,
+
+vuln:$('vuln').value,
+
+system:$('system').value,
+
+photos:state.photos,
+
+hands:state.hands,
+
+bids:state.bids,
+
+owners:Object.fromEntries(
+deck.map(id=>[
+id,
+document.querySelector(
+`[data-card="${id}"]`
+)?.dataset.owner||''
+])
+),
+
+level:$('level').value,
+
+denom:$('denom').value,
+
+mult:$('mult').value,
+
+declarer:$('declarer').value,
+
+tricks:$('tricks').value
+
+};
+
+}
+
+function apply(d){
+
+if(!d)return;
+
+$('boardNo').value=
+d.board||1;
+
+$('dealer').value=
+d.dealer||'N';
+
+$('vuln').value=
+d.vuln||'None';
+
+$('system').value=
+d.system||'johan';
+
+state.photos=
+d.photos||
+{N:null,E:null,S:null,W:null};
+
+state.hands=
+d.hands||
+{N:'',E:'',S:'',W:''};
+
+state.bids=
+d.bids||[];
+
+deck.forEach(id=>
+setOwner(
+id,
+d.owners?.[id]||''
+)
+);
+
+seats.forEach(s=>{
+
+$('hand-'+s).value=
+state.hands[s]||'';
+
+photo(
+s,
+state.photos[s]||null
+);
+
+});
+
+$('level').value=
+d.level||5;
+
+$('denom').value=
+d.denom||'NT';
+
+$('mult').value=
+d.mult||1;
+
+$('declarer').value=
+d.declarer||'S';
+
+$('tricks').value=
+d.tricks||11;
+
+renderSystem();
+
+updateHands();
+
+renderAuction();
+
+updateAnalysis();
+
+calc();
+
+}
+
+function save(){
+
+localStorage.setItem(
+'gabsiBridgeSession',
+JSON.stringify(collect())
+);
+
+toast(
+'Sesi tersimpan di perangkat.'
+);
+
+}
+
+function load(){
+
+try{
+
+let d=JSON.parse(
+localStorage.getItem(
+'gabsiBridgeSession'
+)||'null'
+);
+
+if(!d)
+return toast(
+'Belum ada sesi.'
+);
+
+apply(d);
+
+toast(
+'Sesi dimuat.'
+);
+
+}catch(e){
+
+toast(
+'Sesi gagal dimuat.'
+);
+
+}
+
+}
+
+function exportHtml(){
+
+let d=collect();
+
+let blob=new Blob(
+[
+'<!doctype html>'+
+document.documentElement.outerHTML
+.replace(
+'</head>',
+`<script>
+window.__BRIDGE_SESSION__=
+${JSON.stringify(d).replace(/<\//g,'<\\\\/')}
+<\/script></head>`
+)
+],
+{
+type:'text/html'
+}
+);
+
+let u=URL.createObjectURL(blob);
+
+let a=document.createElement('a');
+
+a.href=u;
+
+a.download=
+'aplikasi-bridge-gabsi.html';
+
+a.click();
+
+setTimeout(()=>{
+URL.revokeObjectURL(u);
+},1000);
+
+}
+
+function newBoard(){
+
+if(!confirm(
+'Mulai papan baru?'
+))return;
+
+state.photos=
+{N:null,E:null,S:null,W:null};
+
+state.hands=
+{N:'',E:'',S:'',W:''};
+
+state.bids=[];
+
+clearOwners();
+
+seats.forEach(s=>{
+
+$('hand-'+s).value='';
+
+photo(s,null);
+
+});
+
+renderAuction();
+
+updateHands();
+
+toast(
+'Papan baru siap.'
+);
+
+}
+
+buildCards();
+
+renderBids();
+
+renderSystem();
+
+updateHands();
+
+renderAuction();
+
+updateAnalysis();
+
+calc();
+
+$('system').onchange=
+renderSystem;
+
+$('decisionSeat').onchange=
+updateAnalysis;
+
+$('dealer').onchange=()=>{
+
+state.turnStart=
+seats.indexOf(
+$('dealer').value
+);
+
+renderAuction();
+
+};
+
+$('calcBtn').onclick=calc;
+
+$('saveBtn').onclick=save;
+
+$('loadBtn').onclick=load;
+
+$('exportBtn').onclick=
+exportHtml;
+
+$('newBoardBtn').onclick=
+newBoard;
+
+$('resetCardsBtn').onclick=()=>{
+
+if(confirm(
+'Kosongkan 52 kartu?'
+))
+clearOwners();
+
+};
+
+$('autoDealBtn').onclick=
+autoDeal;
+
+$('validateDeckBtn').onclick=
+validate;
+
+$('undoBidBtn').onclick=()=>{
+
+state.bids.pop();
+
+renderAuction();
+
+updateAnalysis();
+
+};
+
+$('clearAuctionBtn').onclick=()=>{
+
+if(confirm(
+'Hapus auction?'
+)){
+
+state.bids=[];
+
+renderAuction();
+
+updateAnalysis();
+
+}
+
+};
+
+$('closeCamera').onclick=
+closeCamera;
+
+$('snapBtn').onclick=
+snap;
+
+$('switchBtn').onclick=
+async()=>{
+
+state.facing=
+state.facing==='environment'
+?'user'
+:'environment';
+
+if(state.cameraSeat)
+await camera(
+state.cameraSeat
+);
+
+};
+
+seats.forEach(s=>{
+
+let box=
+document.querySelector(
+`[data-seat="${s}"]`
+);
+
+box.querySelector(
+'.camBtn'
+).onclick=()=>camera(s);
+
+box.querySelector(
+'.fileBtn'
+).onclick=()=>
+box.querySelector(
+'.fileInput'
+).click();
+
+box.querySelector(
+'.fileInput'
+).onchange=e=>{
+
+let f=e.target.files?.[0];
+
+if(f){
+
+let r=new FileReader();
+
+r.onload=()=>
+photo(s,r.result);
+
+r.readAsDataURL(f);
+
+}
+
+e.target.value='';
+
+};
+
+$('hand-'+s).oninput=()=>{
+
+state.hands[s]=
+$('hand-'+s).value;
+
+updateHands();
+
+};
+
+});
+
+$('cameraModal').onclick=e=>{
+
+if(
+e.target===$('cameraModal')
+)
+closeCamera();
+
+};
+
+document.addEventListener(
+'keydown',
+e=>{
+
+if(e.key==='Escape')
+closeCamera();
+
+}
+);
+
+if(window.__BRIDGE_SESSION__)
+apply(
+window.__BRIDGE_SESSION__
+);
 
 </script>
 
