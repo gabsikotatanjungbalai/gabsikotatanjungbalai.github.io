@@ -1,56 +1,2258 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <meta name="theme-color" content="#0a3d62">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.json">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+
 <title>GABSI Kota Tanjungbalai — Kocokan Kartu Pembanding</title>
+
 <style>
-:root{--navy:#073b61;--green:#0a6540;--bg:#f4f7f9;--line:#d8e1e7}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Segoe UI,sans-serif;background:var(--bg);color:#111}
-header{background:linear-gradient(135deg,#052f4c,#0a5e89);color:#fff;padding:15px}.head{max-width:980px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand b{font-size:18px}.brand small{display:block;margin-top:3px;opacity:.8}.home{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);padding:9px 11px;border-radius:10px;font-size:12px}
-main{max-width:980px;margin:auto;padding:12px}.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:11px;box-shadow:0 7px 24px rgba(8,39,61,.08)}.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}label{font-size:11px;font-weight:bold;color:#5f7382;display:block;margin-bottom:4px}input,select,button{width:100%;min-height:44px;border:1px solid #cbd1d8;border-radius:9px;padding:9px;font-size:14px}button{font-weight:bold;cursor:pointer}.primary{background:#0b3d62;color:#fff}.secondary{background:#eef3f6}.locked{background:#0a6540;color:#fff}.danger{background:#fee4e2;color:#b42318}.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}.info{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:9px}.stat{background:#f7f9fb;border:1px solid #ddd;border-radius:9px;text-align:center;padding:8px}.stat b{font-size:17px;display:block}.stat small{color:#667085}.hands{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.hand{border:1px solid #ccd2d8;border-radius:12px;padding:11px;background:#fbfdff}.hand h3{margin:0 0 7px;color:var(--navy)}.cards{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px;line-height:1.7}.s{color:#111}.r{color:#c62828}.dist{font-size:11px;color:#667085;margin-top:5px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px;min-width:700px}th,td{border:1px solid #ccc;padding:7px;text-align:center}th{background:#edf2f5}.note{font-size:12px;line-height:1.5;color:#475467}
-@media(max-width:750px){.controls,.actions,.info{grid-template-columns:1fr 1fr}.hands{grid-template-columns:1fr}}
-@media(max-width:440px){.controls,.actions{grid-template-columns:1fr}.info{grid-template-columns:1fr 1fr}}
-@media print{header,.controls,.actions,.no-print{display:none!important}body{background:#fff}.panel{border:0;box-shadow:none}.hands{grid-template-columns:repeat(2,1fr)}}
+:root{
+ --navy:#073b61;
+ --green:#0a6540;
+ --bg:#f4f7f9;
+ --line:#d8e1e7
+}
+
+*{
+ box-sizing:border-box
+}
+
+body{
+ margin:0;
+ font-family:Arial,Segoe UI,sans-serif;
+ background:var(--bg);
+ color:#111
+}
+
+header{
+ background:linear-gradient(135deg,#052f4c,#0a5e89);
+ color:#fff;
+ padding:15px
+}
+
+.head{
+ max-width:980px;
+ margin:auto;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px
+}
+
+.brand b{
+ font-size:18px
+}
+
+.brand small{
+ display:block;
+ margin-top:3px;
+ opacity:.8
+}
+
+.home{
+ color:#fff;
+ text-decoration:none;
+ border:1px solid rgba(255,255,255,.3);
+ padding:9px 11px;
+ border-radius:10px;
+ font-size:12px
+}
+
+main{
+ max-width:980px;
+ margin:auto;
+ padding:12px
+}
+
+.panel{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:16px;
+ padding:13px;
+ margin-bottom:11px;
+ box-shadow:0 7px 24px rgba(8,39,61,.08)
+}
+
+.controls{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:8px
+}
+
+label{
+ font-size:11px;
+ font-weight:bold;
+ color:#5f7382;
+ display:block;
+ margin-bottom:4px
+}
+
+input,
+select,
+button{
+ width:100%;
+ min-height:44px;
+ border:1px solid #cbd1d8;
+ border-radius:9px;
+ padding:9px;
+ font-size:14px
+}
+
+button{
+ font-weight:bold;
+ cursor:pointer
+}
+
+.primary{
+ background:#0b3d62;
+ color:#fff
+}
+
+.secondary{
+ background:#eef3f6
+}
+
+.locked{
+ background:#0a6540;
+ color:#fff
+}
+
+.danger{
+ background:#fee4e2;
+ color:#b42318
+}
+
+.actions{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:8px;
+ margin-top:9px
+}
+
+.info{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:7px;
+ margin-top:9px
+}
+
+.stat{
+ background:#f7f9fb;
+ border:1px solid #ddd;
+ border-radius:9px;
+ text-align:center;
+ padding:8px
+}
+
+.stat b{
+ font-size:17px;
+ display:block
+}
+
+.stat small{
+ color:#667085
+}
+
+.hands{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:9px
+}
+
+.hand{
+ border:1px solid #ccd2d8;
+ border-radius:12px;
+ padding:11px;
+ background:#fbfdff
+}
+
+.hand h3{
+ margin:0 0 7px;
+ color:var(--navy)
+}
+
+.cards{
+ font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+ font-size:14px;
+ line-height:1.7
+}
+
+.s{
+ color:#111
+}
+
+.r{
+ color:#c62828
+}
+
+.dist{
+ font-size:11px;
+ color:#667085;
+ margin-top:5px
+}
+
+.compare{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px
+}
+
+.dealbox{
+ border:2px solid #d8e1e7;
+ border-radius:13px;
+ padding:11px;
+ background:#fff
+}
+
+.dealbox.first{
+ border-color:#0b3d62
+}
+
+.dealbox.second{
+ border-color:#0a6540
+}
+
+.dealhead{
+ display:flex;
+ justify-content:space-between;
+ gap:8px;
+ align-items:center;
+ margin-bottom:8px
+}
+
+.dealhead h3{
+ margin:0;
+ color:var(--navy)
+}
+
+.badge{
+ font-size:11px;
+ font-weight:bold;
+ padding:5px 8px;
+ border-radius:20px;
+ background:#edf2f5
+}
+
+.second .badge{
+ background:#e6f5ed;
+ color:#0a6540
+}
+
+.recommend{
+ background:#f7fbf9;
+ border:1px solid #b8dcc8;
+ border-radius:12px;
+ padding:12px;
+ line-height:1.55
+}
+
+.recommend b{
+ color:#0a6540
+}
+
+.bidgrid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:8px;
+ margin-top:8px
+}
+
+.bid{
+ border:1px solid #d8e1e7;
+ border-radius:9px;
+ padding:8px;
+ background:#fff
+}
+
+.bid strong{
+ display:block;
+ color:#073b61
+}
+
+.note{
+ font-size:12px;
+ line-height:1.5;
+ color:#475467
+}
+
+.tablewrap{
+ overflow:auto
+}
+
+table{
+ width:100%;
+ border-collapse:collapse;
+ font-size:12px;
+ min-width:700px
+}
+
+th,
+td{
+ border:1px solid #ccc;
+ padding:7px;
+ text-align:center
+}
+
+th{
+ background:#edf2f5
+}
+
+.setup{
+ background:linear-gradient(135deg,#f8fbfd,#eef6fa)
+}
+
+.levelbox{
+ background:#fff;
+ border:1px solid #d8e1e7;
+ border-radius:10px;
+ padding:10px;
+ margin-top:9px
+}
+
+.levelbox strong{
+ color:#073b61
+}
+
+@media(max-width:750px){
+
+ .controls,
+ .actions,
+ .info{
+  grid-template-columns:1fr 1fr
+ }
+
+ .hands,
+ .compare{
+  grid-template-columns:1fr
+ }
+
+ .bidgrid{
+  grid-template-columns:1fr
+ }
+
+}
+
+@media(max-width:440px){
+
+ .controls,
+ .actions{
+  grid-template-columns:1fr
+ }
+
+ .info{
+  grid-template-columns:1fr 1fr
+ }
+
+}
+
+@media print{
+
+ header,
+ .setup,
+ .actions,
+ .no-print{
+  display:none!important
+ }
+
+ body{
+  background:#fff
+ }
+
+ .panel{
+  border:0;
+  box-shadow:none
+ }
+
+ .hands,
+ .compare{
+  grid-template-columns:repeat(2,1fr)
+ }
+
+}
 </style>
 </head>
+
 <body>
-<header><div class="head"><div class="brand"><b>GABSI KOTA TANJUNGBALAI</b><small>KOCOKAN KARTU BRIDGE • KARTU PEMBANDING</small></div><a class="home" href="index.html">← Beranda</a></div></header>
+
+<header>
+
+<div class="head">
+
+<div class="brand">
+
+<b>GABSI KOTA TANJUNGBALAI</b>
+
+<small>
+KOCOKAN KARTU BRIDGE • KOCOKAN KARTU PEMBANDING
+</small>
+
+</div>
+
+<a class="home" href="index.html">
+← Beranda
+</a>
+
+</div>
+
+</header>
+
+
 <main>
-<section class="panel"><div class="controls">
-<div><label>NOMOR BOARD</label><input id="board" type="number" min="1" value="1"></div>
-<div><label>SEED / KODE KOCAKAN</label><input id="seed" type="number" value="20261001"></div>
-<div><label>DEALER</label><select id="dealer"><option>N</option><option>E</option><option>S</option><option>W</option></select></div>
-<div><label>VULNERABILITY</label><select id="vul"><option>None</option><option>N-S</option><option>E-W</option><option>Both</option></select></div>
-</div><div class="actions"><button class="primary" id="shuffle">🎴 KOCOK & BAGIKAN</button><button class="secondary" id="same">🔁 DEAL SAMA</button><button class="locked" id="lock">🔒 KUNCI BOARD</button><button class="secondary" id="print">🖨️ CETAK</button></div>
-<div class="info"><div class="stat"><b id="hcpN">0</b><small>HCP N</small></div><div class="stat"><b id="hcpE">0</b><small>HCP E</small></div><div class="stat"><b id="hcpS">0</b><small>HCP S</small></div><div class="stat"><b id="hcpW">0</b><small>HCP W</small></div></div>
-<p id="status" class="note">Siap mengocok. Untuk meja pembanding, gunakan Board dan Seed yang sama.</p></section>
 
-<section class="panel"><h3 style="margin-top:0">Deal Board <span id="boardLabel">1</span></h3><div id="hands" class="hands"></div></section>
 
-<section class="panel no-print"><h3 style="margin-top:0">Rekap Meja Pembanding</h3><div class="note">Tambahkan pasangan dan score setiap meja untuk board ini. Rata-rata otomatis menjadi benchmark.</div>
-<div class="controls" style="margin-top:8px"><div><label>MEJA</label><input id="tableNo" placeholder="1"></div><div><label>NS</label><input id="ns" placeholder="NS-01"></div><div><label>EW</label><input id="ew" placeholder="EW-01"></div><div><label>SCORE NS</label><input id="score" type="number" placeholder="420"></div></div>
-<button class="primary" id="add" style="margin-top:8px">Tambah Hasil Meja</button><div class="tablewrap" style="margin-top:10px"><table><thead><tr><th>Board</th><th>Meja</th><th>NS</th><th>EW</th><th>Score NS</th><th>Rata-rata</th><th>Selisih</th></tr></thead><tbody id="rows"></tbody></table></div>
-<button class="danger" id="clear" style="margin-top:8px">Hapus Rekap</button></section>
+<!-- PENGATURAN -->
 
-<section class="panel no-print"><div class="note"><b>Cara penggunaan:</b> Meja utama menetapkan Board + Seed. Meja pembanding memasukkan Board + Seed yang sama lalu menekan <b>DEAL SAMA</b>. Hasilnya akan identik 52 kartu.</div></section>
+<section class="panel setup no-print">
+
+<h3 style="margin:0 0 5px">
+Pengaturan Latihan
+</h3>
+
+<p class="note" style="margin-top:0">
+
+Pilih tingkat latihan dan sistem permainan Bridge sebelum menggunakan aplikasi.
+
+</p>
+
+
+<div class="controls">
+
+<div>
+
+<label>TINGKAT LATIHAN</label>
+
+<select id="level">
+
+<option value="pemula">
+Pemula
+</option>
+
+<option value="sedang">
+Sedang
+</option>
+
+<option value="mahir">
+Mahir
+</option>
+
+<option value="profesional">
+Profesional
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>SISTEM PERMAINAN BRIDGE</label>
+
+<select id="system">
+
+<option value="standard">
+Standard / Natural
+</option>
+
+<option value="johan">
+Johan
+</option>
+
+<option value="fourcard">
+Four Card
+</option>
+
+<option value="fivecard">
+Five Card
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>NOMOR BOARD</label>
+
+<input
+ id="board"
+ type="number"
+ min="1"
+ value="1"
+>
+
+</div>
+
+
+<div>
+
+<label>SEED / KODE KOCAKAN</label>
+
+<input
+ id="seed"
+ type="number"
+ value="20261001"
+>
+
+</div>
+
+</div>
+
+
+<div class="levelbox">
+
+<strong id="levelText">
+Pemula
+</strong>
+
+•
+
+<span id="systemText">
+Standard / Natural
+</span>
+
+<br>
+
+<span id="levelDescription">
+Latihan dasar dengan rekomendasi kontrak sampai 2NT.
+</span>
+
+</div>
+
+</section>
+
+
+
+<!-- KONTROL BOARD -->
+
+<section class="panel">
+
+<div class="controls">
+
+
+<div>
+
+<label>DEALER</label>
+
+<select id="dealer">
+
+<option>N</option>
+<option>E</option>
+<option>S</option>
+<option>W</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>VULNERABILITY</label>
+
+<select id="vul">
+
+<option>None</option>
+<option>N-S</option>
+<option>E-W</option>
+<option>Both</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>STATUS BOARD</label>
+
+<input
+ id="boardStatus"
+ value="Siap"
+ readonly
+>
+
+</div>
+
+
+<div>
+
+<label>MODE</label>
+
+<input
+ value="Pembanding 2 Deal"
+ readonly
+>
+
+</div>
+
+</div>
+
+
+<div class="actions">
+
+<button
+ class="primary"
+ id="shuffle"
+>
+🎴 KOCOK & BAGIKAN
+</button>
+
+
+<button
+ class="secondary"
+ id="same"
+>
+🔁 DEAL SAMA
+</button>
+
+
+<button
+ class="locked"
+ id="lock"
+>
+🔒 KUNCI BOARD
+</button>
+
+
+<button
+ class="secondary"
+ id="print"
+>
+🖨️ CETAK
+</button>
+
+</div>
+
+
+<p
+ id="status"
+ class="note"
+>
+Pilih tingkat dan sistem, lalu tekan KOCOK & BAGIKAN.
+</p>
+
+</section>
+
+
+
+<!-- DUA KOCAKAN -->
+
+<section class="panel">
+
+<h3 style="margin-top:0">
+
+Kocokan Kartu Pembanding —
+Board <span id="boardLabel">1</span>
+
+</h3>
+
+
+<div class="compare">
+
+
+<!-- DEAL A -->
+
+<div class="dealbox first">
+
+<div class="dealhead">
+
+<h3>
+Kocokan Kartu Pertama
+</h3>
+
+<span class="badge">
+DEAL A
+</span>
+
+</div>
+
+
+<div
+ id="handsA"
+ class="hands"
+></div>
+
+</div>
+
+
+
+<!-- DEAL B -->
+
+<div class="dealbox second">
+
+<div class="dealhead">
+
+<h3>
+Kartu Pembanding
+</h3>
+
+<span class="badge">
+DEAL B
+</span>
+
+</div>
+
+
+<div
+ id="handsB"
+ class="hands"
+></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- HCP -->
+
+<section class="panel">
+
+<h3 style="margin-top:0">
+HCP Setiap Posisi
+</h3>
+
+
+<div class="compare">
+
+
+<div>
+
+<b>
+Kocokan Kartu Pertama
+</b>
+
+
+<div class="info">
+
+
+<div class="stat">
+
+<b id="aN">
+0
+</b>
+
+<small>
+HCP Utara
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<b id="aE">
+0
+</b>
+
+<small>
+HCP Timur
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<b id="aS">
+0
+</b>
+
+<small>
+HCP Selatan
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<b id="aW">
+0
+</b>
+
+<small>
+HCP Barat
+</small>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div>
+
+<b>
+Kartu Pembanding
+</b>
+
+
+<div class="info">
+
+
+<div class="stat">
+
+<b id="bN">
+0
+</b>
+
+<small>
+HCP Utara
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<b id="bE">
+0
+</b>
+
+<small>
+HCP Timur
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<b id="bS">
+0
+</b>
+
+<small>
+HCP Selatan
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<b id="bW">
+0
+</b>
+
+<small>
+HCP Barat
+</small>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- REKOMENDASI -->
+
+<section class="panel">
+
+<h3 style="margin-top:0">
+
+Rekomendasi Komputer untuk Penawaran Terbaik
+
+</h3>
+
+
+<div
+ class="recommend"
+ id="recommendation"
+>
+
+Belum ada deal.
+
+Silakan lakukan kocokan terlebih dahulu.
+
+</div>
+
+</section>
+
+
+
+<!-- REKAP -->
+
+<section class="panel no-print">
+
+<h3 style="margin-top:0">
+Rekap Meja Pembanding
+</h3>
+
+
+<div class="note">
+
+Masukkan hasil score dari meja lain untuk Board yang sama.
+
+Data tersimpan di browser perangkat ini.
+
+</div>
+
+
+<div
+ class="controls"
+ style="margin-top:8px"
+>
+
+
+<div>
+
+<label>MEJA</label>
+
+<input
+ id="tableNo"
+ placeholder="1"
+>
+
+</div>
+
+
+<div>
+
+<label>NS</label>
+
+<input
+ id="ns"
+ placeholder="NS-01"
+>
+
+</div>
+
+
+<div>
+
+<label>EW</label>
+
+<input
+ id="ew"
+ placeholder="EW-01"
+>
+
+</div>
+
+
+<div>
+
+<label>SCORE NS</label>
+
+<input
+ id="score"
+ type="number"
+ placeholder="420"
+>
+
+</div>
+
+</div>
+
+
+<button
+ class="primary"
+ id="add"
+ style="margin-top:8px"
+>
+Tambah Hasil Meja
+</button>
+
+
+<div
+ class="tablewrap"
+ style="margin-top:10px"
+>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Board</th>
+<th>Meja</th>
+<th>NS</th>
+<th>EW</th>
+<th>Score NS</th>
+<th>Rata-rata</th>
+<th>Selisih</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="rows">
+</tbody>
+
+</table>
+
+</div>
+
+
+<button
+ class="danger"
+ id="clear"
+ style="margin-top:8px"
+>
+Hapus Rekap
+</button>
+
+</section>
+
+
+
+<section class="panel no-print">
+
+<div class="note">
+
+<b>Catatan:</b>
+
+Kocokan pertama dan kartu pembanding dibuat berbeda,
+tetapi keduanya dapat dipanggil kembali secara identik
+menggunakan Board + Seed yang sama.
+
+Gunakan
+
+<b>DEAL SAMA</b>
+
+untuk memanggil kembali pasangan deal yang sama.
+
+<br><br>
+
+Rekomendasi komputer adalah alat bantu latihan.
+Keputusan penawaran akhir tetap harus mempertimbangkan
+HCP, distribusi, fit, kontrol, stopper, vulnerability,
+dealer, serta sistem pasangan yang digunakan.
+
+</div>
+
+</section>
+
+
 </main>
+
+
+
 <script>
-const suits=[['♠','s'],['♥','r'],['♦','r'],['♣','s']],ranks=['A','K','Q','J','10','9','8','7','6','5','4','3','2'];let deal=null,locked=false,results=JSON.parse(localStorage.getItem('gabsi_deal_results_v1')||'[]');const $=id=>document.getElementById(id);
-function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-function makeDeal(){let deck=[];for(let s=0;s<4;s++)for(let r=0;r<13;r++)deck.push({s,r});let n=(Number($('seed').value)||1)+(Number($('board').value)||1)*7919,r=rng(n>>>0);for(let i=51;i>0;i--){let j=Math.floor(r()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}return{N:deck.slice(0,13),E:deck.slice(13,26),S:deck.slice(26,39),W:deck.slice(39,52)}}
-function hcp(h){return h.reduce((a,c)=>a+(c.r===0?4:c.r===1?3:c.r===2?2:c.r===3?1:0),0)}
-function dist(h){return[0,1,2,3].map(s=>h.filter(c=>c.s===s).length).join('-')}
-function handHTML(p,h){let names={N:'North',E:'East',S:'South',W:'West'};return '<div class="hand"><h3>'+names[p]+' ('+p+')</h3>'+suits.map((x,i)=>'<div class="cards '+x[1]+'">'+x[0]+' '+h.filter(c=>c.s===i).sort((a,b)=>a.r-b.r).map(c=>ranks[c.r]).join(' ')+'</div>').join('')+'<div class="dist">Distribusi '+dist(h)+' • '+hcp(h)+' HCP</div></div>'}
-function render(){if(!deal)return;$('hands').innerHTML=['N','E','S','W'].map(p=>handHTML(p,deal[p])).join('');['N','E','S','W'].forEach(p=>$('hcp'+p).textContent=hcp(deal[p]));$('boardLabel').textContent=$('board').value}
-function generate(){if(locked){$('status').textContent='Board sedang dikunci. Tekan BUKA KUNCI untuk mengganti deal.';return}deal=makeDeal();render();$('status').textContent='Deal baru dibuat. Simpan Board + Seed untuk meja pembanding.'}
-$('shuffle').onclick=generate;$('same').onclick=()=>{deal=makeDeal();render();$('status').textContent='Deal diulang menggunakan Board + Seed yang sama.'};
-$('lock').onclick=()=>{locked=!locked;$('lock').textContent=locked?'🔓 BUKA KUNCI':'🔒 KUNCI BOARD';$('lock').className=locked?'secondary':'locked';$('status').textContent=locked?'Board dikunci. Semua meja dapat menyalin Board + Seed.':'Board dibuka.'};
-$('print').onclick=()=>window.print();
-$('add').onclick=()=>{let board=Number($('board').value)||1,score=Number($('score').value);if(!Number.isFinite(score)){alert('Masukkan score NS.');return}results.push({board,table:$('tableNo').value||results.length+1,ns:$('ns').value,ew:$('ew').value,score});localStorage.setItem('gabsi_deal_results_v1',JSON.stringify(results));renderResults()};
-$('clear').onclick=()=>{results=[];localStorage.removeItem('gabsi_deal_results_v1');renderResults()};
-function renderResults(){let board=Number($('board').value)||1,a=results.filter(x=>x.board===board),avg=a.length?a.reduce((s,x)=>s+x.score,0)/a.length:0;$('rows').innerHTML=results.map(x=>'<tr><td>'+x.board+'</td><td>'+x.table+'</td><td>'+x.ns+'</td><td>'+x.ew+'</td><td>'+x.score+'</td><td>'+(x.board===board?avg.toFixed(0):'-')+'</td><td>'+(x.board===board?(x.score-avg).toFixed(0):'-')+'</td></tr>').join('')}
-$('board').onchange=()=>{if(!locked){$('boardLabel').textContent=$('board').value;generate()}renderResults()};generate();renderResults();
+
+/* =========================================================
+   DATA DASAR
+========================================================= */
+
+const suits=[
+ ['♠','s'],
+ ['♥','r'],
+ ['♦','r'],
+ ['♣','s']
+];
+
+const ranks=[
+ 'A','K','Q','J','10','9','8','7','6','5','4','3','2'
+];
+
+
+/* =========================================================
+   TINGKAT LATIHAN
+========================================================= */
+
+const LEVELS={
+
+ pemula:{
+  name:'Pemula',
+  maxLevel:2,
+  description:'Latihan dasar dengan rekomendasi kontrak sampai 2NT.'
+ },
+
+ sedang:{
+  name:'Sedang',
+  maxLevel:3,
+  description:'Latihan menengah dengan rekomendasi kontrak sampai 3NT.'
+ },
+
+ mahir:{
+  name:'Mahir',
+  maxLevel:6,
+  description:'Latihan lanjutan dengan rekomendasi kontrak sampai 6NT.'
+ },
+
+ profesional:{
+  name:'Profesional',
+  maxLevel:7,
+  description:'Latihan profesional dengan rekomendasi kontrak sampai 7NT.'
+ }
+
+};
+
+
+/* =========================================================
+   SISTEM BRIDGE
+========================================================= */
+
+const SYSTEMS={
+
+ standard:'Standard / Natural',
+
+ johan:'Johan',
+
+ fourcard:'Four Card',
+
+ fivecard:'Five Card'
+
+};
+
+
+/* =========================================================
+   VARIABEL
+========================================================= */
+
+let deals={
+ A:null,
+ B:null
+};
+
+let locked=false;
+
+let results=
+ JSON.parse(
+  localStorage.getItem(
+   'gabsi_compare_results_v3'
+  )||'[]'
+ );
+
+
+/* =========================================================
+   HELPER
+========================================================= */
+
+const $=id=>document.getElementById(id);
+
+
+/* =========================================================
+   RANDOM DETERMINISTIK
+========================================================= */
+
+function rng(seed){
+
+ return function(){
+
+  seed|=0;
+
+  seed=
+   seed+
+   0x6D2B79F5|
+   0;
+
+  let t=
+   Math.imul(
+    seed^seed>>>15,
+    1|seed
+   );
+
+  t=
+   t+
+   Math.imul(
+    t^t>>>7,
+    61|t
+   )^t;
+
+  return(
+   (t^t>>>14)>>>0
+  )/4294967296;
+
+ };
+
+}
+
+
+/* =========================================================
+   DECK
+========================================================= */
+
+function shuffledDeck(seed){
+
+ let deck=[];
+
+ for(
+  let s=0;
+  s<4;
+  s++
+ ){
+
+  for(
+   let r=0;
+   r<13;
+   r++
+  ){
+
+   deck.push({
+    s:s,
+    r:r
+   });
+
+  }
+
+ }
+
+
+ let random=rng(
+  seed>>>0
+ );
+
+
+ for(
+  let i=51;
+  i>0;
+  i--
+ ){
+
+  let j=
+   Math.floor(
+    random()*(i+1)
+   );
+
+  [
+   deck[i],
+   deck[j]
+  ]=[
+   deck[j],
+   deck[i]
+  ];
+
+ }
+
+
+ return deck;
+
+}
+
+
+/* =========================================================
+   MEMBUAT DEAL
+========================================================= */
+
+function makeDeal(offset){
+
+ let board=
+  Number($('board').value)||1;
+
+ let seed=
+  Number($('seed').value)||1;
+
+
+ let finalSeed=
+  (
+   (seed>>>0)+
+   (board*7919)+
+   offset
+  )>>>0;
+
+
+ let deck=
+  shuffledDeck(
+   finalSeed
+  );
+
+
+ return{
+
+  N:deck.slice(0,13),
+
+  E:deck.slice(13,26),
+
+  S:deck.slice(26,39),
+
+  W:deck.slice(39,52)
+
+ };
+
+}
+
+
+/* =========================================================
+   HCP
+========================================================= */
+
+function hcp(hand){
+
+ return hand.reduce(
+  (total,card)=>{
+
+   if(card.r===0)
+    return total+4;
+
+   if(card.r===1)
+    return total+3;
+
+   if(card.r===2)
+    return total+2;
+
+   if(card.r===3)
+    return total+1;
+
+   return total;
+
+  },
+  0
+ );
+
+}
+
+
+/* =========================================================
+   DISTRIBUSI
+========================================================= */
+
+function suitCounts(hand){
+
+ return[
+  0,1,2,3
+ ].map(
+  suit=>
+   hand.filter(
+    card=>card.s===suit
+   ).length
+ );
+
+}
+
+
+function dist(hand){
+
+ return suitCounts(hand).join('-');
+
+}
+
+
+/* =========================================================
+   HTML KARTU
+========================================================= */
+
+function handHTML(position,hand){
+
+ const names={
+  N:'Utara',
+  E:'Timur',
+  S:'Selatan',
+  W:'Barat'
+ };
+
+ return `
+
+ <div class="hand">
+
+ <h3>
+ ${names[position]}
+ (${position})
+ —
+ ${hcp(hand)}
+ HCP
+ </h3>
+
+ ${
+  suits.map(
+   (suit,index)=>`
+
+   <div class="cards ${suit[1]}">
+
+   ${suit[0]}
+
+   ${
+    hand
+    .filter(card=>card.s===index)
+    .sort((a,b)=>a.r-b.r)
+    .map(card=>ranks[card.r])
+    .join(' ')
+   }
+
+   </div>
+
+   `
+  ).join('')
+ }
+
+ <div class="dist">
+ Distribusi ${dist(hand)}
+ </div>
+
+ </div>
+
+ `;
+
+}
+
+
+/* =========================================================
+   RENDER DEAL
+========================================================= */
+
+function renderDeal(target,deal){
+
+ $(target).innerHTML=
+  ['N','E','S','W']
+  .map(
+   position=>
+    handHTML(
+     position,
+     deal[position]
+    )
+  )
+  .join('');
+
+}
+
+
+/* =========================================================
+   TOTAL HCP
+========================================================= */
+
+function totals(deal){
+
+ return{
+
+  N:hcp(deal.N),
+  E:hcp(deal.E),
+  S:hcp(deal.S),
+  W:hcp(deal.W)
+
+ };
+
+}
+
+
+/* =========================================================
+   SUIT TERPANJANG
+========================================================= */
+
+function highestSuit(hand){
+
+ const counts=
+  suitCounts(hand);
+
+ let best=0;
+
+ for(
+  let i=1;
+  i<4;
+  i++
+ ){
+
+  if(
+   counts[i]>counts[best]
+  ){
+
+   best=i;
+
+  }
+
+ }
+
+
+ return[
+  '♠',
+  '♥',
+  '♦',
+  '♣'
+ ][best];
+
+}
+
+
+/* =========================================================
+   KONTRAK BERDASARKAN LEVEL
+========================================================= */
+
+function contractFor(
+ totalHCP,
+ level
+){
+
+ const max=
+  LEVELS[level].maxLevel;
+
+
+ if(totalHCP<20){
+
+  return 'PASS';
+
+ }
+
+
+ if(totalHCP<22){
+
+  return max>=2
+   ?'2NT'
+   :'PASS';
+
+ }
+
+
+ if(totalHCP<25){
+
+  return max>=3
+   ?'3NT'
+   :'2NT';
+
+ }
+
+
+ if(totalHCP<28){
+
+  return max>=4
+   ?'4NT'
+   :'3NT';
+
+ }
+
+
+ if(totalHCP<30){
+
+  return max>=5
+   ?'5NT'
+   :'4NT';
+
+ }
+
+
+ if(totalHCP<33){
+
+  return max>=6
+   ?'6NT'
+   :'5NT';
+
+ }
+
+
+ if(totalHCP>=33){
+
+  return max>=7
+   ?'7NT'
+   :'6NT';
+
+ }
+
+
+ return 'PASS';
+
+}
+
+
+/* =========================================================
+   REKOMENDASI
+========================================================= */
+
+function recommendation(){
+
+ if(!deals.A||!deals.B){
+
+  return 'Belum ada deal. Silakan lakukan kocokan terlebih dahulu.';
+
+ }
+
+
+ const A=
+  totals(deals.A);
+
+ const B=
+  totals(deals.B);
+
+ const level=
+  $('level').value;
+
+ const system=
+  $('system').value;
+
+
+ const nsA=
+  A.N+A.S;
+
+ const ewA=
+  A.E+A.W;
+
+
+ const nsB=
+  B.N+B.S;
+
+ const ewB=
+  B.E+B.W;
+
+
+ const sideA=
+  nsA>=ewA
+   ?'NS'
+   :'EW';
+
+
+ const sideB=
+  nsB>=ewB
+   ?'NS'
+   :'EW';
+
+
+ const totalA=
+  sideA==='NS'
+   ?nsA
+   :ewA;
+
+
+ const totalB=
+  sideB==='NS'
+   ?nsB
+   :ewB;
+
+
+ const contractA=
+  contractFor(
+   totalA,
+   level
+  );
+
+
+ const contractB=
+  contractFor(
+   totalB,
+   level
+  );
+
+
+ const handA=
+  sideA==='NS'
+   ?deals.A.N
+   :deals.A.E;
+
+
+ const handB=
+  sideB==='NS'
+   ?deals.B.N
+   :deals.B.E;
+
+
+ const suitA=
+  highestSuit(handA);
+
+
+ const suitB=
+  highestSuit(handB);
+
+
+ let systemNote='';
+
+
+ if(system==='fivecard'){
+
+  systemNote=
+   'Prioritaskan evaluasi major 5 kartu dan cari fit 8 kartu sebelum memilih kontrak NT.';
+
+ }
+
+ else if(system==='fourcard'){
+
+  systemNote=
+   'Perhatikan pola Four Card dan evaluasi fit sebelum menaikkan level kontrak.';
+
+ }
+
+ else if(system==='johan'){
+
+  systemNote=
+   'Gunakan prinsip sistem Johan yang dipilih untuk latihan. Komputer memberikan panduan HCP dan level kontrak.';
+
+ }
+
+ else{
+
+  systemNote=
+   'Gunakan prinsip natural dengan mengevaluasi HCP, distribusi, fit dan stopper.';
+
+ }
+
+
+ return `
+
+ <b>
+ Konfigurasi:
+ </b>
+
+ ${LEVELS[level].name}
+ •
+ ${SYSTEMS[system]}
+
+ <div class="bidgrid">
+
+
+ <div class="bid">
+
+ <strong>
+ Kocokan Kartu Pertama (A)
+ </strong>
+
+ NS:
+ ${nsA} HCP
+
+ •
+ EW:
+ ${ewA} HCP
+
+ <br>
+
+ Pihak kuat:
+ <b>${sideA}</b>
+
+ <br>
+
+ Suit terpanjang:
+ <b>${suitA}</b>
+
+ <br>
+
+ Rekomendasi kontrak:
+
+ <b>
+ ${contractA}
+ </b>
+
+ </div>
+
+
+
+ <div class="bid">
+
+ <strong>
+ Kartu Pembanding (B)
+ </strong>
+
+ NS:
+ ${nsB} HCP
+
+ •
+ EW:
+ ${ewB} HCP
+
+ <br>
+
+ Pihak kuat:
+ <b>${sideB}</b>
+
+ <br>
+
+ Suit terpanjang:
+ <b>${suitB}</b>
+
+ <br>
+
+ Rekomendasi kontrak:
+
+ <b>
+ ${contractB}
+ </b>
+
+ </div>
+
+
+ </div>
+
+
+ <p style="margin-bottom:0">
+
+ <b>
+ Catatan komputer:
+ </b>
+
+ ${systemNote}
+
+ </p>
+
+ `;
+
+}
+
+
+/* =========================================================
+   RENDER SEMUA
+========================================================= */
+
+function render(){
+
+ if(
+  !deals.A||
+  !deals.B
+ ){
+
+  return;
+
+ }
+
+
+ renderDeal(
+  'handsA',
+  deals.A
+ );
+
+
+ renderDeal(
+  'handsB',
+  deals.B
+ );
+
+
+ ['N','E','S','W']
+ .forEach(
+  position=>{
+
+   $(
+    'a'+position
+   ).textContent=
+    hcp(
+     deals.A[position]
+    );
+
+
+   $(
+    'b'+position
+   ).textContent=
+    hcp(
+     deals.B[position]
+    );
+
+  }
+ );
+
+
+ $('boardLabel')
+  .textContent=
+   $('board').value;
+
+
+ $('recommendation')
+  .innerHTML=
+   recommendation();
+
+}
+
+
+/* =========================================================
+   KOCAKAN
+========================================================= */
+
+function generate(){
+
+ if(locked){
+
+  $('status').textContent=
+   'Board sedang dikunci. Tekan BUKA KUNCI untuk mengganti kocokan.';
+
+  return;
+
+ }
+
+
+ deals.A=
+  makeDeal(101);
+
+
+ deals.B=
+  makeDeal(202);
+
+
+ render();
+
+
+ $('boardStatus').value=
+  'Aktif';
+
+
+ $('status').textContent=
+  'Kocokan kartu pertama dan kartu pembanding berhasil dibuat. Gunakan Board + Seed yang sama untuk mengulang deal.';
+
+}
+
+
+/* =========================================================
+   PENGATURAN
+========================================================= */
+
+function updateSetup(){
+
+ const level=
+  $('level').value;
+
+ const system=
+  $('system').value;
+
+
+ $('levelText').textContent=
+  LEVELS[level].name;
+
+
+ $('systemText').textContent=
+  SYSTEMS[system];
+
+
+ $('levelDescription').textContent=
+  LEVELS[level].description;
+
+
+ if(deals.A){
+
+  render();
+
+ }
+
+}
+
+
+/* =========================================================
+   TOMBOL KOCAK
+========================================================= */
+
+$('shuffle').onclick=
+ generate;
+
+
+/* =========================================================
+   DEAL SAMA
+========================================================= */
+
+$('same').onclick=
+ ()=>{
+
+  deals.A=
+   makeDeal(101);
+
+  deals.B=
+   makeDeal(202);
+
+  render();
+
+
+  $('status').textContent=
+   'Deal A dan Deal B dipanggil kembali secara identik menggunakan Board + Seed yang sama.';
+
+ };
+
+
+/* =========================================================
+   KUNCI BOARD
+========================================================= */
+
+$('lock').onclick=
+ ()=>{
+
+  locked=
+   !locked;
+
+
+  $('lock').textContent=
+   locked
+    ?'🔓 BUKA KUNCI'
+    :'🔒 KUNCI BOARD';
+
+
+  $('lock').className=
+   locked
+    ?'secondary'
+    :'locked';
+
+
+  $('boardStatus').value=
+   locked
+    ?'Terkunci'
+    :'Aktif';
+
+
+  $('status').textContent=
+   locked
+    ?'Board dikunci.'
+    :'Board dibuka kembali.';
+
+ };
+
+
+/* =========================================================
+   CETAK
+========================================================= */
+
+$('print').onclick=
+ ()=>window.print();
+
+
+/* =========================================================
+   CHANGE LEVEL
+========================================================= */
+
+$('level').onchange=
+ updateSetup;
+
+
+/* =========================================================
+   CHANGE SYSTEM
+========================================================= */
+
+$('system').onchange=
+ updateSetup;
+
+
+/* =========================================================
+   CHANGE BOARD
+========================================================= */
+
+$('board').onchange=
+ ()=>{
+
+  if(!locked){
+
+   generate();
+
+  }
+
+  renderResults();
+
+ };
+
+
+/* =========================================================
+   CHANGE SEED
+========================================================= */
+
+$('seed').onchange=
+ ()=>{
+
+  if(!locked){
+
+   generate();
+
+  }
+
+ };
+
+
+/* =========================================================
+   DEALER
+========================================================= */
+
+$('dealer').onchange=
+ ()=>{
+
+  $('status').textContent=
+   'Dealer '+
+   $('dealer').value+
+   ' dipilih untuk Board '+
+   $('board').value+
+   '.';
+
+ };
+
+
+/* =========================================================
+   VULNERABILITY
+========================================================= */
+
+$('vul').onchange=
+ ()=>{
+
+  $('status').textContent=
+   'Vulnerability: '+
+   $('vul').value+
+   '.';
+
+ };
+
+
+/* =========================================================
+   TAMBAH HASIL MEJA
+========================================================= */
+
+$('add').onclick=
+ ()=>{
+
+  let board=
+   Number(
+    $('board').value
+   )||1;
+
+
+  let score=
+   Number(
+    $('score').value
+   );
+
+
+  if(
+   !Number.isFinite(score)
+  ){
+
+   alert(
+    'Masukkan score NS.'
+   );
+
+   return;
+
+  }
+
+
+  results.push({
+
+   board,
+
+   table:
+    $('tableNo').value||
+    results.length+1,
+
+   ns:
+    $('ns').value,
+
+   ew:
+    $('ew').value,
+
+   score
+
+  });
+
+
+  localStorage.setItem(
+   'gabsi_compare_results_v3',
+   JSON.stringify(results)
+  );
+
+
+  renderResults();
+
+ };
+
+
+/* =========================================================
+   HAPUS REKAP
+========================================================= */
+
+$('clear').onclick=
+ ()=>{
+
+  results=[];
+
+  localStorage.removeItem(
+   'gabsi_compare_results_v3'
+  );
+
+  renderResults();
+
+ };
+
+
+/* =========================================================
+   RENDER REKAP
+========================================================= */
+
+function renderResults(){
+
+ let board=
+  Number(
+   $('board').value
+  )||1;
+
+
+ let data=
+  results.filter(
+   item=>
+    item.board===board
+  );
+
+
+ let average=
+  data.length
+   ?
+    data.reduce(
+     (sum,item)=>
+      sum+item.score,
+     0
+    )/data.length
+   :
+    0;
+
+
+ $('rows').innerHTML=
+  results.map(
+   item=>`
+
+   <tr>
+
+   <td>
+   ${item.board}
+   </td>
+
+   <td>
+   ${item.table}
+   </td>
+
+   <td>
+   ${item.ns}
+   </td>
+
+   <td>
+   ${item.ew}
+   </td>
+
+   <td>
+   ${item.score}
+   </td>
+
+   <td>
+
+   ${
+    item.board===board
+     ?average.toFixed(0)
+     :'-'
+   }
+
+   </td>
+
+   <td>
+
+   ${
+    item.board===board
+     ?(item.score-average).toFixed(0)
+     :'-'
+   }
+
+   </td>
+
+   </tr>
+
+   `
+  ).join('');
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+updateSetup();
+
+generate();
+
+renderResults();
+
 </script>
-</body></html>
+
+</body>
+</html>
