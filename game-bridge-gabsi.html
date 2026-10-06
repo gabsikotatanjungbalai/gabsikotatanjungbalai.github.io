@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-
 <title>GABSI Kota Tanjungbalai — Bridge Online</title>
 
 <style>
@@ -55,6 +54,10 @@ button{
   cursor:pointer;
 }
 
+button:disabled{
+  cursor:not-allowed;
+}
+
 /* HEADER */
 
 .header{
@@ -73,6 +76,7 @@ button{
   display:flex;
   align-items:center;
   gap:9px;
+  min-width:0;
 }
 
 .logo{
@@ -87,12 +91,16 @@ button{
   font-size:21px;
   font-weight:900;
   box-shadow:0 3px 10px #0008;
+  flex:0 0 auto;
 }
 
 .brand-title{
   font-size:14px;
   font-weight:900;
   letter-spacing:.4px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .brand-sub{
@@ -104,6 +112,7 @@ button{
 .top-actions{
   display:flex;
   gap:6px;
+  flex:0 0 auto;
 }
 
 .icon-btn{
@@ -114,6 +123,42 @@ button{
   background:#ffffff0d;
   color:#fff;
   font-size:18px;
+}
+
+/* SITE MENU */
+
+.site-menu{
+  display:flex;
+  gap:6px;
+  padding:6px 8px;
+  overflow-x:auto;
+  background:#031f18;
+  border-bottom:1px solid #ffffff12;
+  scrollbar-width:none;
+}
+
+.site-menu::-webkit-scrollbar{
+  display:none;
+}
+
+.site-menu a{
+  flex:0 0 auto;
+  padding:7px 10px;
+  border:1px solid #ffffff18;
+  border-radius:8px;
+  color:#d9e8e1;
+  background:#ffffff08;
+  text-decoration:none;
+  font-size:9px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.site-menu a:hover,
+.site-menu a.active{
+  color:#152d23;
+  background:#d9b45b;
+  border-color:#f0d57e;
 }
 
 /* GAME BAR */
@@ -356,9 +401,9 @@ button{
   border-color:#f0cb62;
 }
 
-.card.selected{
-  transform:translateY(-13px);
-  border:2px solid #ffe184;
+.card:focus-visible{
+  outline:2px solid #ffe184;
+  outline-offset:2px;
 }
 
 .south .hand{
@@ -450,6 +495,7 @@ button{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:8px;
   padding:7px 10px;
   margin-bottom:6px;
   border-radius:8px;
@@ -457,8 +503,15 @@ button{
   font-size:10px;
 }
 
+.status span{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
 .status strong{
   color:#f0d174;
+  flex:0 0 auto;
 }
 
 .actions{
@@ -489,6 +542,10 @@ button{
 
 .btn.red{
   background:#7f2828;
+}
+
+.btn:disabled{
+  opacity:.42;
 }
 
 /* SHEET */
@@ -684,13 +741,15 @@ button{
 
     <button
       class="icon-btn"
-      onclick="newGame()">
+      onclick="newGame()"
+      aria-label="Board baru">
       ↻
     </button>
 
     <button
       class="icon-btn"
-      onclick="openSettings()">
+      onclick="openSettings()"
+      aria-label="Pengaturan">
       ⚙
     </button>
 
@@ -698,40 +757,96 @@ button{
 
 </header>
 
+<!-- MENU WEBSITE GABSI -->
+
+<nav
+  class="site-menu"
+  aria-label="Menu GABSI Kota Tanjungbalai">
+
+  <a
+    href="https://gabsikotatanjungbalai.github.io/">
+    Beranda
+  </a>
+
+  <a
+    href="https://gabsikotatanjungbalai.github.io/kegiatan.html">
+    Kegiatan
+  </a>
+
+  <a
+    href="https://gabsikotatanjungbalai.github.io/galeri.html">
+    Galeri
+  </a>
+
+  <a
+    href="https://gabsikotatanjungbalai.github.io/kocokan-kartu.html">
+    Kocokan Kartu
+  </a>
+
+  <a
+    href="https://gabsikotatanjungbalai.github.io/game-bridge-gabsi.html"
+    class="active">
+    Game Bridge
+  </a>
+
+  <a
+    href="https://gabsikotatanjungbalai.github.io/kontak.html">
+    Kontak
+  </a>
+
+</nav>
+
 <section class="gamebar">
 
   <div class="info-box">
-    <span class="info-label">Board</span>
+
+    <span class="info-label">
+      Board
+    </span>
+
     <span
       class="info-value"
       id="boardNo">
       1
     </span>
+
   </div>
 
   <div class="info-box">
-    <span class="info-label">Dealer</span>
+
+    <span class="info-label">
+      Dealer
+    </span>
+
     <span
       class="info-value"
       id="dealer">
       N
     </span>
+
   </div>
 
   <div class="info-box">
-    <span class="info-label">Vul</span>
+
+    <span class="info-label">
+      Vul
+    </span>
+
     <span
       class="info-value"
       id="vul">
       None
     </span>
+
   </div>
 
 </section>
 
 <main class="table-area">
 
-<div class="table" id="bridgeTable">
+<div
+  class="table"
+  id="bridgeTable">
 
   <!-- NORTH -->
 
@@ -739,7 +854,9 @@ button{
 
     <div class="player">
 
-      <div class="avatar">N</div>
+      <div class="avatar">
+        N
+      </div>
 
       <div class="player-name">
         North • Komputer
@@ -766,7 +883,9 @@ button{
 
     <div class="player">
 
-      <div class="avatar">W</div>
+      <div class="avatar">
+        W
+      </div>
 
       <div class="player-name">
         West • Komputer
@@ -793,7 +912,9 @@ button{
 
     <div class="player">
 
-      <div class="avatar">E</div>
+      <div class="avatar">
+        E
+      </div>
 
       <div class="player-name">
         East • Komputer
@@ -904,7 +1025,8 @@ button{
 
     <button
       class="btn gold"
-      onclick="openBid()">
+      id="primaryAction"
+      onclick="handlePrimaryAction()">
       PILIH BID
     </button>
 
@@ -913,7 +1035,6 @@ button{
 </footer>
 
 </div>
-
 
 <!-- BID SHEET -->
 
@@ -950,7 +1071,6 @@ button{
   </div>
 
 </div>
-
 
 <!-- SETTINGS -->
 
@@ -1042,7 +1162,6 @@ button{
 
 </div>
 
-
 <!-- HELP -->
 
 <div
@@ -1065,7 +1184,8 @@ button{
 
     </div>
 
-    <p style="font-size:12px;line-height:1.6;color:#c4ddd3">
+    <p
+      style="font-size:12px;line-height:1.6;color:#c4ddd3">
 
       Tujuan permainan adalah memenangkan jumlah
       trik sesuai kontrak. Saat bermain kartu,
@@ -1074,7 +1194,8 @@ button{
 
     </p>
 
-    <p style="font-size:12px;line-height:1.6;color:#c4ddd3">
+    <p
+      style="font-size:12px;line-height:1.6;color:#c4ddd3">
 
       ♠ Sekop &nbsp;
       ♥ Hati &nbsp;
@@ -1083,7 +1204,8 @@ button{
 
     </p>
 
-    <p style="font-size:12px;line-height:1.6;color:#c4ddd3">
+    <p
+      style="font-size:12px;line-height:1.6;color:#c4ddd3">
 
       HCP:
       As = 4,
@@ -1106,39 +1228,74 @@ button{
 
 </div>
 
-
 <script>
-
-/* =========================================================
-   GABSI BRIDGE ENGINE
-   ========================================================= */
+'use strict';
 
 const SUITS=[
-  "♣","♦","♥","♠"
+  '♣',
+  '♦',
+  '♥',
+  '♠'
 ];
 
 const RANKS=[
-  "2","3","4","5","6","7",
-  "8","9","10","J","Q","K","A"
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  'J',
+  'Q',
+  'K',
+  'A'
 ];
 
 const SEATS=[
-  "N","E","S","W"
+  'N',
+  'E',
+  'S',
+  'W'
 ];
+
+const LEVELS={
+
+  easy:{
+    name:'Pemula'
+  },
+
+  medium:{
+    name:'Menengah'
+  },
+
+  hard:{
+    name:'Sulit'
+  },
+
+  expert:{
+    name:'Ahli'
+  }
+
+};
 
 const state={
 
   board:1,
 
-  dealer:"N",
+  dealer:'N',
 
-  vul:"None",
+  vul:'None',
 
-  level:"medium",
+  level:'medium',
 
-  phase:"auction",
+  phase:'auction',
 
-  turn:"N",
+  turn:'N',
+
+  userSeat:'S',
 
   deck:[],
 
@@ -1177,98 +1334,92 @@ const state={
 
 };
 
-const LEVELS={
-
-  easy:{
-    name:"Pemula",
-    delay:900
-  },
-
-  medium:{
-    name:"Menengah",
-    delay:700
-  },
-
-  hard:{
-    name:"Sulit",
-    delay:500
-  },
-
-  expert:{
-    name:"Ahli",
-    delay:350
-  }
-
-};
-
-
-/* =========================================================
-   UTILITIES
-   ========================================================= */
-
 function $(id){
   return document.getElementById(id);
 }
 
-
 function nextSeat(seat){
 
-  const index=
+  const i=
     SEATS.indexOf(seat);
 
   return SEATS[
-    (index+1)%4
+    (i+1)%4
   ];
 
 }
 
-
 function partnerSeat(seat){
 
-  if(seat==="N") return "S";
+  if(seat==='N'){
+    return 'S';
+  }
 
-  if(seat==="S") return "N";
+  if(seat==='S'){
+    return 'N';
+  }
 
-  if(seat==="E") return "W";
+  if(seat==='E'){
+    return 'W';
+  }
 
-  return "E";
+  return 'E';
 
 }
-
 
 function isNS(seat){
 
   return (
-    seat==="N" ||
-    seat==="S"
+    seat==='N' ||
+    seat==='S'
   );
 
 }
-
 
 function handHCP(hand){
 
   return hand.reduce(
+
     (sum,card)=>{
 
-      if(card.rank==="A") return sum+4;
+      if(
+        card.rank==='A'
+      ){
+        return sum+4;
+      }
 
-      if(card.rank==="K") return sum+3;
+      if(
+        card.rank==='K'
+      ){
+        return sum+3;
+      }
 
-      if(card.rank==="Q") return sum+2;
+      if(
+        card.rank==='Q'
+      ){
+        return sum+2;
+      }
 
-      if(card.rank==="J") return sum+1;
+      if(
+        card.rank==='J'
+      ){
+        return sum+1;
+      }
 
       return sum;
 
     },
+
     0
+
   );
 
 }
 
-
-function suitCount(hand,suit){
+function suitCount(
+  hand,
+  suit
+){
 
   return hand.filter(
     card=>card.suit===suit
@@ -1276,17 +1427,18 @@ function suitCount(hand,suit){
 
 }
 
-
 function sortCards(hand){
 
   const order={
-    "♣":0,
-    "♦":1,
-    "♥":2,
-    "♠":3
+    '♣':0,
+    '♦':1,
+    '♥':2,
+    '♠':3
   };
 
-  return [...hand].sort(
+  return [
+    ...hand
+  ].sort(
     (a,b)=>{
 
       if(
@@ -1310,7 +1462,6 @@ function sortCards(hand){
   );
 
 }
-
 
 function shuffle(array){
 
@@ -1339,11 +1490,6 @@ function shuffle(array){
 
 }
 
-
-/* =========================================================
-   BOARD
-   ========================================================= */
-
 function boardInfo(board){
 
   const dealer=
@@ -1354,14 +1500,14 @@ function boardInfo(board){
   const cycle=
     (board-1)%16;
 
-  let vul="None";
+  let vul='None';
 
   if(
     [0,3,6,9]
       .includes(cycle)
   ){
 
-    vul="N-S";
+    vul='N-S';
 
   }
 
@@ -1370,7 +1516,7 @@ function boardInfo(board){
       .includes(cycle)
   ){
 
-    vul="E-W";
+    vul='E-W';
 
   }
 
@@ -1379,7 +1525,7 @@ function boardInfo(board){
       .includes(cycle)
   ){
 
-    vul="Both";
+    vul='Both';
 
   }
 
@@ -1389,11 +1535,6 @@ function boardInfo(board){
   };
 
 }
-
-
-/* =========================================================
-   NEW GAME
-   ========================================================= */
 
 function newGame(){
 
@@ -1409,7 +1550,7 @@ function newGame(){
     info.vul;
 
   state.phase=
-    "auction";
+    'auction';
 
   state.turn=
     state.dealer;
@@ -1444,42 +1585,28 @@ function newGame(){
 
   deal();
 
-  $("boardNo").textContent=
+  $('boardNo').textContent=
     state.board;
 
-  $("dealer").textContent=
+  $('dealer').textContent=
     state.dealer;
 
-  $("vul").textContent=
+  $('vul').textContent=
     state.vul;
 
-  $("contractText").textContent=
-    "Lelang";
+  $('contractText').textContent=
+    'Lelang';
 
-  $("centerInfo").textContent=
-    "Menunggu pembukaan lelang";
-
-  $("statusText").textContent=
-    state.turn==="S"
-      ? "Giliran Anda membuka lelang"
-      : `Komputer ${state.turn} sedang membuka lelang`;
+  $('centerInfo').textContent=
+    'Menunggu pembukaan lelang';
 
   render();
 
-  if(
-    state.turn!=="S"
-  ){
+  updatePrimaryAction();
 
-    scheduleComputerBid();
-
-  }
+  setTurnStatus();
 
 }
-
-
-/* =========================================================
-   DECK
-   ========================================================= */
 
 function makeDeck(){
 
@@ -1502,7 +1629,10 @@ function makeDeck(){
         id:
           suit+
           rank+
+          '-'+
           Math.random()
+            .toString(36)
+            .slice(2)
 
       });
 
@@ -1515,7 +1645,6 @@ function makeDeck(){
   );
 
 }
-
 
 function deal(){
 
@@ -1530,7 +1659,9 @@ function deal(){
     (card,index)=>{
 
       state.hands[
-        SEATS[index%4]
+        SEATS[
+          index%4
+        ]
       ].push(card);
 
     }
@@ -1549,21 +1680,19 @@ function deal(){
 
 }
 
+/*
+  SOUTH adalah pemain manusia
+  sepanjang permainan.
 
-/* =========================================================
-   USER / COMPUTER CONTROL
-   ========================================================= */
+  Saat South menjadi declarer,
+  partner-nya (dummy) juga dimainkan
+  manusia.
+*/
 
 function isUserControlled(seat){
 
-  /*
-   Hanya ketika South menjadi
-   declarer, user mengontrol
-   South + Dummy.
-  */
-
   if(
-    state.phase!=="play"
+    state.phase!=='play'
   ){
 
     return false;
@@ -1571,98 +1700,82 @@ function isUserControlled(seat){
   }
 
   if(
-    state.declarer==="S"
+    seat===state.userSeat
   ){
 
-    return (
-      seat==="S" ||
-      seat===state.dummy
-    );
+    return true;
 
   }
 
-  return false;
-
-}
-
-
-function isComputerControlled(seat){
-
-  if(
-    state.phase!=="play"
-  ){
-
-    return false;
-
-  }
-
-  return !isUserControlled(
-    seat
+  return (
+    state.declarer===
+    state.userSeat &&
+    seat===state.dummy
   );
 
 }
 
+function isComputerControlled(seat){
 
-/* =========================================================
-   DUMMY
-   ========================================================= */
+  return (
+    state.phase==='play' &&
+    !isUserControlled(seat)
+  );
+
+}
 
 function shouldRevealDummy(){
 
   return (
-    state.phase==="play" &&
+    state.phase==='play' &&
     state.dummyRevealed
   );
 
 }
 
-
-/* =========================================================
-   RENDER
-   ========================================================= */
-
 function render(){
 
-  renderHand("N");
+  renderHand('N');
 
-  renderHand("E");
+  renderHand('E');
 
-  renderHand("S");
+  renderHand('S');
 
-  renderHand("W");
+  renderHand('W');
 
   renderTrick();
 
-  $("trickText").textContent=
+  $('trickText').textContent=
     (
       state.tricksNS+
       state.tricksEW
     )+
-    " / 13";
+    ' / 13';
 
   updateContractDisplay();
 
+  updateDummyHighlight();
+
+  updatePrimaryAction();
+
 }
-
-
-/* =========================================================
-   HAND RENDER
-   ========================================================= */
 
 function renderHand(seat){
 
   const el=
-    $("hand"+seat);
+    $('hand'+seat);
 
-  if(!el) return;
+  if(!el){
+    return;
+  }
 
-  el.innerHTML="";
+  el.innerHTML='';
 
   const hand=
     state.hands[seat];
 
   const reveal=
-    seat==="S" ||
+    seat==='S' ||
     (
       seat===state.dummy &&
       shouldRevealDummy()
@@ -1673,52 +1786,65 @@ function renderHand(seat){
 
       const div=
         document.createElement(
-          "div"
+          'div'
         );
 
       div.className=
-        "card";
+        'card';
+
+      div.setAttribute(
+        'role',
+        'button'
+      );
 
       if(!reveal){
 
         div.classList.add(
-          "back"
+          'back'
+        );
+
+        div.setAttribute(
+          'aria-label',
+          'Kartu tertutup'
         );
 
       }else{
 
         if(
-          card.suit==="♥" ||
-          card.suit==="♦"
+          card.suit==='♥' ||
+          card.suit==='♦'
         ){
 
           div.classList.add(
-            "red"
+            'red'
           );
 
         }
 
         div.innerHTML=
-          `<span class="rank">
-             ${card.rank}
-           </span>
-           <span class="suit">
-             ${card.suit}
-           </span>`;
+          '<span class="rank">'+
+          card.rank+
+          '</span>'+
+          '<span class="suit">'+
+          card.suit+
+          '</span>';
 
-        if(
-          state.phase==="play" &&
+        const playable=
+          state.phase==='play' &&
           isUserControlled(seat) &&
           state.turn===seat &&
           legalCard(
             card,
             seat
-          )
-        ){
+          );
+
+        if(playable){
 
           div.classList.add(
-            "playable"
+            'playable'
           );
+
+          div.tabIndex=0;
 
           div.onclick=()=>{
             playCard(
@@ -1727,74 +1853,92 @@ function renderHand(seat){
             );
           };
 
+          div.onkeydown=e=>{
+
+            if(
+              e.key==='Enter' ||
+              e.key===' '
+            ){
+
+              e.preventDefault();
+
+              playCard(
+                seat,
+                card
+              );
+
+            }
+
+          };
+
+        }else{
+
+          div.tabIndex=-1;
+
         }
 
       }
 
-      el.appendChild(div);
+      el.appendChild(
+        div
+      );
 
     }
   );
 
-  const table=
-    $("bridgeTable");
-
-  if(table){
-
-    table.classList.remove(
-      "dummy-active"
-    );
-
-    if(
-      state.declarer==="S" &&
-      state.dummy===seat &&
-      state.dummyRevealed &&
-      state.turn===seat
-    ){
-
-      table.classList.add(
-        "dummy-active"
-      );
-
-    }
-
-  }
-
 }
 
+function updateDummyHighlight(){
 
-/* =========================================================
-   TRICK
-   ========================================================= */
+  const table=
+    $('bridgeTable');
+
+  if(!table){
+    return;
+  }
+
+  const active=
+    state.declarer==='S' &&
+    state.dummyRevealed &&
+    state.turn===state.dummy;
+
+  table.classList.toggle(
+    'dummy-active',
+    active
+  );
+
+}
 
 function renderTrick(){
 
   const el=
-    $("trick");
+    $('trick');
 
-  if(!el) return;
+  if(!el){
+    return;
+  }
 
-  el.innerHTML="";
+  el.innerHTML='';
 
   state.trick.forEach(
     item=>{
 
       const div=
         document.createElement(
-          "div"
+          'div'
         );
 
       div.className=
-        "trick-card "+
+        'trick-card '+
         item.seat.toLowerCase();
 
       if(
-        item.card.suit==="♥" ||
-        item.card.suit==="♦"
+        item.card.suit==='♥' ||
+        item.card.suit==='♦'
       ){
 
         div.classList.add(
-          "red"
+          'red'
         );
 
       }
@@ -1803,26 +1947,116 @@ function renderTrick(){
         item.card.rank+
         item.card.suit;
 
-      el.appendChild(div);
+      el.appendChild(
+        div
+      );
 
     }
   );
 
 }
 
+function updateContractDisplay(){
 
-/* =========================================================
-   BIDDING
-   ========================================================= */
+  if(
+    state.phase==='auction' ||
+    !state.contract
+  ){
 
-function bidRank(level,suit){
+    return;
+
+  }
+
+  $('contractText').textContent=
+    state.contract.level+
+    state.contract.suit;
+
+  $('centerInfo').textContent=
+    'Trik NS '+
+    state.tricksNS+
+    ' • EW '+
+    state.tricksEW;
+
+}
+
+function setTurnStatus(){
+
+  if(
+    state.phase==='auction'
+  ){
+
+    if(
+      state.turn==='S'
+    ){
+
+      $('statusText').textContent=
+        'Giliran Anda melakukan bid.';
+
+    }else{
+
+      $('statusText').textContent=
+        'Giliran Komputer '+
+        state.turn+
+        ' — tekan LANJUT KOMPUTER.';
+
+    }
+
+    return;
+
+  }
+
+  if(
+    state.phase==='play'
+  ){
+
+    if(
+      isUserControlled(
+        state.turn
+      )
+    ){
+
+      $('statusText').textContent=
+        state.turn===state.dummy
+          ? 'Giliran Anda memainkan kartu DUMMY.'
+          : 'Giliran Anda memilih kartu.';
+
+    }else{
+
+      $('statusText').textContent=
+        'Giliran Komputer '+
+        state.turn+
+        ' — tekan LANJUT KOMPUTER.';
+
+    }
+
+    return;
+
+  }
+
+  if(
+    state.phase==='finished'
+  ){
+
+    $('statusText').textContent=
+      'Board selesai — tekan BOARD BERIKUTNYA.';
+
+  }
+
+}
+
+/* BIDDING */
+
+function bidRank(
+  level,
+  suit
+){
 
   const order={
-    "♣":0,
-    "♦":1,
-    "♥":2,
-    "♠":3,
-    "NT":4
+    '♣':0,
+    '♦':1,
+    '♥':2,
+    '♠':3,
+    'NT':4
   };
 
   return (
@@ -1831,7 +2065,6 @@ function bidRank(level,suit){
   );
 
 }
-
 
 function isHigherBid(bid){
 
@@ -1856,8 +2089,25 @@ function isHigherBid(bid){
 
 }
 
-
 function makeBid(bid){
+
+  if(
+    state.phase!=='auction' ||
+    state.turn!=='S'
+  ){
+
+    return;
+
+  }
+
+  if(
+    bid!=='PASS' &&
+    !isHigherBid(bid)
+  ){
+
+    return;
+
+  }
 
   state.auction.push({
 
@@ -1869,7 +2119,7 @@ function makeBid(bid){
   });
 
   if(
-    bid!=="PASS"
+    bid!=='PASS'
   ){
 
     state.currentBid=
@@ -1896,26 +2146,9 @@ function makeBid(bid){
 
   render();
 
-  if(
-    state.turn==="S"
-  ){
-
-    $("statusText").textContent=
-      "Giliran Anda melakukan bid";
-
-    openBid();
-
-  }else{
-
-    $("statusText").textContent=
-      `Komputer ${state.turn} sedang berpikir...`;
-
-    scheduleComputerBid();
-
-  }
+  setTurnStatus();
 
 }
-
 
 function checkAuctionEnd(){
 
@@ -1932,13 +2165,13 @@ function checkAuctionEnd(){
 
   const nonPass=
     state.auction.filter(
-      x=>x.bid!=="PASS"
+      x=>x.bid!=='PASS'
     );
 
   if(
     nonPass.length>0 &&
     last4.every(
-      x=>x.bid==="PASS"
+      x=>x.bid==='PASS'
     )
   ){
 
@@ -1946,46 +2179,18 @@ function checkAuctionEnd(){
 
   }
 
-  if(
+  return (
     nonPass.length===0 &&
     state.auction.length>=4
-  ){
-
-    return true;
-
-  }
-
-  return false;
-
-}
-
-
-/* =========================================================
-   COMPUTER BIDDING
-   ========================================================= */
-
-function scheduleComputerBid(){
-
-  setTimeout(
-    computerBid,
-    LEVELS[state.level].delay
   );
 
 }
 
-
 function computerBid(){
 
   if(
-    state.phase!=="auction"
-  ){
-
-    return;
-
-  }
-
-  if(
-    state.turn==="S"
+    state.phase!=='auction' ||
+    state.turn==='S'
   ){
 
     return;
@@ -1993,29 +2198,32 @@ function computerBid(){
   }
 
   const hand=
-    state.hands[state.turn];
+    state.hands[
+      state.turn
+    ];
 
   const points=
-    handHCP(hand);
+    handHCP(
+      hand
+    );
 
-  const longest=
-    SUITS
-      .map(
-        suit=>({
-          suit,
-          count:
-            suitCount(
-              hand,
-              suit
-            )
-        })
-      )
-      .sort(
-        (a,b)=>
-          b.count-a.count
-      )[0];
+  const longest=[
+    ...SUITS.map(
+      suit=>({
+        suit,
+        count:
+          suitCount(
+            hand,
+            suit
+          )
+      })
+    )
+  ].sort(
+    (a,b)=>
+      b.count-a.count
+  )[0];
 
-  let bid="PASS";
+  let bid='PASS';
 
   if(
     !state.currentBid
@@ -2028,7 +2236,7 @@ function computerBid(){
 
       bid={
         level:1,
-        suit:"NT"
+        suit:'NT'
       };
 
     }else if(
@@ -2047,11 +2255,11 @@ function computerBid(){
   }else{
 
     const threshold=
-      state.level==="easy"
+      state.level==='easy'
         ? 14
-        : state.level==="medium"
+        : state.level==='medium'
           ? 12
-          : state.level==="hard"
+          : state.level==='hard'
             ? 11
             : 10;
 
@@ -2081,19 +2289,69 @@ function computerBid(){
 
   }
 
-  makeBid(bid);
+  makeComputerBid(
+    bid
+  );
 
 }
 
+function makeComputerBid(bid){
 
-/* =========================================================
-   AUCTION UI
-   ========================================================= */
+  if(
+    state.phase!=='auction' ||
+    state.turn==='S'
+  ){
+
+    return;
+
+  }
+
+  state.auction.push({
+
+    seat:
+      state.turn,
+
+    bid
+
+  });
+
+  if(
+    bid!=='PASS'
+  ){
+
+    state.currentBid=
+      bid;
+
+  }
+
+  if(
+    checkAuctionEnd()
+  ){
+
+    finishAuction();
+
+    return;
+
+  }
+
+  state.turn=
+    nextSeat(
+      state.turn
+    );
+
+  renderAuctionHistory();
+
+  render();
+
+  setTurnStatus();
+
+}
 
 function openBid(){
 
   if(
-    state.phase!=="auction"
+    state.phase!=='auction' ||
+    state.turn!=='S'
   ){
 
     return;
@@ -2103,9 +2361,9 @@ function openBid(){
   renderAuctionHistory();
 
   const grid=
-    $("bidGrid");
+    $('bidGrid');
 
-  grid.innerHTML="";
+  grid.innerHTML='';
 
   for(
     let level=1;
@@ -2115,7 +2373,7 @@ function openBid(){
 
     for(
       const suit of
-      ["♣","♦","♥","♠","NT"]
+      ['♣','♦','♥','♠','NT']
     ){
 
       const bid={
@@ -2125,38 +2383,43 @@ function openBid(){
 
       const button=
         document.createElement(
-          "button"
+          'button'
         );
 
       button.className=
-        "bid";
+        'bid';
 
       if(
-        !isHigherBid(bid)
+        !isHigherBid(
+          bid
+        )
       ){
 
         button.classList.add(
-          "disabled"
+          'disabled'
         );
 
       }
 
       if(
-        suit==="♥" ||
-        suit==="♦"
+        suit==='♥' ||
+        suit==='♦'
       ){
 
         button.style.color=
-          "#ff7474";
+          '#ff7474';
 
       }
 
       button.textContent=
-        level+suit;
+        level+
+        suit;
 
       button.onclick=()=>{
 
-        makeBid(bid);
+        makeBid(
+          bid
+        );
 
         closeBid();
 
@@ -2172,18 +2435,20 @@ function openBid(){
 
   const pass=
     document.createElement(
-      "button"
+      'button'
     );
 
   pass.className=
-    "bid pass";
+    'bid pass';
 
   pass.textContent=
-    "PASS";
+    'PASS';
 
   pass.onclick=()=>{
 
-    makeBid("PASS");
+    makeBid(
+      'PASS'
+    );
 
     closeBid();
 
@@ -2193,30 +2458,28 @@ function openBid(){
     pass
   );
 
-  $("bidOverlay")
+  $('bidOverlay')
     .classList.add(
-      "show"
+      'show'
     );
 
 }
-
 
 function closeBid(){
 
-  $("bidOverlay")
+  $('bidOverlay')
     .classList.remove(
-      "show"
+      'show'
     );
 
 }
-
 
 function renderAuctionHistory(){
 
   const el=
-    $("auctionHistory");
+    $('auctionHistory');
 
-  el.innerHTML="";
+  el.innerHTML='';
 
   for(
     const seat of SEATS
@@ -2224,11 +2487,11 @@ function renderAuctionHistory(){
 
     const div=
       document.createElement(
-        "div"
+        'div'
       );
 
     div.className=
-      "auction-seat";
+      'auction-seat';
 
     const records=
       state.auction.filter(
@@ -2236,67 +2499,75 @@ function renderAuctionHistory(){
       );
 
     div.innerHTML=
-      `<b>${seat}</b>`+
+      '<b>'+
+      seat+
+      '</b>'+
       (
         records.length
           ? records
               .map(
-                x=>formatBid(x.bid)
+                x=>
+                  formatBid(
+                    x.bid
+                  )
               )
-              .join("<br>")
-          : "—"
+              .join(
+                '<br>'
+              )
+          : '—'
       );
 
-    el.appendChild(div);
+    el.appendChild(
+      div
+    );
 
   }
 
 }
-
 
 function formatBid(bid){
 
-  if(
-    bid==="PASS"
-  ){
-
-    return "PASS";
-
-  }
-
   return (
-    bid.level+
-    bid.suit
+    bid==='PASS'
+      ? 'PASS'
+      : bid.level+
+        bid.suit
   );
 
 }
-
-
-/* =========================================================
-   FINISH AUCTION
-   ========================================================= */
 
 function finishAuction(){
 
   const active=
     state.auction.filter(
-      x=>x.bid!=="PASS"
+      x=>x.bid!=='PASS'
     );
+
+  /*
+    Bila semua PASS,
+    board dihentikan secara manual.
+  */
 
   if(
     active.length===0
   ){
 
-    $("statusText").textContent=
-      "Semua pemain PASS.";
+    state.phase=
+      'finished';
 
-    setTimeout(
-      ()=>{
-        state.board++;
-        newGame();
-      },
-      900
-    );
+    state.contract=
+      null;
+
+    $('contractText').textContent=
+      'Pass';
+
+    $('centerInfo').textContent=
+      'Semua pemain PASS';
+
+    $('statusText').textContent=
+      'Semua pemain PASS — tekan BOARD BERIKUTNYA.';
+
+    updatePrimaryAction();
 
     return;
 
@@ -2313,30 +2584,32 @@ function finishAuction(){
         active.length-1
       ].seat
     )
-      ? "NS"
-      : "EW";
+      ? 'NS'
+      : 'EW';
 
   /*
     Declarer adalah pemain pertama
     dari partnership pemenang yang
-    menawar denomination final.
+    menawar denomination final,
+    tidak harus pada level final.
   */
 
-  let declarerRecord=null;
+  let declarerRecord=
+    null;
 
   for(
     const item of active
   ){
 
     const side=
-      isNS(item.seat)
-        ? "NS"
-        : "EW";
+      isNS(
+        item.seat
+      )
+        ? 'NS'
+        : 'EW';
 
     if(
       side===finalSide &&
-      item.bid.level===
-        finalBid.level &&
       item.bid.suit===
         finalBid.suit
     ){
@@ -2367,25 +2640,15 @@ function finishAuction(){
   state.declarer=
     declarerRecord.seat;
 
-  /*
-    DUMMY adalah PARTNER DECLARER,
-    bukan pemain di sebelah declarer.
-  */
-
   state.dummy=
     partnerSeat(
       state.declarer
     );
 
   state.trump=
-    finalBid.suit==="NT"
+    finalBid.suit==='NT'
       ? null
       : finalBid.suit;
-
-  /*
-    OPENING LEADER adalah pemain
-    di sebelah kiri declarer.
-  */
 
   state.openingLeader=
     nextSeat(
@@ -2396,81 +2659,33 @@ function finishAuction(){
     false;
 
   state.phase=
-    "play";
+    'play';
 
   state.turn=
     state.openingLeader;
 
-  $("contractText").textContent=
+  $('contractText').textContent=
     finalBid.level+
     finalBid.suit;
 
-  $("centerInfo").textContent=
-    `Declarer: ${state.declarer} • Dummy: ${state.dummy}`;
+  $('centerInfo').textContent=
+    'Declarer: '+
+    state.declarer+
+    ' • Dummy: '+
+    state.dummy;
 
   render();
 
-  $("statusText").textContent=
-    `Opening lead: ${state.openingLeader}`;
-
-  /*
-    Opening lead selalu dimainkan
-    oleh lawan declarer.
-
-    Jika South adalah declarer,
-    opening leader pasti komputer.
-
-    Jika South bukan declarer,
-    opening leader juga komputer.
-  */
-
-  setTimeout(
-    ()=>{
-      computerPlay(
-        state.openingLeader
-      );
-    },
-    LEVELS[state.level].delay
-  );
+  setTurnStatus();
 
 }
 
+/* PLAY */
 
-/* =========================================================
-   CONTRACT
-   ========================================================= */
-
-function updateContractDisplay(){
-
-  if(
-    state.phase==="auction"
-  ){
-
-    return;
-
-  }
-
-  if(
-    state.contract
-  ){
-
-    $("contractText").textContent=
-      state.contract.level+
-      state.contract.suit;
-
-    $("centerInfo").textContent=
-      `Trik NS ${state.tricksNS} • EW ${state.tricksEW}`;
-
-  }
-
-}
-
-
-/* =========================================================
-   LEGAL CARD
-   ========================================================= */
-
-function legalCard(card,seat){
+function legalCard(
+  card,
+  seat
+){
 
   if(
     state.trick.length===0
@@ -2491,42 +2706,20 @@ function legalCard(card,seat){
         c=>c.suit===lead
       );
 
-  if(hasLead){
-
-    return (
-      card.suit===lead
-    );
-
-  }
-
-  return true;
+  return hasLead
+    ? card.suit===lead
+    : true;
 
 }
 
-
-/* =========================================================
-   USER CARD
-   ========================================================= */
-
-function playCard(seat,card){
+function playCard(
+  seat,
+  card
+){
 
   if(
-    state.phase!=="play"
-  ){
-
-    return;
-
-  }
-
-  if(
-    !isUserControlled(seat)
-  ){
-
-    return;
-
-  }
-
-  if(
+    state.phase!=='play' ||
+    !isUserControlled(seat) ||
     state.turn!==seat
   ){
 
@@ -2541,8 +2734,8 @@ function playCard(seat,card){
     )
   ){
 
-    $("statusText").textContent=
-      "Anda harus mengikuti jenis kartu yang dimainkan.";
+    $('statusText').textContent=
+      'Anda harus mengikuti jenis kartu yang dimainkan.';
 
     return;
 
@@ -2555,12 +2748,10 @@ function playCard(seat,card){
 
 }
 
-
-/* =========================================================
-   EXECUTE CARD
-   ========================================================= */
-
-function executeCard(seat,card){
+function executeCard(
+  seat,
+  card
+){
 
   const index=
     state.hands[seat]
@@ -2591,11 +2782,8 @@ function executeCard(seat,card){
   });
 
   /*
-    Kartu pertama pada trick
-    menentukan lead suit.
-
-    Jika ini opening lead,
-    dummy dibuka.
+    Kartu pertama menjadi
+    lead suit dan membuka dummy.
   */
 
   if(
@@ -2619,153 +2807,39 @@ function executeCard(seat,card){
   render();
 
   /*
-    4 kartu sudah masuk.
+    Bila 4 kartu sudah dimainkan,
+    trick langsung diselesaikan.
+    Tidak menggunakan timer.
   */
 
   if(
     state.trick.length===4
   ){
 
-    setTimeout(
-      resolveTrick,
-      650
-    );
+    resolveTrick();
 
     return;
 
   }
 
-  /*
-    Giliran berikutnya.
-  */
-
   state.turn=
-    nextSeat(seat);
+    nextSeat(
+      seat
+    );
 
   render();
 
-  continueTurn();
+  setTurnStatus();
 
 }
 
-
-/* =========================================================
-   CONTINUE TURN
-   ========================================================= */
-
-function continueTurn(){
+function computerPlay(
+  seat
+){
 
   if(
-    state.phase!=="play"
-  ){
-
-    return;
-
-  }
-
-  /*
-    Jika South declarer dan
-    giliran South atau Dummy,
-    tunggu input user.
-  */
-
-  if(
-    isUserControlled(
-      state.turn
-    )
-  ){
-
-    if(
-      state.turn===state.dummy
-    ){
-
-      $("statusText").textContent=
-        "Giliran Anda memainkan kartu DUMMY.";
-
-    }else{
-
-      $("statusText").textContent=
-        "Giliran Anda memilih kartu.";
-
-    }
-
-    render();
-
-    return;
-
-  }
-
-  /*
-    Semua seat lainnya
-    dimainkan komputer.
-
-    Ini termasuk SOUTH jika
-    komputer menjadi declarer.
-  */
-
-  if(
-    isComputerControlled(
-      state.turn
-    )
-  ){
-
-    $("statusText").textContent=
-      `Komputer ${state.turn} sedang memilih kartu...`;
-
-    setTimeout(
-      ()=>{
-        computerPlay(
-          state.turn
-        );
-      },
-      LEVELS[state.level].delay
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   COMPUTER PLAY
-   ========================================================= */
-
-function computerPlay(seat){
-
-  if(
-    state.phase!=="play"
-  ){
-
-    return;
-
-  }
-
-  /*
-    Jika South declarer,
-    komputer tidak boleh memainkan
-    Dummy.
-  */
-
-  if(
-    state.declarer==="S" &&
-    seat===state.dummy
-  ){
-
-    $("statusText").textContent=
-      "Giliran Anda memainkan kartu DUMMY.";
-
-    render();
-
-    return;
-
-  }
-
-  /*
-    Jika user mengontrol seat,
-    komputer berhenti.
-  */
-
-  if(
+    state.phase!=='play' ||
+    seat==='S' ||
     isUserControlled(seat)
   ){
 
@@ -2786,36 +2860,25 @@ function computerPlay(seat){
     );
 
   if(
-    legal.length===0
+    !legal.length
   ){
 
     return;
 
   }
 
-  let card;
-
-  if(
-    state.level==="easy"
-  ){
-
-    card=
-      legal[
-        Math.floor(
-          Math.random()*
-          legal.length
-        )
-      ];
-
-  }else{
-
-    card=
-      chooseComputerCard(
-        seat,
-        legal
-      );
-
-  }
+  const card=
+    state.level==='easy'
+      ? legal[
+          Math.floor(
+            Math.random()*
+            legal.length
+          )
+        ]
+      : chooseComputerCard(
+          seat,
+          legal
+        );
 
   executeCard(
     seat,
@@ -2824,30 +2887,14 @@ function computerPlay(seat){
 
 }
 
-
-/* =========================================================
-   COMPUTER STRATEGY
-   ========================================================= */
-
 function chooseComputerCard(
   seat,
   legal
 ){
 
-  const declarerSide=
-    isNS(
-      state.declarer
-    )
-      ? "NS"
-      : "EW";
-
-  const mySide=
-    isNS(seat)
-      ? "NS"
-      : "EW";
-
   /*
-    OPENING LEAD
+    Opening lead:
+    ambil kartu rendah.
   */
 
   if(
@@ -2867,16 +2914,25 @@ function chooseComputerCard(
   const current=
     currentWinningCard();
 
-  if(!current){
+  if(
+    !current
+  ){
 
     return legal[0];
 
   }
 
-  /*
-    Cari kartu yang dapat
-    memenangkan trick.
-  */
+  const declarerSide=
+    isNS(
+      state.declarer
+    )
+      ? 'NS'
+      : 'EW';
+
+  const mySide=
+    isNS(seat)
+      ? 'NS'
+      : 'EW';
 
   const winners=
     legal.filter(
@@ -2889,36 +2945,14 @@ function chooseComputerCard(
         )
     );
 
-  /*
-    Lawan declarer:
-    usahakan mengambil trick.
-  */
-
   if(
-    mySide!==declarerSide &&
-    winners.length
-  ){
-
-    return winners.sort(
-      (a,b)=>
-        RANKS.indexOf(a.rank)-
-        RANKS.indexOf(b.rank)
-    )[0];
-
-  }
-
-  /*
-    Partnership declarer:
-    ambil trick jika tersedia.
-  */
-
-  if(
-    mySide===declarerSide &&
     winners.length &&
-    state.level!=="easy"
+    mySide!==declarerSide
   ){
 
-    return winners.sort(
+    return [
+      ...winners
+    ].sort(
       (a,b)=>
         RANKS.indexOf(a.rank)-
         RANKS.indexOf(b.rank)
@@ -2926,10 +2960,21 @@ function chooseComputerCard(
 
   }
 
-  /*
-    Jika tidak menang,
-    buang kartu terendah.
-  */
+  if(
+    winners.length &&
+    mySide===declarerSide &&
+    state.level!=='easy'
+  ){
+
+    return [
+      ...winners
+    ].sort(
+      (a,b)=>
+        RANKS.indexOf(a.rank)-
+        RANKS.indexOf(b.rank)
+    )[0];
+
+  }
 
   return [
     ...legal
@@ -2941,15 +2986,10 @@ function chooseComputerCard(
 
 }
 
-
-/* =========================================================
-   WINNING CARD
-   ========================================================= */
-
 function currentWinningCard(){
 
   if(
-    state.trick.length===0
+    !state.trick.length
   ){
 
     return null;
@@ -2984,11 +3024,6 @@ function currentWinningCard(){
   return winner;
 
 }
-
-
-/* =========================================================
-   CARD COMPARISON
-   ========================================================= */
 
 function beats(
   a,
@@ -3032,24 +3067,23 @@ function beats(
 
 }
 
-
-/* =========================================================
-   RESOLVE TRICK
-   ========================================================= */
-
 function resolveTrick(){
 
   const winner=
     currentWinningCard();
 
-  if(!winner){
+  if(
+    !winner
+  ){
 
     return;
 
   }
 
   if(
-    isNS(winner.seat)
+    isNS(
+      winner.seat
+    )
   ){
 
     state.tricksNS++;
@@ -3062,15 +3096,13 @@ function resolveTrick(){
 
   state.completed++;
 
-  const winnerSeat=
-    winner.seat;
-
   state.trick=[];
 
-  state.leadSuit=null;
+  state.leadSuit=
+    null;
 
   state.turn=
-    winnerSeat;
+    winner.seat;
 
   render();
 
@@ -3084,64 +3116,14 @@ function resolveTrick(){
 
   }
 
-  /*
-    Pemenang trick menjadi
-    leader berikutnya.
-
-    Jika user adalah declarer
-    dan pemenang adalah dummy,
-    user memainkan dummy.
-  */
-
-  if(
-    isUserControlled(
-      state.turn
-    )
-  ){
-
-    if(
-      state.turn===state.dummy
-    ){
-
-      $("statusText").textContent=
-        "Anda memimpin dari DUMMY.";
-
-    }else{
-
-      $("statusText").textContent=
-        "Anda memimpin trick berikutnya.";
-
-    }
-
-    render();
-
-    return;
-
-  }
-
-  $("statusText").textContent=
-    `Trik dimenangkan ${winnerSeat}.`;
-
-  setTimeout(
-    ()=>{
-      computerPlay(
-        state.turn
-      );
-    },
-    LEVELS[state.level].delay
-  );
+  setTurnStatus();
 
 }
-
-
-/* =========================================================
-   FINISH BOARD
-   ========================================================= */
 
 function finishBoard(){
 
   state.phase=
-    "finished";
+    'finished';
 
   const declarerNS=
     isNS(
@@ -3165,55 +3147,32 @@ function finishBoard(){
       declarerNS
     );
 
-  $("statusText").textContent=
+  const result=
     made>=target
-      ? `KONTRAK BERHASIL • Skor ${score}`
-      : `KONTRAK GAGAL • Skor ${score}`;
+      ? 'KONTRAK BERHASIL'
+      : 'KONTRAK GAGAL';
 
-  $("contractText").textContent=
+  $('statusText').textContent=
+    result+
+    ' • Skor '+
+    score+
+    ' • Tekan BOARD BERIKUTNYA.';
+
+  $('contractText').textContent=
     state.contract.level+
     state.contract.suit;
 
-  $("centerInfo").textContent=
-    `Trik ${made}/${target} • Skor ${score}`;
+  $('centerInfo').textContent=
+    'Trik '+
+    made+
+    '/' +
+    target+
+    ' • Skor '+
+    score;
 
   render();
 
-  setTimeout(
-    ()=>{
-
-      const again=
-        confirm(
-          `BOARD SELESAI\n\n`+
-          `Kontrak: `+
-          `${state.contract.level}`+
-          `${state.contract.suit}\n`+
-          `Declarer: ${state.declarer}\n`+
-          `Dummy: ${state.dummy}\n`+
-          `Trik: ${made}\n`+
-          `Target: ${target}\n`+
-          `Skor: ${score}\n\n`+
-          `Main board berikutnya?`
-        );
-
-      if(again){
-
-        state.board++;
-
-        newGame();
-
-      }
-
-    },
-    500
-  );
-
 }
-
-
-/* =========================================================
-   SCORE
-   ========================================================= */
 
 function calculateScore(
   contract,
@@ -3234,7 +3193,7 @@ function calculateScore(
       target-made;
 
     const penalty=
-      vul==="None"
+      vul==='None'
         ? 50*down
         : 100*down;
 
@@ -3247,8 +3206,8 @@ function calculateScore(
   let trickPoints;
 
   if(
-    contract.suit==="♣" ||
-    contract.suit==="♦"
+    contract.suit==='♣' ||
+    contract.suit==='♦'
   ){
 
     trickPoints=
@@ -3262,7 +3221,7 @@ function calculateScore(
   }
 
   if(
-    contract.suit==="NT"
+    contract.suit==='NT'
   ){
 
     trickPoints+=10;
@@ -3272,20 +3231,14 @@ function calculateScore(
   let score=
     trickPoints;
 
-  if(
+  score+=
     trickPoints>=100
-  ){
-
-    score+=
-      vul==="None"
-        ? 300
-        : 500;
-
-  }else{
-
-    score+=50;
-
-  }
+      ? (
+          vul==='None'
+            ? 300
+            : 500
+        )
+      : 50;
 
   const over=
     Math.max(
@@ -3299,8 +3252,8 @@ function calculateScore(
 
     const value=
       (
-        contract.suit==="♣" ||
-        contract.suit==="♦"
+        contract.suit==='♣' ||
+        contract.suit==='♦'
       )
         ? 20
         : 30;
@@ -3316,11 +3269,6 @@ function calculateScore(
 
 }
 
-
-/* =========================================================
-   SORT
-   ========================================================= */
-
 function sortHand(){
 
   state.hands.S=
@@ -3330,27 +3278,234 @@ function sortHand(){
 
   render();
 
-  $("statusText").textContent=
-    "Kartu Anda sudah diurutkan.";
+  if(
+    state.phase==='play' &&
+    isUserControlled(
+      state.turn
+    )
+  ){
+
+    setTurnStatus();
+
+  }else{
+
+    $('statusText').textContent=
+      'Kartu Anda sudah diurutkan.';
+
+  }
 
 }
 
+/*
+  Satu tombol utama dipertahankan
+  agar tampilan bawah tetap 3 kolom.
+*/
 
-/* =========================================================
-   SETTINGS
-   ========================================================= */
+function handlePrimaryAction(){
+
+  if(
+    state.phase==='auction'
+  ){
+
+    if(
+      state.turn==='S'
+    ){
+
+      openBid();
+
+    }else{
+
+      advanceComputerTurn();
+
+    }
+
+    return;
+
+  }
+
+  if(
+    state.phase==='play'
+  ){
+
+    if(
+      isComputerControlled(
+        state.turn
+      )
+    ){
+
+      advanceComputerTurn();
+
+    }else{
+
+      setTurnStatus();
+
+    }
+
+    return;
+
+  }
+
+  if(
+    state.phase==='finished'
+  ){
+
+    state.board++;
+
+    newGame();
+
+  }
+
+}
+
+function advanceComputerTurn(){
+
+  if(
+    state.phase==='auction'
+  ){
+
+    if(
+      state.turn==='S'
+    ){
+
+      openBid();
+
+      return;
+
+    }
+
+    computerBid();
+
+    return;
+
+  }
+
+  if(
+    state.phase==='play'
+  ){
+
+    if(
+      isComputerControlled(
+        state.turn
+      )
+    ){
+
+      computerPlay(
+        state.turn
+      );
+
+    }else{
+
+      setTurnStatus();
+
+    }
+
+  }
+
+}
+
+function updatePrimaryAction(){
+
+  const button=
+    $('primaryAction');
+
+  if(
+    !button
+  ){
+
+    return;
+
+  }
+
+  button.disabled=false;
+
+  if(
+    state.phase==='auction'
+  ){
+
+    if(
+      state.turn==='S'
+    ){
+
+      button.textContent=
+        'PILIH BID';
+
+      button.classList.add(
+        'gold'
+      );
+
+    }else{
+
+      button.textContent=
+        'LANJUT KOMPUTER';
+
+      button.classList.add(
+        'gold'
+      );
+
+    }
+
+    return;
+
+  }
+
+  if(
+    state.phase==='play'
+  ){
+
+    if(
+      isComputerControlled(
+        state.turn
+      )
+    ){
+
+      button.textContent=
+        'LANJUT KOMPUTER';
+
+      button.classList.add(
+        'gold'
+      );
+
+      button.disabled=false;
+
+    }else{
+
+      button.textContent=
+        'GILIRAN ANDA';
+
+      button.classList.remove(
+        'gold'
+      );
+
+      button.disabled=true;
+
+    }
+
+    return;
+
+  }
+
+  button.textContent=
+    'BOARD BERIKUTNYA';
+
+  button.classList.add(
+    'gold'
+  );
+
+}
+
+/* SETTINGS */
 
 function openSettings(){
 
   document
     .querySelectorAll(
-      ".level-btn"
+      '.level-btn'
     )
     .forEach(
       btn=>{
 
         btn.classList.toggle(
-          "active",
+          'active',
           btn.dataset.level===
           state.level
         );
@@ -3358,25 +3513,31 @@ function openSettings(){
       }
     );
 
-  $("settingsOverlay")
+  $('settingsOverlay')
     .classList.add(
-      "show"
+      'show'
     );
 
 }
-
 
 function closeSettings(){
 
-  $("settingsOverlay")
+  $('settingsOverlay')
     .classList.remove(
-      "show"
+      'show'
     );
 
 }
 
-
 function setLevel(level){
+
+  if(
+    !LEVELS[level]
+  ){
+
+    return;
+
+  }
 
   state.level=
     level;
@@ -3384,50 +3545,99 @@ function setLevel(level){
   const name=
     LEVELS[level].name;
 
-  $("northLevel").textContent=
+  $('northLevel').textContent=
     name;
 
-  $("eastLevel").textContent=
+  $('eastLevel').textContent=
     name;
 
-  $("westLevel").textContent=
+  $('westLevel').textContent=
     name;
 
   closeSettings();
 
-  $("statusText").textContent=
-    `Level komputer: ${name}`;
+  $('statusText').textContent=
+    'Level komputer: '+
+    name;
+
+  updatePrimaryAction();
 
 }
 
-
-/* =========================================================
-   HELP
-   ========================================================= */
+/* HELP */
 
 function openHelp(){
 
-  $("helpOverlay")
+  $('helpOverlay')
     .classList.add(
-      "show"
+      'show'
     );
 
 }
-
 
 function closeHelp(){
 
-  $("helpOverlay")
+  $('helpOverlay')
     .classList.remove(
-      "show"
+      'show'
     );
 
 }
 
+/* Tutup overlay jika klik area gelap */
 
-/* =========================================================
-   START
-   ========================================================= */
+document
+  .querySelectorAll(
+    '.overlay'
+  )
+  .forEach(
+    overlay=>{
+
+      overlay.addEventListener(
+        'click',
+        e=>{
+
+          if(
+            e.target===overlay
+          ){
+
+            overlay.classList.remove(
+              'show'
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+/* Tombol ESC untuk menutup panel */
+
+document.addEventListener(
+  'keydown',
+  e=>{
+
+    if(
+      e.key==='Escape'
+    ){
+
+      document
+        .querySelectorAll(
+          '.overlay.show'
+        )
+        .forEach(
+          x=>
+            x.classList.remove(
+              'show'
+            )
+        );
+
+    }
+
+  }
+);
 
 newGame();
 
