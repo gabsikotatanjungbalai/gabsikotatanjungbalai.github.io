@@ -3,377 +3,296 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <meta name="theme-color" content="#0a3d62">
-
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="manifest" href="manifest.json">
-
 <title>GABSI Kota Tanjungbalai — Kocokan Kartu Pembanding</title>
 
 <style>
 :root{
  --navy:#073b61;
+ --blue:#0a5e89;
  --green:#0a6540;
  --bg:#f4f7f9;
- --line:#d8e1e7
+ --line:#d8e1e7;
+ --red:#c62828;
 }
-
-*{
- box-sizing:border-box
-}
-
+*{box-sizing:border-box}
 body{
  margin:0;
  font-family:Arial,Segoe UI,sans-serif;
  background:var(--bg);
- color:#111
+ color:#111;
 }
-
 header{
  background:linear-gradient(135deg,#052f4c,#0a5e89);
  color:#fff;
- padding:15px
+ padding:15px;
 }
-
 .head{
- max-width:980px;
+ max-width:1100px;
  margin:auto;
  display:flex;
  justify-content:space-between;
  align-items:center;
- gap:12px
+ gap:12px;
 }
-
-.brand b{
- font-size:18px
-}
-
+.brand b{font-size:18px}
 .brand small{
  display:block;
- margin-top:3px;
- opacity:.8
+ margin-top:4px;
+ opacity:.85;
 }
-
 .home{
  color:#fff;
  text-decoration:none;
- border:1px solid rgba(255,255,255,.3);
- padding:9px 11px;
+ border:1px solid rgba(255,255,255,.35);
+ padding:9px 12px;
  border-radius:10px;
- font-size:12px
+ font-size:12px;
 }
-
 main{
- max-width:980px;
+ max-width:1100px;
  margin:auto;
- padding:12px
+ padding:12px;
 }
-
 .panel{
  background:#fff;
  border:1px solid var(--line);
  border-radius:16px;
- padding:13px;
- margin-bottom:11px;
- box-shadow:0 7px 24px rgba(8,39,61,.08)
+ padding:14px;
+ margin-bottom:12px;
+ box-shadow:0 7px 24px rgba(8,39,61,.08);
 }
-
+h3{color:var(--navy)}
 .controls{
  display:grid;
  grid-template-columns:repeat(4,1fr);
- gap:8px
+ gap:8px;
 }
-
 label{
+ display:block;
  font-size:11px;
  font-weight:bold;
  color:#5f7382;
- display:block;
- margin-bottom:4px
+ margin-bottom:4px;
 }
-
-input,
-select,
-button{
+input,select,button{
  width:100%;
  min-height:44px;
  border:1px solid #cbd1d8;
  border-radius:9px;
  padding:9px;
- font-size:14px
+ font-size:14px;
 }
-
 button{
  font-weight:bold;
- cursor:pointer
+ cursor:pointer;
 }
-
-.primary{
- background:#0b3d62;
- color:#fff
-}
-
-.secondary{
- background:#eef3f6
-}
-
-.locked{
- background:#0a6540;
- color:#fff
-}
-
-.danger{
- background:#fee4e2;
- color:#b42318
-}
-
+.primary{background:#0b3d62;color:#fff}
+.secondary{background:#eef3f6}
+.locked{background:#0a6540;color:#fff}
+.danger{background:#fee4e2;color:#b42318}
 .actions{
  display:grid;
  grid-template-columns:repeat(4,1fr);
  gap:8px;
- margin-top:9px
+ margin-top:10px;
 }
-
 .info{
  display:grid;
  grid-template-columns:repeat(4,1fr);
  gap:7px;
- margin-top:9px
 }
-
 .stat{
  background:#f7f9fb;
  border:1px solid #ddd;
  border-radius:9px;
  text-align:center;
- padding:8px
+ padding:9px;
 }
-
 .stat b{
- font-size:17px;
- display:block
+ display:block;
+ font-size:18px;
+ color:var(--navy);
 }
-
-.stat small{
- color:#667085
-}
-
-.hands{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:9px
-}
-
-.hand{
- border:1px solid #ccd2d8;
- border-radius:12px;
+.stat small{color:#667085}
+.levelbox{
+ background:linear-gradient(135deg,#f8fbfd,#eef6fa);
+ border:1px solid #d8e1e7;
+ border-radius:11px;
  padding:11px;
- background:#fbfdff
+ margin-top:10px;
+ line-height:1.55;
 }
-
-.hand h3{
- margin:0 0 7px;
- color:var(--navy)
-}
-
-.cards{
- font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
- font-size:14px;
- line-height:1.7
-}
-
-.s{
- color:#111
-}
-
-.r{
- color:#c62828
-}
-
-.dist{
- font-size:11px;
- color:#667085;
- margin-top:5px
-}
-
+.levelbox strong{color:var(--navy)}
 .compare{
  display:grid;
  grid-template-columns:1fr 1fr;
- gap:10px
+ gap:12px;
 }
-
 .dealbox{
  border:2px solid #d8e1e7;
- border-radius:13px;
+ border-radius:14px;
  padding:11px;
- background:#fff
+ background:#fff;
 }
-
-.dealbox.first{
- border-color:#0b3d62
-}
-
-.dealbox.second{
- border-color:#0a6540
-}
-
+.dealbox.first{border-color:#0b3d62}
+.dealbox.second{border-color:#0a6540}
 .dealhead{
  display:flex;
  justify-content:space-between;
- gap:8px;
  align-items:center;
- margin-bottom:8px
+ gap:8px;
+ margin-bottom:9px;
 }
-
-.dealhead h3{
- margin:0;
- color:var(--navy)
-}
-
+.dealhead h3{margin:0}
 .badge{
  font-size:11px;
  font-weight:bold;
  padding:5px 8px;
  border-radius:20px;
- background:#edf2f5
+ background:#edf2f5;
 }
-
 .second .badge{
  background:#e6f5ed;
- color:#0a6540
+ color:#0a6540;
 }
-
+.hands{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:9px;
+}
+.hand{
+ border:1px solid #ccd2d8;
+ border-radius:12px;
+ padding:11px;
+ background:#fbfdff;
+}
+.hand h4{
+ margin:0 0 7px;
+ color:var(--navy);
+}
+.cards{
+ font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+ font-size:14px;
+ line-height:1.8;
+ white-space:nowrap;
+}
+.spade,.club{color:#111}
+.heart,.diamond{color:var(--red)}
+.dist{
+ font-size:11px;
+ color:#667085;
+ margin-top:6px;
+}
+.change{
+ margin-top:8px;
+ padding:8px;
+ border-radius:9px;
+ background:#f7f9fb;
+ font-size:11px;
+ line-height:1.5;
+}
+.bidgrid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:8px;
+}
+.bid{
+ border:1px solid #d8e1e7;
+ border-radius:9px;
+ padding:9px;
+ background:#fff;
+ line-height:1.55;
+}
+.bid strong{
+ display:block;
+ color:#073b61;
+ margin-bottom:4px;
+}
 .recommend{
  background:#f7fbf9;
  border:1px solid #b8dcc8;
  border-radius:12px;
  padding:12px;
- line-height:1.55
+ line-height:1.55;
 }
-
-.recommend b{
- color:#0a6540
+.bidtable{
+ width:100%;
+ border-collapse:collapse;
+ font-size:12px;
 }
-
-.bidgrid{
+.bidtable th,.bidtable td{
+ border:1px solid #ccc;
+ padding:7px;
+ text-align:center;
+}
+.bidtable th{background:#edf2f5}
+.bidbuttons{
  display:grid;
- grid-template-columns:repeat(2,1fr);
+ grid-template-columns:repeat(8,1fr);
+ gap:5px;
+ margin-top:8px;
+}
+.bidbuttons button{
+ min-height:38px;
+ padding:5px;
+}
+.contract{
+ background:#fff;
+ border:1px solid #ccd2d8;
+ border-radius:11px;
+ padding:10px;
+ margin-top:9px;
+ line-height:1.55;
+}
+.scorebox{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
  gap:8px;
- margin-top:8px
 }
-
-.bid{
- border:1px solid #d8e1e7;
- border-radius:9px;
- padding:8px;
- background:#fff
-}
-
-.bid strong{
- display:block;
- color:#073b61
-}
-
 .note{
  font-size:12px;
- line-height:1.5;
- color:#475467
+ line-height:1.55;
+ color:#475467;
 }
-
-.tablewrap{
- overflow:auto
-}
-
+.tablewrap{overflow:auto}
 table{
  width:100%;
  border-collapse:collapse;
  font-size:12px;
- min-width:700px
+ min-width:700px;
 }
-
-th,
-td{
+th,td{
  border:1px solid #ccc;
  padding:7px;
- text-align:center
+ text-align:center;
 }
-
-th{
- background:#edf2f5
+th{background:#edf2f5}
+.status{
+ padding:9px;
+ border-radius:9px;
+ background:#f4f7f9;
+ margin-top:8px;
+ font-size:12px;
 }
-
-.setup{
- background:linear-gradient(135deg,#f8fbfd,#eef6fa)
+.success{background:#e8f7ef;color:#075b39}
+.warning{background:#fff7df;color:#775800}
+@media(max-width:800px){
+ .controls,.actions{grid-template-columns:1fr 1fr}
+ .compare{grid-template-columns:1fr}
+ .hands{grid-template-columns:1fr}
+ .info{grid-template-columns:1fr 1fr}
+ .bidgrid{grid-template-columns:1fr}
+ .bidbuttons{grid-template-columns:repeat(4,1fr)}
+ .scorebox{grid-template-columns:1fr}
 }
-
-.levelbox{
- background:#fff;
- border:1px solid #d8e1e7;
- border-radius:10px;
- padding:10px;
- margin-top:9px
+@media(max-width:450px){
+ .controls,.actions{grid-template-columns:1fr}
 }
-
-.levelbox strong{
- color:#073b61
-}
-
-@media(max-width:750px){
-
- .controls,
- .actions,
- .info{
-  grid-template-columns:1fr 1fr
- }
-
- .hands,
- .compare{
-  grid-template-columns:1fr
- }
-
- .bidgrid{
-  grid-template-columns:1fr
- }
-
-}
-
-@media(max-width:440px){
-
- .controls,
- .actions{
-  grid-template-columns:1fr
- }
-
- .info{
-  grid-template-columns:1fr 1fr
- }
-
-}
-
 @media print{
-
- header,
- .setup,
- .actions,
- .no-print{
-  display:none!important
- }
-
- body{
-  background:#fff
- }
-
- .panel{
-  border:0;
-  box-shadow:none
- }
-
- .hands,
- .compare{
-  grid-template-columns:repeat(2,1fr)
- }
-
+ header,.setup,.actions,.no-print{display:none!important}
+ body{background:#fff}
+ .panel{box-shadow:none;border:0}
 }
 </style>
 </head>
@@ -381,330 +300,166 @@ th{
 <body>
 
 <header>
-
 <div class="head">
-
-<div class="brand">
-
-<b>GABSI KOTA TANJUNGBALAI</b>
-
-<small>
-KOCOKAN KARTU BRIDGE • KOCOKAN KARTU PEMBANDING
-</small>
-
+ <div class="brand">
+  <b>GABSI KOTA TANJUNGBALAI</b>
+  <small>KOCOKAN KARTU BRIDGE • KARTU PEMBANDING</small>
+ </div>
+ <a class="home" href="index.html">← Beranda</a>
 </div>
-
-<a class="home" href="index.html">
-← Beranda
-</a>
-
-</div>
-
 </header>
-
 
 <main>
 
-
-<!-- PENGATURAN -->
+<!-- ================= PENGATURAN ================= -->
 
 <section class="panel setup no-print">
 
-<h3 style="margin:0 0 5px">
-Pengaturan Latihan
-</h3>
+<h3 style="margin:0 0 5px">Pengaturan Latihan Bridge</h3>
 
-<p class="note" style="margin-top:0">
-
-Pilih tingkat latihan dan sistem permainan Bridge sebelum menggunakan aplikasi.
-
+<p class="note">
+Pilih tingkatan latihan. Semakin tinggi tingkatan, semakin kompleks latihan
+penawaran dan kontrak yang dapat muncul.
 </p>
-
 
 <div class="controls">
 
 <div>
-
-<label>TINGKAT LATIHAN</label>
-
+<label>TINGKAT PERMAINAN</label>
 <select id="level">
-
-<option value="pemula">
-Pemula
-</option>
-
-<option value="sedang">
-Sedang
-</option>
-
-<option value="mahir">
-Mahir
-</option>
-
-<option value="profesional">
-Profesional
-</option>
-
+<option value="pemula">Pemula</option>
+<option value="sedang">Sedang</option>
+<option value="mahir">Mahir</option>
+<option value="profesional">Profesional</option>
 </select>
-
 </div>
 
-
 <div>
-
-<label>SISTEM PERMAINAN BRIDGE</label>
-
+<label>SISTEM PERMAINAN</label>
 <select id="system">
-
-<option value="standard">
-Standard / Natural
-</option>
-
-<option value="johan">
-Johan
-</option>
-
-<option value="fourcard">
-Four Card
-</option>
-
-<option value="fivecard">
-Five Card
-</option>
-
+<option value="standard">Standard / Natural</option>
+<option value="johan">Johan</option>
+<option value="fourcard">Four Card</option>
+<option value="fivecard">Five Card</option>
 </select>
-
 </div>
 
-
 <div>
-
 <label>NOMOR BOARD</label>
-
-<input
- id="board"
- type="number"
- min="1"
- value="1"
->
-
+<input id="board" type="number" min="1" value="1">
 </div>
-
 
 <div>
-
-<label>SEED / KODE KOCAKAN</label>
-
-<input
- id="seed"
- type="number"
- value="20261001"
->
-
+<label>SEED / KODE DASAR</label>
+<input id="seed" type="number" value="20261006">
 </div>
 
 </div>
-
 
 <div class="levelbox">
-
-<strong id="levelText">
-Pemula
-</strong>
-
+<strong id="levelText">Pemula</strong>
 •
-
-<span id="systemText">
-Standard / Natural
-</span>
-
+<span id="systemText">Standard / Natural</span>
 <br>
-
-<span id="levelDescription">
-Latihan dasar dengan rekomendasi kontrak sampai 2NT.
-</span>
-
+<span id="levelDescription"></span>
 </div>
 
 </section>
 
-
-
-<!-- KONTROL BOARD -->
+<!-- ================= BOARD ================= -->
 
 <section class="panel">
 
 <div class="controls">
 
-
 <div>
-
 <label>DEALER</label>
-
 <select id="dealer">
-
 <option>N</option>
 <option>E</option>
 <option>S</option>
 <option>W</option>
-
 </select>
-
 </div>
 
-
 <div>
-
 <label>VULNERABILITY</label>
-
 <select id="vul">
-
 <option>None</option>
 <option>N-S</option>
 <option>E-W</option>
 <option>Both</option>
-
 </select>
-
 </div>
 
-
 <div>
-
 <label>STATUS BOARD</label>
-
-<input
- id="boardStatus"
- value="Siap"
- readonly
->
-
+<input id="boardStatus" value="Siap" readonly>
 </div>
-
 
 <div>
-
-<label>MODE</label>
-
-<input
- value="Pembanding 2 Deal"
- readonly
->
-
+<label>KOCAKAN</label>
+<input id="shuffleNo" value="Belum dikocok" readonly>
 </div>
 
 </div>
-
 
 <div class="actions">
 
-<button
- class="primary"
- id="shuffle"
->
+<button class="primary" id="shuffle">
 🎴 KOCOK & BAGIKAN
 </button>
 
-
-<button
- class="secondary"
- id="same"
->
+<button class="secondary" id="same">
 🔁 DEAL SAMA
 </button>
 
-
-<button
- class="locked"
- id="lock"
->
+<button class="locked" id="lock">
 🔒 KUNCI BOARD
 </button>
 
-
-<button
- class="secondary"
- id="print"
->
+<button class="secondary" id="print">
 🖨️ CETAK
 </button>
 
 </div>
 
-
-<p
- id="status"
- class="note"
->
-Pilih tingkat dan sistem, lalu tekan KOCOK & BAGIKAN.
-</p>
+<div id="status" class="status">
+Tekan <b>KOCOK & BAGIKAN</b> untuk membuat pembagian kartu.
+</div>
 
 </section>
 
-
-
-<!-- DUA KOCAKAN -->
+<!-- ================= PERBANDINGAN ================= -->
 
 <section class="panel">
 
 <h3 style="margin-top:0">
-
 Kocokan Kartu Pembanding —
 Board <span id="boardLabel">1</span>
-
 </h3>
 
-
 <div class="compare">
-
-
-<!-- DEAL A -->
 
 <div class="dealbox first">
 
 <div class="dealhead">
-
-<h3>
-Kocokan Kartu Pertama
-</h3>
-
-<span class="badge">
-DEAL A
-</span>
-
+<h3>Kocokan Kartu Pertama</h3>
+<span class="badge">DEAL A</span>
 </div>
 
-
-<div
- id="handsA"
- class="hands"
-></div>
+<div id="handsA" class="hands"></div>
 
 </div>
-
-
-
-<!-- DEAL B -->
 
 <div class="dealbox second">
 
 <div class="dealhead">
-
-<h3>
-Kartu Pembanding
-</h3>
-
-<span class="badge">
-DEAL B
-</span>
-
+<h3>Kocokan Kartu Pembanding</h3>
+<span class="badge">DEAL B</span>
 </div>
 
-
-<div
- id="handsB"
- class="hands"
-></div>
+<div id="handsB" class="hands"></div>
 
 </div>
 
@@ -712,282 +467,257 @@ DEAL B
 
 </section>
 
-
-
-<!-- HCP -->
+<!-- ================= PERUBAHAN ================= -->
 
 <section class="panel">
 
 <h3 style="margin-top:0">
-HCP Setiap Posisi
+Perubahan Kocokan Kartu
 </h3>
 
+<div class="note">
+Bagian ini menunjukkan perubahan antara Kocokan Kartu Pertama dan
+Kocokan Kartu Pembanding setelah tombol <b>Kocok & Bagikan</b> ditekan.
+</div>
+
+<div id="changes" class="bidgrid" style="margin-top:9px"></div>
+
+</section>
+
+<!-- ================= HCP ================= -->
+
+<section class="panel">
+
+<h3 style="margin-top:0">HCP Setiap Posisi</h3>
 
 <div class="compare">
 
+<div>
+<b>Kocokan Kartu Pertama</b>
+<div class="info" style="margin-top:8px">
+
+<div class="stat"><b id="aN">0</b><small>Utara</small></div>
+<div class="stat"><b id="aE">0</b><small>Timur</small></div>
+<div class="stat"><b id="aS">0</b><small>Selatan</small></div>
+<div class="stat"><b id="aW">0</b><small>Barat</small></div>
+
+</div>
+</div>
 
 <div>
+<b>Kocokan Kartu Pembanding</b>
+<div class="info" style="margin-top:8px">
 
-<b>
-Kocokan Kartu Pertama
-</b>
-
-
-<div class="info">
-
-
-<div class="stat">
-
-<b id="aN">
-0
-</b>
-
-<small>
-HCP Utara
-</small>
+<div class="stat"><b id="bN">0</b><small>Utara</small></div>
+<div class="stat"><b id="bE">0</b><small>Timur</small></div>
+<div class="stat"><b id="bS">0</b><small>Selatan</small></div>
+<div class="stat"><b id="bW">0</b><small>Barat</small></div>
 
 </div>
-
-
-<div class="stat">
-
-<b id="aE">
-0
-</b>
-
-<small>
-HCP Timur
-</small>
-
 </div>
-
-
-<div class="stat">
-
-<b id="aS">
-0
-</b>
-
-<small>
-HCP Selatan
-</small>
-
-</div>
-
-
-<div class="stat">
-
-<b id="aW">
-0
-</b>
-
-<small>
-HCP Barat
-</small>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<div>
-
-<b>
-Kartu Pembanding
-</b>
-
-
-<div class="info">
-
-
-<div class="stat">
-
-<b id="bN">
-0
-</b>
-
-<small>
-HCP Utara
-</small>
-
-</div>
-
-
-<div class="stat">
-
-<b id="bE">
-0
-</b>
-
-<small>
-HCP Timur
-</small>
-
-</div>
-
-
-<div class="stat">
-
-<b id="bS">
-0
-</b>
-
-<small>
-HCP Selatan
-</small>
-
-</div>
-
-
-<div class="stat">
-
-<b id="bW">
-0
-</b>
-
-<small>
-HCP Barat
-</small>
-
-</div>
-
-
-</div>
-
-</div>
-
 
 </div>
 
 </section>
 
-
-
-<!-- REKOMENDASI -->
+<!-- ================= REKOMENDASI ================= -->
 
 <section class="panel">
 
 <h3 style="margin-top:0">
-
-Rekomendasi Komputer untuk Penawaran Terbaik
-
+Analisis dan Rekomendasi Penawaran
 </h3>
 
-
-<div
- class="recommend"
- id="recommendation"
->
-
-Belum ada deal.
-
-Silakan lakukan kocokan terlebih dahulu.
-
+<div class="recommend" id="recommendation">
+Belum ada kocokan kartu.
 </div>
 
 </section>
 
-
-
-<!-- REKAP -->
+<!-- ================= LATIHAN BIDDING ================= -->
 
 <section class="panel no-print">
 
 <h3 style="margin-top:0">
-Rekap Meja Pembanding
+Latihan Penawaran Bridge
 </h3>
 
+<div class="controls">
 
-<div class="note">
+<div>
+<label>POSISI ANDA</label>
+<select id="myPosition">
+<option value="S">Selatan</option>
+<option value="N">Utara</option>
+<option value="E">Timur</option>
+<option value="W">Barat</option>
+</select>
+</div>
 
-Masukkan hasil score dari meja lain untuk Board yang sama.
+<div>
+<label>PEMAIN AKTIF</label>
+<input id="bidTurn" value="Utara" readonly>
+</div>
 
-Data tersimpan di browser perangkat ini.
+<div>
+<label>JUMLAH PENAWARAN</label>
+<input id="bidCount" value="0" readonly>
+</div>
+
+<div>
+<label>STATUS</label>
+<input id="bidStatus" value="Menunggu" readonly>
+</div>
 
 </div>
 
+<div class="contract">
 
-<div
- class="controls"
- style="margin-top:8px"
->
+<b>Urutan penawaran:</b>
+<br>
+Dealer → searah jarum jam → penawaran tertinggi yang sah menjadi kontrak.
 
+<div class="bidbuttons">
+
+<button data-bid="PASS">PASS</button>
+<button data-bid="1C">1♣</button>
+<button data-bid="1D">1♦</button>
+<button data-bid="1H">1♥</button>
+<button data-bid="1S">1♠</button>
+<button data-bid="1NT">1NT</button>
+<button data-bid="DOUBLE">X</button>
+<button data-bid="REDOUBLE">XX</button>
+
+</div>
+
+<div class="bidbuttons">
+<button data-bid="2C">2♣</button>
+<button data-bid="2D">2♦</button>
+<button data-bid="2H">2♥</button>
+<button data-bid="2S">2♠</button>
+<button data-bid="2NT">2NT</button>
+<button data-bid="3NT">3NT</button>
+<button data-bid="4NT">4NT</button>
+<button data-bid="5NT">5NT</button>
+</div>
+
+<div class="bidbuttons">
+<button data-bid="6NT">6NT</button>
+<button data-bid="7NT">7NT</button>
+<button id="newAuction">↻ PENAWARAN BARU</button>
+</div>
+
+</div>
+
+<div class="tablewrap" style="margin-top:10px">
+
+<table class="bidtable">
+
+<thead>
+<tr>
+<th>No</th>
+<th>Posisi</th>
+<th>Penawaran</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+
+<tbody id="auctionRows"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ================= SKOR ================= -->
+
+<section class="panel no-print">
+
+<h3 style="margin-top:0">
+Kalkulator Skor Bridge
+</h3>
+
+<div class="scorebox">
 
 <div>
+<label>KONTRAK</label>
+<select id="scoreContract">
+<option value="1NT">1NT</option>
+<option value="2NT">2NT</option>
+<option value="3NT">3NT</option>
+<option value="4NT">4NT</option>
+<option value="5NT">5NT</option>
+<option value="6NT">6NT</option>
+<option value="7NT">7NT</option>
+</select>
+</div>
 
+<div>
+<label>TRICK DIMENANGKAN</label>
+<input id="tricks" type="number" min="0" max="13" value="9">
+</div>
+
+<div>
+<label>DOUBLE</label>
+<select id="dbl">
+<option value="0">Tidak</option>
+<option value="1">Double</option>
+<option value="2">Redouble</option>
+</select>
+</div>
+
+</div>
+
+<button class="primary" id="calculateScore" style="margin-top:8px">
+Hitung Skor
+</button>
+
+<div id="scoreResult" class="recommend" style="margin-top:9px">
+Masukkan kontrak dan jumlah trick.
+</div>
+
+</section>
+
+<!-- ================= REKAP ================= -->
+
+<section class="panel no-print">
+
+<h3 style="margin-top:0">Rekap Meja Pembanding</h3>
+
+<div class="controls">
+
+<div>
 <label>MEJA</label>
-
-<input
- id="tableNo"
- placeholder="1"
->
-
+<input id="tableNo" placeholder="1">
 </div>
 
-
 <div>
-
 <label>NS</label>
-
-<input
- id="ns"
- placeholder="NS-01"
->
-
+<input id="ns" placeholder="NS-01">
 </div>
 
-
 <div>
-
 <label>EW</label>
-
-<input
- id="ew"
- placeholder="EW-01"
->
-
+<input id="ew" placeholder="EW-01">
 </div>
-
 
 <div>
-
 <label>SCORE NS</label>
-
-<input
- id="score"
- type="number"
- placeholder="420"
->
-
+<input id="score" type="number" placeholder="420">
 </div>
 
 </div>
 
-
-<button
- class="primary"
- id="add"
- style="margin-top:8px"
->
+<button class="primary" id="add" style="margin-top:8px">
 Tambah Hasil Meja
 </button>
 
-
-<div
- class="tablewrap"
- style="margin-top:10px"
->
+<div class="tablewrap" style="margin-top:10px">
 
 <table>
-
 <thead>
-
 <tr>
-
 <th>Board</th>
 <th>Meja</th>
 <th>NS</th>
@@ -995,160 +725,174 @@ Tambah Hasil Meja
 <th>Score NS</th>
 <th>Rata-rata</th>
 <th>Selisih</th>
-
 </tr>
-
 </thead>
 
-
-<tbody id="rows">
-</tbody>
-
+<tbody id="rows"></tbody>
 </table>
 
 </div>
 
-
-<button
- class="danger"
- id="clear"
- style="margin-top:8px"
->
+<button class="danger" id="clear" style="margin-top:8px">
 Hapus Rekap
 </button>
 
 </section>
 
+<!-- ================= KETERANGAN TINGKATAN ================= -->
 
+<section class="panel">
 
-<section class="panel no-print">
+<h3 style="margin-top:0">
+Keterangan Tingkatan Permainan Bridge
+</h3>
 
-<div class="note">
+<div class="bidgrid">
 
-<b>Catatan:</b>
+<div class="bid">
+<strong>🟢 PEMULA</strong>
+Belajar dasar Bridge:
+<br>• mengenal 52 kartu
+<br>• HCP
+<br>• distribusi
+<br>• dealer dan vulnerability
+<br>• opening sederhana
+<br>• Pass
+<br>• kontrak sampai <b>2NT</b>
+</div>
 
-Kocokan pertama dan kartu pembanding dibuat berbeda,
-tetapi keduanya dapat dipanggil kembali secara identik
-menggunakan Board + Seed yang sama.
+<div class="bid">
+<strong>🔵 SEDANG</strong>
+Mulai memahami:
+<br>• opening bid
+<br>• response
+<br>• rebid
+<br>• balanced hand
+<br>• fit
+<br>• competitive bidding
+<br>• kontrak sampai <b>3NT</b>
+</div>
 
-Gunakan
+<div class="bid">
+<strong>🟠 MAHIR</strong>
+Latihan lebih kompleks:
+<br>• competitive bidding
+<br>• evaluasi distribusi
+<br>• major/minor fit
+<br>• stopper
+<br>• slam invitation
+<br>• Double
+<br>• kontrak sampai <b>6NT</b>
+</div>
 
-<b>DEAL SAMA</b>
-
-untuk memanggil kembali pasangan deal yang sama.
-
-<br><br>
-
-Rekomendasi komputer adalah alat bantu latihan.
-Keputusan penawaran akhir tetap harus mempertimbangkan
-HCP, distribusi, fit, kontrol, stopper, vulnerability,
-dealer, serta sistem pasangan yang digunakan.
+<div class="bid">
+<strong>🔴 PROFESIONAL</strong>
+Latihan tingkat tinggi:
+<br>• seluruh level penawaran
+<br>• Double / Redouble
+<br>• slam bidding
+<br>• Grand Slam
+<br>• evaluasi vulnerability
+<br>• keputusan kompetitif
+<br>• kontrak sampai <b>7NT</b>
+</div>
 
 </div>
 
 </section>
 
+<section class="panel">
+
+<div class="note">
+
+<b>Catatan penting:</b><br><br>
+
+Kocokan Kartu Pertama dan Kocokan Kartu Pembanding menggunakan dua
+pembagian kartu yang berbeda. Setiap kali <b>Kocok & Bagikan</b> ditekan,
+kode kocokan berubah sehingga pembagian kartu dapat berubah.
+
+<b>DEAL SAMA</b> digunakan untuk memanggil kembali pembagian berdasarkan
+Board dan kode kocokan yang sedang aktif.
+
+Rekomendasi komputer hanya merupakan alat bantu latihan. Dalam permainan
+Bridge sebenarnya, keputusan penawaran harus mempertimbangkan sistem
+pasangan, HCP, distribusi, fit, stopper, kontrol, vulnerability, dealer,
+dan informasi dari penawaran lawan.
+
+</div>
+
+</section>
 
 </main>
-
-
 
 <script>
 
 /* =========================================================
-   DATA DASAR
+   DATA
 ========================================================= */
 
 const suits=[
- ['♠','s'],
- ['♥','r'],
- ['♦','r'],
- ['♣','s']
+ {symbol:"♠",name:"Spade",class:"spade"},
+ {symbol:"♥",name:"Heart",class:"heart"},
+ {symbol:"♦",name:"Diamond",class:"diamond"},
+ {symbol:"♣",name:"Club",class:"club"}
 ];
 
 const ranks=[
- 'A','K','Q','J','10','9','8','7','6','5','4','3','2'
+ "A","K","Q","J","10","9","8","7","6","5","4","3","2"
 ];
 
-
-/* =========================================================
-   TINGKAT LATIHAN
-========================================================= */
-
 const LEVELS={
-
  pemula:{
-  name:'Pemula',
-  maxLevel:2,
-  description:'Latihan dasar dengan rekomendasi kontrak sampai 2NT.'
+  name:"Pemula",
+  max:2,
+  desc:"Latihan dasar HCP, distribusi, opening sederhana dan kontrak sampai 2NT."
  },
-
  sedang:{
-  name:'Sedang',
-  maxLevel:3,
-  description:'Latihan menengah dengan rekomendasi kontrak sampai 3NT.'
+  name:"Sedang",
+  max:3,
+  desc:"Latihan opening, response, rebid, fit dan kontrak sampai 3NT."
  },
-
  mahir:{
-  name:'Mahir',
-  maxLevel:6,
-  description:'Latihan lanjutan dengan rekomendasi kontrak sampai 6NT.'
+  name:"Mahir",
+  max:6,
+  desc:"Latihan competitive bidding, fit, stopper, Double dan slam sampai 6NT."
  },
-
  profesional:{
-  name:'Profesional',
-  maxLevel:7,
-  description:'Latihan profesional dengan rekomendasi kontrak sampai 7NT.'
+  name:"Profesional",
+  max:7,
+  desc:"Latihan penawaran tingkat tinggi sampai 7NT termasuk Double dan Redouble."
  }
-
 };
-
-
-/* =========================================================
-   SISTEM BRIDGE
-========================================================= */
 
 const SYSTEMS={
-
- standard:'Standard / Natural',
-
- johan:'Johan',
-
- fourcard:'Four Card',
-
- fivecard:'Five Card'
-
+ standard:"Standard / Natural",
+ johan:"Johan",
+ fourcard:"Four Card",
+ fivecard:"Five Card"
 };
 
-
-/* =========================================================
-   VARIABEL
-========================================================= */
-
-let deals={
- A:null,
- B:null
+const POS={
+ N:"Utara",
+ E:"Timur",
+ S:"Selatan",
+ W:"Barat"
 };
 
+let deals={A:null,B:null};
 let locked=false;
-
-let results=
- JSON.parse(
-  localStorage.getItem(
-   'gabsi_compare_results_v3'
-  )||'[]'
- );
-
-
-/* =========================================================
-   HELPER
-========================================================= */
+let shuffleCounter=0;
+let activeSeed=20261006;
+let auction=[];
+let results=JSON.parse(
+ localStorage.getItem("gabsi_compare_results_v4")||"[]"
+);
 
 const $=id=>document.getElementById(id);
 
 
 /* =========================================================
-   RANDOM DETERMINISTIK
+   RANDOM
 ========================================================= */
 
 function rng(seed){
@@ -1156,31 +900,21 @@ function rng(seed){
  return function(){
 
   seed|=0;
+  seed=seed+0x6D2B79F5|0;
 
-  seed=
-   seed+
-   0x6D2B79F5|
-   0;
+  let t=Math.imul(
+   seed^seed>>>15,
+   1|seed
+  );
 
-  let t=
-   Math.imul(
-    seed^seed>>>15,
-    1|seed
-   );
-
-  t=
-   t+
+  t=t+
    Math.imul(
     t^t>>>7,
     61|t
    )^t;
 
-  return(
-   (t^t>>>14)>>>0
-  )/4294967296;
-
+  return ((t^t>>>14)>>>0)/4294967296;
  };
-
 }
 
 
@@ -1188,103 +922,51 @@ function rng(seed){
    DECK
 ========================================================= */
 
-function shuffledDeck(seed){
+function makeDeck(seed){
 
- let deck=[];
+ const deck=[];
 
- for(
-  let s=0;
-  s<4;
-  s++
- ){
+ for(let s=0;s<4;s++){
 
-  for(
-   let r=0;
-   r<13;
-   r++
-  ){
+  for(let r=0;r<13;r++){
 
-   deck.push({
-    s:s,
-    r:r
-   });
+   deck.push({s,r});
 
   }
 
  }
 
+ const random=rng(seed>>>0);
 
- let random=rng(
-  seed>>>0
- );
+ for(let i=51;i>0;i--){
 
+  const j=Math.floor(
+   random()*(i+1)
+  );
 
- for(
-  let i=51;
-  i>0;
-  i--
- ){
-
-  let j=
-   Math.floor(
-    random()*(i+1)
-   );
-
-  [
-   deck[i],
-   deck[j]
-  ]=[
-   deck[j],
-   deck[i]
-  ];
+  [deck[i],deck[j]]=
+  [deck[j],deck[i]];
 
  }
 
-
  return deck;
-
 }
 
 
 /* =========================================================
-   MEMBUAT DEAL
+   DEAL
 ========================================================= */
 
-function makeDeal(offset){
+function makeDeal(seed){
 
- let board=
-  Number($('board').value)||1;
-
- let seed=
-  Number($('seed').value)||1;
-
-
- let finalSeed=
-  (
-   (seed>>>0)+
-   (board*7919)+
-   offset
-  )>>>0;
-
-
- let deck=
-  shuffledDeck(
-   finalSeed
-  );
-
+ const deck=makeDeck(seed);
 
  return{
-
   N:deck.slice(0,13),
-
   E:deck.slice(13,26),
-
   S:deck.slice(26,39),
-
   W:deck.slice(39,52)
-
  };
-
 }
 
 
@@ -1294,27 +976,16 @@ function makeDeal(offset){
 
 function hcp(hand){
 
- return hand.reduce(
-  (total,card)=>{
+ return hand.reduce((total,c)=>{
 
-   if(card.r===0)
-    return total+4;
+  if(c.r===0)return total+4;
+  if(c.r===1)return total+3;
+  if(c.r===2)return total+2;
+  if(c.r===3)return total+1;
 
-   if(card.r===1)
-    return total+3;
+  return total;
 
-   if(card.r===2)
-    return total+2;
-
-   if(card.r===3)
-    return total+1;
-
-   return total;
-
-  },
-  0
- );
-
+ },0);
 }
 
 
@@ -1322,237 +993,147 @@ function hcp(hand){
    DISTRIBUSI
 ========================================================= */
 
-function suitCounts(hand){
+function counts(hand){
 
- return[
-  0,1,2,3
- ].map(
-  suit=>
-   hand.filter(
-    card=>card.s===suit
-   ).length
+ return [0,1,2,3].map(
+  s=>hand.filter(c=>c.s===s).length
  );
-
 }
 
+function distribution(hand){
 
-function dist(hand){
+ return counts(hand).join("-");
+}
 
- return suitCounts(hand).join('-');
+function longestSuit(hand){
 
+ const c=counts(hand);
+ let index=0;
+
+ for(let i=1;i<4;i++){
+
+  if(c[i]>c[index])index=i;
+
+ }
+
+ return suits[index].symbol;
 }
 
 
 /* =========================================================
-   HTML KARTU
+   FORMAT KARTU
+========================================================= */
+
+function cardsHTML(hand){
+
+ return suits.map((suit,index)=>{
+
+  const cards=hand
+   .filter(c=>c.s===index)
+   .sort((a,b)=>a.r-b.r)
+   .map(c=>ranks[c.r])
+   .join(" ");
+
+  return `
+   <div class="cards ${suit.class}">
+    <b>${suit.symbol}</b> ${cards}
+   </div>
+  `;
+
+ }).join("");
+}
+
+
+/* =========================================================
+   HAND
 ========================================================= */
 
 function handHTML(position,hand){
 
- const names={
-  N:'Utara',
-  E:'Timur',
-  S:'Selatan',
-  W:'Barat'
- };
+ const h=hcp(hand);
+
+ let shape=counts(hand);
+
+ let balanced=
+  shape.every(x=>x>=2&&x<=5);
 
  return `
-
  <div class="hand">
 
- <h3>
- ${names[position]}
- (${position})
- —
- ${hcp(hand)}
- HCP
- </h3>
+  <h4>
+   ${POS[position]} (${position})
+   — <b>${h} HCP</b>
+  </h4>
 
- ${
-  suits.map(
-   (suit,index)=>`
+  ${cardsHTML(hand)}
 
-   <div class="cards ${suit[1]}">
-
-   ${suit[0]}
-
-   ${
-    hand
-    .filter(card=>card.s===index)
-    .sort((a,b)=>a.r-b.r)
-    .map(card=>ranks[card.r])
-    .join(' ')
-   }
-
-   </div>
-
-   `
-  ).join('')
- }
-
- <div class="dist">
- Distribusi ${dist(hand)}
- </div>
+  <div class="dist">
+   Distribusi: <b>${distribution(hand)}</b>
+   • ${balanced?"Balanced":"Unbalanced"}
+  </div>
 
  </div>
-
  `;
 
 }
 
 
 /* =========================================================
-   RENDER DEAL
+   RENDER
 ========================================================= */
 
 function renderDeal(target,deal){
 
  $(target).innerHTML=
-  ['N','E','S','W']
-  .map(
-   position=>
-    handHTML(
-     position,
-     deal[position]
-    )
-  )
-  .join('');
+  ["N","E","S","W"]
+  .map(p=>handHTML(p,deal[p]))
+  .join("");
 
 }
 
 
 /* =========================================================
-   TOTAL HCP
+   TOTAL
 ========================================================= */
 
 function totals(deal){
 
  return{
-
   N:hcp(deal.N),
   E:hcp(deal.E),
   S:hcp(deal.S),
   W:hcp(deal.W)
-
  };
 
 }
 
 
 /* =========================================================
-   SUIT TERPANJANG
+   LEVEL REKOMENDASI
 ========================================================= */
 
-function highestSuit(hand){
+function contractRecommendation(total,level){
 
- const counts=
-  suitCounts(hand);
+ const max=LEVELS[level].max;
 
- let best=0;
+ if(total<20)return "PASS";
 
- for(
-  let i=1;
-  i<4;
-  i++
- ){
+ if(total<22)
+  return max>=2?"2NT":"PASS";
 
-  if(
-   counts[i]>counts[best]
-  ){
+ if(total<25)
+  return max>=3?"3NT":"2NT";
 
-   best=i;
+ if(total<28)
+  return max>=4?"4NT":"3NT";
 
-  }
+ if(total<30)
+  return max>=5?"5NT":"4NT";
 
- }
+ if(total<33)
+  return max>=6?"6NT":"5NT";
 
-
- return[
-  '♠',
-  '♥',
-  '♦',
-  '♣'
- ][best];
-
-}
-
-
-/* =========================================================
-   KONTRAK BERDASARKAN LEVEL
-========================================================= */
-
-function contractFor(
- totalHCP,
- level
-){
-
- const max=
-  LEVELS[level].maxLevel;
-
-
- if(totalHCP<20){
-
-  return 'PASS';
-
- }
-
-
- if(totalHCP<22){
-
-  return max>=2
-   ?'2NT'
-   :'PASS';
-
- }
-
-
- if(totalHCP<25){
-
-  return max>=3
-   ?'3NT'
-   :'2NT';
-
- }
-
-
- if(totalHCP<28){
-
-  return max>=4
-   ?'4NT'
-   :'3NT';
-
- }
-
-
- if(totalHCP<30){
-
-  return max>=5
-   ?'5NT'
-   :'4NT';
-
- }
-
-
- if(totalHCP<33){
-
-  return max>=6
-   ?'6NT'
-   :'5NT';
-
- }
-
-
- if(totalHCP>=33){
-
-  return max>=7
-   ?'7NT'
-   :'6NT';
-
- }
-
-
- return 'PASS';
-
+ return max>=7?"7NT":"6NT";
 }
 
 
@@ -1560,229 +1141,146 @@ function contractFor(
    REKOMENDASI
 ========================================================= */
 
-function recommendation(){
+function buildRecommendation(){
 
- if(!deals.A||!deals.B){
+ if(!deals.A||!deals.B)
+  return "Belum ada deal.";
 
-  return 'Belum ada deal. Silakan lakukan kocokan terlebih dahulu.';
+ const A=totals(deals.A);
+ const B=totals(deals.B);
 
- }
+ const level=$("level").value;
+ const system=$("system").value;
 
+ const nsA=A.N+A.S;
+ const ewA=A.E+A.W;
 
- const A=
-  totals(deals.A);
+ const nsB=B.N+B.S;
+ const ewB=B.E+B.W;
 
- const B=
-  totals(deals.B);
+ const sideA=nsA>=ewA?"NS":"EW";
+ const sideB=nsB>=ewB?"NS":"EW";
 
- const level=
-  $('level').value;
-
- const system=
-  $('system').value;
-
-
- const nsA=
-  A.N+A.S;
-
- const ewA=
-  A.E+A.W;
-
-
- const nsB=
-  B.N+B.S;
-
- const ewB=
-  B.E+B.W;
-
-
- const sideA=
-  nsA>=ewA
-   ?'NS'
-   :'EW';
-
-
- const sideB=
-  nsB>=ewB
-   ?'NS'
-   :'EW';
-
-
- const totalA=
-  sideA==='NS'
-   ?nsA
-   :ewA;
-
-
- const totalB=
-  sideB==='NS'
-   ?nsB
-   :ewB;
-
+ const totalA=sideA==="NS"?nsA:ewA;
+ const totalB=sideB==="NS"?nsB:ewB;
 
  const contractA=
-  contractFor(
-   totalA,
-   level
-  );
-
+  contractRecommendation(totalA,level);
 
  const contractB=
-  contractFor(
-   totalB,
-   level
-  );
+  contractRecommendation(totalB,level);
 
+ let systemNote="";
 
- const handA=
-  sideA==='NS'
-   ?deals.A.N
-   :deals.A.E;
-
-
- const handB=
-  sideB==='NS'
-   ?deals.B.N
-   :deals.B.E;
-
-
- const suitA=
-  highestSuit(handA);
-
-
- const suitB=
-  highestSuit(handB);
-
-
- let systemNote='';
-
-
- if(system==='fivecard'){
-
+ if(system==="fivecard")
   systemNote=
-   'Prioritaskan evaluasi major 5 kartu dan cari fit 8 kartu sebelum memilih kontrak NT.';
+   "Utamakan evaluasi major 5 kartu dan kemungkinan fit 8 kartu.";
 
- }
-
- else if(system==='fourcard'){
-
+ else if(system==="fourcard")
   systemNote=
-   'Perhatikan pola Four Card dan evaluasi fit sebelum menaikkan level kontrak.';
+   "Perhatikan pola Four Card dan evaluasi fit sebelum memilih NT.";
 
- }
-
- else if(system==='johan'){
-
+ else if(system==="johan")
   systemNote=
-   'Gunakan prinsip sistem Johan yang dipilih untuk latihan. Komputer memberikan panduan HCP dan level kontrak.';
+   "Gunakan prinsip sistem Johan yang sedang dilatih.";
 
- }
-
- else{
-
+ else
   systemNote=
-   'Gunakan prinsip natural dengan mengevaluasi HCP, distribusi, fit dan stopper.';
-
- }
-
+   "Gunakan prinsip natural berdasarkan HCP, distribusi, fit dan stopper.";
 
  return `
 
- <b>
- Konfigurasi:
- </b>
+ <b>Tingkat:</b> ${LEVELS[level].name}
+ • <b>Sistem:</b> ${SYSTEMS[system]}
 
- ${LEVELS[level].name}
- •
- ${SYSTEMS[system]}
+ <div class="bidgrid" style="margin-top:9px">
 
- <div class="bidgrid">
+  <div class="bid">
+   <strong>Kocokan Kartu Pertama</strong>
+   NS = ${nsA} HCP<br>
+   EW = ${ewA} HCP<br>
+   Pihak kuat = <b>${sideA}</b><br>
+   Suit terpanjang = ${
+    longestSuit(
+     sideA==="NS"?deals.A.N:deals.A.E
+    )
+   }<br>
+   Rekomendasi = <b>${contractA}</b>
+  </div>
 
-
- <div class="bid">
-
- <strong>
- Kocokan Kartu Pertama (A)
- </strong>
-
- NS:
- ${nsA} HCP
-
- •
- EW:
- ${ewA} HCP
-
- <br>
-
- Pihak kuat:
- <b>${sideA}</b>
-
- <br>
-
- Suit terpanjang:
- <b>${suitA}</b>
-
- <br>
-
- Rekomendasi kontrak:
-
- <b>
- ${contractA}
- </b>
+  <div class="bid">
+   <strong>Kocokan Kartu Pembanding</strong>
+   NS = ${nsB} HCP<br>
+   EW = ${ewB} HCP<br>
+   Pihak kuat = <b>${sideB}</b><br>
+   Suit terpanjang = ${
+    longestSuit(
+     sideB==="NS"?deals.B.N:deals.B.E
+    )
+   }<br>
+   Rekomendasi = <b>${contractB}</b>
+  </div>
 
  </div>
-
-
-
- <div class="bid">
-
- <strong>
- Kartu Pembanding (B)
- </strong>
-
- NS:
- ${nsB} HCP
-
- •
- EW:
- ${ewB} HCP
-
- <br>
-
- Pihak kuat:
- <b>${sideB}</b>
-
- <br>
-
- Suit terpanjang:
- <b>${suitB}</b>
-
- <br>
-
- Rekomendasi kontrak:
-
- <b>
- ${contractB}
- </b>
-
- </div>
-
-
- </div>
-
 
  <p style="margin-bottom:0">
-
- <b>
- Catatan komputer:
- </b>
-
- ${systemNote}
-
+ <b>Petunjuk:</b> ${systemNote}
  </p>
-
  `;
+}
 
+
+/* =========================================================
+   PERUBAHAN KARTU
+========================================================= */
+
+function compareHands(a,b){
+
+ const result=[];
+
+ ["N","E","S","W"].forEach(p=>{
+
+  const setA=
+   new Set(
+    a[p].map(
+     c=>c.s+"-"+c.r
+    )
+   );
+
+  const setB=
+   new Set(
+    b[p].map(
+     c=>c.s+"-"+c.r
+    )
+   );
+
+  let gained=0;
+  let lost=0;
+
+  setB.forEach(c=>{
+   if(!setA.has(c))gained++;
+  });
+
+  setA.forEach(c=>{
+   if(!setB.has(c))lost++;
+  });
+
+  result.push(`
+   <div class="bid">
+    <strong>${POS[p]}</strong>
+    ${lost} kartu berpindah keluar,
+    ${gained} kartu baru masuk.
+    <br>
+    HCP:
+    <b>${hcp(a[p])}</b>
+    →
+    <b>${hcp(b[p])}</b>
+   </div>
+  `);
+
+ });
+
+ return result.join("");
 }
 
 
@@ -1792,454 +1290,616 @@ function recommendation(){
 
 function render(){
 
- if(
-  !deals.A||
-  !deals.B
- ){
+ if(!deals.A||!deals.B)return;
 
-  return;
+ renderDeal("handsA",deals.A);
+ renderDeal("handsB",deals.B);
 
- }
+ ["N","E","S","W"].forEach(p=>{
 
+  $("a"+p).textContent=hcp(deals.A[p]);
+  $("b"+p).textContent=hcp(deals.B[p]);
 
- renderDeal(
-  'handsA',
-  deals.A
- );
+ });
 
+ $("boardLabel").textContent=
+  $("board").value;
 
- renderDeal(
-  'handsB',
-  deals.B
- );
+ $("recommendation").innerHTML=
+  buildRecommendation();
 
-
- ['N','E','S','W']
- .forEach(
-  position=>{
-
-   $(
-    'a'+position
-   ).textContent=
-    hcp(
-     deals.A[position]
-    );
-
-
-   $(
-    'b'+position
-   ).textContent=
-    hcp(
-     deals.B[position]
-    );
-
-  }
- );
-
-
- $('boardLabel')
-  .textContent=
-   $('board').value;
-
-
- $('recommendation')
-  .innerHTML=
-   recommendation();
+ $("changes").innerHTML=
+  compareHands(deals.A,deals.B);
 
 }
 
 
 /* =========================================================
-   KOCAKAN
+   GENERATE KOCAKAN
 ========================================================= */
 
 function generate(){
 
  if(locked){
 
-  $('status').textContent=
-   'Board sedang dikunci. Tekan BUKA KUNCI untuk mengganti kocokan.';
+  $("status").innerHTML=
+   "Board sedang <b>dikunci</b>. Buka kunci terlebih dahulu.";
 
   return;
-
  }
 
+ shuffleCounter++;
+
+ const board=
+  Number($("board").value)||1;
+
+ const base=
+  Number($("seed").value)||1;
+
+ /*
+  Setiap klik mendapatkan seed baru.
+  Deal A dan B selalu berbeda.
+ */
+
+ activeSeed=
+  (
+   base+
+   board*7919+
+   shuffleCounter*104729
+  )>>>0;
 
  deals.A=
-  makeDeal(101);
-
+  makeDeal(
+   activeSeed+101
+  );
 
  deals.B=
-  makeDeal(202);
-
+  makeDeal(
+   activeSeed+202
+  );
 
  render();
 
+ $("shuffleNo").value=
+  "Kocokan #"+shuffleCounter;
 
- $('boardStatus').value=
-  'Aktif';
+ $("boardStatus").value=
+  "Aktif";
 
+ $("status").className=
+  "status success";
 
- $('status').textContent=
-  'Kocokan kartu pertama dan kartu pembanding berhasil dibuat. Gunakan Board + Seed yang sama untuk mengulang deal.';
-
-}
-
-
-/* =========================================================
-   PENGATURAN
-========================================================= */
-
-function updateSetup(){
-
- const level=
-  $('level').value;
-
- const system=
-  $('system').value;
-
-
- $('levelText').textContent=
-  LEVELS[level].name;
-
-
- $('systemText').textContent=
-  SYSTEMS[system];
-
-
- $('levelDescription').textContent=
-  LEVELS[level].description;
-
-
- if(deals.A){
-
-  render();
-
- }
+ $("status").innerHTML=
+  "Kocokan baru berhasil dibuat. " +
+  "Kocokan Pertama dan Kartu Pembanding telah berubah.";
 
 }
-
-
-/* =========================================================
-   TOMBOL KOCAK
-========================================================= */
-
-$('shuffle').onclick=
- generate;
 
 
 /* =========================================================
    DEAL SAMA
 ========================================================= */
 
-$('same').onclick=
- ()=>{
+$("same").onclick=()=>{
 
-  deals.A=
-   makeDeal(101);
+ if(!deals.A||!deals.B){
 
-  deals.B=
-   makeDeal(202);
+  generate();
+  return;
+ }
 
-  render();
+ deals.A=
+  makeDeal(activeSeed+101);
 
+ deals.B=
+  makeDeal(activeSeed+202);
 
-  $('status').textContent=
-   'Deal A dan Deal B dipanggil kembali secara identik menggunakan Board + Seed yang sama.';
+ render();
 
- };
+ $("status").className=
+  "status success";
 
+ $("status").innerHTML=
+  "Deal yang sama berhasil dipanggil kembali berdasarkan Board + Seed + nomor kocokan.";
 
-/* =========================================================
-   KUNCI BOARD
-========================================================= */
-
-$('lock').onclick=
- ()=>{
-
-  locked=
-   !locked;
-
-
-  $('lock').textContent=
-   locked
-    ?'🔓 BUKA KUNCI'
-    :'🔒 KUNCI BOARD';
-
-
-  $('lock').className=
-   locked
-    ?'secondary'
-    :'locked';
-
-
-  $('boardStatus').value=
-   locked
-    ?'Terkunci'
-    :'Aktif';
-
-
-  $('status').textContent=
-   locked
-    ?'Board dikunci.'
-    :'Board dibuka kembali.';
-
- };
+};
 
 
 /* =========================================================
-   CETAK
+   KUNCI
 ========================================================= */
 
-$('print').onclick=
- ()=>window.print();
+$("lock").onclick=()=>{
+
+ locked=!locked;
+
+ $("lock").textContent=
+  locked
+   ?"🔓 BUKA KUNCI"
+   :"🔒 KUNCI BOARD";
+
+ $("lock").className=
+  locked
+   ?"secondary"
+   :"locked";
+
+ $("boardStatus").value=
+  locked
+   ?"Terkunci"
+   :"Aktif";
+
+};
 
 
 /* =========================================================
-   CHANGE LEVEL
+   LEVEL
 ========================================================= */
 
-$('level').onchange=
- updateSetup;
+function updateSetup(){
+
+ const level=$("level").value;
+ const system=$("system").value;
+
+ $("levelText").textContent=
+  LEVELS[level].name;
+
+ $("systemText").textContent=
+  SYSTEMS[system];
+
+ $("levelDescription").textContent=
+  LEVELS[level].desc;
+
+ if(deals.A)render();
+}
+
+$("level").onchange=updateSetup;
+$("system").onchange=updateSetup;
 
 
 /* =========================================================
-   CHANGE SYSTEM
+   BOARD
 ========================================================= */
 
-$('system').onchange=
- updateSetup;
+$("board").onchange=()=>{
+
+ if(!locked)generate();
+
+ renderResults();
+};
 
 
 /* =========================================================
-   CHANGE BOARD
+   SEED
 ========================================================= */
 
-$('board').onchange=
- ()=>{
+$("seed").onchange=()=>{
 
-  if(!locked){
+ if(!locked)generate();
 
-   generate();
-
-  }
-
-  renderResults();
-
- };
-
-
-/* =========================================================
-   CHANGE SEED
-========================================================= */
-
-$('seed').onchange=
- ()=>{
-
-  if(!locked){
-
-   generate();
-
-  }
-
- };
+};
 
 
 /* =========================================================
    DEALER
 ========================================================= */
 
-$('dealer').onchange=
- ()=>{
+$("dealer").onchange=()=>{
 
-  $('status').textContent=
-   'Dealer '+
-   $('dealer').value+
-   ' dipilih untuk Board '+
-   $('board').value+
-   '.';
+ $("status").className="status";
 
- };
+ $("status").innerHTML=
+  "Dealer saat ini: <b>"+
+  POS[$("dealer").value]+
+  "</b>.";
+
+};
 
 
 /* =========================================================
    VULNERABILITY
 ========================================================= */
 
-$('vul').onchange=
- ()=>{
+$("vul").onchange=()=>{
 
-  $('status').textContent=
-   'Vulnerability: '+
-   $('vul').value+
-   '.';
+ $("status").innerHTML=
+  "Vulnerability: <b>"+
+  $("vul").value+
+  "</b>.";
 
- };
+};
 
 
 /* =========================================================
-   TAMBAH HASIL MEJA
+   CETAK
 ========================================================= */
 
-$('add').onclick=
- ()=>{
-
-  let board=
-   Number(
-    $('board').value
-   )||1;
+$("print").onclick=
+ ()=>window.print();
 
 
-  let score=
-   Number(
-    $('score').value
-   );
+/* =========================================================
+   BIDDING
+========================================================= */
 
+const positionOrder=["N","E","S","W"];
 
-  if(
-   !Number.isFinite(score)
-  ){
+const bidNames={
+ PASS:"PASS",
+ 1C:"1♣",
+ 1D:"1♦",
+ 1H:"1♥",
+ 1S:"1♠",
+ 1NT:"1NT",
+ 2C:"2♣",
+ 2D:"2♦",
+ 2H:"2♥",
+ 2S:"2♠",
+ 2NT:"2NT",
+ 3NT:"3NT",
+ 4NT:"4NT",
+ 5NT:"5NT",
+ 6NT:"6NT",
+ 7NT:"7NT",
+ DOUBLE:"X",
+ REDOUBLE:"XX"
+};
 
-   alert(
-    'Masukkan score NS.'
-   );
+const bidValue={
+ 1C:1,
+ 1D:2,
+ 1H:3,
+ 1S:4,
+ 1NT:5,
+ 2C:6,
+ 2D:7,
+ 2H:8,
+ 2S:9,
+ 2NT:10,
+ 3NT:15,
+ 4NT:20,
+ 5NT:25,
+ 6NT:30,
+ 7NT:35
+};
 
-   return;
+let lastContract=null;
 
-  }
+function startAuction(){
 
+ auction=[];
+ lastContract=null;
 
-  results.push({
+ renderAuction();
 
-   board,
+ $("bidStatus").value="Aktif";
+ $("bidCount").value="0";
 
-   table:
-    $('tableNo').value||
-    results.length+1,
+}
 
-   ns:
-    $('ns').value,
+function currentTurn(){
 
-   ew:
-    $('ew').value,
+ const dealer=$("dealer").value;
 
-   score
+ const index=
+  positionOrder.indexOf(dealer);
 
-  });
+ return positionOrder[
+  (index+auction.length)%4
+ ];
+}
 
+function legalBid(bid){
 
-  localStorage.setItem(
-   'gabsi_compare_results_v3',
-   JSON.stringify(results)
+ if(bid==="PASS")
+  return true;
+
+ if(bid==="DOUBLE")
+  return lastContract!==null;
+
+ if(bid==="REDOUBLE")
+  return lastContract!==null;
+
+ if(!bidValue[bid])
+  return false;
+
+ if(!lastContract)
+  return true;
+
+ return bidValue[bid]>
+  bidValue[lastContract];
+}
+
+function bidDescription(bid){
+
+ if(bid==="PASS")
+  return "Tidak menawar.";
+
+ if(bid==="DOUBLE")
+  return "Double terhadap kontrak lawan.";
+
+ if(bid==="REDOUBLE")
+  return "Redouble terhadap Double.";
+
+ return "Penawaran "+bidNames[bid]+".";
+}
+
+function makeBid(bid){
+
+ if(!legalBid(bid)){
+
+  $("bidStatus").value=
+   "Penawaran tidak sah";
+
+  alert(
+   "Penawaran tidak sah. " +
+   "Bid baru harus lebih tinggi dari kontrak sebelumnya."
   );
 
+  return;
+ }
 
-  renderResults();
+ const pos=currentTurn();
 
- };
+ auction.push({
+  position:pos,
+  bid
+ });
+
+ if(bidValue[bid])
+  lastContract=bid;
+
+ renderAuction();
+
+ $("bidCount").value=
+  auction.length;
+
+ $("bidTurn").value=
+  POS[currentTurn()];
+
+ $("bidStatus").value=
+  "Aktif";
+
+}
+
+function renderAuction(){
+
+ $("auctionRows").innerHTML=
+  auction.map((x,i)=>`
+
+  <tr>
+   <td>${i+1}</td>
+   <td>${POS[x.position]}</td>
+   <td><b>${bidNames[x.bid]}</b></td>
+   <td>${bidDescription(x.bid)}</td>
+  </tr>
+
+ `).join("");
+
+ if(auction.length===0){
+
+  $("bidTurn").value=
+   POS[$("dealer").value];
+
+ }
+}
+
+document
+ .querySelectorAll("[data-bid]")
+ .forEach(button=>{
+
+  button.onclick=()=>
+   makeBid(
+    button.dataset.bid
+   );
+
+ });
+
+$("newAuction").onclick=
+ startAuction;
 
 
 /* =========================================================
-   HAPUS REKAP
+   SCORE
 ========================================================= */
 
-$('clear').onclick=
- ()=>{
+function calculateScore(){
 
-  results=[];
+ const contract=
+  $("scoreContract").value;
 
-  localStorage.removeItem(
-   'gabsi_compare_results_v3'
-  );
+ const tricks=
+  Number($("tricks").value)||0;
 
-  renderResults();
+ const dbl=
+  Number($("dbl").value)||0;
 
- };
+ const level=
+  parseInt(contract);
+
+ const target=
+  level+6;
+
+ let base;
+
+ if(contract.endsWith("NT"))
+  base=40+(level-1)*30;
+ else
+  base=20;
+
+ let multiplier=
+  dbl===0?1:dbl===1?2:4;
+
+ let result=0;
+
+ if(tricks>=target){
+
+  const over=
+   tricks-target;
+
+  result=
+   base*multiplier+
+   over*30*multiplier;
+
+  if(level===6)
+   result+=750;
+
+  if(level===7)
+   result+=1500;
+
+ }else{
+
+  const down=
+   target-tricks;
+
+  result=
+   -down*
+   (
+    dbl===0
+     ?50
+     :dbl===1
+      ?100
+      :200
+   );
+
+ }
+
+ $("scoreResult").innerHTML=`
+
+ <b>Hasil Perhitungan</b><br>
+
+ Kontrak:
+ <b>${contract}</b><br>
+
+ Target:
+ <b>${target} trick</b><br>
+
+ Trick:
+ <b>${tricks}</b><br>
+
+ ${tricks>=target
+  ?"Kontrak berhasil."
+  :"Kontrak gagal."
+ }<br>
+
+ Perkiraan skor:
+ <b>${result}</b>
+
+ `;
+
+}
+
+$("calculateScore").onclick=
+ calculateScore;
 
 
 /* =========================================================
-   RENDER REKAP
+   REKAP MEJA
 ========================================================= */
+
+$("add").onclick=()=>{
+
+ const board=
+  Number($("board").value)||1;
+
+ const score=
+  Number($("score").value);
+
+ if(!Number.isFinite(score)){
+
+  alert("Masukkan Score NS.");
+
+  return;
+ }
+
+ results.push({
+
+  board,
+  table:
+   $("tableNo").value||
+   results.length+1,
+
+  ns:$("ns").value,
+  ew:$("ew").value,
+  score
+
+ });
+
+ localStorage.setItem(
+  "gabsi_compare_results_v4",
+  JSON.stringify(results)
+ );
+
+ renderResults();
+
+};
+
 
 function renderResults(){
 
- let board=
-  Number(
-   $('board').value
-  )||1;
+ const board=
+  Number($("board").value)||1;
 
-
- let data=
+ const data=
   results.filter(
-   item=>
-    item.board===board
+   x=>x.board===board
   );
 
-
- let average=
+ const average=
   data.length
-   ?
-    data.reduce(
-     (sum,item)=>
-      sum+item.score,
-     0
+   ?data.reduce(
+     (a,b)=>a+b.score,0
     )/data.length
-   :
-    0;
+   :0;
 
+ $("rows").innerHTML=
+  results.map(x=>`
 
- $('rows').innerHTML=
-  results.map(
-   item=>`
+  <tr>
 
-   <tr>
+   <td>${x.board}</td>
+   <td>${x.table}</td>
+   <td>${x.ns}</td>
+   <td>${x.ew}</td>
+   <td>${x.score}</td>
 
    <td>
-   ${item.board}
+    ${
+     x.board===board
+      ?average.toFixed(0)
+      :"-"
+    }
    </td>
 
    <td>
-   ${item.table}
+    ${
+     x.board===board
+      ?(x.score-average).toFixed(0)
+      :"-"
+    }
    </td>
 
-   <td>
-   ${item.ns}
-   </td>
+  </tr>
 
-   <td>
-   ${item.ew}
-   </td>
-
-   <td>
-   ${item.score}
-   </td>
-
-   <td>
-
-   ${
-    item.board===board
-     ?average.toFixed(0)
-     :'-'
-   }
-
-   </td>
-
-   <td>
-
-   ${
-    item.board===board
-     ?(item.score-average).toFixed(0)
-     :'-'
-   }
-
-   </td>
-
-   </tr>
-
-   `
-  ).join('');
+ `).join("");
 
 }
+
+
+$("clear").onclick=()=>{
+
+ if(!confirm(
+  "Hapus seluruh rekap meja?"
+ ))return;
+
+ results=[];
+
+ localStorage.removeItem(
+  "gabsi_compare_results_v4"
+ );
+
+ renderResults();
+
+};
 
 
 /* =========================================================
@@ -2247,6 +1907,8 @@ function renderResults(){
 ========================================================= */
 
 updateSetup();
+
+startAuction();
 
 generate();
 
