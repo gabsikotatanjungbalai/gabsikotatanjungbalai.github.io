@@ -18,211 +18,241 @@
       type="image/png"
       href="logo-gabsi.png">
 
+<!-- TEMA SERAGAM GABSI -->
+<link rel="stylesheet" href="gabsi-unified-theme.css">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f1f6f9;
-    color:#203442;
-    line-height:1.6;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-.container{
-    width:min(1180px,94%);
-    margin:auto;
-}
-
-
 /* =====================================================
-   TOP BAR
+   KHUSUS HALAMAN BERITA
+   FUNGSI LAMA DIPERTAHANKAN
 ===================================================== */
 
-.topbar{
-    background:#062d45;
-    color:#d9e9f2;
-    font-size:11px;
-    padding:6px 0;
+.news-page{
+    min-height:60vh;
 }
 
-.topbar-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:24px;
 }
 
-
-/* =====================================================
-   NAVBAR
-===================================================== */
-
-.navbar{
+.news-card{
     background:#fff;
-    border-bottom:1px solid #dce7ed;
-    position:sticky;
-    top:0;
-    z-index:999;
-    box-shadow:0 2px 12px rgba(0,0,0,.05);
+    border:1px solid #dfe8ee;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 28px rgba(6,59,92,.08);
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
 }
 
-.nav-inner{
-    min-height:68px;
+.news-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 16px 38px rgba(6,59,92,.14);
+    border-color:#bcd8e7;
+}
+
+.news-image,
+.no-image{
+    width:100%;
+    height:245px;
+}
+
+.news-image{
+    object-fit:cover;
+    background:#eaf2f6;
+}
+
+.no-image{
+    background:
+        linear-gradient(
+            135deg,
+            #e8f3f8,
+            #d8eaf2
+        );
+
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap:20px;
+    justify-content:center;
+
+    color:#17658b;
+    font-size:52px;
 }
 
-.brand{
-    display:flex;
+.news-body{
+    padding:22px;
+}
+
+.news-category{
+    display:inline-flex;
     align-items:center;
-    gap:10px;
-    min-width:0;
+    background:#edf7fc;
+    color:#075f89;
+    border:1px solid #d5eaf4;
+    padding:6px 11px;
+    border-radius:30px;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.2px;
+    margin-bottom:11px;
 }
 
-.brand img{
-    width:40px;
-    height:40px;
-    border-radius:8px;
-    object-fit:contain;
+.news-title{
+    margin:0 0 8px;
+    font-size:21px;
+    line-height:1.35;
+    color:#16394e;
 }
 
-.brand-text{
-    min-width:0;
+.news-date{
+    font-size:10px;
+    color:#8496a0;
+    margin-bottom:14px;
 }
 
-.brand-text strong{
-    display:block;
-    color:#123b53;
-    font-size:15px;
-    white-space:nowrap;
+.news-content{
+    font-size:13px;
+    line-height:1.75;
+    color:#5f737f;
+    white-space:pre-line;
 }
 
-.brand-text span{
-    display:block;
-    color:#83949e;
-    font-size:8px;
-    letter-spacing:.4px;
-    white-space:nowrap;
+.news-source{
+    margin-top:17px;
+    padding-top:13px;
+    border-top:1px solid #edf1f3;
+    font-size:10px;
+    line-height:1.6;
+    color:#748791;
 }
 
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:4px;
+.news-source a{
+    color:#086b99;
+    font-weight:800;
 }
 
-.nav-links a{
-    color:#203442;
+.news-source a:hover{
+    color:#063b5c;
+}
+
+
+/* =====================================================
+   KOMENTAR
+===================================================== */
+
+.news-comments{
+    margin-top:20px;
+    padding-top:16px;
+    border-top:1px solid #e5edf1;
+}
+
+.comments-title{
     font-size:12px;
-    font-weight:bold;
-    padding:9px 10px;
+    font-weight:800;
+    color:#173d53;
+    margin-bottom:10px;
+}
+
+.comment-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.comment{
+    background:#f5f9fb;
+    border:1px solid #e4edf1;
+    border-radius:10px;
+    padding:10px 11px;
+}
+
+.comment strong{
+    display:block;
+    color:#075a82;
+    font-size:10px;
+    margin-bottom:2px;
+}
+
+.comment span{
+    display:block;
+    color:#667983;
+    font-size:10px;
+    line-height:1.55;
+    white-space:pre-line;
+}
+
+.no-comments{
+    color:#93a1a8;
+    font-size:10px;
+}
+
+
+/* =====================================================
+   FORM KOMENTAR
+===================================================== */
+
+.comment-form{
+    margin-top:13px;
+}
+
+.form-input,
+.form-textarea{
+    width:100%;
+    border:1px solid #d5e1e6;
     border-radius:9px;
+    padding:10px 11px;
+    font-family:inherit;
+    font-size:11px;
+    outline:none;
+    background:#fff;
+    color:#263f4d;
     transition:.2s;
 }
 
-.nav-links a:hover,
-.nav-links a.active{
-    background:#edf6fb;
-    color:#075b87;
+.form-input:focus,
+.form-textarea:focus{
+    border-color:#0780ad;
+    box-shadow:0 0 0 3px rgba(7,128,173,.08);
 }
 
-.menu-btn{
-    display:none;
+.form-textarea{
+    min-height:80px;
+    resize:vertical;
+    margin-top:8px;
+}
+
+.comment-button{
     border:0;
-    background:#edf5f9;
-    color:#063b5c;
-    width:40px;
-    height:40px;
-    border-radius:9px;
-    font-size:21px;
-    cursor:pointer;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-.page-header{
-    background:
-        linear-gradient(
-            120deg,
-            #064d70 0%,
-            #076a91 48%,
-            #0b789a 100%
-        );
-
+    background:linear-gradient(
+        135deg,
+        #07547b,
+        #0878a8
+    );
     color:#fff;
-    padding:48px 0;
+    padding:10px 15px;
+    border-radius:9px;
+    font-size:10px;
+    font-weight:800;
+    margin-top:8px;
+    cursor:pointer;
+    transition:.2s;
 }
 
-.page-header h1{
-    margin:0;
-    font-size:clamp(34px,6vw,58px);
-    line-height:1.05;
+.comment-button:hover{
+    transform:translateY(-1px);
+    box-shadow:0 5px 14px rgba(7,84,123,.18);
 }
 
-.page-header h1 span{
-    color:#ffd84d;
-}
-
-.page-header p{
-    max-width:700px;
-    margin:13px 0 0;
-    color:#e1f1f7;
-    font-size:13px;
-}
-
-
-/* =====================================================
-   SECTION
-===================================================== */
-
-.section{
-    padding:45px 0;
-}
-
-.section-label{
-    color:#08749c;
-    font-size:9px;
-    font-weight:bold;
-    letter-spacing:1px;
-    text-transform:uppercase;
-}
-
-.section-title{
-    margin:3px 0 5px;
-    color:#203442;
-    font-size:27px;
-    line-height:1.2;
-}
-
-.section-desc{
-    margin:0 0 24px;
-    color:#70818b;
-    font-size:12px;
+.comment-button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
 }
 
 
@@ -230,12 +260,15 @@ img{
    STATUS
 ===================================================== */
 
+.news-status{
+    margin-bottom:22px;
+}
+
 .status{
     background:#fff;
     border:1px solid #dfe9ed;
     border-radius:12px;
     padding:13px 16px;
-    margin-bottom:20px;
     font-size:12px;
     color:#667983;
 }
@@ -254,213 +287,14 @@ img{
 
 
 /* =====================================================
-   BERITA
-===================================================== */
-
-.news-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.news-card{
-    background:#fff;
-    border:1px solid #dfe8ec;
-    border-radius:17px;
-    overflow:hidden;
-    box-shadow:0 8px 25px rgba(20,55,75,.07);
-    transition:.2s;
-}
-
-.news-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 30px rgba(20,55,75,.12);
-}
-
-.news-image,
-.no-image{
-    width:100%;
-    height:220px;
-}
-
-.news-image{
-    object-fit:cover;
-    background:#e9f1f5;
-}
-
-.no-image{
-    background:
-        linear-gradient(
-            135deg,
-            #e8f1f5,
-            #dcebf1
-        );
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:50px;
-}
-
-.news-body{
-    padding:20px;
-}
-
-.news-category{
-    display:inline-block;
-    background:#edf6fb;
-    color:#07658d;
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:9px;
-    font-weight:bold;
-    margin-bottom:9px;
-}
-
-.news-title{
-    margin:0 0 7px;
-    font-size:19px;
-    line-height:1.3;
-    color:#203442;
-}
-
-.news-date{
-    font-size:10px;
-    color:#8a9ba3;
-    margin-bottom:13px;
-}
-
-.news-content{
-    font-size:12px;
-    color:#657782;
-    white-space:pre-line;
-}
-
-.news-source{
-    margin-top:15px;
-    padding-top:12px;
-    border-top:1px solid #edf1f3;
-    font-size:10px;
-    color:#74868f;
-}
-
-.news-source a{
-    color:#076995;
-    font-weight:bold;
-}
-
-
-/* =====================================================
-   KOMENTAR
-===================================================== */
-
-.news-comments{
-    margin-top:17px;
-    padding-top:14px;
-    border-top:1px solid #e7edef;
-}
-
-.comments-title{
-    font-size:12px;
-    font-weight:bold;
-    color:#203442;
-    margin-bottom:9px;
-}
-
-.comment-list{
-    display:flex;
-    flex-direction:column;
-    gap:7px;
-}
-
-.comment{
-    background:#f5f8fa;
-    border-radius:9px;
-    padding:9px 10px;
-}
-
-.comment strong{
-    display:block;
-    color:#07577c;
-    font-size:10px;
-}
-
-.comment span{
-    display:block;
-    color:#667983;
-    font-size:10px;
-    white-space:pre-line;
-}
-
-.no-comments{
-    color:#92a0a7;
-    font-size:10px;
-}
-
-
-/* =====================================================
-   FORM KOMENTAR
-===================================================== */
-
-.comment-form{
-    margin-top:12px;
-}
-
-.form-input,
-.form-textarea{
-    width:100%;
-    border:1px solid #d5e1e6;
-    border-radius:8px;
-    padding:9px 10px;
-    font-family:inherit;
-    font-size:11px;
-    outline:none;
-    background:#fff;
-}
-
-.form-input:focus,
-.form-textarea:focus{
-    border-color:#0780ad;
-    box-shadow:0 0 0 3px rgba(7,128,173,.08);
-}
-
-.form-textarea{
-    min-height:75px;
-    resize:vertical;
-    margin-top:7px;
-}
-
-.comment-button{
-    border:0;
-    background:#07547b;
-    color:#fff;
-    padding:9px 13px;
-    border-radius:8px;
-    font-size:10px;
-    font-weight:bold;
-    margin-top:7px;
-    cursor:pointer;
-}
-
-.comment-button:hover{
-    background:#063f5d;
-}
-
-.comment-button:disabled{
-    opacity:.6;
-    cursor:not-allowed;
-}
-
-
-/* =====================================================
    EMPTY
 ===================================================== */
 
 .empty{
     background:#fff;
     border:1px dashed #cbd9df;
-    border-radius:15px;
-    padding:40px 20px;
+    border-radius:16px;
+    padding:50px 20px;
     text-align:center;
     color:#788b95;
     font-size:12px;
@@ -469,170 +303,43 @@ img{
 
 
 /* =====================================================
-   FOOTER
-===================================================== */
-
-.footer{
-    background:#062d45;
-    color:#fff;
-    margin-top:20px;
-}
-
-.footer-main{
-    padding:32px 0;
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:30px;
-}
-
-.footer h3{
-    margin:0 0 8px;
-    font-size:16px;
-}
-
-.footer h4{
-    margin:0 0 8px;
-    font-size:12px;
-}
-
-.footer p,
-.footer a{
-    color:#b9d0dc;
-    font-size:10px;
-}
-
-.footer a{
-    display:block;
-    margin:4px 0;
-}
-
-.footer a:hover{
-    color:#fff;
-}
-
-.footer-bottom{
-    border-top:1px solid rgba(255,255,255,.1);
-    padding:10px 0;
-    font-size:9px;
-    color:#88aab9;
-    display:flex;
-    justify-content:space-between;
-}
-
-
-/* =====================================================
-   MOBILE
+   RESPONSIVE BERITA
 ===================================================== */
 
 @media(max-width:850px){
-
-    .nav-links{
-        display:none;
-        position:absolute;
-        top:68px;
-        left:0;
-        right:0;
-        background:#fff;
-        border-bottom:1px solid #dce7ed;
-        box-shadow:0 8px 20px rgba(0,0,0,.1);
-        padding:10px;
-        flex-direction:column;
-        align-items:stretch;
-    }
-
-    .nav-links.show{
-        display:flex;
-    }
-
-    .nav-links a{
-        padding:11px 13px;
-    }
-
-    .menu-btn{
-        display:block;
-    }
 
     .news-grid{
         grid-template-columns:1fr;
     }
 
-    .footer-main{
-        grid-template-columns:1fr 1fr;
+    .news-image,
+    .no-image{
+        height:230px;
     }
 
 }
 
 @media(max-width:520px){
 
-    .container{
-        width:92%;
-    }
-
-    .topbar{
-        font-size:8px;
-    }
-
-    .nav-inner{
-        min-height:60px;
-    }
-
-    .brand img{
-        width:35px;
-        height:35px;
-    }
-
-    .brand-text strong{
-        font-size:11px;
-    }
-
-    .brand-text span{
-        font-size:7px;
-    }
-
-    .nav-links{
-        top:60px;
-    }
-
-    .page-header{
-        padding:34px 0;
-    }
-
-    .page-header h1{
-        font-size:37px;
-    }
-
-    .page-header p{
-        font-size:11px;
-    }
-
-    .section{
-        padding:34px 0;
+    .news-grid{
+        gap:17px;
     }
 
     .news-image,
     .no-image{
-        height:190px;
+        height:195px;
     }
 
     .news-body{
-        padding:16px;
+        padding:17px;
     }
 
     .news-title{
-        font-size:17px;
+        font-size:18px;
     }
 
-    .footer-main{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .footer-main>div:first-child{
-        grid-column:1/-1;
-    }
-
-    .footer-bottom{
-        flex-direction:column;
-        gap:4px;
+    .news-content{
+        font-size:12px;
     }
 
 }
@@ -694,8 +401,6 @@ const supabaseClient =
 
     <div class="container nav-inner">
 
-        <!-- LOGO / BERANDA -->
-
         <a href="index.html"
            class="brand"
            aria-label="Kembali ke Beranda">
@@ -719,8 +424,6 @@ const supabaseClient =
         </a>
 
 
-        <!-- MENU MOBILE -->
-
         <button
             class="menu-btn"
             type="button"
@@ -732,8 +435,6 @@ const supabaseClient =
 
         </button>
 
-
-        <!-- NAVIGASI LENGKAP -->
 
         <div class="nav-links"
              id="navLinks">
@@ -784,7 +485,7 @@ const supabaseClient =
 
 
 <!-- =====================================================
-     HEADER
+     HEADER BERITA
 ===================================================== -->
 
 <header class="page-header">
@@ -820,7 +521,7 @@ const supabaseClient =
      DAFTAR BERITA
 ===================================================== -->
 
-<section class="section">
+<section class="section news-page">
 
     <div class="container">
 
@@ -841,7 +542,7 @@ const supabaseClient =
 
 
         <div id="status"
-             class="status">
+             class="status news-status">
 
             Memuat berita...
 
@@ -1681,7 +1382,7 @@ async function loadNews(){
                 "Belum ada berita yang diterbitkan.";
 
             status.className =
-                "status";
+                "status news-status";
 
 
             container.innerHTML =
@@ -1708,7 +1409,7 @@ async function loadNews(){
             " berita tersedia.";
 
         status.className =
-            "status success";
+            "status success news-status";
 
 
         for(
@@ -1739,7 +1440,7 @@ async function loadNews(){
             "Periksa konfigurasi Supabase.";
 
         status.className =
-            "status error";
+            "status error news-status";
 
     }
 
