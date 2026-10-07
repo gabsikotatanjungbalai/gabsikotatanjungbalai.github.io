@@ -25,6 +25,10 @@
 
 <style>
 
+/* =====================================================
+   DASAR
+===================================================== */
+
 *{
   box-sizing:border-box;
 }
@@ -72,10 +76,31 @@ body{
   align-items:center;
   gap:20px;
   padding:9px 20px;
+  position:relative;
 }
 
+
 /* =====================================================
-   SATU LOGO SAJA
+   PENGAMAN:
+   HANYA SATU LOGO GABSI
+===================================================== */
+
+/* Matikan kemungkinan logo tambahan
+   dari stylesheet sebelumnya */
+
+.header-main::before,
+.header-main::after,
+.brand::before,
+.brand::after{
+  content:none !important;
+  display:none !important;
+  background:none !important;
+  background-image:none !important;
+}
+
+
+/* =====================================================
+   BRAND
 ===================================================== */
 
 .brand{
@@ -85,25 +110,58 @@ body{
   text-decoration:none;
   color:#173b50;
   flex-shrink:0;
+  position:relative;
 }
+
+
+/* SATU-SATUNYA LOGO */
 
 .brand-logo{
-  width:40px;
-  height:40px;
+  width:40px !important;
+  height:40px !important;
+  min-width:40px !important;
+  min-height:40px !important;
+  max-width:40px !important;
+  max-height:40px !important;
+
   border-radius:8px;
   background:#fff;
-  display:flex;
+
+  display:flex !important;
   align-items:center;
   justify-content:center;
+
   overflow:hidden;
   flex:0 0 40px;
+
+  padding:0;
+  margin:0;
 }
 
+
+/* Hanya logo yang berada di .brand-logo */
+
 .brand-logo img{
-  width:100%;
-  height:100%;
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+
   object-fit:contain;
-  display:block;
+  display:block !important;
+  margin:0 !important;
+}
+
+
+/* Sembunyikan gambar lain yang mungkin
+   tersisa di area header */
+
+.header-main > img{
+  display:none !important;
+}
+
+.brand > img{
+  display:none !important;
 }
 
 .brand-text{
@@ -127,7 +185,7 @@ body{
 
 
 /* =====================================================
-   NAVIGASI — SAMA RAPI SEPERTI INDEX
+   NAVIGASI
 ===================================================== */
 
 .main-nav{
@@ -149,17 +207,21 @@ body{
   display:inline-flex;
   align-items:center;
   justify-content:center;
+
   text-decoration:none;
   color:#172033;
+
   padding:8px 9px;
   border-radius:8px;
+
   font-size:10px;
   font-weight:600;
+
   white-space:nowrap;
+
   transition:
     background .2s ease,
-    color .2s ease,
-    transform .2s ease;
+    color .2s ease;
 }
 
 .main-nav a:hover{
@@ -168,9 +230,11 @@ body{
 }
 
 .main-nav a.active{
-  background:#07558f;
-  color:#fff;
+  background:#eaf4f9;
+  color:#07558f;
   font-weight:700;
+  box-shadow:
+    inset 0 -3px 0 #c92f3d;
 }
 
 
@@ -186,9 +250,12 @@ body{
       #07558f 55%,
       #087cab 100%
     );
+
   color:#fff;
   padding:48px 20px;
+
   text-align:center;
+
   position:relative;
   overflow:hidden;
 }
@@ -196,10 +263,13 @@ body{
 .page-hero::before{
   content:"";
   position:absolute;
+
   width:300px;
   height:300px;
+
   border-radius:50%;
   border:1px solid rgba(255,255,255,.08);
+
   top:-180px;
   right:-80px;
 }
@@ -207,10 +277,13 @@ body{
 .page-hero::after{
   content:"";
   position:absolute;
+
   width:240px;
   height:240px;
+
   border-radius:50%;
   border:1px solid rgba(255,255,255,.07);
+
   bottom:-160px;
   left:-70px;
 }
@@ -218,19 +291,24 @@ body{
 .page-hero-inner{
   max-width:1000px;
   margin:auto;
+
   position:relative;
   z-index:2;
 }
 
 .hero-label{
   display:inline-block;
+
   background:rgba(255,255,255,.13);
   border:1px solid rgba(255,255,255,.28);
+
   padding:6px 14px;
   border-radius:30px;
+
   font-size:9px;
   font-weight:bold;
   letter-spacing:.5px;
+
   margin-bottom:11px;
 }
 
@@ -247,6 +325,7 @@ body{
 .page-hero p{
   font-size:12px;
   color:rgba(255,255,255,.90);
+
   max-width:760px;
   margin:auto;
 }
@@ -259,7 +338,9 @@ body{
 .container{
   width:100%;
   max-width:1100px;
+
   margin:auto;
+
   padding:38px 20px 55px;
 }
 
@@ -274,21 +355,26 @@ body{
 
 .section-card{
   background:#fff;
+
   border:1px solid #dce7ec;
   border-radius:17px;
+
   padding:28px;
+
   box-shadow:0 6px 20px rgba(0,0,0,.07);
 }
 
 .section-card h2{
   color:#07558f;
   font-size:21px;
+
   margin:0 0 12px;
 }
 
 .section-card h3{
   color:#173b50;
   font-size:16px;
+
   margin-top:20px;
   margin-bottom:7px;
 }
@@ -297,6 +383,7 @@ body{
   color:#536673;
   font-size:11px;
   line-height:1.85;
+
   margin-bottom:10px;
 }
 
@@ -317,21 +404,29 @@ body{
 
 .org-card{
   background:#fff;
+
   border:1px solid #dce7ec;
   border-radius:17px;
+
   padding:25px;
+
   box-shadow:0 6px 20px rgba(0,0,0,.07);
+
   position:relative;
   overflow:hidden;
 }
 
 .org-card:before{
   content:"";
+
   position:absolute;
+
   top:0;
   left:0;
+
   width:100%;
   height:4px;
+
   background:
     linear-gradient(
       90deg,
@@ -342,21 +437,28 @@ body{
 
 .org-number{
   display:inline-flex;
+
   width:38px;
   height:38px;
+
   align-items:center;
   justify-content:center;
+
   background:#eaf4f9;
   color:#07558f;
+
   border-radius:10px;
+
   font-weight:bold;
   font-size:14px;
+
   margin-bottom:12px;
 }
 
 .org-card h2{
   color:#07558f;
   font-size:18px;
+
   margin-bottom:10px;
 }
 
@@ -372,7 +474,7 @@ body{
 
 
 /* =====================================================
-   LEADER BOX
+   LEADER
 ===================================================== */
 
 .leader-box{
@@ -383,27 +485,36 @@ body{
       #07558f,
       #087cab
     );
+
   color:#fff;
+
   border-radius:17px;
+
   padding:28px;
   margin-top:20px;
+
   box-shadow:0 6px 20px rgba(0,0,0,.08);
 }
 
 .leader-box .label{
   display:inline-block;
+
   background:rgba(255,255,255,.13);
   border:1px solid rgba(255,255,255,.22);
+
   padding:5px 11px;
   border-radius:20px;
+
   font-size:8px;
   font-weight:bold;
+
   margin-bottom:9px;
 }
 
 .leader-box h2{
   color:#fff;
   font-size:22px;
+
   margin-bottom:5px;
 }
 
@@ -411,11 +522,13 @@ body{
   color:#ffd75a;
   font-size:12px;
   font-weight:bold;
+
   margin-bottom:12px;
 }
 
 .leader-box p{
   color:rgba(255,255,255,.91);
+
   font-size:10.5px;
   line-height:1.8;
 }
@@ -423,27 +536,37 @@ body{
 .period-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
+
   gap:12px;
+
   margin-top:20px;
 }
 
 .period-item{
   background:rgba(255,255,255,.10);
+
   border:1px solid rgba(255,255,255,.17);
+
   border-radius:10px;
+
   padding:14px;
 }
 
 .period-item strong{
   display:block;
+
   color:#ffd75a;
+
   font-size:13px;
+
   margin-bottom:4px;
 }
 
 .period-item span{
   display:block;
+
   font-size:9px;
+
   color:rgba(255,255,255,.82);
 }
 
@@ -455,50 +578,67 @@ body{
 .achievement-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
+
   gap:20px;
 }
 
 .achievement-card{
   background:#fff;
+
   border:1px solid #dce7ec;
   border-radius:17px;
+
   padding:25px;
+
   box-shadow:0 6px 20px rgba(0,0,0,.07);
 }
 
 .achievement-icon{
   width:50px;
   height:50px;
+
   border-radius:13px;
+
   background:#eaf4f9;
   color:#07558f;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:23px;
+
   margin-bottom:15px;
 }
 
 .achievement-card h3{
   color:#07558f;
+
   font-size:17px;
+
   margin-bottom:8px;
 }
 
 .achievement-card p{
   color:#536673;
+
   font-size:10.5px;
   line-height:1.8;
 }
 
 .year{
   display:inline-block;
+
   color:#07558f;
   background:#eaf4f9;
+
   padding:4px 9px;
+
   border-radius:6px;
+
   font-size:9px;
   font-weight:bold;
+
   margin-bottom:9px;
 }
 
@@ -509,49 +649,67 @@ body{
 
 .education{
   background:#fff;
+
   border:1px solid #dce7ec;
   border-radius:17px;
+
   padding:28px;
+
   box-shadow:0 6px 20px rgba(0,0,0,.07);
 }
 
 .education h2{
   color:#07558f;
+
   font-size:21px;
+
   margin-bottom:10px;
 }
 
 .education p{
   color:#536673;
+
   font-size:11px;
   line-height:1.85;
 }
 
 .education-list{
   display:grid;
+
   grid-template-columns:repeat(3,1fr);
+
   gap:14px;
+
   margin-top:20px;
 }
 
 .education-item{
   background:#f5f9fb;
+
   border:1px solid #e0ebef;
+
   border-radius:11px;
+
   padding:16px;
 }
 
 .education-item strong{
   display:block;
+
   color:#07558f;
+
   font-size:11px;
+
   margin-bottom:5px;
 }
 
 .education-item span{
   display:block;
+
   color:#657783;
+
   font-size:9px;
+
   line-height:1.6;
 }
 
@@ -562,27 +720,37 @@ body{
 
 .vm-grid{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:20px;
 }
 
 .vm-card{
   background:#fff;
+
   border:1px solid #dce7ec;
+
   border-radius:17px;
+
   padding:28px;
+
   box-shadow:0 6px 20px rgba(0,0,0,.07);
 }
 
 .vm-card h2{
   color:#07558f;
+
   font-size:21px;
+
   margin-bottom:12px;
 }
 
 .vm-card p{
   color:#536673;
+
   font-size:11px;
+
   line-height:1.8;
 }
 
@@ -592,8 +760,11 @@ body{
 
 .vm-card li{
   color:#536673;
+
   font-size:10.5px;
+
   line-height:1.8;
+
   margin-bottom:5px;
 }
 
@@ -610,46 +781,63 @@ body{
       #07558f,
       #087cab
     );
+
   color:#fff;
+
   border-radius:17px;
+
   padding:28px;
+
   box-shadow:0 6px 20px rgba(0,0,0,.08);
 }
 
 .values h2{
   font-size:21px;
+
   margin-bottom:8px;
 }
 
 .values p{
   color:rgba(255,255,255,.88);
+
   font-size:10.5px;
+
   margin-bottom:18px;
 }
 
 .values-grid{
   display:grid;
+
   grid-template-columns:repeat(4,1fr);
+
   gap:12px;
 }
 
 .value-item{
   background:rgba(255,255,255,.10);
+
   border:1px solid rgba(255,255,255,.16);
+
   border-radius:10px;
+
   padding:15px;
 }
 
 .value-item strong{
   display:block;
+
   color:#ffd75a;
+
   font-size:11px;
+
   margin-bottom:4px;
 }
 
 .value-item span{
   display:block;
+
   font-size:9px;
+
   color:rgba(255,255,255,.8);
 }
 
@@ -660,40 +848,55 @@ body{
 
 .footer{
   background:#063b5c;
+
   color:#fff;
+
   padding:32px 20px 18px;
 }
 
 .footer-inner{
   max-width:1100px;
+
   margin:auto;
+
   display:grid;
+
   grid-template-columns:1.4fr 1fr 1fr;
+
   gap:30px;
 }
 
 .footer h3{
   font-size:14px;
+
   margin:0 0 9px;
 }
 
 .footer p{
   color:rgba(255,255,255,.75);
+
   font-size:10px;
+
   line-height:1.7;
+
   margin:0;
 }
 
 .footer-links{
   display:flex;
+
   flex-direction:column;
+
   gap:5px;
 }
 
 .footer-links a{
   color:rgba(255,255,255,.75);
+
   text-decoration:none;
+
   font-size:10px;
+
   transition:.2s ease;
 }
 
@@ -703,12 +906,19 @@ body{
 
 .footer-bottom{
   max-width:1100px;
+
   margin:23px auto 0;
+
   padding-top:13px;
+
   border-top:1px solid rgba(255,255,255,.15);
+
   display:flex;
+
   justify-content:space-between;
+
   color:rgba(255,255,255,.6);
+
   font-size:9px;
 }
 
@@ -757,19 +967,30 @@ body{
 
   .top-line{
     padding:6px 10px;
+
     font-size:7px;
+
     gap:8px;
   }
 
   .header-main{
     min-height:58px;
+
     padding:7px 10px;
+
     gap:8px;
   }
 
   .brand-logo{
-    width:36px;
-    height:36px;
+    width:36px !important;
+    height:36px !important;
+
+    min-width:36px !important;
+    min-height:36px !important;
+
+    max-width:36px !important;
+    max-height:36px !important;
+
     flex-basis:36px;
   }
 
@@ -783,12 +1004,15 @@ body{
 
   .main-nav{
     flex:1;
+
     gap:2px;
+
     overflow-x:auto;
   }
 
   .main-nav a{
     font-size:8px;
+
     padding:7px 8px;
   }
 
@@ -849,6 +1073,7 @@ body{
 
   .footer-inner{
     grid-template-columns:1fr 1fr;
+
     gap:20px;
   }
 
@@ -858,6 +1083,7 @@ body{
 
   .footer-bottom{
     flex-direction:column;
+
     gap:5px;
   }
 
@@ -876,6 +1102,7 @@ body{
 
   .main-nav a{
     font-size:7px;
+
     padding:6px 7px;
   }
 
@@ -899,7 +1126,6 @@ body{
 
 <!-- =====================================================
      HEADER
-     HANYA SATU LOGO GABSI
 ===================================================== -->
 
 <header class="site-header">
@@ -919,11 +1145,13 @@ body{
 
   <div class="header-main">
 
-    <!-- SATU LOGO DI SEBELAH KIRI -->
 
-    <a
-      href="index.html"
-      class="brand">
+    <!-- =================================================
+         SATU-SATUNYA LOGO GABSI
+         TIDAK ADA LOGO LAIN DI SEBELAH KANAN
+    ================================================== -->
+
+    <a href="index.html" class="brand">
 
       <div class="brand-logo">
 
@@ -932,7 +1160,6 @@ body{
           alt="Logo GABSI Kota Tanjungbalai">
 
       </div>
-
 
       <div class="brand-text">
 
@@ -949,7 +1176,9 @@ body{
     </a>
 
 
-    <!-- NAVIGASI UTAMA -->
+    <!-- =================================================
+         NAVIGASI
+    ================================================== -->
 
     <nav class="main-nav">
 
@@ -957,9 +1186,8 @@ body{
         Beranda
       </a>
 
-      <a
-        href="profil.html"
-        class="active">
+      <a href="profil.html"
+         class="active">
         Profil
       </a>
 
@@ -1265,9 +1493,8 @@ body{
     </div>
 
 
-    <div
-      class="achievement-grid"
-      style="margin-top:20px;">
+    <div class="achievement-grid"
+         style="margin-top:20px;">
 
       <article class="achievement-card">
 
