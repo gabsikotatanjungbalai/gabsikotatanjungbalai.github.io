@@ -18,16 +18,305 @@
       type="image/png"
       href="logo-gabsi.png">
 
-<!-- TEMA SERAGAM GABSI -->
-<link rel="stylesheet" href="gabsi-unified-theme.css">
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
 /* =====================================================
-   KHUSUS HALAMAN BERITA
-   FUNGSI LAMA DIPERTAHANKAN
+   RESET & DASAR
+===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    background:#f4f8fa;
+    color:#263f4d;
+    line-height:1.6;
+}
+
+img{
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:min(1180px,calc(100% - 28px));
+    margin:0 auto;
+}
+
+
+/* =====================================================
+   HEADER GABSI
+   SAMA DENGAN PENGURUS
+===================================================== */
+
+.site-header{
+    width:100%;
+    background:
+        linear-gradient(
+            180deg,
+            #063b5c,
+            #052e49
+        );
+    border-bottom:
+        1px solid
+        rgba(233,185,73,.55);
+    position:relative;
+    z-index:100;
+}
+
+.header-main{
+    width:100%;
+    padding:
+        9px 12px 8px;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:9px;
+    background:
+        linear-gradient(
+            180deg,
+            #063b5c,
+            #052e49
+        );
+}
+
+.brand{
+    width:100%;
+    min-width:0;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:10px;
+    text-decoration:none;
+    color:#fff;
+    position:relative;
+    z-index:5;
+}
+
+.brand-logo{
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:3px;
+    border-radius:9px;
+    background:#fff;
+    overflow:hidden;
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.5);
+}
+
+.brand-logo img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;
+}
+
+.brand-text{
+    min-width:0;
+    overflow:hidden;
+}
+
+.brand-text strong{
+    display:block;
+    color:#fff;
+    font-size:14px;
+    line-height:1.15;
+    letter-spacing:.45px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.brand-text small{
+    display:block;
+    margin-top:3px;
+    color:#b9d2df;
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:.35px;
+    white-space:nowrap;
+}
+
+
+/* =====================================================
+   NAVIGASI
+===================================================== */
+
+.main-nav{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    padding:0;
+    margin:0;
+    overflow:visible;
+    position:relative;
+    z-index:10;
+}
+
+.main-nav a{
+    flex:0 1 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:29px;
+    padding:7px 9px;
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+    border-radius:7px;
+    color:#e4edf3;
+    background:
+        rgba(255,255,255,.07);
+    text-decoration:none;
+    font-size:8px;
+    font-weight:900;
+    white-space:nowrap;
+    line-height:1;
+    transition:.18s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active{
+    color:#153326;
+    background:#e9b949;
+    border-color:#f4d77e;
+}
+
+
+/*
+   PENCEGAHAN LOGO GANDA
+*/
+
+.brand::before,
+.brand::after,
+.header-main::before,
+.header-main::after,
+.header-main > img,
+.brand > img{
+    content:none!important;
+    display:none!important;
+    background:none!important;
+    background-image:none!important;
+}
+
+
+/* =====================================================
+   HEADER BERITA
+===================================================== */
+
+.page-header{
+    background:
+        linear-gradient(
+            135deg,
+            #063b5c,
+            #075f8d
+        );
+    color:#fff;
+    padding:
+        46px 0 42px;
+    border-bottom:
+        4px solid
+        #e9b949;
+}
+
+.page-header .container{
+    max-width:1180px;
+}
+
+.section-label{
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    color:#08729f;
+    margin-bottom:9px;
+}
+
+.page-header .section-label{
+    color:#bfe8f5;
+}
+
+.page-header h1{
+    margin:0;
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            48px
+        );
+    line-height:1.1;
+    font-weight:900;
+    letter-spacing:-.5px;
+}
+
+.page-header h1 span{
+    color:#f1c95e;
+}
+
+.page-header p{
+    max-width:760px;
+    margin:13px 0 0;
+    color:#dbeaf2;
+    font-size:14px;
+    line-height:1.75;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section{
+    padding:
+        42px 0 55px;
+}
+
+.section-title{
+    margin:
+        0 0 7px;
+    color:#173d53;
+    font-size:
+        clamp(
+            23px,
+            3vw,
+            31px
+        );
+    line-height:1.25;
+    font-weight:900;
+}
+
+.section-desc{
+    margin:
+        0 0 25px;
+    color:#70828b;
+    font-size:13px;
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   BERITA
 ===================================================== */
 
 .news-page{
@@ -36,16 +325,24 @@
 
 .news-grid{
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
     gap:24px;
 }
 
 .news-card{
     background:#fff;
-    border:1px solid #dfe8ee;
+    border:
+        1px solid
+        #dfe8ee;
     border-radius:18px;
     overflow:hidden;
-    box-shadow:0 8px 28px rgba(6,59,92,.08);
+    box-shadow:
+        0 8px 28px
+        rgba(6,59,92,.08);
     transition:
         transform .22s ease,
         box-shadow .22s ease,
@@ -54,7 +351,9 @@
 
 .news-card:hover{
     transform:translateY(-5px);
-    box-shadow:0 16px 38px rgba(6,59,92,.14);
+    box-shadow:
+        0 16px 38px
+        rgba(6,59,92,.14);
     border-color:#bcd8e7;
 }
 
@@ -94,7 +393,9 @@
     align-items:center;
     background:#edf7fc;
     color:#075f89;
-    border:1px solid #d5eaf4;
+    border:
+        1px solid
+        #d5eaf4;
     padding:6px 11px;
     border-radius:30px;
     font-size:10px;
@@ -104,7 +405,8 @@
 }
 
 .news-title{
-    margin:0 0 8px;
+    margin:
+        0 0 8px;
     font-size:21px;
     line-height:1.35;
     color:#16394e;
@@ -126,7 +428,9 @@
 .news-source{
     margin-top:17px;
     padding-top:13px;
-    border-top:1px solid #edf1f3;
+    border-top:
+        1px solid
+        #edf1f3;
     font-size:10px;
     line-height:1.6;
     color:#748791;
@@ -149,7 +453,9 @@
 .news-comments{
     margin-top:20px;
     padding-top:16px;
-    border-top:1px solid #e5edf1;
+    border-top:
+        1px solid
+        #e5edf1;
 }
 
 .comments-title{
@@ -167,7 +473,9 @@
 
 .comment{
     background:#f5f9fb;
-    border:1px solid #e4edf1;
+    border:
+        1px solid
+        #e4edf1;
     border-radius:10px;
     padding:10px 11px;
 }
@@ -204,7 +512,9 @@
 .form-input,
 .form-textarea{
     width:100%;
-    border:1px solid #d5e1e6;
+    border:
+        1px solid
+        #d5e1e6;
     border-radius:9px;
     padding:10px 11px;
     font-family:inherit;
@@ -218,7 +528,9 @@
 .form-input:focus,
 .form-textarea:focus{
     border-color:#0780ad;
-    box-shadow:0 0 0 3px rgba(7,128,173,.08);
+    box-shadow:
+        0 0 0 3px
+        rgba(7,128,173,.08);
 }
 
 .form-textarea{
@@ -229,11 +541,12 @@
 
 .comment-button{
     border:0;
-    background:linear-gradient(
-        135deg,
-        #07547b,
-        #0878a8
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #07547b,
+            #0878a8
+        );
     color:#fff;
     padding:10px 15px;
     border-radius:9px;
@@ -246,7 +559,9 @@
 
 .comment-button:hover{
     transform:translateY(-1px);
-    box-shadow:0 5px 14px rgba(7,84,123,.18);
+    box-shadow:
+        0 5px 14px
+        rgba(7,84,123,.18);
 }
 
 .comment-button:disabled{
@@ -266,7 +581,9 @@
 
 .status{
     background:#fff;
-    border:1px solid #dfe9ed;
+    border:
+        1px solid
+        #dfe9ed;
     border-radius:12px;
     padding:13px 16px;
     font-size:12px;
@@ -292,7 +609,9 @@
 
 .empty{
     background:#fff;
-    border:1px dashed #cbd9df;
+    border:
+        1px dashed
+        #cbd9df;
     border-radius:16px;
     padding:50px 20px;
     text-align:center;
@@ -303,7 +622,84 @@
 
 
 /* =====================================================
-   RESPONSIVE BERITA
+   FOOTER
+===================================================== */
+
+.footer{
+    background:
+        linear-gradient(
+            180deg,
+            #063b5c,
+            #042c45
+        );
+    color:#d7e5ec;
+    margin-top:20px;
+    border-top:
+        3px solid
+        #e9b949;
+}
+
+.footer-main{
+    display:grid;
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+    gap:35px;
+    padding:
+        38px 0 30px;
+}
+
+.footer h3{
+    margin:
+        0 0 8px;
+    color:#fff;
+    font-size:18px;
+}
+
+.footer h4{
+    margin:
+        0 0 11px;
+    color:#f0c85d;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+}
+
+.footer p{
+    margin:0;
+    color:#b9ced8;
+    font-size:11px;
+    line-height:1.7;
+}
+
+.footer a{
+    display:block;
+    color:#c9dbe3;
+    font-size:11px;
+    margin-bottom:7px;
+    transition:.18s ease;
+}
+
+.footer a:hover{
+    color:#f0c85d;
+    padding-left:3px;
+}
+
+.footer-bottom{
+    min-height:48px;
+    border-top:
+        1px solid
+        rgba(255,255,255,.10);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    color:#94afbc;
+    font-size:9px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
 ===================================================== */
 
 @media(max-width:850px){
@@ -317,9 +713,78 @@
         height:230px;
     }
 
+    .footer-main{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+@media(max-width:760px){
+
+    .header-main{
+        padding:
+            8px 10px 10px;
+        gap:8px;
+    }
+
+    .brand-logo{
+        width:36px;
+        height:36px;
+        flex-basis:36px;
+        border-radius:8px;
+        padding:2px;
+    }
+
+    .brand-text strong{
+        font-size:12px;
+    }
+
+    .brand-text small{
+        font-size:7px;
+    }
+
+    .main-nav{
+        justify-content:flex-start;
+        gap:4px;
+    }
+
+    .main-nav a{
+        min-height:28px;
+        padding:7px 8px;
+        font-size:7.5px;
+    }
+
+    .page-header{
+        padding:
+            35px 0 32px;
+    }
+
+    .page-header p{
+        font-size:13px;
+    }
+
 }
 
 @media(max-width:520px){
+
+    .container{
+        width:
+            min(
+                100% - 20px,
+                1180px
+            );
+    }
+
+    .main-nav{
+        justify-content:center;
+    }
+
+    .main-nav a{
+        padding:
+            7px 7px;
+        font-size:7px;
+    }
 
     .news-grid{
         gap:17px;
@@ -342,6 +807,36 @@
         font-size:12px;
     }
 
+    .footer-main{
+        grid-template-columns:1fr;
+        gap:24px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        justify-content:center;
+        padding:
+            13px 0;
+        text-align:center;
+    }
+
+}
+
+
+/* =====================================================
+   PERLINDUNGAN LOGO DARI CSS EKSTERNAL
+===================================================== */
+
+.header-main > img,
+.brand > img,
+.brand::before,
+.brand::after,
+.header-main::before,
+.header-main::after{
+    display:none!important;
+    content:none!important;
+    background:none!important;
+    background-image:none!important;
 }
 
 </style>
@@ -373,41 +868,24 @@ const supabaseClient =
 
 
 <!-- =====================================================
-     TOP BAR
+     HEADER + NAVIGASI
 ===================================================== -->
 
-<div class="topbar">
+<header class="site-header">
 
-    <div class="container topbar-inner">
-
-        <span>
-            GABSI Kota Tanjungbalai
-        </span>
-
-        <span>
-            Sportivitas • Persahabatan • Prestasi • Edukasi
-        </span>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
-<nav class="navbar">
-
-    <div class="container nav-inner">
+    <div class="header-main">
 
         <a href="index.html"
            class="brand"
            aria-label="Kembali ke Beranda">
 
-            <img
-                src="logo-gabsi.png"
-                alt="Logo GABSI Kota Tanjungbalai">
+            <div class="brand-logo">
+
+                <img
+                    src="logo-gabsi.png"
+                    alt="Logo GABSI Kota Tanjungbalai">
+
+            </div>
 
             <div class="brand-text">
 
@@ -415,29 +893,18 @@ const supabaseClient =
                     GABSI KOTA TANJUNGBALAI
                 </strong>
 
-                <span>
+                <small>
                     GABUNGAN BRIDGE SELURUH INDONESIA
-                </span>
+                </small>
 
             </div>
 
         </a>
 
 
-        <button
-            class="menu-btn"
-            type="button"
-            onclick="toggleMenu()"
-            aria-label="Buka menu"
-            aria-expanded="false">
-
-            ☰
-
-        </button>
-
-
-        <div class="nav-links"
-             id="navLinks">
+        <nav class="main-nav"
+             id="navLinks"
+             aria-label="Navigasi utama">
 
             <a href="index.html">
                 Beranda
@@ -455,12 +922,6 @@ const supabaseClient =
                 Kegiatan
             </a>
 
-            <a href="berita.html"
-               class="active"
-               aria-current="page">
-                Berita
-            </a>
-
             <a href="galeri.html">
                 Galeri
             </a>
@@ -469,19 +930,29 @@ const supabaseClient =
                 Aplikasi
             </a>
 
+            <a href="kocokan-kartu.html">
+                Kartu Pembanding
+            </a>
+
             <a href="game-bridge-gabsi.html">
-                ♠ Game Bridge
+                Game Bridge
+            </a>
+
+            <a href="berita.html"
+               class="active"
+               aria-current="page">
+                Berita
             </a>
 
             <a href="kontak.html">
                 Kontak
             </a>
 
-        </div>
+        </nav>
 
     </div>
 
-</nav>
+</header>
 
 
 <!-- =====================================================
@@ -492,8 +963,7 @@ const supabaseClient =
 
     <div class="container">
 
-        <div class="section-label"
-             style="color:#bfe8f5;">
+        <div class="section-label">
 
             INFORMASI TERBARU
 
@@ -602,12 +1072,28 @@ const supabaseClient =
                 Kegiatan
             </a>
 
+            <a href="galeri.html">
+                Galeri
+            </a>
+
+            <a href="aplikasi.html">
+                Aplikasi
+            </a>
+
+            <a href="kocokan-kartu.html">
+                Kartu Pembanding
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                Game Bridge
+            </a>
+
             <a href="berita.html">
                 Berita
             </a>
 
-            <a href="galeri.html">
-                Galeri
+            <a href="kontak.html">
+                Kontak
             </a>
 
         </div>
@@ -619,24 +1105,20 @@ const supabaseClient =
                 Lainnya
             </h4>
 
-            <a href="aplikasi.html">
-                Aplikasi
-            </a>
-
-            <a href="game-bridge-gabsi.html">
-                ♠ Game Bridge
-            </a>
-
             <a href="score-sheet.html">
                 Score Sheet
             </a>
 
             <a href="kocokan-kartu.html">
-                Kocokan Kartu
+                Kartu Pembanding
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                Game Bridge
             </a>
 
             <a href="kontak.html">
-                Kontak
+                Hubungi Kami
             </a>
 
         </div>
@@ -660,64 +1142,6 @@ const supabaseClient =
 
 
 <script>
-
-/* =====================================================
-   MENU NAVIGASI
-===================================================== */
-
-function toggleMenu(){
-
-    const nav =
-        document.getElementById("navLinks");
-
-    const button =
-        document.querySelector(".menu-btn");
-
-    nav.classList.toggle("show");
-
-    const terbuka =
-        nav.classList.contains("show");
-
-    button.setAttribute(
-        "aria-expanded",
-        terbuka ? "true" : "false"
-    );
-
-}
-
-
-/* Tutup menu setelah memilih halaman */
-
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(function(link){
-
-        link.addEventListener(
-            "click",
-            function(){
-
-                const nav =
-                    document.getElementById(
-                        "navLinks"
-                    );
-
-                const button =
-                    document.querySelector(
-                        ".menu-btn"
-                    );
-
-                nav.classList.remove("show");
-
-                button.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-        );
-
-    });
-
 
 /* =====================================================
    TANGGAL
