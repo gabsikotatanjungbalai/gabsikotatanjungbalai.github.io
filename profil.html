@@ -20,8 +20,6 @@
       type="image/png"
       href="logo-gabsi.png">
 
-<link rel="stylesheet"
-      href="gabsi-unified-theme.css">
 
 <style>
 
@@ -52,109 +50,135 @@ body{
 
 .site-header{
   width:100%;
-  background:#fff;
+  background:#ffffff;
   box-shadow:0 2px 12px rgba(0,0,0,.10);
   position:relative;
-  z-index:100;
+  z-index:1000;
 }
 
 .top-line{
-  background:#063b5c;
-  color:#fff;
+  width:100%;
   min-height:30px;
+
+  background:#063b5c;
+  color:#ffffff;
+
   padding:6px 20px;
+
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+
   font-size:9px;
   letter-spacing:.2px;
 }
 
-.header-main{
-  min-height:68px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-  padding:9px 20px;
-  position:relative;
-}
-
 
 /* =====================================================
-   PENGAMAN:
-   HANYA SATU LOGO GABSI
+   HEADER MAIN
 ===================================================== */
 
-/* Matikan kemungkinan logo tambahan
-   dari stylesheet sebelumnya */
+.header-main{
+  width:100%;
+  min-height:68px;
 
-.header-main::before,
-.header-main::after,
-.brand::before,
-.brand::after{
-  content:none !important;
-  display:none !important;
-  background:none !important;
-  background-image:none !important;
+  padding:9px 20px;
+
+  display:flex;
+  align-items:center;
+
+  gap:20px;
+
+  background:#ffffff;
 }
 
 
 /* =====================================================
    BRAND
+   HANYA SATU LOGO
 ===================================================== */
 
 .brand{
   display:flex;
   align-items:center;
+
   gap:10px;
+
   text-decoration:none;
-  color:#173b50;
-  flex-shrink:0;
+
+  flex:0 0 auto;
+
+  min-width:0;
+
   position:relative;
 }
 
 
-/* SATU-SATUNYA LOGO */
+/* Matikan SEMUA pseudo-element
+   pada brand agar tidak bisa membuat
+   logo kedua */
+
+.brand::before,
+.brand::after{
+  display:none !important;
+  content:none !important;
+  background:none !important;
+  background-image:none !important;
+}
+
+
+/* SATU LOGO GABSI */
 
 .brand-logo{
-  width:40px !important;
-  height:40px !important;
-  min-width:40px !important;
-  min-height:40px !important;
-  max-width:40px !important;
-  max-height:40px !important;
+  width:40px;
+  height:40px;
 
-  border-radius:8px;
-  background:#fff;
+  min-width:40px;
+  min-height:40px;
 
-  display:flex !important;
+  max-width:40px;
+  max-height:40px;
+
+  display:flex;
+
   align-items:center;
   justify-content:center;
 
-  overflow:hidden;
   flex:0 0 40px;
+
+  overflow:hidden;
+
+  background:#ffffff;
+
+  border-radius:8px;
 
   padding:0;
   margin:0;
+
+  position:relative;
 }
 
 
-/* Hanya logo yang berada di .brand-logo */
+/* Logo utama */
 
 .brand-logo img{
-  width:100% !important;
-  height:100% !important;
-  max-width:100% !important;
-  max-height:100% !important;
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  max-width:100%;
+  max-height:100%;
 
   object-fit:contain;
-  display:block !important;
-  margin:0 !important;
+
+  margin:0;
+  padding:0;
 }
 
 
-/* Sembunyikan gambar lain yang mungkin
-   tersisa di area header */
+/* Jangan tampilkan gambar lain
+   di dalam header */
 
 .header-main > img{
   display:none !important;
@@ -164,23 +188,43 @@ body{
   display:none !important;
 }
 
+
+/* =====================================================
+   BRAND TEXT
+===================================================== */
+
 .brand-text{
   display:block;
+
+  min-width:0;
 }
 
 .brand-text strong{
   display:block;
-  font-size:13px;
-  line-height:1.2;
+
   color:#063b5c;
+
+  font-size:13px;
+
+  line-height:1.2;
+
+  white-space:nowrap;
 }
 
 .brand-text small{
   display:block;
-  font-size:7px;
+
   color:#7b8790;
+
+  font-size:7px;
+
+  line-height:1.2;
+
   margin-top:2px;
+
   letter-spacing:.2px;
+
+  white-space:nowrap;
 }
 
 
@@ -190,12 +234,23 @@ body{
 
 .main-nav{
   display:flex;
+
   align-items:center;
+
   justify-content:flex-end;
+
   gap:3px;
+
   flex:1;
+
+  min-width:0;
+
   overflow-x:auto;
+
+  overflow-y:hidden;
+
   white-space:nowrap;
+
   scrollbar-width:none;
 }
 
@@ -205,34 +260,45 @@ body{
 
 .main-nav a{
   display:inline-flex;
+
   align-items:center;
   justify-content:center;
 
-  text-decoration:none;
-  color:#172033;
+  flex:0 0 auto;
 
   padding:8px 9px;
-  border-radius:8px;
+
+  border-radius:9px;
+
+  text-decoration:none;
+
+  color:#172033;
 
   font-size:10px;
+
   font-weight:600;
 
   white-space:nowrap;
 
   transition:
     background .2s ease,
-    color .2s ease;
+    color .2s ease,
+    box-shadow .2s ease;
 }
 
 .main-nav a:hover{
   background:#eaf4f9;
+
   color:#07558f;
 }
 
 .main-nav a.active{
   background:#eaf4f9;
+
   color:#07558f;
+
   font-weight:700;
+
   box-shadow:
     inset 0 -3px 0 #c92f3d;
 }
@@ -251,23 +317,27 @@ body{
       #087cab 100%
     );
 
-  color:#fff;
+  color:#ffffff;
+
   padding:48px 20px;
 
   text-align:center;
 
   position:relative;
+
   overflow:hidden;
 }
 
 .page-hero::before{
   content:"";
+
   position:absolute;
 
   width:300px;
   height:300px;
 
   border-radius:50%;
+
   border:1px solid rgba(255,255,255,.08);
 
   top:-180px;
@@ -276,12 +346,14 @@ body{
 
 .page-hero::after{
   content:"";
+
   position:absolute;
 
   width:240px;
   height:240px;
 
   border-radius:50%;
+
   border:1px solid rgba(255,255,255,.07);
 
   bottom:-160px;
@@ -290,9 +362,11 @@ body{
 
 .page-hero-inner{
   max-width:1000px;
+
   margin:auto;
 
   position:relative;
+
   z-index:2;
 }
 
@@ -300,13 +374,17 @@ body{
   display:inline-block;
 
   background:rgba(255,255,255,.13);
+
   border:1px solid rgba(255,255,255,.28);
 
   padding:6px 14px;
+
   border-radius:30px;
 
   font-size:9px;
+
   font-weight:bold;
+
   letter-spacing:.5px;
 
   margin-bottom:11px;
@@ -314,7 +392,9 @@ body{
 
 .page-hero h1{
   font-size:34px;
+
   line-height:1.2;
+
   margin:0 0 8px;
 }
 
@@ -323,11 +403,13 @@ body{
 }
 
 .page-hero p{
-  font-size:12px;
+  max-width:760px;
+
+  margin:auto;
+
   color:rgba(255,255,255,.90);
 
-  max-width:760px;
-  margin:auto;
+  font-size:12px;
 }
 
 
@@ -337,6 +419,7 @@ body{
 
 .container{
   width:100%;
+
   max-width:1100px;
 
   margin:auto;
@@ -354,9 +437,10 @@ body{
 ===================================================== */
 
 .section-card{
-  background:#fff;
+  background:#ffffff;
 
   border:1px solid #dce7ec;
+
   border-radius:17px;
 
   padding:28px;
@@ -366,6 +450,7 @@ body{
 
 .section-card h2{
   color:#07558f;
+
   font-size:21px;
 
   margin:0 0 12px;
@@ -373,15 +458,19 @@ body{
 
 .section-card h3{
   color:#173b50;
+
   font-size:16px;
 
   margin-top:20px;
+
   margin-bottom:7px;
 }
 
 .section-card p{
   color:#536673;
+
   font-size:11px;
+
   line-height:1.85;
 
   margin-bottom:10px;
@@ -398,14 +487,17 @@ body{
 
 .org-grid{
   display:grid;
+
   grid-template-columns:repeat(2,1fr);
+
   gap:20px;
 }
 
 .org-card{
-  background:#fff;
+  background:#ffffff;
 
   border:1px solid #dce7ec;
+
   border-radius:17px;
 
   padding:25px;
@@ -413,10 +505,11 @@ body{
   box-shadow:0 6px 20px rgba(0,0,0,.07);
 
   position:relative;
+
   overflow:hidden;
 }
 
-.org-card:before{
+.org-card::before{
   content:"";
 
   position:absolute;
@@ -445,11 +538,13 @@ body{
   justify-content:center;
 
   background:#eaf4f9;
+
   color:#07558f;
 
   border-radius:10px;
 
   font-weight:bold;
+
   font-size:14px;
 
   margin-bottom:12px;
@@ -457,6 +552,7 @@ body{
 
 .org-card h2{
   color:#07558f;
+
   font-size:18px;
 
   margin-bottom:10px;
@@ -468,13 +564,15 @@ body{
 
 .org-card p{
   color:#536673;
+
   font-size:10.5px;
+
   line-height:1.8;
 }
 
 
 /* =====================================================
-   LEADER
+   LEADER BOX
 ===================================================== */
 
 .leader-box{
@@ -486,11 +584,12 @@ body{
       #087cab
     );
 
-  color:#fff;
+  color:#ffffff;
 
   border-radius:17px;
 
   padding:28px;
+
   margin-top:20px;
 
   box-shadow:0 6px 20px rgba(0,0,0,.08);
@@ -500,19 +599,23 @@ body{
   display:inline-block;
 
   background:rgba(255,255,255,.13);
+
   border:1px solid rgba(255,255,255,.22);
 
   padding:5px 11px;
+
   border-radius:20px;
 
   font-size:8px;
+
   font-weight:bold;
 
   margin-bottom:9px;
 }
 
 .leader-box h2{
-  color:#fff;
+  color:#ffffff;
+
   font-size:22px;
 
   margin-bottom:5px;
@@ -520,7 +623,9 @@ body{
 
 .leader-box .period{
   color:#ffd75a;
+
   font-size:12px;
+
   font-weight:bold;
 
   margin-bottom:12px;
@@ -530,11 +635,13 @@ body{
   color:rgba(255,255,255,.91);
 
   font-size:10.5px;
+
   line-height:1.8;
 }
 
 .period-grid{
   display:grid;
+
   grid-template-columns:1fr 1fr;
 
   gap:12px;
@@ -577,15 +684,17 @@ body{
 
 .achievement-grid{
   display:grid;
+
   grid-template-columns:1fr 1fr;
 
   gap:20px;
 }
 
 .achievement-card{
-  background:#fff;
+  background:#ffffff;
 
   border:1px solid #dce7ec;
+
   border-radius:17px;
 
   padding:25px;
@@ -600,9 +709,11 @@ body{
   border-radius:13px;
 
   background:#eaf4f9;
+
   color:#07558f;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -623,6 +734,7 @@ body{
   color:#536673;
 
   font-size:10.5px;
+
   line-height:1.8;
 }
 
@@ -630,6 +742,7 @@ body{
   display:inline-block;
 
   color:#07558f;
+
   background:#eaf4f9;
 
   padding:4px 9px;
@@ -637,6 +750,7 @@ body{
   border-radius:6px;
 
   font-size:9px;
+
   font-weight:bold;
 
   margin-bottom:9px;
@@ -648,9 +762,10 @@ body{
 ===================================================== */
 
 .education{
-  background:#fff;
+  background:#ffffff;
 
   border:1px solid #dce7ec;
+
   border-radius:17px;
 
   padding:28px;
@@ -670,6 +785,7 @@ body{
   color:#536673;
 
   font-size:11px;
+
   line-height:1.85;
 }
 
@@ -727,7 +843,7 @@ body{
 }
 
 .vm-card{
-  background:#fff;
+  background:#ffffff;
 
   border:1px solid #dce7ec;
 
@@ -782,7 +898,7 @@ body{
       #087cab
     );
 
-  color:#fff;
+  color:#ffffff;
 
   border-radius:17px;
 
@@ -849,7 +965,7 @@ body{
 .footer{
   background:#063b5c;
 
-  color:#fff;
+  color:#ffffff;
 
   padding:32px 20px 18px;
 }
@@ -901,7 +1017,7 @@ body{
 }
 
 .footer-links a:hover{
-  color:#fff;
+  color:#ffffff;
 }
 
 .footer-bottom{
@@ -927,7 +1043,7 @@ body{
    RESPONSIVE
 ===================================================== */
 
-@media(max-width:1000px){
+@media(max-width:1100px){
 
   .header-main{
     gap:10px;
@@ -981,15 +1097,17 @@ body{
     gap:8px;
   }
 
+  /* LOGO TETAP HANYA SATU */
+
   .brand-logo{
-    width:36px !important;
-    height:36px !important;
+    width:36px;
+    height:36px;
 
-    min-width:36px !important;
-    min-height:36px !important;
+    min-width:36px;
+    min-height:36px;
 
-    max-width:36px !important;
-    max-height:36px !important;
+    max-width:36px;
+    max-height:36px;
 
     flex-basis:36px;
   }
@@ -1126,6 +1244,7 @@ body{
 
 <!-- =====================================================
      HEADER
+     SATU LOGO SAJA
 ===================================================== -->
 
 <header class="site-header">
@@ -1146,12 +1265,10 @@ body{
   <div class="header-main">
 
 
-    <!-- =================================================
-         SATU-SATUNYA LOGO GABSI
-         TIDAK ADA LOGO LAIN DI SEBELAH KANAN
-    ================================================== -->
+    <!-- SATU LOGO GABSI -->
 
-    <a href="index.html" class="brand">
+    <a href="index.html"
+       class="brand">
 
       <div class="brand-logo">
 
@@ -1160,6 +1277,7 @@ body{
           alt="Logo GABSI Kota Tanjungbalai">
 
       </div>
+
 
       <div class="brand-text">
 
