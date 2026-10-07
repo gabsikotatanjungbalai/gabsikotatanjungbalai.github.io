@@ -18,12 +18,13 @@
       type="image/png"
       href="logo-gabsi.png">
 
-<link rel="stylesheet"
-      href="gabsi-unified-theme.css">
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -64,73 +65,99 @@ a{
 
 
 /* =========================================================
-   TOP BAR
-========================================================= */
-
-.topbar{
-    background:#062d45;
-    color:#dcecf4;
-    font-size:11px;
-    padding:7px 0;
-}
-
-.topbar-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-}
-
-
-/* =========================================================
    HEADER
 ========================================================= */
 
-.header{
-    background:rgba(255,255,255,.97);
-    border-bottom:1px solid #dce7ed;
+.site-header{
+    width:100%;
+    background:
+        linear-gradient(
+            180deg,
+            #063b5c,
+            #052e49
+        );
+    border-bottom:
+        1px solid rgba(233,185,73,.55);
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:0 3px 16px rgba(6,59,92,.08);
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.12);
 }
 
-.header-inner{
-    min-height:68px;
+.header-main{
+    width:100%;
+    padding:9px 12px 8px;
     display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
+    flex-direction:column;
+    align-items:stretch;
+    gap:9px;
+    background:
+        linear-gradient(
+            180deg,
+            #063b5c,
+            #052e49
+        );
 }
 
 .brand{
+    width:100%;
+    min-width:0;
     display:flex;
     align-items:center;
+    justify-content:flex-start;
     gap:10px;
-    flex-shrink:0;
+    text-decoration:none;
+    color:#fff;
+    position:relative;
+    z-index:5;
 }
 
-.brand img{
+.brand-logo{
     width:42px;
     height:42px;
-    object-fit:contain;
+    flex:0 0 42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:3px;
     border-radius:9px;
     background:#fff;
+    overflow:hidden;
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.5);
 }
 
-.brand strong{
+.brand-logo img{
+    width:100%;
+    height:100%;
     display:block;
-    color:#063b5c;
+    object-fit:contain;
+}
+
+.brand-text{
+    min-width:0;
+}
+
+.brand-text strong{
+    display:block;
+    color:#fff;
     font-size:14px;
-    letter-spacing:.2px;
+    line-height:1.15;
+    letter-spacing:.45px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-.brand span{
+.brand-text small{
     display:block;
-    color:#7c909b;
+    margin-top:3px;
+    color:#b9d2df;
     font-size:8px;
-    letter-spacing:.6px;
-    font-weight:bold;
+    font-weight:700;
+    letter-spacing:.35px;
+    white-space:nowrap;
 }
 
 
@@ -138,41 +165,100 @@ a{
    NAVIGASI
 ========================================================= */
 
-.site-navigation{
+.main-nav{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    padding:0;
+    margin:0;
+    overflow:visible;
+    position:relative;
+    z-index:10;
+}
+
+.main-nav a{
+    flex:0 1 auto;
     display:flex;
     align-items:center;
-    gap:3px;
-    flex:1;
-    justify-content:flex-end;
-}
-
-.site-navigation a{
-    color:#304754;
-    font-size:10px;
-    font-weight:bold;
-    padding:8px 8px;
-    border-radius:8px;
+    justify-content:center;
+    min-height:29px;
+    padding:7px 9px;
+    border:
+        1px solid rgba(255,255,255,.16);
+    border-radius:7px;
+    color:#e4edf3;
+    background:
+        rgba(255,255,255,.07);
+    text-decoration:none;
+    font-size:8px;
+    font-weight:900;
     white-space:nowrap;
-    transition:.2s;
+    line-height:1;
+    transition:.18s ease;
 }
 
-.site-navigation a:hover,
-.site-navigation a.active{
-    background:#eaf4f9;
-    color:#075b87;
+.main-nav a:hover,
+.main-nav a.active{
+    color:#153326;
+    background:#e9b949;
+    border-color:#f4d77e;
+    box-shadow:
+        0 3px 9px rgba(0,0,0,.14);
 }
 
 
 /* =========================================================
-   HEADER ACTION
+   PENGAMAN LOGO
 ========================================================= */
 
-.header-actions{
-    display:none;
-    align-items:center;
-    gap:7px;
-    flex-shrink:0;
+.brand::before,
+.brand::after,
+.header-main::before,
+.header-main::after,
+.header-main > img,
+.brand > img{
+    content:none!important;
+    display:none!important;
+    background:none!important;
+    background-image:none!important;
 }
+
+
+/* =========================================================
+   TOP BAR ADMIN
+========================================================= */
+
+.admin-strip{
+    background:#062d45;
+    color:#dcecf4;
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
+}
+
+.admin-strip-inner{
+    width:min(1180px,94%);
+    margin:auto;
+    min-height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.25px;
+}
+
+.admin-strip-right{
+    color:#9fc0ce;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
 
 .btn{
     border:0;
@@ -200,13 +286,15 @@ a{
 .btn-primary{
     background:#07547b;
     color:#fff;
-    box-shadow:0 4px 10px rgba(7,84,123,.15);
+    box-shadow:
+        0 4px 10px rgba(7,84,123,.15);
 }
 
 .btn-success{
     background:#159653;
     color:#fff;
-    box-shadow:0 4px 10px rgba(21,150,83,.12);
+    box-shadow:
+        0 4px 10px rgba(21,150,83,.12);
 }
 
 .btn-danger{
@@ -231,58 +319,16 @@ a{
 
 
 /* =========================================================
-   MOBILE MENU
+   HEADER ACTION
 ========================================================= */
 
-.mobile-menu-btn{
+.header-actions{
     display:none;
-    border:0;
-    background:#edf5f9;
-    color:#063b5c;
-    width:40px;
-    height:40px;
-    border-radius:9px;
-    font-size:20px;
-    cursor:pointer;
-}
-
-.mobile-menu{
-    display:none;
-    background:#fff;
-    border-top:1px solid #e3ebef;
-    border-bottom:1px solid #dce7ed;
-    box-shadow:0 8px 22px rgba(0,0,0,.08);
-}
-
-.mobile-menu.show{
-    display:block;
-}
-
-.mobile-menu a{
-    display:block;
-    padding:11px 5%;
-    color:#203442;
-    font-size:11px;
-    font-weight:bold;
-    border-bottom:1px solid #edf1f3;
-}
-
-.mobile-menu a:hover,
-.mobile-menu a.active{
-    background:#edf6fb;
-    color:#075b87;
-}
-
-.mobile-menu .mobile-actions{
-    padding:10px 5%;
-    display:flex;
+    align-items:center;
+    justify-content:flex-end;
     gap:7px;
-}
-
-.mobile-menu .mobile-actions a,
-.mobile-menu .mobile-actions button{
-    flex:1;
-    text-align:center;
+    width:100%;
+    flex-wrap:wrap;
 }
 
 
@@ -291,7 +337,8 @@ a{
 ========================================================= */
 
 .login-page{
-    min-height:calc(100vh - 82px);
+    min-height:
+        calc(100vh - 150px);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -312,7 +359,8 @@ a{
 .login-card{
     width:min(430px,94%);
     background:#fff;
-    border:1px solid #dce8ed;
+    border:
+        1px solid #dce8ed;
     border-radius:20px;
     padding:30px;
     box-shadow:
@@ -356,7 +404,8 @@ a{
 
 .form-control{
     width:100%;
-    border:1px solid #d5e1e6;
+    border:
+        1px solid #d5e1e6;
     border-radius:9px;
     padding:11px 12px;
     font-size:12px;
@@ -392,7 +441,8 @@ a{
 .login-error{
     display:none;
     background:#fff3f3;
-    border:1px solid #efc8c8;
+    border:
+        1px solid #efc8c8;
     color:#a52b2b;
     padding:10px;
     border-radius:8px;
@@ -429,7 +479,8 @@ a{
     width:260px;
     height:260px;
     border-radius:50%;
-    background:rgba(255,255,255,.05);
+    background:
+        rgba(255,255,255,.05);
     right:-90px;
     top:-130px;
 }
@@ -461,7 +512,8 @@ a{
 
 .dashboard-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
     gap:14px;
     margin-bottom:20px;
 }
@@ -470,7 +522,8 @@ a{
     position:relative;
     overflow:hidden;
     background:#fff;
-    border:1px solid #dfe9ed;
+    border:
+        1px solid #dfe9ed;
     border-radius:15px;
     padding:18px;
     box-shadow:
@@ -513,7 +566,8 @@ a{
 
 .panel{
     background:#fff;
-    border:1px solid #dfe8ec;
+    border:
+        1px solid #dfe8ec;
     border-radius:16px;
     margin-bottom:20px;
     box-shadow:
@@ -523,7 +577,8 @@ a{
 
 .panel-header{
     padding:16px 20px;
-    border-bottom:1px solid #e8eef1;
+    border-bottom:
+        1px solid #e8eef1;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -553,7 +608,8 @@ a{
 
 .form-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
     gap:14px;
 }
 
@@ -600,7 +656,8 @@ textarea.form-control{
 }
 
 .news-admin-item{
-    border:1px solid #dfe8ec;
+    border:
+        1px solid #dfe8ec;
     border-radius:13px;
     padding:15px;
     background:#fbfdfe;
@@ -609,7 +666,8 @@ textarea.form-control{
 
 .news-admin-item:hover{
     border-color:#b9d5e2;
-    box-shadow:0 5px 18px rgba(20,55,75,.05);
+    box-shadow:
+        0 5px 18px rgba(20,55,75,.05);
 }
 
 .news-admin-title{
@@ -646,7 +704,8 @@ textarea.form-control{
 ========================================================= */
 
 .comment-admin{
-    border:1px solid #e0e8ec;
+    border:
+        1px solid #e0e8ec;
     border-radius:11px;
     padding:13px;
     margin-bottom:9px;
@@ -704,14 +763,16 @@ textarea.form-control{
     display:block;
     background:#effcf5;
     color:#087244;
-    border:1px solid #bfe6d0;
+    border:
+        1px solid #bfe6d0;
 }
 
 .message.error{
     display:block;
     background:#fff4f4;
     color:#a52b2b;
-    border:1px solid #efcaca;
+    border:
+        1px solid #efcaca;
 }
 
 
@@ -734,10 +795,52 @@ textarea.form-control{
 .footer{
     background:#062d45;
     color:#fff;
-    padding:20px 0;
+    padding:25px 0;
 }
 
-.footer p{
+.footer-grid{
+    display:grid;
+    grid-template-columns:
+        1.4fr 1fr 1fr;
+    gap:25px;
+    margin-bottom:18px;
+}
+
+.footer-title{
+    color:#fff;
+    font-size:12px;
+    font-weight:900;
+    margin-bottom:8px;
+}
+
+.footer-text{
+    color:#9db8c5;
+    font-size:9px;
+    line-height:1.7;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.footer-links a{
+    color:#b8ced8;
+    font-size:9px;
+}
+
+.footer-links a:hover{
+    color:#e9b949;
+}
+
+.footer-bottom{
+    padding-top:15px;
+    border-top:
+        1px solid rgba(255,255,255,.09);
+}
+
+.footer-bottom p{
     margin:0;
     text-align:center;
     color:#9db8c5;
@@ -749,56 +852,65 @@ textarea.form-control{
    RESPONSIVE
 ========================================================= */
 
-@media(max-width:1100px){
+@media(max-width:850px){
 
-    .site-navigation{
-        display:none;
+    .dashboard-grid{
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .mobile-menu-btn{
-        display:block;
+    .form-grid{
+        grid-template-columns:
+            1fr;
     }
 
-    .header-inner{
-        min-height:60px;
+    .form-group.full{
+        grid-column:auto;
     }
 
-    .header-actions{
-        margin-left:auto;
+    .footer-grid{
+        grid-template-columns:
+            1fr 1fr;
     }
 
 }
 
 
-@media(max-width:750px){
+@media(max-width:600px){
 
-    .brand img{
-        width:36px;
-        height:36px;
+    .header-main{
+        padding:8px 10px 9px;
+        gap:8px;
     }
 
-    .brand strong{
+    .brand-logo{
+        width:36px;
+        height:36px;
+        flex-basis:36px;
+    }
+
+    .brand-text strong{
         font-size:11px;
     }
 
-    .brand span{
+    .brand-text small{
         font-size:7px;
     }
 
-    .header-actions{
-        display:none !important;
+    .main-nav{
+        justify-content:flex-start;
+        gap:4px;
     }
 
-    .dashboard-grid{
-        grid-template-columns:1fr 1fr;
+    .main-nav a{
+        min-height:28px;
+        padding:7px 8px;
+        font-size:7.5px;
     }
 
-    .form-grid{
-        grid-template-columns:1fr;
-    }
-
-    .form-group.full{
-        grid-column:auto;
+    .admin-strip-inner{
+        min-height:27px;
+        font-size:8px;
     }
 
     .admin-header{
@@ -809,30 +921,12 @@ textarea.form-control{
         font-size:27px;
     }
 
-}
-
-
-@media(max-width:500px){
-
-    .topbar{
-        font-size:8px;
-    }
-
-    .topbar-inner{
-        flex-direction:column;
-        align-items:flex-start;
+    .admin-header p{
+        font-size:10px;
     }
 
     .dashboard-grid{
         grid-template-columns:1fr;
-    }
-
-    .login-card{
-        padding:22px;
-    }
-
-    .admin-header h1{
-        font-size:25px;
     }
 
     .panel-header{
@@ -851,10 +945,38 @@ textarea.form-control{
         width:100%;
     }
 
-    .header-inner{
-        gap:8px;
+    .news-admin-actions .btn,
+    .comment-admin-actions .btn{
+        flex:1;
     }
 
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:400px){
+
+    .main-nav a{
+        padding:6px 7px;
+        font-size:7px;
+    }
+
+    .login-card{
+        padding:22px;
+    }
+
+}
+
+
+/* =========================================================
+   KEAMANAN TAMBAHAN DARI CSS EKSTERNAL
+========================================================= */
+
+.site-header img:not(.brand-logo img){
+    display:none!important;
 }
 
 </style>
@@ -889,19 +1011,19 @@ const supabaseClient =
 
 
 <!-- =========================================================
-     TOP BAR
+     ADMIN STRIP
 ========================================================= -->
 
-<div class="topbar">
+<div class="admin-strip">
 
-    <div class="container topbar-inner">
+    <div class="admin-strip-inner">
 
         <span>
             GABSI Kota Tanjungbalai
         </span>
 
-        <span>
-            ADMINISTRASI BERITA
+        <span class="admin-strip-right">
+            Administrasi Berita
         </span>
 
     </div>
@@ -913,29 +1035,32 @@ const supabaseClient =
      HEADER
 ========================================================= -->
 
-<header class="header">
+<header class="site-header">
 
-    <div class="container header-inner">
-
+    <div class="header-main">
 
         <a
             href="index.html"
             class="brand"
             aria-label="Kembali ke Beranda">
 
-            <img
-                src="logo-gabsi.png"
-                alt="Logo GABSI">
+            <div class="brand-logo">
 
-            <div>
+                <img
+                    src="logo-gabsi.png"
+                    alt="Logo GABSI Kota Tanjungbalai">
+
+            </div>
+
+            <div class="brand-text">
 
                 <strong>
-                    GABSI KOTA TANJUNGBALAI
+                    GABSI Kota Tanjungbalai
                 </strong>
 
-                <span>
-                    ADMIN BERITA
-                </span>
+                <small>
+                    Bridge • Prestasi • Persaudaraan
+                </small>
 
             </div>
 
@@ -943,8 +1068,8 @@ const supabaseClient =
 
 
         <nav
-            class="site-navigation"
-            id="siteNavigation">
+            class="main-nav"
+            aria-label="Navigasi utama">
 
             <a href="index.html">
                 Beranda
@@ -962,14 +1087,6 @@ const supabaseClient =
                 Kegiatan
             </a>
 
-            <a
-                href="berita.html"
-                class="active">
-
-                Berita
-
-            </a>
-
             <a href="galeri.html">
                 Galeri
             </a>
@@ -978,8 +1095,21 @@ const supabaseClient =
                 Aplikasi
             </a>
 
+            <a href="kocokan-kartu.html">
+                Kartu Pembanding
+            </a>
+
             <a href="game-bridge-gabsi.html">
-                ♠ Game Bridge
+                Game Bridge
+            </a>
+
+            <a
+                href="berita.html"
+                class="active"
+                aria-current="page">
+
+                Berita
+
             </a>
 
             <a href="kontak.html">
@@ -995,95 +1125,14 @@ const supabaseClient =
 
             <a
                 href="berita.html"
-                class="btn btn-light">
+                class="btn btn-light btn-small">
 
                 Lihat Berita
 
             </a>
 
             <button
-                class="btn btn-danger"
-                onclick="logout()">
-
-                Keluar
-
-            </button>
-
-        </div>
-
-
-        <button
-            id="mobileMenuButton"
-            class="mobile-menu-btn"
-            type="button"
-            onclick="toggleMobileMenu()"
-            aria-label="Buka menu"
-            aria-expanded="false">
-
-            ☰
-
-        </button>
-
-    </div>
-
-
-    <div
-        id="mobileMenu"
-        class="mobile-menu">
-
-        <a href="index.html">
-            Beranda
-        </a>
-
-        <a href="profil.html">
-            Profil
-        </a>
-
-        <a href="pengurus.html">
-            Pengurus
-        </a>
-
-        <a href="kegiatan.html">
-            Kegiatan
-        </a>
-
-        <a
-            href="berita.html"
-            class="active">
-
-            Berita
-
-        </a>
-
-        <a href="galeri.html">
-            Galeri
-        </a>
-
-        <a href="aplikasi.html">
-            Aplikasi
-        </a>
-
-        <a href="game-bridge-gabsi.html">
-            ♠ Game Bridge
-        </a>
-
-        <a href="kontak.html">
-            Kontak
-        </a>
-
-
-        <div class="mobile-actions">
-
-            <a
-                href="berita.html"
-                class="btn btn-light">
-
-                Lihat Berita
-
-            </a>
-
-            <button
-                class="btn btn-danger"
+                class="btn btn-danger btn-small"
                 onclick="logout()">
 
                 Keluar
@@ -1111,7 +1160,7 @@ const supabaseClient =
 
             <img
                 src="logo-gabsi.png"
-                alt="Logo GABSI">
+                alt="Logo GABSI Kota Tanjungbalai">
 
         </div>
 
@@ -1139,7 +1188,7 @@ const supabaseClient =
 
             <div class="form-group">
 
-                <label>
+                <label class="login-label">
                     Email Admin
                 </label>
 
@@ -1156,7 +1205,7 @@ const supabaseClient =
 
             <div class="form-group">
 
-                <label>
+                <label class="login-label">
                     Kata Sandi
                 </label>
 
@@ -1230,7 +1279,9 @@ const supabaseClient =
 </div>
 
 
-<!-- DASHBOARD -->
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
 
 <div class="dashboard-grid">
 
@@ -1275,7 +1326,9 @@ const supabaseClient =
 </div>
 
 
-<!-- FORM BERITA -->
+<!-- =====================================================
+     FORM BERITA
+===================================================== -->
 
 <section class="panel">
 
@@ -1477,7 +1530,9 @@ const supabaseClient =
 </section>
 
 
-<!-- DAFTAR BERITA -->
+<!-- =====================================================
+     DAFTAR BERITA
+===================================================== -->
 
 <section class="panel">
 
@@ -1515,7 +1570,9 @@ const supabaseClient =
 </section>
 
 
-<!-- KOMENTAR -->
+<!-- =====================================================
+     KOMENTAR
+===================================================== -->
 
 <section class="panel">
 
@@ -1561,10 +1618,99 @@ const supabaseClient =
 
     <div class="container">
 
-        <p>
-            © 2026 GABSI Kota Tanjungbalai •
-            Administrasi Berita
-        </p>
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="footer-title">
+                    GABSI Kota Tanjungbalai
+                </div>
+
+                <div class="footer-text">
+                    Gabungan Bridge Seluruh Indonesia
+                    Kota Tanjungbalai.
+                    Bridge • Prestasi • Persaudaraan.
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Navigasi
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="index.html">
+                        Beranda
+                    </a>
+
+                    <a href="profil.html">
+                        Profil
+                    </a>
+
+                    <a href="pengurus.html">
+                        Pengurus
+                    </a>
+
+                    <a href="kegiatan.html">
+                        Kegiatan
+                    </a>
+
+                    <a href="galeri.html">
+                        Galeri
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Aplikasi
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="aplikasi.html">
+                        Aplikasi
+                    </a>
+
+                    <a href="kocokan-kartu.html">
+                        Kartu Pembanding
+                    </a>
+
+                    <a href="game-bridge-gabsi.html">
+                        Game Bridge
+                    </a>
+
+                    <a href="berita.html">
+                        Berita
+                    </a>
+
+                    <a href="kontak.html">
+                        Kontak
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 GABSI Kota Tanjungbalai •
+                Administrasi Berita
+            </p>
+
+        </div>
 
     </div>
 
@@ -1575,66 +1721,6 @@ const supabaseClient =
 
 
 <script>
-
-/* =========================================================
-   MENU MOBILE
-========================================================= */
-
-function toggleMobileMenu(){
-
-    const menu =
-        document.getElementById(
-            "mobileMenu"
-        );
-
-    const button =
-        document.getElementById(
-            "mobileMenuButton"
-        );
-
-    menu.classList.toggle("show");
-
-    const opened =
-        menu.classList.contains("show");
-
-    button.setAttribute(
-        "aria-expanded",
-        opened ? "true" : "false"
-    );
-
-}
-
-
-document
-    .querySelectorAll("#mobileMenu a")
-    .forEach(function(link){
-
-        link.addEventListener(
-            "click",
-            function(){
-
-                const menu =
-                    document.getElementById(
-                        "mobileMenu"
-                    );
-
-                const button =
-                    document.getElementById(
-                        "mobileMenuButton"
-                    );
-
-                menu.classList.remove("show");
-
-                button.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-        );
-
-    });
-
 
 /* =========================================================
    UTILITAS
