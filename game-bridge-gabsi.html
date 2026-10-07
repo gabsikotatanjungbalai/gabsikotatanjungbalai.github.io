@@ -769,6 +769,16 @@ button:disabled{
   </a>
 
   <a
+    href="https://gabsikotatanjungbalai.github.io/profil.html">
+    Profil
+  </a>
+
+  <a
+    href="https://gabsikotatanjungbalai.github.io/pengurus.html">
+    Pengurus
+  </a>
+
+  <a
     href="https://gabsikotatanjungbalai.github.io/kegiatan.html">
     Kegiatan
   </a>
@@ -776,6 +786,11 @@ button:disabled{
   <a
     href="https://gabsikotatanjungbalai.github.io/galeri.html">
     Galeri
+  </a>
+
+  <a
+    href="https://gabsikotatanjungbalai.github.io/aplikasi.html">
+    Aplikasi
   </a>
 
   <a
@@ -787,6 +802,11 @@ button:disabled{
     href="https://gabsikotatanjungbalai.github.io/game-bridge-gabsi.html"
     class="active">
     Game Bridge
+  </a>
+
+  <a
+    href="https://gabsikotatanjungbalai.github.io/berita.html">
+    Berita
   </a>
 
   <a
@@ -1680,15 +1700,6 @@ function deal(){
 
 }
 
-/*
-  SOUTH adalah pemain manusia
-  sepanjang permainan.
-
-  Saat South menjadi declarer,
-  partner-nya (dummy) juga dimainkan
-  manusia.
-*/
-
 function isUserControlled(seat){
 
   if(
@@ -2543,11 +2554,6 @@ function finishAuction(){
       x=>x.bid!=='PASS'
     );
 
-  /*
-    Bila semua PASS,
-    board dihentikan secara manual.
-  */
-
   if(
     active.length===0
   ){
@@ -2586,13 +2592,6 @@ function finishAuction(){
     )
       ? 'NS'
       : 'EW';
-
-  /*
-    Declarer adalah pemain pertama
-    dari partnership pemenang yang
-    menawar denomination final,
-    tidak harus pada level final.
-  */
 
   let declarerRecord=
     null;
@@ -2781,11 +2780,6 @@ function executeCard(
 
   });
 
-  /*
-    Kartu pertama menjadi
-    lead suit dan membuka dummy.
-  */
-
   if(
     state.trick.length===1
   ){
@@ -2805,12 +2799,6 @@ function executeCard(
   }
 
   render();
-
-  /*
-    Bila 4 kartu sudah dimainkan,
-    trick langsung diselesaikan.
-    Tidak menggunakan timer.
-  */
 
   if(
     state.trick.length===4
@@ -2891,11 +2879,6 @@ function chooseComputerCard(
   seat,
   legal
 ){
-
-  /*
-    Opening lead:
-    ambil kartu rendah.
-  */
 
   if(
     state.trick.length===0
@@ -3296,11 +3279,6 @@ function sortHand(){
 
 }
 
-/*
-  Satu tombol utama dipertahankan
-  agar tampilan bawah tetap 3 kolom.
-*/
-
 function handlePrimaryAction(){
 
   if(
@@ -3584,8 +3562,6 @@ function closeHelp(){
 
 }
 
-/* Tutup overlay jika klik area gelap */
-
 document
   .querySelectorAll(
     '.overlay'
@@ -3612,8 +3588,6 @@ document
 
     }
   );
-
-/* Tombol ESC untuk menutup panel */
 
 document.addEventListener(
   'keydown',
