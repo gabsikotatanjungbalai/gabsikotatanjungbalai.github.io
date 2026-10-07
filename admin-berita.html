@@ -18,6 +18,9 @@
       type="image/png"
       href="logo-gabsi.png">
 
+<link rel="stylesheet"
+      href="gabsi-unified-theme.css">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -33,7 +36,7 @@ html{
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f1f6f9;
+    background:#f3f7fa;
     color:#203442;
     line-height:1.6;
 }
@@ -43,6 +46,10 @@ input,
 textarea,
 select{
     font-family:inherit;
+}
+
+button{
+    cursor:pointer;
 }
 
 a{
@@ -62,7 +69,7 @@ a{
 
 .topbar{
     background:#062d45;
-    color:#d9e9f2;
+    color:#dcecf4;
     font-size:11px;
     padding:7px 0;
 }
@@ -80,12 +87,12 @@ a{
 ========================================================= */
 
 .header{
-    background:#fff;
+    background:rgba(255,255,255,.97);
     border-bottom:1px solid #dce7ed;
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:0 2px 12px rgba(0,0,0,.05);
+    box-shadow:0 3px 16px rgba(6,59,92,.08);
 }
 
 .header-inner{
@@ -104,28 +111,31 @@ a{
 }
 
 .brand img{
-    width:40px;
-    height:40px;
+    width:42px;
+    height:42px;
     object-fit:contain;
-    border-radius:8px;
+    border-radius:9px;
+    background:#fff;
 }
 
 .brand strong{
     display:block;
-    color:#123b53;
-    font-size:15px;
+    color:#063b5c;
+    font-size:14px;
+    letter-spacing:.2px;
 }
 
 .brand span{
     display:block;
-    color:#83949e;
+    color:#7c909b;
     font-size:8px;
-    letter-spacing:.4px;
+    letter-spacing:.6px;
+    font-weight:bold;
 }
 
 
 /* =========================================================
-   NAVIGASI WEBSITE
+   NAVIGASI
 ========================================================= */
 
 .site-navigation{
@@ -137,28 +147,24 @@ a{
 }
 
 .site-navigation a{
-    color:#203442;
-    font-size:11px;
+    color:#304754;
+    font-size:10px;
     font-weight:bold;
-    padding:8px 9px;
+    padding:8px 8px;
     border-radius:8px;
     white-space:nowrap;
     transition:.2s;
 }
 
-.site-navigation a:hover{
-    background:#edf6fb;
-    color:#075b87;
-}
-
+.site-navigation a:hover,
 .site-navigation a.active{
-    background:#edf6fb;
+    background:#eaf4f9;
     color:#075b87;
 }
 
 
 /* =========================================================
-   HEADER ACTIONS
+   HEADER ACTION
 ========================================================= */
 
 .header-actions{
@@ -170,26 +176,37 @@ a{
 
 .btn{
     border:0;
-    border-radius:8px;
+    border-radius:9px;
     padding:9px 13px;
-    font-size:11px;
+    font-size:10px;
     font-weight:bold;
     cursor:pointer;
-    transition:.2s;
+    transition:
+        transform .18s,
+        box-shadow .18s,
+        opacity .18s;
 }
 
 .btn:hover{
     transform:translateY(-1px);
 }
 
+.btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
 .btn-primary{
     background:#07547b;
     color:#fff;
+    box-shadow:0 4px 10px rgba(7,84,123,.15);
 }
 
 .btn-success{
     background:#159653;
     color:#fff;
+    box-shadow:0 4px 10px rgba(21,150,83,.12);
 }
 
 .btn-danger{
@@ -208,13 +225,13 @@ a{
 }
 
 .btn-small{
-    padding:7px 9px;
-    font-size:10px;
+    padding:7px 10px;
+    font-size:9px;
 }
 
 
 /* =========================================================
-   MENU MOBILE
+   MOBILE MENU
 ========================================================= */
 
 .mobile-menu-btn{
@@ -234,7 +251,7 @@ a{
     background:#fff;
     border-top:1px solid #e3ebef;
     border-bottom:1px solid #dce7ed;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    box-shadow:0 8px 22px rgba(0,0,0,.08);
 }
 
 .mobile-menu.show{
@@ -266,7 +283,6 @@ a{
 .mobile-menu .mobile-actions button{
     flex:1;
     text-align:center;
-    border:0;
 }
 
 
@@ -275,51 +291,59 @@ a{
 ========================================================= */
 
 .login-page{
-    min-height:
-        calc(100vh - 82px);
-
+    min-height:calc(100vh - 82px);
     display:flex;
     align-items:center;
     justify-content:center;
-
-    padding:35px 0;
+    padding:45px 0;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(10,110,168,.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #f4f9fc,
+            #edf4f7
+        );
 }
 
 .login-card{
     width:min(430px,94%);
     background:#fff;
-    border:1px solid #dfe8ec;
+    border:1px solid #dce8ed;
     border-radius:20px;
-    padding:28px;
+    padding:30px;
     box-shadow:
-        0 15px 40px rgba(20,55,75,.12);
+        0 18px 50px rgba(20,55,75,.13);
 }
 
 .login-logo{
     display:flex;
     justify-content:center;
-    margin-bottom:15px;
+    margin-bottom:16px;
 }
 
 .login-logo img{
-    width:75px;
-    height:75px;
+    width:78px;
+    height:78px;
     object-fit:contain;
-    border-radius:15px;
+    border-radius:16px;
 }
 
 .login-card h1{
     margin:0;
     text-align:center;
-    color:#203442;
-    font-size:23px;
+    color:#063b5c;
+    font-size:24px;
 }
 
 .login-subtitle{
     text-align:center;
     color:#788b95;
     font-size:11px;
-    margin:5px 0 22px;
+    margin:5px 0 23px;
 }
 
 .login-label{
@@ -339,6 +363,7 @@ a{
     outline:none;
     background:#fff;
     color:#203442;
+    transition:.2s;
 }
 
 .form-control:focus{
@@ -359,7 +384,7 @@ a{
 
 .login-help{
     text-align:center;
-    margin-top:14px;
+    margin-top:15px;
     font-size:10px;
     color:#8999a1;
 }
@@ -377,7 +402,7 @@ a{
 
 
 /* =========================================================
-   ADMIN
+   ADMIN PAGE
 ========================================================= */
 
 #adminPage{
@@ -385,31 +410,48 @@ a{
 }
 
 .admin-header{
+    position:relative;
+    overflow:hidden;
     background:
         linear-gradient(
-            120deg,
-            #064d70,
-            #076a91,
-            #0b789a
+            125deg,
+            #063b5c,
+            #075b87 55%,
+            #0a6ea8
         );
-
     color:#fff;
-    padding:30px 0;
+    padding:34px 0;
+}
+
+.admin-header::after{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    right:-90px;
+    top:-130px;
 }
 
 .admin-header h1{
+    position:relative;
+    z-index:1;
     margin:0;
-    font-size:32px;
+    font-size:31px;
+    letter-spacing:.2px;
 }
 
 .admin-header p{
-    margin:4px 0 0;
+    position:relative;
+    z-index:1;
+    margin:5px 0 0;
     color:#d9edf4;
     font-size:11px;
 }
 
 .admin-content{
-    padding:30px 0 50px;
+    padding:28px 0 50px;
 }
 
 
@@ -419,31 +461,48 @@ a{
 
 .dashboard-grid{
     display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
-    gap:13px;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
     margin-bottom:20px;
 }
 
 .dashboard-card{
+    position:relative;
+    overflow:hidden;
     background:#fff;
-    border:1px solid #e0e8ec;
-    border-radius:13px;
-    padding:17px;
+    border:1px solid #dfe9ed;
+    border-radius:15px;
+    padding:18px;
     box-shadow:
-        0 6px 20px rgba(20,55,75,.05);
+        0 7px 22px rgba(20,55,75,.06);
+}
+
+.dashboard-card::after{
+    content:"";
+    position:absolute;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#eaf5fa;
+    right:-25px;
+    top:-25px;
 }
 
 .dashboard-card span{
+    position:relative;
+    z-index:1;
     display:block;
     color:#82939c;
     font-size:10px;
+    font-weight:bold;
 }
 
 .dashboard-card strong{
+    position:relative;
+    z-index:1;
     display:block;
     color:#07547b;
-    font-size:24px;
+    font-size:26px;
     margin-top:2px;
 }
 
@@ -458,16 +517,23 @@ a{
     border-radius:16px;
     margin-bottom:20px;
     box-shadow:
-        0 8px 25px rgba(20,55,75,.06);
+        0 8px 25px rgba(20,55,75,.055);
+    overflow:hidden;
 }
 
 .panel-header{
-    padding:17px 20px;
+    padding:16px 20px;
     border-bottom:1px solid #e8eef1;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:10px;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fbfdfe
+        );
 }
 
 .panel-header h2{
@@ -482,13 +548,12 @@ a{
 
 
 /* =========================================================
-   FORM BERITA
+   FORM
 ========================================================= */
 
 .form-grid{
     display:grid;
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
     gap:14px;
 }
 
@@ -505,8 +570,9 @@ a{
 }
 
 textarea.form-control{
-    min-height:150px;
+    min-height:170px;
     resize:vertical;
+    line-height:1.6;
 }
 
 .form-actions{
@@ -524,20 +590,26 @@ textarea.form-control{
 
 
 /* =========================================================
-   BERITA LIST
+   DAFTAR BERITA
 ========================================================= */
 
 .news-admin-list{
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:11px;
 }
 
 .news-admin-item{
-    border:1px solid #e0e8ec;
-    border-radius:12px;
-    padding:14px;
+    border:1px solid #dfe8ec;
+    border-radius:13px;
+    padding:15px;
     background:#fbfdfe;
+    transition:.2s;
+}
+
+.news-admin-item:hover{
+    border-color:#b9d5e2;
+    box-shadow:0 5px 18px rgba(20,55,75,.05);
 }
 
 .news-admin-title{
@@ -557,7 +629,7 @@ textarea.form-control{
     color:#667983;
     font-size:10px;
     white-space:pre-line;
-    max-height:65px;
+    max-height:70px;
     overflow:hidden;
 }
 
@@ -565,7 +637,7 @@ textarea.form-control{
     display:flex;
     flex-wrap:wrap;
     gap:6px;
-    margin-top:10px;
+    margin-top:11px;
 }
 
 
@@ -674,7 +746,7 @@ textarea.form-control{
 
 
 /* =========================================================
-   TABLET / MOBILE
+   RESPONSIVE
 ========================================================= */
 
 @media(max-width:1100px){
@@ -697,11 +769,12 @@ textarea.form-control{
 
 }
 
+
 @media(max-width:750px){
 
     .brand img{
-        width:35px;
-        height:35px;
+        width:36px;
+        height:36px;
     }
 
     .brand strong{
@@ -728,7 +801,16 @@ textarea.form-control{
         grid-column:auto;
     }
 
+    .admin-header{
+        padding:28px 0;
+    }
+
+    .admin-header h1{
+        font-size:27px;
+    }
+
 }
+
 
 @media(max-width:500px){
 
@@ -750,7 +832,23 @@ textarea.form-control{
     }
 
     .admin-header h1{
-        font-size:26px;
+        font-size:25px;
+    }
+
+    .panel-header{
+        align-items:flex-start;
+    }
+
+    .panel-body{
+        padding:15px;
+    }
+
+    .form-actions{
+        flex-direction:column;
+    }
+
+    .form-actions .btn{
+        width:100%;
     }
 
     .header-inner{
@@ -820,8 +918,6 @@ const supabaseClient =
     <div class="container header-inner">
 
 
-        <!-- LOGO / BERANDA -->
-
         <a
             href="index.html"
             class="brand"
@@ -845,8 +941,6 @@ const supabaseClient =
 
         </a>
 
-
-        <!-- NAVIGASI DESKTOP -->
 
         <nav
             class="site-navigation"
@@ -895,8 +989,6 @@ const supabaseClient =
         </nav>
 
 
-        <!-- AKSI HEADER -->
-
         <div
             class="header-actions"
             id="headerActions">
@@ -920,8 +1012,6 @@ const supabaseClient =
         </div>
 
 
-        <!-- TOMBOL MOBILE -->
-
         <button
             id="mobileMenuButton"
             class="mobile-menu-btn"
@@ -936,8 +1026,6 @@ const supabaseClient =
 
     </div>
 
-
-    <!-- NAVIGASI MOBILE -->
 
     <div
         id="mobileMenu"
@@ -1010,7 +1098,7 @@ const supabaseClient =
 
 
 <!-- =========================================================
-     LOGIN PAGE
+     LOGIN
 ========================================================= -->
 
 <section
@@ -1018,7 +1106,6 @@ const supabaseClient =
     class="login-page">
 
     <div class="login-card">
-
 
         <div class="login-logo">
 
@@ -1044,13 +1131,11 @@ const supabaseClient =
         <div
             id="loginError"
             class="login-error">
-
         </div>
 
 
         <form
             id="loginForm">
-
 
             <div class="form-group">
 
@@ -1094,7 +1179,6 @@ const supabaseClient =
                 MASUK SEBAGAI ADMIN
 
             </button>
-
 
         </form>
 
@@ -1140,19 +1224,15 @@ const supabaseClient =
 <div class="container">
 
 
-<!-- MESSAGE -->
-
 <div
     id="message"
     class="message">
-
 </div>
 
 
 <!-- DASHBOARD -->
 
 <div class="dashboard-grid">
-
 
     <div class="dashboard-card">
 
@@ -1192,13 +1272,10 @@ const supabaseClient =
 
     </div>
 
-
 </div>
 
 
-<!-- =====================================================
-     FORM BERITA
-===================================================== -->
+<!-- FORM BERITA -->
 
 <section class="panel">
 
@@ -1221,10 +1298,8 @@ const supabaseClient =
 
     <div class="panel-body">
 
-
         <form
             id="newsForm">
-
 
             <input
                 type="hidden"
@@ -1232,7 +1307,6 @@ const supabaseClient =
 
 
             <div class="form-grid">
-
 
                 <div class="form-group full">
 
@@ -1322,9 +1396,7 @@ const supabaseClient =
                         placeholder="https://contoh.com/berita">
 
                     <div class="form-note">
-
                         Kosongkan jika berita ditulis sendiri.
-
                     </div>
 
                 </div>
@@ -1343,9 +1415,7 @@ const supabaseClient =
                         placeholder="https://alamat-gambar.jpg">
 
                     <div class="form-note">
-
                         Gunakan alamat gambar yang dapat diakses publik.
-
                     </div>
 
                 </div>
@@ -1365,12 +1435,10 @@ const supabaseClient =
 
                 </div>
 
-
             </div>
 
 
             <div class="form-actions">
-
 
                 <button
                     type="submit"
@@ -1400,9 +1468,7 @@ const supabaseClient =
 
                 </button>
 
-
             </div>
-
 
         </form>
 
@@ -1411,9 +1477,7 @@ const supabaseClient =
 </section>
 
 
-<!-- =====================================================
-     DAFTAR BERITA
-===================================================== -->
+<!-- DAFTAR BERITA -->
 
 <section class="panel">
 
@@ -1451,9 +1515,7 @@ const supabaseClient =
 </section>
 
 
-<!-- =====================================================
-     KOMENTAR
-===================================================== -->
+<!-- KOMENTAR -->
 
 <section class="panel">
 
@@ -1530,14 +1592,10 @@ function toggleMobileMenu(){
             "mobileMenuButton"
         );
 
-    menu.classList.toggle(
-        "show"
-    );
+    menu.classList.toggle("show");
 
     const opened =
-        menu.classList.contains(
-            "show"
-        );
+        menu.classList.contains("show");
 
     button.setAttribute(
         "aria-expanded",
@@ -1547,43 +1605,35 @@ function toggleMobileMenu(){
 }
 
 
-/* Tutup menu ketika memilih halaman */
-
 document
-    .querySelectorAll(
-        "#mobileMenu a"
-    )
-    .forEach(
-        function(link){
+    .querySelectorAll("#mobileMenu a")
+    .forEach(function(link){
 
-            link.addEventListener(
-                "click",
-                function(){
+        link.addEventListener(
+            "click",
+            function(){
 
-                    const menu =
-                        document.getElementById(
-                            "mobileMenu"
-                        );
-
-                    const button =
-                        document.getElementById(
-                            "mobileMenuButton"
-                        );
-
-                    menu.classList.remove(
-                        "show"
+                const menu =
+                    document.getElementById(
+                        "mobileMenu"
                     );
 
-                    button.setAttribute(
-                        "aria-expanded",
-                        "false"
+                const button =
+                    document.getElementById(
+                        "mobileMenuButton"
                     );
 
-                }
-            );
+                menu.classList.remove("show");
 
-        }
-    );
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+        );
+
+    });
 
 
 /* =========================================================
@@ -1604,19 +1654,14 @@ function showMessage(
         text;
 
     box.className =
-        "message " +
-        type;
+        "message " + type;
 
+    setTimeout(function(){
 
-    setTimeout(
-        function(){
+        box.className =
+            "message";
 
-            box.className =
-                "message";
-
-        },
-        5000
-    );
+    },5000);
 
 }
 
@@ -1633,7 +1678,6 @@ document
 
             event.preventDefault();
 
-
             const email =
                 document
                     .getElementById(
@@ -1642,7 +1686,6 @@ document
                     .value
                     .trim();
 
-
             const password =
                 document
                     .getElementById(
@@ -1650,13 +1693,11 @@ document
                     )
                     .value;
 
-
             const button =
                 document
                     .getElementById(
                         "loginButton"
                     );
-
 
             const errorBox =
                 document
@@ -1664,17 +1705,14 @@ document
                         "loginError"
                     );
 
-
             errorBox.style.display =
                 "none";
-
 
             button.disabled =
                 true;
 
             button.textContent =
                 "MEMERIKSA...";
-
 
             try{
 
@@ -1683,14 +1721,11 @@ document
                         .auth
                         .signInWithPassword({
 
-                            email:
-                                email,
+                            email:email,
 
-                            password:
-                                password
+                            password:password
 
                         });
-
 
                 if(result.error){
 
@@ -1698,10 +1733,8 @@ document
 
                 }
 
-
                 const user =
                     result.data.user;
-
 
                 if(
                     !user ||
@@ -1712,22 +1745,18 @@ document
                         .auth
                         .signOut();
 
-
                     throw new Error(
                         "Akun ini tidak memiliki akses admin."
                     );
 
                 }
 
-
                 showAdminPage();
-
 
             }
             catch(error){
 
                 console.error(error);
-
 
                 errorBox.textContent =
                     error.message ||
@@ -1735,7 +1764,6 @@ document
 
                 errorBox.style.display =
                     "block";
-
 
                 button.disabled =
                     false;
@@ -1762,10 +1790,8 @@ async function checkSession(){
                 .auth
                 .getSession();
 
-
         const session =
             result.data.session;
-
 
         if(
             session &&
@@ -1800,7 +1826,6 @@ function showAdminPage(){
         .style.display =
             "none";
 
-
     document
         .getElementById(
             "adminPage"
@@ -1808,14 +1833,12 @@ function showAdminPage(){
         .style.display =
             "block";
 
-
     document
         .getElementById(
             "headerActions"
         )
         .style.display =
             "flex";
-
 
     loadDashboard();
 
@@ -1836,14 +1859,13 @@ async function logout(){
         .auth
         .signOut();
 
-
     location.reload();
 
 }
 
 
 /* =========================================================
-   FORM BERITA
+   DATA FORM
 ========================================================= */
 
 function getNewsFormData(
@@ -1911,7 +1933,7 @@ function getNewsFormData(
 
 
 /* =========================================================
-   SIMPAN BERITA
+   FORM SUBMIT
 ========================================================= */
 
 document
@@ -1922,9 +1944,7 @@ document
 
             event.preventDefault();
 
-            await saveNews(
-                true
-            );
+            await saveNews(true);
 
         }
     );
@@ -1944,7 +1964,6 @@ async function saveDraft(){
             .value
             .trim();
 
-
     const content =
         document
             .getElementById(
@@ -1952,7 +1971,6 @@ async function saveDraft(){
             )
             .value
             .trim();
-
 
     if(
         !title ||
@@ -1967,10 +1985,7 @@ async function saveDraft(){
 
     }
 
-
-    await saveNews(
-        false
-    );
+    await saveNews(false);
 
 }
 
@@ -1990,12 +2005,10 @@ async function saveNews(
             )
             .value;
 
-
     const data =
         getNewsFormData(
             published
         );
-
 
     if(
         !data.judul ||
@@ -2010,11 +2023,9 @@ async function saveNews(
 
     }
 
-
     try{
 
         let result;
-
 
         if(newsId){
 
@@ -2037,13 +2048,11 @@ async function saveNews(
 
         }
 
-
         if(result.error){
 
             throw result.error;
 
         }
-
 
         showMessage(
             published
@@ -2051,7 +2060,6 @@ async function saveNews(
                 : "Berita berhasil disimpan sebagai draft.",
             "success"
         );
-
 
         resetNewsForm();
 
@@ -2087,14 +2095,11 @@ function resetNewsForm(){
         )
         .reset();
 
-
     document
         .getElementById(
             "newsId"
         )
-        .value =
-            "";
-
+        .value = "";
 
     document
         .getElementById(
@@ -2102,7 +2107,6 @@ function resetNewsForm(){
         )
         .value =
             "Berita";
-
 
     document
         .getElementById(
@@ -2126,10 +2130,8 @@ async function loadNews(){
                 "newsList"
             );
 
-
     container.innerHTML =
         '<div class="loading">Memuat berita...</div>';
-
 
     try{
 
@@ -2144,13 +2146,11 @@ async function loadNews(){
                     }
                 );
 
-
         if(result.error){
 
             throw result.error;
 
         }
-
 
         if(
             !result.data ||
@@ -2166,10 +2166,7 @@ async function loadNews(){
 
         }
 
-
-        container.innerHTML =
-            "";
-
+        container.innerHTML = "";
 
         result.data.forEach(
             function(news){
@@ -2249,9 +2246,7 @@ async function loadNews(){
                 edit.onclick =
                     function(){
 
-                        editNews(
-                            news
-                        );
+                        editNews(news);
 
                     };
 
@@ -2272,9 +2267,7 @@ async function loadNews(){
                 publish.onclick =
                     function(){
 
-                        togglePublished(
-                            news
-                        );
+                        togglePublished(news);
 
                     };
 
@@ -2293,46 +2286,26 @@ async function loadNews(){
                 remove.onclick =
                     function(){
 
-                        deleteNews(
-                            news
-                        );
+                        deleteNews(news);
 
                     };
 
 
-                actions.appendChild(
-                    edit
-                );
+                actions.appendChild(edit);
 
-                actions.appendChild(
-                    publish
-                );
+                actions.appendChild(publish);
 
-                actions.appendChild(
-                    remove
-                );
+                actions.appendChild(remove);
 
+                item.appendChild(title);
 
-                item.appendChild(
-                    title
-                );
+                item.appendChild(meta);
 
-                item.appendChild(
-                    meta
-                );
+                item.appendChild(content);
 
-                item.appendChild(
-                    content
-                );
+                item.appendChild(actions);
 
-                item.appendChild(
-                    actions
-                );
-
-
-                container.appendChild(
-                    item
-                );
+                container.appendChild(item);
 
             }
         );
@@ -2353,7 +2326,7 @@ async function loadNews(){
 
 
 /* =========================================================
-   EDIT
+   EDIT NEWS
 ========================================================= */
 
 function editNews(
@@ -2367,51 +2340,40 @@ function editNews(
         .value =
             news.id;
 
-
     document
         .getElementById(
             "newsTitle"
         )
         .value =
-            news.judul ||
-            "";
-
+            news.judul || "";
 
     document
         .getElementById(
             "newsContent"
         )
         .value =
-            news.isi ||
-            "";
-
+            news.isi || "";
 
     document
         .getElementById(
             "newsSource"
         )
         .value =
-            news.sumber ||
-            "";
-
+            news.sumber || "";
 
     document
         .getElementById(
             "newsSourceLink"
         )
         .value =
-            news.link_sumber ||
-            "";
-
+            news.link_sumber || "";
 
     document
         .getElementById(
             "newsImage"
         )
         .value =
-            news.gambar ||
-            "";
-
+            news.gambar || "";
 
     document
         .getElementById(
@@ -2421,14 +2383,12 @@ function editNews(
             news.kategori ||
             "Berita";
 
-
     document
         .getElementById(
             "formTitle"
         )
         .textContent =
             "Edit Berita";
-
 
     window.scrollTo({
         top:0,
@@ -2460,13 +2420,11 @@ async function togglePublished(
                     news.id
                 );
 
-
         if(result.error){
 
             throw result.error;
 
         }
-
 
         showMessage(
             news.diterbitkan
@@ -2474,7 +2432,6 @@ async function togglePublished(
                 : "Berita berhasil diterbitkan.",
             "success"
         );
-
 
         loadNews();
 
@@ -2511,11 +2468,9 @@ async function deleteNews(
             "Komentar yang terkait juga akan terhapus."
         );
 
-
     if(!yes){
         return;
     }
-
 
     try{
 
@@ -2528,19 +2483,16 @@ async function deleteNews(
                     news.id
                 );
 
-
         if(result.error){
 
             throw result.error;
 
         }
 
-
         showMessage(
             "Berita berhasil dihapus.",
             "success"
         );
-
 
         resetNewsForm();
 
@@ -2577,10 +2529,8 @@ async function loadComments(){
                 "commentList"
             );
 
-
     container.innerHTML =
         '<div class="loading">Memuat komentar...</div>';
-
 
     try{
 
@@ -2597,13 +2547,11 @@ async function loadComments(){
                     }
                 );
 
-
         if(result.error){
 
             throw result.error;
 
         }
-
 
         if(
             !result.data ||
@@ -2619,10 +2567,7 @@ async function loadComments(){
 
         }
 
-
-        container.innerHTML =
-            "";
-
+        container.innerHTML = "";
 
         result.data.forEach(
             function(comment){
@@ -2631,7 +2576,6 @@ async function loadComments(){
                     document.createElement(
                         "div"
                     );
-
 
                 item.className =
                     "comment-admin " +
@@ -2717,7 +2661,6 @@ async function loadComments(){
 
                         };
 
-
                     actions.appendChild(
                         approve
                     );
@@ -2744,7 +2687,6 @@ async function loadComments(){
                             );
 
                         };
-
 
                     actions.appendChild(
                         pending
@@ -2773,32 +2715,17 @@ async function loadComments(){
 
                     };
 
+                actions.appendChild(remove);
 
-                actions.appendChild(
-                    remove
-                );
+                item.appendChild(name);
 
+                item.appendChild(news);
 
-                item.appendChild(
-                    name
-                );
+                item.appendChild(text);
 
-                item.appendChild(
-                    news
-                );
+                item.appendChild(actions);
 
-                item.appendChild(
-                    text
-                );
-
-                item.appendChild(
-                    actions
-                );
-
-
-                container.appendChild(
-                    item
-                );
+                container.appendChild(item);
 
             }
         );
@@ -2832,14 +2759,12 @@ async function approveComment(
             await supabaseClient
                 .from("komentar_berita")
                 .update({
-                    disetujui:
-                        true
+                    disetujui:true
                 })
                 .eq(
                     "id",
                     id
                 );
-
 
         if(result.error){
 
@@ -2847,12 +2772,10 @@ async function approveComment(
 
         }
 
-
         showMessage(
             "Komentar disetujui.",
             "success"
         );
-
 
         loadComments();
 
@@ -2887,14 +2810,12 @@ async function rejectComment(
             await supabaseClient
                 .from("komentar_berita")
                 .update({
-                    disetujui:
-                        false
+                    disetujui:false
                 })
                 .eq(
                     "id",
                     id
                 );
-
 
         if(result.error){
 
@@ -2902,12 +2823,10 @@ async function rejectComment(
 
         }
 
-
         showMessage(
             "Persetujuan komentar dibatalkan.",
             "success"
         );
-
 
         loadComments();
 
@@ -2946,7 +2865,6 @@ async function deleteComment(
 
     }
 
-
     try{
 
         const result =
@@ -2958,19 +2876,16 @@ async function deleteComment(
                     id
                 );
 
-
         if(result.error){
 
             throw result.error;
 
         }
 
-
         showMessage(
             "Komentar berhasil dihapus.",
             "success"
         );
-
 
         loadComments();
 
@@ -3009,15 +2924,12 @@ async function loadDashboard(){
                     }
                 );
 
-
         if(
             !newsResult.error
         ){
 
             const news =
-                newsResult.data ||
-                [];
-
+                newsResult.data || [];
 
             document
                 .getElementById(
@@ -3025,7 +2937,6 @@ async function loadDashboard(){
                 )
                 .textContent =
                     news.length;
-
 
             document
                 .getElementById(
@@ -3049,22 +2960,19 @@ async function loadDashboard(){
                     "id,disetujui"
                 );
 
-
         if(
             !commentResult.error
         ){
 
             const pending =
                 (
-                    commentResult.data ||
-                    []
+                    commentResult.data || []
                 )
                 .filter(
                     item =>
                         !item.disetujui
                 )
                 .length;
-
 
             document
                 .getElementById(
