@@ -1,1 +1,2777 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
 
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+<meta name="theme-color" content="#063b5c">
+
+<meta name="description"
+      content="Administrasi Berita GABSI Kota Tanjungbalai">
+
+<title>Admin Berita | GABSI Kota Tanjungbalai</title>
+
+<link rel="icon"
+      type="image/png"
+      href="logo-gabsi.png">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    background:#f1f6f9;
+    color:#203442;
+    line-height:1.6;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,94%);
+    margin:auto;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    background:#062d45;
+    color:#d9e9f2;
+    font-size:11px;
+    padding:7px 0;
+}
+
+.topbar-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    background:#fff;
+    border-bottom:1px solid #dce7ed;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+
+.header-inner{
+    min-height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.brand strong{
+    display:block;
+    color:#123b53;
+    font-size:15px;
+}
+
+.brand span{
+    display:block;
+    color:#83949e;
+    font-size:8px;
+    letter-spacing:.4px;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn{
+    border:0;
+    border-radius:8px;
+    padding:9px 13px;
+    font-size:11px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-1px);
+}
+
+.btn-primary{
+    background:#07547b;
+    color:#fff;
+}
+
+.btn-success{
+    background:#159653;
+    color:#fff;
+}
+
+.btn-danger{
+    background:#c0392b;
+    color:#fff;
+}
+
+.btn-warning{
+    background:#d88b00;
+    color:#fff;
+}
+
+.btn-light{
+    background:#edf5f9;
+    color:#16445c;
+}
+
+.btn-small{
+    padding:7px 9px;
+    font-size:10px;
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.login-page{
+    min-height:
+        calc(100vh - 82px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:35px 0;
+}
+
+.login-card{
+    width:min(430px,94%);
+    background:#fff;
+    border:1px solid #dfe8ec;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:
+        0 15px 40px rgba(20,55,75,.12);
+}
+
+.login-logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:15px;
+}
+
+.login-logo img{
+    width:75px;
+    height:75px;
+    object-fit:contain;
+    border-radius:15px;
+}
+
+.login-card h1{
+    margin:0;
+    text-align:center;
+    color:#203442;
+    font-size:23px;
+}
+
+.login-subtitle{
+    text-align:center;
+    color:#788b95;
+    font-size:11px;
+    margin:5px 0 22px;
+}
+
+.login-label{
+    display:block;
+    color:#344e5c;
+    font-size:11px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.form-control{
+    width:100%;
+    border:1px solid #d5e1e6;
+    border-radius:9px;
+    padding:11px 12px;
+    font-size:12px;
+    outline:none;
+    background:#fff;
+    color:#203442;
+}
+
+.form-control:focus{
+    border-color:#0780ad;
+    box-shadow:
+        0 0 0 3px rgba(7,128,173,.08);
+}
+
+.form-group{
+    margin-bottom:14px;
+}
+
+.login-button{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+}
+
+.login-help{
+    text-align:center;
+    margin-top:14px;
+    font-size:10px;
+    color:#8999a1;
+}
+
+.login-error{
+    display:none;
+    background:#fff3f3;
+    border:1px solid #efc8c8;
+    color:#a52b2b;
+    padding:10px;
+    border-radius:8px;
+    font-size:10px;
+    margin-bottom:14px;
+}
+
+
+/* =========================================================
+   ADMIN
+========================================================= */
+
+#adminPage{
+    display:none;
+}
+
+.admin-header{
+    background:
+        linear-gradient(
+            120deg,
+            #064d70,
+            #076a91,
+            #0b789a
+        );
+
+    color:#fff;
+    padding:30px 0;
+}
+
+.admin-header h1{
+    margin:0;
+    font-size:32px;
+}
+
+.admin-header p{
+    margin:4px 0 0;
+    color:#d9edf4;
+    font-size:11px;
+}
+
+.admin-content{
+    padding:30px 0 50px;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:13px;
+    margin-bottom:20px;
+}
+
+.dashboard-card{
+    background:#fff;
+    border:1px solid #e0e8ec;
+    border-radius:13px;
+    padding:17px;
+    box-shadow:
+        0 6px 20px rgba(20,55,75,.05);
+}
+
+.dashboard-card span{
+    display:block;
+    color:#82939c;
+    font-size:10px;
+}
+
+.dashboard-card strong{
+    display:block;
+    color:#07547b;
+    font-size:24px;
+    margin-top:2px;
+}
+
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.panel{
+    background:#fff;
+    border:1px solid #dfe8ec;
+    border-radius:16px;
+    margin-bottom:20px;
+    box-shadow:
+        0 8px 25px rgba(20,55,75,.06);
+}
+
+.panel-header{
+    padding:17px 20px;
+    border-bottom:1px solid #e8eef1;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.panel-header h2{
+    margin:0;
+    font-size:16px;
+    color:#203442;
+}
+
+.panel-body{
+    padding:20px;
+}
+
+
+/* =========================================================
+   FORM BERITA
+========================================================= */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:
+        1fr 1fr;
+    gap:14px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    display:block;
+    font-size:11px;
+    font-weight:bold;
+    color:#405965;
+    margin-bottom:5px;
+}
+
+textarea.form-control{
+    min-height:150px;
+    resize:vertical;
+}
+
+.form-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:8px;
+}
+
+.form-note{
+    color:#8a9aa2;
+    font-size:9px;
+    margin-top:5px;
+}
+
+
+/* =========================================================
+   BERITA LIST
+========================================================= */
+
+.news-admin-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.news-admin-item{
+    border:1px solid #e0e8ec;
+    border-radius:12px;
+    padding:14px;
+    background:#fbfdfe;
+}
+
+.news-admin-title{
+    font-size:14px;
+    font-weight:bold;
+    color:#203442;
+    margin-bottom:4px;
+}
+
+.news-admin-meta{
+    color:#84959d;
+    font-size:9px;
+    margin-bottom:8px;
+}
+
+.news-admin-content{
+    color:#667983;
+    font-size:10px;
+    white-space:pre-line;
+    max-height:65px;
+    overflow:hidden;
+}
+
+.news-admin-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:10px;
+}
+
+
+/* =========================================================
+   KOMENTAR
+========================================================= */
+
+.comment-admin{
+    border:1px solid #e0e8ec;
+    border-radius:11px;
+    padding:13px;
+    margin-bottom:9px;
+}
+
+.comment-admin.pending{
+    background:#fffaf0;
+    border-color:#f0dca8;
+}
+
+.comment-admin.approved{
+    background:#f3fff8;
+    border-color:#c5ead4;
+}
+
+.comment-admin-name{
+    color:#07547b;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.comment-admin-news{
+    color:#8999a1;
+    font-size:9px;
+    margin:2px 0 7px;
+}
+
+.comment-admin-text{
+    color:#526872;
+    font-size:11px;
+    white-space:pre-line;
+}
+
+.comment-admin-actions{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    margin-top:9px;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message{
+    display:none;
+    padding:11px 14px;
+    border-radius:9px;
+    margin-bottom:15px;
+    font-size:11px;
+}
+
+.message.success{
+    display:block;
+    background:#effcf5;
+    color:#087244;
+    border:1px solid #bfe6d0;
+}
+
+.message.error{
+    display:block;
+    background:#fff4f4;
+    color:#a52b2b;
+    border:1px solid #efcaca;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+    padding:25px;
+    text-align:center;
+    color:#899aa2;
+    font-size:11px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    background:#062d45;
+    color:#fff;
+    padding:20px 0;
+}
+
+.footer p{
+    margin:0;
+    text-align:center;
+    color:#9db8c5;
+    font-size:9px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:750px){
+
+    .header-inner{
+        min-height:60px;
+    }
+
+    .brand img{
+        width:35px;
+        height:35px;
+    }
+
+    .brand strong{
+        font-size:11px;
+    }
+
+    .brand span{
+        font-size:7px;
+    }
+
+    .header-actions .btn{
+        padding:7px 8px;
+        font-size:9px;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .topbar{
+        font-size:8px;
+    }
+
+    .topbar-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .login-card{
+        padding:22px;
+    }
+
+    .admin-header h1{
+        font-size:26px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     SUPABASE
+========================================================= -->
+
+<script>
+
+const SUPABASE_URL =
+    "https://rrdnldnbflgegtzovgzz.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_xY9vNSFrfFOXLQDtEyV3lQ_l-t2Suy-";
+
+const ADMIN_UID =
+    "9781d37d-0d7e-4cfc-a233-e1413dfb63e8";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+</script>
+
+
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <span>
+            GABSI Kota Tanjungbalai
+        </span>
+
+        <span>
+            ADMINISTRASI BERITA
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="container header-inner">
+
+        <a href="index.html"
+           class="brand">
+
+            <img
+                src="logo-gabsi.png"
+                alt="Logo GABSI">
+
+            <div>
+
+                <strong>
+                    GABSI KOTA TANJUNGBALAI
+                </strong>
+
+                <span>
+                    ADMIN BERITA
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div
+            class="header-actions"
+            id="headerActions"
+            style="display:none;">
+
+            <a
+                href="berita.html"
+                class="btn btn-light">
+
+                Lihat Berita
+
+            </a>
+
+            <button
+                class="btn btn-danger"
+                onclick="logout()">
+
+                Keluar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     LOGIN PAGE
+========================================================= -->
+
+<section
+    id="loginPage"
+    class="login-page">
+
+    <div class="login-card">
+
+
+        <div class="login-logo">
+
+            <img
+                src="logo-gabsi.png"
+                alt="Logo GABSI">
+
+        </div>
+
+
+        <h1>
+            Admin Berita
+        </h1>
+
+
+        <div class="login-subtitle">
+
+            GABSI Kota Tanjungbalai
+
+        </div>
+
+
+        <div
+            id="loginError"
+            class="login-error">
+
+        </div>
+
+
+        <form
+            id="loginForm">
+
+
+            <div class="form-group">
+
+                <label>
+                    Email Admin
+                </label>
+
+                <input
+                    id="loginEmail"
+                    class="form-control"
+                    type="email"
+                    placeholder="Email admin"
+                    autocomplete="username"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Kata Sandi
+                </label>
+
+                <input
+                    id="loginPassword"
+                    class="form-control"
+                    type="password"
+                    placeholder="Kata sandi"
+                    autocomplete="current-password"
+                    required>
+
+            </div>
+
+
+            <button
+                id="loginButton"
+                class="btn btn-primary login-button"
+                type="submit">
+
+                MASUK SEBAGAI ADMIN
+
+            </button>
+
+
+        </form>
+
+
+        <div class="login-help">
+
+            Akses khusus pengelola berita
+            GABSI Kota Tanjungbalai.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ADMIN PAGE
+========================================================= -->
+
+<div id="adminPage">
+
+
+<header class="admin-header">
+
+    <div class="container">
+
+        <h1>
+            Dashboard Berita
+        </h1>
+
+        <p>
+            Kelola berita dan komentar GABSI Kota Tanjungbalai.
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="admin-content">
+
+<div class="container">
+
+
+<!-- MESSAGE -->
+
+<div
+    id="message"
+    class="message">
+
+</div>
+
+
+<!-- DASHBOARD -->
+
+<div class="dashboard-grid">
+
+
+    <div class="dashboard-card">
+
+        <span>
+            Total Berita
+        </span>
+
+        <strong id="totalNews">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <span>
+            Berita Terbit
+        </span>
+
+        <strong id="publishedNews">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <span>
+            Komentar Menunggu
+        </span>
+
+        <strong id="pendingComments">
+            0
+        </strong>
+
+    </div>
+
+
+</div>
+
+
+<!-- =====================================================
+     FORM BERITA
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-header">
+
+        <h2 id="formTitle">
+            Tambah Berita
+        </h2>
+
+        <button
+            class="btn btn-light btn-small"
+            onclick="resetNewsForm()">
+
+            Berita Baru
+
+        </button>
+
+    </div>
+
+
+    <div class="panel-body">
+
+
+        <form
+            id="newsForm">
+
+
+            <input
+                type="hidden"
+                id="newsId">
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Judul Berita *
+                    </label>
+
+                    <input
+                        id="newsTitle"
+                        class="form-control"
+                        type="text"
+                        placeholder="Masukkan judul berita"
+                        maxlength="250"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Kategori
+                    </label>
+
+                    <select
+                        id="newsCategory"
+                        class="form-control">
+
+                        <option value="Berita">
+                            Berita
+                        </option>
+
+                        <option value="Kegiatan">
+                            Kegiatan
+                        </option>
+
+                        <option value="Pertandingan">
+                            Pertandingan
+                        </option>
+
+                        <option value="Prestasi">
+                            Prestasi
+                        </option>
+
+                        <option value="Latihan">
+                            Latihan
+                        </option>
+
+                        <option value="Organisasi">
+                            Organisasi
+                        </option>
+
+                        <option value="Pengumuman">
+                            Pengumuman
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Nama Sumber
+                    </label>
+
+                    <input
+                        id="newsSource"
+                        class="form-control"
+                        type="text"
+                        placeholder="Contoh: GABSI Kota Tanjungbalai">
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Link Sumber Berita
+                    </label>
+
+                    <input
+                        id="newsSourceLink"
+                        class="form-control"
+                        type="url"
+                        placeholder="https://contoh.com/berita">
+
+                    <div class="form-note">
+
+                        Kosongkan jika berita ditulis sendiri.
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Link Gambar
+                    </label>
+
+                    <input
+                        id="newsImage"
+                        class="form-control"
+                        type="url"
+                        placeholder="https://alamat-gambar.jpg">
+
+                    <div class="form-note">
+
+                        Gunakan alamat gambar yang dapat diakses publik.
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Isi Berita *
+                    </label>
+
+                    <textarea
+                        id="newsContent"
+                        class="form-control"
+                        placeholder="Tulis isi berita di sini..."
+                        required></textarea>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="form-actions">
+
+
+                <button
+                    type="submit"
+                    class="btn btn-success">
+
+                    SIMPAN & TERBITKAN
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-warning"
+                    onclick="saveDraft()">
+
+                    SIMPAN DRAFT
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="resetNewsForm()">
+
+                    BATAL
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DAFTAR BERITA
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-header">
+
+        <h2>
+            Daftar Berita
+        </h2>
+
+        <button
+            class="btn btn-light btn-small"
+            onclick="loadNews()">
+
+            ↻ Perbarui
+
+        </button>
+
+    </div>
+
+
+    <div class="panel-body">
+
+        <div
+            id="newsList"
+            class="news-admin-list">
+
+            <div class="loading">
+                Memuat berita...
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     KOMENTAR
+===================================================== -->
+
+<section class="panel">
+
+    <div class="panel-header">
+
+        <h2>
+            Moderasi Komentar
+        </h2>
+
+        <button
+            class="btn btn-light btn-small"
+            onclick="loadComments()">
+
+            ↻ Perbarui
+
+        </button>
+
+    </div>
+
+
+    <div class="panel-body">
+
+        <div
+            id="commentList">
+
+            <div class="loading">
+                Memuat komentar...
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="container">
+
+        <p>
+            © 2026 GABSI Kota Tanjungbalai •
+            Administrasi Berita
+        </p>
+
+    </div>
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   UTILITAS
+========================================================= */
+
+function showMessage(
+    text,
+    type
+){
+
+    const box =
+        document.getElementById(
+            "message"
+        );
+
+    box.textContent =
+        text;
+
+    box.className =
+        "message " +
+        type;
+
+
+    setTimeout(
+        function(){
+
+            box.className =
+                "message";
+
+        },
+        5000
+    );
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+document
+    .getElementById("loginForm")
+    .addEventListener(
+        "submit",
+        async function(event){
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById(
+                        "loginEmail"
+                    )
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById(
+                        "loginPassword"
+                    )
+                    .value;
+
+
+            const button =
+                document
+                    .getElementById(
+                        "loginButton"
+                    );
+
+
+            const errorBox =
+                document
+                    .getElementById(
+                        "loginError"
+                    );
+
+
+            errorBox.style.display =
+                "none";
+
+
+            button.disabled =
+                true;
+
+            button.textContent =
+                "MEMERIKSA...";
+
+
+            try{
+
+                const result =
+                    await supabaseClient
+                        .auth
+                        .signInWithPassword({
+
+                            email:
+                                email,
+
+                            password:
+                                password
+
+                        });
+
+
+                if(result.error){
+
+                    throw result.error;
+
+                }
+
+
+                const user =
+                    result.data.user;
+
+
+                if(
+                    !user ||
+                    user.id !== ADMIN_UID
+                ){
+
+                    await supabaseClient
+                        .auth
+                        .signOut();
+
+
+                    throw new Error(
+                        "Akun ini tidak memiliki akses admin."
+                    );
+
+                }
+
+
+                showAdminPage();
+
+
+            }
+            catch(error){
+
+                console.error(error);
+
+
+                errorBox.textContent =
+                    error.message ||
+                    "Login gagal.";
+
+                errorBox.style.display =
+                    "block";
+
+
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    "MASUK SEBAGAI ADMIN";
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   CEK SESI
+========================================================= */
+
+async function checkSession(){
+
+    try{
+
+        const result =
+            await supabaseClient
+                .auth
+                .getSession();
+
+
+        const session =
+            result.data.session;
+
+
+        if(
+            session &&
+            session.user &&
+            session.user.id === ADMIN_UID
+        ){
+
+            showAdminPage();
+
+        }
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =========================================================
+   TAMPILKAN ADMIN
+========================================================= */
+
+function showAdminPage(){
+
+    document
+        .getElementById(
+            "loginPage"
+        )
+        .style.display =
+            "none";
+
+
+    document
+        .getElementById(
+            "adminPage"
+        )
+        .style.display =
+            "block";
+
+
+    document
+        .getElementById(
+            "headerActions"
+        )
+        .style.display =
+            "flex";
+
+
+    loadDashboard();
+
+    loadNews();
+
+    loadComments();
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+async function logout(){
+
+    await supabaseClient
+        .auth
+        .signOut();
+
+
+    location.reload();
+
+}
+
+
+/* =========================================================
+   FORM BERITA
+========================================================= */
+
+function getNewsFormData(
+    published
+){
+
+    return {
+
+        judul:
+            document
+                .getElementById(
+                    "newsTitle"
+                )
+                .value
+                .trim(),
+
+        isi:
+            document
+                .getElementById(
+                    "newsContent"
+                )
+                .value
+                .trim(),
+
+        sumber:
+            document
+                .getElementById(
+                    "newsSource"
+                )
+                .value
+                .trim() ||
+            null,
+
+        link_sumber:
+            document
+                .getElementById(
+                    "newsSourceLink"
+                )
+                .value
+                .trim() ||
+            null,
+
+        gambar:
+            document
+                .getElementById(
+                    "newsImage"
+                )
+                .value
+                .trim() ||
+            null,
+
+        kategori:
+            document
+                .getElementById(
+                    "newsCategory"
+                )
+                .value,
+
+        diterbitkan:
+            published
+
+    };
+
+}
+
+
+/* =========================================================
+   SIMPAN BERITA
+========================================================= */
+
+document
+    .getElementById("newsForm")
+    .addEventListener(
+        "submit",
+        async function(event){
+
+            event.preventDefault();
+
+            await saveNews(
+                true
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   DRAFT
+========================================================= */
+
+async function saveDraft(){
+
+    const title =
+        document
+            .getElementById(
+                "newsTitle"
+            )
+            .value
+            .trim();
+
+
+    const content =
+        document
+            .getElementById(
+                "newsContent"
+            )
+            .value
+            .trim();
+
+
+    if(
+        !title ||
+        !content
+    ){
+
+        alert(
+            "Judul dan isi berita harus diisi."
+        );
+
+        return;
+
+    }
+
+
+    await saveNews(
+        false
+    );
+
+}
+
+
+/* =========================================================
+   SAVE NEWS
+========================================================= */
+
+async function saveNews(
+    published
+){
+
+    const newsId =
+        document
+            .getElementById(
+                "newsId"
+            )
+            .value;
+
+
+    const data =
+        getNewsFormData(
+            published
+        );
+
+
+    if(
+        !data.judul ||
+        !data.isi
+    ){
+
+        alert(
+            "Judul dan isi berita harus diisi."
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        let result;
+
+
+        if(newsId){
+
+            result =
+                await supabaseClient
+                    .from("berita")
+                    .update(data)
+                    .eq(
+                        "id",
+                        newsId
+                    );
+
+        }
+        else{
+
+            result =
+                await supabaseClient
+                    .from("berita")
+                    .insert(data);
+
+        }
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        showMessage(
+            published
+                ? "Berita berhasil diterbitkan."
+                : "Berita berhasil disimpan sebagai draft.",
+            "success"
+        );
+
+
+        resetNewsForm();
+
+        loadNews();
+
+        loadDashboard();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "Gagal menyimpan berita: " +
+            error.message,
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   RESET FORM
+========================================================= */
+
+function resetNewsForm(){
+
+    document
+        .getElementById(
+            "newsForm"
+        )
+        .reset();
+
+
+    document
+        .getElementById(
+            "newsId"
+        )
+        .value =
+            "";
+
+
+    document
+        .getElementById(
+            "newsCategory"
+        )
+        .value =
+            "Berita";
+
+
+    document
+        .getElementById(
+            "formTitle"
+        )
+        .textContent =
+            "Tambah Berita";
+
+}
+
+
+/* =========================================================
+   LOAD NEWS
+========================================================= */
+
+async function loadNews(){
+
+    const container =
+        document
+            .getElementById(
+                "newsList"
+            );
+
+
+    container.innerHTML =
+        '<div class="loading">Memuat berita...</div>';
+
+
+    try{
+
+        const result =
+            await supabaseClient
+                .from("berita")
+                .select("*")
+                .order(
+                    "dibuat_pada",
+                    {
+                        ascending:false
+                    }
+                );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        if(
+            !result.data ||
+            result.data.length === 0
+        ){
+
+            container.innerHTML =
+                '<div class="loading">' +
+                'Belum ada berita.' +
+                '</div>';
+
+            return;
+
+        }
+
+
+        container.innerHTML =
+            "";
+
+
+        result.data.forEach(
+            function(news){
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+                item.className =
+                    "news-admin-item";
+
+
+                const title =
+                    document.createElement(
+                        "div"
+                    );
+
+                title.className =
+                    "news-admin-title";
+
+                title.textContent =
+                    news.judul;
+
+
+                const meta =
+                    document.createElement(
+                        "div"
+                    );
+
+                meta.className =
+                    "news-admin-meta";
+
+                meta.textContent =
+                    (news.kategori ||
+                    "Berita") +
+                    " • " +
+                    (
+                        news.diterbitkan
+                            ? "DITERBITKAN"
+                            : "DRAFT"
+                    );
+
+
+                const content =
+                    document.createElement(
+                        "div"
+                    );
+
+                content.className =
+                    "news-admin-content";
+
+                content.textContent =
+                    news.isi;
+
+
+                const actions =
+                    document.createElement(
+                        "div"
+                    );
+
+                actions.className =
+                    "news-admin-actions";
+
+
+                const edit =
+                    document.createElement(
+                        "button"
+                    );
+
+                edit.className =
+                    "btn btn-primary btn-small";
+
+                edit.textContent =
+                    "Edit";
+
+                edit.onclick =
+                    function(){
+
+                        editNews(
+                            news
+                        );
+
+                    };
+
+
+                const publish =
+                    document.createElement(
+                        "button"
+                    );
+
+                publish.className =
+                    "btn btn-success btn-small";
+
+                publish.textContent =
+                    news.diterbitkan
+                        ? "Jadikan Draft"
+                        : "Terbitkan";
+
+                publish.onclick =
+                    function(){
+
+                        togglePublished(
+                            news
+                        );
+
+                    };
+
+
+                const remove =
+                    document.createElement(
+                        "button"
+                    );
+
+                remove.className =
+                    "btn btn-danger btn-small";
+
+                remove.textContent =
+                    "Hapus";
+
+                remove.onclick =
+                    function(){
+
+                        deleteNews(
+                            news
+                        );
+
+                    };
+
+
+                actions.appendChild(
+                    edit
+                );
+
+                actions.appendChild(
+                    publish
+                );
+
+                actions.appendChild(
+                    remove
+                );
+
+
+                item.appendChild(
+                    title
+                );
+
+                item.appendChild(
+                    meta
+                );
+
+                item.appendChild(
+                    content
+                );
+
+                item.appendChild(
+                    actions
+                );
+
+
+                container.appendChild(
+                    item
+                );
+
+            }
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        container.innerHTML =
+            '<div class="loading">' +
+            'Gagal memuat berita.' +
+            '</div>';
+
+    }
+
+}
+
+
+/* =========================================================
+   EDIT
+========================================================= */
+
+function editNews(
+    news
+){
+
+    document
+        .getElementById(
+            "newsId"
+        )
+        .value =
+            news.id;
+
+
+    document
+        .getElementById(
+            "newsTitle"
+        )
+        .value =
+            news.judul ||
+            "";
+
+
+    document
+        .getElementById(
+            "newsContent"
+        )
+        .value =
+            news.isi ||
+            "";
+
+
+    document
+        .getElementById(
+            "newsSource"
+        )
+        .value =
+            news.sumber ||
+            "";
+
+
+    document
+        .getElementById(
+            "newsSourceLink"
+        )
+        .value =
+            news.link_sumber ||
+            "";
+
+
+    document
+        .getElementById(
+            "newsImage"
+        )
+        .value =
+            news.gambar ||
+            "";
+
+
+    document
+        .getElementById(
+            "newsCategory"
+        )
+        .value =
+            news.kategori ||
+            "Berita";
+
+
+    document
+        .getElementById(
+            "formTitle"
+        )
+        .textContent =
+            "Edit Berita";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   TERBIT / DRAFT
+========================================================= */
+
+async function togglePublished(
+    news
+){
+
+    try{
+
+        const result =
+            await supabaseClient
+                .from("berita")
+                .update({
+                    diterbitkan:
+                        !news.diterbitkan
+                })
+                .eq(
+                    "id",
+                    news.id
+                );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        showMessage(
+            news.diterbitkan
+                ? "Berita dijadikan draft."
+                : "Berita berhasil diterbitkan.",
+            "success"
+        );
+
+
+        loadNews();
+
+        loadDashboard();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "Gagal mengubah status berita.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   HAPUS BERITA
+========================================================= */
+
+async function deleteNews(
+    news
+){
+
+    const yes =
+        confirm(
+            "Hapus berita ini?\n\n" +
+            news.judul +
+            "\n\n" +
+            "Komentar yang terkait juga akan terhapus."
+        );
+
+
+    if(!yes){
+        return;
+    }
+
+
+    try{
+
+        const result =
+            await supabaseClient
+                .from("berita")
+                .delete()
+                .eq(
+                    "id",
+                    news.id
+                );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        showMessage(
+            "Berita berhasil dihapus.",
+            "success"
+        );
+
+
+        resetNewsForm();
+
+        loadNews();
+
+        loadComments();
+
+        loadDashboard();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "Gagal menghapus berita.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD KOMENTAR
+========================================================= */
+
+async function loadComments(){
+
+    const container =
+        document
+            .getElementById(
+                "commentList"
+            );
+
+
+    container.innerHTML =
+        '<div class="loading">Memuat komentar...</div>';
+
+
+    try{
+
+        const result =
+            await supabaseClient
+                .from("komentar_berita")
+                .select(
+                    "id,berita_id,nama,komentar,disetujui,dibuat_pada,berita(judul)"
+                )
+                .order(
+                    "dibuat_pada",
+                    {
+                        ascending:false
+                    }
+                );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        if(
+            !result.data ||
+            result.data.length === 0
+        ){
+
+            container.innerHTML =
+                '<div class="loading">' +
+                'Belum ada komentar.' +
+                '</div>';
+
+            return;
+
+        }
+
+
+        container.innerHTML =
+            "";
+
+
+        result.data.forEach(
+            function(comment){
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "comment-admin " +
+                    (
+                        comment.disetujui
+                            ? "approved"
+                            : "pending"
+                    );
+
+
+                const name =
+                    document.createElement(
+                        "div"
+                    );
+
+                name.className =
+                    "comment-admin-name";
+
+                name.textContent =
+                    comment.nama;
+
+
+                const news =
+                    document.createElement(
+                        "div"
+                    );
+
+                news.className =
+                    "comment-admin-news";
+
+                news.textContent =
+                    "Berita: " +
+                    (
+                        comment.berita &&
+                        comment.berita.judul
+                            ? comment.berita.judul
+                            : "-"
+                    );
+
+
+                const text =
+                    document.createElement(
+                        "div"
+                    );
+
+                text.className =
+                    "comment-admin-text";
+
+                text.textContent =
+                    comment.komentar;
+
+
+                const actions =
+                    document.createElement(
+                        "div"
+                    );
+
+                actions.className =
+                    "comment-admin-actions";
+
+
+                if(
+                    !comment.disetujui
+                ){
+
+                    const approve =
+                        document.createElement(
+                            "button"
+                        );
+
+                    approve.className =
+                        "btn btn-success btn-small";
+
+                    approve.textContent =
+                        "Setujui";
+
+                    approve.onclick =
+                        function(){
+
+                            approveComment(
+                                comment.id
+                            );
+
+                        };
+
+
+                    actions.appendChild(
+                        approve
+                    );
+
+                }
+                else{
+
+                    const pending =
+                        document.createElement(
+                            "button"
+                        );
+
+                    pending.className =
+                        "btn btn-warning btn-small";
+
+                    pending.textContent =
+                        "Batalkan Persetujuan";
+
+                    pending.onclick =
+                        function(){
+
+                            rejectComment(
+                                comment.id
+                            );
+
+                        };
+
+
+                    actions.appendChild(
+                        pending
+                    );
+
+                }
+
+
+                const remove =
+                    document.createElement(
+                        "button"
+                    );
+
+                remove.className =
+                    "btn btn-danger btn-small";
+
+                remove.textContent =
+                    "Hapus";
+
+                remove.onclick =
+                    function(){
+
+                        deleteComment(
+                            comment.id
+                        );
+
+                    };
+
+
+                actions.appendChild(
+                    remove
+                );
+
+
+                item.appendChild(
+                    name
+                );
+
+                item.appendChild(
+                    news
+                );
+
+                item.appendChild(
+                    text
+                );
+
+                item.appendChild(
+                    actions
+                );
+
+
+                container.appendChild(
+                    item
+                );
+
+            }
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        container.innerHTML =
+            '<div class="loading">' +
+            'Gagal memuat komentar.' +
+            '</div>';
+
+    }
+
+}
+
+
+/* =========================================================
+   SETUJUI KOMENTAR
+========================================================= */
+
+async function approveComment(
+    id
+){
+
+    try{
+
+        const result =
+            await supabaseClient
+                .from("komentar_berita")
+                .update({
+                    disetujui:
+                        true
+                })
+                .eq(
+                    "id",
+                    id
+                );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        showMessage(
+            "Komentar disetujui.",
+            "success"
+        );
+
+
+        loadComments();
+
+        loadDashboard();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "Gagal menyetujui komentar.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   BATALKAN PERSETUJUAN
+========================================================= */
+
+async function rejectComment(
+    id
+){
+
+    try{
+
+        const result =
+            await supabaseClient
+                .from("komentar_berita")
+                .update({
+                    disetujui:
+                        false
+                })
+                .eq(
+                    "id",
+                    id
+                );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        showMessage(
+            "Persetujuan komentar dibatalkan.",
+            "success"
+        );
+
+
+        loadComments();
+
+        loadDashboard();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "Gagal mengubah komentar.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   HAPUS KOMENTAR
+========================================================= */
+
+async function deleteComment(
+    id
+){
+
+    if(
+        !confirm(
+            "Hapus komentar ini?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        const result =
+            await supabaseClient
+                .from("komentar_berita")
+                .delete()
+                .eq(
+                    "id",
+                    id
+                );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        showMessage(
+            "Komentar berhasil dihapus.",
+            "success"
+        );
+
+
+        loadComments();
+
+        loadDashboard();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        showMessage(
+            "Gagal menghapus komentar.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+async function loadDashboard(){
+
+    try{
+
+        const newsResult =
+            await supabaseClient
+                .from("berita")
+                .select(
+                    "id,diterbitkan",
+                    {
+                        count:"exact"
+                    }
+                );
+
+
+        if(
+            !newsResult.error
+        ){
+
+            const news =
+                newsResult.data ||
+                [];
+
+
+            document
+                .getElementById(
+                    "totalNews"
+                )
+                .textContent =
+                    news.length;
+
+
+            document
+                .getElementById(
+                    "publishedNews"
+                )
+                .textContent =
+                    news.filter(
+                        item =>
+                            item.diterbitkan
+                    ).length;
+
+        }
+
+
+        const commentResult =
+            await supabaseClient
+                .from(
+                    "komentar_berita"
+                )
+                .select(
+                    "id,disetujui"
+                );
+
+
+        if(
+            !commentResult.error
+        ){
+
+            const pending =
+                (
+                    commentResult.data ||
+                    []
+                )
+                .filter(
+                    item =>
+                        !item.disetujui
+                )
+                .length;
+
+
+            document
+                .getElementById(
+                    "pendingComments"
+                )
+                .textContent =
+                    pending;
+
+        }
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =========================================================
+   JALANKAN
+========================================================= */
+
+checkSession();
+
+</script>
+
+</body>
+</html>
