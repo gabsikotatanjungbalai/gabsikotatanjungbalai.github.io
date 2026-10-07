@@ -1,0 +1,326 @@
+/* =========================================================
+   GABSI KOTA TANJUNGBALAI — UNIFIED VISUAL THEME
+   VISUAL ONLY: no content, data, links, or JavaScript changed.
+   ========================================================= */
+
+:root{
+  --gabsi-navy:#063b5c;
+  --gabsi-blue:#0a6ea8;
+  --gabsi-blue-2:#0d86c7;
+  --gabsi-red:#ed1c24;
+  --gabsi-gold:#e9b949;
+  --gabsi-bg:#f3f7fa;
+  --gabsi-text:#172b3a;
+  --gabsi-muted:#647684;
+  --gabsi-line:#dce7ee;
+  --gabsi-white:#fff;
+  --gabsi-radius:18px;
+  --gabsi-shadow:0 10px 30px rgba(6,59,92,.10);
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 10% 0%,rgba(13,134,199,.07),transparent 28%),
+    radial-gradient(circle at 100% 10%,rgba(6,59,92,.06),transparent 30%),
+    var(--gabsi-bg) !important;
+  color:var(--gabsi-text);
+  font-family:Arial,Helvetica,Segoe UI,sans-serif !important;
+}
+
+/* ---------- Global header shells ---------- */
+.site-header,
+header.header,
+body > header,
+.page-header,
+.header{
+  box-shadow:0 3px 18px rgba(6,59,92,.12) !important;
+}
+
+.site-header{
+  background:#fff !important;
+}
+
+.top-line{
+  background:linear-gradient(90deg,var(--gabsi-navy),#075b86) !important;
+  min-height:28px !important;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.header-main,
+.head{
+  max-width:1180px !important;
+  margin:0 auto !important;
+}
+
+/* ---------- Official logo ---------- */
+/* Pages already using <img> */
+.brand-logo,
+.brand .logo,
+.logo{
+  background:#fff !important;
+  border-radius:12px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  flex-shrink:0 !important;
+}
+
+.brand-logo img,
+.brand .logo img,
+.logo img,
+img.header-logo{
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  display:block !important;
+}
+
+/* Pages whose current markup contains only ♥ / ♠:
+   render the official repository logo visually, without changing markup. */
+.brand-logo:not(:has(img)),
+.brand .logo:not(:has(img)),
+.logo:not(:has(img)){
+  background-image:url("logo-gabsi.png") !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:contain !important;
+  background-color:#fff !important;
+  color:transparent !important;
+  font-size:0 !important;
+}
+
+/* Score Sheet / Kartu Pembanding headers that do not have .logo */
+header .brand{
+  position:relative;
+}
+header .brand::before{
+  content:"";
+  display:inline-block;
+  width:42px;
+  height:42px;
+  margin-right:10px;
+  vertical-align:middle;
+  background:#fff url("logo-gabsi.png") center/contain no-repeat;
+  border-radius:10px;
+  box-shadow:0 2px 10px rgba(0,0,0,.10);
+}
+
+/* If a real header-logo img exists, avoid a duplicated pseudo-logo. */
+header .brand:has(img.header-logo)::before{
+  display:none;
+}
+
+/* ---------- Brand typography ---------- */
+.brand-text strong,
+.brand-text b,
+.brand-title,
+.brand b{
+  color:var(--gabsi-navy) !important;
+  font-weight:900 !important;
+  letter-spacing:.1px;
+}
+
+.brand-text small,
+.brand-sub,
+.brand small{
+  color:var(--gabsi-muted) !important;
+}
+
+/* ---------- Primary navigation ---------- */
+.main-nav,
+.navbar,
+.nav{
+  align-items:center !important;
+}
+
+.main-nav a,
+.navbar a,
+.nav a{
+  border-radius:10px !important;
+  font-weight:700 !important;
+  transition:all .18s ease !important;
+}
+
+.main-nav a:hover,
+.navbar a:hover,
+.nav a:hover,
+.main-nav a.active,
+.navbar a.active,
+.nav a.active{
+  background:#e9f4fb !important;
+  color:var(--gabsi-navy) !important;
+}
+
+.main-nav a.active,
+.navbar a.active,
+.nav a.active{
+  box-shadow:inset 0 -2px 0 var(--gabsi-red);
+}
+
+/* ---------- Page hero ---------- */
+.page-hero,
+.hero,
+.hero-section{
+  background:
+    linear-gradient(135deg,rgba(6,59,92,.96),rgba(10,110,168,.92)) !important;
+  border:0 !important;
+}
+
+.page-hero h1,
+.hero h1{
+  text-wrap:balance;
+}
+
+.page-hero h1 span{
+  color:#ffd86a !important;
+}
+
+/* ---------- Content width / cards ---------- */
+.container,
+main,
+main.container{
+  max-width:1180px !important;
+}
+
+.section-card,
+.org-card,
+.achievement-card,
+.education,
+.vm-card,
+.values,
+.org-info,
+.related,
+.pengurus-card,
+.card{
+  border-color:var(--gabsi-line) !important;
+  border-radius:var(--gabsi-radius) !important;
+  box-shadow:var(--gabsi-shadow) !important;
+}
+
+.section-card:hover,
+.org-card:hover,
+.achievement-card:hover,
+.pengurus-card:hover,
+.card:hover{
+  box-shadow:0 14px 36px rgba(6,59,92,.14) !important;
+}
+
+/* ---------- Buttons ---------- */
+button,
+.btn,
+a.button,
+a.btn{
+  border-radius:10px !important;
+  font-weight:800 !important;
+  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease !important;
+}
+
+button:hover,
+.btn:hover,
+a.button:hover,
+a.btn:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.03);
+}
+
+/* ---------- Section headings ---------- */
+.section-heading h2,
+.section-card h2,
+.org-card h2,
+.education h2,
+.vm-card h2,
+.related h3{
+  color:var(--gabsi-navy) !important;
+}
+
+/* ---------- Footer ---------- */
+.footer{
+  background:linear-gradient(135deg,#052f4b,#073c59) !important;
+  border-top:4px solid var(--gabsi-red);
+}
+
+.footer a:hover{
+  color:#fff !important;
+}
+
+/* ---------- Bridge application / game pages ----------
+   Keep their game/table layout and functionality intact. */
+.app,
+.main,
+.page,
+main{
+  box-sizing:border-box;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width:700px){
+  .top-line{
+    padding-left:10px !important;
+    padding-right:10px !important;
+  }
+
+  .header-main,
+  .head{
+    padding-left:10px !important;
+    padding-right:10px !important;
+  }
+
+  .brand-logo,
+  .brand .logo,
+  .logo,
+  header .brand::before{
+    width:36px !important;
+    height:36px !important;
+  }
+
+  .main-nav,
+  .navbar,
+  .nav{
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+
+  .main-nav::-webkit-scrollbar,
+  .navbar::-webkit-scrollbar,
+  .nav::-webkit-scrollbar{
+    display:none;
+  }
+
+  .page-hero h1,
+  .hero h1{
+    font-size:clamp(25px,7vw,34px) !important;
+  }
+
+  .container,
+  main.container{
+    padding-left:12px !important;
+    padding-right:12px !important;
+  }
+
+  .section-card,
+  .org-card,
+  .achievement-card,
+  .education,
+  .vm-card,
+  .values,
+  .org-info,
+  .related,
+  .pengurus-card,
+  .card{
+    border-radius:14px !important;
+  }
+}
+
+/* ---------- Accessibility ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:3px solid rgba(13,134,199,.35);
+  outline-offset:2px;
+}
