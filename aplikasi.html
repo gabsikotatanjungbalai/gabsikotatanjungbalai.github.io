@@ -16,17 +16,19 @@
 
 <link rel="icon" type="image/png" href="logo-gabsi.png">
 
-<!-- TEMA VISUAL SERAGAM SELURUH WEBSITE GABSI -->
-<link rel="stylesheet" href="gabsi-unified-theme.css">
-
 <style>
+
+/* =========================================================
+   GABSI KOTA TANJUNGBALAI
+   HEADER SERAGAM SEPERTI PENGURUS.HTML
+   ========================================================= */
 
 :root{
 --bg:#f4f7fb;
 --card:#fff;
 --ink:#142033;
 --muted:#66758b;
---navy:#073c59;
+--navy:#063b5c;
 --blue:#087cab;
 --line:#dfe6ef;
 --good:#08784e;
@@ -62,13 +64,24 @@ textarea{
 font:inherit
 }
 
+
+/* =========================================================
+   TOP LINE
+   ========================================================= */
+
 .topline{
 background:var(--navy);
 color:#d9edf7;
 text-align:center;
-padding:7px;
-font-size:12px
+padding:7px 12px;
+font-size:12px;
+letter-spacing:.2px
 }
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .header{
 background:#fff;
@@ -88,37 +101,70 @@ gap:18px;
 align-items:center
 }
 
+
+/* SATU LOGO SAJA */
+
 .brand{
 display:flex;
 gap:10px;
 align-items:center;
-min-width:230px
+min-width:230px;
+flex-shrink:0
 }
 
 .logo{
-width:44px;
-height:44px;
-border-radius:11px;
+width:40px;
+height:40px;
+border-radius:9px;
 object-fit:contain;
 background:#fff;
-display:block
+display:block;
+flex-shrink:0
 }
 
 .brand b{
 display:block;
 color:var(--navy);
-font-size:14px
+font-size:14px;
+line-height:1.2
 }
 
 .brand small{
+display:block;
 color:var(--muted);
-font-size:10px
+font-size:10px;
+line-height:1.2;
+margin-top:2px
 }
+
+
+/* =========================================================
+   PENGAMAN LOGO
+   MENCEGAH LOGO TAMBAHAN DARI CSS LAIN
+   ========================================================= */
+
+.brand::before,
+.brand::after,
+.header::before,
+.header::after,
+.head::before,
+.head::after{
+content:none!important;
+display:none!important;
+background:none!important;
+background-image:none!important
+}
+
+
+/* =========================================================
+   NAVIGASI
+   ========================================================= */
 
 .nav{
 display:flex;
 flex-wrap:wrap;
 justify-content:flex-end;
+align-items:center;
 gap:4px;
 flex:1
 }
@@ -129,7 +175,8 @@ border-radius:9px;
 font-size:12px;
 font-weight:bold;
 color:#425168;
-transition:.2s
+transition:.2s;
+white-space:nowrap
 }
 
 .nav a:hover{
@@ -147,11 +194,26 @@ border:1px solid #cfe0eb;
 background:#f7fbfd
 }
 
+.nav .game:hover{
+background:#eaf5fa;
+color:#075b87
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
 main{
 max-width:1180px;
 margin:auto;
 padding:22px 18px 50px
 }
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero{
 background:
@@ -201,6 +263,11 @@ position:relative;
 z-index:2
 }
 
+
+/* =========================================================
+   STEP
+   ========================================================= */
+
 .steps{
 display:grid;
 grid-template-columns:repeat(5,1fr);
@@ -231,6 +298,11 @@ display:block;
 color:var(--navy)
 }
 
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
 .card{
 padding:18px;
 margin-bottom:16px
@@ -252,6 +324,11 @@ margin:12px 0 6px
 color:var(--muted);
 font-size:12px
 }
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
 
 .form{
 display:grid;
@@ -290,6 +367,11 @@ box-shadow:0 0 0 3px rgba(8,124,171,.08)
 min-height:90px;
 resize:vertical
 }
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
 
 .btns{
 display:flex;
@@ -336,6 +418,11 @@ color:#fff
 color:#a42121
 }
 
+
+/* =========================================================
+   NOTICE
+   ========================================================= */
+
 .notice{
 padding:11px;
 border:1px solid #cfe0eb;
@@ -344,6 +431,11 @@ border-radius:11px;
 font-size:12px;
 margin-top:10px
 }
+
+
+/* =========================================================
+   LEVEL
+   ========================================================= */
 
 .levels{
 display:grid;
@@ -403,6 +495,11 @@ border-radius:11px;
 font-size:12px
 }
 
+
+/* =========================================================
+   SYSTEM
+   ========================================================= */
+
 .systems{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -440,6 +537,11 @@ font-size:10px;
 color:var(--muted)
 }
 
+
+/* =========================================================
+   MODES
+   ========================================================= */
+
 .modes{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -456,6 +558,11 @@ font-size:11px
 .hidden{
 display:none!important
 }
+
+
+/* =========================================================
+   HANDS
+   ========================================================= */
 
 .hands{
 display:grid;
@@ -491,6 +598,11 @@ font-size:10px;
 font-weight:bold
 }
 
+
+/* =========================================================
+   UPLOAD
+   ========================================================= */
+
 .uploads{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -512,6 +624,11 @@ object-fit:contain;
 margin-top:6px;
 border-radius:7px
 }
+
+
+/* =========================================================
+   RECOMMENDATION
+   ========================================================= */
 
 .rec{
 background:#f3fbf7;
@@ -545,6 +662,11 @@ height:100%;
 background:#08784e
 }
 
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
 .tablewrap{
 overflow:auto;
 border:1px solid var(--line);
@@ -575,6 +697,11 @@ color:#526177
 border-bottom:0
 }
 
+
+/* =========================================================
+   BID PAD
+   ========================================================= */
+
 .bidpad{
 display:grid;
 grid-template-columns:repeat(8,1fr);
@@ -604,6 +731,11 @@ cursor:not-allowed;
 background:#f1f3f5
 }
 
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
 .result{
 padding:15px;
 border:1px solid var(--line);
@@ -624,6 +756,11 @@ color:var(--good)
 color:var(--bad)
 }
 
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
 .footer{
 background:#052d46;
 color:#b9d0dc;
@@ -637,6 +774,11 @@ margin-top:20px
 color:#fff
 }
 
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
 @media(max-width:900px){
 
 .head{
@@ -645,7 +787,8 @@ flex-direction:column
 }
 
 .nav{
-justify-content:flex-start
+justify-content:flex-start;
+width:100%
 }
 
 .grid{
@@ -679,6 +822,7 @@ font-size:27px
 
 }
 
+
 @media(max-width:520px){
 
 .head{
@@ -686,7 +830,8 @@ padding:10px 14px
 }
 
 .brand{
-min-width:0
+min-width:0;
+width:100%
 }
 
 .logo{
@@ -707,7 +852,8 @@ width:100%;
 overflow-x:auto;
 flex-wrap:nowrap;
 justify-content:flex-start;
-padding-bottom:3px
+padding-bottom:3px;
+-webkit-overflow-scrolling:touch
 }
 
 .nav a{
@@ -775,6 +921,7 @@ padding:15px
 GABSI KOTA TANJUNGBALAI · Bridge · Prestasi · Persaudaraan
 </div>
 
+
 <header class="header">
 
 <div class="head">
@@ -799,6 +946,7 @@ GABUNGAN BRIDGE SELURUH INDONESIA
 </span>
 
 </a>
+
 
 <nav class="nav">
 
@@ -827,6 +975,10 @@ Galeri
 Aplikasi
 </a>
 
+<a href="kocokan-kartu.html">
+Kartu Pembanding
+</a>
+
 <a href="game-bridge-gabsi.html"
    class="game">
 ♠ Game Bridge
@@ -845,6 +997,7 @@ Kontak
 </div>
 
 </header>
+
 
 <main>
 
@@ -1809,7 +1962,7 @@ const SYSTEMS={
 Johan:{
 name:'Johan',
 desc:'Sistem latihan kustom. Gunakan prinsip HCP, distribusi, fit dan kesepakatan pasangan.',
-rule:'Pembukaan natural disesuaikan dengan kekuatan tangan dan convention card pasangan.'
+rule:'Pembukaan natural disesuaikan dengan kekuatan tangan dan kesepakatan pasangan.'
 },
 
 Four:{
