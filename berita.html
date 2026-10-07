@@ -22,10 +22,6 @@
 
 <style>
 
-/* =====================================================
-   RESET & DASAR
-===================================================== */
-
 *{
     box-sizing:border-box;
 }
@@ -36,10 +32,7 @@ html{
 
 body{
     margin:0;
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#f4f8fa;
     color:#263f4d;
     line-height:1.6;
@@ -60,39 +53,25 @@ a{
 
 
 /* =====================================================
-   HEADER GABSI
-   SAMA DENGAN PENGURUS
+   HEADER AWAL GABSI
 ===================================================== */
 
 .site-header{
     width:100%;
-    background:
-        linear-gradient(
-            180deg,
-            #063b5c,
-            #052e49
-        );
-    border-bottom:
-        1px solid
-        rgba(233,185,73,.55);
+    background:linear-gradient(180deg,#063b5c,#052e49);
+    border-bottom:1px solid rgba(233,185,73,.55);
     position:relative;
     z-index:100;
 }
 
 .header-main{
     width:100%;
-    padding:
-        9px 12px 8px;
+    padding:9px 12px 8px;
     display:flex;
     flex-direction:column;
     align-items:stretch;
     gap:9px;
-    background:
-        linear-gradient(
-            180deg,
-            #063b5c,
-            #052e49
-        );
+    background:linear-gradient(180deg,#063b5c,#052e49);
 }
 
 .brand{
@@ -119,8 +98,7 @@ a{
     border-radius:9px;
     background:#fff;
     overflow:hidden;
-    box-shadow:
-        0 3px 10px rgba(0,0,0,.5);
+    box-shadow:0 3px 10px rgba(0,0,0,.5);
 }
 
 .brand-logo img{
@@ -182,13 +160,10 @@ a{
     justify-content:center;
     min-height:29px;
     padding:7px 9px;
-    border:
-        1px solid
-        rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.16);
     border-radius:7px;
     color:#e4edf3;
-    background:
-        rgba(255,255,255,.07);
+    background:rgba(255,255,255,.07);
     text-decoration:none;
     font-size:8px;
     font-weight:900;
@@ -205,9 +180,9 @@ a{
 }
 
 
-/*
-   PENCEGAHAN LOGO GANDA
-*/
+/* =====================================================
+   PASTIKAN HANYA SATU LOGO
+===================================================== */
 
 .brand::before,
 .brand::after,
@@ -227,18 +202,10 @@ a{
 ===================================================== */
 
 .page-header{
-    background:
-        linear-gradient(
-            135deg,
-            #063b5c,
-            #075f8d
-        );
+    background:linear-gradient(135deg,#063b5c,#075f8d);
     color:#fff;
-    padding:
-        46px 0 42px;
-    border-bottom:
-        4px solid
-        #e9b949;
+    padding:46px 0 42px;
+    border-bottom:4px solid #e9b949;
 }
 
 .page-header .container{
@@ -259,12 +226,7 @@ a{
 
 .page-header h1{
     margin:0;
-    font-size:
-        clamp(
-            30px,
-            5vw,
-            48px
-        );
+    font-size:clamp(30px,5vw,48px);
     line-height:1.1;
     font-weight:900;
     letter-spacing:-.5px;
@@ -288,27 +250,19 @@ a{
 ===================================================== */
 
 .section{
-    padding:
-        42px 0 55px;
+    padding:42px 0 55px;
 }
 
 .section-title{
-    margin:
-        0 0 7px;
+    margin:0 0 7px;
     color:#173d53;
-    font-size:
-        clamp(
-            23px,
-            3vw,
-            31px
-        );
+    font-size:clamp(23px,3vw,31px);
     line-height:1.25;
     font-weight:900;
 }
 
 .section-desc{
-    margin:
-        0 0 25px;
+    margin:0 0 25px;
     color:#70828b;
     font-size:13px;
     line-height:1.7;
@@ -325,24 +279,16 @@ a{
 
 .news-grid{
     display:grid;
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(0,1fr)
-        );
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:24px;
 }
 
 .news-card{
     background:#fff;
-    border:
-        1px solid
-        #dfe8ee;
+    border:1px solid #dfe8ee;
     border-radius:18px;
     overflow:hidden;
-    box-shadow:
-        0 8px 28px
-        rgba(6,59,92,.08);
+    box-shadow:0 8px 28px rgba(6,59,92,.08);
     transition:
         transform .22s ease,
         box-shadow .22s ease,
@@ -351,9 +297,7 @@ a{
 
 .news-card:hover{
     transform:translateY(-5px);
-    box-shadow:
-        0 16px 38px
-        rgba(6,59,92,.14);
+    box-shadow:0 16px 38px rgba(6,59,92,.14);
     border-color:#bcd8e7;
 }
 
@@ -369,17 +313,10 @@ a{
 }
 
 .no-image{
-    background:
-        linear-gradient(
-            135deg,
-            #e8f3f8,
-            #d8eaf2
-        );
-
+    background:linear-gradient(135deg,#e8f3f8,#d8eaf2);
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:#17658b;
     font-size:52px;
 }
@@ -393,9 +330,7 @@ a{
     align-items:center;
     background:#edf7fc;
     color:#075f89;
-    border:
-        1px solid
-        #d5eaf4;
+    border:1px solid #d5eaf4;
     padding:6px 11px;
     border-radius:30px;
     font-size:10px;
@@ -405,8 +340,7 @@ a{
 }
 
 .news-title{
-    margin:
-        0 0 8px;
+    margin:0 0 8px;
     font-size:21px;
     line-height:1.35;
     color:#16394e;
@@ -428,9 +362,7 @@ a{
 .news-source{
     margin-top:17px;
     padding-top:13px;
-    border-top:
-        1px solid
-        #edf1f3;
+    border-top:1px solid #edf1f3;
     font-size:10px;
     line-height:1.6;
     color:#748791;
@@ -453,9 +385,7 @@ a{
 .news-comments{
     margin-top:20px;
     padding-top:16px;
-    border-top:
-        1px solid
-        #e5edf1;
+    border-top:1px solid #e5edf1;
 }
 
 .comments-title{
@@ -473,9 +403,7 @@ a{
 
 .comment{
     background:#f5f9fb;
-    border:
-        1px solid
-        #e4edf1;
+    border:1px solid #e4edf1;
     border-radius:10px;
     padding:10px 11px;
 }
@@ -512,9 +440,7 @@ a{
 .form-input,
 .form-textarea{
     width:100%;
-    border:
-        1px solid
-        #d5e1e6;
+    border:1px solid #d5e1e6;
     border-radius:9px;
     padding:10px 11px;
     font-family:inherit;
@@ -528,9 +454,7 @@ a{
 .form-input:focus,
 .form-textarea:focus{
     border-color:#0780ad;
-    box-shadow:
-        0 0 0 3px
-        rgba(7,128,173,.08);
+    box-shadow:0 0 0 3px rgba(7,128,173,.08);
 }
 
 .form-textarea{
@@ -541,12 +465,7 @@ a{
 
 .comment-button{
     border:0;
-    background:
-        linear-gradient(
-            135deg,
-            #07547b,
-            #0878a8
-        );
+    background:linear-gradient(135deg,#07547b,#0878a8);
     color:#fff;
     padding:10px 15px;
     border-radius:9px;
@@ -559,9 +478,7 @@ a{
 
 .comment-button:hover{
     transform:translateY(-1px);
-    box-shadow:
-        0 5px 14px
-        rgba(7,84,123,.18);
+    box-shadow:0 5px 14px rgba(7,84,123,.18);
 }
 
 .comment-button:disabled{
@@ -581,9 +498,7 @@ a{
 
 .status{
     background:#fff;
-    border:
-        1px solid
-        #dfe9ed;
+    border:1px solid #dfe9ed;
     border-radius:12px;
     padding:13px 16px;
     font-size:12px;
@@ -609,9 +524,7 @@ a{
 
 .empty{
     background:#fff;
-    border:
-        1px dashed
-        #cbd9df;
+    border:1px dashed #cbd9df;
     border-radius:16px;
     padding:50px 20px;
     text-align:center;
@@ -626,38 +539,27 @@ a{
 ===================================================== */
 
 .footer{
-    background:
-        linear-gradient(
-            180deg,
-            #063b5c,
-            #042c45
-        );
+    background:linear-gradient(180deg,#063b5c,#042c45);
     color:#d7e5ec;
     margin-top:20px;
-    border-top:
-        3px solid
-        #e9b949;
+    border-top:3px solid #e9b949;
 }
 
 .footer-main{
     display:grid;
-    grid-template-columns:
-        1.5fr 1fr 1fr;
+    grid-template-columns:1.5fr 1fr 1fr;
     gap:35px;
-    padding:
-        38px 0 30px;
+    padding:38px 0 30px;
 }
 
 .footer h3{
-    margin:
-        0 0 8px;
+    margin:0 0 8px;
     color:#fff;
     font-size:18px;
 }
 
 .footer h4{
-    margin:
-        0 0 11px;
+    margin:0 0 11px;
     color:#f0c85d;
     font-size:12px;
     text-transform:uppercase;
@@ -686,9 +588,7 @@ a{
 
 .footer-bottom{
     min-height:48px;
-    border-top:
-        1px solid
-        rgba(255,255,255,.10);
+    border-top:1px solid rgba(255,255,255,.10);
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -714,8 +614,7 @@ a{
     }
 
     .footer-main{
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
     }
 
 }
@@ -723,8 +622,7 @@ a{
 @media(max-width:760px){
 
     .header-main{
-        padding:
-            8px 10px 10px;
+        padding:8px 10px 10px;
         gap:8px;
     }
 
@@ -756,8 +654,7 @@ a{
     }
 
     .page-header{
-        padding:
-            35px 0 32px;
+        padding:35px 0 32px;
     }
 
     .page-header p{
@@ -769,11 +666,7 @@ a{
 @media(max-width:520px){
 
     .container{
-        width:
-            min(
-                100% - 20px,
-                1180px
-            );
+        width:min(100% - 20px,1180px);
     }
 
     .main-nav{
@@ -781,8 +674,7 @@ a{
     }
 
     .main-nav a{
-        padding:
-            7px 7px;
+        padding:7px 7px;
         font-size:7px;
     }
 
@@ -815,28 +707,10 @@ a{
     .footer-bottom{
         flex-direction:column;
         justify-content:center;
-        padding:
-            13px 0;
+        padding:13px 0;
         text-align:center;
     }
 
-}
-
-
-/* =====================================================
-   PERLINDUNGAN LOGO DARI CSS EKSTERNAL
-===================================================== */
-
-.header-main > img,
-.brand > img,
-.brand::before,
-.brand::after,
-.header-main::before,
-.header-main::after{
-    display:none!important;
-    content:none!important;
-    background:none!important;
-    background-image:none!important;
 }
 
 </style>
@@ -890,11 +764,11 @@ const supabaseClient =
             <div class="brand-text">
 
                 <strong>
-                    GABSI KOTA TANJUNGBALAI
+                    GABSI Kota Tanjungbalai
                 </strong>
 
                 <small>
-                    GABUNGAN BRIDGE SELURUH INDONESIA
+                    Bridge • Prestasi • Persaudaraan
                 </small>
 
             </div>
@@ -964,9 +838,7 @@ const supabaseClient =
     <div class="container">
 
         <div class="section-label">
-
             INFORMASI TERBARU
-
         </div>
 
         <h1>
@@ -974,12 +846,10 @@ const supabaseClient =
         </h1>
 
         <p>
-
             Informasi terbaru seputar kegiatan,
             latihan, pembinaan, pertandingan,
             prestasi, dan perkembangan olahraga
             Bridge GABSI Kota Tanjungbalai.
-
         </p>
 
     </div>
@@ -1004,24 +874,17 @@ const supabaseClient =
         </h2>
 
         <p class="section-desc">
-
             Berita yang telah diterbitkan oleh admin
             GABSI Kota Tanjungbalai.
-
         </p>
-
 
         <div id="status"
              class="status news-status">
-
             Memuat berita...
-
         </div>
-
 
         <div id="newsContainer"
              class="news-grid">
-
         </div>
 
     </div>
