@@ -6,7 +6,6 @@
 <meta name="theme-color" content="#063b5c">
 <meta name="description" content="GABSI Kota Tanjungbalai - Game Bridge Online">
 <link rel="icon" type="image/png" href="logo-gabsi.png">
-<link rel="stylesheet" href="gabsi-unified-theme.css">
 <title>GABSI Kota Tanjungbalai — Bridge Online</title>
 
 <style>
@@ -22,13 +21,17 @@
   --panel:#08271f;
   --red:#e54b4b;
   --blue:#3c8cff;
+  --navy:#063b5c;
+  --navy2:#07558f;
   --shadow:0 10px 30px rgba(0,0,0,.35);
   --card-radius:6px;
 }
+
 *{
   box-sizing:border-box;
   -webkit-tap-highlight-color:transparent;
 }
+
 html,body{
   margin:0;
   padding:0;
@@ -37,121 +40,187 @@ html,body{
   color:#fff;
   font-family:Arial,Helvetica,sans-serif;
 }
+
 body{
   display:flex;
   justify-content:center;
 }
+
 button{
   font:inherit;
   cursor:pointer;
 }
-button:disabled{cursor:not-allowed}
+
+button:disabled{
+  cursor:not-allowed;
+}
+
+/* =====================================================
+   HEADER GABSI
+===================================================== */
 
 .app{
   width:100%;
-  max-width:680px;
+  max-width:760px;
   min-height:100vh;
   background:radial-gradient(circle at 50% 20%,#0b513c 0,#031c16 72%);
   overflow:hidden;
 }
 
-.header{
-  min-height:64px;
-  padding:8px 12px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  background:linear-gradient(180deg,#073c2d,#04291f);
-  border-bottom:1px solid rgba(214,173,82,.45);
+/* Safeguard: hanya satu logo */
+.brand::before,
+.brand::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  background-image:none!important;
+}
+
+.header-main > img{
+  display:none!important;
+}
+
+.header-main::before,
+.header-main::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  background-image:none!important;
+}
+
+.brand > img{
+  display:none!important;
+}
+
+/* HEADER */
+.site-header{
+  background:linear-gradient(180deg,#063b5c,#052e49);
+  border-bottom:1px solid rgba(233,185,73,.55);
   position:relative;
   z-index:100;
 }
+
+.top-line{
+  min-height:30px;
+  padding:6px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  color:#dbeaf3;
+  background:#052d47;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.4px;
+}
+
+.top-line span:last-child{
+  color:#f0cc70;
+  text-align:right;
+}
+
+.header-main{
+  min-height:68px;
+  padding:9px 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:linear-gradient(180deg,#063b5c,#052e49);
+}
+
 .brand{
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:10px;
   min-width:0;
+  text-decoration:none;
+  color:#fff;
 }
-.logo{
+
+.brand-logo{
   width:42px;
   height:42px;
-  border-radius:10px;
+  flex:0 0 42px;
   display:flex;
   align-items:center;
   justify-content:center;
+  padding:3px;
+  border-radius:9px;
   background:#fff;
   overflow:hidden;
   box-shadow:0 3px 10px #0008;
-  flex:0 0 auto;
-  padding:3px;
 }
-.logo img{
+
+.brand-logo img{
   width:100%;
   height:100%;
-  object-fit:contain;
   display:block;
+  object-fit:contain;
 }
-.brand-title{
+
+.brand-text{
+  min-width:0;
+}
+
+.brand-text strong{
+  display:block;
+  color:#fff;
   font-size:14px;
-  font-weight:900;
-  letter-spacing:.4px;
+  line-height:1.15;
+  letter-spacing:.45px;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
-.brand-sub{
-  color:#a9cabe;
-  font-size:9px;
-  margin-top:2px;
-}
-.top-actions{
-  display:flex;
-  gap:6px;
-  flex:0 0 auto;
-}
-.icon-btn{
-  width:38px;
-  height:38px;
-  border:1px solid #ffffff22;
-  border-radius:10px;
-  background:#ffffff0d;
-  color:#fff;
-  font-size:18px;
+
+.brand-text small{
+  display:block;
+  margin-top:3px;
+  color:#b9d2df;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.35px;
+  white-space:nowrap;
 }
 
-.site-menu{
+.main-nav{
   display:flex;
-  gap:6px;
-  padding:6px 8px;
+  align-items:center;
+  justify-content:flex-end;
+  gap:5px;
+  max-width:100%;
   overflow-x:auto;
-  background:#031f18;
-  border-bottom:1px solid #ffffff12;
   scrollbar-width:none;
-  position:relative;
-  z-index:90;
 }
-.site-menu::-webkit-scrollbar{display:none}
-.site-menu a{
+
+.main-nav::-webkit-scrollbar{
+  display:none;
+}
+
+.main-nav a{
   flex:0 0 auto;
-  padding:7px 10px;
-  border:1px solid #ffffff18;
-  border-radius:8px;
-  color:#d9e8e1;
-  background:#ffffff08;
+  padding:7px 9px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:7px;
+  color:#e4edf3;
+  background:rgba(255,255,255,.07);
   text-decoration:none;
-  font-size:9px;
+  font-size:8px;
   font-weight:900;
   white-space:nowrap;
   transition:.18s ease;
 }
-.site-menu a:hover,
-.site-menu a.active{
-  color:#152d23;
-  background:#d9b45b;
-  border-color:#f0d57e;
+
+.main-nav a:hover,
+.main-nav a.active{
+  color:#153326;
+  background:#e9b949;
+  border-color:#f4d77e;
 }
 
+/* GAME HEADER */
 .gamebar{
   padding:8px;
   display:grid;
@@ -160,6 +229,7 @@ button:disabled{cursor:not-allowed}
   background:#041f18;
   border-bottom:1px solid #ffffff12;
 }
+
 .info-box{
   padding:7px 5px;
   text-align:center;
@@ -167,12 +237,14 @@ button:disabled{cursor:not-allowed}
   border:1px solid #ffffff12;
   border-radius:8px;
 }
+
 .info-label{
   display:block;
   font-size:8px;
   color:#8db8a9;
   text-transform:uppercase;
 }
+
 .info-value{
   display:block;
   margin-top:2px;
@@ -180,7 +252,14 @@ button:disabled{cursor:not-allowed}
   font-weight:900;
 }
 
-.table-area{padding:12px 8px 6px}
+/* =====================================================
+   MEJA BRIDGE
+===================================================== */
+
+.table-area{
+  padding:12px 8px 6px;
+}
+
 .table{
   position:relative;
   width:100%;
@@ -190,10 +269,14 @@ button:disabled{cursor:not-allowed}
   border-radius:45% / 28%;
   background:radial-gradient(circle at 50% 45%,#159064 0,#08734f 45%,#05563e 78%);
   border:8px solid #173c31;
-  box-shadow:inset 0 0 0 2px #d2ac50,inset 0 0 35px #012c20,0 18px 40px #0009;
+  box-shadow:
+    inset 0 0 0 2px #d2ac50,
+    inset 0 0 35px #012c20,
+    0 18px 40px #0009;
   overflow:hidden;
   isolation:isolate;
 }
+
 .table:before{
   content:"";
   position:absolute;
@@ -203,6 +286,7 @@ button:disabled{cursor:not-allowed}
   pointer-events:none;
   z-index:1;
 }
+
 .table-center{
   position:absolute;
   left:50%;
@@ -215,6 +299,7 @@ button:disabled{cursor:not-allowed}
   z-index:50;
   pointer-events:none;
 }
+
 .contract-card{
   padding:10px 9px;
   border-radius:14px;
@@ -223,21 +308,25 @@ button:disabled{cursor:not-allowed}
   box-shadow:0 10px 28px #0009,0 0 0 2px rgba(0,0,0,.18);
   backdrop-filter:blur(7px);
 }
+
 .contract-title{
   color:#d9c07a;
   font-size:9px;
   font-weight:bold;
   text-transform:uppercase;
 }
+
 .contract-main{
   font-size:23px;
   font-weight:900;
   margin:2px 0;
 }
+
 .contract-extra{
   font-size:10px;
   color:#afd0c1;
 }
+
 .round-status{
   margin-top:6px;
   display:flex;
@@ -253,32 +342,47 @@ button:disabled{cursor:not-allowed}
   box-shadow:0 4px 12px #0006;
   transition:background .2s ease,border-color .2s ease,color .2s ease;
 }
+
 .round-status.normal{
   color:#f1d27c;
   border-color:#d6ad5266;
   background:#4a371555;
 }
+
 .round-status.safe{
   color:#75e0ad;
   border-color:#36c78566;
   background:#073c2caa;
 }
+
 .round-status.danger{
   color:#ff7777;
   border-color:#e54b4b88;
   background:#551d1daa;
 }
-.round-icon{font-size:11px}
-.round-text{white-space:nowrap}
+
+.round-icon{
+  font-size:11px;
+}
+
+.round-text{
+  white-space:nowrap;
+}
+
+/* =====================================================
+   PLAYER
+===================================================== */
 
 .seat{
   position:absolute;
   z-index:10;
 }
+
 .player{
   width:100%;
   text-align:center;
 }
+
 .seat.north{
   top:7px;
   left:50%;
@@ -286,6 +390,7 @@ button:disabled{cursor:not-allowed}
   width:330px;
   max-width:94%;
 }
+
 .seat.south{
   bottom:1px;
   left:50%;
@@ -293,6 +398,7 @@ button:disabled{cursor:not-allowed}
   width:330px;
   max-width:94%;
 }
+
 .seat.east{
   right:1px;
   top:50%;
@@ -300,6 +406,7 @@ button:disabled{cursor:not-allowed}
   width:82px;
   max-width:22%;
 }
+
 .seat.west{
   left:1px;
   top:50%;
@@ -307,6 +414,7 @@ button:disabled{cursor:not-allowed}
   width:82px;
   max-width:22%;
 }
+
 .avatar{
   width:35px;
   height:35px;
@@ -322,6 +430,7 @@ button:disabled{cursor:not-allowed}
   border:2px solid #f4d783;
   box-shadow:0 3px 10px #0007;
 }
+
 .player-name{
   margin-top:3px;
   font-size:10px;
@@ -330,6 +439,7 @@ button:disabled{cursor:not-allowed}
   overflow:hidden;
   text-overflow:ellipsis;
 }
+
 .level{
   display:inline-block;
   margin-top:2px;
@@ -340,6 +450,10 @@ button:disabled{cursor:not-allowed}
   font-size:7px;
 }
 
+/* =====================================================
+   KARTU
+===================================================== */
+
 .hand{
   position:relative;
   display:grid;
@@ -349,6 +463,7 @@ button:disabled{cursor:not-allowed}
   margin-top:5px;
   z-index:12;
 }
+
 .north .hand,
 .south .hand{
   width:100%;
@@ -363,6 +478,7 @@ button:disabled{cursor:not-allowed}
   align-content:center;
   justify-content:center;
 }
+
 .card{
   position:relative;
   width:100%;
@@ -384,39 +500,74 @@ button:disabled{cursor:not-allowed}
   transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
   z-index:12;
 }
-.card:hover{z-index:30}
-.card.red{color:#c62828}
+
+.card:hover{
+  z-index:30;
+}
+
+.card.red{
+  color:#c62828;
+}
+
 .card .rank{
   font-size:11px;
   font-weight:900;
   line-height:1;
 }
+
 .card .suit{
   font-size:13px;
   line-height:1;
   margin-top:2px;
 }
+
 .card.back{
-  background:repeating-linear-gradient(45deg,#174d9b 0,#174d9b 3px,#d9e7ff 3px,#d9e7ff 5px);
+  background:repeating-linear-gradient(
+    45deg,
+    #174d9b 0,
+    #174d9b 3px,
+    #d9e7ff 3px,
+    #d9e7ff 5px
+  );
   border:2px solid #fff;
 }
+
 .card.playable{
   transform:translateY(-5px);
   box-shadow:0 8px 12px #0008;
   border-color:#f0cb62;
   z-index:35;
 }
+
 .card:focus-visible{
   outline:2px solid #ffe184;
   outline-offset:2px;
   z-index:40;
 }
-.north .card{max-width:33px}
-.south .hand{min-height:112px}
-.south .card{max-width:37px}
-.south .card .rank{font-size:13px}
-.south .card .suit{font-size:16px}
-.south .card.playable{transform:translateY(-6px)}
+
+.north .card{
+  max-width:33px;
+}
+
+.south .hand{
+  min-height:112px;
+}
+
+.south .card{
+  max-width:37px;
+}
+
+.south .card .rank{
+  font-size:13px;
+}
+
+.south .card .suit{
+  font-size:16px;
+}
+
+.south .card.playable{
+  transform:translateY(-6px);
+}
 
 .east .hand,
 .west .hand{
@@ -435,6 +586,7 @@ button:disabled{cursor:not-allowed}
   justify-content:center;
   align-content:center;
 }
+
 .east .card,
 .west .card{
   width:100%;
@@ -443,16 +595,33 @@ button:disabled{cursor:not-allowed}
   height:auto;
   border-radius:5px;
 }
+
 .east .card .rank,
-.west .card .rank{font-size:8px}
+.west .card .rank{
+  font-size:8px;
+}
+
 .east .card .suit,
-.west .card .suit{font-size:10px}
-.east .card.playable{transform:translateX(-4px)}
-.west .card.playable{transform:translateX(4px)}
+.west .card .suit{
+  font-size:10px;
+}
+
+.east .card.playable{
+  transform:translateX(-4px);
+}
+
+.west .card.playable{
+  transform:translateX(4px);
+}
+
 .dummy-active .card.playable{
   border-color:#ffe184;
   box-shadow:0 0 0 2px #d6ad52,0 8px 14px #0009;
 }
+
+/* =====================================================
+   TRICK
+===================================================== */
 
 .trick{
   position:absolute;
@@ -464,6 +633,7 @@ button:disabled{cursor:not-allowed}
   pointer-events:none;
   z-index:80;
 }
+
 .trick-card{
   position:absolute;
   width:42px;
@@ -479,17 +649,41 @@ button:disabled{cursor:not-allowed}
   font-weight:900;
   z-index:81;
 }
-.trick-card.red{color:#c62828}
-.trick-card.n{left:64px;top:0}
-.trick-card.s{left:64px;bottom:0}
-.trick-card.w{left:15px;top:30px}
-.trick-card.e{right:15px;top:30px}
+
+.trick-card.red{
+  color:#c62828;
+}
+
+.trick-card.n{
+  left:64px;
+  top:0;
+}
+
+.trick-card.s{
+  left:64px;
+  bottom:0;
+}
+
+.trick-card.w{
+  left:15px;
+  top:30px;
+}
+
+.trick-card.e{
+  right:15px;
+  top:30px;
+}
+
+/* =====================================================
+   BOTTOM
+===================================================== */
 
 .bottom{
   padding:7px 8px calc(8px + env(safe-area-inset-bottom));
   background:#041f18;
   border-top:1px solid #ffffff14;
 }
+
 .status{
   display:flex;
   justify-content:space-between;
@@ -501,20 +695,24 @@ button:disabled{cursor:not-allowed}
   background:#ffffff08;
   font-size:10px;
 }
+
 .status span{
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
 }
+
 .status strong{
   color:#f0d174;
   flex:0 0 auto;
 }
+
 .actions{
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
   gap:6px;
 }
+
 .btn{
   min-height:42px;
   border:1px solid #ffffff19;
@@ -524,16 +722,28 @@ button:disabled{cursor:not-allowed}
   font-weight:900;
   font-size:11px;
 }
+
 .btn.gold{
   background:linear-gradient(145deg,#d9b45b,#987127);
   color:#152d23;
   border-color:#f0d57e;
 }
+
 .btn.green{
   background:linear-gradient(145deg,#12845d,#07563e);
 }
-.btn.red{background:#7f2828}
-.btn:disabled{opacity:.42}
+
+.btn.red{
+  background:#7f2828;
+}
+
+.btn:disabled{
+  opacity:.42;
+}
+
+/* =====================================================
+   OVERLAY
+===================================================== */
 
 .overlay{
   position:fixed;
@@ -543,7 +753,11 @@ button:disabled{cursor:not-allowed}
   display:none;
   align-items:flex-end;
 }
-.overlay.show{display:flex}
+
+.overlay.show{
+  display:flex;
+}
+
 .sheet{
   width:100%;
   max-width:680px;
@@ -556,16 +770,19 @@ button:disabled{cursor:not-allowed}
   max-height:82vh;
   overflow:auto;
 }
+
 .sheet-head{
   display:flex;
   align-items:center;
   justify-content:space-between;
   margin-bottom:10px;
 }
+
 .sheet-title{
   font-size:15px;
   font-weight:900;
 }
+
 .close{
   width:34px;
   height:34px;
@@ -575,12 +792,14 @@ button:disabled{cursor:not-allowed}
   color:#fff;
   font-size:20px;
 }
+
 .auction-history{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:5px;
   margin-bottom:12px;
 }
+
 .auction-seat{
   padding:6px 3px;
   text-align:center;
@@ -589,16 +808,19 @@ button:disabled{cursor:not-allowed}
   font-size:8px;
   color:#a9cbbd;
 }
+
 .auction-seat b{
   display:block;
   color:#fff;
   font-size:10px;
 }
+
 .bid-grid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:6px;
 }
+
 .bid{
   min-height:43px;
   border:1px solid #ffffff1b;
@@ -607,15 +829,21 @@ button:disabled{cursor:not-allowed}
   color:#fff;
   font-weight:900;
 }
-.bid.pass{background:#173c32}
+
+.bid.pass{
+  background:#173c32;
+}
+
 .bid.disabled{
   opacity:.25;
   pointer-events:none;
 }
+
 .level-grid{
   display:grid;
   gap:8px;
 }
+
 .level-btn{
   padding:13px;
   text-align:left;
@@ -624,69 +852,132 @@ button:disabled{cursor:not-allowed}
   color:#fff;
   background:#ffffff09;
 }
+
 .level-btn strong{
   display:block;
   font-size:13px;
 }
+
 .level-btn span{
   display:block;
   margin-top:3px;
   font-size:9px;
   color:#a9cabb;
 }
+
 .level-btn.active{
   border-color:#d9b45b;
   background:#d9b45b18;
 }
 
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:760px){
+  .header-main{
+    display:block;
+    padding:8px 9px 7px;
+  }
+
+  .brand{
+    width:100%;
+  }
+
+  .brand-logo{
+    width:36px;
+    height:36px;
+    flex-basis:36px;
+  }
+
+  .brand-text strong{
+    font-size:12px;
+  }
+
+  .brand-text small{
+    font-size:7px;
+  }
+
+  .main-nav{
+    width:100%;
+    justify-content:flex-start;
+    margin-top:8px;
+    padding-bottom:1px;
+  }
+
+  .main-nav a{
+    padding:7px 9px;
+    font-size:8px;
+  }
+}
+
 @media(max-width:430px){
-  .header{
+  .top-line{
+    padding:5px 9px;
+    font-size:8px;
+  }
+
+  .header-main{
     padding-left:9px;
     padding-right:9px;
   }
-  .brand-title{font-size:12px}
-  .brand-sub{font-size:8px}
-  .logo{
-    width:38px;
-    height:38px;
-  }
-  .icon-btn{
-    width:35px;
-    height:35px;
-  }
+
   .table{
     height:500px;
     min-height:500px;
     max-height:500px;
     border-width:7px;
   }
+
   .seat.north,
   .seat.south{
     width:300px;
     max-width:93%;
   }
+
   .seat.east,
   .seat.west{
     width:67px;
     max-width:21%;
   }
+
   .table-center{
     width:44%;
     min-width:158px;
     max-width:205px;
   }
-  .contract-card{padding:8px 6px}
-  .contract-main{font-size:20px}
+
+  .contract-card{
+    padding:8px 6px;
+  }
+
+  .contract-main{
+    font-size:20px;
+  }
+
   .north .hand,
   .south .hand{
     column-gap:2px;
     row-gap:4px;
     padding:2px;
   }
-  .north .card{max-width:28px}
-  .south .card{max-width:32px}
-  .south .card .rank{font-size:12px}
-  .south .card .suit{font-size:14px}
+
+  .north .card{
+    max-width:28px;
+  }
+
+  .south .card{
+    max-width:32px;
+  }
+
+  .south .card .rank{
+    font-size:12px;
+  }
+
+  .south .card .suit{
+    font-size:14px;
+  }
+
   .east .hand,
   .west .hand{
     min-height:263px;
@@ -697,43 +988,73 @@ button:disabled{cursor:not-allowed}
     row-gap:1px;
     padding:2px 0;
   }
+
   .east .card,
-  .west .card{max-width:25px}
+  .west .card{
+    max-width:25px;
+  }
+
   .east .card .rank,
-  .west .card .rank{font-size:7px}
+  .west .card .rank{
+    font-size:7px;
+  }
+
   .east .card .suit,
-  .west .card .suit{font-size:9px}
+  .west .card .suit{
+    font-size:9px;
+  }
+
   .trick{
     width:150px;
     height:108px;
   }
+
   .trick-card{
     width:39px;
     height:55px;
   }
+
   .trick-card.n,
-  .trick-card.s{left:55px}
+  .trick-card.s{
+    left:55px;
+  }
+
   .trick-card.w{
     left:8px;
     top:27px;
   }
+
   .trick-card.e{
     right:8px;
     top:27px;
   }
 }
+
 @media(max-width:370px){
   .table{
     height:490px;
     min-height:490px;
     max-height:490px;
   }
+
   .seat.north,
-  .seat.south{width:286px}
+  .seat.south{
+    width:286px;
+  }
+
   .seat.east,
-  .seat.west{width:63px}
-  .north .card{max-width:26px}
-  .south .card{max-width:30px}
+  .seat.west{
+    width:63px;
+  }
+
+  .north .card{
+    max-width:26px;
+  }
+
+  .south .card{
+    max-width:30px;
+  }
+
   .east .hand,
   .west .hand{
     min-height:255px;
@@ -741,32 +1062,53 @@ button:disabled{cursor:not-allowed}
     column-gap:1px;
     row-gap:1px;
   }
+
   .east .card,
-  .west .card{max-width:24px}
+  .west .card{
+    max-width:24px;
+  }
+
   .table-center{
     width:45%;
     min-width:154px;
   }
-  .round-status{font-size:8px}
+
+  .round-status{
+    font-size:8px;
+  }
 }
+
 @media(min-width:500px){
-  .app{max-width:680px}
   .table{
     height:620px;
     min-height:620px;
     max-height:620px;
   }
+
   .seat.north,
-  .seat.south{width:350px}
+  .seat.south{
+    width:350px;
+  }
+
   .seat.east,
-  .seat.west{width:88px}
+  .seat.west{
+    width:88px;
+  }
+
   .north .hand,
   .south .hand{
     column-gap:4px;
     row-gap:5px;
   }
-  .north .card{max-width:33px}
-  .south .card{max-width:39px}
+
+  .north .card{
+    max-width:33px;
+  }
+
+  .south .card{
+    max-width:39px;
+  }
+
   .east .hand,
   .west .hand{
     min-height:320px;
@@ -774,55 +1116,97 @@ button:disabled{cursor:not-allowed}
     column-gap:4px;
     row-gap:3px;
   }
+
   .east .card,
-  .west .card{max-width:35px}
+  .west .card{
+    max-width:35px;
+  }
+
   .east .card .rank,
-  .west .card .rank{font-size:10px}
+  .west .card .rank{
+    font-size:10px;
+  }
+
   .east .card .suit,
-  .west .card .suit{font-size:12px}
+  .west .card .suit{
+    font-size:12px;
+  }
 }
+
 @media(min-width:900px){
-  .app{max-width:760px}
+  .app{
+    max-width:760px;
+  }
+
   .table{
     height:640px;
     max-height:640px;
   }
+
   .seat.north,
-  .seat.south{width:390px}
+  .seat.south{
+    width:390px;
+  }
+
   .seat.east,
-  .seat.west{width:96px}
-  .north .card{max-width:36px}
-  .south .card{max-width:41px}
+  .seat.west{
+    width:96px;
+  }
+
+  .north .card{
+    max-width:36px;
+  }
+
+  .south .card{
+    max-width:41px;
+  }
+
   .east .hand,
   .west .hand{
     height:330px;
     min-height:330px;
   }
+
   .east .card,
-  .west .card{max-width:37px}
+  .west .card{
+    max-width:37px;
+  }
 }
+
 @media(max-height:620px) and (orientation:landscape){
   .table{
     height:calc(100vh - 210px);
     min-height:440px;
     max-height:570px;
   }
-  .seat.north{top:5px}
-  .seat.south{bottom:0}
+
+  .seat.north{
+    top:5px;
+  }
+
+  .seat.south{
+    bottom:0;
+  }
+
   .east .hand,
   .west .hand{
     min-height:225px;
     height:225px;
   }
+
   .north .hand,
-  .south .hand{row-gap:3px}
+  .south .hand{
+    row-gap:3px;
+  }
 }
+
 @media(pointer:coarse){
-  .site-menu a{padding:8px 11px}
-  .btn{min-height:44px}
-  .icon-btn{
-    min-width:38px;
-    min-height:38px;
+  .main-nav a{
+    padding:8px 10px;
+  }
+
+  .btn{
+    min-height:44px;
   }
 }
 </style>
@@ -832,52 +1216,62 @@ button:disabled{cursor:not-allowed}
 
 <div class="app">
 
-<header class="header">
-  <div class="brand">
-    <div class="logo">
-      <img src="logo-gabsi.png" alt="Logo GABSI Kota Tanjungbalai">
-    </div>
-    <div>
-      <div class="brand-title">GABSI KOTA TANJUNGBALAI</div>
-      <div class="brand-sub">BRIDGE ONLINE • COMPUTER TABLE</div>
-    </div>
+<header class="site-header">
+
+  <div class="top-line">
+    <span>GABSI KOTA TANJUNGBALAI</span>
+    <span>Bridge • Prestasi • Persaudaraan</span>
   </div>
 
-  <div class="top-actions">
-    <button class="icon-btn" onclick="newGame()" aria-label="Board baru">↻</button>
-    <button class="icon-btn" onclick="openSettings()" aria-label="Pengaturan">⚙</button>
+  <div class="header-main">
+
+    <a href="index.html" class="brand">
+      <div class="brand-logo">
+        <img src="logo-gabsi.png" alt="Logo GABSI Kota Tanjungbalai">
+      </div>
+
+      <div class="brand-text">
+        <strong>GABSI KOTA TANJUNGBALAI</strong>
+        <small>GABUNGAN BRIDGE SELURUH INDONESIA</small>
+      </div>
+    </a>
+
+    <nav class="main-nav" aria-label="Navigasi utama GABSI Kota Tanjungbalai">
+      <a href="index.html">Beranda</a>
+      <a href="profil.html">Profil</a>
+      <a href="pengurus.html">Pengurus</a>
+      <a href="kegiatan.html">Kegiatan</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="aplikasi.html">Aplikasi</a>
+      <a href="kocokan-kartu.html">Kartu Pembanding</a>
+      <a href="game-bridge-gabsi.html" class="active">Game Bridge</a>
+      <a href="berita.html">Berita</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+
   </div>
+
 </header>
 
-<nav class="site-menu" aria-label="Menu GABSI Kota Tanjungbalai">
-  <a href="https://gabsikotatanjungbalai.github.io/">Beranda</a>
-  <a href="https://gabsikotatanjungbalai.github.io/profil.html">Profil</a>
-  <a href="https://gabsikotatanjungbalai.github.io/pengurus.html">Pengurus</a>
-  <a href="https://gabsikotatanjungbalai.github.io/kegiatan.html">Kegiatan</a>
-  <a href="https://gabsikotatanjungbalai.github.io/galeri.html">Galeri</a>
-  <a href="https://gabsikotatanjungbalai.github.io/aplikasi.html">Aplikasi</a>
-  <a href="https://gabsikotatanjungbalai.github.io/kocokan-kartu.html">Kartu Pembanding</a>
-  <a href="https://gabsikotatanjungbalai.github.io/game-bridge-gabsi.html" class="active">Game Bridge</a>
-  <a href="https://gabsikotatanjungbalai.github.io/berita.html">Berita</a>
-  <a href="https://gabsikotatanjungbalai.github.io/kontak.html">Kontak</a>
-</nav>
-
-<section class="gamebar">
+<div class="gamebar">
   <div class="info-box">
     <span class="info-label">Board</span>
     <span class="info-value" id="boardNo">1</span>
   </div>
+
   <div class="info-box">
     <span class="info-label">Dealer</span>
     <span class="info-value" id="dealer">N</span>
   </div>
+
   <div class="info-box">
     <span class="info-label">Vul</span>
     <span class="info-value" id="vul">None</span>
   </div>
-</section>
+</div>
 
 <main class="table-area">
+
 <div class="table" id="bridgeTable">
 
   <div class="seat north">
@@ -912,6 +1306,7 @@ button:disabled{cursor:not-allowed}
       <div class="contract-title">Kontrak / Bid</div>
       <div class="contract-main" id="contractText">Lelang</div>
       <div class="contract-extra" id="centerInfo">Menunggu pembukaan lelang</div>
+
       <div class="round-status normal" id="roundStatus">
         <span class="round-icon" id="roundIcon">🟡</span>
         <span class="round-text" id="roundText">NORMAL</span>
@@ -931,9 +1326,11 @@ button:disabled{cursor:not-allowed}
   </div>
 
 </div>
+
 </main>
 
 <footer class="bottom">
+
   <div class="status">
     <span id="statusText">Memulai permainan...</span>
     <strong id="trickText">0 / 13</strong>
@@ -944,23 +1341,29 @@ button:disabled{cursor:not-allowed}
     <button class="btn green" onclick="openHelp()">BANTUAN</button>
     <button class="btn gold" id="primaryAction" onclick="handlePrimaryAction()">PILIH BID</button>
   </div>
+
 </footer>
 
 </div>
 
 <div class="overlay" id="bidOverlay">
   <div class="sheet">
+
     <div class="sheet-head">
       <div class="sheet-title">Lelang Bridge</div>
       <button class="close" onclick="closeBid()">×</button>
     </div>
+
     <div class="auction-history" id="auctionHistory"></div>
     <div class="bid-grid" id="bidGrid"></div>
+
   </div>
 </div>
 
 <div class="overlay" id="settingsOverlay">
+
   <div class="sheet">
+
     <div class="sheet-head">
       <div class="sheet-title">Tingkat Lawan Komputer</div>
       <button class="close" onclick="closeSettings()">×</button>
@@ -989,10 +1392,13 @@ button:disabled{cursor:not-allowed}
       </button>
 
     </div>
+
   </div>
+
 </div>
 
 <div class="overlay" id="helpOverlay">
+
   <div class="sheet">
 
     <div class="sheet-head">
@@ -1024,6 +1430,7 @@ button:disabled{cursor:not-allowed}
     <button class="btn gold" style="width:100%" onclick="closeHelp()">MENGERTI</button>
 
   </div>
+
 </div>
 
 <script>
@@ -1104,6 +1511,7 @@ function sortCards(hand){
   return [...hand].sort((a,b)=>{
     if(order[a.suit]!==order[b.suit])
       return order[a.suit]-order[b.suit];
+
     return RANKS.indexOf(b.rank)-RANKS.indexOf(a.rank);
   });
 }
@@ -1113,6 +1521,7 @@ function shuffle(array){
     const j=Math.floor(Math.random()*(i+1));
     [array[i],array[j]]=[array[j],array[i]];
   }
+
   return array;
 }
 
