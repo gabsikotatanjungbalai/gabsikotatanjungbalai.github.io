@@ -16,7 +16,15 @@
 
 <link rel="icon" type="image/png" href="logo-gabsi.png">
 
+<!-- TEMPLATE VISUAL SERAGAM GABSI -->
+<link rel="stylesheet" href="gabsi-unified-theme.css">
+
 <style>
+
+/* =========================================================
+   INDEX — PENYESUAIAN VISUAL
+   Isi dan fungsi halaman lama dipertahankan
+   ========================================================= */
 
 *{
     box-sizing:border-box;
@@ -29,7 +37,7 @@ html{
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f1f6f9;
+    background:#f3f7fa;
     color:#203442;
     line-height:1.6;
 }
@@ -49,13 +57,15 @@ img{
     margin:auto;
 }
 
-/* TOP BAR */
+/* =========================================================
+   TOP BAR
+   ========================================================= */
 
 .topbar{
-    background:#062d45;
-    color:#d9e9f2;
+    background:#052d46;
+    color:#dcecf4;
     font-size:11px;
-    padding:6px 0;
+    padding:7px 0;
 }
 
 .topbar-inner{
@@ -65,19 +75,22 @@ img{
     gap:10px;
 }
 
-/* NAVBAR */
+/* =========================================================
+   NAVBAR
+   ========================================================= */
 
 .navbar{
-    background:#fff;
+    background:rgba(255,255,255,.97);
     border-bottom:1px solid #dce7ed;
     position:sticky;
     top:0;
     z-index:999;
-    box-shadow:0 2px 12px rgba(0,0,0,.05);
+    box-shadow:0 4px 20px rgba(6,59,92,.08);
+    backdrop-filter:blur(10px);
 }
 
 .nav-inner{
-    min-height:68px;
+    min-height:70px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -87,14 +100,14 @@ img{
 .brand{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:11px;
     min-width:0;
 }
 
 .brand img{
-    width:40px;
-    height:40px;
-    border-radius:8px;
+    width:43px;
+    height:43px;
+    border-radius:10px;
     object-fit:contain;
 }
 
@@ -104,39 +117,44 @@ img{
 
 .brand-text strong{
     display:block;
-    color:#123b53;
+    color:#063b5c;
     font-size:15px;
+    font-weight:800;
     white-space:nowrap;
 }
 
 .brand-text span{
     display:block;
-    color:#83949e;
+    color:#80929d;
     font-size:8px;
-    letter-spacing:.4px;
+    letter-spacing:.5px;
     white-space:nowrap;
 }
+
+/* NAVIGASI */
 
 .nav-links{
     display:flex;
     align-items:center;
-    gap:4px;
+    gap:3px;
 }
 
 .nav-links a{
-    color:#203442;
+    color:#263b48;
     font-size:12px;
-    font-weight:bold;
-    padding:9px 10px;
+    font-weight:700;
+    padding:9px 11px;
     border-radius:9px;
-    transition:.2s;
+    transition:.2s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active{
-    background:#edf6fb;
+    background:#eaf4fa;
     color:#075b87;
 }
+
+/* MENU MOBILE */
 
 .menu-btn{
     display:none;
@@ -150,46 +168,69 @@ img{
     cursor:pointer;
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero{
     background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,255,255,.12),
+            transparent 28%
+        ),
         linear-gradient(
             120deg,
-            #064d70 0%,
-            #076a91 48%,
-            #0b789a 100%
+            #053d5e 0%,
+            #075e83 48%,
+            #087c98 100%
         );
     color:#fff;
     overflow:hidden;
+    position:relative;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    right:-180px;
+    bottom:-230px;
+    border:70px solid rgba(255,255,255,.035);
+    border-radius:50%;
+    pointer-events:none;
 }
 
 .hero-inner{
-    min-height:410px;
+    min-height:430px;
     display:grid;
     grid-template-columns:1.15fr .85fr;
     align-items:center;
     gap:45px;
-    padding:40px 0;
+    padding:45px 0;
+    position:relative;
+    z-index:1;
 }
 
 .hero-badge{
-    display:inline-block;
-    border:1px solid rgba(255,255,255,.4);
-    background:rgba(255,255,255,.1);
-    padding:6px 10px;
-    border-radius:20px;
+    display:inline-flex;
+    align-items:center;
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.09);
+    padding:7px 12px;
+    border-radius:30px;
     font-size:10px;
-    font-weight:bold;
-    letter-spacing:.4px;
-    margin-bottom:12px;
+    font-weight:800;
+    letter-spacing:.5px;
+    margin-bottom:13px;
 }
 
 .hero h1{
     margin:0;
     font-size:clamp(36px,6vw,62px);
     line-height:1.02;
-    letter-spacing:-1.5px;
+    letter-spacing:-1.8px;
 }
 
 .hero h1 span{
@@ -198,7 +239,7 @@ img{
 
 .hero-description{
     max-width:610px;
-    margin:13px 0 20px;
+    margin:14px 0 21px;
     color:#e1f1f7;
     font-size:14px;
 }
@@ -214,11 +255,11 @@ img{
     align-items:center;
     justify-content:center;
     gap:6px;
-    padding:11px 16px;
+    padding:11px 17px;
     border-radius:9px;
     font-size:12px;
-    font-weight:bold;
-    transition:.2s;
+    font-weight:800;
+    transition:.2s ease;
 }
 
 .btn:hover{
@@ -228,6 +269,7 @@ img{
 .btn-white{
     background:#fff;
     color:#074668;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
 }
 
 .btn-outline{
@@ -239,6 +281,7 @@ img{
 .btn-green{
     background:#159653;
     color:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.13);
 }
 
 .btn-blue{
@@ -248,7 +291,7 @@ img{
 
 .hero-stats{
     display:flex;
-    margin-top:22px;
+    margin-top:24px;
     gap:0;
 }
 
@@ -265,12 +308,15 @@ img{
 .stat strong{
     display:block;
     font-size:21px;
+    line-height:1.1;
 }
 
 .stat span{
     font-size:10px;
     color:#d2e9f1;
 }
+
+/* FOTO */
 
 .hero-photo{
     display:flex;
@@ -283,7 +329,7 @@ img{
     background:#fff;
     border-radius:22px;
     transform:rotate(1.5deg);
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    box-shadow:0 18px 42px rgba(0,0,0,.25);
 }
 
 .photo-card img{
@@ -298,7 +344,7 @@ img{
     background:#062d45;
     color:#fff;
     border-radius:11px;
-    padding:8px 12px;
+    padding:9px 12px;
     margin-top:-54px;
     position:relative;
     width:90%;
@@ -317,17 +363,19 @@ img{
     color:#a9c4d1;
 }
 
-/* SECTION */
+/* =========================================================
+   SECTION
+   ========================================================= */
 
 .section{
-    padding:48px 0;
+    padding:50px 0;
 }
 
 .section-label{
     color:#08749c;
     font-size:9px;
-    font-weight:bold;
-    letter-spacing:1px;
+    font-weight:800;
+    letter-spacing:1.2px;
     text-transform:uppercase;
 }
 
@@ -345,33 +393,53 @@ img{
     max-width:700px;
 }
 
-/* QUICK MENU */
+/* =========================================================
+   QUICK MENU
+   ========================================================= */
 
 .quick-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:14px;
-    margin-top:22px;
+    gap:15px;
+    margin-top:23px;
 }
 
 .quick-card{
     background:#fff;
-    border:1px solid #e1e9ed;
+    border:1px solid #e0e9ee;
     border-radius:16px;
-    padding:20px 18px;
-    min-height:128px;
-    box-shadow:0 8px 25px rgba(20,55,75,.07);
+    padding:21px 18px;
+    min-height:132px;
+    box-shadow:0 8px 25px rgba(20,55,75,.065);
+    transition:.22s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.quick-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:4px;
+    height:100%;
+    background:#0a6ea8;
+    opacity:0;
     transition:.2s;
 }
 
 .quick-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 30px rgba(20,55,75,.12);
+    transform:translateY(-4px);
+    box-shadow:0 14px 32px rgba(20,55,75,.12);
+}
+
+.quick-card:hover::before{
+    opacity:1;
 }
 
 .quick-icon{
     font-size:25px;
-    margin-bottom:6px;
+    margin-bottom:7px;
 }
 
 .quick-card h3{
@@ -396,7 +464,9 @@ img{
     color:#087c47;
 }
 
-/* ABOUT */
+/* =========================================================
+   ABOUT
+   ========================================================= */
 
 .about-grid{
     display:grid;
@@ -409,21 +479,22 @@ img{
     background:#fff;
     border:1px solid #e0e8ec;
     border-radius:17px;
-    padding:22px;
+    padding:23px;
     box-shadow:0 8px 25px rgba(20,55,75,.06);
 }
 
 .about-card .small{
     color:#0a7398;
     font-size:9px;
-    font-weight:bold;
+    font-weight:800;
     letter-spacing:1px;
     text-transform:uppercase;
 }
 
 .about-card h3{
-    margin:2px 0 10px;
+    margin:3px 0 10px;
     font-size:16px;
+    color:#203442;
 }
 
 .about-card p{
@@ -439,31 +510,54 @@ img{
     padding:10px 13px;
     border-radius:8px;
     font-size:11px;
-    font-weight:bold;
+    font-weight:800;
+    transition:.2s;
 }
 
-/* APPLICATION CARDS */
+.about-btn:hover{
+    background:#063b5c;
+    transform:translateY(-1px);
+}
+
+/* =========================================================
+   APPLICATION
+   ========================================================= */
 
 .apps-section{
     background:#f7fafc;
+    border-top:1px solid #e5edf1;
+    border-bottom:1px solid #e5edf1;
 }
 
 .apps-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:14px;
-    margin-top:22px;
+    gap:15px;
+    margin-top:5px;
 }
 
 .app-card{
     border-radius:17px;
-    padding:22px;
+    padding:23px;
     color:#fff;
     min-height:175px;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-    box-shadow:0 8px 22px rgba(0,0,0,.09);
+    box-shadow:0 9px 25px rgba(0,0,0,.10);
+    position:relative;
+    overflow:hidden;
+}
+
+.app-card::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    right:-70px;
+    top:-70px;
+    border-radius:50%;
+    background:rgba(255,255,255,.07);
 }
 
 .app-card.blue{
@@ -484,8 +578,6 @@ img{
             #076a72 48%,
             #159453 100%
         );
-    position:relative;
-    overflow:hidden;
     border:2px solid rgba(255,255,255,.25);
 }
 
@@ -532,25 +624,33 @@ img{
     padding:9px 13px;
     border-radius:8px;
     font-size:10px;
-    font-weight:bold;
+    font-weight:800;
     position:relative;
     z-index:3;
+    transition:.2s;
+}
+
+.app-button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 14px rgba(0,0,0,.15);
 }
 
 .game .app-button{
     color:#087345;
 }
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 .footer{
-    background:#062d45;
+    background:#052d46;
     color:#fff;
     margin-top:20px;
 }
 
 .footer-main{
-    padding:32px 0;
+    padding:34px 0;
     display:grid;
     grid-template-columns:1.5fr 1fr 1fr;
     gap:30px;
@@ -575,34 +675,38 @@ img{
 .footer a{
     display:block;
     margin:4px 0;
+    transition:.2s;
 }
 
 .footer a:hover{
     color:#fff;
+    transform:translateX(2px);
 }
 
 .footer-bottom{
     border-top:1px solid rgba(255,255,255,.1);
-    padding:10px 0;
+    padding:11px 0;
     font-size:9px;
     color:#88aab9;
     display:flex;
     justify-content:space-between;
 }
 
-/* MOBILE */
+/* =========================================================
+   TABLET / HP
+   ========================================================= */
 
 @media(max-width:850px){
 
     .nav-links{
         display:none;
         position:absolute;
-        top:68px;
+        top:70px;
         left:0;
         right:0;
         background:#fff;
         border-bottom:1px solid #dce7ed;
-        box-shadow:0 8px 20px rgba(0,0,0,.1);
+        box-shadow:0 8px 20px rgba(0,0,0,.10);
         padding:10px;
         flex-direction:column;
         align-items:stretch;
@@ -622,8 +726,8 @@ img{
 
     .hero-inner{
         grid-template-columns:1fr;
-        padding:30px 0 38px;
-        gap:25px;
+        padding:34px 0 40px;
+        gap:28px;
     }
 
     .hero-photo{
@@ -656,7 +760,9 @@ img{
 
 }
 
-/* HP KECIL */
+/* =========================================================
+   HP KECIL
+   ========================================================= */
 
 @media(max-width:520px){
 
@@ -670,6 +776,10 @@ img{
 
     .topbar-inner{
         gap:5px;
+    }
+
+    .topbar-inner span:last-child{
+        display:none;
     }
 
     .nav-inner{
@@ -694,7 +804,7 @@ img{
     }
 
     .hero-inner{
-        padding:25px 0 30px;
+        padding:27px 0 32px;
     }
 
     .hero h1{
@@ -760,7 +870,7 @@ img{
     }
 
     .section{
-        padding:35px 0;
+        padding:36px 0;
     }
 
     .section-title{
@@ -810,7 +920,9 @@ img{
 
 <body>
 
-<!-- TOP BAR -->
+<!-- =====================================================
+     TOP BAR
+     ===================================================== -->
 
 <div class="topbar">
 
@@ -829,7 +941,9 @@ img{
 </div>
 
 
-<!-- NAVBAR -->
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
 
 <nav class="navbar">
 
@@ -896,8 +1010,6 @@ img{
                 ♠ Game Bridge
             </a>
 
-            <!-- NAVIGASI BERITA DITAMBAHKAN DI SINI -->
-
             <a href="berita.html">
                 Berita
             </a>
@@ -913,7 +1025,9 @@ img{
 </nav>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+     ===================================================== -->
 
 <section class="hero">
 
@@ -1032,7 +1146,9 @@ img{
 </section>
 
 
-<!-- MENU UTAMA -->
+<!-- =====================================================
+     MENU UTAMA
+     ===================================================== -->
 
 <section class="section">
 
@@ -1177,7 +1293,9 @@ img{
 </section>
 
 
-<!-- TENTANG -->
+<!-- =====================================================
+     TENTANG
+     ===================================================== -->
 
 <section class="section"
          style="padding-top:0;">
@@ -1253,7 +1371,9 @@ img{
 </section>
 
 
-<!-- KARTU APLIKASI -->
+<!-- =====================================================
+     KARTU APLIKASI
+     ===================================================== -->
 
 <section class="section apps-section">
 
@@ -1361,7 +1481,9 @@ img{
 </section>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <footer class="footer">
 
@@ -1460,7 +1582,9 @@ img{
 
 <script>
 
-/* MENU MOBILE */
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
 
 function toggleMenu(){
 
@@ -1492,7 +1616,9 @@ document
     });
 
 
-/* SERVICE WORKER */
+/* =========================================================
+   SERVICE WORKER
+   ========================================================= */
 
 if("serviceWorker" in navigator){
 
