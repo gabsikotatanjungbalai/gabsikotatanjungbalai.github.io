@@ -1,352 +1,771 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+<meta name="theme-color" content="#063b5c">
+
+<meta name="description"
+      content="Belajar Penawaran Bridge — GABSI Kota Tanjungbalai">
+
 <title>Belajar Penawaran Bridge — GABSI Kota Tanjungbalai</title>
 
+<link rel="icon" type="image/png" href="logo-gabsi.png">
+
+<!-- TEMA VISUAL SERAGAM SELURUH WEBSITE GABSI -->
+<link rel="stylesheet" href="gabsi-unified-theme.css">
+
 <style>
+
 :root{
---bg:#f4f7fb;--card:#fff;--ink:#142033;--muted:#66758b;
---navy:#073c59;--blue:#087cab;--line:#dfe6ef;
---good:#08784e;--bad:#c92a2a;
+--bg:#f4f7fb;
+--card:#fff;
+--ink:#142033;
+--muted:#66758b;
+--navy:#073c59;
+--blue:#087cab;
+--line:#dfe6ef;
+--good:#08784e;
+--bad:#c92a2a;
+--gold:#e9b949;
 --shadow:0 10px 28px rgba(14,42,75,.08)
 }
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth
+}
+
 body{
-margin:0;background:var(--bg);color:var(--ink);
+margin:0;
+background:var(--bg);
+color:var(--ink);
 font:14px/1.5 Arial,system-ui,sans-serif
 }
-a{text-decoration:none;color:inherit}
-button,input,select,textarea{font:inherit}
+
+a{
+text-decoration:none;
+color:inherit
+}
+
+button,
+input,
+select,
+textarea{
+font:inherit
+}
 
 .topline{
-background:var(--navy);color:#d9edf7;text-align:center;
-padding:7px;font-size:12px
+background:var(--navy);
+color:#d9edf7;
+text-align:center;
+padding:7px;
+font-size:12px
 }
 
 .header{
-background:#fff;border-bottom:1px solid var(--line);
-position:sticky;top:0;z-index:10
+background:#fff;
+border-bottom:1px solid var(--line);
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 4px 18px rgba(6,59,92,.08)
 }
 
 .head{
-max-width:1180px;margin:auto;padding:12px 18px;
-display:flex;gap:18px;align-items:center
+max-width:1180px;
+margin:auto;
+padding:10px 18px;
+display:flex;
+gap:18px;
+align-items:center
 }
 
 .brand{
-display:flex;gap:10px;align-items:center;min-width:230px
+display:flex;
+gap:10px;
+align-items:center;
+min-width:230px
 }
 
 .logo{
-width:42px;height:42px;border-radius:13px;
-background:linear-gradient(145deg,#063650,#087cab);
-display:grid;place-items:center;color:#fff;font-size:23px
+width:44px;
+height:44px;
+border-radius:11px;
+object-fit:contain;
+background:#fff;
+display:block
 }
 
-.brand b{display:block;color:var(--navy);font-size:14px}
-.brand small{color:var(--muted);font-size:10px}
+.brand b{
+display:block;
+color:var(--navy);
+font-size:14px
+}
+
+.brand small{
+color:var(--muted);
+font-size:10px
+}
 
 .nav{
-display:flex;flex-wrap:wrap;justify-content:flex-end;
-gap:5px;flex:1
+display:flex;
+flex-wrap:wrap;
+justify-content:flex-end;
+gap:4px;
+flex:1
 }
 
 .nav a{
-padding:8px 9px;border-radius:9px;font-size:12px;
-font-weight:bold;color:#425168
+padding:8px 9px;
+border-radius:9px;
+font-size:12px;
+font-weight:bold;
+color:#425168;
+transition:.2s
 }
 
-.nav a:hover{background:#eef4f9}
-.nav .active{background:var(--navy);color:#fff}
-.nav .game{border:1px solid #cfe0eb;background:#f7fbfd}
+.nav a:hover{
+background:#eef4f9;
+color:#075b87
+}
+
+.nav .active{
+background:var(--navy);
+color:#fff
+}
+
+.nav .game{
+border:1px solid #cfe0eb;
+background:#f7fbfd
+}
 
 main{
-max-width:1180px;margin:auto;padding:22px 18px 50px
+max-width:1180px;
+margin:auto;
+padding:22px 18px 50px
 }
 
 .hero{
-background:linear-gradient(135deg,#073c59,#0d6384,#147fa1);
-color:#fff;border-radius:23px;padding:27px 29px;
-margin-bottom:18px;box-shadow:var(--shadow)
+background:
+radial-gradient(
+circle at 90% 10%,
+rgba(255,255,255,.13),
+transparent 28%
+),
+linear-gradient(
+135deg,
+#073c59,
+#0d6384,
+#147fa1
+);
+color:#fff;
+border-radius:23px;
+padding:29px 30px;
+margin-bottom:18px;
+box-shadow:var(--shadow);
+position:relative;
+overflow:hidden
 }
 
-.hero h1{margin:0 0 6px;font-size:34px}
-.hero p{margin:0;color:#e4f3fb}
+.hero:after{
+content:"♠ ♥ ♦ ♣";
+position:absolute;
+right:18px;
+bottom:-22px;
+font-size:90px;
+letter-spacing:8px;
+color:rgba(255,255,255,.07);
+transform:rotate(-7deg);
+pointer-events:none
+}
+
+.hero h1{
+margin:0 0 6px;
+font-size:34px;
+position:relative;
+z-index:2
+}
+
+.hero p{
+margin:0;
+color:#e4f3fb;
+position:relative;
+z-index:2
+}
 
 .steps{
-display:grid;grid-template-columns:repeat(5,1fr);
-gap:7px;margin-bottom:18px
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:7px;
+margin-bottom:18px
 }
 
-.step,.card{
-background:#fff;border:1px solid var(--line);
-border-radius:16px;box-shadow:var(--shadow)
+.step,
+.card{
+background:#fff;
+border:1px solid var(--line);
+border-radius:16px;
+box-shadow:var(--shadow)
 }
 
-.step{padding:10px;font-size:11px}
-.step b{display:block;color:var(--navy)}
+.step{
+padding:11px;
+font-size:11px;
+transition:.2s
+}
 
-.card{padding:18px;margin-bottom:16px}
+.step:hover{
+transform:translateY(-2px)
+}
 
-.grid{
-display:grid;grid-template-columns:1fr 1fr;gap:16px
+.step b{
+display:block;
+color:var(--navy)
+}
+
+.card{
+padding:18px;
+margin-bottom:16px
 }
 
 .card h2{
-font-size:18px;color:var(--navy);margin:0 0 5px
+font-size:18px;
+color:var(--navy);
+margin:0 0 5px
 }
 
 .card h3{
-font-size:14px;color:var(--navy);margin:12px 0 6px
+font-size:14px;
+color:var(--navy);
+margin:12px 0 6px
 }
 
-.muted{color:var(--muted);font-size:12px}
+.muted{
+color:var(--muted);
+font-size:12px
+}
 
 .form{
-display:grid;grid-template-columns:repeat(3,1fr);gap:10px
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px
 }
 
 .field label{
-display:block;font-size:11px;font-weight:bold;
-color:#526177;margin-bottom:5px
+display:block;
+font-size:11px;
+font-weight:bold;
+color:#526177;
+margin-bottom:5px
 }
 
-.field input,.field select,.field textarea{
-width:100%;border:1px solid #ccd8e5;border-radius:10px;
-padding:9px;background:#fff
+.field input,
+.field select,
+.field textarea{
+width:100%;
+border:1px solid #ccd8e5;
+border-radius:10px;
+padding:9px;
+background:#fff;
+outline:none;
+transition:.2s
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+border-color:#087cab;
+box-shadow:0 0 0 3px rgba(8,124,171,.08)
+}
+
+.field textarea{
+min-height:90px;
+resize:vertical
 }
 
 .btns{
-display:flex;flex-wrap:wrap;gap:7px;margin-top:12px
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin-top:12px
 }
 
 .btn{
-border:1px solid #c8d6e2;background:#fff;
-border-radius:10px;padding:9px 12px;
-font-weight:bold;font-size:12px;cursor:pointer
+border:1px solid #c8d6e2;
+background:#fff;
+border-radius:10px;
+padding:9px 12px;
+font-weight:bold;
+font-size:12px;
+cursor:pointer;
+transition:.2s
+}
+
+.btn:hover{
+transform:translateY(-1px);
+box-shadow:0 5px 14px rgba(14,42,75,.08)
 }
 
 .primary{
-background:var(--navy);border-color:var(--navy);color:#fff
+background:var(--navy);
+border-color:var(--navy);
+color:#fff
 }
 
 .blue{
-background:#1e6bff;border-color:#1e6bff;color:#fff
+background:#1e6bff;
+border-color:#1e6bff;
+color:#fff
 }
 
 .good{
-background:#08784e;border-color:#08784e;color:#fff
+background:#08784e;
+border-color:#08784e;
+color:#fff
 }
 
-.danger{color:#a42121}
+.danger{
+color:#a42121
+}
 
 .notice{
-padding:11px;border:1px solid #cfe0eb;
-background:#f4fafc;border-radius:11px;
-font-size:12px;margin-top:10px
+padding:11px;
+border:1px solid #cfe0eb;
+background:#f4fafc;
+border-radius:11px;
+font-size:12px;
+margin-top:10px
 }
 
 .levels{
-display:grid;grid-template-columns:repeat(4,1fr);
-gap:9px;margin-top:12px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:9px;
+margin-top:12px
 }
 
 .level{
-border:1px solid var(--line);border-radius:12px;
-padding:13px;background:#fff;cursor:pointer;
+border:1px solid var(--line);
+border-radius:12px;
+padding:13px;
+background:#fff;
+cursor:pointer;
 transition:.15s
 }
 
 .level:hover{
-border-color:#77abc8;background:#f5fbfe
+border-color:#77abc8;
+background:#f5fbfe;
+transform:translateY(-2px)
 }
 
 .level.active{
-border-color:#087cab;background:#eef8fc;
+border-color:#087cab;
+background:#eef8fc;
 box-shadow:inset 0 0 0 1px #087cab
 }
 
 .level b{
-display:block;color:var(--navy);font-size:13px
+display:block;
+color:var(--navy);
+font-size:13px
 }
 
 .level span{
-display:block;color:var(--muted);
-font-size:10px;margin-top:3px
+display:block;
+color:var(--muted);
+font-size:10px;
+margin-top:3px
 }
 
 .level small{
-display:block;color:#08784e;
-font-weight:bold;font-size:10px;margin-top:7px
+display:block;
+color:#08784e;
+font-weight:bold;
+font-size:10px;
+margin-top:7px
 }
 
 .level-note{
-margin-top:10px;padding:10px 12px;
-border:1px solid #cfe0eb;background:#f4fafc;
-border-radius:11px;font-size:12px
+margin-top:10px;
+padding:10px 12px;
+border:1px solid #cfe0eb;
+background:#f4fafc;
+border-radius:11px;
+font-size:12px
 }
 
 .systems{
-display:grid;grid-template-columns:repeat(4,1fr);gap:8px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px
 }
 
 .sys{
 border:1px solid var(--line);
-border-radius:11px;padding:10px;cursor:pointer
+border-radius:11px;
+padding:10px;
+cursor:pointer;
+transition:.15s
+}
+
+.sys:hover{
+border-color:#77abc8;
+background:#f5fbfe;
+transform:translateY(-1px)
 }
 
 .sys.active{
-border-color:#77abc8;background:#f5fbfe
+border-color:#77abc8;
+background:#f5fbfe;
+box-shadow:inset 0 0 0 1px #087cab
 }
 
 .sys b{
-display:block;color:var(--navy);font-size:12px
+display:block;
+color:var(--navy);
+font-size:12px
 }
 
 .sys span{
-font-size:10px;color:var(--muted)
+font-size:10px;
+color:var(--muted)
 }
 
 .modes{
-display:grid;grid-template-columns:1fr 1fr;gap:8px
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px
 }
 
 .mode{
-border:1px solid var(--line);padding:11px;
-border-radius:11px;font-size:11px
+border:1px solid var(--line);
+padding:11px;
+border-radius:11px;
+font-size:11px
 }
 
-.hidden{display:none!important}
+.hidden{
+display:none!important
+}
 
 .hands{
-display:grid;grid-template-columns:repeat(4,1fr);gap:9px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:9px
 }
 
 .hand{
-border:1px solid var(--line);border-radius:12px;
-padding:11px;background:#fbfdff
+border:1px solid var(--line);
+border-radius:12px;
+padding:11px;
+background:#fbfdff
 }
 
-.hand b{color:var(--navy)}
+.hand b{
+color:var(--navy)
+}
 
 .cards{
-font-size:11px;line-height:1.8;
-min-height:62px;margin-top:7px
+font-size:11px;
+line-height:1.8;
+min-height:62px;
+margin-top:7px
 }
 
 .badge{
-display:inline-block;padding:3px 7px;
-border-radius:99px;background:#eef4ff;
-color:#2357b7;font-size:10px;font-weight:bold
+display:inline-block;
+padding:3px 7px;
+border-radius:99px;
+background:#eef4ff;
+color:#2357b7;
+font-size:10px;
+font-weight:bold
 }
 
 .uploads{
-display:grid;grid-template-columns:repeat(4,1fr);gap:8px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px
 }
 
 .upload{
 border:1px dashed #b9cbd9;
-padding:9px;border-radius:11px;font-size:10px
+padding:9px;
+border-radius:11px;
+font-size:10px
 }
 
 .upload img{
-display:none;width:100%;max-height:80px;
-object-fit:contain;margin-top:6px
+display:none;
+width:100%;
+max-height:80px;
+object-fit:contain;
+margin-top:6px;
+border-radius:7px
 }
 
 .rec{
-background:#f3fbf7;border:1px solid #b8e0cf;
-border-radius:14px;padding:15px
+background:#f3fbf7;
+border:1px solid #b8e0cf;
+border-radius:14px;
+padding:15px
 }
 
 .rec .bid{
-font-size:27px;font-weight:900;color:#075d3e
+font-size:27px;
+font-weight:900;
+color:#075d3e
 }
 
 .rec p{
-font-size:12px;margin:5px 0;color:#3f5d50
+font-size:12px;
+margin:5px 0;
+color:#3f5d50
 }
 
 .bar{
-height:8px;background:#dcebe4;
-border-radius:9px;overflow:hidden
+height:8px;
+background:#dcebe4;
+border-radius:9px;
+overflow:hidden
 }
 
 .bar i{
-display:block;height:100%;background:#08784e
+display:block;
+height:100%;
+background:#08784e
 }
 
 .tablewrap{
-overflow:auto;border:1px solid var(--line);
+overflow:auto;
+border:1px solid var(--line);
 border-radius:11px
 }
 
 .table{
-width:100%;border-collapse:collapse;min-width:650px
+width:100%;
+border-collapse:collapse;
+min-width:650px
 }
 
-.table th,.table td{
-padding:8px;border-bottom:1px solid var(--line);
-font-size:11px;text-align:left
+.table th,
+.table td{
+padding:8px;
+border-bottom:1px solid var(--line);
+font-size:11px;
+text-align:left
 }
 
 .table th{
-background:#f4f8fb;font-size:10px;color:#526177
+background:#f4f8fb;
+font-size:10px;
+color:#526177
+}
+
+.table tr:last-child td{
+border-bottom:0
 }
 
 .bidpad{
-display:grid;grid-template-columns:repeat(8,1fr);
-gap:5px;margin-top:8px
+display:grid;
+grid-template-columns:repeat(8,1fr);
+gap:5px;
+margin-top:8px
 }
 
 .bidpad button{
-padding:7px 2px;border:1px solid #ccd8e5;
-background:#fff;border-radius:7px;
-font-weight:bold;font-size:10px;cursor:pointer
+padding:7px 2px;
+border:1px solid #ccd8e5;
+background:#fff;
+border-radius:7px;
+font-weight:bold;
+font-size:10px;
+cursor:pointer;
+transition:.15s
+}
+
+.bidpad button:hover{
+background:#eef7fb;
+border-color:#77abc8
 }
 
 .bidpad button:disabled{
-opacity:.35;cursor:not-allowed;background:#f1f3f5
+opacity:.35;
+cursor:not-allowed;
+background:#f1f3f5
 }
 
 .result{
-padding:15px;border:1px solid var(--line);
-border-radius:13px;background:#f7f9fc
+padding:15px;
+border:1px solid var(--line);
+border-radius:13px;
+background:#f7f9fc
 }
 
 .score{
-font-size:34px;font-weight:900
+font-size:34px;
+font-weight:900
 }
 
-.pos{color:var(--good)}
-.neg{color:var(--bad)}
+.pos{
+color:var(--good)
+}
+
+.neg{
+color:var(--bad)
+}
 
 .footer{
-text-align:center;color:var(--muted);
-font-size:11px;padding:20px
+background:#052d46;
+color:#b9d0dc;
+text-align:center;
+font-size:11px;
+padding:22px 18px;
+margin-top:20px
 }
 
-@media(max-width:800px){
-.head{align-items:flex-start;flex-direction:column}
-.nav{justify-content:flex-start}
-.grid{grid-template-columns:1fr}
-.steps{grid-template-columns:1fr 1fr}
-.systems{grid-template-columns:1fr 1fr}
-.levels{grid-template-columns:1fr 1fr}
-.hands,.uploads{grid-template-columns:1fr 1fr}
-.form{grid-template-columns:1fr 1fr}
-.hero h1{font-size:27px}
+.footer strong{
+color:#fff
+}
+
+@media(max-width:900px){
+
+.head{
+align-items:flex-start;
+flex-direction:column
+}
+
+.nav{
+justify-content:flex-start
+}
+
+.grid{
+grid-template-columns:1fr
+}
+
+.steps{
+grid-template-columns:1fr 1fr
+}
+
+.systems{
+grid-template-columns:1fr 1fr
+}
+
+.levels{
+grid-template-columns:1fr 1fr
+}
+
+.hands,
+.uploads{
+grid-template-columns:1fr 1fr
+}
+
+.form{
+grid-template-columns:1fr 1fr
+}
+
+.hero h1{
+font-size:27px
+}
+
 }
 
 @media(max-width:520px){
-.form{grid-template-columns:1fr}
-.modes{grid-template-columns:1fr}
-.hands,.uploads{grid-template-columns:1fr}
-.steps{grid-template-columns:1fr}
-.levels{grid-template-columns:1fr}
+
+.head{
+padding:10px 14px
 }
+
+.brand{
+min-width:0
+}
+
+.logo{
+width:40px;
+height:40px
+}
+
+.brand b{
+font-size:11px
+}
+
+.brand small{
+font-size:8px
+}
+
+.nav{
+width:100%;
+overflow-x:auto;
+flex-wrap:nowrap;
+justify-content:flex-start;
+padding-bottom:3px
+}
+
+.nav a{
+white-space:nowrap
+}
+
+main{
+padding:16px 12px 35px
+}
+
+.hero{
+border-radius:17px;
+padding:22px 18px
+}
+
+.hero h1{
+font-size:25px
+}
+
+.hero p{
+font-size:12px
+}
+
+.form{
+grid-template-columns:1fr
+}
+
+.modes{
+grid-template-columns:1fr
+}
+
+.hands,
+.uploads{
+grid-template-columns:1fr
+}
+
+.steps{
+grid-template-columns:1fr
+}
+
+.levels{
+grid-template-columns:1fr
+}
+
+.systems{
+grid-template-columns:1fr
+}
+
+.bidpad{
+grid-template-columns:repeat(5,1fr)
+}
+
+.card{
+padding:15px
+}
+
+}
+
 </style>
 </head>
 
@@ -357,156 +776,351 @@ GABSI KOTA TANJUNGBALAI · Bridge · Prestasi · Persaudaraan
 </div>
 
 <header class="header">
+
 <div class="head">
 
 <a class="brand" href="index.html">
-<span class="logo">♠</span>
+
+<img
+class="logo"
+src="logo-gabsi.png"
+alt="Logo GABSI Kota Tanjungbalai">
+
 <span>
-<b>GABSI KOTA TANJUNGBALAI</b>
-<small>GABUNGAN BRIDGE SELURUH INDONESIA</small>
+
+<b>
+GABSI KOTA TANJUNGBALAI
+</b>
+
+<small>
+GABUNGAN BRIDGE SELURUH INDONESIA
+</small>
+
 </span>
+
 </a>
 
 <nav class="nav">
-<a href="index.html">Beranda</a>
-<a href="profil.html">Profil</a>
-<a href="pengurus.html">Pengurus</a>
-<a href="kegiatan.html">Kegiatan</a>
-<a href="galeri.html">Galeri</a>
-<a href="aplikasi.html" class="active">Aplikasi</a>
-<a href="game-bridge-gabsi.html" class="game">♠ Game Bridge</a>
 
-<!-- NAVIGASI BERITA DITAMBAHKAN SEBELUM KONTAK -->
-<a href="berita.html">Berita</a>
-<a href="kontak.html">Kontak</a>
+<a href="index.html">
+Beranda
+</a>
+
+<a href="profil.html">
+Profil
+</a>
+
+<a href="pengurus.html">
+Pengurus
+</a>
+
+<a href="kegiatan.html">
+Kegiatan
+</a>
+
+<a href="galeri.html">
+Galeri
+</a>
+
+<a href="aplikasi.html"
+   class="active">
+Aplikasi
+</a>
+
+<a href="game-bridge-gabsi.html"
+   class="game">
+♠ Game Bridge
+</a>
+
+<a href="berita.html">
+Berita
+</a>
+
+<a href="kontak.html">
+Kontak
+</a>
 
 </nav>
 
 </div>
+
 </header>
 
 <main>
 
 <section class="hero">
-<h1>Belajar Penawaran Bridge</h1>
+
+<h1>
+Belajar Penawaran Bridge
+</h1>
+
 <p>
 Satu alur latihan: pilih sistem → bagikan kartu →
 analisis HCP dan distribusi → rekomendasi penawaran
 beserta alasan → auction → kalkulator → score sheet.
 </p>
+
 </section>
 
+
 <div class="steps">
-<div class="step"><b>1 · Sistem</b>Pilih sistem penawaran</div>
-<div class="step"><b>2 · Kartu</b>Otomatis / manual / foto</div>
-<div class="step"><b>3 · Rekomendasi</b>Bid + alasan</div>
-<div class="step"><b>4 · Kalkulator</b>Kontrak & skor</div>
-<div class="step"><b>5 · Score Sheet</b>Simpan hasil</div>
+
+<div class="step">
+<b>1 · Sistem</b>
+Pilih sistem penawaran
 </div>
 
-<section class="card" id="trainingLevelCard">
+<div class="step">
+<b>2 · Kartu</b>
+Otomatis / manual / foto
+</div>
 
-<h2>0. Pilih Tingkatan Latihan</h2>
+<div class="step">
+<b>3 · Rekomendasi</b>
+Bid + alasan
+</div>
+
+<div class="step">
+<b>4 · Kalkulator</b>
+Kontrak & skor
+</div>
+
+<div class="step">
+<b>5 · Score Sheet</b>
+Simpan hasil
+</div>
+
+</div>
+
+
+<section class="card"
+         id="trainingLevelCard">
+
+<h2>
+0. Pilih Tingkatan Latihan
+</h2>
 
 <p class="muted">
 Tentukan tingkat kesulitan sebelum memilih sistem penawaran.
 Semakin tinggi tingkatannya, semakin luas rentang latihan penawaran.
 </p>
 
-<div class="levels" id="trainingLevels">
+<div class="levels"
+     id="trainingLevels">
 
-<div class="level" data-level="beginner">
-<b>Pemula</b>
-<span>Mengenal HCP, distribusi dan opening dasar.</span>
-<small>Maksimum latihan: 3NT</small>
-</div>
+<div class="level"
+     data-level="beginner">
 
-<div class="level" data-level="intermediate">
-<b>Sedang</b>
-<span>Mulai mempelajari kompetisi dan kontrak lebih tinggi.</span>
-<small>Maksimum latihan: 4NT</small>
-</div>
+<b>
+Pemula
+</b>
 
-<div class="level" data-level="advanced">
-<b>Mahir</b>
-<span>Latihan penawaran lebih kompleks sampai slam.</span>
-<small>Maksimum latihan: 6NT</small>
-</div>
+<span>
+Mengenal HCP, distribusi dan opening dasar.
+</span>
 
-<div class="level" data-level="professional">
-<b>Profesional</b>
-<span>Latihan penuh termasuk grand slam.</span>
-<small>Maksimum latihan: 7NT</small>
-</div>
+<small>
+Maksimum latihan: 3NT
+</small>
 
 </div>
 
-<div class="level-note" id="trainingLevelNote"></div>
+
+<div class="level"
+     data-level="intermediate">
+
+<b>
+Sedang
+</b>
+
+<span>
+Mulai mempelajari kompetisi dan kontrak lebih tinggi.
+</span>
+
+<small>
+Maksimum latihan: 4NT
+</small>
+
+</div>
+
+
+<div class="level"
+     data-level="advanced">
+
+<b>
+Mahir
+</b>
+
+<span>
+Latihan penawaran lebih kompleks sampai slam.
+</span>
+
+<small>
+Maksimum latihan: 6NT
+</small>
+
+</div>
+
+
+<div class="level"
+     data-level="professional">
+
+<b>
+Profesional
+</b>
+
+<span>
+Latihan penuh termasuk grand slam.
+</span>
+
+<small>
+Maksimum latihan: 7NT
+</small>
+
+</div>
+
+</div>
+
+<div class="level-note"
+     id="trainingLevelNote">
+</div>
 
 </section>
 
+
 <section class="card">
 
-<h2>1. Pilih Sistem Penawaran</h2>
+<h2>
+1. Pilih Sistem Penawaran
+</h2>
 
 <p class="muted">
 Pilih salah satu sistem. Rekomendasi akan menyesuaikan
 sistem dan tingkat latihan.
 </p>
 
-<div class="systems" id="systems"></div>
-
-<div class="form" style="margin-top:12px">
-
-<div class="field">
-<label>Sistem aktif</label>
-<select id="system"></select>
+<div class="systems"
+     id="systems">
 </div>
 
-<div class="field">
-<label>Board</label>
-<input id="board" type="number" min="1" value="1">
-</div>
+<div class="form"
+     style="margin-top:12px">
 
 <div class="field">
-<label>Dealer</label>
+
+<label>
+Sistem aktif
+</label>
+
+<select id="system">
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Board
+</label>
+
+<input id="board"
+       type="number"
+       min="1"
+       value="1">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Dealer
+</label>
+
 <select id="dealer">
-<option>N</option>
-<option>E</option>
-<option>S</option>
-<option>W</option>
+
+<option>
+N
+</option>
+
+<option>
+E
+</option>
+
+<option>
+S
+</option>
+
+<option>
+W
+</option>
+
 </select>
+
 </div>
 
+
 <div class="field">
-<label>Vulnerability</label>
+
+<label>
+Vulnerability
+</label>
+
 <select id="vul">
-<option>None</option>
-<option>NS</option>
-<option>EW</option>
-<option>Both</option>
+
+<option>
+None
+</option>
+
+<option>
+NS
+</option>
+
+<option>
+EW
+</option>
+
+<option>
+Both
+</option>
+
 </select>
+
 </div>
 
 </div>
 
 <div class="btns">
-<button class="btn primary" id="applySystem">
+
+<button class="btn primary"
+        id="applySystem">
+
 Gunakan Sistem
+
 </button>
 
-<button class="btn" id="systemInfo">
+<button class="btn"
+        id="systemInfo">
+
 Lihat Penjelasan Sistem
+
 </button>
+
 </div>
 
-<div id="systemDetail" class="notice"></div>
+<div id="systemDetail"
+     class="notice">
+</div>
 
 </section>
 
+
 <section class="card">
 
-<h2>2. Bagikan Kartu</h2>
+<h2>
+2. Bagikan Kartu
+</h2>
 
 <p class="muted">
 Gunakan pembagian otomatis untuk latihan cepat,
@@ -517,36 +1131,68 @@ Foto dapat disimpan sebagai referensi visual.
 <div class="modes">
 
 <label class="mode">
-<input type="radio" name="mode" value="auto" checked>
-<b>Bagikan 52 kartu otomatis</b>
+
+<input type="radio"
+       name="mode"
+       value="auto"
+       checked>
+
+<b>
+Bagikan 52 kartu otomatis
+</b>
+
 <br>
+
 Empat tangan masing-masing 13 kartu.
+
 </label>
+
 
 <label class="mode">
-<input type="radio" name="mode" value="manual">
-<b>Manual / foto</b>
+
+<input type="radio"
+       name="mode"
+       value="manual">
+
+<b>
+Manual / foto
+</b>
+
 <br>
+
 Masukkan kartu per pemain dan simpan foto kartu.
+
 </label>
 
 </div>
 
-<div id="autoBox" class="btns">
 
-<button class="btn blue" id="deal">
+<div id="autoBox"
+     class="btns">
+
+<button class="btn blue"
+        id="deal">
+
 Bagikan Kartu Otomatis
+
 </button>
 
-<button class="btn" id="reshuffle">
+<button class="btn"
+        id="reshuffle">
+
 Bagikan Ulang
+
 </button>
 
 </div>
 
-<div id="manualBox" class="hidden">
 
-<h3>Tangan Manual</h3>
+<div id="manualBox"
+     class="hidden">
+
+<h3>
+Tangan Manual
+</h3>
 
 <p class="muted">
 Format contoh:
@@ -559,125 +1205,219 @@ Simbol ♠ ♥ ♦ ♣ juga dapat digunakan.
 <div class="form">
 
 <div class="field">
-<label>North</label>
+
+<label>
+North
+</label>
+
 <textarea id="N"></textarea>
+
 </div>
 
+
 <div class="field">
-<label>East</label>
+
+<label>
+East
+</label>
+
 <textarea id="E"></textarea>
+
 </div>
 
+
 <div class="field">
-<label>South</label>
+
+<label>
+South
+</label>
+
 <textarea id="S"></textarea>
+
 </div>
+
 
 <div class="field">
-<label>West</label>
+
+<label>
+West
+</label>
+
 <textarea id="W"></textarea>
+
 </div>
 
 </div>
 
 <div class="btns">
-<button class="btn primary" id="applyManual">
+
+<button class="btn primary"
+        id="applyManual">
+
 Gunakan Tangan Manual
+
 </button>
+
 </div>
 
-<h3>Foto Kartu</h3>
 
-<div class="uploads" id="uploads"></div>
+<h3>
+Foto Kartu
+</h3>
+
+<div class="uploads"
+     id="uploads">
+</div>
 
 <div class="btns">
-<button class="btn" id="clearPhotos">
+
+<button class="btn"
+        id="clearPhotos">
+
 Hapus Foto
+
 </button>
-</div>
 
 </div>
 
-<div class="notice" id="dealStatus">
+</div>
+
+
+<div class="notice"
+     id="dealStatus">
+
 Belum ada pembagian kartu.
+
 </div>
 
 </section>
 
+
 <section class="card">
 
-<h2>3. Analisis Kartu & Rekomendasi Komputer</h2>
+<h2>
+3. Analisis Kartu & Rekomendasi Komputer
+</h2>
 
-<div class="hands" id="hands"></div>
+<div class="hands"
+     id="hands">
+</div>
 
-<div id="recommend" style="margin-top:12px"></div>
+<div id="recommend"
+     style="margin-top:12px">
+</div>
 
 <div class="btns">
 
-<button class="btn good" id="useRec">
+<button class="btn good"
+        id="useRec">
+
 Gunakan Rekomendasi
+
 </button>
 
-<button class="btn" id="explain">
+<button class="btn"
+        id="explain">
+
 Jelaskan Rekomendasi
+
 </button>
 
 </div>
 
 </section>
 
+
 <section class="card">
 
-<h2>4. Auction / Penawaran</h2>
+<h2>
+4. Auction / Penawaran
+</h2>
 
-<div id="auctionMeta" class="notice"></div>
+<div id="auctionMeta"
+     class="notice">
+</div>
 
 <div class="btns">
 
-<button class="btn primary" id="startAuction">
+<button class="btn primary"
+        id="startAuction">
+
 Mulai / Reset Auction
+
 </button>
 
-<button class="btn blue" id="computerBid">
+<button class="btn blue"
+        id="computerBid">
+
 Komputer Beri Bid
+
 </button>
 
-<button class="btn" id="clearAuction">
+<button class="btn"
+        id="clearAuction">
+
 Kosongkan Auction
+
 </button>
 
 </div>
 
-<div class="bidpad" id="bidpad"></div>
+<div class="bidpad"
+     id="bidpad">
+</div>
 
-<div class="tablewrap" style="margin-top:10px">
+<div class="tablewrap"
+     style="margin-top:10px">
 
 <table class="table">
 
 <thead>
+
 <tr>
-<th>No</th>
-<th>Seat</th>
-<th>Bid</th>
-<th>Alasan</th>
+
+<th>
+No
+</th>
+
+<th>
+Seat
+</th>
+
+<th>
+Bid
+</th>
+
+<th>
+Alasan
+</th>
+
 </tr>
+
 </thead>
 
-<tbody id="auctionBody"></tbody>
+<tbody id="auctionBody">
+</tbody>
 
 </table>
 
 </div>
 
-<div class="notice" id="contractBox">
+<div class="notice"
+     id="contractBox">
+
 Belum ada kontrak akhir.
+
 </div>
 
 </section>
 
+
 <section class="card">
 
-<h2>5. Bridge Calculator</h2>
+<h2>
+5. Bridge Calculator
+</h2>
 
 <div class="grid">
 
@@ -686,87 +1426,214 @@ Belum ada kontrak akhir.
 <div class="form">
 
 <div class="field">
-<label>Level</label>
+
+<label>
+Level
+</label>
+
 <select id="level">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-<option>6</option>
-<option>7</option>
+
+<option>
+1
+</option>
+
+<option>
+2
+</option>
+
+<option>
+3
+</option>
+
+<option>
+4
+</option>
+
+<option>
+5
+</option>
+
+<option>
+6
+</option>
+
+<option>
+7
+</option>
+
 </select>
+
 </div>
 
+
 <div class="field">
-<label>Denomination</label>
+
+<label>
+Denomination
+</label>
+
 <select id="strain">
-<option value="C">♣</option>
-<option value="D">♦</option>
-<option value="H">♥</option>
-<option value="S">♠</option>
-<option value="N">NT</option>
+
+<option value="C">
+♣
+</option>
+
+<option value="D">
+♦
+</option>
+
+<option value="H">
+♥
+</option>
+
+<option value="S">
+♠
+</option>
+
+<option value="N">
+NT
+</option>
+
 </select>
+
 </div>
 
+
 <div class="field">
-<label>Double</label>
+
+<label>
+Double
+</label>
+
 <select id="mult">
-<option value="1">Normal</option>
-<option value="2">Double</option>
-<option value="4">Redouble</option>
+
+<option value="1">
+Normal
+</option>
+
+<option value="2">
+Double
+</option>
+
+<option value="4">
+Redouble
+</option>
+
 </select>
+
 </div>
 
+
 <div class="field">
-<label>Declarer</label>
+
+<label>
+Declarer
+</label>
+
 <select id="declarer">
-<option>N</option>
-<option>E</option>
-<option>S</option>
-<option>W</option>
+
+<option>
+N
+</option>
+
+<option>
+E
+</option>
+
+<option>
+S
+</option>
+
+<option>
+W
+</option>
+
 </select>
+
 </div>
 
-<div class="field">
-<label>Trick diperoleh</label>
-<input id="tricks" type="number" min="0" max="13" value="7">
-</div>
 
 <div class="field">
-<label>Vulnerability</label>
+
+<label>
+Trick diperoleh
+</label>
+
+<input id="tricks"
+       type="number"
+       min="0"
+       max="13"
+       value="7">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Vulnerability
+</label>
+
 <select id="calcVul">
-<option>None</option>
-<option>NS</option>
-<option>EW</option>
-<option>Both</option>
+
+<option>
+None
+</option>
+
+<option>
+NS
+</option>
+
+<option>
+EW
+</option>
+
+<option>
+Both
+</option>
+
 </select>
+
 </div>
 
 </div>
+
 
 <div class="btns">
 
-<button class="btn primary" id="calculate">
+<button class="btn primary"
+        id="calculate">
+
 Hitung Score
+
 </button>
 
-<button class="btn" id="loadContract">
+<button class="btn"
+        id="loadContract">
+
 Ambil Kontrak dari Auction
+
 </button>
 
 </div>
 
 </div>
+
 
 <div class="result">
 
-<div id="score" class="score">
+<div id="score"
+     class="score">
+
 0
+
 </div>
 
-<div id="scoreExplain" class="muted">
+<div id="scoreExplain"
+     class="muted">
+
 Masukkan kontrak dan jumlah trick.
+
 </div>
 
 </div>
@@ -775,9 +1642,12 @@ Masukkan kontrak dan jumlah trick.
 
 </section>
 
+
 <section class="card">
 
-<h2>6. Score Sheet</h2>
+<h2>
+6. Score Sheet
+</h2>
 
 <p class="muted">
 Hasil kalkulator dapat disimpan sebagai catatan latihan.
@@ -785,38 +1655,75 @@ Hasil kalkulator dapat disimpan sebagai catatan latihan.
 
 <div class="btns">
 
-<button class="btn good" id="saveScore">
+<button class="btn good"
+        id="saveScore">
+
 Simpan ke Score Sheet
+
 </button>
 
-<button class="btn" id="export">
+<button class="btn"
+        id="export">
+
 Download CSV
+
 </button>
 
-<button class="btn danger" id="clearScores">
+<button class="btn danger"
+        id="clearScores">
+
 Hapus Semua
+
 </button>
 
 </div>
 
-<div class="tablewrap" style="margin-top:10px">
+<div class="tablewrap"
+     style="margin-top:10px">
 
 <table class="table">
 
 <thead>
+
 <tr>
-<th>Board</th>
-<th>Dealer</th>
-<th>Vul</th>
-<th>Contract</th>
-<th>Declarer</th>
-<th>Trick</th>
-<th>Score</th>
-<th></th>
+
+<th>
+Board
+</th>
+
+<th>
+Dealer
+</th>
+
+<th>
+Vul
+</th>
+
+<th>
+Contract
+</th>
+
+<th>
+Declarer
+</th>
+
+<th>
+Trick
+</th>
+
+<th>
+Score
+</th>
+
+<th>
+</th>
+
 </tr>
+
 </thead>
 
-<tbody id="scores"></tbody>
+<tbody id="scores">
+</tbody>
 
 </table>
 
@@ -826,9 +1733,19 @@ Hapus Semua
 
 </main>
 
+
 <footer class="footer">
-© 2026 GABSI Kota Tanjungbalai · Bridge · Prestasi · Persaudaraan
+
+<strong>
+GABSI Kota Tanjungbalai
+</strong>
+
+<br>
+
+© 2026 · Bridge · Prestasi · Persaudaraan
+
 </footer>
+
 
 <script>
 
@@ -846,6 +1763,7 @@ const RANKS=[
 '2','3','4','5','6','7','8',
 '9','T','J','Q','K','A'
 ];
+
 
 const TRAINING={
 
@@ -879,9 +1797,12 @@ desc:'Latihan penuh sampai 7NT termasuk grand slam.'
 
 };
 
+
 let trainingLevel=
-localStorage.getItem('gabsi_bridge_training_level')
-||'beginner';
+localStorage.getItem(
+'gabsi_bridge_training_level'
+)||'beginner';
+
 
 const SYSTEMS={
 
@@ -935,6 +1856,7 @@ rule:'Gunakan HCP, distribusi, suit terpanjang dan balanced hand sebagai dasar.'
 
 };
 
+
 let hands={
 N:[],
 E:[],
@@ -943,17 +1865,27 @@ W:[]
 };
 
 let auction=[];
+
 let turn=0;
+
 let recommendation=null;
+
 let contract=null;
 
 let scores=JSON.parse(
-localStorage.getItem('gabsi_bridge_scores')||'[]'
+localStorage.getItem(
+'gabsi_bridge_scores'
+)||'[]'
 );
 
+
 function levelConfig(){
-return TRAINING[trainingLevel]||TRAINING.beginner;
+
+return TRAINING[trainingLevel]
+||TRAINING.beginner;
+
 }
+
 
 function setTrainingLevel(level){
 
@@ -970,10 +1902,12 @@ level
 document
 .querySelectorAll('.level')
 .forEach(x=>{
+
 x.classList.toggle(
 'active',
 x.dataset.level===level
 );
+
 });
 
 const c=levelConfig();
@@ -991,6 +1925,7 @@ recommend();
 
 }
 
+
 function suitSym(s){
 
 return{
@@ -1002,77 +1937,120 @@ C:'♣'
 
 }
 
+
 function hcp(a){
 
 return a.reduce(
-(n,c)=>n+({
-A:4,K:3,Q:2,J:1
+(n,c)=>
+n+
+({
+A:4,
+K:3,
+Q:2,
+J:1
 }[c.r]||0),
 0
 );
 
 }
 
+
 function dist(a){
 
 return suits
-.map(s=>a.filter(c=>c.s===s).length)
-.sort((a,b)=>b-a);
+.map(
+s=>
+a.filter(
+c=>c.s===s
+).length
+)
+.sort(
+(a,b)=>b-a
+);
 
 }
+
 
 function fmtDist(a){
+
 return dist(a).join('-');
+
 }
+
 
 function longest(a){
 
 return suits
-.map(s=>({
+.map(
+s=>({
 s,
 n:a.filter(c=>c.s===s).length
-}))
-.sort((x,y)=>y.n-x.n)[0];
+})
+)
+.sort(
+(x,y)=>y.n-x.n
+)[0];
 
 }
+
 
 function balanced(a){
 
 let d=dist(a);
 
-return d.every(n=>n<=5)&&
-d.filter(n=>n<=2).length<=2;
+return d.every(
+n=>n<=5
+)&&
+d.filter(
+n=>n<=2
+).length<=2;
 
 }
+
 
 function cardsToText(a){
 
-return suits.map(s=>
+return suits
+.map(
+s=>
 a
-.filter(c=>c.s===s)
-.sort(
-(x,y)=>RANKS.indexOf(y.r)-RANKS.indexOf(x.r)
+.filter(
+c=>c.s===s
 )
-.map(c=>c.r)
+.sort(
+(x,y)=>
+RANKS.indexOf(y.r)-
+RANKS.indexOf(x.r)
+)
+.map(
+c=>c.r
+)
 .join('')
 ||'-'
-).join(' · ');
+)
+.join(' · ');
 
 }
+
 
 function buildSystems(){
 
 $('system').innerHTML=
 Object.entries(SYSTEMS)
-.map(([k,s])=>
-`<option value="${k}">${s.name}</option>`
+.map(
+([k,s])=>
+`<option value="${k}">
+${s.name}
+</option>`
 )
 .join('');
 
 $('systems').innerHTML=
 Object.entries(SYSTEMS)
-.map(([k,s])=>
-`<div class="sys" data-sys="${k}">
+.map(
+([k,s])=>
+`<div class="sys"
+      data-sys="${k}">
 <b>${s.name}</b>
 <span>${s.desc}</span>
 </div>`
@@ -1084,6 +2062,7 @@ $('system').value='Johan';
 highlightSystem();
 
 }
+
 
 function highlightSystem(){
 
@@ -1099,9 +2078,13 @@ $('system').value
 
 }
 
+
 function renderSystem(){
 
-let s=SYSTEMS[$('system').value];
+let s=
+SYSTEMS[
+$('system').value
+];
 
 $('systemDetail').innerHTML=
 `<b>${s.name}</b><br>
@@ -1112,23 +2095,37 @@ highlightSystem();
 
 }
 
+
 function newDeck(){
 
 return suits.flatMap(
-s=>RANKS.map(r=>({s,r}))
+s=>
+RANKS.map(
+r=>({
+s,
+r
+})
+)
 );
 
 }
 
+
 function shuffle(a){
 
-for(let i=a.length-1;i;i--){
+for(
+let i=a.length-1;
+i;
+i--
+){
 
-let j=Math.floor(
+let j=
+Math.floor(
 Math.random()*(i+1)
 );
 
-[a[i],a[j]]=[a[j],a[i]];
+[a[i],a[j]]=
+[a[j],a[i]];
 
 }
 
@@ -1136,9 +2133,13 @@ return a;
 
 }
 
+
 function deal(){
 
-let d=shuffle(newDeck());
+let d=
+shuffle(
+newDeck()
+);
 
 hands={
 N:d.slice(0,13),
@@ -1153,15 +2154,20 @@ $('dealStatus').textContent=
 '52 kartu berhasil dibagikan otomatis: 13 kartu untuk setiap pemain.';
 
 auction=[];
-turn=seats.indexOf(
+
+turn=
+seats.indexOf(
 $('dealer').value
 );
+
 contract=null;
 
 renderAuction();
+
 recommend();
 
 }
+
 
 function parseHand(v){
 
@@ -1171,7 +2177,8 @@ v=v
 .replace(/[,/|;]/g,' ')
 .replace(/\./g,' ');
 
-let p=v.trim().split(/\s+/);
+let p=
+v.trim().split(/\s+/);
 
 if(p.length!==4)
 throw Error(
@@ -1180,12 +2187,17 @@ throw Error(
 
 let out=[];
 
-p.forEach((str,i)=>{
+p.forEach(
+(str,i)=>{
 
-for(let r of str.replace(/10/g,'T')){
+for(
+let r of str.replace(/10/g,'T')
+){
 
 if(!RANKS.includes(r))
-throw Error('Kartu tidak valid: '+r);
+throw Error(
+'Kartu tidak valid: '+r
+);
 
 out.push({
 s:suits[i],
@@ -1194,12 +2206,15 @@ r
 
 }
 
-});
+}
+);
 
 if(
 out.length!==13||
 new Set(
-out.map(c=>c.s+c.r)
+out.map(
+c=>c.s+c.r
+)
 ).size!==13
 )
 throw Error(
@@ -1210,6 +2225,7 @@ return out;
 
 }
 
+
 function applyManual(){
 
 try{
@@ -1217,14 +2233,21 @@ try{
 let h={};
 
 for(let s of seats)
-h[s]=parseHand($(s).value);
+h[s]=parseHand(
+$(s).value
+);
 
 let all=
 seats.flatMap(
-s=>h[s].map(c=>c.s+c.r)
+s=>
+h[s].map(
+c=>c.s+c.r
+)
 );
 
-if(new Set(all).size!==52)
+if(
+new Set(all).size!==52
+)
 throw Error(
 'Ada kartu yang sama pada lebih dari satu pemain atau ada kartu yang hilang.'
 );
@@ -1237,12 +2260,16 @@ $('dealStatus').textContent=
 'Tangan manual berhasil divalidasi: 52 kartu lengkap.';
 
 auction=[];
-turn=seats.indexOf(
+
+turn=
+seats.indexOf(
 $('dealer').value
 );
+
 contract=null;
 
 renderAuction();
+
 recommend();
 
 }catch(e){
@@ -1253,17 +2280,29 @@ alert(e.message);
 
 }
 
+
 function showHands(){
 
 $('hands').innerHTML=
-seats.map(s=>{
+seats
+.map(
+s=>{
 
 let a=hands[s]||[];
 
 return`
 <div class="hand">
+
 <b>
-${s==='N'?'North':s==='E'?'East':s==='S'?'South':'West'}
+${
+s==='N'
+?'North'
+:s==='E'
+?'East'
+:s==='S'
+?'South'
+:'West'
+}
 </b>
 
 <span class="badge">
@@ -1271,23 +2310,38 @@ ${a.length} kartu · ${hcp(a)} HCP
 </span>
 
 <div class="cards">
-${a.length?cardsToText(a):
-'<span class="muted">Belum ada kartu</span>'}
+
+${
+a.length
+?cardsToText(a)
+:'<span class="muted">Belum ada kartu</span>'
+}
+
 </div>
 
 <small class="muted">
-Distribusi ${a.length?fmtDist(a):'-'}
+
+Distribusi
+${a.length?fmtDist(a):'-'}
+
 </small>
+
 </div>
 `;
 
-}).join('');
+}
+)
+.join('');
 
 }
 
+
 function recommend(){
 
-let a=hands[$('dealer').value]||[];
+let a=
+hands[
+$('dealer').value
+]||[];
 
 if(a.length!==13){
 
@@ -1301,12 +2355,19 @@ return;
 }
 
 let H=hcp(a);
+
 let L=longest(a);
+
 let d=dist(a);
+
 let k=$('system').value;
+
 let bid='PASS';
+
 let reason='';
+
 let conf=55;
+
 
 if(H>=22){
 
@@ -1360,11 +2421,18 @@ conf=84;
 }
 
 else if(
-['Five','SAYC','Two','Johan','Natural'].includes(k)&&
+[
+'Five',
+'SAYC',
+'Two',
+'Johan',
+'Natural'
+].includes(k)&&
 L.n>=5
 ){
 
-bid='1'+suitSym(L.s);
+bid=
+'1'+suitSym(L.s);
 
 reason=
 `${L.n} kartu ${suitSym(L.s)} dan ${H} HCP.
@@ -1375,11 +2443,15 @@ conf=86;
 }
 
 else if(
-['Four','Acol'].includes(k)&&
+[
+'Four',
+'Acol'
+].includes(k)&&
 L.n>=4
 ){
 
-bid='1'+suitSym(L.s);
+bid=
+'1'+suitSym(L.s);
 
 reason=
 `${L.n} kartu ${suitSym(L.s)} dan ${H} HCP.
@@ -1392,11 +2464,17 @@ conf=80;
 else if(H>=12){
 
 let m=
-a.filter(c=>c.s==='C').length >=
-a.filter(c=>c.s==='D').length
-?'C':'D';
+a.filter(
+c=>c.s==='C'
+).length>=
+a.filter(
+c=>c.s==='D'
+).length
+?'C'
+:'D';
 
-bid='1'+suitSym(m);
+bid=
+'1'+suitSym(m);
 
 reason=
 `Dengan ${H} HCP dan tidak ada major yang memenuhi prioritas,
@@ -1406,9 +2484,12 @@ conf=70;
 
 }
 
+
 const c=levelConfig();
 
-if(bidRank(bid)>c.maxRank){
+if(
+bidRank(bid)>c.maxRank
+){
 
 reason+=
 ` Pada tingkat ${c.name}, penawaran di atas batas latihan ditahan agar latihan berlangsung bertahap.`;
@@ -1416,6 +2497,7 @@ reason+=
 bid='PASS';
 
 }
+
 
 recommendation={
 seat:$('dealer').value,
@@ -1426,61 +2508,94 @@ distribution:d,
 confidence:conf
 };
 
+
 $('recommend').innerHTML=
 `<div class="rec">
 
-<b>Rekomendasi untuk ${$('dealer').value}</b>
+<b>
+Rekomendasi untuk ${$('dealer').value}
+</b>
 
-<div class="bid">${bid}</div>
-
-<p>${reason}</p>
+<div class="bid">
+${bid}
+</div>
 
 <p>
-<b>Analisis:</b>
-${H} HCP · distribusi ${d.join('-')} ·
-suit terpanjang ${L.n} ${suitSym(L.s)}.
+${reason}
+</p>
+
+<p>
+
+<b>
+Analisis:
+</b>
+
+${H} HCP ·
+distribusi ${d.join('-')} ·
+suit terpanjang
+${L.n} ${suitSym(L.s)}.
+
 </p>
 
 <div class="bar">
+
 <i style="width:${conf}%"></i>
+
 </div>
 
 <small class="muted">
-Keyakinan aturan latihan: ${conf}%
+
+Keyakinan aturan latihan:
+${conf}%
+
 · Tingkat ${c.name}
+
 · Batas ${c.maxLevel}NT
+
 </small>
 
 </div>`;
 
 }
 
+
 function nextSeat(){
-return seats[turn%4];
+
+return seats[
+turn%4
+];
+
 }
+
 
 function startAuction(){
 
 auction=[];
-turn=seats.indexOf(
+
+turn=
+seats.indexOf(
 $('dealer').value
 );
+
 contract=null;
 
 renderAuction();
 
 }
 
+
 function bidRank(b){
 
-if(b==='PASS')return 0;
+if(b==='PASS')
+return 0;
 
 let m=
 b.match(
 /^([1-7])([♣♦♥♠]|NT)$/
 );
 
-if(!m)return 0;
+if(!m)
+return 0;
 
 return Number(m[1])*5+
 ({
@@ -1493,12 +2608,14 @@ return Number(m[1])*5+
 
 }
 
+
 function legal(b){
 
 if(b==='PASS')
 return true;
 
-let m=b.match(/^([1-7])/);
+let m=
+b.match(/^([1-7])/);
 
 const c=levelConfig();
 
@@ -1519,12 +2636,15 @@ return false;
 let last=
 [...auction]
 .reverse()
-.find(x=>x.bid!=='PASS');
+.find(
+x=>x.bid!=='PASS'
+);
 
 return !last||
 bidRank(b)>bidRank(last.bid);
 
 }
+
 
 function addBid(
 b,
@@ -1535,7 +2655,8 @@ why=''
 if(!legal(b))
 return false;
 
-let s=nextSeat();
+let s=
+nextSeat();
 
 auction.push({
 seat:s,
@@ -1544,39 +2665,51 @@ why,
 who
 });
 
-turn=(turn+1)%4;
+turn=
+(turn+1)%4;
 
 renderAuction();
+
 findContract();
 
 return true;
 
 }
 
+
 function computerBid(){
 
 if(!recommendation){
 
 recommend();
+
 return;
 
 }
 
-let s=nextSeat();
+let s=
+nextSeat();
+
 let c=levelConfig();
 
-if(s!==recommendation.seat){
+if(
+s!==recommendation.seat
+){
 
 let a=hands[s];
 
 if(!a.length){
 
-alert('Belum ada kartu.');
+alert(
+'Belum ada kartu.'
+);
+
 return;
 
 }
 
 let H=hcp(a);
+
 let L=longest(a);
 
 let b=
@@ -1598,9 +2731,12 @@ return;
 
 }
 
-let b=recommendation.bid;
+let b=
+recommendation.bid;
 
-if(bidRank(b)>c.maxRank){
+if(
+bidRank(b)>c.maxRank
+){
 
 b='PASS';
 
@@ -1614,27 +2750,51 @@ recommendation.reason
 
 }
 
+
 function buildBidpad(){
 
 let arr=[
 'PASS',
-...['1','2','3','4','5','6','7']
-.flatMap(l=>
-['♣','♦','♥','♠','NT']
-.map(x=>l+x)
+...[
+'1',
+'2',
+'3',
+'4',
+'5',
+'6',
+'7'
+]
+.flatMap(
+l=>
+[
+'♣',
+'♦',
+'♥',
+'♠',
+'NT'
+]
+.map(
+x=>l+x
+)
 )
 ];
 
 $('bidpad').innerHTML=
 arr.map(
-b=>`<button data-bid="${b}">${b}</button>`
-).join('');
+b=>
+`<button data-bid="${b}">
+${b}
+</button>`
+)
+.join('');
 
 $('bidpad').onclick=e=>{
 
-let b=e.target.dataset.bid;
+let b=
+e.target.dataset.bid;
 
-if(b)addBid(b);
+if(b)
+addBid(b);
 
 };
 
@@ -1642,37 +2802,45 @@ updateBidPad();
 
 }
 
+
 function updateBidPad(){
 
 if(!$('bidpad'))
 return;
 
-const max=levelConfig().maxLevel;
+const max=
+levelConfig().maxLevel;
 
 $('bidpad')
 .querySelectorAll('button')
-.forEach(b=>{
+.forEach(
+b=>{
 
-let bid=b.dataset.bid;
+let bid=
+b.dataset.bid;
 
 if(
 bid==='PASS'
 ){
 
 b.disabled=false;
+
 return;
 
 }
 
-let m=bid.match(/^([1-7])/);
+let m=
+bid.match(/^([1-7])/);
 
 b.disabled=
 !!m &&
 Number(m[1])>max;
 
-});
+}
+);
 
 }
+
 
 function renderAuction(){
 
@@ -1682,14 +2850,32 @@ auction.length
 auction.map(
 (x,i)=>
 `<tr>
-<td>${i+1}</td>
-<td>${x.seat}</td>
-<td><b>${x.bid}</b></td>
-<td>${x.who}${x.why?' — '+x.why:''}</td>
+
+<td>
+${i+1}
+</td>
+
+<td>
+${x.seat}
+</td>
+
+<td>
+<b>
+${x.bid}
+</b>
+</td>
+
+<td>
+${x.who}
+${x.why?' — '+x.why:''}
+</td>
+
 </tr>`
-).join('')
+)
+.join('')
 :
 '<tr><td colspan="4" class="muted">Belum ada penawaran.</td></tr>';
+
 
 $('auctionMeta').textContent=
 auction.length
@@ -1700,10 +2886,13 @@ auction.length
 
 }
 
+
 function findContract(){
 
 let bids=
-auction.filter(x=>x.bid!=='PASS');
+auction.filter(
+x=>x.bid!=='PASS'
+);
 
 if(!bids.length){
 
@@ -1716,7 +2905,8 @@ return;
 
 }
 
-let last=bids[bids.length-1];
+let last=
+bids[bids.length-1];
 
 contract={
 bid:last.bid,
@@ -1733,6 +2923,7 @@ untuk kalkulator.`;
 
 }
 
+
 function parseContract(s){
 
 let m=
@@ -1741,10 +2932,14 @@ s.match(
 );
 
 return m
-?{level:+m[1],strain:m[2]}
+?{
+level:+m[1],
+strain:m[2]
+}
 :null;
 
 }
+
 
 function isVul(seat,v){
 
@@ -1756,14 +2951,23 @@ v==='Both'||
 
 }
 
+
 function scoreCalc(){
 
-let l=+$('level').value;
-let st=$('strain').value;
-let m=+$('mult').value;
-let dec=$('declarer').value;
+let l=
++$('level').value;
 
-let tr=Math.max(
+let st=
+$('strain').value;
+
+let m=
++$('mult').value;
+
+let dec=
+$('declarer').value;
+
+let tr=
+Math.max(
 0,
 Math.min(
 13,
@@ -1771,11 +2975,15 @@ Math.min(
 )
 );
 
-let v=$('calcVul').value;
+let v=
+$('calcVul').value;
 
 let target=l+6;
+
 let delta=tr-target;
-let vuln=isVul(dec,v);
+
+let vuln=
+isVul(dec,v);
 
 let base=
 st==='N'
@@ -1789,11 +2997,14 @@ l*(
 );
 
 let score=0;
+
 let ex='';
+
 
 if(delta>=0){
 
-let cp=base*m;
+let cp=
+base*m;
 
 let game=
 cp>=100
@@ -1842,7 +3053,11 @@ m===2
 );
 
 score=
-cp+game+slam+db+ov;
+cp+
+game+
+slam+
+db+
+ov;
 
 ex=
 `Kontrak dibuat.
@@ -1855,6 +3070,7 @@ ${ov?', overtrick '+ov:''}.`;
 }else{
 
 let d=-delta;
+
 let pen;
 
 if(m===1)
@@ -1892,36 +3108,56 @@ Penalti ${pen}.`;
 
 }
 
+
 $('score').textContent=
 score>0
 ?'+'+score
 :score;
 
 $('score').className=
-'score '+(score>=0?'pos':'neg');
+'score '+(
+score>=0
+?'pos'
+:'neg'
+);
 
 $('scoreExplain').textContent=ex;
 
 return{
-l,st,m,dec,tr,v,score
+l,
+st,
+m,
+dec,
+tr,
+v,
+score
 };
 
 }
+
 
 function loadContract(){
 
 if(!contract){
 
-alert('Belum ada kontrak.');
+alert(
+'Belum ada kontrak.'
+);
+
 return;
 
 }
 
-let c=parseContract(contract.bid);
+let c=
+parseContract(
+contract.bid
+);
 
-if(!c)return;
+if(!c)
+return;
 
-$('level').value=c.level;
+$('level').value=
+c.level;
 
 $('strain').value=
 c.strain==='NT'
@@ -1945,9 +3181,11 @@ scoreCalc();
 
 }
 
+
 function saveScore(){
 
-let x=scoreCalc();
+let x=
+scoreCalc();
 
 let ct=
 x.l+
@@ -1968,18 +3206,35 @@ x.m===4
 scores.unshift({
 
 board:+$('board').value||1,
-dealer:$('dealer').value,
+
+dealer:
+$('dealer').value,
+
 vul:x.v,
+
 contract:ct,
+
 declarer:x.dec,
+
 trick:x.tr,
+
 score:x.score,
-system:SYSTEMS[$('system').value].name,
-training:levelConfig().name
+
+system:
+SYSTEMS[
+$('system').value
+].name,
+
+training:
+levelConfig().name
 
 });
 
-scores=scores.slice(0,200);
+scores=
+scores.slice(
+0,
+200
+);
 
 localStorage.setItem(
 'gabsi_bridge_scores',
@@ -1990,6 +3245,7 @@ renderScores();
 
 }
 
+
 function renderScores(){
 
 $('scores').innerHTML=
@@ -1998,24 +3254,62 @@ scores.length
 scores.map(
 (r,i)=>
 `<tr>
-<td>${r.board}</td>
-<td>${r.dealer}</td>
-<td>${r.vul}</td>
-<td><b>${r.contract}</b></td>
-<td>${r.declarer}</td>
-<td>${r.trick}</td>
-<td class="${r.score>=0?'pos':'neg'}">
-<b>${r.score>0?'+':''}${r.score}</b>
-</td>
+
 <td>
-<button class="btn" data-del="${i}">
-Hapus
-</button>
+${r.board}
 </td>
+
+<td>
+${r.dealer}
+</td>
+
+<td>
+${r.vul}
+</td>
+
+<td>
+<b>
+${r.contract}
+</b>
+</td>
+
+<td>
+${r.declarer}
+</td>
+
+<td>
+${r.trick}
+</td>
+
+<td class="${
+r.score>=0
+?'pos'
+:'neg'
+}">
+
+<b>
+${r.score>0?'+':''}${r.score}
+</b>
+
+</td>
+
+<td>
+
+<button class="btn"
+        data-del="${i}">
+
+Hapus
+
+</button>
+
+</td>
+
 </tr>`
-).join('')
+)
+.join('')
 :
 '<tr><td colspan="8" class="muted">Belum ada score sheet.</td></tr>';
+
 
 document
 .querySelectorAll('[data-del]')
@@ -2040,16 +3334,21 @@ renderScores();
 
 }
 
+
 function exportCSV(){
 
 if(!scores.length){
 
-alert('Score sheet masih kosong.');
+alert(
+'Score sheet masih kosong.'
+);
+
 return;
 
 }
 
 let rows=[
+
 [
 'Board',
 'Dealer',
@@ -2061,6 +3360,7 @@ let rows=[
 'System',
 'Training'
 ],
+
 ...scores.map(
 r=>[
 r.board,
@@ -2074,6 +3374,7 @@ r.system,
 r.training||''
 ]
 )
+
 ];
 
 let csv=
@@ -2091,13 +3392,16 @@ String(v)
 )
 .join('\n');
 
-let a=document.createElement('a');
+let a=
+document.createElement('a');
 
 a.href=
 URL.createObjectURL(
 new Blob(
 [csv],
-{type:'text/csv'}
+{
+type:'text/csv'
+}
 )
 );
 
@@ -2108,19 +3412,35 @@ a.click();
 
 }
 
+
 const uploadSeats=[
-'N','E','S','W'
+'N',
+'E',
+'S',
+'W'
 ];
+
 
 $('uploads').innerHTML=
 uploadSeats.map(
 s=>
 `<div class="upload">
-<b>${s}</b>
-<input type="file" accept="image/*" data-seat="${s}">
+
+<b>
+${s}
+</b>
+
+<input
+type="file"
+accept="image/*"
+data-seat="${s}">
+
 <img>
+
 </div>`
-).join('');
+)
+.join('');
+
 
 document
 .querySelectorAll('.level')
@@ -2132,6 +3452,7 @@ x.dataset.level
 )
 );
 
+
 document
 .querySelectorAll('.sys')
 .forEach(
@@ -2142,37 +3463,48 @@ $('system').value=
 x.dataset.sys;
 
 renderSystem();
+
 recommend();
 
 }
 );
 
+
 $('system').onchange=()=>{
 
 renderSystem();
+
 recommend();
 
 };
 
+
 $('applySystem').onclick=()=>{
 
 renderSystem();
+
 recommend();
 
 alert(
 'Sistem '+
-SYSTEMS[$('system').value].name+
+SYSTEMS[
+$('system').value
+].name+
 ' aktif.'
 );
 
 };
 
+
 $('systemInfo').onclick=()=>
 document
-.getElementById('systemDetail')
+.getElementById(
+'systemDetail'
+)
 .scrollIntoView({
 behavior:'smooth'
 });
+
 
 document
 .querySelectorAll(
@@ -2197,9 +3529,14 @@ r.value!=='manual'
 }
 );
 
+
 $('deal').onclick=deal;
+
 $('reshuffle').onclick=deal;
-$('applyManual').onclick=applyManual;
+
+$('applyManual').onclick=
+applyManual;
+
 
 document
 .querySelectorAll(
@@ -2214,16 +3551,21 @@ let img=
 i.parentElement
 .querySelector('img');
 
-let f=e.target.files[0];
+let f=
+e.target.files[0];
 
 if(f){
 
-let rd=new FileReader();
+let rd=
+new FileReader();
 
 rd.onload=x=>{
 
-img.src=x.target.result;
-img.style.display='block';
+img.src=
+x.target.result;
+
+img.style.display=
+'block';
 
 };
 
@@ -2234,23 +3576,32 @@ rd.readAsDataURL(f);
 }
 );
 
+
 $('clearPhotos').onclick=()=>
 document
-.querySelectorAll('.upload img')
+.querySelectorAll(
+'.upload img'
+)
 .forEach(
 i=>{
 
 i.src='';
-i.style.display='none';
+
+i.style.display=
+'none';
 
 }
 );
+
 
 $('useRec').onclick=()=>{
 
 if(!recommendation){
 
-alert('Belum ada rekomendasi.');
+alert(
+'Belum ada rekomendasi.'
+);
+
 return;
 
 }
@@ -2259,7 +3610,8 @@ if(!auction.length)
 startAuction();
 
 if(
-nextSeat()!==recommendation.seat
+nextSeat()!==
+recommendation.seat
 ){
 
 alert(
@@ -2277,6 +3629,7 @@ recommendation.reason
 );
 
 };
+
 
 $('explain').onclick=()=>{
 
@@ -2302,13 +3655,28 @@ recommendation.reason
 
 };
 
-$('startAuction').onclick=startAuction;
-$('computerBid').onclick=computerBid;
-$('clearAuction').onclick=startAuction;
-$('calculate').onclick=scoreCalc;
-$('loadContract').onclick=loadContract;
-$('saveScore').onclick=saveScore;
-$('export').onclick=exportCSV;
+
+$('startAuction').onclick=
+startAuction;
+
+$('computerBid').onclick=
+computerBid;
+
+$('clearAuction').onclick=
+startAuction;
+
+$('calculate').onclick=
+scoreCalc;
+
+$('loadContract').onclick=
+loadContract;
+
+$('saveScore').onclick=
+saveScore;
+
+$('export').onclick=
+exportCSV;
+
 
 $('clearScores').onclick=()=>{
 
@@ -2330,10 +3698,12 @@ renderScores();
 
 };
 
+
 $('dealer').onchange=()=>{
 
 if(!auction.length)
-turn=seats.indexOf(
+turn=
+seats.indexOf(
 $('dealer').value
 );
 
@@ -2343,6 +3713,7 @@ renderAuction();
 
 };
 
+
 $('vul').onchange=()=>{
 
 if(contract)
@@ -2351,17 +3722,25 @@ $('vul').value;
 
 };
 
+
 buildSystems();
+
 renderSystem();
+
 buildBidpad();
 
-setTrainingLevel(trainingLevel);
+setTrainingLevel(
+trainingLevel
+);
 
 showHands();
+
 renderAuction();
+
 renderScores();
 
 })();
+
 </script>
 
 </body>
