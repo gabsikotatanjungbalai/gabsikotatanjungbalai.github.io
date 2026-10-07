@@ -14,9 +14,7 @@
 <meta name="description"
       content="Kepengurusan GABSI Kota Tanjungbalai">
 
-<title>
-Pengurus GABSI Kota Tanjungbalai
-</title>
+<title>Pengurus GABSI Kota Tanjungbalai</title>
 
 <link rel="icon"
       type="image/png"
@@ -61,10 +59,8 @@ body{
 .top-line{
     width:100%;
     min-height:30px;
-
     background:#063b5c;
     color:#ffffff;
-
     padding:6px 20px;
 
     display:flex;
@@ -116,8 +112,11 @@ body{
 }
 
 
-/* Matikan pseudo-element
-   agar tidak muncul logo tambahan */
+/*
+   PENGAMAN:
+   Tidak boleh ada pseudo-element yang
+   membuat logo tambahan.
+*/
 
 .brand::before,
 .brand::after{
@@ -129,7 +128,8 @@ body{
 
 
 /* =====================================================
-   SATU-SATUNYA LOGO GABSI
+   LOGO GABSI
+   HANYA SATU
 ===================================================== */
 
 .brand-logo{
@@ -145,7 +145,6 @@ body{
     flex:0 0 40px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -162,29 +161,45 @@ body{
 }
 
 
-/* LOGO UTAMA */
+/* SATU-SATUNYA GAMBAR LOGO */
 
 .brand-logo img{
     display:block !important;
 
-    width:100% !important;
-    height:100% !important;
+    width:40px !important;
+    height:40px !important;
 
-    max-width:100% !important;
-    max-height:100% !important;
+    min-width:40px !important;
+    min-height:40px !important;
+
+    max-width:40px !important;
+    max-height:40px !important;
 
     object-fit:contain;
 
     margin:0 !important;
     padding:0 !important;
+
+    position:static !important;
 }
 
 
-/* Sembunyikan gambar lain
-   yang mungkin ada di header */
+/*
+   PENGAMAN TAMBAHAN:
+   Jika ada gambar lain yang secara tidak sengaja
+   berada langsung di header, sembunyikan.
+*/
 
 .header-main > img{
     display:none !important;
+}
+
+.header-main::before,
+.header-main::after{
+    content:none !important;
+    display:none !important;
+    background:none !important;
+    background-image:none !important;
 }
 
 .brand > img{
@@ -844,7 +859,7 @@ body{
     }
 
 
-    /* SATU LOGO SAJA */
+    /* LOGO TETAP SATU */
 
     .brand-logo{
         width:36px;
@@ -857,6 +872,17 @@ body{
         max-height:36px;
 
         flex-basis:36px;
+    }
+
+    .brand-logo img{
+        width:36px !important;
+        height:36px !important;
+
+        min-width:36px !important;
+        min-height:36px !important;
+
+        max-width:36px !important;
+        max-height:36px !important;
     }
 
     .brand-text strong{
@@ -912,9 +938,6 @@ body{
         font-size:10px;
     }
 
-
-    /* TIGA KARTU TETAP SEJAJAR
-       AGAR TAMPILAN RINGKAS */
 
     .pengurus-grid{
         grid-template-columns:repeat(3,1fr);
@@ -1053,11 +1076,10 @@ body{
 
 <!-- =====================================================
      HEADER
-     HANYA SATU LOGO GABSI
+     HANYA SATU LOGO GABSI DI KIRI
 ===================================================== -->
 
 <header class="site-header">
-
 
     <div class="top-line">
 
@@ -1075,19 +1097,15 @@ body{
     <div class="header-main">
 
 
-        <!-- =============================================
-             SATU-SATUNYA LOGO
-        ============================================== -->
+        <!-- SATU-SATUNYA LOGO GABSI -->
 
-        <a
-            href="index.html"
-            class="brand">
+        <a href="index.html"
+           class="brand">
 
             <div class="brand-logo">
 
-                <img
-                    src="logo-gabsi.png"
-                    alt="Logo GABSI Kota Tanjungbalai">
+                <img src="logo-gabsi.png"
+                     alt="Logo GABSI Kota Tanjungbalai">
 
             </div>
 
@@ -1107,9 +1125,7 @@ body{
         </a>
 
 
-        <!-- =============================================
-             NAVIGASI UTAMA
-        ============================================== -->
+        <!-- NAVIGASI -->
 
         <nav class="main-nav">
 
@@ -1121,9 +1137,8 @@ body{
                 Profil
             </a>
 
-            <a
-                href="pengurus.html"
-                class="active">
+            <a href="pengurus.html"
+               class="active">
                 Pengurus
             </a>
 
@@ -1174,24 +1189,17 @@ body{
             ♠ ORGANISASI GABSI
         </span>
 
-
         <h1>
-
             Kepengurusan
-
             <span>
                 GABSI Kota Tanjungbalai
             </span>
-
         </h1>
 
-
         <p>
-
             Susunan pengurus GABSI Kota Tanjungbalai
             dalam mendukung pembinaan dan pengembangan
             olahraga Bridge.
-
         </p>
 
     </div>
@@ -1212,11 +1220,9 @@ body{
             KEPENGURUSAN
         </span>
 
-
         <h2>
             Pengurus GABSI Kota Tanjungbalai
         </h2>
-
 
         <p>
             Mengenal pengurus yang menjalankan kegiatan
@@ -1226,9 +1232,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         KARTU PENGURUS
-    ================================================== -->
+    <!-- KARTU PENGURUS -->
 
     <section class="pengurus-grid">
 
@@ -1338,9 +1342,7 @@ body{
     </section>
 
 
-    <!-- =================================================
-         INFORMASI ORGANISASI
-    ================================================== -->
+    <!-- INFORMASI ORGANISASI -->
 
     <section class="org-info">
 
@@ -1349,21 +1351,17 @@ body{
         </h3>
 
         <p>
-
             Kepengurusan GABSI Kota Tanjungbalai menjadi
             bagian penting dalam pengelolaan kegiatan
             organisasi, pembinaan pemain, latihan,
             pertandingan serta pengembangan olahraga
             Bridge Duplicate di Kota Tanjungbalai.
-
         </p>
 
     </section>
 
 
-    <!-- =================================================
-         LINK HALAMAN LAIN
-    ================================================== -->
+    <!-- MENU TERKAIT -->
 
     <section class="related">
 
@@ -1374,66 +1372,55 @@ body{
 
         <div class="related-grid">
 
-
             <a href="index.html">
                 🏠<br>
                 Beranda
             </a>
-
 
             <a href="profil.html">
                 👤<br>
                 Profil
             </a>
 
-
             <a href="kegiatan.html">
                 📅<br>
                 Kegiatan
             </a>
-
 
             <a href="galeri.html">
                 📷<br>
                 Galeri
             </a>
 
-
             <a href="aplikasi.html">
                 💻<br>
                 Aplikasi
             </a>
-
 
             <a href="kocokan-kartu.html">
                 🃏<br>
                 Kartu Pembanding
             </a>
 
-
             <a href="game-bridge-gabsi.html">
                 ♠<br>
                 Game Bridge
             </a>
-
 
             <a href="score-sheet.html">
                 📊<br>
                 Score Sheet
             </a>
 
-
             <a href="berita.html">
                 📰<br>
                 Berita
             </a>
 
-
             <a href="kontak.html">
                 📞<br>
                 Kontak
             </a>
-
 
         </div>
 
@@ -1449,7 +1436,6 @@ body{
 
 <footer class="footer">
 
-
     <div class="footer-inner">
 
 
@@ -1460,11 +1446,9 @@ body{
             </h3>
 
             <p>
-
                 Gabungan Bridge Seluruh Indonesia.
                 Website informasi, pembinaan dan
                 Bridge Duplicate Center Kota Tanjungbalai.
-
             </p>
 
         </div>
@@ -1478,29 +1462,17 @@ body{
 
             <div class="footer-links">
 
-                <a href="index.html">
-                    Beranda
-                </a>
+                <a href="index.html">Beranda</a>
 
-                <a href="profil.html">
-                    Profil
-                </a>
+                <a href="profil.html">Profil</a>
 
-                <a href="pengurus.html">
-                    Pengurus
-                </a>
+                <a href="pengurus.html">Pengurus</a>
 
-                <a href="kegiatan.html">
-                    Kegiatan
-                </a>
+                <a href="kegiatan.html">Kegiatan</a>
 
-                <a href="galeri.html">
-                    Galeri
-                </a>
+                <a href="galeri.html">Galeri</a>
 
-                <a href="aplikasi.html">
-                    Aplikasi
-                </a>
+                <a href="aplikasi.html">Aplikasi</a>
 
                 <a href="kocokan-kartu.html">
                     Kartu Pembanding
@@ -1510,13 +1482,9 @@ body{
                     Game Bridge
                 </a>
 
-                <a href="berita.html">
-                    Berita
-                </a>
+                <a href="berita.html">Berita</a>
 
-                <a href="kontak.html">
-                    Kontak
-                </a>
+                <a href="kontak.html">Kontak</a>
 
             </div>
 
@@ -1570,7 +1538,6 @@ body{
         </span>
 
     </div>
-
 
 </footer>
 
