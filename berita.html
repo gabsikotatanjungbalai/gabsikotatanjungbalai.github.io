@@ -54,7 +54,9 @@ img{
 }
 
 
-/* TOP BAR */
+/* =====================================================
+   TOP BAR
+===================================================== */
 
 .topbar{
     background:#062d45;
@@ -71,7 +73,9 @@ img{
 }
 
 
-/* NAVBAR */
+/* =====================================================
+   NAVBAR
+===================================================== */
 
 .navbar{
     background:#fff;
@@ -157,7 +161,9 @@ img{
 }
 
 
-/* HEADER */
+/* =====================================================
+   HEADER
+===================================================== */
 
 .page-header{
     background:
@@ -190,7 +196,9 @@ img{
 }
 
 
-/* SECTION */
+/* =====================================================
+   SECTION
+===================================================== */
 
 .section{
     padding:45px 0;
@@ -218,7 +226,9 @@ img{
 }
 
 
-/* STATUS */
+/* =====================================================
+   STATUS
+===================================================== */
 
 .status{
     background:#fff;
@@ -243,7 +253,9 @@ img{
 }
 
 
-/* BERITA */
+/* =====================================================
+   BERITA
+===================================================== */
 
 .news-grid{
     display:grid;
@@ -338,7 +350,9 @@ img{
 }
 
 
-/* KOMENTAR */
+/* =====================================================
+   KOMENTAR
+===================================================== */
 
 .news-comments{
     margin-top:17px;
@@ -384,7 +398,9 @@ img{
 }
 
 
-/* FORM KOMENTAR */
+/* =====================================================
+   FORM KOMENTAR
+===================================================== */
 
 .comment-form{
     margin-top:12px;
@@ -436,7 +452,9 @@ img{
 }
 
 
-/* EMPTY */
+/* =====================================================
+   EMPTY
+===================================================== */
 
 .empty{
     background:#fff;
@@ -450,7 +468,9 @@ img{
 }
 
 
-/* FOOTER */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 .footer{
     background:#062d45;
@@ -500,7 +520,9 @@ img{
 }
 
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:850px){
 
@@ -672,8 +694,11 @@ const supabaseClient =
 
     <div class="container nav-inner">
 
+        <!-- LOGO / BERANDA -->
+
         <a href="index.html"
-           class="brand">
+           class="brand"
+           aria-label="Kembali ke Beranda">
 
             <img
                 src="logo-gabsi.png"
@@ -694,15 +719,21 @@ const supabaseClient =
         </a>
 
 
+        <!-- MENU MOBILE -->
+
         <button
             class="menu-btn"
+            type="button"
             onclick="toggleMenu()"
-            aria-label="Buka menu">
+            aria-label="Buka menu"
+            aria-expanded="false">
 
             ☰
 
         </button>
 
+
+        <!-- NAVIGASI LENGKAP -->
 
         <div class="nav-links"
              id="navLinks">
@@ -724,7 +755,8 @@ const supabaseClient =
             </a>
 
             <a href="berita.html"
-               class="active">
+               class="active"
+               aria-current="page">
                 Berita
             </a>
 
@@ -841,8 +873,7 @@ const supabaseClient =
             </h3>
 
             <p>
-                Gabungan Bridge Seluruh Indonesia
-                • Bridge Duplicate Center.
+                Gabungan Bridge Seluruh Indonesia.
             </p>
 
         </div>
@@ -874,8 +905,8 @@ const supabaseClient =
                 Berita
             </a>
 
-            <a href="game-bridge-gabsi.html">
-                Game Bridge
+            <a href="galeri.html">
+                Galeri
             </a>
 
         </div>
@@ -887,12 +918,12 @@ const supabaseClient =
                 Lainnya
             </h4>
 
-            <a href="galeri.html">
-                Galeri
-            </a>
-
             <a href="aplikasi.html">
                 Aplikasi
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                ♠ Game Bridge
             </a>
 
             <a href="score-sheet.html">
@@ -919,7 +950,7 @@ const supabaseClient =
         </span>
 
         <span>
-            Website Bridge Center
+            Website GABSI Kota Tanjungbalai
         </span>
 
     </div>
@@ -930,17 +961,31 @@ const supabaseClient =
 <script>
 
 /* =====================================================
-   MENU
+   MENU NAVIGASI
 ===================================================== */
 
 function toggleMenu(){
 
-    document
-        .getElementById("navLinks")
-        .classList.toggle("show");
+    const nav =
+        document.getElementById("navLinks");
+
+    const button =
+        document.querySelector(".menu-btn");
+
+    nav.classList.toggle("show");
+
+    const terbuka =
+        nav.classList.contains("show");
+
+    button.setAttribute(
+        "aria-expanded",
+        terbuka ? "true" : "false"
+    );
 
 }
 
+
+/* Tutup menu setelah memilih halaman */
 
 document
     .querySelectorAll(".nav-links a")
@@ -950,9 +995,22 @@ document
             "click",
             function(){
 
-                document
-                    .getElementById("navLinks")
-                    .classList.remove("show");
+                const nav =
+                    document.getElementById(
+                        "navLinks"
+                    );
+
+                const button =
+                    document.querySelector(
+                        ".menu-btn"
+                    );
+
+                nav.classList.remove("show");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
             }
         );
@@ -1081,6 +1139,7 @@ async function loadComments(
 
 
             div.appendChild(nama);
+
             div.appendChild(isi);
 
             container.appendChild(div);
