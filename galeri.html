@@ -8,7 +8,8 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#063b5c">
+<meta name="theme-color"
+      content="#063b5c">
 
 <meta name="description"
       content="Galeri kegiatan GABSI Kota Tanjungbalai">
@@ -19,52 +20,297 @@
       type="image/png"
       href="logo-gabsi.png">
 
-<link rel="stylesheet"
-      href="gabsi-unified-theme.css">
 
 <style>
 
 /* =====================================================
-   KHUSUS HALAMAN GALERI
+   DASAR
 ===================================================== */
 
-.gallery-page{
-    min-height:60vh;
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eef4f7;
+    color:#263746;
+    line-height:1.6;
 }
 
 
 /* =====================================================
-   HEADER LOGO - UKURAN SERAGAM
+   HEADER
 ===================================================== */
 
-.navbar .brand img{
+.site-header{
+    width:100%;
+    background:#ffffff;
+    box-shadow:0 2px 12px rgba(0,0,0,.10);
+    position:relative;
+    z-index:1000;
+}
+
+.top-line{
+    width:100%;
+    min-height:30px;
+
+    background:#063b5c;
+    color:#ffffff;
+
+    padding:6px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-size:9px;
+    letter-spacing:.2px;
+}
+
+
+/* =====================================================
+   HEADER MAIN
+===================================================== */
+
+.header-main{
+    width:100%;
+    min-height:68px;
+
+    padding:9px 20px;
+
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+
+    background:#ffffff;
+}
+
+
+/* =====================================================
+   BRAND
+   HANYA SATU LOGO GABSI
+===================================================== */
+
+.brand{
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    flex:0 0 auto;
+
+    min-width:0;
+
+    position:relative;
+}
+
+
+/* PENGAMAN AGAR TIDAK ADA LOGO TAMBAHAN */
+
+.brand::before,
+.brand::after{
+    content:none !important;
+    display:none !important;
+    background:none !important;
+    background-image:none !important;
+}
+
+
+/* =====================================================
+   SATU-SATUNYA LOGO GABSI
+===================================================== */
+
+.brand-logo{
     width:40px;
     height:40px;
-    object-fit:contain;
-    display:block;
-    border-radius:8px;
+
+    min-width:40px;
+    min-height:40px;
+
+    max-width:40px;
+    max-height:40px;
+
     flex:0 0 40px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:#ffffff;
+
+    border-radius:8px;
+
+    padding:0;
+    margin:0;
+
+    position:relative;
+}
+
+.brand-logo img{
+    display:block !important;
+
+    width:40px !important;
+    height:40px !important;
+
+    min-width:40px !important;
+    min-height:40px !important;
+
+    max-width:40px !important;
+    max-height:40px !important;
+
+    object-fit:contain;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    position:static !important;
+}
+
+
+/* =====================================================
+   PENGAMAN LOGO SEBELAH KANAN
+===================================================== */
+
+.header-main > img{
+    display:none !important;
+}
+
+.header-main::before,
+.header-main::after{
+    content:none !important;
+    display:none !important;
+    background:none !important;
+    background-image:none !important;
+}
+
+.brand > img{
+    display:none !important;
+}
+
+
+/* =====================================================
+   BRAND TEXT
+===================================================== */
+
+.brand-text{
+    display:block;
+    min-width:0;
+}
+
+.brand-text strong{
+    display:block;
+
+    color:#063b5c;
+
+    font-size:13px;
+
+    line-height:1.2;
+
+    white-space:nowrap;
+}
+
+.brand-text small{
+    display:block;
+
+    color:#7b8790;
+
+    font-size:7px;
+
+    line-height:1.2;
+
+    margin-top:2px;
+
+    letter-spacing:.2px;
+
+    white-space:nowrap;
 }
 
 
 /* =====================================================
    NAVIGASI
+   SAMA SEPERTI PENGURUS.HTML
 ===================================================== */
 
-.nav-links{
+.main-nav{
     display:flex;
+
     align-items:center;
+
+    justify-content:flex-end;
+
     gap:3px;
-    flex-wrap:nowrap;
-}
 
-.nav-links a{
+    flex:1;
+
+    min-width:0;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
     white-space:nowrap;
+
+    scrollbar-width:none;
 }
 
-.nav-links a.active{
-    color:#075b87;
-    background:#edf6fb;
+.main-nav::-webkit-scrollbar{
+    display:none;
+}
+
+.main-nav a{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex:0 0 auto;
+
+    text-decoration:none;
+
+    color:#172033;
+
+    padding:8px 9px;
+
+    border-radius:9px;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
+}
+
+.main-nav a:hover{
+    background:#eaf4f9;
+    color:#07558f;
+}
+
+.main-nav a.active{
+    background:#eaf4f9;
+
+    color:#07558f;
+
+    font-weight:700;
+
+    box-shadow:
+        inset 0 -3px 0 #c92f3d;
 }
 
 
@@ -81,43 +327,82 @@
             #087ba2 100%
         );
 
-    color:#fff;
-    padding:52px 0;
+    color:#ffffff;
+
+    padding:52px 20px;
+
     position:relative;
+
     overflow:hidden;
+}
+
+.gallery-hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    top:-180px;
+    left:-100px;
 }
 
 .gallery-hero::after{
     content:"";
+
     position:absolute;
+
     width:280px;
     height:280px;
+
     right:-100px;
     top:-130px;
+
     border-radius:50%;
+
     background:rgba(255,255,255,.06);
 }
 
 .gallery-hero-inner{
     position:relative;
-    z-index:1;
+
+    z-index:2;
+
+    max-width:1100px;
+
+    margin:auto;
 }
 
 .gallery-label{
     display:inline-flex;
+
     align-items:center;
+
     gap:7px;
+
     color:#d8f2fb;
+
     font-size:10px;
+
     font-weight:800;
+
     letter-spacing:1px;
+
     text-transform:uppercase;
+
     margin-bottom:9px;
 }
 
 .gallery-hero h1{
     margin:0;
+
     font-size:clamp(34px,6vw,58px);
+
     line-height:1.05;
 }
 
@@ -127,10 +412,72 @@
 
 .gallery-hero p{
     max-width:700px;
+
     margin:13px 0 0;
+
     color:#e0f2f8;
+
     font-size:13px;
+
     line-height:1.7;
+}
+
+
+/* =====================================================
+   KONTEN GALERI
+===================================================== */
+
+.gallery-page{
+    min-height:60vh;
+}
+
+.container{
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:38px 20px 55px;
+}
+
+
+/* =====================================================
+   JUDUL SECTION
+===================================================== */
+
+.section-label{
+    display:inline-block;
+
+    color:#0874a8;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-bottom:3px;
+}
+
+.section-title{
+    color:#263746;
+
+    font-size:28px;
+
+    line-height:1.25;
+
+    margin:3px 0 4px;
+}
+
+.section-desc{
+    color:#71808b;
+
+    font-size:12px;
+
+    margin:0 0 24px;
 }
 
 
@@ -140,16 +487,30 @@
 
 .gallery-grid{
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
     gap:22px;
 }
 
+
+/* =====================================================
+   KARTU GALERI
+===================================================== */
+
 .gallery-card{
-    background:#fff;
+    background:#ffffff;
+
     border:1px solid #dce8ee;
+
     border-radius:18px;
+
     overflow:hidden;
-    box-shadow:0 8px 25px rgba(6,59,92,.08);
+
+    box-shadow:
+        0 8px 25px rgba(6,59,92,.08);
+
     transition:
         transform .22s ease,
         box-shadow .22s ease,
@@ -158,43 +519,71 @@
 
 .gallery-card:hover{
     transform:translateY(-5px);
+
     border-color:#bcd7e5;
-    box-shadow:0 15px 35px rgba(6,59,92,.15);
+
+    box-shadow:
+        0 15px 35px rgba(6,59,92,.15);
 }
+
+
+/* =====================================================
+   FOTO
+===================================================== */
 
 .gallery-image{
     width:100%;
+
     height:235px;
+
     background:#e4edf2;
+
     overflow:hidden;
+
     position:relative;
 }
 
 .gallery-image::after{
     content:"";
+
     position:absolute;
+
     inset:0;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.12),
-        transparent 35%
-    );
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.12),
+            transparent 35%
+        );
+
     pointer-events:none;
 }
 
 .gallery-image img{
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
     object-position:center;
+
     display:block;
+
     transition:
         transform .4s ease;
 }
 
-.gallery-card:hover .gallery-image img{
+.gallery-card:hover
+.gallery-image img{
     transform:scale(1.05);
 }
+
+
+/* =====================================================
+   INFORMASI FOTO
+===================================================== */
 
 .gallery-info{
     padding:17px 17px 18px;
@@ -202,29 +591,45 @@
 
 .gallery-tag{
     display:inline-flex;
+
     align-items:center;
+
     background:#edf7fc;
+
     color:#075f89;
+
     border:1px solid #d7eaf3;
+
     padding:5px 10px;
+
     border-radius:30px;
+
     font-size:9px;
+
     font-weight:800;
+
     letter-spacing:.3px;
+
     margin-bottom:9px;
 }
 
 .gallery-info h3{
     color:#173d53;
+
     font-size:16px;
+
     line-height:1.35;
+
     margin:0 0 4px;
 }
 
 .gallery-info p{
     color:#7a8b95;
+
     font-size:10px;
+
     line-height:1.6;
+
     margin:0;
 }
 
@@ -235,23 +640,36 @@
 
 .info-box{
     margin-top:30px;
-    background:#fff;
+
+    background:#ffffff;
+
     border:1px solid #dce8ee;
+
+    border-left:5px solid #0874a8;
+
     border-radius:18px;
+
     padding:25px;
-    box-shadow:0 7px 22px rgba(6,59,92,.07);
+
+    box-shadow:
+        0 7px 22px rgba(6,59,92,.07);
 }
 
 .info-box h3{
     color:#173d53;
+
     font-size:19px;
+
     margin:0 0 8px;
 }
 
 .info-box p{
     color:#687c87;
+
     font-size:11px;
+
     line-height:1.85;
+
     margin:0;
 }
 
@@ -262,89 +680,274 @@
 
 .related{
     margin-top:25px;
-    background:#fff;
+
+    background:#ffffff;
+
     border:1px solid #dce8ee;
+
     border-radius:18px;
+
     padding:24px;
-    box-shadow:0 7px 22px rgba(6,59,92,.07);
+
+    box-shadow:
+        0 7px 22px rgba(6,59,92,.07);
 }
 
 .related h3{
     color:#173d53;
+
     font-size:19px;
+
     margin:0 0 16px;
+
     text-align:center;
 }
 
 .related-grid{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+
+    grid-template-columns:
+        repeat(5,1fr);
+
     gap:10px;
 }
 
 .related a{
     text-decoration:none;
+
     color:#075f89;
+
     background:#eef7fb;
+
     border:1px solid #dcecf3;
+
     border-radius:11px;
+
     padding:12px 7px;
+
     text-align:center;
+
     font-size:10px;
+
     font-weight:800;
+
     line-height:1.5;
+
     transition:.2s;
 }
 
 .related a:hover{
     background:#075b83;
+
     border-color:#075b83;
-    color:#fff;
+
+    color:#ffffff;
+
     transform:translateY(-2px);
 }
 
 
 /* =====================================================
-   RESPONSIVE
+   FOOTER
+===================================================== */
+
+.footer{
+    background:
+        linear-gradient(
+            135deg,
+            #063b5c,
+            #052e46
+        );
+
+    color:#ffffff;
+
+    padding:32px 20px 18px;
+}
+
+.footer-inner{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr;
+
+    gap:30px;
+}
+
+.footer h3{
+    font-size:14px;
+
+    margin:0 0 9px;
+}
+
+.footer h4{
+    font-size:13px;
+
+    margin:0 0 9px;
+}
+
+.footer p{
+    color:rgba(255,255,255,.76);
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    margin:0;
+}
+
+.footer-links{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+}
+
+.footer-links a{
+    color:rgba(255,255,255,.76);
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    transition:.2s;
+}
+
+.footer-links a:hover{
+    color:#ffffff;
+
+    transform:translateX(2px);
+}
+
+.footer-bottom{
+    max-width:1100px;
+
+    margin:23px auto 0;
+
+    padding-top:13px;
+
+    border-top:
+        1px solid rgba(255,255,255,.15);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:rgba(255,255,255,.60);
+
+    font-size:9px;
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET
 ===================================================== */
 
 @media(max-width:1100px){
 
-    .nav-links{
-        gap:2px;
+    .header-main{
+        gap:10px;
     }
 
-    .nav-links a{
-        font-size:10px;
-        padding:7px 7px;
+    .main-nav{
+        justify-content:flex-start;
     }
 
-}
-
-
-@media(max-width:900px){
+    .main-nav a{
+        padding:8px 8px;
+    }
 
     .gallery-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
     }
 
     .related-grid{
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns:
+            repeat(4,1fr);
     }
 
 }
 
 
-@media(max-width:600px){
+/* =====================================================
+   RESPONSIVE HP
+===================================================== */
 
-    .navbar .brand img{
+@media(max-width:700px){
+
+    .top-line{
+        padding:6px 10px;
+
+        font-size:7px;
+
+        gap:8px;
+    }
+
+    .header-main{
+        min-height:58px;
+
+        padding:7px 10px;
+
+        gap:8px;
+    }
+
+
+    /* SATU LOGO SAJA */
+
+    .brand-logo{
         width:36px;
         height:36px;
+
+        min-width:36px;
+        min-height:36px;
+
+        max-width:36px;
+        max-height:36px;
+
         flex-basis:36px;
     }
 
+    .brand-logo img{
+        width:36px !important;
+        height:36px !important;
+
+        min-width:36px !important;
+        min-height:36px !important;
+
+        max-width:36px !important;
+        max-height:36px !important;
+    }
+
+    .brand-text strong{
+        font-size:10px;
+    }
+
+    .brand-text small{
+        font-size:5px;
+    }
+
+    .main-nav{
+        flex:1;
+
+        gap:2px;
+
+        overflow-x:auto;
+    }
+
+    .main-nav a{
+        font-size:8px;
+
+        padding:7px 8px;
+    }
+
+
     .gallery-hero{
-        padding:38px 0;
+        padding:38px 15px;
     }
 
     .gallery-hero h1{
@@ -355,8 +958,24 @@
         font-size:11px;
     }
 
+
+    .container{
+        padding:30px 13px 40px;
+    }
+
+    .section-title{
+        font-size:22px;
+    }
+
+    .section-desc{
+        font-size:10px;
+    }
+
+
     .gallery-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
         gap:13px;
     }
 
@@ -370,6 +989,7 @@
 
     .gallery-tag{
         font-size:7px;
+
         padding:4px 8px;
     }
 
@@ -380,6 +1000,7 @@
     .gallery-info p{
         font-size:8px;
     }
+
 
     .info-box{
         padding:19px 15px;
@@ -393,6 +1014,7 @@
         font-size:10px;
     }
 
+
     .related{
         padding:18px 13px;
     }
@@ -402,14 +1024,56 @@
     }
 
     .related-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
+
         gap:8px;
+    }
+
+
+    .footer{
+        padding:27px 15px 15px;
+    }
+
+    .footer-inner{
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:20px;
+    }
+
+    .footer-inner > div:first-child{
+        grid-column:1 / -1;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        gap:5px;
     }
 
 }
 
 
+/* =====================================================
+   HP SANGAT KECIL
+===================================================== */
+
 @media(max-width:380px){
+
+    .brand-text{
+        display:none;
+    }
+
+    .header-main{
+        gap:5px;
+    }
+
+    .main-nav a{
+        font-size:7px;
+
+        padding:6px 7px;
+    }
 
     .gallery-grid{
         grid-template-columns:1fr;
@@ -428,6 +1092,7 @@
 
 .gallery-card:focus-within{
     outline:3px solid rgba(8,123,162,.18);
+
     outline-offset:2px;
 }
 
@@ -435,45 +1100,49 @@
 
 </head>
 
+
 <body>
 
 
 <!-- =====================================================
-     TOP BAR
+     HEADER
+     SAMA DENGAN PENGURUS.HTML
 ===================================================== -->
 
-<div class="topbar">
+<header class="site-header">
 
-    <div class="container topbar-inner">
+
+    <div class="top-line">
 
         <span>
-            GABSI Kota Tanjungbalai
+            GABSI KOTA TANJUNGBALAI
         </span>
 
         <span>
-            Sportivitas • Persahabatan • Prestasi • Edukasi
+            Bridge • Prestasi • Persaudaraan
         </span>
 
     </div>
 
-</div>
+
+    <div class="header-main">
 
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
-<nav class="navbar">
-
-    <div class="container nav-inner">
+        <!-- =================================================
+             SATU-SATUNYA LOGO GABSI
+        ================================================== -->
 
         <a href="index.html"
-           class="brand"
-           aria-label="Kembali ke Beranda">
+           class="brand">
 
-            <img
-                src="logo-gabsi.png"
-                alt="Logo GABSI Kota Tanjungbalai">
+            <div class="brand-logo">
+
+                <img
+                    src="logo-gabsi.png"
+                    alt="Logo GABSI Kota Tanjungbalai">
+
+            </div>
+
 
             <div class="brand-text">
 
@@ -481,31 +1150,21 @@
                     GABSI KOTA TANJUNGBALAI
                 </strong>
 
-                <span>
+                <small>
                     GABUNGAN BRIDGE SELURUH INDONESIA
-                </span>
+                </small>
 
             </div>
 
         </a>
 
 
-        <button
-            class="menu-btn"
-            type="button"
-            onclick="toggleMenu()"
-            aria-label="Buka menu"
-            aria-expanded="false">
+        <!-- =================================================
+             NAVIGASI
+             SAMA DENGAN PENGURUS.HTML
+        ================================================== -->
 
-            ☰
-
-        </button>
-
-
-        <div class="nav-links"
-             id="navLinks">
-
-            <!-- URUTAN NAVIGASI SERAGAM -->
+        <nav class="main-nav">
 
             <a href="index.html">
                 Beranda
@@ -524,8 +1183,7 @@
             </a>
 
             <a href="galeri.html"
-               class="active"
-               aria-current="page">
+               class="active">
                 Galeri
             </a>
 
@@ -538,7 +1196,7 @@
             </a>
 
             <a href="game-bridge-gabsi.html">
-                ♠ Game Bridge
+                Game Bridge
             </a>
 
             <a href="berita.html">
@@ -549,11 +1207,11 @@
                 Kontak
             </a>
 
-        </div>
+        </nav>
 
     </div>
 
-</nav>
+</header>
 
 
 <!-- =====================================================
@@ -562,7 +1220,7 @@
 
 <header class="gallery-hero">
 
-    <div class="container gallery-hero-inner">
+    <div class="gallery-hero-inner">
 
         <div class="gallery-label">
 
@@ -570,14 +1228,17 @@
 
         </div>
 
+
         <h1>
 
             Galeri
+
             <span>
                 GABSI
             </span>
 
         </h1>
+
 
         <p>
 
@@ -596,7 +1257,7 @@
      KONTEN GALERI
 ===================================================== -->
 
-<main class="section gallery-page">
+<main class="gallery-page">
 
     <div class="container">
 
@@ -630,6 +1291,8 @@
         <section class="gallery-grid">
 
 
+            <!-- FOTO 01 -->
+
             <article class="gallery-card">
 
                 <div class="gallery-image">
@@ -659,6 +1322,8 @@
 
             </article>
 
+
+            <!-- FOTO 02 -->
 
             <article class="gallery-card">
 
@@ -690,6 +1355,8 @@
             </article>
 
 
+            <!-- FOTO 03 -->
+
             <article class="gallery-card">
 
                 <div class="gallery-image">
@@ -719,6 +1386,8 @@
 
             </article>
 
+
+            <!-- FOTO 04 -->
 
             <article class="gallery-card">
 
@@ -750,6 +1419,8 @@
             </article>
 
 
+            <!-- FOTO 05 -->
+
             <article class="gallery-card">
 
                 <div class="gallery-image">
@@ -779,6 +1450,8 @@
 
             </article>
 
+
+            <!-- FOTO 06 -->
 
             <article class="gallery-card">
 
@@ -810,6 +1483,8 @@
             </article>
 
 
+            <!-- FOTO 07 -->
+
             <article class="gallery-card">
 
                 <div class="gallery-image">
@@ -839,6 +1514,8 @@
 
             </article>
 
+
+            <!-- FOTO 08 -->
 
             <article class="gallery-card">
 
@@ -870,6 +1547,8 @@
             </article>
 
 
+            <!-- FOTO 09 -->
+
             <article class="gallery-card">
 
                 <div class="gallery-image">
@@ -899,6 +1578,8 @@
 
             </article>
 
+
+            <!-- FOTO 10 -->
 
             <article class="gallery-card">
 
@@ -967,57 +1648,69 @@
                 Jelajahi Website GABSI
             </h3>
 
+
             <div class="related-grid">
+
 
                 <a href="index.html">
                     🏠<br>
                     Beranda
                 </a>
 
+
                 <a href="profil.html">
                     👤<br>
                     Profil
                 </a>
+
 
                 <a href="pengurus.html">
                     👥<br>
                     Pengurus
                 </a>
 
+
                 <a href="kegiatan.html">
                     📅<br>
                     Kegiatan
                 </a>
 
-                <a href="berita.html">
-                    📰<br>
-                    Berita
-                </a>
 
                 <a href="aplikasi.html">
                     💻<br>
                     Aplikasi
                 </a>
 
-                <a href="game-bridge-gabsi.html">
-                    ♠<br>
-                    Game Bridge
-                </a>
-
-                <a href="score-sheet.html">
-                    📊<br>
-                    Score Sheet
-                </a>
 
                 <a href="kocokan-kartu.html">
                     🃏<br>
                     Kartu Pembanding
                 </a>
 
+
+                <a href="game-bridge-gabsi.html">
+                    ♠<br>
+                    Game Bridge
+                </a>
+
+
+                <a href="score-sheet.html">
+                    📊<br>
+                    Score Sheet
+                </a>
+
+
+                <a href="berita.html">
+                    📰<br>
+                    Berita
+                </a>
+
+
                 <a href="kontak.html">
                     📞<br>
                     Kontak
                 </a>
+
 
             </div>
 
@@ -1035,7 +1728,8 @@
 
 <footer class="footer">
 
-    <div class="container footer-main">
+
+    <div class="footer-inner">
 
 
         <div>
@@ -1045,9 +1739,11 @@
             </h3>
 
             <p>
+
                 Gabungan Bridge Seluruh Indonesia.
                 Website informasi, pembinaan dan
                 Bridge Duplicate Center Kota Tanjungbalai.
+
             </p>
 
         </div>
@@ -1055,62 +1751,88 @@
 
         <div>
 
-            <h4>
+            <h3>
                 Navigasi
-            </h4>
+            </h3>
 
-            <a href="index.html">
-                Beranda
-            </a>
 
-            <a href="profil.html">
-                Profil
-            </a>
+            <div class="footer-links">
 
-            <a href="pengurus.html">
-                Pengurus
-            </a>
+                <a href="index.html">
+                    Beranda
+                </a>
 
-            <a href="kegiatan.html">
-                Kegiatan
-            </a>
+                <a href="profil.html">
+                    Profil
+                </a>
 
-            <a href="galeri.html">
-                Galeri
-            </a>
+                <a href="pengurus.html">
+                    Pengurus
+                </a>
 
-            <a href="berita.html">
-                Berita
-            </a>
+                <a href="kegiatan.html">
+                    Kegiatan
+                </a>
+
+                <a href="galeri.html">
+                    Galeri
+                </a>
+
+                <a href="aplikasi.html">
+                    Aplikasi
+                </a>
+
+                <a href="kocokan-kartu.html">
+                    Kartu Pembanding
+                </a>
+
+                <a href="game-bridge-gabsi.html">
+                    Game Bridge
+                </a>
+
+                <a href="berita.html">
+                    Berita
+                </a>
+
+                <a href="kontak.html">
+                    Kontak
+                </a>
+
+            </div>
 
         </div>
 
 
         <div>
 
-            <h4>
+            <h3>
                 Aplikasi
-            </h4>
+            </h3>
 
-            <a href="aplikasi.html">
-                Aplikasi Bridge
-            </a>
 
-            <a href="kocokan-kartu.html">
-                Kartu Pembanding
-            </a>
+            <div class="footer-links">
 
-            <a href="game-bridge-gabsi.html">
-                ♠ Game Bridge
-            </a>
+                <a href="aplikasi.html">
+                    Aplikasi Bridge
+                </a>
 
-            <a href="score-sheet.html">
-                Score Sheet
-            </a>
+                <a href="game-bridge-gabsi.html">
+                    Game Bridge
+                </a>
 
-            <a href="kontak.html">
-                Kontak
-            </a>
+                <a href="kocokan-kartu.html">
+                    Kartu Pembanding
+                </a>
+
+                <a href="score-sheet.html">
+                    Score Sheet
+                </a>
+
+                <a href="kontak.html">
+                    Kontak
+                </a>
+
+            </div>
 
         </div>
 
@@ -1118,7 +1840,7 @@
     </div>
 
 
-    <div class="container footer-bottom">
+    <div class="footer-bottom">
 
         <span>
             © 2026 GABSI Kota Tanjungbalai
@@ -1130,63 +1852,8 @@
 
     </div>
 
+
 </footer>
-
-
-<!-- =====================================================
-     MENU MOBILE
-===================================================== -->
-
-<script>
-
-function toggleMenu(){
-
-    const nav =
-        document.getElementById("navLinks");
-
-    const button =
-        document.querySelector(".menu-btn");
-
-    nav.classList.toggle("show");
-
-    const terbuka =
-        nav.classList.contains("show");
-
-    button.setAttribute(
-        "aria-expanded",
-        terbuka ? "true" : "false"
-    );
-
-}
-
-
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(function(link){
-
-        link.addEventListener(
-            "click",
-            function(){
-
-                const nav =
-                    document.getElementById("navLinks");
-
-                const button =
-                    document.querySelector(".menu-btn");
-
-                nav.classList.remove("show");
-
-                button.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-        );
-
-    });
-
-</script>
 
 
 </body>
