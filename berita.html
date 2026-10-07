@@ -1,1 +1,1699 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
 
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+<meta name="theme-color" content="#063b5c">
+
+<meta name="description"
+      content="Berita GABSI Kota Tanjungbalai">
+
+<title>Berita | GABSI Kota Tanjungbalai</title>
+
+<link rel="icon"
+      type="image/png"
+      href="logo-gabsi.png">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f1f6f9;
+    color:#203442;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1180px,94%);
+    margin:auto;
+}
+
+
+/* TOP BAR */
+
+.topbar{
+    background:#062d45;
+    color:#d9e9f2;
+    font-size:11px;
+    padding:6px 0;
+}
+
+.topbar-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+    background:#fff;
+    border-bottom:1px solid #dce7ed;
+    position:sticky;
+    top:0;
+    z-index:999;
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+
+.nav-inner{
+    min-height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+}
+
+.brand img{
+    width:40px;
+    height:40px;
+    border-radius:8px;
+    object-fit:contain;
+}
+
+.brand-text{
+    min-width:0;
+}
+
+.brand-text strong{
+    display:block;
+    color:#123b53;
+    font-size:15px;
+    white-space:nowrap;
+}
+
+.brand-text span{
+    display:block;
+    color:#83949e;
+    font-size:8px;
+    letter-spacing:.4px;
+    white-space:nowrap;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:4px;
+}
+
+.nav-links a{
+    color:#203442;
+    font-size:12px;
+    font-weight:bold;
+    padding:9px 10px;
+    border-radius:9px;
+    transition:.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    background:#edf6fb;
+    color:#075b87;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:#edf5f9;
+    color:#063b5c;
+    width:40px;
+    height:40px;
+    border-radius:9px;
+    font-size:21px;
+    cursor:pointer;
+}
+
+
+/* HEADER */
+
+.page-header{
+    background:
+        linear-gradient(
+            120deg,
+            #064d70 0%,
+            #076a91 48%,
+            #0b789a 100%
+        );
+
+    color:#fff;
+    padding:48px 0;
+}
+
+.page-header h1{
+    margin:0;
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.05;
+}
+
+.page-header h1 span{
+    color:#ffd84d;
+}
+
+.page-header p{
+    max-width:700px;
+    margin:13px 0 0;
+    color:#e1f1f7;
+    font-size:13px;
+}
+
+
+/* SECTION */
+
+.section{
+    padding:45px 0;
+}
+
+.section-label{
+    color:#08749c;
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.section-title{
+    margin:3px 0 5px;
+    color:#203442;
+    font-size:27px;
+    line-height:1.2;
+}
+
+.section-desc{
+    margin:0 0 24px;
+    color:#70818b;
+    font-size:12px;
+}
+
+
+/* STATUS */
+
+.status{
+    background:#fff;
+    border:1px solid #dfe9ed;
+    border-radius:12px;
+    padding:13px 16px;
+    margin-bottom:20px;
+    font-size:12px;
+    color:#667983;
+}
+
+.status.success{
+    color:#087244;
+    background:#f0fff7;
+    border-color:#bde8d0;
+}
+
+.status.error{
+    color:#a52b2b;
+    background:#fff5f5;
+    border-color:#f0cccc;
+}
+
+
+/* BERITA */
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.news-card{
+    background:#fff;
+    border:1px solid #dfe8ec;
+    border-radius:17px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(20,55,75,.07);
+    transition:.2s;
+}
+
+.news-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(20,55,75,.12);
+}
+
+.news-image,
+.no-image{
+    width:100%;
+    height:220px;
+}
+
+.news-image{
+    object-fit:cover;
+    background:#e9f1f5;
+}
+
+.no-image{
+    background:
+        linear-gradient(
+            135deg,
+            #e8f1f5,
+            #dcebf1
+        );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:50px;
+}
+
+.news-body{
+    padding:20px;
+}
+
+.news-category{
+    display:inline-block;
+    background:#edf6fb;
+    color:#07658d;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:9px;
+    font-weight:bold;
+    margin-bottom:9px;
+}
+
+.news-title{
+    margin:0 0 7px;
+    font-size:19px;
+    line-height:1.3;
+    color:#203442;
+}
+
+.news-date{
+    font-size:10px;
+    color:#8a9ba3;
+    margin-bottom:13px;
+}
+
+.news-content{
+    font-size:12px;
+    color:#657782;
+    white-space:pre-line;
+}
+
+.news-source{
+    margin-top:15px;
+    padding-top:12px;
+    border-top:1px solid #edf1f3;
+    font-size:10px;
+    color:#74868f;
+}
+
+.news-source a{
+    color:#076995;
+    font-weight:bold;
+}
+
+
+/* KOMENTAR */
+
+.news-comments{
+    margin-top:17px;
+    padding-top:14px;
+    border-top:1px solid #e7edef;
+}
+
+.comments-title{
+    font-size:12px;
+    font-weight:bold;
+    color:#203442;
+    margin-bottom:9px;
+}
+
+.comment-list{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.comment{
+    background:#f5f8fa;
+    border-radius:9px;
+    padding:9px 10px;
+}
+
+.comment strong{
+    display:block;
+    color:#07577c;
+    font-size:10px;
+}
+
+.comment span{
+    display:block;
+    color:#667983;
+    font-size:10px;
+    white-space:pre-line;
+}
+
+.no-comments{
+    color:#92a0a7;
+    font-size:10px;
+}
+
+
+/* FORM KOMENTAR */
+
+.comment-form{
+    margin-top:12px;
+}
+
+.form-input,
+.form-textarea{
+    width:100%;
+    border:1px solid #d5e1e6;
+    border-radius:8px;
+    padding:9px 10px;
+    font-family:inherit;
+    font-size:11px;
+    outline:none;
+    background:#fff;
+}
+
+.form-input:focus,
+.form-textarea:focus{
+    border-color:#0780ad;
+    box-shadow:0 0 0 3px rgba(7,128,173,.08);
+}
+
+.form-textarea{
+    min-height:75px;
+    resize:vertical;
+    margin-top:7px;
+}
+
+.comment-button{
+    border:0;
+    background:#07547b;
+    color:#fff;
+    padding:9px 13px;
+    border-radius:8px;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:7px;
+    cursor:pointer;
+}
+
+.comment-button:hover{
+    background:#063f5d;
+}
+
+.comment-button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+
+/* EMPTY */
+
+.empty{
+    background:#fff;
+    border:1px dashed #cbd9df;
+    border-radius:15px;
+    padding:40px 20px;
+    text-align:center;
+    color:#788b95;
+    font-size:12px;
+    grid-column:1/-1;
+}
+
+
+/* FOOTER */
+
+.footer{
+    background:#062d45;
+    color:#fff;
+    margin-top:20px;
+}
+
+.footer-main{
+    padding:32px 0;
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer h3{
+    margin:0 0 8px;
+    font-size:16px;
+}
+
+.footer h4{
+    margin:0 0 8px;
+    font-size:12px;
+}
+
+.footer p,
+.footer a{
+    color:#b9d0dc;
+    font-size:10px;
+}
+
+.footer a{
+    display:block;
+    margin:4px 0;
+}
+
+.footer a:hover{
+    color:#fff;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding:10px 0;
+    font-size:9px;
+    color:#88aab9;
+    display:flex;
+    justify-content:space-between;
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:68px;
+        left:0;
+        right:0;
+        background:#fff;
+        border-bottom:1px solid #dce7ed;
+        box-shadow:0 8px 20px rgba(0,0,0,.1);
+        padding:10px;
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:11px 13px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .news-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:520px){
+
+    .container{
+        width:92%;
+    }
+
+    .topbar{
+        font-size:8px;
+    }
+
+    .nav-inner{
+        min-height:60px;
+    }
+
+    .brand img{
+        width:35px;
+        height:35px;
+    }
+
+    .brand-text strong{
+        font-size:11px;
+    }
+
+    .brand-text span{
+        font-size:7px;
+    }
+
+    .nav-links{
+        top:60px;
+    }
+
+    .page-header{
+        padding:34px 0;
+    }
+
+    .page-header h1{
+        font-size:37px;
+    }
+
+    .page-header p{
+        font-size:11px;
+    }
+
+    .section{
+        padding:34px 0;
+    }
+
+    .news-image,
+    .no-image{
+        height:190px;
+    }
+
+    .news-body{
+        padding:16px;
+    }
+
+    .news-title{
+        font-size:17px;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-main>div:first-child{
+        grid-column:1/-1;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:4px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     KONFIGURASI SUPABASE
+===================================================== -->
+
+<script>
+
+const SUPABASE_URL =
+    "https://rrdnldnbflgegtzovgzz.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_xY9vNSFrfFOXLQDtEyV3lQ_l-t2Suy-";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+</script>
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <span>
+            GABSI Kota Tanjungbalai
+        </span>
+
+        <span>
+            Sportivitas • Persahabatan • Prestasi • Edukasi
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="index.html"
+           class="brand">
+
+            <img
+                src="logo-gabsi.png"
+                alt="Logo GABSI Kota Tanjungbalai">
+
+            <div class="brand-text">
+
+                <strong>
+                    GABSI KOTA TANJUNGBALAI
+                </strong>
+
+                <span>
+                    GABUNGAN BRIDGE SELURUH INDONESIA
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()"
+            aria-label="Buka menu">
+
+            ☰
+
+        </button>
+
+
+        <div class="nav-links"
+             id="navLinks">
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="profil.html">
+                Profil
+            </a>
+
+            <a href="pengurus.html">
+                Pengurus
+            </a>
+
+            <a href="kegiatan.html">
+                Kegiatan
+            </a>
+
+            <a href="berita.html"
+               class="active">
+                Berita
+            </a>
+
+            <a href="galeri.html">
+                Galeri
+            </a>
+
+            <a href="aplikasi.html">
+                Aplikasi
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                ♠ Game Bridge
+            </a>
+
+            <a href="kontak.html">
+                Kontak
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="page-header">
+
+    <div class="container">
+
+        <div class="section-label"
+             style="color:#bfe8f5;">
+
+            INFORMASI TERBARU
+
+        </div>
+
+        <h1>
+            Berita <span>GABSI</span>
+        </h1>
+
+        <p>
+
+            Informasi terbaru seputar kegiatan,
+            latihan, pembinaan, pertandingan,
+            prestasi, dan perkembangan olahraga
+            Bridge GABSI Kota Tanjungbalai.
+
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     DAFTAR BERITA
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-label">
+            BERITA TERBARU
+        </div>
+
+        <h2 class="section-title">
+            Kabar GABSI Kota Tanjungbalai
+        </h2>
+
+        <p class="section-desc">
+
+            Berita yang telah diterbitkan oleh admin
+            GABSI Kota Tanjungbalai.
+
+        </p>
+
+
+        <div id="status"
+             class="status">
+
+            Memuat berita...
+
+        </div>
+
+
+        <div id="newsContainer"
+             class="news-grid">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container footer-main">
+
+        <div>
+
+            <h3>
+                GABSI Kota Tanjungbalai
+            </h3>
+
+            <p>
+                Gabungan Bridge Seluruh Indonesia
+                • Bridge Duplicate Center.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Navigasi
+            </h4>
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="profil.html">
+                Profil
+            </a>
+
+            <a href="pengurus.html">
+                Pengurus
+            </a>
+
+            <a href="kegiatan.html">
+                Kegiatan
+            </a>
+
+            <a href="berita.html">
+                Berita
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                Game Bridge
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Lainnya
+            </h4>
+
+            <a href="galeri.html">
+                Galeri
+            </a>
+
+            <a href="aplikasi.html">
+                Aplikasi
+            </a>
+
+            <a href="score-sheet.html">
+                Score Sheet
+            </a>
+
+            <a href="kocokan-kartu.html">
+                Kocokan Kartu
+            </a>
+
+            <a href="kontak.html">
+                Kontak
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+        <span>
+            © 2026 GABSI Kota Tanjungbalai.
+        </span>
+
+        <span>
+            Website Bridge Center
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   MENU
+===================================================== */
+
+function toggleMenu(){
+
+    document
+        .getElementById("navLinks")
+        .classList.toggle("show");
+
+}
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link){
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("show");
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   TANGGAL
+===================================================== */
+
+function formatTanggal(tanggal){
+
+    if(!tanggal){
+        return "";
+    }
+
+    const date =
+        new Date(tanggal);
+
+    if(isNaN(date.getTime())){
+        return "";
+    }
+
+    return new Intl.DateTimeFormat(
+        "id-ID",
+        {
+            day:"2-digit",
+            month:"long",
+            year:"numeric"
+        }
+    ).format(date);
+
+}
+
+
+/* =====================================================
+   KOMENTAR
+===================================================== */
+
+async function loadComments(
+    beritaId,
+    container
+){
+
+    const result =
+        await supabaseClient
+            .from("komentar_berita")
+            .select(
+                "nama, komentar, dibuat_pada"
+            )
+            .eq(
+                "berita_id",
+                beritaId
+            )
+            .eq(
+                "disetujui",
+                true
+            )
+            .order(
+                "dibuat_pada",
+                {
+                    ascending:true
+                }
+            );
+
+
+    if(result.error){
+
+        container.innerHTML =
+            '<div class="no-comments">' +
+            'Komentar belum tersedia.' +
+            '</div>';
+
+        return;
+
+    }
+
+
+    if(
+        !result.data ||
+        result.data.length === 0
+    ){
+
+        container.innerHTML =
+            '<div class="no-comments">' +
+            'Belum ada komentar yang disetujui.' +
+            '</div>';
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    result.data.forEach(
+        function(item){
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+            div.className =
+                "comment";
+
+
+            const nama =
+                document.createElement(
+                    "strong"
+                );
+
+            nama.textContent =
+                item.nama;
+
+
+            const isi =
+                document.createElement(
+                    "span"
+                );
+
+            isi.textContent =
+                item.komentar;
+
+
+            div.appendChild(nama);
+            div.appendChild(isi);
+
+            container.appendChild(div);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   FORM KOMENTAR
+===================================================== */
+
+function createCommentForm(
+    beritaId
+){
+
+    const form =
+        document.createElement(
+            "form"
+        );
+
+    form.className =
+        "comment-form";
+
+
+    const nama =
+        document.createElement(
+            "input"
+        );
+
+    nama.className =
+        "form-input";
+
+    nama.type =
+        "text";
+
+    nama.placeholder =
+        "Nama Anda";
+
+    nama.required =
+        true;
+
+    nama.maxLength =
+        80;
+
+
+    const komentar =
+        document.createElement(
+            "textarea"
+        );
+
+    komentar.className =
+        "form-textarea";
+
+    komentar.placeholder =
+        "Tulis komentar Anda...";
+
+    komentar.required =
+        true;
+
+    komentar.maxLength =
+        1000;
+
+
+    const tombol =
+        document.createElement(
+            "button"
+        );
+
+    tombol.type =
+        "submit";
+
+    tombol.className =
+        "comment-button";
+
+    tombol.textContent =
+        "Kirim Komentar";
+
+
+    form.appendChild(nama);
+
+    form.appendChild(komentar);
+
+    form.appendChild(tombol);
+
+
+    form.addEventListener(
+        "submit",
+        async function(event){
+
+            event.preventDefault();
+
+
+            const namaValue =
+                nama.value.trim();
+
+            const komentarValue =
+                komentar.value.trim();
+
+
+            if(
+                !namaValue ||
+                !komentarValue
+            ){
+
+                alert(
+                    "Nama dan komentar harus diisi."
+                );
+
+                return;
+
+            }
+
+
+            tombol.disabled =
+                true;
+
+            tombol.textContent =
+                "Mengirim...";
+
+
+            const result =
+                await supabaseClient
+                    .from(
+                        "komentar_berita"
+                    )
+                    .insert({
+
+                        berita_id:
+                            beritaId,
+
+                        nama:
+                            namaValue,
+
+                        komentar:
+                            komentarValue,
+
+                        disetujui:
+                            false
+
+                    });
+
+
+            if(result.error){
+
+                console.error(
+                    result.error
+                );
+
+                alert(
+                    "Komentar gagal dikirim."
+                );
+
+                tombol.disabled =
+                    false;
+
+                tombol.textContent =
+                    "Kirim Komentar";
+
+                return;
+
+            }
+
+
+            form.reset();
+
+
+            alert(
+                "Komentar berhasil dikirim. " +
+                "Komentar akan tampil setelah disetujui admin."
+            );
+
+
+            tombol.disabled =
+                false;
+
+            tombol.textContent =
+                "Kirim Komentar";
+
+        }
+    );
+
+
+    return form;
+
+}
+
+
+/* =====================================================
+   KARTU BERITA
+===================================================== */
+
+async function createNewsCard(
+    berita
+){
+
+    const article =
+        document.createElement(
+            "article"
+        );
+
+    article.className =
+        "news-card";
+
+
+    if(berita.gambar){
+
+        const img =
+            document.createElement(
+                "img"
+            );
+
+        img.className =
+            "news-image";
+
+        img.src =
+            berita.gambar;
+
+        img.alt =
+            berita.judul ||
+            "Berita GABSI";
+
+
+        img.onerror =
+            function(){
+
+                img.style.display =
+                    "none";
+
+
+                const fallback =
+                    document.createElement(
+                        "div"
+                    );
+
+                fallback.className =
+                    "no-image";
+
+                fallback.textContent =
+                    "📰";
+
+
+                article.insertBefore(
+                    fallback,
+                    article.firstChild
+                );
+
+            };
+
+
+        article.appendChild(img);
+
+    }
+    else{
+
+        const fallback =
+            document.createElement(
+                "div"
+            );
+
+        fallback.className =
+            "no-image";
+
+        fallback.textContent =
+            "📰";
+
+
+        article.appendChild(
+            fallback
+        );
+
+    }
+
+
+    const body =
+        document.createElement(
+            "div"
+        );
+
+    body.className =
+        "news-body";
+
+
+    const category =
+        document.createElement(
+            "div"
+        );
+
+    category.className =
+        "news-category";
+
+    category.textContent =
+        berita.kategori ||
+        "Berita";
+
+
+    body.appendChild(
+        category
+    );
+
+
+    const title =
+        document.createElement(
+            "h2"
+        );
+
+    title.className =
+        "news-title";
+
+    title.textContent =
+        berita.judul ||
+        "Tanpa Judul";
+
+
+    body.appendChild(
+        title
+    );
+
+
+    const date =
+        document.createElement(
+            "div"
+        );
+
+    date.className =
+        "news-date";
+
+    date.textContent =
+        formatTanggal(
+            berita.dibuat_pada
+        );
+
+
+    body.appendChild(
+        date
+    );
+
+
+    const isi =
+        document.createElement(
+            "div"
+        );
+
+    isi.className =
+        "news-content";
+
+    isi.textContent =
+        berita.isi ||
+        "";
+
+
+    body.appendChild(
+        isi
+    );
+
+
+    if(
+        berita.sumber ||
+        berita.link_sumber
+    ){
+
+        const source =
+            document.createElement(
+                "div"
+            );
+
+        source.className =
+            "news-source";
+
+
+        if(berita.sumber){
+
+            source.appendChild(
+                document.createTextNode(
+                    "Sumber: " +
+                    berita.sumber
+                )
+            );
+
+        }
+
+
+        if(berita.link_sumber){
+
+            const link =
+                document.createElement(
+                    "a"
+                );
+
+            link.href =
+                berita.link_sumber;
+
+            link.target =
+                "_blank";
+
+            link.rel =
+                "noopener noreferrer";
+
+            link.textContent =
+                " Buka sumber →";
+
+
+            source.appendChild(
+                link
+            );
+
+        }
+
+
+        body.appendChild(
+            source
+        );
+
+    }
+
+
+    const comments =
+        document.createElement(
+            "div"
+        );
+
+    comments.className =
+        "news-comments";
+
+
+    const commentTitle =
+        document.createElement(
+            "div"
+        );
+
+    commentTitle.className =
+        "comments-title";
+
+    commentTitle.textContent =
+        "Komentar Pengunjung";
+
+
+    comments.appendChild(
+        commentTitle
+    );
+
+
+    const commentList =
+        document.createElement(
+            "div"
+        );
+
+    commentList.className =
+        "comment-list";
+
+
+    comments.appendChild(
+        commentList
+    );
+
+
+    await loadComments(
+        berita.id,
+        commentList
+    );
+
+
+    comments.appendChild(
+        createCommentForm(
+            berita.id
+        )
+    );
+
+
+    body.appendChild(
+        comments
+    );
+
+
+    article.appendChild(
+        body
+    );
+
+
+    return article;
+
+}
+
+
+/* =====================================================
+   LOAD BERITA
+===================================================== */
+
+async function loadNews(){
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+    const container =
+        document.getElementById(
+            "newsContainer"
+        );
+
+
+    try{
+
+        const result =
+            await supabaseClient
+                .from("berita")
+                .select("*")
+                .eq(
+                    "diterbitkan",
+                    true
+                )
+                .order(
+                    "dibuat_pada",
+                    {
+                        ascending:false
+                    }
+                );
+
+
+        if(result.error){
+
+            throw result.error;
+
+        }
+
+
+        container.innerHTML =
+            "";
+
+
+        if(
+            !result.data ||
+            result.data.length === 0
+        ){
+
+            status.textContent =
+                "Belum ada berita yang diterbitkan.";
+
+            status.className =
+                "status";
+
+
+            container.innerHTML =
+
+                '<div class="empty">' +
+
+                '📰' +
+
+                '<br><br>' +
+
+                'Belum ada berita yang ' +
+
+                'diterbitkan oleh admin.' +
+
+                '</div>';
+
+            return;
+
+        }
+
+
+        status.textContent =
+            result.data.length +
+            " berita tersedia.";
+
+        status.className =
+            "status success";
+
+
+        for(
+            const berita
+            of result.data
+        ){
+
+            const card =
+                await createNewsCard(
+                    berita
+                );
+
+
+            container.appendChild(
+                card
+            );
+
+        }
+
+    }
+    catch(error){
+
+        console.error(error);
+
+
+        status.textContent =
+            "Berita belum dapat dimuat. " +
+            "Periksa konfigurasi Supabase.";
+
+        status.className =
+            "status error";
+
+    }
+
+}
+
+
+/* =====================================================
+   JALANKAN
+===================================================== */
+
+loadNews();
+
+</script>
+
+</body>
+</html>
