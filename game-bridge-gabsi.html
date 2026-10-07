@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
 <title>GABSI Kota Tanjungbalai — Bridge Online</title>
 
@@ -28,7 +31,8 @@
   -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
   margin:0;
   padding:0;
   min-height:100%;
@@ -47,7 +51,11 @@ body{
   max-width:620px;
   min-height:100vh;
   background:
-    radial-gradient(circle at 50% 20%,#0b513c 0,#031c16 70%);
+    radial-gradient(
+      circle at 50% 20%,
+      #0b513c 0,
+      #031c16 70%
+    );
   overflow:hidden;
 }
 
@@ -60,7 +68,9 @@ button:disabled{
   cursor:not-allowed;
 }
 
-/* HEADER */
+/* =====================================================
+   HEADER
+   ===================================================== */
 
 .header{
   height:64px;
@@ -68,10 +78,15 @@ button:disabled{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:linear-gradient(180deg,#073c2d,#04291f);
+  background:
+    linear-gradient(
+      180deg,
+      #073c2d,
+      #04291f
+    );
   border-bottom:1px solid rgba(214,173,82,.45);
   position:relative;
-  z-index:10;
+  z-index:100;
 }
 
 .brand{
@@ -88,7 +103,12 @@ button:disabled{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(145deg,#f2d77e,#b98628);
+  background:
+    linear-gradient(
+      145deg,
+      #f2d77e,
+      #b98628
+    );
   color:#173629;
   font-size:21px;
   font-weight:900;
@@ -127,7 +147,9 @@ button:disabled{
   font-size:18px;
 }
 
-/* SITE MENU */
+/* =====================================================
+   SITE MENU
+   ===================================================== */
 
 .site-menu{
   display:flex;
@@ -137,6 +159,8 @@ button:disabled{
   background:#031f18;
   border-bottom:1px solid #ffffff12;
   scrollbar-width:none;
+  position:relative;
+  z-index:90;
 }
 
 .site-menu::-webkit-scrollbar{
@@ -163,7 +187,9 @@ button:disabled{
   border-color:#f0d57e;
 }
 
-/* GAME BAR */
+/* =====================================================
+   GAME BAR
+   ===================================================== */
 
 .gamebar{
   padding:8px;
@@ -196,7 +222,9 @@ button:disabled{
   font-weight:900;
 }
 
-/* TABLE */
+/* =====================================================
+   TABLE
+   ===================================================== */
 
 .table-area{
   padding:14px 8px 6px;
@@ -207,14 +235,24 @@ button:disabled{
   height:min(600px,118vw);
   min-height:510px;
   max-height:680px;
+
   border-radius:45% / 28%;
+
   background:
-    radial-gradient(circle at 50% 45%,#159064 0,#08734f 45%,#05563e 78%);
+    radial-gradient(
+      circle at 50% 45%,
+      #159064 0,
+      #08734f 45%,
+      #05563e 78%
+    );
+
   border:8px solid #173c31;
+
   box-shadow:
     inset 0 0 0 2px #d2ac50,
     inset 0 0 35px #012c20,
     0 18px 40px #0009;
+
   overflow:hidden;
 }
 
@@ -225,26 +263,48 @@ button:disabled{
   border-radius:45% / 28%;
   border:1px solid #ffffff25;
   pointer-events:none;
+  z-index:1;
 }
+
+/* =====================================================
+   PANEL KONTRAK / BID
+   SELALU DI DEPAN KARTU
+   ===================================================== */
 
 .table-center{
   position:absolute;
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
+
   width:52%;
   max-width:250px;
   min-width:190px;
+
   text-align:center;
+
+  z-index:50;
+  pointer-events:none;
 }
 
 .contract-card{
+  position:relative;
+  z-index:51;
+
   padding:11px 10px;
+
   border-radius:14px;
-  background:#042b20cc;
-  border:1px solid #d6ad5266;
-  box-shadow:0 8px 20px #0005;
-  backdrop-filter:blur(5px);
+
+  background:
+    rgba(4,43,32,.96);
+
+  border:2px solid #d6ad5288;
+
+  box-shadow:
+    0 10px 28px #0009,
+    0 0 0 2px rgba(0,0,0,.18);
+
+  backdrop-filter:blur(7px);
 }
 
 .contract-title{
@@ -265,13 +325,72 @@ button:disabled{
   color:#afd0c1;
 }
 
-/* PLAYER POSITIONS */
+/* =====================================================
+   INDIKATOR KONDISI PUTARAN
+   ===================================================== */
+
+.round-status{
+  margin-top:6px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+
+  padding:5px 8px;
+
+  border-radius:8px;
+
+  background:#0007;
+
+  border:1px solid #ffffff22;
+
+  font-size:9px;
+  font-weight:900;
+
+  box-shadow:0 4px 12px #0006;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease;
+}
+
+.round-status.normal{
+  color:#f1d27c;
+  border-color:#d6ad5266;
+  background:#4a371555;
+}
+
+.round-status.safe{
+  color:#75e0ad;
+  border-color:#36c78566;
+  background:#073c2caa;
+}
+
+.round-status.danger{
+  color:#ff7777;
+  border-color:#e54b4b88;
+  background:#551d1daa;
+}
+
+.round-icon{
+  font-size:11px;
+}
+
+.round-text{
+  white-space:nowrap;
+}
+
+/* =====================================================
+   PLAYER POSITIONS
+   ===================================================== */
 
 .seat{
   position:absolute;
   width:150px;
   max-width:38%;
-  z-index:3;
+  z-index:10;
 }
 
 .seat.north{
@@ -306,15 +425,27 @@ button:disabled{
   width:35px;
   height:35px;
   margin:auto;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   border-radius:50%;
-  background:linear-gradient(145deg,#d9b65b,#8e6722);
+
+  background:
+    linear-gradient(
+      145deg,
+      #d9b65b,
+      #8e6722
+    );
+
   color:#173329;
+
   font-size:17px;
   font-weight:900;
+
   border:2px solid #f4d783;
+
   box-shadow:0 3px 10px #0007;
 }
 
@@ -339,41 +470,58 @@ button:disabled{
 
 /* =====================================================
    KARTU
+   TIDAK BERTUMPUK
    ===================================================== */
 
 .hand{
   margin-top:5px;
+
   display:grid;
+
   align-items:center;
   justify-items:center;
+
   overflow:visible;
+
+  position:relative;
+  z-index:12;
 }
 
-/* UTARA DAN SELATAN
-   2 BARIS: 7 + 6 */
+/* NORTH + SOUTH
+   7 kartu + 6 kartu */
 
 .north .hand,
 .south .hand{
+
   width:100%;
-  grid-template-columns:repeat(7,1fr);
-  grid-template-rows:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(7,1fr);
+
+  grid-template-rows:
+    repeat(2,1fr);
+
   grid-auto-flow:row;
-  column-gap:3px;
-  row-gap:4px;
-  min-height:105px;
+
+  column-gap:4px;
+  row-gap:5px;
+
+  min-height:108px;
+
 }
 
-/* KARTU */
+/* KARTU DASAR */
 
 .card{
+
   position:relative;
 
-  width:31px;
-  height:45px;
+  width:30px;
+  height:46px;
 
   margin:0 !important;
 
-  border-radius:5px;
+  border-radius:6px;
 
   background:
     linear-gradient(
@@ -401,15 +549,11 @@ button:disabled{
     box-shadow .16s ease,
     border-color .16s ease;
 
-  z-index:1;
-}
-
-.card:first-child{
-  margin-left:0;
+  z-index:12;
 }
 
 .card:hover{
-  z-index:20;
+  z-index:30;
 }
 
 .card.red{
@@ -429,6 +573,7 @@ button:disabled{
 }
 
 .card.back{
+
   background:
     repeating-linear-gradient(
       45deg,
@@ -442,6 +587,7 @@ button:disabled{
 }
 
 .card.playable{
+
   transform:translateY(-6px);
 
   box-shadow:
@@ -449,16 +595,18 @@ button:disabled{
 
   border-color:#f0cb62;
 
-  z-index:25;
+  z-index:35;
 }
 
 .card:focus-visible{
+
   outline:2px solid #ffe184;
   outline-offset:2px;
-  z-index:30;
+
+  z-index:40;
 }
 
-/* SELATAN */
+/* SOUTH */
 
 .south{
   width:330px;
@@ -466,23 +614,32 @@ button:disabled{
 }
 
 .south .hand{
-  min-height:116px;
+
+  min-height:118px;
+
   padding:3px 4px;
 
-  grid-template-columns:repeat(7,1fr);
-  grid-template-rows:repeat(2,1fr);
+  grid-template-columns:
+    repeat(7,1fr);
 
-  column-gap:3px;
+  grid-template-rows:
+    repeat(2,1fr);
+
+  column-gap:4px;
   row-gap:5px;
+
 }
 
 .south .card{
+
   width:36px;
   height:55px;
+
   border-radius:6px;
 
   box-shadow:
     0 3px 8px #0009;
+
 }
 
 .south .card .rank{
@@ -497,7 +654,7 @@ button:disabled{
   transform:translateY(-7px);
 }
 
-/* UTARA */
+/* NORTH */
 
 .north{
   width:330px;
@@ -505,97 +662,132 @@ button:disabled{
 }
 
 .north .hand{
-  min-height:100px;
+
+  min-height:102px;
+
   padding:2px 4px;
+
 }
 
 .north .card{
+
   width:30px;
-  height:45px;
+  height:46px;
+
 }
 
-/* TIMUR DAN BARAT
-   2 KOLOM VERTIKAL: 7 + 6 */
+/* =====================================================
+   EAST + WEST
+   2 KOLOM VERTIKAL
+   7 KARTU + 6 KARTU
+   ===================================================== */
 
 .east .hand,
 .west .hand{
+
   width:78px;
 
   min-height:300px;
 
-  grid-template-columns:repeat(2,32px);
-  grid-template-rows:repeat(7,1fr);
+  grid-template-columns:
+    repeat(2,32px);
+
+  grid-template-rows:
+    repeat(7,1fr);
 
   grid-auto-flow:column;
 
-  column-gap:4px;
+  column-gap:5px;
   row-gap:3px;
 
   justify-content:center;
   align-content:center;
+
 }
 
 .east .card,
 .west .card{
+
   width:32px;
   height:39px;
 
   margin:0 !important;
 
   border-radius:5px;
+
 }
 
 .east .card .rank,
 .west .card .rank{
+
   font-size:10px;
+
 }
 
 .east .card .suit,
 .west .card .suit{
+
   font-size:12px;
+
 }
 
 .east .card.playable,
 .west .card.playable{
+
   transform:translateX(5px);
+
 }
 
-/* DUMMY */
-
-.dummy-active .card.playable{
-  border-color:#ffe184;
-
-  box-shadow:
-    0 0 0 2px #d6ad52,
-    0 8px 14px #0009;
-}
-
-/* TRICK */
+/* =====================================================
+   TRICK CARD
+   PALING DEPAN
+   ===================================================== */
 
 .trick{
+
   position:absolute;
+
   left:50%;
   top:50%;
-  transform:translate(-50%,-50%);
+
+  transform:
+    translate(-50%,-50%);
+
   width:170px;
   height:120px;
+
   pointer-events:none;
-  z-index:4;
+
+  z-index:80;
+
 }
 
 .trick-card{
+
   position:absolute;
+
   width:42px;
   height:59px;
+
   border-radius:6px;
+
   background:#fff;
+
   color:#111;
+
   border:1px solid #ccc;
-  box-shadow:0 4px 8px #0007;
+
+  box-shadow:
+    0 5px 12px #0009;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-weight:900;
+
+  z-index:81;
+
 }
 
 .trick-card.red{
@@ -622,80 +814,159 @@ button:disabled{
   top:30px;
 }
 
-/* BOTTOM */
+/* =====================================================
+   DUMMY
+   ===================================================== */
+
+.dummy-active .card.playable{
+
+  border-color:#ffe184;
+
+  box-shadow:
+    0 0 0 2px #d6ad52,
+    0 8px 14px #0009;
+
+}
+
+/* =====================================================
+   BOTTOM
+   ===================================================== */
 
 .bottom{
-  padding:7px 8px calc(8px + env(safe-area-inset-bottom));
+
+  padding:
+    7px
+    8px
+    calc(8px + env(safe-area-inset-bottom));
+
   background:#041f18;
+
   border-top:1px solid #ffffff14;
+
 }
 
 .status{
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   gap:8px;
+
   padding:7px 10px;
+
   margin-bottom:6px;
+
   border-radius:8px;
+
   background:#ffffff08;
+
   font-size:10px;
+
 }
 
 .status span{
+
   overflow:hidden;
+
   text-overflow:ellipsis;
+
   white-space:nowrap;
+
 }
 
 .status strong{
+
   color:#f0d174;
+
   flex:0 0 auto;
+
 }
 
 .actions{
+
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr 1fr;
+
   gap:6px;
+
 }
 
 .btn{
+
   min-height:42px;
+
   border:1px solid #ffffff19;
+
   border-radius:9px;
+
   color:#fff;
+
   background:#ffffff0c;
+
   font-weight:900;
+
   font-size:11px;
+
 }
 
 .btn.gold{
-  background:linear-gradient(145deg,#d9b45b,#987127);
+
+  background:
+    linear-gradient(
+      145deg,
+      #d9b45b,
+      #987127
+    );
+
   color:#152d23;
+
   border-color:#f0d57e;
+
 }
 
 .btn.green{
-  background:linear-gradient(145deg,#12845d,#07563e);
+
+  background:
+    linear-gradient(
+      145deg,
+      #12845d,
+      #07563e
+    );
+
 }
 
 .btn.red{
+
   background:#7f2828;
+
 }
 
 .btn:disabled{
   opacity:.42;
 }
 
-/* SHEET */
+/* =====================================================
+   SHEET
+   ===================================================== */
 
 .overlay{
+
   position:fixed;
   inset:0;
+
   z-index:100;
+
   background:#0009;
+
   display:none;
+
   align-items:flex-end;
+
 }
 
 .overlay.show{
@@ -703,75 +974,136 @@ button:disabled{
 }
 
 .sheet{
+
   width:100%;
   max-width:620px;
+
   margin:auto;
+
   background:#08271f;
-  border-radius:18px 18px 0 0;
-  border-top:1px solid #d6ad5266;
-  box-shadow:0 -15px 40px #000b;
+
+  border-radius:
+    18px
+    18px
+    0
+    0;
+
+  border-top:
+    1px solid
+    #d6ad5266;
+
+  box-shadow:
+    0 -15px 40px #000b;
+
   padding:15px;
+
   max-height:82vh;
+
   overflow:auto;
+
 }
 
 .sheet-head{
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   margin-bottom:10px;
+
 }
 
 .sheet-title{
+
   font-size:15px;
+
   font-weight:900;
+
 }
 
 .close{
+
   width:34px;
   height:34px;
+
   border:0;
+
   border-radius:8px;
+
   background:#ffffff12;
+
   color:#fff;
+
   font-size:20px;
+
 }
 
 .auction-history{
+
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:5px;
+
   margin-bottom:12px;
+
 }
 
 .auction-seat{
+
   padding:6px 3px;
+
   text-align:center;
+
   border-radius:6px;
+
   background:#ffffff08;
+
   font-size:8px;
+
   color:#a9cbbd;
+
 }
 
 .auction-seat b{
+
   display:block;
+
   color:#fff;
+
   font-size:10px;
+
 }
 
 .bid-grid{
+
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+
+  grid-template-columns:
+    repeat(5,1fr);
+
   gap:6px;
+
 }
 
 .bid{
+
   min-height:43px;
+
   border:1px solid #ffffff1b;
+
   border-radius:8px;
+
   background:#ffffff0d;
+
   color:#fff;
+
   font-weight:900;
+
 }
 
 .bid.pass{
@@ -779,67 +1111,105 @@ button:disabled{
 }
 
 .bid.disabled{
+
   opacity:.25;
+
   pointer-events:none;
+
 }
 
-/* LEVEL */
+/* =====================================================
+   LEVEL
+   ===================================================== */
 
 .level-grid{
+
   display:grid;
+
   gap:8px;
+
 }
 
 .level-btn{
+
   padding:13px;
+
   text-align:left;
+
   border:1px solid #ffffff18;
+
   border-radius:10px;
+
   color:#fff;
+
   background:#ffffff09;
+
 }
 
 .level-btn strong{
+
   display:block;
+
   font-size:13px;
+
 }
 
 .level-btn span{
+
   display:block;
+
   margin-top:3px;
+
   font-size:9px;
+
   color:#a9cabb;
+
 }
 
 .level-btn.active{
+
   border-color:#d9b45b;
+
   background:#d9b45b18;
+
 }
 
-/* RESPONSIVE */
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
 
 @media(max-width:430px){
 
   .north,
   .south{
+
     width:310px;
     max-width:94%;
+
   }
 
   .north .hand,
   .south .hand{
-    grid-template-columns:repeat(7,1fr);
+
+    grid-template-columns:
+      repeat(7,1fr);
+
     column-gap:2px;
+
   }
 
   .north .card{
+
     width:28px;
     height:43px;
+
   }
 
   .south .card{
+
     width:34px;
     height:53px;
+
   }
 
   .south .card .rank{
@@ -852,21 +1222,35 @@ button:disabled{
 
   .east .hand,
   .west .hand{
+
     width:74px;
 
-    grid-template-columns:repeat(2,30px);
-    grid-template-rows:repeat(7,1fr);
+    grid-template-columns:
+      repeat(2,30px);
+
+    grid-template-rows:
+      repeat(7,1fr);
 
     column-gap:3px;
     row-gap:2px;
 
     min-height:285px;
+
   }
 
   .east .card,
   .west .card{
+
     width:30px;
     height:37px;
+
+  }
+
+  .table-center{
+
+    width:50%;
+    min-width:180px;
+
   }
 
 }
@@ -874,27 +1258,37 @@ button:disabled{
 @media(max-width:390px){
 
   .table{
+
     min-height:490px;
+
   }
 
   .north,
   .south{
+
     width:292px;
+
   }
 
   .north .hand,
   .south .hand{
+
     column-gap:1px;
+
   }
 
   .north .card{
+
     width:26px;
     height:41px;
+
   }
 
   .south .card{
+
     width:32px;
     height:50px;
+
   }
 
   .south .card .rank{
@@ -907,30 +1301,66 @@ button:disabled{
 
   .east .hand,
   .west .hand{
+
     width:70px;
 
-    grid-template-columns:repeat(2,28px);
-    grid-template-rows:repeat(7,1fr);
+    grid-template-columns:
+      repeat(2,28px);
+
+    grid-template-rows:
+      repeat(7,1fr);
 
     column-gap:2px;
 
     min-height:275px;
+
   }
 
   .east .card,
   .west .card{
+
     width:28px;
     height:36px;
+
   }
 
   .east .card .rank,
   .west .card .rank{
+
     font-size:9px;
+
   }
 
   .east .card .suit,
   .west .card .suit{
+
     font-size:11px;
+
+  }
+
+  .table-center{
+
+    width:52%;
+    min-width:175px;
+
+  }
+
+  .contract-card{
+
+    padding:9px 7px;
+
+  }
+
+  .contract-main{
+
+    font-size:21px;
+
+  }
+
+  .round-status{
+
+    font-size:8px;
+
   }
 
 }
@@ -938,49 +1368,70 @@ button:disabled{
 @media(min-width:500px){
 
   .table{
+
     min-height:600px;
+
   }
 
   .north,
   .south{
+
     width:350px;
+
   }
 
   .north .hand,
   .south .hand{
+
     column-gap:5px;
+
   }
 
   .north .card{
+
     width:32px;
     height:48px;
+
   }
 
   .south .card{
+
     width:39px;
     height:59px;
+
   }
 
   .east .hand,
   .west .hand{
+
     width:84px;
 
-    grid-template-columns:repeat(2,35px);
-    grid-template-rows:repeat(7,1fr);
+    grid-template-columns:
+      repeat(2,35px);
+
+    grid-template-rows:
+      repeat(7,1fr);
 
     column-gap:5px;
     row-gap:4px;
 
     min-height:320px;
+
   }
 
   .east .card,
   .west .card{
+
     width:35px;
     height:42px;
+
   }
 
 }
+
+/* =====================================================
+   END CSS
+   ===================================================== */
 
 </style>
 </head>
@@ -993,7 +1444,9 @@ button:disabled{
 
   <div class="brand">
 
-    <div class="logo">♠</div>
+    <div class="logo">
+      ♠
+    </div>
 
     <div>
 
@@ -1028,6 +1481,8 @@ button:disabled{
   </div>
 
 </header>
+
+<!-- MENU WEBSITE GABSI -->
 
 <nav
   class="site-menu"
@@ -1216,14 +1671,14 @@ button:disabled{
 
   </div>
 
-  <!-- CENTER -->
+  <!-- CENTER / BID -->
 
   <div class="table-center">
 
     <div class="contract-card">
 
       <div class="contract-title">
-        Kontrak
+        Kontrak / Bid
       </div>
 
       <div
@@ -1236,6 +1691,24 @@ button:disabled{
         class="contract-extra"
         id="centerInfo">
         Menunggu pembukaan lelang
+      </div>
+
+      <div
+        class="round-status normal"
+        id="roundStatus">
+
+        <span
+          class="round-icon"
+          id="roundIcon">
+          🟡
+        </span>
+
+        <span
+          class="round-text"
+          id="roundText">
+          NORMAL
+        </span>
+
       </div>
 
     </div>
@@ -1496,6 +1969,16 @@ button:disabled{
 
     </p>
 
+    <p
+      style="font-size:12px;line-height:1.6;color:#c4ddd3">
+
+      <strong>Indikator putaran:</strong><br>
+      🟢 TIDAK BAHAYA = posisi trik masih aman.<br>
+      🟡 NORMAL = permainan masih seimbang.<br>
+      🔴 BAHAYA = posisi kontrak mulai terancam.
+
+    </p>
+
     <button
       class="btn gold"
       style="width:100%"
@@ -1512,6 +1995,10 @@ button:disabled{
 <script>
 
 'use strict';
+
+/* =====================================================
+   DATA KARTU
+   ===================================================== */
 
 const SUITS=[
   '♣',
@@ -1562,6 +2049,10 @@ const LEVELS={
   }
 
 };
+
+/* =====================================================
+   STATE
+   ===================================================== */
 
 const state={
 
@@ -1616,6 +2107,10 @@ const state={
 
 };
 
+/* =====================================================
+   BASIC
+   ===================================================== */
+
 function $(id){
   return document.getElementById(id);
 }
@@ -1664,27 +2159,19 @@ function handHCP(hand){
 
     (sum,card)=>{
 
-      if(
-        card.rank==='A'
-      ){
+      if(card.rank==='A'){
         return sum+4;
       }
 
-      if(
-        card.rank==='K'
-      ){
+      if(card.rank==='K'){
         return sum+3;
       }
 
-      if(
-        card.rank==='Q'
-      ){
+      if(card.rank==='Q'){
         return sum+2;
       }
 
-      if(
-        card.rank==='J'
-      ){
+      if(card.rank==='J'){
         return sum+1;
       }
 
@@ -1698,10 +2185,7 @@ function handHCP(hand){
 
 }
 
-function suitCount(
-  hand,
-  suit
-){
+function suitCount(hand,suit){
 
   return hand.filter(
     card=>card.suit===suit
@@ -1724,18 +2208,17 @@ function sortCards(hand){
     (a,b)=>{
 
       if(
-        order[a.suit]!==
-        order[b.suit]
+        order[a.suit]!==order[b.suit]
       ){
 
-        return (
+        return(
           order[a.suit]-
           order[b.suit]
         );
 
       }
 
-      return (
+      return(
         RANKS.indexOf(b.rank)-
         RANKS.indexOf(a.rank)
       );
@@ -1771,6 +2254,10 @@ function shuffle(array){
   return array;
 
 }
+
+/* =====================================================
+   BOARD
+   ===================================================== */
 
 function boardInfo(board){
 
@@ -1817,6 +2304,189 @@ function boardInfo(board){
   };
 
 }
+
+/* =====================================================
+   INDIKATOR PUTARAN
+   ===================================================== */
+
+function updateRoundStatus(){
+
+  const box=
+    $('roundStatus');
+
+  const icon=
+    $('roundIcon');
+
+  const text=
+    $('roundText');
+
+  if(
+    !box ||
+    !icon ||
+    !text
+  ){
+
+    return;
+
+  }
+
+  let level='normal';
+
+  let label='NORMAL';
+
+  let symbol='🟡';
+
+  /*
+    Saat lelang belum selesai,
+    kondisi dianggap normal.
+  */
+
+  if(
+    state.phase==='auction'
+  ){
+
+    level='normal';
+    label='NORMAL';
+    symbol='🟡';
+
+  }
+
+  /*
+    Setelah kontrak terbentuk,
+    kondisi dihitung dari trik yang
+    sudah dimenangkan dibandingkan
+    trik yang dibutuhkan.
+  */
+
+  else if(
+    state.phase==='play' &&
+    state.contract
+  ){
+
+    const declarerNS=
+      isNS(state.declarer);
+
+    const made=
+      declarerNS
+        ?state.tricksNS
+        :state.tricksEW;
+
+    const target=
+      6+
+      state.contract.level;
+
+    const remaining=
+      13-state.completed;
+
+    const needed=
+      Math.max(
+        0,
+        target-made
+      );
+
+    /*
+      Jika kebutuhan trik lebih banyak
+      daripada trik yang tersisa,
+      kontrak dalam keadaan bahaya.
+    */
+
+    if(
+      needed>remaining
+    ){
+
+      level='danger';
+      label='BAHAYA';
+      symbol='🔴';
+
+    }
+
+    /*
+      Jika jumlah trik sudah cukup,
+      atau peluang menang sangat baik.
+    */
+
+    else if(
+      made>=target ||
+      needed<=Math.max(
+        0,
+        Math.floor(remaining/2)
+      )
+    ){
+
+      level='safe';
+      label='TIDAK BAHAYA';
+      symbol='🟢';
+
+    }
+
+    else{
+
+      level='normal';
+      label='NORMAL';
+      symbol='🟡';
+
+    }
+
+  }
+
+  /*
+    Setelah board selesai.
+  */
+
+  else if(
+    state.phase==='finished' &&
+    state.contract
+  ){
+
+    const declarerNS=
+      isNS(state.declarer);
+
+    const made=
+      declarerNS
+        ?state.tricksNS
+        :state.tricksEW;
+
+    const target=
+      6+
+      state.contract.level;
+
+    if(made>=target){
+
+      level='safe';
+      label='TIDAK BAHAYA';
+      symbol='🟢';
+
+    }else{
+
+      level='danger';
+      label='BAHAYA';
+      symbol='🔴';
+
+    }
+
+  }
+
+  box.classList.remove(
+    'normal',
+    'safe',
+    'danger'
+  );
+
+  box.classList.add(
+    level
+  );
+
+  icon.textContent=
+    symbol;
+
+  text.textContent=
+    label;
+
+}
+
+/* =====================================================
+   NEW GAME
+   ===================================================== */
 
 function newGame(){
 
@@ -1888,7 +2558,13 @@ function newGame(){
 
   setTurnStatus();
 
+  updateRoundStatus();
+
 }
+
+/* =====================================================
+   DECK
+   ===================================================== */
 
 function makeDeck(){
 
@@ -1911,7 +2587,7 @@ function makeDeck(){
         id:
           suit+
           rank+
-          '-'+
+          '-' +
           Math.random()
             .toString(36)
             .slice(2)
@@ -1962,6 +2638,10 @@ function deal(){
 
 }
 
+/* =====================================================
+   CONTROL
+   ===================================================== */
+
 function isUserControlled(seat){
 
   if(
@@ -1980,7 +2660,7 @@ function isUserControlled(seat){
 
   }
 
-  return (
+  return(
     state.declarer===
     state.userSeat &&
     seat===state.dummy
@@ -1990,7 +2670,7 @@ function isUserControlled(seat){
 
 function isComputerControlled(seat){
 
-  return (
+  return(
     state.phase==='play' &&
     !isUserControlled(seat)
   );
@@ -1999,21 +2679,22 @@ function isComputerControlled(seat){
 
 function shouldRevealDummy(){
 
-  return (
+  return(
     state.phase==='play' &&
     state.dummyRevealed
   );
 
 }
 
+/* =====================================================
+   RENDER
+   ===================================================== */
+
 function render(){
 
   renderHand('N');
-
   renderHand('E');
-
   renderHand('S');
-
   renderHand('W');
 
   renderTrick();
@@ -2031,7 +2712,13 @@ function render(){
 
   updatePrimaryAction();
 
+  updateRoundStatus();
+
 }
+
+/* =====================================================
+   RENDER HAND
+   ===================================================== */
 
 function renderHand(seat){
 
@@ -2120,10 +2807,12 @@ function renderHand(seat){
           div.tabIndex=0;
 
           div.onclick=()=>{
+
             playCard(
               seat,
               card
             );
+
           };
 
           div.onkeydown=e=>{
@@ -2161,6 +2850,10 @@ function renderHand(seat){
 
 }
 
+/* =====================================================
+   DUMMY
+   ===================================================== */
+
 function updateDummyHighlight(){
 
   const table=
@@ -2181,6 +2874,10 @@ function updateDummyHighlight(){
   );
 
 }
+
+/* =====================================================
+   TRICK
+   ===================================================== */
 
 function renderTrick(){
 
@@ -2229,12 +2926,18 @@ function renderTrick(){
 
 }
 
+/* =====================================================
+   CONTRACT
+   ===================================================== */
+
 function updateContractDisplay(){
 
   if(
     state.phase==='auction' ||
     !state.contract
   ){
+
+    updateRoundStatus();
 
     return;
 
@@ -2245,12 +2948,22 @@ function updateContractDisplay(){
     state.contract.suit;
 
   $('centerInfo').textContent=
-    'Trik NS '+
+    'Declarer: '+
+    state.declarer+
+    ' • Dummy: '+
+    state.dummy+
+    ' • Trik NS '+
     state.tricksNS+
     ' • EW '+
     state.tricksEW;
 
+  updateRoundStatus();
+
 }
+
+/* =====================================================
+   STATUS
+   ===================================================== */
 
 function setTurnStatus(){
 
@@ -2317,7 +3030,9 @@ function setTurnStatus(){
 
 }
 
-/* BIDDING */
+/* =====================================================
+   BIDDING
+   ===================================================== */
 
 function bidRank(
   level,
@@ -2332,7 +3047,7 @@ function bidRank(
     'NT':4
   };
 
-  return (
+  return(
     level*5+
     order[suit]
   );
@@ -2349,11 +3064,11 @@ function isHigherBid(bid){
 
   }
 
-  return (
+  return(
     bidRank(
       bid.level,
       bid.suit
-    ) >
+    )>
     bidRank(
       state.currentBid.level,
       state.currentBid.suit
@@ -2452,7 +3167,7 @@ function checkAuctionEnd(){
 
   }
 
-  return (
+  return(
     nonPass.length===0 &&
     state.auction.length>=4
   );
@@ -2483,12 +3198,15 @@ function computerBid(){
   const longest=[
     ...SUITS.map(
       suit=>({
+
         suit,
+
         count:
           suitCount(
             hand,
             suit
           )
+
       })
     )
   ].sort(
@@ -2800,7 +3518,7 @@ function renderAuctionHistory(){
 
 function formatBid(bid){
 
-  return (
+  return(
     bid==='PASS'
       ? 'PASS'
       : bid.level+
@@ -2808,6 +3526,10 @@ function formatBid(bid){
   );
 
 }
+
+/* =====================================================
+   FINISH AUCTION
+   ===================================================== */
 
 function finishAuction(){
 
@@ -2837,6 +3559,8 @@ function finishAuction(){
 
     updatePrimaryAction();
 
+    updateRoundStatus();
+
     return;
 
   }
@@ -2852,8 +3576,8 @@ function finishAuction(){
         active.length-1
       ].seat
     )
-      ? 'NS'
-      : 'EW';
+      ?'NS'
+      :'EW';
 
   let declarerRecord=
     null;
@@ -2866,8 +3590,8 @@ function finishAuction(){
       isNS(
         item.seat
       )
-        ? 'NS'
-        : 'EW';
+        ?'NS'
+        :'EW';
 
     if(
       side===finalSide &&
@@ -2908,8 +3632,8 @@ function finishAuction(){
 
   state.trump=
     finalBid.suit==='NT'
-      ? null
-      : finalBid.suit;
+      ?null
+      :finalBid.suit;
 
   state.openingLeader=
     nextSeat(
@@ -2941,7 +3665,9 @@ function finishAuction(){
 
 }
 
-/* PLAY */
+/* =====================================================
+   PLAY
+   ===================================================== */
 
 function legalCard(
   card,
@@ -2968,8 +3694,8 @@ function legalCard(
       );
 
   return hasLead
-    ? card.suit===lead
-    : true;
+    ?card.suit===lead
+    :true;
 
 }
 
@@ -3115,13 +3841,13 @@ function computerPlay(
 
   const card=
     state.level==='easy'
-      ? legal[
+      ?legal[
           Math.floor(
             Math.random()*
             legal.length
           )
         ]
-      : chooseComputerCard(
+      :chooseComputerCard(
           seat,
           legal
         );
@@ -3142,7 +3868,7 @@ function chooseComputerCard(
     state.trick.length===0
   ){
 
-    return [
+    return[
       ...legal
     ].sort(
       (a,b)=>
@@ -3163,13 +3889,13 @@ function chooseComputerCard(
     isNS(
       state.declarer
     )
-      ? 'NS'
-      : 'EW';
+      ?'NS'
+      :'EW';
 
   const mySide=
     isNS(seat)
-      ? 'NS'
-      : 'EW';
+      ?'NS'
+      :'EW';
 
   const winners=
     legal.filter(
@@ -3187,7 +3913,7 @@ function chooseComputerCard(
     mySide!==declarerSide
   ){
 
-    return [
+    return[
       ...winners
     ].sort(
       (a,b)=>
@@ -3203,7 +3929,7 @@ function chooseComputerCard(
     state.level!=='easy'
   ){
 
-    return [
+    return[
       ...winners
     ].sort(
       (a,b)=>
@@ -3213,7 +3939,7 @@ function chooseComputerCard(
 
   }
 
-  return [
+  return[
     ...legal
   ].sort(
     (a,b)=>
@@ -3297,12 +4023,16 @@ function beats(
 
   }
 
-  return (
+  return(
     RANKS.indexOf(a.rank)>
     RANKS.indexOf(b.rank)
   );
 
 }
+
+/* =====================================================
+   RESOLVE TRICK
+   ===================================================== */
 
 function resolveTrick(){
 
@@ -3353,6 +4083,10 @@ function resolveTrick(){
 
 }
 
+/* =====================================================
+   FINISH BOARD
+   ===================================================== */
+
 function finishBoard(){
 
   state.phase=
@@ -3365,8 +4099,8 @@ function finishBoard(){
 
   const made=
     declarerNS
-      ? state.tricksNS
-      : state.tricksEW;
+      ?state.tricksNS
+      :state.tricksEW;
 
   const target=
     6+
@@ -3382,8 +4116,8 @@ function finishBoard(){
 
   const result=
     made>=target
-      ? 'KONTRAK BERHASIL'
-      : 'KONTRAK GAGAL';
+      ?'KONTRAK BERHASIL'
+      :'KONTRAK GAGAL';
 
   $('statusText').textContent=
     result+
@@ -3407,6 +4141,10 @@ function finishBoard(){
 
 }
 
+/* =====================================================
+   SCORE
+   ===================================================== */
+
 function calculateScore(
   contract,
   made,
@@ -3427,12 +4165,12 @@ function calculateScore(
 
     const penalty=
       vul==='None'
-        ? 50*down
-        : 100*down;
+        ?50*down
+        :100*down;
 
     return declarerNS
-      ? -penalty
-      : penalty;
+      ?-penalty
+      :penalty;
 
   }
 
@@ -3466,12 +4204,12 @@ function calculateScore(
 
   score+=
     trickPoints>=100
-      ? (
-          vul==='None'
-            ? 300
-            : 500
-        )
-      : 50;
+      ?(
+        vul==='None'
+          ?300
+          :500
+      )
+      :50;
 
   const over=
     Math.max(
@@ -3488,8 +4226,8 @@ function calculateScore(
         contract.suit==='♣' ||
         contract.suit==='♦'
       )
-        ? 20
-        : 30;
+        ?20
+        :30;
 
     score+=
       over*value;
@@ -3497,10 +4235,14 @@ function calculateScore(
   }
 
   return declarerNS
-    ? score
-    : -score;
+    ?score
+    :-score;
 
 }
+
+/* =====================================================
+   SORT
+   ===================================================== */
 
 function sortHand(){
 
@@ -3528,6 +4270,10 @@ function sortHand(){
   }
 
 }
+
+/* =====================================================
+   PRIMARY ACTION
+   ===================================================== */
 
 function handlePrimaryAction(){
 
@@ -3585,6 +4331,10 @@ function handlePrimaryAction(){
 
 }
 
+/* =====================================================
+   COMPUTER TURN
+   ===================================================== */
+
 function advanceComputerTurn(){
 
   if(
@@ -3630,6 +4380,10 @@ function advanceComputerTurn(){
   }
 
 }
+
+/* =====================================================
+   PRIMARY BUTTON
+   ===================================================== */
 
 function updatePrimaryAction(){
 
@@ -3717,7 +4471,9 @@ function updatePrimaryAction(){
 
 }
 
-/* SETTINGS */
+/* =====================================================
+   SETTINGS
+   ===================================================== */
 
 function openSettings(){
 
@@ -3788,7 +4544,9 @@ function setLevel(level){
 
 }
 
-/* HELP */
+/* =====================================================
+   HELP
+   ===================================================== */
 
 function openHelp(){
 
@@ -3807,6 +4565,10 @@ function closeHelp(){
     );
 
 }
+
+/* =====================================================
+   OVERLAY
+   ===================================================== */
 
 document
   .querySelectorAll(
@@ -3858,6 +4620,10 @@ document.addEventListener(
 
   }
 );
+
+/* =====================================================
+   START
+   ===================================================== */
 
 newGame();
 
