@@ -1,19 +1,35 @@
 <!doctype html>
 <html lang="id">
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#073c59">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+<meta name="theme-color"
+      content="#063b5c">
 
 <meta name="description"
-content="Kontak resmi GABSI Kota Tanjungbalai — Gabungan Bridge Seluruh Indonesia.">
+      content="Kontak resmi GABSI Kota Tanjungbalai — Gabungan Bridge Seluruh Indonesia.">
 
 <title>Kontak — GABSI Kota Tanjungbalai</title>
 
+<link rel="icon"
+      type="image/png"
+      href="logo-gabsi.png">
+
+<link rel="stylesheet"
+      href="gabsi-unified-theme.css">
+
 <style>
+
+/* =========================================================
+   KONTAK — GABSI KOTA TANJUNGBALAI
+   Desain halaman kontak
+   ========================================================= */
+
 *{
-  margin:0;
-  padding:0;
   box-sizing:border-box;
 }
 
@@ -24,18 +40,20 @@ body{
   line-height:1.6;
 }
 
-/* ================= HEADER ================= */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .site-header{
   width:100%;
   background:#fff;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  box-shadow:0 2px 12px rgba(0,0,0,.10);
   position:relative;
   z-index:100;
 }
 
 .top-line{
-  background:#073c59;
+  background:#063b5c;
   color:#fff;
   min-height:30px;
   padding:6px 20px;
@@ -43,49 +61,61 @@ body{
   justify-content:space-between;
   align-items:center;
   font-size:9px;
+  letter-spacing:.2px;
 }
 
 .header-main{
-  min-height:65px;
+  min-height:68px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:15px;
-  padding:8px 20px;
+  padding:9px 20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:10px;
   text-decoration:none;
   color:#173b50;
   flex-shrink:0;
 }
 
 .brand-logo{
-  width:38px;
-  height:38px;
-  border-radius:8px;
-  background:#0b5278;
-  color:#fff;
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid #dce7ec;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:19px;
-  font-weight:bold;
+  overflow:hidden;
+  padding:3px;
+  box-shadow:0 3px 10px rgba(0,0,0,.12);
+}
+
+.brand-logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
 }
 
 .brand-text strong{
   display:block;
   font-size:13px;
+  line-height:1.2;
+  color:#063b5c;
 }
 
 .brand-text small{
   display:block;
   font-size:7px;
-  color:#8b9297;
-  margin-top:1px;
+  color:#7b8790;
+  margin-top:2px;
+  letter-spacing:.2px;
 }
 
 .main-nav{
@@ -109,7 +139,7 @@ body{
   font-size:10px;
   font-weight:600;
   white-space:nowrap;
-  transition:.2s;
+  transition:.2s ease;
 }
 
 .main-nav a:hover{
@@ -118,63 +148,102 @@ body{
 }
 
 .main-nav a.active{
-  background:#eaf4f9;
-  color:#07558f;
+  background:#07558f;
+  color:#fff;
   font-weight:700;
 }
 
-/* ================= HERO ================= */
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .page-hero{
-  background:linear-gradient(135deg,#07558f,#087cab);
+  background:
+    linear-gradient(
+      135deg,
+      #063b5c 0%,
+      #07558f 55%,
+      #087cab 100%
+    );
   color:#fff;
-  padding:42px 20px;
+  padding:48px 20px;
   text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.page-hero::before{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.08);
+  top:-180px;
+  right:-80px;
+}
+
+.page-hero::after{
+  content:"";
+  position:absolute;
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.07);
+  bottom:-160px;
+  left:-70px;
 }
 
 .page-hero-inner{
   max-width:1000px;
   margin:auto;
+  position:relative;
+  z-index:2;
 }
 
 .hero-label{
   display:inline-block;
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.30);
-  padding:6px 13px;
-  border-radius:20px;
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.28);
+  padding:6px 14px;
+  border-radius:30px;
   font-size:9px;
   font-weight:bold;
-  margin-bottom:10px;
+  letter-spacing:.5px;
+  margin-bottom:11px;
 }
 
 .page-hero h1{
-  font-size:32px;
+  font-size:34px;
   line-height:1.2;
-  margin-bottom:7px;
+  margin:0 0 8px;
 }
 
 .page-hero h1 span{
-  color:#ffd83d;
+  color:#ffd75a;
 }
 
 .page-hero p{
   font-size:12px;
-  color:rgba(255,255,255,.9);
-  max-width:700px;
+  color:rgba(255,255,255,.90);
+  max-width:720px;
   margin:auto;
 }
 
-/* ================= CONTAINER ================= */
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
 .container{
   width:100%;
   max-width:1100px;
   margin:auto;
-  padding:35px 20px 50px;
+  padding:38px 20px 55px;
 }
 
-/* ================= CONTACT GRID ================= */
+/* =========================================================
+   CONTACT GRID
+   ========================================================= */
 
 .contact-grid{
   display:grid;
@@ -182,20 +251,22 @@ body{
   gap:25px;
 }
 
-/* ================= CARD ================= */
+/* =========================================================
+   CARD
+   ========================================================= */
 
 .contact-card{
   background:#fff;
   border:1px solid #dce7ec;
   border-radius:16px;
-  padding:25px;
-  box-shadow:0 5px 18px rgba(0,0,0,.06);
+  padding:26px;
+  box-shadow:0 6px 22px rgba(0,0,0,.07);
 }
 
 .contact-card h2{
   color:#07558f;
   font-size:20px;
-  margin-bottom:8px;
+  margin:0 0 8px;
 }
 
 .contact-card > p{
@@ -204,7 +275,9 @@ body{
   margin-bottom:20px;
 }
 
-/* ================= CONTACT ITEM ================= */
+/* =========================================================
+   CONTACT ITEM
+   ========================================================= */
 
 .contact-item{
   display:flex;
@@ -216,12 +289,13 @@ body{
 
 .contact-item:last-child{
   border-bottom:0;
+  padding-bottom:0;
 }
 
 .contact-icon{
-  width:42px;
-  height:42px;
-  min-width:42px;
+  width:43px;
+  height:43px;
+  min-width:43px;
   border-radius:11px;
   background:#eaf4f9;
   color:#07558f;
@@ -257,81 +331,39 @@ body{
   color:#07558f;
 }
 
-/* ================= WHATSAPP ================= */
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
 
 .whatsapp-button{
   display:inline-flex !important;
   align-items:center;
   justify-content:center;
   gap:7px;
-  margin-top:6px;
-  padding:8px 12px;
+  margin-top:7px;
+  padding:9px 13px;
   border-radius:8px;
   background:#128c7e;
   color:#fff !important;
   font-size:10px !important;
   font-weight:bold;
+  transition:.2s ease;
 }
 
 .whatsapp-button:hover{
   background:#075e54;
+  color:#fff !important;
+  transform:translateY(-1px);
 }
 
-/* ================= MAP ================= */
-
-.map-card{
-  margin-top:25px;
-  background:#fff;
-  border:1px solid #dce7ec;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 5px 18px rgba(0,0,0,.06);
-}
-
-.map-header{
-  padding:20px 25px 15px;
-}
-
-.map-header h2{
-  color:#07558f;
-  font-size:20px;
-  margin-bottom:5px;
-}
-
-.map-header p{
-  color:#687783;
-  font-size:10px;
-}
-
-.map-frame{
-  width:100%;
-  height:380px;
-  border:0;
-  display:block;
-}
-
-.map-button{
-  display:inline-block;
-  margin:15px 25px 20px;
-  padding:10px 15px;
-  background:#07558f;
-  color:#fff;
-  text-decoration:none;
-  border-radius:8px;
-  font-size:10px;
-  font-weight:bold;
-}
-
-.map-button:hover{
-  background:#063f69;
-}
-
-/* ================= FORM ================= */
+/* =========================================================
+   FORM
+   ========================================================= */
 
 .form-title{
   color:#07558f;
   font-size:20px;
-  margin-bottom:8px;
+  margin:0 0 8px;
 }
 
 .form-description{
@@ -363,14 +395,14 @@ body{
   font-size:11px;
   color:#263746;
   outline:none;
-  transition:.2s;
+  transition:.2s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus{
   border-color:#087cab;
   background:#fff;
-  box-shadow:0 0 0 3px rgba(8,124,171,.08);
+  box-shadow:0 0 0 3px rgba(8,124,171,.09);
 }
 
 .form-group textarea{
@@ -388,44 +420,111 @@ body{
   font-size:11px;
   font-weight:bold;
   cursor:pointer;
+  transition:.2s ease;
 }
 
 .btn-kirim:hover{
   background:#063f69;
+  transform:translateY(-1px);
 }
 
-/* ================= INFO ================= */
+/* =========================================================
+   MAP
+   ========================================================= */
+
+.map-card{
+  margin-top:25px;
+  background:#fff;
+  border:1px solid #dce7ec;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 6px 22px rgba(0,0,0,.07);
+}
+
+.map-header{
+  padding:21px 25px 15px;
+}
+
+.map-header h2{
+  color:#07558f;
+  font-size:20px;
+  margin:0 0 5px;
+}
+
+.map-header p{
+  color:#687783;
+  font-size:10px;
+  margin:0;
+}
+
+.map-frame{
+  width:100%;
+  height:380px;
+  border:0;
+  display:block;
+}
+
+.map-button{
+  display:inline-block;
+  margin:15px 25px 20px;
+  padding:10px 15px;
+  background:#07558f;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-size:10px;
+  font-weight:bold;
+  transition:.2s ease;
+}
+
+.map-button:hover{
+  background:#063f69;
+  color:#fff;
+  transform:translateY(-1px);
+}
+
+/* =========================================================
+   INFO
+   ========================================================= */
 
 .info-box{
   margin-top:25px;
-  background:linear-gradient(135deg,#07558f,#087cab);
+  background:
+    linear-gradient(
+      135deg,
+      #063b5c,
+      #07558f,
+      #087cab
+    );
   color:#fff;
   border-radius:16px;
-  padding:25px;
+  padding:27px;
+  box-shadow:0 6px 22px rgba(0,0,0,.08);
 }
 
 .info-box h2{
-  font-size:18px;
-  margin-bottom:8px;
+  font-size:19px;
+  margin:0 0 8px;
 }
 
 .info-box p{
   font-size:10px;
   color:rgba(255,255,255,.9);
+  margin:0;
 }
 
 .info-points{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
-  margin-top:18px;
+  margin-top:19px;
 }
 
 .info-point{
   background:rgba(255,255,255,.10);
   border:1px solid rgba(255,255,255,.16);
   border-radius:10px;
-  padding:13px;
+  padding:14px;
 }
 
 .info-point strong{
@@ -440,12 +539,14 @@ body{
   color:rgba(255,255,255,.78);
 }
 
-/* ================= FOOTER ================= */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 .footer{
-  background:#073c59;
+  background:#063b5c;
   color:#fff;
-  padding:30px 20px 18px;
+  padding:32px 20px 18px;
 }
 
 .footer-inner{
@@ -458,13 +559,14 @@ body{
 
 .footer h3{
   font-size:14px;
-  margin-bottom:8px;
+  margin:0 0 9px;
 }
 
 .footer p{
   color:rgba(255,255,255,.75);
   font-size:10px;
   line-height:1.7;
+  margin:0;
 }
 
 .footer-links{
@@ -477,6 +579,7 @@ body{
   color:rgba(255,255,255,.75);
   text-decoration:none;
   font-size:10px;
+  transition:.2s ease;
 }
 
 .footer-links a:hover{
@@ -485,8 +588,8 @@ body{
 
 .footer-bottom{
   max-width:1100px;
-  margin:22px auto 0;
-  padding-top:12px;
+  margin:23px auto 0;
+  padding-top:13px;
   border-top:1px solid rgba(255,255,255,.15);
   display:flex;
   justify-content:space-between;
@@ -494,7 +597,9 @@ body{
   font-size:9px;
 }
 
-/* ================= MOBILE ================= */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media(max-width:700px){
 
@@ -511,9 +616,8 @@ body{
   }
 
   .brand-logo{
-    width:32px;
-    height:32px;
-    font-size:16px;
+    width:34px;
+    height:34px;
   }
 
   .brand-text strong{
@@ -535,7 +639,7 @@ body{
   }
 
   .page-hero{
-    padding:30px 15px;
+    padding:32px 15px;
   }
 
   .page-hero h1{
@@ -547,7 +651,7 @@ body{
   }
 
   .container{
-    padding:25px 12px 35px;
+    padding:25px 12px 38px;
   }
 
   .contact-grid{
@@ -582,7 +686,7 @@ body{
   }
 
   .footer{
-    padding:25px 15px 15px;
+    padding:26px 15px 15px;
   }
 
   .footer-inner{
@@ -599,12 +703,50 @@ body{
     gap:5px;
   }
 }
+
+@media(max-width:380px){
+
+  .brand-text{
+    display:none;
+  }
+
+  .header-main{
+    gap:5px;
+  }
+
+  .main-nav a{
+    font-size:7px;
+    padding:6px 7px;
+  }
+
+  .page-hero h1{
+    font-size:24px;
+  }
+
+  .contact-card{
+    padding:17px;
+  }
+
+  .contact-item{
+    gap:10px;
+  }
+
+  .contact-icon{
+    width:38px;
+    height:38px;
+    min-width:38px;
+    font-size:16px;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
 <header class="site-header">
 
@@ -617,7 +759,11 @@ body{
 
     <a href="index.html" class="brand">
 
-      <div class="brand-logo">♥</div>
+      <div class="brand-logo">
+        <img
+          src="logo-gabsi.png"
+          alt="Logo GABSI Kota Tanjungbalai">
+      </div>
 
       <div class="brand-text">
         <strong>GABSI KOTA TANJUNGBALAI</strong>
@@ -640,12 +786,17 @@ body{
 
       <a href="aplikasi.html">Aplikasi</a>
 
-      <a href="game-bridge-gabsi.html">♠ Game Bridge</a>
+      <a href="game-bridge-gabsi.html">
+        ♠ Game Bridge
+      </a>
 
-      <!-- TAMBAHAN BARU: BERITA -->
-      <a href="berita.html">Berita</a>
+      <a href="berita.html">
+        Berita
+      </a>
 
-      <a href="kontak.html" class="active">Kontak</a>
+      <a href="kontak.html" class="active">
+        Kontak
+      </a>
 
     </nav>
 
@@ -654,7 +805,9 @@ body{
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================================================
+     HERO
+     ========================================================= -->
 
 <section class="page-hero">
 
@@ -679,7 +832,9 @@ body{
 </section>
 
 
-<!-- ================= CONTENT ================= -->
+<!-- =========================================================
+     CONTENT
+     ========================================================= -->
 
 <main class="container">
 
@@ -694,7 +849,6 @@ body{
       <p>
         Informasi resmi GABSI Kota Tanjungbalai.
       </p>
-
 
       <!-- ALAMAT -->
 
@@ -856,13 +1010,17 @@ body{
   </div>
 
 
-  <!-- ================= MAP ================= -->
+  <!-- =======================================================
+       MAP
+       ======================================================= -->
 
   <section class="map-card">
 
     <div class="map-header">
 
-      <h2>Lokasi GABSI Kota Tanjungbalai</h2>
+      <h2>
+        Lokasi GABSI Kota Tanjungbalai
+      </h2>
 
       <p>
         Jl. R A. Kartini Lk. IV, Kelurahan Sijambi,
@@ -893,7 +1051,9 @@ body{
   </section>
 
 
-  <!-- ================= INFO ================= -->
+  <!-- =======================================================
+       INFO
+       ======================================================= -->
 
   <section class="info-box">
 
@@ -950,7 +1110,9 @@ body{
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
 
 <footer class="footer">
 
@@ -973,24 +1135,39 @@ body{
 
     <div>
 
-      <h3>Menu</h3>
+      <h3>
+        Menu
+      </h3>
 
       <div class="footer-links">
 
-        <a href="index.html">Beranda</a>
+        <a href="index.html">
+          Beranda
+        </a>
 
-        <a href="profil.html">Profil</a>
+        <a href="profil.html">
+          Profil
+        </a>
 
-        <a href="pengurus.html">Pengurus</a>
+        <a href="pengurus.html">
+          Pengurus
+        </a>
 
-        <a href="kegiatan.html">Kegiatan</a>
+        <a href="kegiatan.html">
+          Kegiatan
+        </a>
 
-        <a href="galeri.html">Galeri</a>
+        <a href="galeri.html">
+          Galeri
+        </a>
 
-        <a href="aplikasi.html">Aplikasi</a>
+        <a href="aplikasi.html">
+          Aplikasi
+        </a>
 
-        <!-- TAMBAHAN BARU: BERITA -->
-        <a href="berita.html">Berita</a>
+        <a href="berita.html">
+          Berita
+        </a>
 
       </div>
 
@@ -999,7 +1176,9 @@ body{
 
     <div>
 
-      <h3>Layanan</h3>
+      <h3>
+        Layanan
+      </h3>
 
       <div class="footer-links">
 
@@ -1044,7 +1223,9 @@ body{
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
 
 <script>
 
