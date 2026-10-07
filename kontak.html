@@ -19,143 +19,212 @@
       type="image/png"
       href="logo-gabsi.png">
 
-<link rel="stylesheet"
-      href="gabsi-unified-theme.css">
-
 <style>
 
 /* =========================================================
-   KONTAK — GABSI KOTA TANJUNGBALAI
-   Desain halaman kontak
-   ========================================================= */
+   RESET & DASAR
+========================================================= */
 
 *{
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
+  margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:#eef4f7;
   color:#263746;
   line-height:1.6;
 }
 
+img{
+  max-width:100%;
+}
+
+a{
+  text-decoration:none;
+}
+
+.container{
+  width:min(1180px,calc(100% - 28px));
+  margin:0 auto;
+}
+
+
 /* =========================================================
-   HEADER
-   ========================================================= */
+   HEADER GABSI
+   SAMA DENGAN PROFIL.HTML
+========================================================= */
 
 .site-header{
   width:100%;
-  background:#fff;
-  box-shadow:0 2px 12px rgba(0,0,0,.10);
+  background:
+    linear-gradient(
+      180deg,
+      #063b5c,
+      #052e49
+    );
+  border-bottom:
+    1px solid
+    rgba(233,185,73,.55);
   position:relative;
   z-index:100;
 }
 
-.top-line{
-  background:#063b5c;
-  color:#fff;
-  min-height:30px;
-  padding:6px 20px;
+.header-main{
+  width:100%;
+  padding:9px 12px 8px;
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:9px;
-  letter-spacing:.2px;
+  flex-direction:column;
+  align-items:stretch;
+  gap:9px;
+  background:
+    linear-gradient(
+      180deg,
+      #063b5c,
+      #052e49
+    );
 }
 
-.header-main{
-  min-height:68px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  padding:9px 20px;
-}
+
+/* =========================================================
+   BRAND
+========================================================= */
 
 .brand{
+  width:100%;
+  min-width:0;
   display:flex;
   align-items:center;
+  justify-content:flex-start;
   gap:10px;
   text-decoration:none;
-  color:#173b50;
-  flex-shrink:0;
+  color:#fff;
+  position:relative;
+  z-index:5;
 }
 
 .brand-logo{
   width:42px;
   height:42px;
-  border-radius:10px;
-  background:#fff;
-  border:1px solid #dce7ec;
+  flex:0 0 42px;
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden;
   padding:3px;
-  box-shadow:0 3px 10px rgba(0,0,0,.12);
+  border-radius:9px;
+  background:#fff;
+  overflow:hidden;
+  box-shadow:
+    0 3px 10px rgba(0,0,0,.5);
 }
 
 .brand-logo img{
   width:100%;
   height:100%;
-  object-fit:contain;
   display:block;
+  object-fit:contain;
+}
+
+.brand-text{
+  min-width:0;
+  overflow:hidden;
 }
 
 .brand-text strong{
   display:block;
-  font-size:13px;
-  line-height:1.2;
-  color:#063b5c;
+  color:#fff;
+  font-size:14px;
+  line-height:1.15;
+  letter-spacing:.45px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .brand-text small{
   display:block;
-  font-size:7px;
-  color:#7b8790;
-  margin-top:2px;
-  letter-spacing:.2px;
+  margin-top:3px;
+  color:#b9d2df;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.35px;
+  white-space:nowrap;
 }
+
+
+/* =========================================================
+   NAVIGASI
+========================================================= */
 
 .main-nav{
+  width:100%;
   display:flex;
+  flex-wrap:wrap;
   align-items:center;
-  gap:4px;
-  overflow-x:auto;
-  white-space:nowrap;
-  scrollbar-width:none;
-}
-
-.main-nav::-webkit-scrollbar{
-  display:none;
+  justify-content:center;
+  gap:5px;
+  padding:0;
+  margin:0;
+  overflow:visible;
+  position:relative;
+  z-index:10;
 }
 
 .main-nav a{
+  flex:0 1 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:29px;
+  padding:7px 9px;
+  border:
+    1px solid
+    rgba(255,255,255,.16);
+  border-radius:7px;
+  color:#e4edf3;
+  background:
+    rgba(255,255,255,.07);
   text-decoration:none;
-  color:#172033;
-  padding:8px 10px;
-  border-radius:8px;
-  font-size:10px;
-  font-weight:600;
+  font-size:8px;
+  font-weight:900;
   white-space:nowrap;
-  transition:.2s ease;
+  line-height:1;
+  transition:.18s ease;
 }
 
-.main-nav a:hover{
-  background:#eaf4f9;
-  color:#07558f;
-}
-
+.main-nav a:hover,
 .main-nav a.active{
-  background:#07558f;
-  color:#fff;
-  font-weight:700;
+  color:#153326;
+  background:#e9b949;
+  border-color:#f4d77e;
 }
+
+
+/* =========================================================
+   PENCEGAHAN LOGO GANDA
+========================================================= */
+
+.brand::before,
+.brand::after,
+.header-main::before,
+.header-main::after,
+.header-main > img,
+.brand > img{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  background-image:none!important;
+}
+
 
 /* =========================================================
    HERO
-   ========================================================= */
+========================================================= */
 
 .page-hero{
   background:
@@ -230,20 +299,22 @@ body{
   margin:auto;
 }
 
-/* =========================================================
-   CONTAINER
-   ========================================================= */
 
-.container{
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content-container{
   width:100%;
   max-width:1100px;
   margin:auto;
   padding:38px 20px 55px;
 }
 
+
 /* =========================================================
    CONTACT GRID
-   ========================================================= */
+========================================================= */
 
 .contact-grid{
   display:grid;
@@ -251,16 +322,19 @@ body{
   gap:25px;
 }
 
+
 /* =========================================================
    CARD
-   ========================================================= */
+========================================================= */
 
 .contact-card{
   background:#fff;
   border:1px solid #dce7ec;
   border-radius:16px;
   padding:26px;
-  box-shadow:0 6px 22px rgba(0,0,0,.07);
+  box-shadow:
+    0 6px 22px
+    rgba(0,0,0,.07);
 }
 
 .contact-card h2{
@@ -275,9 +349,10 @@ body{
   margin-bottom:20px;
 }
 
+
 /* =========================================================
    CONTACT ITEM
-   ========================================================= */
+========================================================= */
 
 .contact-item{
   display:flex;
@@ -331,9 +406,10 @@ body{
   color:#07558f;
 }
 
+
 /* =========================================================
    WHATSAPP
-   ========================================================= */
+========================================================= */
 
 .whatsapp-button{
   display:inline-flex !important;
@@ -356,9 +432,10 @@ body{
   transform:translateY(-1px);
 }
 
+
 /* =========================================================
    FORM
-   ========================================================= */
+========================================================= */
 
 .form-title{
   color:#07558f;
@@ -402,7 +479,9 @@ body{
 .form-group textarea:focus{
   border-color:#087cab;
   background:#fff;
-  box-shadow:0 0 0 3px rgba(8,124,171,.09);
+  box-shadow:
+    0 0 0 3px
+    rgba(8,124,171,.09);
 }
 
 .form-group textarea{
@@ -428,9 +507,10 @@ body{
   transform:translateY(-1px);
 }
 
+
 /* =========================================================
    MAP
-   ========================================================= */
+========================================================= */
 
 .map-card{
   margin-top:25px;
@@ -438,7 +518,9 @@ body{
   border:1px solid #dce7ec;
   border-radius:16px;
   overflow:hidden;
-  box-shadow:0 6px 22px rgba(0,0,0,.07);
+  box-shadow:
+    0 6px 22px
+    rgba(0,0,0,.07);
 }
 
 .map-header{
@@ -483,9 +565,10 @@ body{
   transform:translateY(-1px);
 }
 
+
 /* =========================================================
    INFO
-   ========================================================= */
+========================================================= */
 
 .info-box{
   margin-top:25px;
@@ -499,7 +582,9 @@ body{
   color:#fff;
   border-radius:16px;
   padding:27px;
-  box-shadow:0 6px 22px rgba(0,0,0,.08);
+  box-shadow:
+    0 6px 22px
+    rgba(0,0,0,.08);
 }
 
 .info-box h2{
@@ -539,14 +624,21 @@ body{
   color:rgba(255,255,255,.78);
 }
 
+
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 .footer{
-  background:#063b5c;
+  background:
+    linear-gradient(
+      180deg,
+      #063b5c,
+      #042c45
+    );
   color:#fff;
   padding:32px 20px 18px;
+  border-top:3px solid #e9b949;
 }
 
 .footer-inner{
@@ -583,7 +675,8 @@ body{
 }
 
 .footer-links a:hover{
-  color:#fff;
+  color:#f0c85d;
+  padding-left:3px;
 }
 
 .footer-bottom{
@@ -597,49 +690,111 @@ body{
   font-size:9px;
 }
 
+
 /* =========================================================
-   MOBILE
-   ========================================================= */
+   RESPONSIVE
+========================================================= */
 
-@media(max-width:700px){
+@media(max-width:850px){
 
-  .top-line{
-    padding:6px 10px;
-    font-size:7px;
-    gap:8px;
+  .contact-grid{
+    grid-template-columns:1fr;
+    gap:18px;
   }
 
+  .info-points{
+    grid-template-columns:1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+
+@media(max-width:760px){
+
   .header-main{
-    min-height:58px;
-    padding:6px 10px;
+    padding:8px 10px 10px;
     gap:8px;
   }
 
   .brand-logo{
-    width:34px;
-    height:34px;
+    width:36px;
+    height:36px;
+    flex-basis:36px;
+    border-radius:8px;
+    padding:2px;
   }
 
   .brand-text strong{
-    font-size:10px;
+    font-size:12px;
   }
 
   .brand-text small{
-    font-size:5px;
+    font-size:7px;
   }
 
   .main-nav{
-    flex:1;
-    gap:2px;
+    justify-content:flex-start;
+    gap:4px;
   }
 
   .main-nav a{
-    font-size:8px;
+    min-height:28px;
     padding:7px 8px;
+    font-size:7.5px;
   }
 
   .page-hero{
-    padding:32px 15px;
+    padding:35px 15px;
+  }
+
+  .page-hero h1{
+    font-size:30px;
+  }
+
+  .page-hero p{
+    font-size:11px;
+  }
+
+  .content-container{
+    padding:28px 14px 40px;
+  }
+
+  .contact-card{
+    padding:20px;
+  }
+
+  .map-frame{
+    height:300px;
+  }
+
+}
+
+
+@media(max-width:520px){
+
+  .container{
+    width:
+      min(
+        100% - 20px,
+        1180px
+      );
+  }
+
+  .main-nav{
+    justify-content:center;
+  }
+
+  .main-nav a{
+    padding:7px 7px;
+    font-size:7px;
+  }
+
+  .page-hero{
+    padding:32px 12px;
   }
 
   .page-hero h1{
@@ -650,77 +805,9 @@ body{
     font-size:10px;
   }
 
-  .container{
-    padding:25px 12px 38px;
-  }
-
-  .contact-grid{
-    grid-template-columns:1fr;
-    gap:18px;
-  }
-
-  .contact-card{
-    padding:20px;
-  }
-
-  .contact-card h2,
-  .form-title{
-    font-size:18px;
-  }
-
-  .map-frame{
-    height:300px;
-  }
-
-  .map-header{
-    padding:18px 20px 12px;
-  }
-
-  .map-button{
-    margin-left:20px;
-    margin-right:20px;
-  }
-
-  .info-points{
-    grid-template-columns:1fr;
-  }
-
-  .footer{
-    padding:26px 15px 15px;
-  }
-
-  .footer-inner{
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-  }
-
-  .footer-inner > div:first-child{
-    grid-column:1 / -1;
-  }
-
-  .footer-bottom{
-    flex-direction:column;
-    gap:5px;
-  }
-}
-
-@media(max-width:380px){
-
-  .brand-text{
-    display:none;
-  }
-
-  .header-main{
-    gap:5px;
-  }
-
-  .main-nav a{
-    font-size:7px;
-    padding:6px 7px;
-  }
-
-  .page-hero h1{
-    font-size:24px;
+  .content-container{
+    padding:
+      22px 10px 35px;
   }
 
   .contact-card{
@@ -737,64 +824,145 @@ body{
     min-width:38px;
     font-size:16px;
   }
+
+  .map-header{
+    padding:18px 18px 12px;
+  }
+
+  .map-button{
+    margin-left:18px;
+    margin-right:18px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    justify-content:center;
+    gap:6px;
+    text-align:center;
+  }
+
+}
+
+
+@media(max-width:380px){
+
+  .brand-text{
+    display:none;
+  }
+
+  .main-nav a{
+    font-size:7px;
+    padding:6px 6px;
+  }
+
+}
+
+
+/* =========================================================
+   PERLINDUNGAN LOGO
+========================================================= */
+
+.header-main > img,
+.brand > img,
+.brand::before,
+.brand::after,
+.header-main::before,
+.header-main::after{
+  display:none!important;
+  content:none!important;
+  background:none!important;
+  background-image:none!important;
 }
 
 </style>
+
 </head>
 
 <body>
 
+
 <!-- =========================================================
      HEADER
-     ========================================================= -->
+========================================================= -->
 
 <header class="site-header">
 
-  <div class="top-line">
-    <span>GABSI KOTA TANJUNGBALAI</span>
-    <span>Bridge • Prestasi • Persaudaraan</span>
-  </div>
-
   <div class="header-main">
 
-    <a href="index.html" class="brand">
+    <a href="index.html"
+       class="brand"
+       aria-label="Kembali ke Beranda">
 
       <div class="brand-logo">
+
         <img
           src="logo-gabsi.png"
           alt="Logo GABSI Kota Tanjungbalai">
+
       </div>
 
       <div class="brand-text">
-        <strong>GABSI KOTA TANJUNGBALAI</strong>
-        <small>GABUNGAN BRIDGE SELURUH INDONESIA</small>
+
+        <strong>
+          GABSI Kota Tanjungbalai
+        </strong>
+
+        <small>
+          Bridge • Prestasi • Persaudaraan
+        </small>
+
       </div>
 
     </a>
 
-    <nav class="main-nav">
 
-      <a href="index.html">Beranda</a>
+    <nav class="main-nav"
+         aria-label="Navigasi utama">
 
-      <a href="profil.html">Profil</a>
+      <a href="index.html">
+        Beranda
+      </a>
 
-      <a href="pengurus.html">Pengurus</a>
+      <a href="profil.html">
+        Profil
+      </a>
 
-      <a href="kegiatan.html">Kegiatan</a>
+      <a href="pengurus.html">
+        Pengurus
+      </a>
 
-      <a href="galeri.html">Galeri</a>
+      <a href="kegiatan.html">
+        Kegiatan
+      </a>
 
-      <a href="aplikasi.html">Aplikasi</a>
+      <a href="galeri.html">
+        Galeri
+      </a>
+
+      <a href="aplikasi.html">
+        Aplikasi
+      </a>
+
+      <a href="kocokan-kartu.html">
+        Kartu Pembanding
+      </a>
 
       <a href="game-bridge-gabsi.html">
-        ♠ Game Bridge
+        Game Bridge
       </a>
 
       <a href="berita.html">
         Berita
       </a>
 
-      <a href="kontak.html" class="active">
+      <a href="kontak.html"
+         class="active"
+         aria-current="page">
         Kontak
       </a>
 
@@ -807,7 +975,7 @@ body{
 
 <!-- =========================================================
      HERO
-     ========================================================= -->
+========================================================= -->
 
 <section class="page-hero">
 
@@ -834,31 +1002,39 @@ body{
 
 <!-- =========================================================
      CONTENT
-     ========================================================= -->
+========================================================= -->
 
-<main class="container">
+<main class="content-container">
 
   <div class="contact-grid">
 
-    <!-- INFORMASI KONTAK -->
+
+    <!-- =====================================================
+         INFORMASI KONTAK
+    ====================================================== -->
 
     <section class="contact-card">
 
-      <h2>Informasi Kontak</h2>
+      <h2>
+        Informasi Kontak
+      </h2>
 
       <p>
         Informasi resmi GABSI Kota Tanjungbalai.
       </p>
 
-      <!-- ALAMAT -->
 
       <div class="contact-item">
 
-        <div class="contact-icon">📍</div>
+        <div class="contact-icon">
+          📍
+        </div>
 
         <div class="contact-info">
 
-          <strong>Alamat</strong>
+          <strong>
+            Alamat
+          </strong>
 
           <span>
             Jl. R A. Kartini Lk. IV<br>
@@ -873,15 +1049,17 @@ body{
       </div>
 
 
-      <!-- EMAIL -->
-
       <div class="contact-item">
 
-        <div class="contact-icon">✉</div>
+        <div class="contact-icon">
+          ✉
+        </div>
 
         <div class="contact-info">
 
-          <strong>Email</strong>
+          <strong>
+            Email
+          </strong>
 
           <a href="mailto:gabunganbridgeseluruhindonesia@gmail.com">
             gabunganbridgeseluruhindonesia@gmail.com
@@ -892,15 +1070,17 @@ body{
       </div>
 
 
-      <!-- WHATSAPP -->
-
       <div class="contact-item">
 
-        <div class="contact-icon">☏</div>
+        <div class="contact-icon">
+          ☏
+        </div>
 
         <div class="contact-info">
 
-          <strong>WhatsApp</strong>
+          <strong>
+            WhatsApp
+          </strong>
 
           <span>
             0852 7040 7744
@@ -911,7 +1091,9 @@ body{
             href="https://wa.me/6285270407744"
             target="_blank"
             rel="noopener">
+
             💬 Chat WhatsApp
+
           </a>
 
         </div>
@@ -919,15 +1101,17 @@ body{
       </div>
 
 
-      <!-- KODE POS -->
-
       <div class="contact-item">
 
-        <div class="contact-icon">✦</div>
+        <div class="contact-icon">
+          ✦
+        </div>
 
         <div class="contact-info">
 
-          <strong>Kode Pos</strong>
+          <strong>
+            Kode Pos
+          </strong>
 
           <span>
             21361
@@ -940,7 +1124,9 @@ body{
     </section>
 
 
-    <!-- KIRIM PESAN -->
+    <!-- =====================================================
+         FORM
+    ====================================================== -->
 
     <section class="contact-card">
 
@@ -952,6 +1138,7 @@ body{
         Isi formulir berikut. Setelah menekan tombol kirim,
         aplikasi email akan dibuka dengan pesan yang sudah disiapkan.
       </p>
+
 
       <form onsubmit="kirimPesan(event)">
 
@@ -999,8 +1186,12 @@ body{
         </div>
 
 
-        <button type="submit" class="btn-kirim">
+        <button
+          type="submit"
+          class="btn-kirim">
+
           ✉ KIRIM PESAN
+
         </button>
 
       </form>
@@ -1010,9 +1201,9 @@ body{
   </div>
 
 
-  <!-- =======================================================
+  <!-- =====================================================
        MAP
-       ======================================================= -->
+  ====================================================== -->
 
   <section class="map-card">
 
@@ -1045,15 +1236,17 @@ body{
       href="https://www.google.com/maps/search/?api=1&query=Jl.%20R.A.%20Kartini%20Lk.%20IV,%20Sijambi,%20Datuk%20Bandar,%20Kota%20Tanjungbalai,%20Sumatera%20Utara%2021361"
       target="_blank"
       rel="noopener">
+
       📍 Buka Lokasi di Google Maps
+
     </a>
 
   </section>
 
 
-  <!-- =======================================================
+  <!-- =====================================================
        INFO
-       ======================================================= -->
+  ====================================================== -->
 
   <section class="info-box">
 
@@ -1073,7 +1266,9 @@ body{
 
       <div class="info-point">
 
-        <strong>♠ Bridge</strong>
+        <strong>
+          ♠ Bridge
+        </strong>
 
         <span>
           Pengembangan olahraga bridge
@@ -1084,7 +1279,9 @@ body{
 
       <div class="info-point">
 
-        <strong>🏆 Prestasi</strong>
+        <strong>
+          🏆 Prestasi
+        </strong>
 
         <span>
           Pembinaan dan pertandingan
@@ -1095,7 +1292,9 @@ body{
 
       <div class="info-point">
 
-        <strong>🤝 Persaudaraan</strong>
+        <strong>
+          🤝 Persaudaraan
+        </strong>
 
         <span>
           Membangun komunitas bridge
@@ -1112,7 +1311,7 @@ body{
 
 <!-- =========================================================
      FOOTER
-     ========================================================= -->
+========================================================= -->
 
 <footer class="footer">
 
@@ -1165,8 +1364,20 @@ body{
           Aplikasi
         </a>
 
+        <a href="kocokan-kartu.html">
+          Kartu Pembanding
+        </a>
+
+        <a href="game-bridge-gabsi.html">
+          Game Bridge
+        </a>
+
         <a href="berita.html">
           Berita
+        </a>
+
+        <a href="kontak.html">
+          Kontak
         </a>
 
       </div>
@@ -1190,6 +1401,10 @@ body{
           Aplikasi Bridge
         </a>
 
+        <a href="kocokan-kartu.html">
+          Kartu Pembanding
+        </a>
+
         <a href="kontak.html">
           Kontak
         </a>
@@ -1198,7 +1413,9 @@ body{
           href="https://wa.me/6285270407744"
           target="_blank"
           rel="noopener">
+
           WhatsApp
+
         </a>
 
       </div>
@@ -1225,7 +1442,7 @@ body{
 
 <!-- =========================================================
      JAVASCRIPT
-     ========================================================= -->
+========================================================= -->
 
 <script>
 
@@ -1234,20 +1451,33 @@ function kirimPesan(event){
   event.preventDefault();
 
   const nama =
-    document.getElementById("nama").value.trim();
+    document.getElementById("nama")
+      .value
+      .trim();
 
   const email =
-    document.getElementById("email").value.trim();
+    document.getElementById("email")
+      .value
+      .trim();
 
   const pesan =
-    document.getElementById("pesan").value.trim();
+    document.getElementById("pesan")
+      .value
+      .trim();
 
 
-  if(!nama || !email || !pesan){
+  if(
+    !nama ||
+    !email ||
+    !pesan
+  ){
 
-    alert("Mohon lengkapi semua kolom.");
+    alert(
+      "Mohon lengkapi semua kolom."
+    );
 
     return;
+
   }
 
 
@@ -1263,9 +1493,12 @@ function kirimPesan(event){
 
   const isi =
     encodeURIComponent(
-      "Nama: " + nama +
-      "\nEmail: " + email +
-      "\n\nPesan:\n" + pesan
+      "Nama: " +
+      nama +
+      "\nEmail: " +
+      email +
+      "\n\nPesan:\n" +
+      pesan
     );
 
 
