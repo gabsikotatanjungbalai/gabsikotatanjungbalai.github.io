@@ -268,7 +268,6 @@ button:disabled{
 
 /* =====================================================
    PANEL KONTRAK / BID
-   SELALU DI DEPAN KARTU
    ===================================================== */
 
 .table-center{
@@ -470,7 +469,6 @@ button:disabled{
 
 /* =====================================================
    KARTU
-   TIDAK BERTUMPUK
    ===================================================== */
 
 .hand{
@@ -487,8 +485,7 @@ button:disabled{
   z-index:12;
 }
 
-/* NORTH + SOUTH
-   7 kartu + 6 kartu */
+/* NORTH + SOUTH */
 
 .north .hand,
 .south .hand{
@@ -606,7 +603,9 @@ button:disabled{
   z-index:40;
 }
 
-/* SOUTH */
+/* =====================================================
+   SOUTH
+   ===================================================== */
 
 .south{
   width:330px;
@@ -654,7 +653,9 @@ button:disabled{
   transform:translateY(-7px);
 }
 
-/* NORTH */
+/* =====================================================
+   NORTH
+   ===================================================== */
 
 .north{
   width:330px;
@@ -677,12 +678,80 @@ button:disabled{
 }
 
 /* =====================================================
-   EAST + WEST
-   2 KOLOM VERTIKAL
-   7 KARTU + 6 KARTU
+   EAST
+   BARIS PERTAMA 6 KARTU
+   BARIS KEDUA 7 KARTU
    ===================================================== */
 
-.east .hand,
+.east .hand{
+
+  width:100%;
+
+  min-height:160px;
+
+  padding:3px 2px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(7,1fr);
+
+  grid-template-rows:
+    repeat(2,1fr);
+
+  grid-auto-flow:row;
+
+  column-gap:3px;
+  row-gap:5px;
+
+  justify-content:center;
+  align-content:center;
+
+  align-items:center;
+  justify-items:center;
+
+}
+
+/*
+   13 kartu East secara otomatis:
+   Kartu 1-6  = baris pertama
+   Kartu 7-13 = baris kedua
+*/
+
+.east .card{
+
+  width:32px;
+  height:39px;
+
+  margin:0 !important;
+
+  border-radius:5px;
+
+}
+
+.east .card .rank{
+
+  font-size:10px;
+
+}
+
+.east .card .suit{
+
+  font-size:12px;
+
+}
+
+.east .card.playable{
+
+  transform:translateY(-4px);
+
+}
+
+/* =====================================================
+   WEST
+   TETAP 7 + 6 VERTIKAL
+   ===================================================== */
+
 .west .hand{
 
   width:78px;
@@ -705,7 +774,6 @@ button:disabled{
 
 }
 
-.east .card,
 .west .card{
 
   width:32px;
@@ -717,21 +785,18 @@ button:disabled{
 
 }
 
-.east .card .rank,
 .west .card .rank{
 
   font-size:10px;
 
 }
 
-.east .card .suit,
 .west .card .suit{
 
   font-size:12px;
 
 }
 
-.east .card.playable,
 .west .card.playable{
 
   transform:translateX(5px);
@@ -740,7 +805,6 @@ button:disabled{
 
 /* =====================================================
    TRICK CARD
-   PALING DEPAN
    ===================================================== */
 
 .trick{
@@ -1220,7 +1284,36 @@ button:disabled{
     font-size:15px;
   }
 
-  .east .hand,
+  /* EAST 6 + 7 */
+
+  .east .hand{
+
+    width:100%;
+
+    min-height:150px;
+
+    grid-template-columns:
+      repeat(7,1fr);
+
+    grid-template-rows:
+      repeat(2,1fr);
+
+    column-gap:2px;
+    row-gap:3px;
+
+    padding:2px 1px;
+
+  }
+
+  .east .card{
+
+    width:29px;
+    height:37px;
+
+  }
+
+  /* WEST TETAP */
+
   .west .hand{
 
     width:74px;
@@ -1238,7 +1331,6 @@ button:disabled{
 
   }
 
-  .east .card,
   .west .card{
 
     width:30px;
@@ -1299,7 +1391,48 @@ button:disabled{
     font-size:14px;
   }
 
-  .east .hand,
+  /* EAST 6 + 7 */
+
+  .east .hand{
+
+    width:100%;
+
+    min-height:145px;
+
+    grid-template-columns:
+      repeat(7,1fr);
+
+    grid-template-rows:
+      repeat(2,1fr);
+
+    column-gap:1px;
+    row-gap:2px;
+
+    padding:2px 0;
+
+  }
+
+  .east .card{
+
+    width:27px;
+    height:36px;
+
+  }
+
+  .east .card .rank{
+
+    font-size:9px;
+
+  }
+
+  .east .card .suit{
+
+    font-size:11px;
+
+  }
+
+  /* WEST TETAP */
+
   .west .hand{
 
     width:70px;
@@ -1316,7 +1449,6 @@ button:disabled{
 
   }
 
-  .east .card,
   .west .card{
 
     width:28px;
@@ -1324,14 +1456,12 @@ button:disabled{
 
   }
 
-  .east .card .rank,
   .west .card .rank{
 
     font-size:9px;
 
   }
 
-  .east .card .suit,
   .west .card .suit{
 
     font-size:11px;
@@ -1401,7 +1531,34 @@ button:disabled{
 
   }
 
-  .east .hand,
+  /* EAST 6 + 7 */
+
+  .east .hand{
+
+    width:100%;
+
+    min-height:170px;
+
+    grid-template-columns:
+      repeat(7,1fr);
+
+    grid-template-rows:
+      repeat(2,1fr);
+
+    column-gap:4px;
+    row-gap:4px;
+
+  }
+
+  .east .card{
+
+    width:34px;
+    height:42px;
+
+  }
+
+  /* WEST TETAP */
+
   .west .hand{
 
     width:84px;
@@ -1419,7 +1576,6 @@ button:disabled{
 
   }
 
-  .east .card,
   .west .card{
 
     width:35px;
@@ -1481,8 +1637,6 @@ button:disabled{
   </div>
 
 </header>
-
-<!-- MENU WEBSITE GABSI -->
 
 <nav
   class="site-menu"
@@ -2336,11 +2490,6 @@ function updateRoundStatus(){
 
   let symbol='🟡';
 
-  /*
-    Saat lelang belum selesai,
-    kondisi dianggap normal.
-  */
-
   if(
     state.phase==='auction'
   ){
@@ -2350,13 +2499,6 @@ function updateRoundStatus(){
     symbol='🟡';
 
   }
-
-  /*
-    Setelah kontrak terbentuk,
-    kondisi dihitung dari trik yang
-    sudah dimenangkan dibandingkan
-    trik yang dibutuhkan.
-  */
 
   else if(
     state.phase==='play' &&
@@ -2384,12 +2526,6 @@ function updateRoundStatus(){
         target-made
       );
 
-    /*
-      Jika kebutuhan trik lebih banyak
-      daripada trik yang tersisa,
-      kontrak dalam keadaan bahaya.
-    */
-
     if(
       needed>remaining
     ){
@@ -2399,11 +2535,6 @@ function updateRoundStatus(){
       symbol='🔴';
 
     }
-
-    /*
-      Jika jumlah trik sudah cukup,
-      atau peluang menang sangat baik.
-    */
 
     else if(
       made>=target ||
@@ -2428,10 +2559,6 @@ function updateRoundStatus(){
     }
 
   }
-
-  /*
-    Setelah board selesai.
-  */
 
   else if(
     state.phase==='finished' &&
