@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,initial-scale=1">
+      content="width=device-width,initial-scale=1,maximum-scale=1">
 
 <meta name="theme-color" content="#063b5c">
 
@@ -22,9 +22,9 @@
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
+/* =====================================================
+   RESET + WARNA MASTER PROFIL
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -34,12 +34,39 @@ html{
     scroll-behavior:smooth;
 }
 
+:root{
+    --navy:#063b5c;
+    --navy2:#052e49;
+    --blue:#07558f;
+    --blue2:#087cab;
+    --light:#eaf4f9;
+    --bg:#eef4f7;
+    --card:#ffffff;
+    --ink:#263746;
+    --muted:#536673;
+    --line:#dce7ec;
+    --green:#08784e;
+    --red:#c92f3d;
+    --gold:#ffd75a;
+    --orange:#d88b00;
+    --purple:#6c4ab6;
+    --shadow:0 6px 20px rgba(0,0,0,.07);
+}
+
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f3f7fa;
-    color:#203442;
+    background:var(--bg);
+    color:var(--ink);
     line-height:1.6;
+}
+
+img{
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
 }
 
 button,
@@ -53,73 +80,77 @@ button{
     cursor:pointer;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
 .container{
-    width:min(1180px,94%);
-    margin:auto;
+    width:min(1100px,calc(100% - 28px));
+    margin:0 auto;
 }
 
 
-/* =========================================================
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 .site-header{
-    width:100%;
-    background:linear-gradient(
-        180deg,
-        #063b5c,
-        #052e49
-    );
-    border-bottom:1px solid rgba(233,185,73,.55);
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:0 5px 18px rgba(0,0,0,.12);
+    width:100%;
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 2px 12px rgba(6,59,92,.06);
+}
+
+.top-line{
+    min-height:27px;
+    background:var(--navy);
+    color:#cfe1eb;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:0 18px;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.7px;
 }
 
 .header-main{
-    width:100%;
-    padding:9px 12px 8px;
+    min-height:64px;
     display:flex;
-    flex-direction:column;
-    align-items:stretch;
-    gap:9px;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:8px 0;
 }
 
 .brand{
-    width:100%;
-    min-width:0;
+    min-width:220px;
     display:flex;
     align-items:center;
     gap:10px;
-    text-decoration:none;
-    color:#fff;
+    color:var(--navy);
 }
 
 .brand-logo{
     width:42px;
     height:42px;
     flex:0 0 42px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     padding:3px;
     border-radius:9px;
     background:#fff;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
     overflow:hidden;
-    box-shadow:0 3px 10px rgba(0,0,0,.5);
+    box-shadow:0 3px 10px rgba(6,59,92,.10);
 }
 
 .brand-logo img{
     width:100%;
     height:100%;
-    display:block;
     object-fit:contain;
+    display:block;
 }
 
 .brand-text{
@@ -128,79 +159,117 @@ a{
 
 .brand-text strong{
     display:block;
-    color:#fff;
+    color:var(--navy);
     font-size:14px;
     line-height:1.15;
-    letter-spacing:.45px;
+    font-weight:900;
+    letter-spacing:.35px;
+    white-space:nowrap;
 }
 
 .brand-text small{
     display:block;
     margin-top:3px;
-    color:#b9d2df;
+    color:#718692;
     font-size:8px;
-    font-weight:700;
-    letter-spacing:.35px;
+    font-weight:800;
+    letter-spacing:.4px;
+    white-space:nowrap;
 }
 
 
-/* =========================================================
-   NAVIGASI PUBLIK
-========================================================= */
+/* =====================================================
+   NAVIGASI
+===================================================== */
 
 .main-nav{
-    width:100%;
     display:flex;
-    flex-wrap:wrap;
     align-items:center;
-    justify-content:center;
-    gap:5px;
+    justify-content:flex-end;
+    gap:3px;
+    min-width:0;
+    overflow-x:auto;
+    scrollbar-width:none;
+}
+
+.main-nav::-webkit-scrollbar{
+    display:none;
 }
 
 .main-nav a{
+    position:relative;
+    flex:0 0 auto;
     display:flex;
     align-items:center;
     justify-content:center;
-    min-height:29px;
+    min-height:32px;
     padding:7px 9px;
-    border:1px solid rgba(255,255,255,.16);
     border-radius:7px;
-    color:#e4edf3;
-    background:rgba(255,255,255,.07);
+    color:#536673;
     font-size:8px;
     font-weight:900;
     white-space:nowrap;
-    line-height:1;
     transition:.18s ease;
 }
 
-.main-nav a:hover,
+.main-nav a:hover{
+    color:var(--navy);
+    background:var(--light);
+}
+
 .main-nav a.active{
-    color:#153326;
-    background:#e9b949;
-    border-color:#f4d77e;
+    color:var(--navy);
+    background:var(--light);
+}
+
+.main-nav a.active::after{
+    content:"";
+    position:absolute;
+    left:8px;
+    right:8px;
+    bottom:2px;
+    height:2px;
+    border-radius:5px;
+    background:var(--red);
 }
 
 
-/* =========================================================
+/* =====================================================
+   ADMIN ACTION HEADER
+===================================================== */
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex:0 0 auto;
+}
+
+#headerActions{
+    display:none;
+}
+
+
+/* =====================================================
    ADMIN STRIP
-========================================================= */
+===================================================== */
 
 .admin-strip{
-    background:#062d45;
+    background:#052e49;
     color:#dcecf4;
 }
 
 .admin-strip-inner{
-    width:min(1180px,94%);
-    margin:auto;
-    min-height:30px;
+    width:min(1100px,calc(100% - 28px));
+    min-height:29px;
+    margin:0 auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:10px;
-    font-size:9px;
-    font-weight:700;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.3px;
 }
 
 .admin-strip-right{
@@ -208,17 +277,17 @@ a{
 }
 
 
-/* =========================================================
+/* =====================================================
    BUTTON
-========================================================= */
+===================================================== */
 
 .btn{
     border:0;
-    border-radius:9px;
-    padding:9px 13px;
-    font-size:10px;
-    font-weight:bold;
-    cursor:pointer;
+    border-radius:8px;
+    min-height:34px;
+    padding:8px 12px;
+    font-size:9px;
+    font-weight:900;
     transition:.18s ease;
 }
 
@@ -233,17 +302,17 @@ a{
 }
 
 .btn-primary{
-    background:#07547b;
+    background:#07558f;
     color:#fff;
 }
 
 .btn-success{
-    background:#159653;
+    background:#08784e;
     color:#fff;
 }
 
 .btn-danger{
-    background:#c0392b;
+    background:#c92f3d;
     color:#fff;
 }
 
@@ -255,29 +324,31 @@ a{
 .btn-light{
     background:#edf5f9;
     color:#16445c;
+    border:1px solid #d7e6ec;
 }
 
 .btn-repost{
-    background:#6c4ab6;
+    background:var(--purple);
     color:#fff;
 }
 
 .btn-small{
-    padding:7px 10px;
-    font-size:9px;
+    min-height:30px;
+    padding:6px 9px;
+    font-size:8px;
 }
 
 
-/* =========================================================
+/* =====================================================
    LOGIN
-========================================================= */
+===================================================== */
 
 .login-page{
-    min-height:calc(100vh - 150px);
+    min-height:calc(100vh - 96px);
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:45px 0;
+    padding:50px 0;
     background:
         radial-gradient(
             circle at top right,
@@ -292,58 +363,61 @@ a{
 }
 
 .login-card{
-    width:min(430px,94%);
+    width:min(430px,calc(100% - 28px));
     background:#fff;
-    border:1px solid #dce8ed;
-    border-radius:20px;
+    border:1px solid var(--line);
+    border-radius:18px;
     padding:30px;
-    box-shadow:0 18px 50px rgba(20,55,75,.13);
+    box-shadow:0 15px 45px rgba(20,55,75,.12);
 }
 
 .login-logo{
     display:flex;
     justify-content:center;
-    margin-bottom:16px;
+    margin-bottom:15px;
 }
 
 .login-logo img{
-    width:78px;
-    height:78px;
+    width:76px;
+    height:76px;
     object-fit:contain;
-    border-radius:16px;
+    border-radius:15px;
 }
 
 .login-card h1{
     margin:0;
     text-align:center;
-    color:#063b5c;
+    color:var(--navy);
     font-size:24px;
+    font-weight:900;
 }
 
 .login-subtitle{
+    margin:5px 0 23px;
     text-align:center;
     color:#788b95;
-    font-size:11px;
-    margin:5px 0 23px;
+    font-size:10px;
 }
 
 .login-label{
     display:block;
-    color:#344e5c;
-    font-size:11px;
-    font-weight:bold;
     margin-bottom:5px;
+    color:#344e5c;
+    font-size:10px;
+    font-weight:900;
 }
 
 .form-control{
     width:100%;
+    min-height:39px;
     border:1px solid #d5e1e6;
     border-radius:9px;
-    padding:11px 12px;
-    font-size:12px;
+    padding:9px 11px;
     outline:none;
     background:#fff;
     color:#203442;
+    font-size:11px;
+    transition:.2s;
 }
 
 .form-control:focus{
@@ -352,158 +426,216 @@ a{
 }
 
 .form-group{
-    margin-bottom:14px;
+    margin-bottom:13px;
 }
 
 .login-button{
     width:100%;
-    padding:12px;
     margin-top:5px;
+    min-height:42px;
 }
 
 .login-help{
-    text-align:center;
-    margin-top:15px;
-    font-size:10px;
+    margin-top:14px;
     color:#8999a1;
+    text-align:center;
+    font-size:9px;
+    line-height:1.6;
 }
 
 .login-error{
     display:none;
-    background:#fff3f3;
-    border:1px solid #efc8c8;
-    color:#a52b2b;
-    padding:10px;
-    border-radius:8px;
-    font-size:10px;
     margin-bottom:14px;
+    padding:10px;
+    border:1px solid #efc8c8;
+    border-radius:8px;
+    background:#fff3f3;
+    color:#a52b2b;
+    font-size:10px;
 }
 
 
-/* =========================================================
-   ADMIN HEADER
-========================================================= */
+/* =====================================================
+   ADMIN PAGE
+===================================================== */
 
 #adminPage{
     display:none;
 }
 
-.admin-header{
+.admin-hero{
     position:relative;
     overflow:hidden;
+    padding:38px 0 36px;
     background:
+        radial-gradient(
+            circle at 88% 15%,
+            rgba(255,255,255,.12),
+            transparent 25%
+        ),
         linear-gradient(
-            125deg,
+            135deg,
             #063b5c,
-            #075b87 55%,
-            #0a6ea8
+            #07558f
         );
     color:#fff;
-    padding:34px 0;
+    border-bottom:3px solid var(--gold);
 }
 
-.admin-header::after{
-    content:"";
+.admin-hero::after{
+    content:"♠  ♥  ♦  ♣";
     position:absolute;
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    background:rgba(255,255,255,.05);
-    right:-90px;
-    top:-130px;
+    right:3%;
+    bottom:-15px;
+    color:rgba(255,255,255,.06);
+    font-size:65px;
+    letter-spacing:9px;
+    transform:rotate(-5deg);
 }
 
-.admin-header h1{
+.admin-hero .container{
     position:relative;
-    z-index:1;
+    z-index:2;
+}
+
+.admin-label{
+    margin-bottom:8px;
+    color:#bfe8f5;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.6px;
+}
+
+.admin-hero h1{
     margin:0;
-    font-size:31px;
+    font-size:clamp(28px,5vw,42px);
+    line-height:1.1;
+    font-weight:900;
 }
 
-.admin-header p{
-    position:relative;
-    z-index:1;
-    margin:5px 0 0;
-    color:#d9edf4;
-    font-size:11px;
+.admin-hero h1 span{
+    color:var(--gold);
 }
+
+.admin-hero p{
+    max-width:700px;
+    margin:10px 0 0;
+    color:#dcecf4;
+    font-size:12px;
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   ADMIN CONTENT
+===================================================== */
 
 .admin-content{
-    padding:28px 0 50px;
+    padding:35px 0 50px;
 }
 
 
-/* =========================================================
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message{
+    display:none;
+    margin-bottom:15px;
+    padding:11px 14px;
+    border-radius:9px;
+    font-size:10px;
+}
+
+.message.success{
+    display:block;
+    background:#effcf5;
+    border:1px solid #bfe6d0;
+    color:#087244;
+}
+
+.message.error{
+    display:block;
+    background:#fff4f4;
+    border:1px solid #efcaca;
+    color:#a52b2b;
+}
+
+
+/* =====================================================
    DASHBOARD
-========================================================= */
+===================================================== */
 
 .dashboard-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:15px;
     margin-bottom:20px;
 }
 
 .dashboard-card{
     position:relative;
     overflow:hidden;
-    background:#fff;
-    border:1px solid #dfe9ed;
-    border-radius:15px;
+    min-height:110px;
     padding:18px;
-    box-shadow:0 7px 22px rgba(20,55,75,.06);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:15px;
+    box-shadow:var(--shadow);
 }
 
 .dashboard-card::after{
     content:"";
     position:absolute;
-    width:70px;
-    height:70px;
+    width:75px;
+    height:75px;
+    right:-28px;
+    top:-28px;
     border-radius:50%;
     background:#eaf5fa;
-    right:-25px;
-    top:-25px;
 }
 
 .dashboard-card span{
     position:relative;
-    z-index:1;
+    z-index:2;
     display:block;
     color:#82939c;
-    font-size:10px;
-    font-weight:bold;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.3px;
 }
 
 .dashboard-card strong{
     position:relative;
-    z-index:1;
+    z-index:2;
     display:block;
-    color:#07547b;
-    font-size:26px;
-    margin-top:2px;
+    margin-top:3px;
+    color:#07558f;
+    font-size:28px;
+    line-height:1.1;
 }
 
 
-/* =========================================================
+/* =====================================================
    PANEL
-========================================================= */
+===================================================== */
 
 .panel{
-    background:#fff;
-    border:1px solid #dfe8ec;
-    border-radius:16px;
-    margin-bottom:20px;
-    box-shadow:0 8px 25px rgba(20,55,75,.055);
     overflow:hidden;
+    margin-bottom:20px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:17px;
+    box-shadow:var(--shadow);
 }
 
 .panel-header{
-    padding:16px 20px;
-    border-bottom:1px solid #e8eef1;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:10px;
+    gap:12px;
+    padding:15px 18px;
+    border-bottom:1px solid #e8eef1;
     background:linear-gradient(
         180deg,
         #ffffff,
@@ -513,18 +645,19 @@ a{
 
 .panel-header h2{
     margin:0;
-    font-size:16px;
-    color:#203442;
+    color:#173d53;
+    font-size:15px;
+    font-weight:900;
 }
 
 .panel-body{
-    padding:20px;
+    padding:19px;
 }
 
 
-/* =========================================================
-   MODE PILIHAN INPUT
-========================================================= */
+/* =====================================================
+   MODE INPUT
+===================================================== */
 
 .input-mode{
     display:grid;
@@ -534,16 +667,16 @@ a{
 }
 
 .mode-card{
+    padding:16px;
     border:2px solid #dce7ec;
-    border-radius:14px;
-    padding:17px;
+    border-radius:13px;
     background:#fbfdfe;
     cursor:pointer;
-    transition:.2s;
+    transition:.2s ease;
 }
 
 .mode-card:hover{
-    border-color:#8fbfd4;
+    border-color:#9fc9da;
     transform:translateY(-1px);
 }
 
@@ -554,31 +687,33 @@ a{
 }
 
 .mode-icon{
-    font-size:24px;
     margin-bottom:5px;
+    font-size:22px;
 }
 
 .mode-card h3{
     margin:0;
     color:#063b5c;
-    font-size:14px;
+    font-size:13px;
+    font-weight:900;
 }
 
 .mode-card p{
     margin:4px 0 0;
     color:#7b8e98;
     font-size:9px;
+    line-height:1.55;
 }
 
 
-/* =========================================================
+/* =====================================================
    FORM
-========================================================= */
+===================================================== */
 
 .form-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:14px;
+    gap:13px;
 }
 
 .form-group.full{
@@ -587,35 +722,36 @@ a{
 
 .form-group label{
     display:block;
-    font-size:11px;
-    font-weight:bold;
-    color:#405965;
     margin-bottom:5px;
+    color:#405965;
+    font-size:10px;
+    font-weight:900;
 }
 
 textarea.form-control{
-    min-height:170px;
+    min-height:165px;
     resize:vertical;
-    line-height:1.6;
+    line-height:1.65;
 }
 
 .form-actions{
     display:flex;
     flex-wrap:wrap;
-    gap:8px;
-    margin-top:8px;
+    gap:7px;
+    margin-top:9px;
 }
 
 .form-note{
-    color:#8a9aa2;
-    font-size:9px;
     margin-top:5px;
+    color:#8a9aa2;
+    font-size:8px;
+    line-height:1.5;
 }
 
 
-/* =========================================================
+/* =====================================================
    REPOST
-========================================================= */
+===================================================== */
 
 .repost-box{
     display:none;
@@ -636,9 +772,9 @@ textarea.form-control{
 .fetch-result{
     display:none;
     margin-top:15px;
+    padding:15px;
     border:1px solid #cfe0e8;
     border-radius:12px;
-    padding:15px;
     background:#f7fbfd;
 }
 
@@ -649,7 +785,7 @@ textarea.form-control{
 .fetch-result h3{
     margin:0 0 8px;
     color:#07547b;
-    font-size:13px;
+    font-size:12px;
 }
 
 .fetch-preview{
@@ -668,8 +804,9 @@ textarea.form-control{
 }
 
 .fetch-info{
-    font-size:10px;
     color:#637781;
+    font-size:9px;
+    line-height:1.65;
 }
 
 .fetch-info strong{
@@ -677,9 +814,25 @@ textarea.form-control{
 }
 
 
-/* =========================================================
-   DAFTAR BERITA
-========================================================= */
+/* =====================================================
+   INFO TANGGAL
+===================================================== */
+
+.date-note{
+    margin-top:15px;
+    padding:11px 13px;
+    border:1px solid #d5e8f0;
+    border-radius:9px;
+    background:#eef7fb;
+    color:#55717e;
+    font-size:9px;
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   DAFTAR BERITA ADMIN
+===================================================== */
 
 .news-admin-list{
     display:flex;
@@ -688,31 +841,40 @@ textarea.form-control{
 }
 
 .news-admin-item{
+    padding:15px;
     border:1px solid #dfe8ec;
     border-radius:13px;
-    padding:15px;
     background:#fbfdfe;
+    transition:.18s ease;
+}
+
+.news-admin-item:hover{
+    border-color:#c3dce8;
+    box-shadow:0 5px 15px rgba(6,59,92,.045);
 }
 
 .news-admin-title{
-    font-size:14px;
-    font-weight:bold;
-    color:#203442;
     margin-bottom:4px;
+    color:#203442;
+    font-size:14px;
+    line-height:1.4;
+    font-weight:900;
 }
 
 .news-admin-meta{
-    color:#84959d;
-    font-size:9px;
     margin-bottom:8px;
+    color:#84959d;
+    font-size:8px;
+    line-height:1.8;
 }
 
 .news-admin-content{
-    color:#667983;
-    font-size:10px;
-    white-space:pre-line;
     max-height:70px;
     overflow:hidden;
+    color:#667983;
+    font-size:10px;
+    line-height:1.65;
+    white-space:pre-line;
 }
 
 .news-admin-actions{
@@ -722,12 +884,18 @@ textarea.form-control{
     margin-top:11px;
 }
 
+
+/* =====================================================
+   BADGE
+===================================================== */
+
 .badge{
     display:inline-block;
     padding:3px 7px;
     border-radius:20px;
-    font-size:8px;
-    font-weight:bold;
+    font-size:7px;
+    font-weight:900;
+    vertical-align:middle;
 }
 
 .badge-manual{
@@ -751,15 +919,15 @@ textarea.form-control{
 }
 
 
-/* =========================================================
-   KOMENTAR
-========================================================= */
+/* =====================================================
+   KOMENTAR ADMIN
+===================================================== */
 
 .comment-admin{
+    margin-bottom:9px;
+    padding:13px;
     border:1px solid #e0e8ec;
     border-radius:11px;
-    padding:13px;
-    margin-bottom:9px;
 }
 
 .comment-admin.pending{
@@ -774,134 +942,141 @@ textarea.form-control{
 
 .comment-admin-name{
     color:#07547b;
-    font-size:11px;
-    font-weight:bold;
+    font-size:10px;
+    font-weight:900;
 }
 
 .comment-admin-news{
-    color:#8999a1;
-    font-size:9px;
     margin:2px 0 7px;
+    color:#8999a1;
+    font-size:8px;
 }
 
 .comment-admin-text{
     color:#526872;
-    font-size:11px;
+    font-size:10px;
+    line-height:1.6;
     white-space:pre-line;
 }
 
 .comment-admin-actions{
     display:flex;
-    gap:6px;
     flex-wrap:wrap;
+    gap:6px;
     margin-top:9px;
 }
 
 
-/* =========================================================
-   MESSAGE
-========================================================= */
-
-.message{
-    display:none;
-    padding:11px 14px;
-    border-radius:9px;
-    margin-bottom:15px;
-    font-size:11px;
-}
-
-.message.success{
-    display:block;
-    background:#effcf5;
-    color:#087244;
-    border:1px solid #bfe6d0;
-}
-
-.message.error{
-    display:block;
-    background:#fff4f4;
-    color:#a52b2b;
-    border:1px solid #efcaca;
-}
-
-
-/* =========================================================
+/* =====================================================
    LOADING
-========================================================= */
+===================================================== */
 
 .loading{
     padding:25px;
     text-align:center;
     color:#899aa2;
-    font-size:11px;
+    font-size:10px;
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 .footer{
-    background:#062d45;
-    color:#fff;
-    padding:25px 0;
+    margin-top:15px;
+    border-top:3px solid var(--gold);
+    background:linear-gradient(180deg,#063b5c,#042c45);
+    color:#d7e5ec;
 }
 
-.footer-grid{
+.footer-main{
     display:grid;
-    grid-template-columns:1.4fr 1fr 1fr;
-    gap:25px;
-    margin-bottom:18px;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:32px;
+    padding:35px 0 28px;
 }
 
-.footer-title{
+.footer h3{
+    margin:0 0 8px;
     color:#fff;
-    font-size:12px;
+    font-size:17px;
+}
+
+.footer h4{
+    margin:0 0 10px;
+    color:#f0c85d;
+    font-size:10px;
     font-weight:900;
-    margin-bottom:8px;
+    text-transform:uppercase;
+    letter-spacing:.7px;
 }
 
-.footer-text{
-    color:#9db8c5;
-    font-size:9px;
+.footer p{
+    margin:0;
+    color:#b9ced8;
+    font-size:10px;
+    line-height:1.7;
 }
 
-.footer-links{
-    display:flex;
-    flex-direction:column;
-    gap:5px;
+.footer a{
+    display:block;
+    width:max-content;
+    max-width:100%;
+    margin-bottom:6px;
+    color:#c9dbe3;
+    font-size:10px;
+    transition:.18s ease;
 }
 
-.footer-links a{
-    color:#b8ced8;
-    font-size:9px;
-}
-
-.footer-links a:hover{
-    color:#e9b949;
+.footer a:hover{
+    color:#f0c85d;
+    transform:translateX(2px);
 }
 
 .footer-bottom{
-    padding-top:15px;
-    border-top:1px solid rgba(255,255,255,.09);
-}
-
-.footer-bottom p{
-    margin:0;
+    min-height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-top:1px solid rgba(255,255,255,.10);
+    color:#94afbc;
+    font-size:8px;
     text-align:center;
-    color:#9db8c5;
-    font-size:9px;
 }
 
 
-/* =========================================================
+/* =====================================================
    RESPONSIVE
-========================================================= */
+===================================================== */
+
+@media(max-width:1050px){
+
+    .header-main{
+        flex-direction:column;
+        align-items:stretch;
+        gap:7px;
+    }
+
+    .brand{
+        min-width:0;
+    }
+
+    .main-nav{
+        justify-content:flex-start;
+    }
+
+    .header-actions{
+        justify-content:flex-end;
+    }
+
+}
+
 
 @media(max-width:850px){
 
     .dashboard-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,minmax(0,1fr));
     }
 
     .form-grid{
@@ -912,7 +1087,7 @@ textarea.form-control{
         grid-column:auto;
     }
 
-    .footer-grid{
+    .footer-main{
         grid-template-columns:1fr 1fr;
     }
 
@@ -921,14 +1096,33 @@ textarea.form-control{
 
 @media(max-width:600px){
 
+    .top-line{
+        padding:0 12px;
+        justify-content:center;
+        text-align:center;
+    }
+
+    .top-line span:last-child{
+        display:none;
+    }
+
+    .admin-strip-inner{
+        justify-content:center;
+        text-align:center;
+    }
+
+    .admin-strip-right{
+        display:none;
+    }
+
     .brand-logo{
-        width:36px;
-        height:36px;
-        flex-basis:36px;
+        width:38px;
+        height:38px;
+        flex-basis:38px;
     }
 
     .brand-text strong{
-        font-size:11px;
+        font-size:12px;
     }
 
     .brand-text small{
@@ -937,11 +1131,37 @@ textarea.form-control{
 
     .main-nav{
         justify-content:flex-start;
+        gap:3px;
     }
 
     .main-nav a{
+        min-height:30px;
         padding:7px 8px;
-        font-size:7.5px;
+        font-size:7px;
+    }
+
+    .header-actions{
+        justify-content:stretch;
+    }
+
+    .header-actions .btn{
+        flex:1;
+    }
+
+    .admin-hero{
+        padding:33px 0 31px;
+    }
+
+    .admin-hero h1{
+        font-size:29px;
+    }
+
+    .admin-hero p{
+        font-size:11px;
+    }
+
+    .admin-content{
+        padding:28px 0 42px;
     }
 
     .dashboard-grid{
@@ -950,6 +1170,26 @@ textarea.form-control{
 
     .input-mode{
         grid-template-columns:1fr;
+    }
+
+    .panel-body{
+        padding:15px;
+    }
+
+    .panel-header{
+        padding:13px 15px;
+    }
+
+    .panel-header h2{
+        font-size:13px;
+    }
+
+    .form-actions{
+        flex-direction:column;
+    }
+
+    .form-actions .btn{
+        width:100%;
     }
 
     .fetch-preview{
@@ -961,20 +1201,34 @@ textarea.form-control{
         height:160px;
     }
 
-    .panel-body{
-        padding:15px;
+    .news-admin-actions .btn,
+    .comment-admin-actions .btn{
+        flex:1 1 auto;
     }
 
-    .form-actions{
-        flex-direction:column;
-    }
-
-    .form-actions .btn{
-        width:100%;
-    }
-
-    .footer-grid{
+    .footer-main{
         grid-template-columns:1fr;
+        gap:23px;
+        padding:30px 0 24px;
+    }
+
+    .footer-bottom{
+        min-height:60px;
+        padding:12px 0;
+    }
+
+}
+
+
+@media(max-width:370px){
+
+    .brand-text strong{
+        font-size:11px;
+    }
+
+    .main-nav a{
+        padding:6px;
+        font-size:6.3px;
     }
 
 }
@@ -986,9 +1240,9 @@ textarea.form-control{
 <body>
 
 
-<!-- =========================================================
+<!-- =====================================================
      SUPABASE
-========================================================= -->
+===================================================== -->
 
 <script>
 
@@ -1010,16 +1264,16 @@ const supabaseClient =
 </script>
 
 
-<!-- =========================================================
+<!-- =====================================================
      ADMIN STRIP
-========================================================= -->
+===================================================== -->
 
 <div class="admin-strip">
 
     <div class="admin-strip-inner">
 
         <span>
-            GABSI Kota Tanjungbalai
+            GABSI KOTA TANJUNGBALAI
         </span>
 
         <span class="admin-strip-right">
@@ -1031,17 +1285,18 @@ const supabaseClient =
 </div>
 
 
-<!-- =========================================================
+<!-- =====================================================
      HEADER
-========================================================= -->
+===================================================== -->
 
 <header class="site-header">
 
-    <div class="header-main">
+    <div class="container header-main">
 
         <a
             href="index.html"
-            class="brand">
+            class="brand"
+            aria-label="Kembali ke Beranda">
 
             <div class="brand-logo">
 
@@ -1104,7 +1359,8 @@ const supabaseClient =
 
             <a
                 href="berita.html"
-                class="active">
+                class="active"
+                aria-current="page">
 
                 Berita
 
@@ -1144,9 +1400,9 @@ const supabaseClient =
 </header>
 
 
-<!-- =========================================================
+<!-- =====================================================
      LOGIN
-========================================================= -->
+===================================================== -->
 
 <section
     id="loginPage"
@@ -1193,6 +1449,7 @@ const supabaseClient =
 
             </div>
 
+
             <div class="form-group">
 
                 <label class="login-label">
@@ -1209,6 +1466,7 @@ const supabaseClient =
 
             </div>
 
+
             <button
                 id="loginButton"
                 class="btn btn-primary login-button"
@@ -1219,6 +1477,7 @@ const supabaseClient =
             </button>
 
         </form>
+
 
         <div class="login-help">
 
@@ -1232,23 +1491,29 @@ const supabaseClient =
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      ADMIN PAGE
-========================================================= -->
+===================================================== -->
 
 <div id="adminPage">
 
-<header class="admin-header">
+
+<header class="admin-hero">
 
     <div class="container">
 
+        <div class="admin-label">
+            PANEL ADMINISTRASI
+        </div>
+
         <h1>
-            Dashboard Berita
+            Dashboard <span>Berita</span>
         </h1>
 
         <p>
             Kelola berita, repost sumber berita,
-            dan komentar GABSI Kota Tanjungbalai.
+            publikasi, draft, serta moderasi komentar
+            GABSI Kota Tanjungbalai.
         </p>
 
     </div>
@@ -1285,6 +1550,7 @@ const supabaseClient =
 
     </div>
 
+
     <div class="dashboard-card">
 
         <span>
@@ -1296,6 +1562,7 @@ const supabaseClient =
         </strong>
 
     </div>
+
 
     <div class="dashboard-card">
 
@@ -1337,8 +1604,6 @@ const supabaseClient =
 
     <div class="panel-body">
 
-
-        <!-- MODEL INPUT -->
 
         <div class="input-mode">
 
@@ -1399,7 +1664,7 @@ const supabaseClient =
 
 
             <!-- =================================================
-                 FORM MANUAL
+                 MANUAL
             ================================================= -->
 
             <div
@@ -1523,7 +1788,7 @@ const supabaseClient =
 
 
             <!-- =================================================
-                 FORM REPOST
+                 REPOST
             ================================================= -->
 
             <div
@@ -1711,20 +1976,7 @@ const supabaseClient =
             </div>
 
 
-            <!-- =================================================
-                 TANGGAL OTOMATIS
-            ================================================= -->
-
-            <div
-                style="
-                    margin-top:15px;
-                    padding:11px 13px;
-                    border-radius:9px;
-                    background:#eef7fb;
-                    border:1px solid #d5e8f0;
-                    color:#55717e;
-                    font-size:10px;
-                ">
+            <div class="date-note">
 
                 🕐 <strong>Tanggal & waktu:</strong>
                 otomatis saat berita disimpan.
@@ -1733,10 +1985,6 @@ const supabaseClient =
 
             </div>
 
-
-            <!-- =================================================
-                 ACTION
-            ================================================= -->
 
             <div class="form-actions">
 
@@ -1860,91 +2108,90 @@ const supabaseClient =
 </main>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer class="footer">
 
-    <div class="container">
+    <div class="container footer-main">
 
-        <div class="footer-grid">
+        <div>
 
-            <div>
-
-                <div class="footer-title">
-                    GABSI Kota Tanjungbalai
-                </div>
-
-                <div class="footer-text">
-                    Bridge • Prestasi • Persaudaraan.
-                </div>
-
-            </div>
-
-
-            <div>
-
-                <div class="footer-title">
-                    Navigasi
-                </div>
-
-                <div class="footer-links">
-
-                    <a href="index.html">Beranda</a>
-
-                    <a href="profil.html">Profil</a>
-
-                    <a href="pengurus.html">Pengurus</a>
-
-                    <a href="kegiatan.html">Kegiatan</a>
-
-                    <a href="galeri.html">Galeri</a>
-
-                </div>
-
-            </div>
-
-
-            <div>
-
-                <div class="footer-title">
-                    Aplikasi
-                </div>
-
-                <div class="footer-links">
-
-                    <a href="aplikasi.html">
-                        Aplikasi
-                    </a>
-
-                    <a href="kocokan-kartu.html">
-                        Kartu Pembanding
-                    </a>
-
-                    <a href="game-bridge-gabsi.html">
-                        Game Bridge
-                    </a>
-
-                    <a href="berita.html">
-                        Berita
-                    </a>
-
-                    <a href="kontak.html">
-                        Kontak
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
+            <h3>
+                GABSI Kota Tanjungbalai
+            </h3>
 
             <p>
-                © 2026 GABSI Kota Tanjungbalai •
-                Administrasi Berita
+                Bridge • Prestasi • Persaudaraan.
             </p>
 
         </div>
+
+
+        <div>
+
+            <h4>
+                Navigasi
+            </h4>
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="profil.html">
+                Profil
+            </a>
+
+            <a href="pengurus.html">
+                Pengurus
+            </a>
+
+            <a href="kegiatan.html">
+                Kegiatan
+            </a>
+
+            <a href="galeri.html">
+                Galeri
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Aplikasi
+            </h4>
+
+            <a href="aplikasi.html">
+                Aplikasi
+            </a>
+
+            <a href="kocokan-kartu.html">
+                Kartu Pembanding
+            </a>
+
+            <a href="game-bridge-gabsi.html">
+                Game Bridge
+            </a>
+
+            <a href="berita.html">
+                Berita
+            </a>
+
+            <a href="kontak.html">
+                Kontak
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+        © 2026 GABSI Kota Tanjungbalai • Administrasi Berita
 
     </div>
 
@@ -1956,9 +2203,9 @@ const supabaseClient =
 
 <script>
 
-/* =========================================================
+/* =====================================================
    MODE INPUT
-========================================================= */
+===================================================== */
 
 let currentInputMode = "manual";
 
@@ -2030,9 +2277,9 @@ function selectInputMode(mode){
 }
 
 
-/* =========================================================
-   UTILITAS
-========================================================= */
+/* =====================================================
+   MESSAGE
+===================================================== */
 
 function showMessage(
     text,
@@ -2060,9 +2307,9 @@ function showMessage(
 }
 
 
-/* =========================================================
+/* =====================================================
    LOGIN
-========================================================= */
+===================================================== */
 
 document
     .getElementById("loginForm")
@@ -2072,6 +2319,7 @@ document
 
             event.preventDefault();
 
+
             const email =
                 document
                     .getElementById(
@@ -2080,6 +2328,7 @@ document
                     .value
                     .trim();
 
+
             const password =
                 document
                     .getElementById(
@@ -2087,17 +2336,20 @@ document
                     )
                     .value;
 
+
             const button =
                 document
                     .getElementById(
                         "loginButton"
                     );
 
+
             const errorBox =
                 document
                     .getElementById(
                         "loginError"
                     );
+
 
             errorBox.style.display =
                 "none";
@@ -2107,6 +2359,7 @@ document
 
             button.textContent =
                 "MEMERIKSA...";
+
 
             try{
 
@@ -2121,14 +2374,17 @@ document
 
                         });
 
+
                 if(result.error){
 
                     throw result.error;
 
                 }
 
+
                 const user =
                     result.data.user;
+
 
                 if(
                     !user ||
@@ -2144,6 +2400,7 @@ document
                     );
 
                 }
+
 
                 showAdminPage();
 
@@ -2171,9 +2428,9 @@ document
     );
 
 
-/* =========================================================
+/* =====================================================
    CEK SESI
-========================================================= */
+===================================================== */
 
 async function checkSession(){
 
@@ -2184,8 +2441,10 @@ async function checkSession(){
                 .auth
                 .getSession();
 
+
         const session =
             result.data.session;
+
 
         if(
             session &&
@@ -2207,9 +2466,9 @@ async function checkSession(){
 }
 
 
-/* =========================================================
+/* =====================================================
    TAMPILKAN ADMIN
-========================================================= */
+===================================================== */
 
 function showAdminPage(){
 
@@ -2220,6 +2479,7 @@ function showAdminPage(){
         .style.display =
             "none";
 
+
     document
         .getElementById(
             "adminPage"
@@ -2227,12 +2487,14 @@ function showAdminPage(){
         .style.display =
             "block";
 
+
     document
         .getElementById(
             "headerActions"
         )
         .style.display =
             "flex";
+
 
     loadDashboard();
 
@@ -2243,9 +2505,9 @@ function showAdminPage(){
 }
 
 
-/* =========================================================
+/* =====================================================
    LOGOUT
-========================================================= */
+===================================================== */
 
 async function logout(){
 
@@ -2258,10 +2520,9 @@ async function logout(){
 }
 
 
-/* =========================================================
-   REPOST:
-   AMBIL METADATA DARI LINK
-========================================================= */
+/* =====================================================
+   REPOST
+===================================================== */
 
 async function fetchRepostData(){
 
@@ -2272,6 +2533,7 @@ async function fetchRepostData(){
             )
             .value
             .trim();
+
 
     if(!url){
 
@@ -2305,15 +2567,18 @@ async function fetchRepostData(){
             "fetchButton"
         );
 
+
     const resultBox =
         document.getElementById(
             "fetchResult"
         );
 
+
     const previewImage =
         document.getElementById(
             "fetchPreviewImage"
         );
+
 
     const previewText =
         document.getElementById(
@@ -2326,24 +2591,14 @@ async function fetchRepostData(){
     button.textContent =
         "MEMBACA LINK...";
 
+
     resultBox.classList.remove(
         "show"
     );
 
 
-    /*
-     * Browser tidak selalu mengizinkan
-     * pengambilan HTML situs lain karena
-     * CORS. Kita coba beberapa metode.
-     */
-
     let data = null;
 
-
-    /* -----------------------------------------------------
-       METODE 1:
-       Jina Reader sebagai pembaca halaman
-    ----------------------------------------------------- */
 
     try{
 
@@ -2354,15 +2609,18 @@ async function fetchRepostData(){
                 ""
             );
 
+
         const response =
             await fetch(
                 readerUrl
             );
 
+
         if(response.ok){
 
             const text =
                 await response.text();
+
 
             data =
                 parseReaderText(
@@ -2383,11 +2641,6 @@ async function fetchRepostData(){
     }
 
 
-    /* -----------------------------------------------------
-       FALLBACK:
-       Ambil judul dari URL
-    ----------------------------------------------------- */
-
     if(!data){
 
         data = {
@@ -2398,6 +2651,7 @@ async function fetchRepostData(){
                 ),
 
             image:"",
+
             description:
                 "Berita repost dari sumber asli. " +
                 "Silakan lengkapi atau edit isi berita " +
@@ -2506,9 +2760,9 @@ async function fetchRepostData(){
 }
 
 
-/* =========================================================
+/* =====================================================
    PARSE READER
-========================================================= */
+===================================================== */
 
 function parseReaderText(
     text,
@@ -2541,10 +2795,6 @@ function parseReaderText(
     let title =
         lines[0] || "";
 
-
-    /*
-     * Buang beberapa judul teknis
-     */
 
     if(
         title.startsWith("Title:")
@@ -2633,9 +2883,9 @@ function parseReaderText(
 }
 
 
-/* =========================================================
+/* =====================================================
    UTILITAS URL
-========================================================= */
+===================================================== */
 
 function getDomainName(
     url
@@ -2675,11 +2925,13 @@ function createTitleFromUrl(
                 url
             );
 
+
         const part =
             u.pathname
                 .split("/")
                 .filter(Boolean)
-                .pop() || "Berita";
+                .pop() ||
+            "Berita";
 
 
         return decodeURIComponent(
@@ -2739,9 +2991,9 @@ function escapeHtml(
 }
 
 
-/* =========================================================
+/* =====================================================
    DATA FORM
-========================================================= */
+===================================================== */
 
 function getNewsFormData(
     published
@@ -2870,9 +3122,9 @@ function getNewsFormData(
 }
 
 
-/* =========================================================
-   FORM SUBMIT
-========================================================= */
+/* =====================================================
+   SUBMIT
+===================================================== */
 
 document
     .getElementById("newsForm")
@@ -2890,9 +3142,9 @@ document
     );
 
 
-/* =========================================================
+/* =====================================================
    DRAFT
-========================================================= */
+===================================================== */
 
 async function saveDraft(){
 
@@ -2969,9 +3221,9 @@ async function saveDraft(){
 }
 
 
-/* =========================================================
+/* =====================================================
    SAVE NEWS
-========================================================= */
+===================================================== */
 
 async function saveNews(
     published
@@ -3082,9 +3334,9 @@ async function saveNews(
 }
 
 
-/* =========================================================
+/* =====================================================
    RESET FORM
-========================================================= */
+===================================================== */
 
 function resetNewsForm(){
 
@@ -3166,9 +3418,9 @@ function resetNewsForm(){
 }
 
 
-/* =========================================================
+/* =====================================================
    LOAD NEWS
-========================================================= */
+===================================================== */
 
 async function loadNews(){
 
@@ -3471,9 +3723,9 @@ async function loadNews(){
 }
 
 
-/* =========================================================
+/* =====================================================
    FORMAT TANGGAL
-========================================================= */
+===================================================== */
 
 function formatDate(
     value
@@ -3493,11 +3745,13 @@ function formatDate(
                 month:"long",
                 year:"numeric",
                 hour:"2-digit",
-                minute:"2-digit"
+                minute:"2-digit",
+                timeZone:"Asia/Jakarta"
             }
         ).format(
             new Date(value)
-        );
+        ) +
+        " WIB";
 
     }
     catch(error){
@@ -3509,9 +3763,9 @@ function formatDate(
 }
 
 
-/* =========================================================
+/* =====================================================
    EDIT NEWS
-========================================================= */
+===================================================== */
 
 function editNews(
     news
@@ -3656,9 +3910,9 @@ function editNews(
 }
 
 
-/* =========================================================
+/* =====================================================
    TERBIT / DRAFT
-========================================================= */
+===================================================== */
 
 async function togglePublished(
     news
@@ -3713,9 +3967,9 @@ async function togglePublished(
 }
 
 
-/* =========================================================
+/* =====================================================
    HAPUS BERITA
-========================================================= */
+===================================================== */
 
 async function deleteNews(
     news
@@ -3783,9 +4037,9 @@ async function deleteNews(
 }
 
 
-/* =========================================================
+/* =====================================================
    LOAD KOMENTAR
-========================================================= */
+===================================================== */
 
 async function loadComments(){
 
@@ -3933,6 +4187,7 @@ async function loadComments(){
 
                         };
 
+
                     actions.appendChild(
                         approve
                     );
@@ -3959,6 +4214,7 @@ async function loadComments(){
                             );
 
                         };
+
 
                     actions.appendChild(
                         pending
@@ -4031,9 +4287,9 @@ async function loadComments(){
 }
 
 
-/* =========================================================
+/* =====================================================
    SETUJUI KOMENTAR
-========================================================= */
+===================================================== */
 
 async function approveComment(
     id
@@ -4085,9 +4341,9 @@ async function approveComment(
 }
 
 
-/* =========================================================
+/* =====================================================
    BATALKAN PERSETUJUAN
-========================================================= */
+===================================================== */
 
 async function rejectComment(
     id
@@ -4139,9 +4395,9 @@ async function rejectComment(
 }
 
 
-/* =========================================================
+/* =====================================================
    HAPUS KOMENTAR
-========================================================= */
+===================================================== */
 
 async function deleteComment(
     id
@@ -4202,9 +4458,9 @@ async function deleteComment(
 }
 
 
-/* =========================================================
+/* =====================================================
    DASHBOARD
-========================================================= */
+===================================================== */
 
 async function loadDashboard(){
 
@@ -4294,9 +4550,9 @@ async function loadDashboard(){
 }
 
 
-/* =========================================================
+/* =====================================================
    JALANKAN
-========================================================= */
+===================================================== */
 
 checkSession();
 
