@@ -1,1904 +1,2583 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
+
 <head>
 
-<meta charset="UTF-8">
+<meta charset="utf-8">
 
 <meta name="viewport"
       content="width=device-width,initial-scale=1">
 
-<meta name="theme-color" content="#063b5c">
+<meta name="theme-color"
+      content="#063b5c">
 
 <meta name="description"
       content="Belajar Penawaran Bridge — GABSI Kota Tanjungbalai">
 
 <title>Belajar Penawaran Bridge — GABSI Kota Tanjungbalai</title>
 
-<link rel="icon" type="image/png" href="logo-gabsi.png">
+<link rel="icon"
+      type="image/png"
+      href="logo-gabsi.png">
+
 
 <style>
 
-/* =========================================================
-   GABSI KOTA TANJUNGBALAI
-   HEADER SERAGAM SEPERTI PENGURUS.HTML
-   ========================================================= */
+/* =====================================================
+   MASTER VISUAL GABSI
+   MENGIKUTI PROFIL.HTML
+   FUNGSI APLIKASI TETAP DIPERTAHANKAN
+===================================================== */
 
 :root{
---bg:#f4f7fb;
---card:#fff;
---ink:#142033;
---muted:#66758b;
---navy:#063b5c;
---blue:#087cab;
---line:#dfe6ef;
---good:#08784e;
---bad:#c92a2a;
---gold:#e9b949;
---shadow:0 10px 28px rgba(14,42,75,.08)
+  --navy:#063b5c;
+  --blue:#07558f;
+  --blue2:#087cab;
+  --light:#eaf4f9;
+  --bg:#eef4f7;
+  --card:#ffffff;
+  --ink:#263746;
+  --muted:#536673;
+  --line:#dce7ec;
+  --green:#08784e;
+  --red:#c92f3d;
+  --gold:#ffd75a;
+  --shadow:0 6px 20px rgba(0,0,0,.07);
 }
 
 *{
-box-sizing:border-box
+  box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth
+  scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-background:var(--bg);
-color:var(--ink);
-font:14px/1.5 Arial,system-ui,sans-serif
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
 }
 
 a{
-text-decoration:none;
-color:inherit
+  text-decoration:none;
+  color:inherit;
 }
 
 button,
 input,
 select,
 textarea{
-font:inherit
+  font:inherit;
 }
 
 
-/* =========================================================
-   TOP LINE
-   ========================================================= */
-
-.topline{
-background:var(--navy);
-color:#d9edf7;
-text-align:center;
-padding:7px 12px;
-font-size:12px;
-letter-spacing:.2px
-}
-
-
-/* =========================================================
+/* =====================================================
    HEADER
-   ========================================================= */
+===================================================== */
 
-.header{
-background:#fff;
-border-bottom:1px solid var(--line);
-position:sticky;
-top:0;
-z-index:999;
-box-shadow:0 4px 18px rgba(6,59,92,.08)
+.site-header{
+  width:100%;
+  background:#ffffff;
+  box-shadow:0 2px 12px rgba(0,0,0,.10);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-.head{
-max-width:1180px;
-margin:auto;
-padding:10px 18px;
-display:flex;
-gap:18px;
-align-items:center
+.top-line{
+  width:100%;
+  min-height:30px;
+
+  background:#063b5c;
+  color:#ffffff;
+
+  padding:6px 20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  font-size:9px;
+  letter-spacing:.2px;
+}
+
+.header-main{
+  width:100%;
+  min-height:68px;
+
+  padding:9px 20px;
+
+  display:flex;
+  align-items:center;
+
+  gap:20px;
+
+  background:#ffffff;
 }
 
 
-/* SATU LOGO SAJA */
+/* =====================================================
+   BRAND
+===================================================== */
 
 .brand{
-display:flex;
-gap:10px;
-align-items:center;
-min-width:230px;
-flex-shrink:0
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+
+  text-decoration:none;
+
+  flex:0 0 auto;
+
+  min-width:0;
+
+  position:relative;
 }
-
-.logo{
-width:40px;
-height:40px;
-border-radius:9px;
-object-fit:contain;
-background:#fff;
-display:block;
-flex-shrink:0
-}
-
-.brand b{
-display:block;
-color:var(--navy);
-font-size:14px;
-line-height:1.2
-}
-
-.brand small{
-display:block;
-color:var(--muted);
-font-size:10px;
-line-height:1.2;
-margin-top:2px
-}
-
-
-/* =========================================================
-   PENGAMAN LOGO
-   MENCEGAH LOGO TAMBAHAN DARI CSS LAIN
-   ========================================================= */
 
 .brand::before,
-.brand::after,
-.header::before,
-.header::after,
-.head::before,
-.head::after{
-content:none!important;
-display:none!important;
-background:none!important;
-background-image:none!important
+.brand::after{
+  display:none !important;
+  content:none !important;
+  background:none !important;
+}
+
+.brand-logo{
+  width:40px;
+  height:40px;
+
+  min-width:40px;
+  min-height:40px;
+
+  max-width:40px;
+  max-height:40px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  flex:0 0 40px;
+
+  overflow:hidden;
+
+  background:#ffffff;
+
+  border-radius:8px;
+
+  padding:0;
+  margin:0;
+}
+
+.brand-logo img{
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+}
+
+.brand-text{
+  display:block;
+  min-width:0;
+}
+
+.brand-text strong{
+  display:block;
+
+  color:#063b5c;
+
+  font-size:13px;
+
+  line-height:1.2;
+
+  white-space:nowrap;
+}
+
+.brand-text small{
+  display:block;
+
+  color:#7b8790;
+
+  font-size:7px;
+
+  line-height:1.2;
+
+  margin-top:2px;
+
+  letter-spacing:.2px;
+
+  white-space:nowrap;
 }
 
 
-/* =========================================================
+/* =====================================================
    NAVIGASI
-   ========================================================= */
+===================================================== */
 
-.nav{
-display:flex;
-flex-wrap:wrap;
-justify-content:flex-end;
-align-items:center;
-gap:4px;
-flex:1
+.main-nav{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:flex-end;
+
+  gap:3px;
+
+  flex:1;
+
+  min-width:0;
+
+  overflow-x:auto;
+
+  overflow-y:hidden;
+
+  white-space:nowrap;
+
+  scrollbar-width:none;
 }
 
-.nav a{
-padding:8px 9px;
-border-radius:9px;
-font-size:12px;
-font-weight:bold;
-color:#425168;
-transition:.2s;
-white-space:nowrap
+.main-nav::-webkit-scrollbar{
+  display:none;
 }
 
-.nav a:hover{
-background:#eef4f9;
-color:#075b87
+.main-nav a{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  flex:0 0 auto;
+
+  padding:8px 9px;
+
+  border-radius:9px;
+
+  color:#172033;
+
+  font-size:10px;
+
+  font-weight:600;
+
+  white-space:nowrap;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    box-shadow .2s ease;
 }
 
-.nav .active{
-background:var(--navy);
-color:#fff
+.main-nav a:hover{
+  background:#eaf4f9;
+  color:#07558f;
 }
 
-.nav .game{
-border:1px solid #cfe0eb;
-background:#f7fbfd
+.main-nav a.active{
+  background:#eaf4f9;
+  color:#07558f;
+
+  font-weight:700;
+
+  box-shadow:
+    inset 0 -3px 0 #c92f3d;
 }
 
-.nav .game:hover{
-background:#eaf5fa;
-color:#075b87
-}
 
-
-/* =========================================================
+/* =====================================================
    MAIN
-   ========================================================= */
+===================================================== */
 
 main{
-max-width:1180px;
-margin:auto;
-padding:22px 18px 50px
+  width:100%;
+  max-width:1100px;
+
+  margin:auto;
+
+  padding:38px 20px 55px;
 }
 
 
-/* =========================================================
+/* =====================================================
    HERO
-   ========================================================= */
+===================================================== */
 
 .hero{
-background:
-radial-gradient(
-circle at 90% 10%,
-rgba(255,255,255,.13),
-transparent 28%
-),
-linear-gradient(
-135deg,
-#073c59,
-#0d6384,
-#147fa1
-);
-color:#fff;
-border-radius:23px;
-padding:29px 30px;
-margin-bottom:18px;
-box-shadow:var(--shadow);
-position:relative;
-overflow:hidden
+  background:
+    linear-gradient(
+      135deg,
+      #063b5c 0%,
+      #07558f 55%,
+      #087cab 100%
+    );
+
+  color:#ffffff;
+
+  border-radius:17px;
+
+  padding:30px;
+
+  margin-bottom:20px;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.08);
+
+  position:relative;
+
+  overflow:hidden;
 }
 
-.hero:after{
-content:"♠ ♥ ♦ ♣";
-position:absolute;
-right:18px;
-bottom:-22px;
-font-size:90px;
-letter-spacing:8px;
-color:rgba(255,255,255,.07);
-transform:rotate(-7deg);
-pointer-events:none
+.hero::before{
+  content:"";
+
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(255,255,255,.08);
+
+  top:-180px;
+  right:-80px;
+}
+
+.hero::after{
+  content:"♠ ♥ ♦ ♣";
+
+  position:absolute;
+
+  right:18px;
+  bottom:-25px;
+
+  font-size:80px;
+
+  letter-spacing:7px;
+
+  color:rgba(255,255,255,.07);
+
+  transform:rotate(-7deg);
+
+  pointer-events:none;
 }
 
 .hero h1{
-margin:0 0 6px;
-font-size:34px;
-position:relative;
-z-index:2
+  margin:0 0 8px;
+
+  font-size:34px;
+
+  line-height:1.2;
+
+  position:relative;
+
+  z-index:2;
+}
+
+.hero h1::after{
+  content:"";
+
+  display:block;
+
+  width:65px;
+
+  height:3px;
+
+  background:#ffd75a;
+
+  border-radius:10px;
+
+  margin-top:10px;
 }
 
 .hero p{
-margin:0;
-color:#e4f3fb;
-position:relative;
-z-index:2
+  margin:10px 0 0;
+
+  max-width:760px;
+
+  color:rgba(255,255,255,.90);
+
+  font-size:11px;
+
+  line-height:1.8;
+
+  position:relative;
+
+  z-index:2;
 }
 
 
-/* =========================================================
-   STEP
-   ========================================================= */
+/* =====================================================
+   STEPS
+===================================================== */
 
 .steps{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:7px;
-margin-bottom:18px
-}
+  display:grid;
 
-.step,
-.card{
-background:#fff;
-border:1px solid var(--line);
-border-radius:16px;
-box-shadow:var(--shadow)
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:12px;
+
+  margin-bottom:20px;
 }
 
 .step{
-padding:11px;
-font-size:11px;
-transition:.2s
+  background:#ffffff;
+
+  border:1px solid #dce7ec;
+
+  border-radius:12px;
+
+  padding:13px;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.07);
+
+  font-size:10px;
+
+  color:#657783;
+
+  transition:.2s;
 }
 
 .step:hover{
-transform:translateY(-2px)
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 9px 24px rgba(0,0,0,.10);
 }
 
 .step b{
-display:block;
-color:var(--navy)
+  display:block;
+
+  color:#07558f;
+
+  font-size:11px;
+
+  margin-bottom:3px;
 }
 
 
-/* =========================================================
-   CARD
-   ========================================================= */
+/* =====================================================
+   CARD MASTER
+===================================================== */
 
 .card{
-padding:18px;
-margin-bottom:16px
+  background:#ffffff;
+
+  border:1px solid #dce7ec;
+
+  border-radius:17px;
+
+  padding:25px;
+
+  margin-bottom:20px;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.07);
+
+  position:relative;
 }
 
 .card h2{
-font-size:18px;
-color:var(--navy);
-margin:0 0 5px
+  color:#07558f;
+
+  font-size:19px;
+
+  line-height:1.3;
+
+  margin:0 0 7px;
 }
 
 .card h3{
-font-size:14px;
-color:var(--navy);
-margin:12px 0 6px
+  color:#173b50;
+
+  font-size:15px;
+
+  margin:18px 0 7px;
 }
 
 .muted{
-color:var(--muted);
-font-size:12px
+  color:#657783;
+
+  font-size:10.5px;
+
+  line-height:1.75;
 }
 
 
-/* =========================================================
+/* =====================================================
    FORM
-   ========================================================= */
+===================================================== */
 
 .form{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:12px;
 }
 
 .field label{
-display:block;
-font-size:11px;
-font-weight:bold;
-color:#526177;
-margin-bottom:5px
+  display:block;
+
+  color:#526673;
+
+  font-size:10px;
+
+  font-weight:bold;
+
+  margin-bottom:5px;
 }
 
 .field input,
 .field select,
 .field textarea{
-width:100%;
-border:1px solid #ccd8e5;
-border-radius:10px;
-padding:9px;
-background:#fff;
-outline:none;
-transition:.2s
+  width:100%;
+
+  border:1px solid #ccdce5;
+
+  border-radius:10px;
+
+  padding:9px 10px;
+
+  background:#ffffff;
+
+  color:#263746;
+
+  outline:none;
+
+  transition:.2s;
 }
 
 .field input:focus,
 .field select:focus,
 .field textarea:focus{
-border-color:#087cab;
-box-shadow:0 0 0 3px rgba(8,124,171,.08)
+  border-color:#087cab;
+
+  box-shadow:
+    0 0 0 3px rgba(8,124,171,.08);
 }
 
 .field textarea{
-min-height:90px;
-resize:vertical
+  min-height:90px;
+
+  resize:vertical;
 }
 
 
-/* =========================================================
+/* =====================================================
    BUTTON
-   ========================================================= */
+===================================================== */
 
 .btns{
-display:flex;
-flex-wrap:wrap;
-gap:7px;
-margin-top:12px
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
+  margin-top:13px;
 }
 
 .btn{
-border:1px solid #c8d6e2;
-background:#fff;
-border-radius:10px;
-padding:9px 12px;
-font-weight:bold;
-font-size:12px;
-cursor:pointer;
-transition:.2s
+  border:1px solid #cbdbe4;
+
+  background:#ffffff;
+
+  color:#334b5b;
+
+  border-radius:8px;
+
+  padding:9px 12px;
+
+  font-size:10px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:.2s ease;
 }
 
 .btn:hover{
-transform:translateY(-1px);
-box-shadow:0 5px 14px rgba(14,42,75,.08)
+  transform:translateY(-1px);
+
+  box-shadow:
+    0 5px 14px rgba(14,42,75,.08);
 }
 
 .primary{
-background:var(--navy);
-border-color:var(--navy);
-color:#fff
+  background:#07558f;
+
+  border-color:#07558f;
+
+  color:#ffffff;
 }
 
 .blue{
-background:#1e6bff;
-border-color:#1e6bff;
-color:#fff
+  background:#087cab;
+
+  border-color:#087cab;
+
+  color:#ffffff;
 }
 
 .good{
-background:#08784e;
-border-color:#08784e;
-color:#fff
+  background:#08784e;
+
+  border-color:#08784e;
+
+  color:#ffffff;
 }
 
 .danger{
-color:#a42121
+  color:#a42121;
 }
 
 
-/* =========================================================
+/* =====================================================
    NOTICE
-   ========================================================= */
+===================================================== */
 
 .notice{
-padding:11px;
-border:1px solid #cfe0eb;
-background:#f4fafc;
-border-radius:11px;
-font-size:12px;
-margin-top:10px
+  padding:11px 13px;
+
+  border:1px solid #d5e4eb;
+
+  background:#f5f9fb;
+
+  border-radius:10px;
+
+  font-size:10.5px;
+
+  line-height:1.7;
+
+  margin-top:11px;
+
+  color:#536673;
 }
 
 
-/* =========================================================
-   LEVEL
-   ========================================================= */
+/* =====================================================
+   LEVELS
+===================================================== */
 
 .levels{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:9px;
-margin-top:12px
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:12px;
+
+  margin-top:14px;
 }
 
 .level{
-border:1px solid var(--line);
-border-radius:12px;
-padding:13px;
-background:#fff;
-cursor:pointer;
-transition:.15s
+  border:1px solid #dce7ec;
+
+  border-radius:12px;
+
+  padding:15px;
+
+  background:#ffffff;
+
+  cursor:pointer;
+
+  transition:.18s;
 }
 
 .level:hover{
-border-color:#77abc8;
-background:#f5fbfe;
-transform:translateY(-2px)
+  border-color:#77abc8;
+
+  background:#f5fbfe;
+
+  transform:translateY(-2px);
 }
 
 .level.active{
-border-color:#087cab;
-background:#eef8fc;
-box-shadow:inset 0 0 0 1px #087cab
+  border-color:#087cab;
+
+  background:#eef8fc;
+
+  box-shadow:
+    inset 0 0 0 1px #087cab;
 }
 
 .level b{
-display:block;
-color:var(--navy);
-font-size:13px
+  display:block;
+
+  color:#07558f;
+
+  font-size:13px;
 }
 
 .level span{
-display:block;
-color:var(--muted);
-font-size:10px;
-margin-top:3px
+  display:block;
+
+  color:#657783;
+
+  font-size:9.5px;
+
+  line-height:1.6;
+
+  margin-top:4px;
 }
 
 .level small{
-display:block;
-color:#08784e;
-font-weight:bold;
-font-size:10px;
-margin-top:7px
+  display:block;
+
+  color:#08784e;
+
+  font-weight:bold;
+
+  font-size:9px;
+
+  margin-top:7px;
 }
 
 .level-note{
-margin-top:10px;
-padding:10px 12px;
-border:1px solid #cfe0eb;
-background:#f4fafc;
-border-radius:11px;
-font-size:12px
+  margin-top:11px;
+
+  padding:11px 13px;
+
+  border:1px solid #d5e4eb;
+
+  background:#f5f9fb;
+
+  border-radius:10px;
+
+  font-size:10.5px;
 }
 
 
-/* =========================================================
+/* =====================================================
    SYSTEM
-   ========================================================= */
+===================================================== */
 
 .systems{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:8px
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:10px;
 }
 
 .sys{
-border:1px solid var(--line);
-border-radius:11px;
-padding:10px;
-cursor:pointer;
-transition:.15s
+  border:1px solid #dce7ec;
+
+  border-radius:11px;
+
+  padding:12px;
+
+  cursor:pointer;
+
+  transition:.18s;
 }
 
 .sys:hover{
-border-color:#77abc8;
-background:#f5fbfe;
-transform:translateY(-1px)
+  border-color:#77abc8;
+
+  background:#f5fbfe;
+
+  transform:translateY(-1px);
 }
 
 .sys.active{
-border-color:#77abc8;
-background:#f5fbfe;
-box-shadow:inset 0 0 0 1px #087cab
+  border-color:#087cab;
+
+  background:#eef8fc;
+
+  box-shadow:
+    inset 0 0 0 1px #087cab;
 }
 
 .sys b{
-display:block;
-color:var(--navy);
-font-size:12px
+  display:block;
+
+  color:#07558f;
+
+  font-size:11px;
+
+  margin-bottom:2px;
 }
 
 .sys span{
-font-size:10px;
-color:var(--muted)
+  font-size:9px;
+
+  color:#657783;
+
+  line-height:1.5;
 }
 
 
-/* =========================================================
+/* =====================================================
    MODES
-   ========================================================= */
+===================================================== */
 
 .modes{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:10px;
+
+  margin-top:12px;
 }
 
 .mode{
-border:1px solid var(--line);
-padding:11px;
-border-radius:11px;
-font-size:11px
+  border:1px solid #dce7ec;
+
+  padding:13px;
+
+  border-radius:11px;
+
+  font-size:10px;
+
+  color:#536673;
+
+  background:#ffffff;
+}
+
+.mode b{
+  color:#07558f;
 }
 
 .hidden{
-display:none!important
+  display:none!important;
 }
 
 
-/* =========================================================
+/* =====================================================
    HANDS
-   ========================================================= */
+===================================================== */
 
 .hands{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:9px
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:12px;
+
+  margin-top:13px;
 }
 
 .hand{
-border:1px solid var(--line);
-border-radius:12px;
-padding:11px;
-background:#fbfdff
+  border:1px solid #dce7ec;
+
+  border-radius:12px;
+
+  padding:13px;
+
+  background:#f9fcfd;
 }
 
 .hand b{
-color:var(--navy)
+  color:#07558f;
+
+  font-size:12px;
+
+  display:block;
+
+  margin-bottom:5px;
 }
 
 .cards{
-font-size:11px;
-line-height:1.8;
-min-height:62px;
-margin-top:7px
+  font-size:10px;
+
+  line-height:1.9;
+
+  min-height:62px;
+
+  margin-top:7px;
+
+  color:#536673;
 }
 
 .badge{
-display:inline-block;
-padding:3px 7px;
-border-radius:99px;
-background:#eef4ff;
-color:#2357b7;
-font-size:10px;
-font-weight:bold
+  display:inline-block;
+
+  padding:3px 7px;
+
+  border-radius:99px;
+
+  background:#eaf4f9;
+
+  color:#07558f;
+
+  font-size:8px;
+
+  font-weight:bold;
 }
 
 
-/* =========================================================
+/* =====================================================
    UPLOAD
-   ========================================================= */
+===================================================== */
 
 .uploads{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:8px
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:10px;
 }
 
 .upload{
-border:1px dashed #b9cbd9;
-padding:9px;
-border-radius:11px;
-font-size:10px
+  border:1px dashed #b9cbd9;
+
+  padding:10px;
+
+  border-radius:11px;
+
+  font-size:9px;
+
+  background:#fbfdfe;
+}
+
+.upload input{
+  width:100%;
+
+  margin-top:7px;
+
+  font-size:9px;
 }
 
 .upload img{
-display:none;
-width:100%;
-max-height:80px;
-object-fit:contain;
-margin-top:6px;
-border-radius:7px
+  display:none;
+
+  width:100%;
+
+  max-height:100px;
+
+  object-fit:contain;
+
+  margin-top:7px;
+
+  border-radius:7px;
 }
 
 
-/* =========================================================
+/* =====================================================
    RECOMMENDATION
-   ========================================================= */
+===================================================== */
 
 .rec{
-background:#f3fbf7;
-border:1px solid #b8e0cf;
-border-radius:14px;
-padding:15px
+  background:#f3fbf7;
+
+  border:1px solid #b8e0cf;
+
+  border-radius:14px;
+
+  padding:17px;
+}
+
+.rec>b{
+  color:#075d3e;
+
+  font-size:11px;
 }
 
 .rec .bid{
-font-size:27px;
-font-weight:900;
-color:#075d3e
+  font-size:30px;
+
+  line-height:1.1;
+
+  font-weight:900;
+
+  color:#075d3e;
+
+  margin:4px 0;
 }
 
 .rec p{
-font-size:12px;
-margin:5px 0;
-color:#3f5d50
+  font-size:10.5px;
+
+  line-height:1.7;
+
+  margin:5px 0;
+
+  color:#3f5d50;
 }
 
 .bar{
-height:8px;
-background:#dcebe4;
-border-radius:9px;
-overflow:hidden
+  height:8px;
+
+  background:#dcebe4;
+
+  border-radius:9px;
+
+  overflow:hidden;
+
+  margin-top:9px;
 }
 
 .bar i{
-display:block;
-height:100%;
-background:#08784e
+  display:block;
+
+  height:100%;
+
+  background:#08784e;
 }
 
 
-/* =========================================================
+/* =====================================================
    TABLE
-   ========================================================= */
+===================================================== */
 
 .tablewrap{
-overflow:auto;
-border:1px solid var(--line);
-border-radius:11px
+  overflow:auto;
+
+  border:1px solid #dce7ec;
+
+  border-radius:11px;
+
+  margin-top:10px;
 }
 
 .table{
-width:100%;
-border-collapse:collapse;
-min-width:650px
+  width:100%;
+
+  border-collapse:collapse;
+
+  min-width:650px;
+
+  background:#ffffff;
 }
 
 .table th,
 .table td{
-padding:8px;
-border-bottom:1px solid var(--line);
-font-size:11px;
-text-align:left
+  padding:8px;
+
+  border-bottom:1px solid #dce7ec;
+
+  font-size:9.5px;
+
+  text-align:left;
+
+  vertical-align:top;
 }
 
 .table th{
-background:#f4f8fb;
-font-size:10px;
-color:#526177
+  background:#f4f8fb;
+
+  font-size:9px;
+
+  color:#526177;
+
+  font-weight:bold;
 }
 
 .table tr:last-child td{
-border-bottom:0
+  border-bottom:0;
 }
 
 
-/* =========================================================
+/* =====================================================
    BID PAD
-   ========================================================= */
+===================================================== */
 
 .bidpad{
-display:grid;
-grid-template-columns:repeat(8,1fr);
-gap:5px;
-margin-top:8px
+  display:grid;
+
+  grid-template-columns:
+    repeat(8,1fr);
+
+  gap:6px;
+
+  margin-top:10px;
 }
 
 .bidpad button{
-padding:7px 2px;
-border:1px solid #ccd8e5;
-background:#fff;
-border-radius:7px;
-font-weight:bold;
-font-size:10px;
-cursor:pointer;
-transition:.15s
+  padding:7px 2px;
+
+  border:1px solid #ccd8e5;
+
+  background:#ffffff;
+
+  color:#07558f;
+
+  border-radius:7px;
+
+  font-weight:bold;
+
+  font-size:9px;
+
+  cursor:pointer;
+
+  transition:.15s;
 }
 
 .bidpad button:hover{
-background:#eef7fb;
-border-color:#77abc8
+  background:#eef7fb;
+
+  border-color:#77abc8;
 }
 
 .bidpad button:disabled{
-opacity:.35;
-cursor:not-allowed;
-background:#f1f3f5
+  opacity:.35;
+
+  cursor:not-allowed;
+
+  background:#f1f3f5;
 }
 
 
-/* =========================================================
+/* =====================================================
    RESULT
-   ========================================================= */
+===================================================== */
+
+.grid{
+  display:grid;
+
+  grid-template-columns:
+    1.4fr .6fr;
+
+  gap:20px;
+
+  align-items:start;
+}
 
 .result{
-padding:15px;
-border:1px solid var(--line);
-border-radius:13px;
-background:#f7f9fc
+  padding:20px;
+
+  border:1px solid #dce7ec;
+
+  border-radius:14px;
+
+  background:#f7f9fc;
+
+  min-height:130px;
 }
 
 .score{
-font-size:34px;
-font-weight:900
+  font-size:34px;
+
+  line-height:1.1;
+
+  font-weight:900;
 }
 
 .pos{
-color:var(--good)
+  color:var(--green);
 }
 
 .neg{
-color:var(--bad)
+  color:#c92a2a;
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-   ========================================================= */
+===================================================== */
 
 .footer{
-background:#052d46;
-color:#b9d0dc;
-text-align:center;
-font-size:11px;
-padding:22px 18px;
-margin-top:20px
+  background:#063b5c;
+
+  color:#ffffff;
+
+  padding:32px 20px 18px;
+
+  margin-top:0;
 }
 
-.footer strong{
-color:#fff
+.footer-inner{
+  max-width:1100px;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:
+    1.4fr 1fr 1fr;
+
+  gap:30px;
+}
+
+.footer h3{
+  font-size:14px;
+
+  margin:0 0 9px;
+}
+
+.footer p{
+  color:rgba(255,255,255,.75);
+
+  font-size:10px;
+
+  line-height:1.7;
+
+  margin:0;
+}
+
+.footer-links{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:5px;
+}
+
+.footer-links a{
+  color:rgba(255,255,255,.75);
+
+  font-size:10px;
+
+  transition:.2s ease;
+}
+
+.footer-links a:hover{
+  color:#ffffff;
+
+  transform:translateX(2px);
+}
+
+.footer-bottom{
+  max-width:1100px;
+
+  margin:23px auto 0;
+
+  padding-top:13px;
+
+  border-top:1px solid rgba(255,255,255,.15);
+
+  display:flex;
+
+  justify-content:space-between;
+
+  color:rgba(255,255,255,.6);
+
+  font-size:9px;
 }
 
 
-/* =========================================================
+/* =====================================================
    RESPONSIVE
-   ========================================================= */
+===================================================== */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
-.head{
-align-items:flex-start;
-flex-direction:column
-}
+  .header-main{
+    gap:10px;
+  }
 
-.nav{
-justify-content:flex-start;
-width:100%
-}
+  .main-nav{
+    justify-content:flex-start;
+  }
 
-.grid{
-grid-template-columns:1fr
-}
+  .main-nav a{
+    padding:8px;
+  }
 
-.steps{
-grid-template-columns:1fr 1fr
-}
+  .steps{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
 
-.systems{
-grid-template-columns:1fr 1fr
-}
-
-.levels{
-grid-template-columns:1fr 1fr
-}
-
-.hands,
-.uploads{
-grid-template-columns:1fr 1fr
-}
-
-.form{
-grid-template-columns:1fr 1fr
-}
-
-.hero h1{
-font-size:27px
-}
+  .grid{
+    grid-template-columns:1fr;
+  }
 
 }
 
 
-@media(max-width:520px){
+@media(max-width:850px){
 
-.head{
-padding:10px 14px
-}
+  .header-main{
+    align-items:flex-start;
+  }
 
-.brand{
-min-width:0;
-width:100%
-}
+  .main-nav{
+    overflow-x:auto;
 
-.logo{
-width:40px;
-height:40px
-}
+    justify-content:flex-start;
+  }
 
-.brand b{
-font-size:11px
-}
+  .levels{
+    grid-template-columns:1fr 1fr;
+  }
 
-.brand small{
-font-size:8px
-}
+  .systems{
+    grid-template-columns:1fr 1fr;
+  }
 
-.nav{
-width:100%;
-overflow-x:auto;
-flex-wrap:nowrap;
-justify-content:flex-start;
-padding-bottom:3px;
--webkit-overflow-scrolling:touch
-}
+  .hands{
+    grid-template-columns:1fr 1fr;
+  }
 
-.nav a{
-white-space:nowrap
-}
+  .uploads{
+    grid-template-columns:1fr 1fr;
+  }
 
-main{
-padding:16px 12px 35px
-}
+  .form{
+    grid-template-columns:1fr 1fr;
+  }
 
-.hero{
-border-radius:17px;
-padding:22px 18px
-}
-
-.hero h1{
-font-size:25px
-}
-
-.hero p{
-font-size:12px
-}
-
-.form{
-grid-template-columns:1fr
-}
-
-.modes{
-grid-template-columns:1fr
-}
-
-.hands,
-.uploads{
-grid-template-columns:1fr
-}
-
-.steps{
-grid-template-columns:1fr
-}
-
-.levels{
-grid-template-columns:1fr
-}
-
-.systems{
-grid-template-columns:1fr
-}
-
-.bidpad{
-grid-template-columns:repeat(5,1fr)
-}
-
-.card{
-padding:15px
-}
+  .steps{
+    grid-template-columns:1fr 1fr;
+  }
 
 }
+
+
+@media(max-width:700px){
+
+  .top-line{
+    padding:6px 10px;
+
+    font-size:7px;
+
+    gap:8px;
+  }
+
+  .header-main{
+    min-height:58px;
+
+    padding:7px 10px;
+
+    gap:8px;
+  }
+
+  .brand-logo{
+    width:36px;
+    height:36px;
+
+    min-width:36px;
+    min-height:36px;
+
+    max-width:36px;
+    max-height:36px;
+
+    flex-basis:36px;
+  }
+
+  .brand-text strong{
+    font-size:10px;
+  }
+
+  .brand-text small{
+    font-size:5px;
+  }
+
+  .main-nav{
+    flex:1;
+
+    gap:2px;
+
+    overflow-x:auto;
+  }
+
+  .main-nav a{
+    font-size:8px;
+
+    padding:7px 8px;
+  }
+
+  main{
+    padding:25px 12px 38px;
+  }
+
+  .hero{
+    padding:24px 20px;
+
+    border-radius:15px;
+  }
+
+  .hero h1{
+    font-size:27px;
+  }
+
+  .hero p{
+    font-size:10px;
+  }
+
+  .card{
+    padding:20px;
+
+    border-radius:15px;
+  }
+
+  .card h2{
+    font-size:18px;
+  }
+
+  .steps{
+    grid-template-columns:1fr 1fr;
+
+    gap:9px;
+  }
+
+  .step{
+    padding:11px;
+
+    font-size:9px;
+  }
+
+  .form{
+    grid-template-columns:1fr;
+  }
+
+  .modes{
+    grid-template-columns:1fr;
+  }
+
+  .levels{
+    grid-template-columns:1fr;
+  }
+
+  .systems{
+    grid-template-columns:1fr;
+  }
+
+  .hands{
+    grid-template-columns:1fr;
+  }
+
+  .uploads{
+    grid-template-columns:1fr;
+  }
+
+  .bidpad{
+    grid-template-columns:
+      repeat(5,1fr);
+  }
+
+  .btn{
+    font-size:9px;
+
+    padding:8px 10px;
+  }
+
+  .footer{
+    padding:27px 15px 15px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+  }
+
+  .footer-inner > div:first-child{
+    grid-column:1 / -1;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+
+    gap:5px;
+  }
+
+}
+
+
+@media(max-width:380px){
+
+  .brand-text{
+    display:none;
+  }
+
+  .header-main{
+    gap:5px;
+  }
+
+  .main-nav a{
+    font-size:7px;
+
+    padding:6px 7px;
+  }
+
+  .hero h1{
+    font-size:24px;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:16px;
+  }
+
+}
+
+
+/* =====================================================
+   AKHIR CSS MASTER
+===================================================== */
 
 </style>
+
 </head>
+
 
 <body>
 
-<div class="topline">
-GABSI KOTA TANJUNGBALAI · Bridge · Prestasi · Persaudaraan
-</div>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+  <div class="top-line">
+
+    <span>
+      GABSI KOTA TANJUNGBALAI
+    </span>
+
+    <span>
+      Bridge • Prestasi • Persaudaraan
+    </span>
+
+  </div>
 
 
-<header class="header">
+  <div class="header-main">
 
-<div class="head">
+    <a href="index.html"
+       class="brand">
 
-<a class="brand" href="index.html">
+      <div class="brand-logo">
 
-<img
-class="logo"
-src="logo-gabsi.png"
-alt="Logo GABSI Kota Tanjungbalai">
+        <img
+          src="logo-gabsi.png"
+          alt="Logo GABSI Kota Tanjungbalai">
 
-<span>
+      </div>
 
-<b>
-GABSI KOTA TANJUNGBALAI
-</b>
+      <div class="brand-text">
 
-<small>
-GABUNGAN BRIDGE SELURUH INDONESIA
-</small>
+        <strong>
+          GABSI KOTA TANJUNGBALAI
+        </strong>
 
-</span>
+        <small>
+          GABUNGAN BRIDGE SELURUH INDONESIA
+        </small>
 
-</a>
+      </div>
+
+    </a>
 
 
-<nav class="nav">
+    <nav class="main-nav">
 
-<a href="index.html">
-Beranda
-</a>
+      <a href="index.html">
+        Beranda
+      </a>
 
-<a href="profil.html">
-Profil
-</a>
+      <a href="profil.html">
+        Profil
+      </a>
 
-<a href="pengurus.html">
-Pengurus
-</a>
+      <a href="pengurus.html">
+        Pengurus
+      </a>
 
-<a href="kegiatan.html">
-Kegiatan
-</a>
+      <a href="kegiatan.html">
+        Kegiatan
+      </a>
 
-<a href="galeri.html">
-Galeri
-</a>
+      <a href="galeri.html">
+        Galeri
+      </a>
 
-<a href="aplikasi.html"
-   class="active">
-Aplikasi
-</a>
+      <a href="aplikasi.html"
+         class="active">
+        Aplikasi
+      </a>
 
-<a href="kocokan-kartu.html">
-Kartu Pembanding
-</a>
+      <a href="kocokan-kartu.html">
+        Kartu Pembanding
+      </a>
 
-<a href="game-bridge-gabsi.html"
-   class="game">
-♠ Game Bridge
-</a>
+      <a href="game-bridge-gabsi.html">
+        Game Bridge
+      </a>
 
-<a href="berita.html">
-Berita
-</a>
+      <a href="berita.html">
+        Berita
+      </a>
 
-<a href="kontak.html">
-Kontak
-</a>
+      <a href="kontak.html">
+        Kontak
+      </a>
 
-</nav>
+    </nav>
 
-</div>
+  </div>
 
 </header>
 
 
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
-<h1>
-Belajar Penawaran Bridge
-</h1>
+  <h1>
+    Belajar Penawaran Bridge
+  </h1>
 
-<p>
-Satu alur latihan: pilih sistem → bagikan kartu →
-analisis HCP dan distribusi → rekomendasi penawaran
-beserta alasan → auction → kalkulator → score sheet.
-</p>
+  <p>
+    Satu alur latihan: pilih sistem → bagikan kartu →
+    analisis HCP dan distribusi → rekomendasi penawaran
+    beserta alasan → auction → kalkulator → score sheet.
+  </p>
 
 </section>
 
 
+<!-- =====================================================
+     LANGKAH
+===================================================== -->
+
 <div class="steps">
 
-<div class="step">
-<b>1 · Sistem</b>
-Pilih sistem penawaran
+  <div class="step">
+    <b>1 · Sistem</b>
+    Pilih sistem penawaran
+  </div>
+
+  <div class="step">
+    <b>2 · Kartu</b>
+    Otomatis / manual / foto
+  </div>
+
+  <div class="step">
+    <b>3 · Rekomendasi</b>
+    Bid + alasan
+  </div>
+
+  <div class="step">
+    <b>4 · Kalkulator</b>
+    Kontrak & skor
+  </div>
+
+  <div class="step">
+    <b>5 · Score Sheet</b>
+    Simpan hasil
+  </div>
+
 </div>
 
-<div class="step">
-<b>2 · Kartu</b>
-Otomatis / manual / foto
-</div>
 
-<div class="step">
-<b>3 · Rekomendasi</b>
-Bid + alasan
-</div>
-
-<div class="step">
-<b>4 · Kalkulator</b>
-Kontrak & skor
-</div>
-
-<div class="step">
-<b>5 · Score Sheet</b>
-Simpan hasil
-</div>
-
-</div>
-
+<!-- =====================================================
+     LEVEL
+===================================================== -->
 
 <section class="card"
          id="trainingLevelCard">
 
-<h2>
-0. Pilih Tingkatan Latihan
-</h2>
+  <h2>
+    0. Pilih Tingkatan Latihan
+  </h2>
 
-<p class="muted">
-Tentukan tingkat kesulitan sebelum memilih sistem penawaran.
-Semakin tinggi tingkatannya, semakin luas rentang latihan penawaran.
-</p>
+  <p class="muted">
+    Tentukan tingkat kesulitan sebelum memilih sistem penawaran.
+    Semakin tinggi tingkatannya, semakin luas rentang latihan penawaran.
+  </p>
 
-<div class="levels"
-     id="trainingLevels">
+  <div class="levels"
+       id="trainingLevels">
 
-<div class="level"
-     data-level="beginner">
+    <div class="level"
+         data-level="beginner">
 
-<b>
-Pemula
-</b>
+      <b>
+        Pemula
+      </b>
 
-<span>
-Mengenal HCP, distribusi dan opening dasar.
-</span>
+      <span>
+        Mengenal HCP, distribusi dan opening dasar.
+      </span>
 
-<small>
-Maksimum latihan: 3NT
-</small>
+      <small>
+        Maksimum latihan: 3NT
+      </small>
 
-</div>
-
-
-<div class="level"
-     data-level="intermediate">
-
-<b>
-Sedang
-</b>
-
-<span>
-Mulai mempelajari kompetisi dan kontrak lebih tinggi.
-</span>
-
-<small>
-Maksimum latihan: 4NT
-</small>
-
-</div>
+    </div>
 
 
-<div class="level"
-     data-level="advanced">
+    <div class="level"
+         data-level="intermediate">
 
-<b>
-Mahir
-</b>
+      <b>
+        Sedang
+      </b>
 
-<span>
-Latihan penawaran lebih kompleks sampai slam.
-</span>
+      <span>
+        Mulai mempelajari kompetisi dan kontrak lebih tinggi.
+      </span>
 
-<small>
-Maksimum latihan: 6NT
-</small>
+      <small>
+        Maksimum latihan: 4NT
+      </small>
 
-</div>
+    </div>
 
 
-<div class="level"
-     data-level="professional">
+    <div class="level"
+         data-level="advanced">
 
-<b>
-Profesional
-</b>
+      <b>
+        Mahir
+      </b>
 
-<span>
-Latihan penuh termasuk grand slam.
-</span>
+      <span>
+        Latihan penawaran lebih kompleks sampai slam.
+      </span>
 
-<small>
-Maksimum latihan: 7NT
-</small>
+      <small>
+        Maksimum latihan: 6NT
+      </small>
 
-</div>
+    </div>
 
-</div>
 
-<div class="level-note"
-     id="trainingLevelNote">
-</div>
+    <div class="level"
+         data-level="professional">
+
+      <b>
+        Profesional
+      </b>
+
+      <span>
+        Latihan penuh termasuk grand slam.
+      </span>
+
+      <small>
+        Maksimum latihan: 7NT
+      </small>
+
+    </div>
+
+  </div>
+
+  <div class="level-note"
+       id="trainingLevelNote">
+  </div>
 
 </section>
 
+
+<!-- =====================================================
+     SISTEM
+===================================================== -->
 
 <section class="card">
 
-<h2>
-1. Pilih Sistem Penawaran
-</h2>
+  <h2>
+    1. Pilih Sistem Penawaran
+  </h2>
 
-<p class="muted">
-Pilih salah satu sistem. Rekomendasi akan menyesuaikan
-sistem dan tingkat latihan.
-</p>
+  <p class="muted">
+    Pilih salah satu sistem. Rekomendasi akan menyesuaikan
+    sistem dan tingkat latihan.
+  </p>
 
-<div class="systems"
-     id="systems">
-</div>
+  <div class="systems"
+       id="systems">
+  </div>
 
-<div class="form"
-     style="margin-top:12px">
+  <div class="form"
+       style="margin-top:14px">
 
-<div class="field">
+    <div class="field">
 
-<label>
-Sistem aktif
-</label>
+      <label>
+        Sistem aktif
+      </label>
 
-<select id="system">
-</select>
+      <select id="system">
+      </select>
 
-</div>
-
-
-<div class="field">
-
-<label>
-Board
-</label>
-
-<input id="board"
-       type="number"
-       min="1"
-       value="1">
-
-</div>
+    </div>
 
 
-<div class="field">
+    <div class="field">
 
-<label>
-Dealer
-</label>
+      <label>
+        Board
+      </label>
 
-<select id="dealer">
+      <input id="board"
+             type="number"
+             min="1"
+             value="1">
 
-<option>
-N
-</option>
-
-<option>
-E
-</option>
-
-<option>
-S
-</option>
-
-<option>
-W
-</option>
-
-</select>
-
-</div>
+    </div>
 
 
-<div class="field">
+    <div class="field">
 
-<label>
-Vulnerability
-</label>
+      <label>
+        Dealer
+      </label>
 
-<select id="vul">
+      <select id="dealer">
 
-<option>
-None
-</option>
+        <option>N</option>
+        <option>E</option>
+        <option>S</option>
+        <option>W</option>
 
-<option>
-NS
-</option>
+      </select>
 
-<option>
-EW
-</option>
+    </div>
 
-<option>
-Both
-</option>
 
-</select>
+    <div class="field">
 
-</div>
+      <label>
+        Vulnerability
+      </label>
 
-</div>
+      <select id="vul">
 
-<div class="btns">
+        <option>None</option>
+        <option>NS</option>
+        <option>EW</option>
+        <option>Both</option>
 
-<button class="btn primary"
-        id="applySystem">
+      </select>
 
-Gunakan Sistem
+    </div>
 
-</button>
+  </div>
 
-<button class="btn"
-        id="systemInfo">
+  <div class="btns">
 
-Lihat Penjelasan Sistem
+    <button class="btn primary"
+            id="applySystem">
 
-</button>
+      Gunakan Sistem
 
-</div>
+    </button>
 
-<div id="systemDetail"
-     class="notice">
-</div>
+    <button class="btn"
+            id="systemInfo">
+
+      Lihat Penjelasan Sistem
+
+    </button>
+
+  </div>
+
+  <div id="systemDetail"
+       class="notice">
+  </div>
 
 </section>
 
+
+<!-- =====================================================
+     KARTU
+===================================================== -->
 
 <section class="card">
 
-<h2>
-2. Bagikan Kartu
-</h2>
+  <h2>
+    2. Bagikan Kartu
+  </h2>
 
-<p class="muted">
-Gunakan pembagian otomatis untuk latihan cepat,
-atau masukkan tangan secara manual.
-Foto dapat disimpan sebagai referensi visual.
-</p>
+  <p class="muted">
+    Gunakan pembagian otomatis untuk latihan cepat,
+    atau masukkan tangan secara manual.
+    Foto dapat disimpan sebagai referensi visual.
+  </p>
 
-<div class="modes">
+  <div class="modes">
 
-<label class="mode">
+    <label class="mode">
 
-<input type="radio"
-       name="mode"
-       value="auto"
-       checked>
+      <input type="radio"
+             name="mode"
+             value="auto"
+             checked>
 
-<b>
-Bagikan 52 kartu otomatis
-</b>
+      <b>
+        Bagikan 52 kartu otomatis
+      </b>
 
-<br>
+      <br>
 
-Empat tangan masing-masing 13 kartu.
+      Empat tangan masing-masing 13 kartu.
 
-</label>
+    </label>
 
 
-<label class="mode">
+    <label class="mode">
 
-<input type="radio"
-       name="mode"
-       value="manual">
+      <input type="radio"
+             name="mode"
+             value="manual">
 
-<b>
-Manual / foto
-</b>
+      <b>
+        Manual / foto
+      </b>
 
-<br>
+      <br>
 
-Masukkan kartu per pemain dan simpan foto kartu.
+      Masukkan kartu per pemain dan simpan foto kartu.
 
-</label>
+    </label>
 
-</div>
+  </div>
 
 
-<div id="autoBox"
-     class="btns">
+  <div id="autoBox"
+       class="btns">
 
-<button class="btn blue"
-        id="deal">
+    <button class="btn blue"
+            id="deal">
 
-Bagikan Kartu Otomatis
+      Bagikan Kartu Otomatis
 
-</button>
+    </button>
 
-<button class="btn"
-        id="reshuffle">
+    <button class="btn"
+            id="reshuffle">
 
-Bagikan Ulang
+      Bagikan Ulang
 
-</button>
+    </button>
 
-</div>
+  </div>
 
 
-<div id="manualBox"
-     class="hidden">
+  <div id="manualBox"
+       class="hidden">
 
-<h3>
-Tangan Manual
-</h3>
+    <h3>
+      Tangan Manual
+    </h3>
 
-<p class="muted">
-Format contoh:
-AKQ52.234.AK7.85
-atau
-AKQ52 234 AK7 85.
-Simbol ♠ ♥ ♦ ♣ juga dapat digunakan.
-</p>
+    <p class="muted">
+      Format contoh:
+      AKQ52.234.AK7.85
+      atau
+      AKQ52 234 AK7 85.
+      Simbol ♠ ♥ ♦ ♣ juga dapat digunakan.
+    </p>
 
-<div class="form">
+    <div class="form">
 
-<div class="field">
+      <div class="field">
 
-<label>
-North
-</label>
+        <label>
+          North
+        </label>
 
-<textarea id="N"></textarea>
+        <textarea id="N"></textarea>
 
-</div>
+      </div>
 
 
-<div class="field">
+      <div class="field">
 
-<label>
-East
-</label>
+        <label>
+          East
+        </label>
 
-<textarea id="E"></textarea>
+        <textarea id="E"></textarea>
 
-</div>
+      </div>
 
 
-<div class="field">
+      <div class="field">
 
-<label>
-South
-</label>
+        <label>
+          South
+        </label>
 
-<textarea id="S"></textarea>
+        <textarea id="S"></textarea>
 
-</div>
+      </div>
 
 
-<div class="field">
+      <div class="field">
 
-<label>
-West
-</label>
+        <label>
+          West
+        </label>
 
-<textarea id="W"></textarea>
+        <textarea id="W"></textarea>
 
-</div>
+      </div>
 
-</div>
+    </div>
 
-<div class="btns">
+    <div class="btns">
 
-<button class="btn primary"
-        id="applyManual">
+      <button class="btn primary"
+              id="applyManual">
 
-Gunakan Tangan Manual
+        Gunakan Tangan Manual
 
-</button>
+      </button>
 
-</div>
+    </div>
 
 
-<h3>
-Foto Kartu
-</h3>
+    <h3>
+      Foto Kartu
+    </h3>
 
-<div class="uploads"
-     id="uploads">
-</div>
+    <div class="uploads"
+         id="uploads">
+    </div>
 
-<div class="btns">
+    <div class="btns">
 
-<button class="btn"
-        id="clearPhotos">
+      <button class="btn"
+              id="clearPhotos">
 
-Hapus Foto
+        Hapus Foto
 
-</button>
+      </button>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 
-<div class="notice"
-     id="dealStatus">
+  <div class="notice"
+       id="dealStatus">
 
-Belum ada pembagian kartu.
+    Belum ada pembagian kartu.
 
-</div>
+  </div>
 
 </section>
 
+
+<!-- =====================================================
+     ANALISIS
+===================================================== -->
 
 <section class="card">
 
-<h2>
-3. Analisis Kartu & Rekomendasi Komputer
-</h2>
+  <h2>
+    3. Analisis Kartu & Rekomendasi Komputer
+  </h2>
 
-<div class="hands"
-     id="hands">
-</div>
+  <div class="hands"
+       id="hands">
+  </div>
 
-<div id="recommend"
-     style="margin-top:12px">
-</div>
+  <div id="recommend"
+       style="margin-top:13px">
+  </div>
 
-<div class="btns">
+  <div class="btns">
 
-<button class="btn good"
-        id="useRec">
+    <button class="btn good"
+            id="useRec">
 
-Gunakan Rekomendasi
+      Gunakan Rekomendasi
 
-</button>
+    </button>
 
-<button class="btn"
-        id="explain">
+    <button class="btn"
+            id="explain">
 
-Jelaskan Rekomendasi
+      Jelaskan Rekomendasi
 
-</button>
+    </button>
 
-</div>
+  </div>
 
 </section>
 
+
+<!-- =====================================================
+     AUCTION
+===================================================== -->
 
 <section class="card">
 
-<h2>
-4. Auction / Penawaran
-</h2>
+  <h2>
+    4. Auction / Penawaran
+  </h2>
 
-<div id="auctionMeta"
-     class="notice">
-</div>
+  <div id="auctionMeta"
+       class="notice">
+  </div>
 
-<div class="btns">
+  <div class="btns">
 
-<button class="btn primary"
-        id="startAuction">
+    <button class="btn primary"
+            id="startAuction">
 
-Mulai / Reset Auction
+      Mulai / Reset Auction
 
-</button>
+    </button>
 
-<button class="btn blue"
-        id="computerBid">
+    <button class="btn blue"
+            id="computerBid">
 
-Komputer Beri Bid
+      Komputer Beri Bid
 
-</button>
+    </button>
 
-<button class="btn"
-        id="clearAuction">
+    <button class="btn"
+            id="clearAuction">
 
-Kosongkan Auction
+      Kosongkan Auction
 
-</button>
+    </button>
 
-</div>
+  </div>
 
-<div class="bidpad"
-     id="bidpad">
-</div>
+  <div class="bidpad"
+       id="bidpad">
+  </div>
 
-<div class="tablewrap"
-     style="margin-top:10px">
+  <div class="tablewrap">
 
-<table class="table">
+    <table class="table">
 
-<thead>
+      <thead>
 
-<tr>
+        <tr>
 
-<th>
-No
-</th>
+          <th>
+            No
+          </th>
 
-<th>
-Seat
-</th>
+          <th>
+            Seat
+          </th>
 
-<th>
-Bid
-</th>
+          <th>
+            Bid
+          </th>
 
-<th>
-Alasan
-</th>
+          <th>
+            Alasan
+          </th>
 
-</tr>
+        </tr>
 
-</thead>
+      </thead>
 
-<tbody id="auctionBody">
-</tbody>
+      <tbody id="auctionBody">
+      </tbody>
 
-</table>
+    </table>
 
-</div>
+  </div>
 
-<div class="notice"
-     id="contractBox">
+  <div class="notice"
+       id="contractBox">
 
-Belum ada kontrak akhir.
+    Belum ada kontrak akhir.
 
-</div>
+  </div>
 
 </section>
 
+
+<!-- =====================================================
+     CALCULATOR
+===================================================== -->
 
 <section class="card">
 
-<h2>
-5. Bridge Calculator
-</h2>
+  <h2>
+    5. Bridge Calculator
+  </h2>
 
-<div class="grid">
+  <div class="grid">
 
-<div>
+    <div>
 
-<div class="form">
+      <div class="form">
 
-<div class="field">
+        <div class="field">
 
-<label>
-Level
-</label>
+          <label>
+            Level
+          </label>
 
-<select id="level">
+          <select id="level">
 
-<option>
-1
-</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
 
-<option>
-2
-</option>
+          </select>
 
-<option>
-3
-</option>
+        </div>
 
-<option>
-4
-</option>
 
-<option>
-5
-</option>
+        <div class="field">
 
-<option>
-6
-</option>
+          <label>
+            Denomination
+          </label>
 
-<option>
-7
-</option>
+          <select id="strain">
 
-</select>
+            <option value="C">♣</option>
+            <option value="D">♦</option>
+            <option value="H">♥</option>
+            <option value="S">♠</option>
+            <option value="N">NT</option>
 
-</div>
+          </select>
 
+        </div>
 
-<div class="field">
 
-<label>
-Denomination
-</label>
+        <div class="field">
 
-<select id="strain">
+          <label>
+            Double
+          </label>
 
-<option value="C">
-♣
-</option>
+          <select id="mult">
 
-<option value="D">
-♦
-</option>
+            <option value="1">
+              Normal
+            </option>
 
-<option value="H">
-♥
-</option>
+            <option value="2">
+              Double
+            </option>
 
-<option value="S">
-♠
-</option>
+            <option value="4">
+              Redouble
+            </option>
 
-<option value="N">
-NT
-</option>
+          </select>
 
-</select>
+        </div>
 
-</div>
 
+        <div class="field">
 
-<div class="field">
+          <label>
+            Declarer
+          </label>
 
-<label>
-Double
-</label>
+          <select id="declarer">
 
-<select id="mult">
+            <option>N</option>
+            <option>E</option>
+            <option>S</option>
+            <option>W</option>
 
-<option value="1">
-Normal
-</option>
+          </select>
 
-<option value="2">
-Double
-</option>
+        </div>
 
-<option value="4">
-Redouble
-</option>
 
-</select>
+        <div class="field">
 
-</div>
+          <label>
+            Trick diperoleh
+          </label>
 
+          <input id="tricks"
+                 type="number"
+                 min="0"
+                 max="13"
+                 value="7">
 
-<div class="field">
+        </div>
 
-<label>
-Declarer
-</label>
 
-<select id="declarer">
+        <div class="field">
 
-<option>
-N
-</option>
+          <label>
+            Vulnerability
+          </label>
 
-<option>
-E
-</option>
+          <select id="calcVul">
 
-<option>
-S
-</option>
+            <option>None</option>
+            <option>NS</option>
+            <option>EW</option>
+            <option>Both</option>
 
-<option>
-W
-</option>
+          </select>
 
-</select>
+        </div>
 
-</div>
+      </div>
 
 
-<div class="field">
+      <div class="btns">
 
-<label>
-Trick diperoleh
-</label>
+        <button class="btn primary"
+                id="calculate">
 
-<input id="tricks"
-       type="number"
-       min="0"
-       max="13"
-       value="7">
+          Hitung Score
 
-</div>
+        </button>
 
+        <button class="btn"
+                id="loadContract">
 
-<div class="field">
+          Ambil Kontrak dari Auction
 
-<label>
-Vulnerability
-</label>
+        </button>
 
-<select id="calcVul">
+      </div>
 
-<option>
-None
-</option>
+    </div>
 
-<option>
-NS
-</option>
 
-<option>
-EW
-</option>
+    <div class="result">
 
-<option>
-Both
-</option>
+      <div id="score"
+           class="score">
 
-</select>
+        0
 
-</div>
+      </div>
 
-</div>
+      <div id="scoreExplain"
+           class="muted">
 
+        Masukkan kontrak dan jumlah trick.
 
-<div class="btns">
+      </div>
 
-<button class="btn primary"
-        id="calculate">
+    </div>
 
-Hitung Score
-
-</button>
-
-<button class="btn"
-        id="loadContract">
-
-Ambil Kontrak dari Auction
-
-</button>
-
-</div>
-
-</div>
-
-
-<div class="result">
-
-<div id="score"
-     class="score">
-
-0
-
-</div>
-
-<div id="scoreExplain"
-     class="muted">
-
-Masukkan kontrak dan jumlah trick.
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
+
+<!-- =====================================================
+     SCORE SHEET
+===================================================== -->
 
 <section class="card">
 
-<h2>
-6. Score Sheet
-</h2>
+  <h2>
+    6. Score Sheet
+  </h2>
 
-<p class="muted">
-Hasil kalkulator dapat disimpan sebagai catatan latihan.
-</p>
+  <p class="muted">
+    Hasil kalkulator dapat disimpan sebagai catatan latihan.
+  </p>
 
-<div class="btns">
+  <div class="btns">
 
-<button class="btn good"
-        id="saveScore">
+    <button class="btn good"
+            id="saveScore">
 
-Simpan ke Score Sheet
+      Simpan ke Score Sheet
 
-</button>
+    </button>
 
-<button class="btn"
-        id="export">
+    <button class="btn"
+            id="export">
 
-Download CSV
+      Download CSV
 
-</button>
+    </button>
 
-<button class="btn danger"
-        id="clearScores">
+    <button class="btn danger"
+            id="clearScores">
 
-Hapus Semua
+      Hapus Semua
 
-</button>
+    </button>
 
-</div>
+  </div>
 
-<div class="tablewrap"
-     style="margin-top:10px">
+  <div class="tablewrap">
 
-<table class="table">
+    <table class="table">
 
-<thead>
+      <thead>
 
-<tr>
+        <tr>
 
-<th>
-Board
-</th>
+          <th>Board</th>
+          <th>Dealer</th>
+          <th>Vul</th>
+          <th>Contract</th>
+          <th>Declarer</th>
+          <th>Trick</th>
+          <th>Score</th>
+          <th></th>
 
-<th>
-Dealer
-</th>
+        </tr>
 
-<th>
-Vul
-</th>
+      </thead>
 
-<th>
-Contract
-</th>
+      <tbody id="scores">
+      </tbody>
 
-<th>
-Declarer
-</th>
+    </table>
 
-<th>
-Trick
-</th>
-
-<th>
-Score
-</th>
-
-<th>
-</th>
-
-</tr>
-
-</thead>
-
-<tbody id="scores">
-</tbody>
-
-</table>
-
-</div>
+  </div>
 
 </section>
+
 
 </main>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer class="footer">
 
-<strong>
-GABSI Kota Tanjungbalai
-</strong>
+  <div class="footer-inner">
 
-<br>
+    <div>
 
-© 2026 · Bridge · Prestasi · Persaudaraan
+      <h3>
+        GABSI Kota Tanjungbalai
+      </h3>
+
+      <p>
+        Website resmi GABSI Kota Tanjungbalai sebagai
+        pusat informasi organisasi, kegiatan, pembinaan
+        prestasi, edukasi dan aplikasi olahraga bridge.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Menu
+      </h3>
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Beranda
+        </a>
+
+        <a href="profil.html">
+          Profil
+        </a>
+
+        <a href="pengurus.html">
+          Pengurus
+        </a>
+
+        <a href="kegiatan.html">
+          Kegiatan
+        </a>
+
+        <a href="galeri.html">
+          Galeri
+        </a>
+
+        <a href="aplikasi.html">
+          Aplikasi
+        </a>
+
+        <a href="kocokan-kartu.html">
+          Kartu Pembanding
+        </a>
+
+        <a href="game-bridge-gabsi.html">
+          Game Bridge
+        </a>
+
+        <a href="berita.html">
+          Berita
+        </a>
+
+        <a href="kontak.html">
+          Kontak
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Layanan
+      </h3>
+
+      <div class="footer-links">
+
+        <a href="game-bridge-gabsi.html">
+          Game Bridge
+        </a>
+
+        <a href="aplikasi.html">
+          Aplikasi Bridge
+        </a>
+
+        <a href="kocokan-kartu.html">
+          Kartu Pembanding
+        </a>
+
+        <a href="score-sheet.html">
+          Score Sheet
+        </a>
+
+        <a href="kontak.html">
+          Kontak
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 GABSI Kota Tanjungbalai
+    </span>
+
+    <span>
+      Bridge • Prestasi • Persaudaraan
+    </span>
+
+  </div>
 
 </footer>
 
+
+<!-- =====================================================
+     JAVASCRIPT
+     FUNGSI ASLI DIPERTAHANKAN
+===================================================== -->
 
 <script>
 
@@ -3895,6 +4574,7 @@ renderScores();
 })();
 
 </script>
+
 
 </body>
 </html>
