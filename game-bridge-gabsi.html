@@ -21,7 +21,7 @@
 <style>
 
 /* =====================================================
-   MASTER VISUAL — GAYA PROFIL.HTML
+   MASTER VISUAL
 ===================================================== */
 
 :root{
@@ -39,13 +39,11 @@
   --gold:#ffd75a;
   --shadow:0 6px 20px rgba(0,0,0,.07);
 
-  /* warna meja bridge */
   --felt:#08724e;
   --felt2:#075d41;
   --gold2:#d6ad52;
-  --panel:#08271f;
 
-  --card-radius:6px;
+  --card-radius:5px;
 }
 
 *{
@@ -60,17 +58,10 @@ html{
 body{
   margin:0;
   padding:0;
-
   min-height:100vh;
-
   background:var(--bg);
-
   color:var(--ink);
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 button{
@@ -82,18 +73,18 @@ button:disabled{
   cursor:not-allowed;
 }
 
+
 /* =====================================================
-   WRAPPER
+   APP
 ===================================================== */
 
 .app{
   width:100%;
   min-height:100vh;
-
   background:var(--bg);
-
   overflow:hidden;
 }
+
 
 /* =====================================================
    HEADER
@@ -101,41 +92,25 @@ button:disabled{
 
 .site-header{
   width:100%;
-
   position:sticky;
   top:0;
   z-index:1000;
-
   background:#fff;
-
   border-bottom:1px solid var(--line);
-
-  box-shadow:
-    0 3px 12px rgba(0,0,0,.06);
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
 }
-
-/* =====================================================
-   BARIS ATAS
-===================================================== */
 
 .top-line{
   min-height:30px;
-
   padding:6px max(14px,calc((100% - 1100px)/2));
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:12px;
-
   background:var(--navy);
-
   color:#dbeaf3;
-
   font-size:10px;
   font-weight:800;
-
   letter-spacing:.45px;
 }
 
@@ -144,74 +119,46 @@ button:disabled{
   text-align:right;
 }
 
-/* =====================================================
-   HEADER UTAMA
-===================================================== */
-
 .header-main{
   width:100%;
   max-width:1100px;
-
   margin:auto;
-
   padding:10px 14px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:18px;
-
   background:#fff;
 }
 
-/* =====================================================
-   BRAND
-===================================================== */
-
 .brand{
   min-width:230px;
-
   display:flex;
   align-items:center;
-
   gap:10px;
-
   text-decoration:none;
-
   color:var(--navy);
 }
 
 .brand-logo{
   width:42px;
   height:42px;
-
   flex:0 0 42px;
-
   padding:3px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   background:#fff;
-
   border:1px solid var(--line);
-
   border-radius:9px;
-
   overflow:hidden;
-
-  box-shadow:
-    0 3px 9px rgba(0,0,0,.08);
+  box-shadow:0 3px 9px rgba(0,0,0,.08);
 }
 
 .brand-logo img{
   width:100%;
   height:100%;
-
   display:block;
-
   object-fit:contain;
 }
 
@@ -221,33 +168,23 @@ button:disabled{
 
 .brand-text strong{
   display:block;
-
   color:var(--navy);
-
   font-size:14px;
-
   line-height:1.15;
-
   letter-spacing:.35px;
-
   white-space:nowrap;
 }
 
 .brand-text small{
   display:block;
-
   margin-top:3px;
-
   color:var(--muted);
-
   font-size:8px;
-
   font-weight:700;
-
   letter-spacing:.35px;
-
   white-space:nowrap;
 }
+
 
 /* =====================================================
    NAVIGASI
@@ -255,18 +192,12 @@ button:disabled{
 
 .main-nav{
   flex:1;
-
   display:flex;
-
   align-items:center;
   justify-content:flex-end;
-
   gap:4px;
-
   overflow-x:auto;
-
   scrollbar-width:none;
-
   padding:2px 0;
 }
 
@@ -276,118 +207,75 @@ button:disabled{
 
 .main-nav a{
   flex:0 0 auto;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   min-height:31px;
-
   padding:7px 9px;
-
   color:var(--muted);
-
   background:#fff;
-
   border:1px solid transparent;
-
   border-radius:7px;
-
   text-decoration:none;
-
   font-size:8px;
   font-weight:900;
-
   white-space:nowrap;
-
   transition:.18s ease;
 }
 
 .main-nav a:hover{
   color:var(--navy);
-
   background:var(--light);
-
   border-color:#cfe3ed;
 }
 
 .main-nav a.active{
   color:var(--navy);
-
   background:var(--light);
-
   border-color:#c8e0ec;
-
-  box-shadow:
-    inset 0 -2px 0 var(--red);
+  box-shadow:inset 0 -2px 0 var(--red);
 }
 
+
 /* =====================================================
-   KONTEN GAME
+   GAME
 ===================================================== */
 
 .game-shell{
   width:100%;
   max-width:1100px;
-
   margin:0 auto;
-
   padding:18px 14px 22px;
 }
 
-/* =====================================================
-   JUDUL GAME
-===================================================== */
-
 .page-heading{
   margin-bottom:14px;
-
   padding:18px 20px;
-
   position:relative;
-
   overflow:hidden;
-
   border-radius:17px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--navy),
-      var(--blue)
-    );
-
+  background:linear-gradient(135deg,var(--navy),var(--blue));
   color:#fff;
-
   box-shadow:var(--shadow);
 }
 
 .page-heading:after{
   content:"♠   ♥   ♦   ♣";
-
   position:absolute;
-
   right:20px;
   top:50%;
-
   transform:translateY(-50%);
-
   color:rgba(255,255,255,.11);
-
   font-size:34px;
   letter-spacing:7px;
-
   white-space:nowrap;
-
   pointer-events:none;
 }
 
 .page-heading h1{
   position:relative;
   z-index:2;
-
   margin:0;
-
   font-size:22px;
   line-height:1.2;
 }
@@ -395,30 +283,20 @@ button:disabled{
 .page-heading p{
   position:relative;
   z-index:2;
-
   margin:6px 0 0;
-
   color:#dcecf5;
-
   font-size:11px;
   line-height:1.5;
 }
 
-/* =====================================================
-   GAME CARD
-===================================================== */
-
 .game-card{
   background:var(--card);
-
   border:1px solid var(--line);
-
   border-radius:17px;
-
   box-shadow:var(--shadow);
-
   overflow:hidden;
 }
+
 
 /* =====================================================
    GAME BAR
@@ -426,56 +304,38 @@ button:disabled{
 
 .gamebar{
   padding:10px;
-
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
+  grid-template-columns:repeat(3,1fr);
   gap:8px;
-
   background:#f7fafc;
-
   border-bottom:1px solid var(--line);
 }
 
 .info-box{
   padding:9px 6px;
-
   text-align:center;
-
   background:#fff;
-
   border:1px solid var(--line);
-
   border-radius:10px;
 }
 
 .info-label{
   display:block;
-
   color:var(--muted);
-
   font-size:8px;
-
   text-transform:uppercase;
-
   font-weight:800;
-
   letter-spacing:.3px;
 }
 
 .info-value{
   display:block;
-
   margin-top:3px;
-
   color:var(--navy);
-
   font-size:13px;
-
   font-weight:900;
 }
+
 
 /* =====================================================
    MEJA BRIDGE
@@ -483,28 +343,15 @@ button:disabled{
 
 .table-area{
   padding:12px 10px 8px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #f7fafc,
-      #edf3f6
-    );
+  background:linear-gradient(180deg,#f7fafc,#edf3f6);
 }
 
 .table{
   position:relative;
-
   width:100%;
-
-  height:clamp(
-    500px,
-    118vw,
-    650px
-  );
-
+  height:clamp(500px,65vw,700px);
   min-height:500px;
-  max-height:650px;
+  max-height:700px;
 
   border-radius:45% / 28%;
 
@@ -524,141 +371,96 @@ button:disabled{
     0 18px 40px rgba(0,0,0,.22);
 
   overflow:hidden;
-
   isolation:isolate;
 }
 
 .table:before{
   content:"";
-
   position:absolute;
-
   inset:8px;
-
   border-radius:45% / 28%;
-
   border:1px solid rgba(255,255,255,.15);
-
   pointer-events:none;
-
   z-index:1;
 }
 
+
 /* =====================================================
-   TENGAH MEJA
+   TENGAH
 ===================================================== */
 
 .table-center{
   position:absolute;
-
   left:50%;
   top:50%;
-
-  transform:
-    translate(-50%,-50%);
-
-  width:42%;
-
-  max-width:250px;
+  transform:translate(-50%,-50%);
+  width:34%;
+  max-width:260px;
   min-width:155px;
-
   text-align:center;
-
   z-index:50;
-
   pointer-events:none;
 }
 
 .contract-card{
   padding:10px 9px;
-
   border-radius:14px;
-
   background:rgba(4,43,32,.96);
-
   border:2px solid rgba(214,173,82,.53);
-
   box-shadow:
     0 10px 28px rgba(0,0,0,.45),
     0 0 0 2px rgba(0,0,0,.18);
-
   backdrop-filter:blur(7px);
 }
 
 .contract-title{
   color:#d9c07a;
-
   font-size:9px;
-
   font-weight:bold;
-
   text-transform:uppercase;
 }
 
 .contract-main{
   margin:2px 0;
-
   font-size:23px;
-
   font-weight:900;
 }
 
 .contract-extra{
   color:#afd0c1;
-
   font-size:10px;
 }
 
-/* =====================================================
-   STATUS PUTARAN
-===================================================== */
-
 .round-status{
   margin-top:6px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   gap:5px;
-
   padding:5px 8px;
-
   border-radius:8px;
-
   background:rgba(0,0,0,.45);
-
   border:1px solid rgba(255,255,255,.13);
-
   font-size:9px;
-
   font-weight:900;
-
-  box-shadow:
-    0 4px 12px rgba(0,0,0,.35);
+  box-shadow:0 4px 12px rgba(0,0,0,.35);
 }
 
 .round-status.normal{
   color:#f1d27c;
-
   border-color:#d6ad5266;
-
   background:#4a371555;
 }
 
 .round-status.safe{
   color:#75e0ad;
-
   border-color:#36c78566;
-
   background:#073c2caa;
 }
 
 .round-status.danger{
   color:#ff7777;
-
   border-color:#e54b4b88;
-
   background:#551d1daa;
 }
 
@@ -670,182 +472,142 @@ button:disabled{
   white-space:nowrap;
 }
 
+
 /* =====================================================
    PEMAIN
 ===================================================== */
 
 .seat{
   position:absolute;
-
   z-index:10;
 }
 
 .player{
   width:100%;
-
   text-align:center;
 }
 
 .seat.north{
   top:7px;
-
   left:50%;
-
   transform:translateX(-50%);
-
-  width:330px;
-
-  max-width:94%;
+  width:640px;
+  max-width:92%;
 }
 
 .seat.south{
-  bottom:1px;
-
+  bottom:3px;
   left:50%;
-
   transform:translateX(-50%);
-
-  width:330px;
-
+  width:680px;
   max-width:94%;
 }
 
 .seat.east{
   right:1px;
-
   top:50%;
-
   transform:translateY(-50%);
-
-  width:82px;
-
-  max-width:22%;
+  width:88px;
+  max-width:12%;
 }
 
 .seat.west{
   left:1px;
-
   top:50%;
-
   transform:translateY(-50%);
-
-  width:82px;
-
-  max-width:22%;
+  width:88px;
+  max-width:12%;
 }
 
 .avatar{
   width:35px;
   height:35px;
-
   margin:auto;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:50%;
-
-  background:
-    linear-gradient(
-      145deg,
-      #d9b65b,
-      #8e6722
-    );
-
+  background:linear-gradient(145deg,#d9b65b,#8e6722);
   color:#173329;
-
   font-size:17px;
   font-weight:900;
-
   border:2px solid #f4d783;
-
-  box-shadow:
-    0 3px 10px rgba(0,0,0,.4);
+  box-shadow:0 3px 10px rgba(0,0,0,.4);
 }
 
 .player-name{
   margin-top:3px;
-
   font-size:10px;
-
   font-weight:900;
-
   white-space:nowrap;
-
   overflow:hidden;
-
   text-overflow:ellipsis;
 }
 
 .level{
   display:inline-block;
-
   margin-top:2px;
-
   padding:2px 5px;
-
   border-radius:5px;
-
   background:rgba(0,0,0,.32);
-
   color:#b9d5c8;
-
   font-size:7px;
 }
 
+
 /* =====================================================
-   KARTU
+   KARTU — TAMPILAN BESAR & JELAS
 ===================================================== */
 
 .hand{
   position:relative;
-
   display:grid;
-
   align-items:center;
   justify-items:center;
-
   overflow:visible;
-
   margin-top:5px;
-
   z-index:12;
 }
+
+
+/* -----------------------------------------------------
+   UTARA & SELATAN
+   13 KARTU SATU BARIS
+----------------------------------------------------- */
 
 .north .hand,
 .south .hand{
   width:100%;
-
   display:grid;
 
   grid-template-columns:
-    repeat(7,minmax(0,1fr));
+    repeat(13,minmax(0,1fr));
 
-  grid-template-rows:
-    repeat(2,min-content);
-
-  grid-auto-flow:row;
+  grid-template-rows:1fr;
 
   column-gap:3px;
-  row-gap:5px;
 
-  padding:2px 3px;
+  padding:5px 3px;
 
-  min-height:105px;
+  min-height:94px;
 
-  align-content:center;
-  justify-content:center;
+  align-items:center;
+  justify-items:center;
 }
+
+
+/* =====================================================
+   KARTU UTAMA
+===================================================== */
 
 .card{
   position:relative;
 
   width:100%;
 
-  max-width:34px;
+  max-width:46px;
 
-  aspect-ratio:.70 / 1;
+  aspect-ratio:.69 / 1;
 
   height:auto;
 
@@ -858,16 +620,16 @@ button:disabled{
   background:
     linear-gradient(
       145deg,
-      #fff,
-      #e9e9e9
+      #ffffff,
+      #f0f0f0
     );
 
   color:#111;
 
-  border:1px solid #cfcfcf;
+  border:1px solid #bdbdbd;
 
   box-shadow:
-    0 3px 7px rgba(0,0,0,.45);
+    0 4px 8px rgba(0,0,0,.42);
 
   display:flex;
 
@@ -895,39 +657,39 @@ button:disabled{
 }
 
 .card .rank{
-  font-size:11px;
-
+  font-size:16px;
   font-weight:900;
-
   line-height:1;
 }
 
 .card .suit{
-  font-size:13px;
-
+  font-size:20px;
   line-height:1;
-
-  margin-top:2px;
+  margin-top:4px;
+  font-weight:900;
 }
 
 .card.back{
   background:
     repeating-linear-gradient(
-      45deg,
-      #174d9b 0,
-      #174d9b 3px,
-      #d9e7ff 3px,
-      #d9e7ff 5px
+      90deg,
+      #147b8d 0,
+      #147b8d 5px,
+      #e9f2f3 5px,
+      #e9f2f3 7px
     );
 
   border:2px solid #fff;
+
+  box-shadow:
+    0 3px 7px rgba(0,0,0,.4);
 }
 
 .card.playable{
-  transform:translateY(-5px);
+  transform:translateY(-7px);
 
   box-shadow:
-    0 8px 12px rgba(0,0,0,.5);
+    0 10px 15px rgba(0,0,0,.55);
 
   border-color:#f0cb62;
 
@@ -936,61 +698,79 @@ button:disabled{
 
 .card:focus-visible{
   outline:2px solid #ffe184;
-
   outline-offset:2px;
-
   z-index:40;
 }
 
-.north .card{
-  max-width:33px;
-}
+
+/* =====================================================
+   SELATAN — KARTU PEMAIN LEBIH BESAR
+===================================================== */
 
 .south .hand{
   min-height:112px;
+  padding-top:8px;
+  padding-bottom:3px;
 }
 
 .south .card{
-  max-width:37px;
+  max-width:49px;
 }
 
 .south .card .rank{
-  font-size:13px;
+  font-size:18px;
 }
 
 .south .card .suit{
-  font-size:16px;
+  font-size:22px;
+  margin-top:4px;
 }
 
 .south .card.playable{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
 }
 
+
 /* =====================================================
-   TIMUR / BARAT
+   UTARA
+===================================================== */
+
+.north .hand{
+  min-height:88px;
+  padding-top:3px;
+  padding-bottom:3px;
+}
+
+.north .card{
+  max-width:44px;
+}
+
+
+/* =====================================================
+   TIMUR & BARAT
+   13 KARTU VERTIKAL
 ===================================================== */
 
 .east .hand,
 .west .hand{
   width:100%;
 
-  min-height:276px;
-  height:276px;
+  min-height:365px;
+  height:365px;
 
-  padding:3px 1px;
+  padding:3px 0;
 
   display:grid;
 
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
+  grid-template-columns:1fr;
 
   grid-template-rows:
-    repeat(7,minmax(0,1fr));
+    repeat(13,minmax(0,1fr));
 
-  grid-auto-flow:column;
+  grid-auto-flow:row;
 
-  column-gap:2px;
-  row-gap:2px;
+  column-gap:0;
+  row-gap:1px;
 
   align-items:center;
   justify-items:center;
@@ -1003,31 +783,32 @@ button:disabled{
 .west .card{
   width:100%;
 
-  max-width:29px;
+  max-width:48px;
 
-  aspect-ratio:.70 / 1;
+  aspect-ratio:.69 / 1;
 
   height:auto;
 
-  border-radius:5px;
+  border-radius:4px;
 }
 
 .east .card .rank,
 .west .card .rank{
-  font-size:8px;
+  font-size:10px;
 }
 
 .east .card .suit,
 .west .card .suit{
-  font-size:10px;
+  font-size:12px;
+  margin-top:2px;
 }
 
 .east .card.playable{
-  transform:translateX(-4px);
+  transform:translateX(-5px);
 }
 
 .west .card.playable{
-  transform:translateX(4px);
+  transform:translateX(5px);
 }
 
 .dummy-active .card.playable{
@@ -1037,6 +818,7 @@ button:disabled{
     0 0 0 2px #d6ad52,
     0 8px 14px rgba(0,0,0,.55);
 }
+
 
 /* =====================================================
    TRICK
@@ -1061,8 +843,8 @@ button:disabled{
 .trick-card{
   position:absolute;
 
-  width:42px;
-  height:59px;
+  width:45px;
+  height:63px;
 
   border-radius:6px;
 
@@ -1082,6 +864,8 @@ button:disabled{
 
   font-weight:900;
 
+  font-size:15px;
+
   z-index:81;
 }
 
@@ -1090,27 +874,28 @@ button:disabled{
 }
 
 .trick-card.n{
-  left:64px;
+  left:62px;
   top:0;
 }
 
 .trick-card.s{
-  left:64px;
+  left:62px;
   bottom:0;
 }
 
 .trick-card.w{
-  left:15px;
-  top:30px;
+  left:8px;
+  top:29px;
 }
 
 .trick-card.e{
-  right:15px;
-  top:30px;
+  right:8px;
+  top:29px;
 }
 
+
 /* =====================================================
-   BAGIAN BAWAH
+   BOTTOM
 ===================================================== */
 
 .bottom{
@@ -1149,24 +934,18 @@ button:disabled{
 
 .status span{
   overflow:hidden;
-
   text-overflow:ellipsis;
-
   white-space:nowrap;
 }
 
 .status strong{
   color:var(--navy);
-
   flex:0 0 auto;
 }
 
 .actions{
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr 1fr;
-
+  grid-template-columns:1fr 1fr 1fr;
   gap:7px;
 }
 
@@ -1218,7 +997,6 @@ button:disabled{
 
 .btn.red{
   background:#7f2828;
-
   color:#fff;
 }
 
@@ -1226,23 +1004,18 @@ button:disabled{
   opacity:.42;
 }
 
+
 /* =====================================================
    OVERLAY
 ===================================================== */
 
 .overlay{
   position:fixed;
-
   inset:0;
-
   z-index:2000;
-
   background:rgba(0,0,0,.55);
-
   display:none;
-
   align-items:flex-end;
-
   padding:0;
 }
 
@@ -1252,117 +1025,76 @@ button:disabled{
 
 .sheet{
   width:100%;
-
   max-width:680px;
-
   margin:auto;
-
   background:#fff;
-
   color:var(--ink);
-
-  border-radius:
-    18px 18px 0 0;
-
+  border-radius:18px 18px 0 0;
   border-top:3px solid var(--blue);
-
-  box-shadow:
-    0 -15px 40px rgba(0,0,0,.3);
-
+  box-shadow:0 -15px 40px rgba(0,0,0,.3);
   padding:16px;
-
   max-height:82vh;
-
   overflow:auto;
 }
 
 .sheet-head{
   display:flex;
-
   align-items:center;
   justify-content:space-between;
-
   margin-bottom:12px;
 }
 
 .sheet-title{
   color:var(--navy);
-
   font-size:16px;
-
   font-weight:900;
 }
 
 .close{
   width:34px;
   height:34px;
-
   border:0;
-
   border-radius:8px;
-
   background:#edf4f7;
-
   color:var(--navy);
-
   font-size:20px;
 }
 
 .auction-history{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:5px;
-
   margin-bottom:12px;
 }
 
 .auction-seat{
   padding:6px 3px;
-
   text-align:center;
-
   border-radius:6px;
-
   background:#f3f7f9;
-
   border:1px solid var(--line);
-
   font-size:8px;
-
   color:var(--muted);
 }
 
 .auction-seat b{
   display:block;
-
   color:var(--navy);
-
   font-size:10px;
 }
 
 .bid-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(5,1fr);
-
+  grid-template-columns:repeat(5,1fr);
   gap:6px;
 }
 
 .bid{
   min-height:43px;
-
   border:1px solid var(--line);
-
   border-radius:8px;
-
   background:#f5f9fb;
-
   color:var(--navy);
-
   font-weight:900;
 }
 
@@ -1372,9 +1104,9 @@ button:disabled{
 
 .bid.disabled{
   opacity:.25;
-
   pointer-events:none;
 }
+
 
 /* =====================================================
    LEVEL
@@ -1382,107 +1114,79 @@ button:disabled{
 
 .level-grid{
   display:grid;
-
   gap:8px;
 }
 
 .level-btn{
   padding:13px;
-
   text-align:left;
-
   border:1px solid var(--line);
-
   border-radius:10px;
-
   color:var(--ink);
-
   background:#f7fafc;
 }
 
 .level-btn strong{
   display:block;
-
   color:var(--navy);
-
   font-size:13px;
 }
 
 .level-btn span{
   display:block;
-
   margin-top:3px;
-
   font-size:9px;
-
   color:var(--muted);
 }
 
 .level-btn.active{
   border-color:#d9b45b;
-
   background:#fff8df;
 }
 
+
 /* =====================================================
-   FOOTER WEBSITE
+   FOOTER
 ===================================================== */
 
 .site-footer{
   background:var(--navy);
-
   color:#d7e6ee;
-
   margin-top:0;
 }
 
 .footer-inner{
   width:100%;
   max-width:1100px;
-
   margin:auto;
-
   padding:22px 14px;
-
   display:grid;
-
-  grid-template-columns:
-    1.4fr 1fr 1fr;
-
+  grid-template-columns:1.4fr 1fr 1fr;
   gap:20px;
 }
 
 .footer-title{
   color:#fff;
-
   font-size:12px;
-
   font-weight:900;
-
   margin-bottom:7px;
 }
 
 .footer-text{
   color:#bcd0da;
-
   font-size:10px;
-
   line-height:1.6;
 }
 
 .footer-links{
   display:flex;
-
   flex-direction:column;
-
   gap:5px;
 }
 
 .footer-links a{
   color:#c9dbe4;
-
   text-decoration:none;
-
   font-size:10px;
 }
 
@@ -1492,15 +1196,12 @@ button:disabled{
 
 .footer-bottom{
   padding:9px 14px;
-
   text-align:center;
-
   background:#052e49;
-
   color:#9eb9c8;
-
   font-size:9px;
 }
+
 
 /* =====================================================
    RESPONSIVE
@@ -1510,9 +1211,7 @@ button:disabled{
 
   .header-main{
     flex-direction:column;
-
     align-items:stretch;
-
     gap:9px;
   }
 
@@ -1525,31 +1224,30 @@ button:disabled{
   }
 
   .footer-inner{
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
 }
+
+
+/* =====================================================
+   TABLET / HP
+===================================================== */
 
 @media(max-width:760px){
 
   .top-line{
     padding:5px 9px;
-
     font-size:8px;
   }
 
   .header-main{
-    padding:
-      8px
-      8px
-      9px;
+    padding:8px 8px 9px;
   }
 
   .brand-logo{
     width:36px;
     height:36px;
-
     flex-basis:36px;
   }
 
@@ -1567,15 +1265,12 @@ button:disabled{
 
   .main-nav a{
     min-height:29px;
-
-    padding:7px 7px;
-
+    padding:7px;
     font-size:7.5px;
   }
 
   .game-shell{
-    padding:
-      12px 8px 18px;
+    padding:12px 8px 18px;
   }
 
   .page-heading{
@@ -1594,27 +1289,90 @@ button:disabled{
     font-size:25px;
   }
 
+  .table{
+    height:560px;
+    min-height:560px;
+    max-height:560px;
+  }
+
+  .seat.north{
+    width:94%;
+  }
+
+  .seat.south{
+    width:96%;
+  }
+
+  .seat.east,
+  .seat.west{
+    width:67px;
+    max-width:14%;
+  }
+
+  .north .hand,
+  .south .hand{
+    column-gap:2px;
+  }
+
+  .north .card{
+    max-width:37px;
+  }
+
+  .south .card{
+    max-width:40px;
+  }
+
+  .south .card .rank{
+    font-size:15px;
+  }
+
+  .south .card .suit{
+    font-size:18px;
+  }
+
+  .east .hand,
+  .west .hand{
+    min-height:315px;
+    height:315px;
+  }
+
+  .east .card,
+  .west .card{
+    max-width:34px;
+  }
+
+  .east .card .rank,
+  .west .card .rank{
+    font-size:8px;
+  }
+
+  .east .card .suit,
+  .west .card .suit{
+    font-size:10px;
+  }
+
 }
+
+
+/* =====================================================
+   HP KECIL
+===================================================== */
 
 @media(max-width:430px){
 
   .top-line{
     min-height:28px;
-
     padding:5px 7px;
-
     font-size:7px;
   }
 
   .header-main{
-    padding:
-      7px 6px 8px;
+    padding:7px 6px 8px;
   }
 
   .brand-logo{
     width:35px;
     height:35px;
-
     flex-basis:35px;
   }
 
@@ -1632,22 +1390,16 @@ button:disabled{
 
   .main-nav a{
     min-height:27px;
-
     padding:7px 6px;
-
     font-size:7px;
-
-    border-radius:6px;
   }
 
   .game-shell{
-    padding:
-      8px 5px 15px;
+    padding:8px 5px 15px;
   }
 
   .page-heading{
     border-radius:13px;
-
     padding:13px;
   }
 
@@ -1664,59 +1416,61 @@ button:disabled{
   }
 
   .table{
-    height:500px;
-
-    min-height:500px;
-    max-height:500px;
-
+    height:520px;
+    min-height:520px;
+    max-height:520px;
     border-width:7px;
   }
 
-  .seat.north,
-  .seat.south{
-    width:300px;
+  .seat.north{
+    width:96%;
+  }
 
-    max-width:93%;
+  .seat.south{
+    width:97%;
   }
 
   .seat.east,
   .seat.west{
-    width:67px;
-
-    max-width:21%;
+    width:58px;
+    max-width:15%;
   }
 
-  .table-center{
-    width:44%;
-
-    min-width:158px;
-
-    max-width:205px;
+  .avatar{
+    width:31px;
+    height:31px;
+    font-size:14px;
   }
 
-  .contract-card{
-    padding:8px 6px;
+  .player-name{
+    font-size:8px;
   }
 
-  .contract-main{
-    font-size:20px;
+  .level{
+    font-size:6px;
   }
 
   .north .hand,
   .south .hand{
-    column-gap:2px;
-
-    row-gap:4px;
-
-    padding:2px;
+    column-gap:1px;
+    padding-left:1px;
+    padding-right:1px;
   }
 
   .north .card{
-    max-width:28px;
+    max-width:29px;
   }
 
   .south .card{
     max-width:32px;
+  }
+
+  .north .card .rank{
+    font-size:11px;
+  }
+
+  .north .card .suit{
+    font-size:13px;
   }
 
   .south .card .rank{
@@ -1729,26 +1483,13 @@ button:disabled{
 
   .east .hand,
   .west .hand{
-    min-height:263px;
-
-    height:263px;
-
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
-
-    grid-template-rows:
-      repeat(7,minmax(0,1fr));
-
-    column-gap:1px;
-
-    row-gap:1px;
-
-    padding:2px 0;
+    min-height:280px;
+    height:280px;
   }
 
   .east .card,
   .west .card{
-    max-width:25px;
+    max-width:27px;
   }
 
   .east .card .rank,
@@ -1758,32 +1499,54 @@ button:disabled{
 
   .east .card .suit,
   .west .card .suit{
-    font-size:9px;
+    font-size:8px;
+  }
+
+  .table-center{
+    width:43%;
+    min-width:145px;
+  }
+
+  .contract-card{
+    padding:8px 6px;
+  }
+
+  .contract-main{
+    font-size:18px;
+  }
+
+  .contract-extra{
+    font-size:8px;
+  }
+
+  .round-status{
+    font-size:7px;
   }
 
   .trick{
-    width:150px;
-    height:108px;
+    width:145px;
+    height:105px;
   }
 
   .trick-card{
-    width:39px;
-    height:55px;
+    width:37px;
+    height:53px;
+    font-size:12px;
   }
 
   .trick-card.n,
   .trick-card.s{
-    left:55px;
+    left:54px;
   }
 
   .trick-card.w{
-    left:8px;
-    top:27px;
+    left:7px;
+    top:26px;
   }
 
   .trick-card.e{
-    right:8px;
-    top:27px;
+    right:7px;
+    top:26px;
   }
 
   .actions{
@@ -1792,8 +1555,7 @@ button:disabled{
 
   .btn{
     min-height:44px;
-
-    font-size:10px;
+    font-size:9px;
   }
 
   .footer-inner{
@@ -1801,6 +1563,11 @@ button:disabled{
   }
 
 }
+
+
+/* =====================================================
+   HP SANGAT KECIL
+===================================================== */
 
 @media(max-width:370px){
 
@@ -1816,7 +1583,6 @@ button:disabled{
   .brand-logo{
     width:33px;
     height:33px;
-
     flex-basis:33px;
   }
 
@@ -1834,74 +1600,59 @@ button:disabled{
 
   .main-nav a{
     padding:6px 5px;
-
     font-size:6.5px;
   }
 
   .table{
-    height:490px;
-
-    min-height:490px;
-    max-height:490px;
-  }
-
-  .seat.north,
-  .seat.south{
-    width:286px;
-  }
-
-  .seat.east,
-  .seat.west{
-    width:63px;
+    height:500px;
+    min-height:500px;
+    max-height:500px;
   }
 
   .north .card{
-    max-width:26px;
+    max-width:27px;
   }
 
   .south .card{
-    max-width:30px;
+    max-width:29px;
   }
 
   .east .hand,
   .west .hand{
-    min-height:255px;
-
-    height:255px;
-
-    column-gap:1px;
-    row-gap:1px;
+    min-height:260px;
+    height:260px;
   }
 
   .east .card,
   .west .card{
-    max-width:24px;
+    max-width:25px;
   }
 
   .table-center{
-    width:45%;
-
-    min-width:154px;
-  }
-
-  .round-status{
-    font-size:8px;
+    width:44%;
+    min-width:140px;
   }
 
 }
 
-@media(min-width:500px){
+
+/* =====================================================
+   LAPTOP
+===================================================== */
+
+@media(min-width:900px){
 
   .table{
-    height:620px;
-
-    min-height:620px;
-    max-height:620px;
+    height:660px;
+    max-height:660px;
   }
 
-  .seat.north,
+  .seat.north{
+    width:650px;
+  }
+
   .seat.south{
-    width:350px;
+    width:700px;
   }
 
   .seat.east,
@@ -1909,35 +1660,23 @@ button:disabled{
     width:88px;
   }
 
-  .north .hand,
-  .south .hand{
-    column-gap:4px;
-
-    row-gap:5px;
-  }
-
   .north .card{
-    max-width:33px;
+    max-width:45px;
   }
 
   .south .card{
-    max-width:39px;
+    max-width:50px;
   }
 
   .east .hand,
   .west .hand{
-    min-height:320px;
-
-    height:320px;
-
-    column-gap:4px;
-
-    row-gap:3px;
+    height:390px;
+    min-height:390px;
   }
 
   .east .card,
   .west .card{
-    max-width:35px;
+    max-width:42px;
   }
 
   .east .card .rank,
@@ -1952,45 +1691,10 @@ button:disabled{
 
 }
 
-@media(min-width:900px){
 
-  .table{
-    height:640px;
-
-    max-height:640px;
-  }
-
-  .seat.north,
-  .seat.south{
-    width:390px;
-  }
-
-  .seat.east,
-  .seat.west{
-    width:96px;
-  }
-
-  .north .card{
-    max-width:36px;
-  }
-
-  .south .card{
-    max-width:41px;
-  }
-
-  .east .hand,
-  .west .hand{
-    height:330px;
-
-    min-height:330px;
-  }
-
-  .east .card,
-  .west .card{
-    max-width:37px;
-  }
-
-}
+/* =====================================================
+   LANDSCAPE HP
+===================================================== */
 
 @media(
   max-height:620px
@@ -2003,12 +1707,11 @@ button:disabled{
       calc(100vh - 210px);
 
     min-height:440px;
-
     max-height:570px;
   }
 
   .seat.north{
-    top:5px;
+    top:4px;
   }
 
   .seat.south{
@@ -2017,17 +1720,22 @@ button:disabled{
 
   .east .hand,
   .west .hand{
-    min-height:225px;
-
-    height:225px;
+    min-height:250px;
+    height:250px;
   }
 
   .north .hand,
   .south .hand{
-    row-gap:3px;
+    padding-top:2px;
+    padding-bottom:2px;
   }
 
 }
+
+
+/* =====================================================
+   TOUCH
+===================================================== */
 
 @media(pointer:coarse){
 
@@ -2048,6 +1756,7 @@ button:disabled{
 
 <div class="app">
 
+
 <!-- ===================================================
      HEADER
 =================================================== -->
@@ -2065,6 +1774,7 @@ button:disabled{
     </span>
 
   </div>
+
 
   <div class="header-main">
 
@@ -2093,6 +1803,7 @@ button:disabled{
       </div>
 
     </a>
+
 
     <nav
       class="main-nav"
@@ -2153,6 +1864,7 @@ button:disabled{
 
 <main class="game-shell">
 
+
   <section class="page-heading">
 
     <h1>
@@ -2168,6 +1880,7 @@ button:disabled{
 
 
   <section class="game-card">
+
 
     <!-- GAME BAR -->
 
@@ -2187,6 +1900,7 @@ button:disabled{
 
       </div>
 
+
       <div class="info-box">
 
         <span class="info-label">
@@ -2200,6 +1914,7 @@ button:disabled{
         </span>
 
       </div>
+
 
       <div class="info-box">
 
@@ -2218,7 +1933,7 @@ button:disabled{
     </section>
 
 
-    <!-- MEJA BRIDGE -->
+    <!-- MEJA -->
 
     <main class="table-area">
 
@@ -2419,6 +2134,7 @@ button:disabled{
 
       </div>
 
+
       <div class="actions">
 
         <button
@@ -2470,6 +2186,7 @@ button:disabled{
 
     </div>
 
+
     <div>
 
       <div class="footer-title">
@@ -2498,6 +2215,7 @@ button:disabled{
 
     </div>
 
+
     <div>
 
       <div class="footer-title">
@@ -2523,6 +2241,7 @@ button:disabled{
     </div>
 
   </div>
+
 
   <div class="footer-bottom">
 
@@ -2694,12 +2413,7 @@ button:disabled{
 
     </div>
 
-    <p
-      style="
-        font-size:12px;
-        line-height:1.6;
-        color:#536673
-      ">
+    <p style="font-size:12px;line-height:1.6;color:#536673">
 
       Tujuan permainan adalah memenangkan jumlah trik
       sesuai kontrak. Saat bermain kartu, pemain wajib
@@ -2708,12 +2422,7 @@ button:disabled{
 
     </p>
 
-    <p
-      style="
-        font-size:12px;
-        line-height:1.6;
-        color:#536673
-      ">
+    <p style="font-size:12px;line-height:1.6;color:#536673">
 
       ♠ Spades &nbsp;
       ♥ Heart &nbsp;
@@ -2722,12 +2431,7 @@ button:disabled{
 
     </p>
 
-    <p
-      style="
-        font-size:12px;
-        line-height:1.6;
-        color:#536673
-      ">
+    <p style="font-size:12px;line-height:1.6;color:#536673">
 
       HCP:
       As = 4,
@@ -2737,12 +2441,7 @@ button:disabled{
 
     </p>
 
-    <p
-      style="
-        font-size:12px;
-        line-height:1.6;
-        color:#536673
-      ">
+    <p style="font-size:12px;line-height:1.6;color:#536673">
 
       <strong>
         Indikator putaran:
@@ -2783,6 +2482,7 @@ button:disabled{
 
 'use strict';
 
+
 /* =====================================================
    DATA BRIDGE
 ===================================================== */
@@ -2795,19 +2495,8 @@ const SUITS=[
 ];
 
 const RANKS=[
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  'J',
-  'Q',
-  'K',
-  'A'
+  '2','3','4','5','6','7',
+  '8','9','10','J','Q','K','A'
 ];
 
 const SEATS=[
@@ -2836,6 +2525,7 @@ const LEVELS={
   }
 
 };
+
 
 const state={
 
@@ -2912,9 +2602,7 @@ function nextSeat(seat){
 function partnerSeat(seat){
 
   if(seat==='N')return'S';
-
   if(seat==='S')return'N';
-
   if(seat==='E')return'W';
 
   return'E';
@@ -2932,17 +2620,10 @@ function handHCP(hand){
   return hand.reduce(
     (sum,card)=>{
 
-      if(card.rank==='A')
-        return sum+4;
-
-      if(card.rank==='K')
-        return sum+3;
-
-      if(card.rank==='Q')
-        return sum+2;
-
-      if(card.rank==='J')
-        return sum+1;
+      if(card.rank==='A')return sum+4;
+      if(card.rank==='K')return sum+3;
+      if(card.rank==='Q')return sum+2;
+      if(card.rank==='J')return sum+1;
 
       return sum;
 
@@ -2962,7 +2643,7 @@ function suitCount(hand,suit){
 
 
 /* =====================================================
-   URUT KARTU
+   SORT
 ===================================================== */
 
 function sortCards(hand){
@@ -2978,7 +2659,7 @@ function sortCards(hand){
     (a,b)=>{
 
       if(
-        order[a.suit]!==
+        order[a.suit] !==
         order[b.suit]
       ){
 
@@ -3049,20 +2730,17 @@ function boardInfo(board){
   let vul='None';
 
   if(
-    [0,3,6,9]
-    .includes(cycle)
+    [0,3,6,9].includes(cycle)
   )
     vul='N-S';
 
   if(
-    [1,2,5,8,11,12,15]
-    .includes(cycle)
+    [1,2,5,8,11,12,15].includes(cycle)
   )
     vul='E-W';
 
   if(
-    [4,7,10,13]
-    .includes(cycle)
+    [4,7,10,13].includes(cycle)
   )
     vul='Both';
 
@@ -3081,32 +2759,20 @@ function boardInfo(board){
 function updateRoundStatus(){
 
   const box=$('roundStatus');
-
   const icon=$('roundIcon');
-
   const text=$('roundText');
 
-  if(
-    !box||
-    !icon||
-    !text
-  )
+  if(!box||!icon||!text)
     return;
 
   let level='normal';
-
   let label='NORMAL';
-
   let symbol='🟡';
 
-  if(
-    state.phase==='auction'
-  ){
+  if(state.phase==='auction'){
 
     level='normal';
-
     label='NORMAL';
-
     symbol='🟡';
 
   }
@@ -3136,44 +2802,25 @@ function updateRoundStatus(){
         target-made
       );
 
-    if(
-      needed>remaining
-    ){
+    if(needed>remaining){
 
       level='danger';
-
       label='BAHAYA';
-
       symbol='🔴';
 
     }
 
     else if(
       made>=target ||
-      needed<=
-        Math.max(
-          0,
-          Math.floor(
-            remaining/2
-          )
-        )
+      needed<=Math.max(
+        0,
+        Math.floor(remaining/2)
+      )
     ){
 
       level='safe';
-
       label='TIDAK BAHAYA';
-
       symbol='🟢';
-
-    }
-
-    else{
-
-      level='normal';
-
-      label='NORMAL';
-
-      symbol='🟡';
 
     }
 
@@ -3198,19 +2845,14 @@ function updateRoundStatus(){
     if(made>=target){
 
       level='safe';
-
       label='TIDAK BAHAYA';
-
       symbol='🟢';
 
     }
-
     else{
 
       level='danger';
-
       label='BAHAYA';
-
       symbol='🔴';
 
     }
@@ -3226,7 +2868,6 @@ function updateRoundStatus(){
   box.classList.add(level);
 
   icon.textContent=symbol;
-
   text.textContent=label;
 
 }
@@ -3243,58 +2884,38 @@ function newGame(){
       state.board
     );
 
-  state.dealer=
-    info.dealer;
-
-  state.vul=
-    info.vul;
+  state.dealer=info.dealer;
+  state.vul=info.vul;
 
   state.phase='auction';
-
-  state.turn=
-    state.dealer;
+  state.turn=state.dealer;
 
   state.auction=[];
-
   state.currentBid=null;
 
   state.contract=null;
-
   state.declarer=null;
-
   state.dummy=null;
-
   state.trump=null;
-
   state.openingLeader=null;
 
   state.dummyRevealed=false;
-
   state.leadSuit=null;
 
   state.trick=[];
 
   state.tricksNS=0;
-
   state.tricksEW=0;
-
   state.completed=0;
 
   makeDeck();
-
   deal();
 
-  $('boardNo').textContent=
-    state.board;
+  $('boardNo').textContent=state.board;
+  $('dealer').textContent=state.dealer;
+  $('vul').textContent=state.vul;
 
-  $('dealer').textContent=
-    state.dealer;
-
-  $('vul').textContent=
-    state.vul;
-
-  $('contractText').textContent=
-    'Lelang';
+  $('contractText').textContent='Lelang';
 
   $('centerInfo').textContent=
     'Menunggu pembukaan lelang';
@@ -3302,9 +2923,7 @@ function newGame(){
   render();
 
   updatePrimaryAction();
-
   setTurnStatus();
-
   updateRoundStatus();
 
 }
@@ -3318,18 +2937,13 @@ function makeDeck(){
 
   state.deck=[];
 
-  for(
-    const suit of SUITS
-  ){
+  for(const suit of SUITS){
 
-    for(
-      const rank of RANKS
-    ){
+    for(const rank of RANKS){
 
       state.deck.push({
 
         suit,
-
         rank,
 
         id:
@@ -3346,9 +2960,7 @@ function makeDeck(){
 
   }
 
-  shuffle(
-    state.deck
-  );
+  shuffle(state.deck);
 
 }
 
@@ -3370,17 +2982,13 @@ function deal(){
     (card,index)=>{
 
       state.hands[
-        SEATS[
-          index%4
-        ]
+        SEATS[index%4]
       ].push(card);
 
     }
   );
 
-  for(
-    const seat of SEATS
-  ){
+  for(const seat of SEATS){
 
     state.hands[seat]=
       sortCards(
@@ -3398,25 +3006,17 @@ function deal(){
 
 function isUserControlled(seat){
 
-  if(
-    state.phase==='auction'
-  )
-    return seat===
-      state.userSeat;
+  if(state.phase==='auction')
+    return seat===state.userSeat;
 
-  if(
-    state.phase!=='play'
-  )
+  if(state.phase!=='play')
     return false;
 
-  if(
-    seat===state.userSeat
-  )
+  if(seat===state.userSeat)
     return true;
 
   return(
-    state.declarer===
-      state.userSeat &&
+    state.declarer===state.userSeat &&
     seat===state.dummy
   );
 
@@ -3459,11 +3059,8 @@ function shouldRevealDummy(){
 function render(){
 
   renderHand('N');
-
   renderHand('E');
-
   renderHand('S');
-
   renderHand('W');
 
   renderTrick();
@@ -3476,11 +3073,8 @@ function render(){
     ' / 13';
 
   updateContractDisplay();
-
   updateDummyHighlight();
-
   updatePrimaryAction();
-
   updateRoundStatus();
 
 }
@@ -3526,9 +3120,7 @@ function renderHand(seat){
 
       if(!reveal){
 
-        div.classList.add(
-          'back'
-        );
+        div.classList.add('back');
 
         div.setAttribute(
           'aria-label',
@@ -3543,9 +3135,7 @@ function renderHand(seat){
           card.suit==='♥' ||
           card.suit==='♦'
         )
-          div.classList.add(
-            'red'
-          );
+          div.classList.add('red');
 
         div.innerHTML=
           '<span class="rank">'+
@@ -3559,24 +3149,16 @@ function renderHand(seat){
           state.phase==='play' &&
           isUserControlled(seat) &&
           state.turn===seat &&
-          legalCard(
-            card,
-            seat
-          );
+          legalCard(card,seat);
 
         if(playable){
 
-          div.classList.add(
-            'playable'
-          );
+          div.classList.add('playable');
 
           div.tabIndex=0;
 
           div.onclick=()=>{
-            playCard(
-              seat,
-              card
-            );
+            playCard(seat,card);
           };
 
           div.onkeydown=e=>{
@@ -3621,20 +3203,15 @@ function renderHand(seat){
 
 function updateDummyHighlight(){
 
-  const table=
-    $('bridgeTable');
+  const table=$('bridgeTable');
 
   if(!table)return;
 
   const active=
 
-    state.declarer===
-      state.userSeat &&
-
+    state.declarer===state.userSeat &&
     state.dummyRevealed &&
-
-    state.turn===
-      state.dummy;
+    state.turn===state.dummy;
 
   table.classList.toggle(
     'dummy-active',
@@ -3650,8 +3227,7 @@ function updateDummyHighlight(){
 
 function renderTrick(){
 
-  const el=
-    $('trick');
+  const el=$('trick');
 
   if(!el)return;
 
@@ -3673,9 +3249,7 @@ function renderTrick(){
         item.card.suit==='♥' ||
         item.card.suit==='♦'
       )
-        div.classList.add(
-          'red'
-        );
+        div.classList.add('red');
 
       div.textContent=
         item.card.rank+
@@ -3726,18 +3300,15 @@ function updateContractDisplay(){
 
 
 /* =====================================================
-   STATUS GILIRAN
+   STATUS
 ===================================================== */
 
 function setTurnStatus(){
 
-  if(
-    state.phase==='auction'
-  ){
+  if(state.phase==='auction'){
 
     if(
-      state.turn===
-      state.userSeat
+      state.turn===state.userSeat
     ){
 
       $('statusText').textContent=
@@ -3758,9 +3329,7 @@ function setTurnStatus(){
 
   }
 
-  if(
-    state.phase==='play'
-  ){
+  if(state.phase==='play'){
 
     if(
       isUserControlled(
@@ -3770,11 +3339,8 @@ function setTurnStatus(){
 
       $('statusText').textContent=
 
-        state.turn===
-        state.dummy
-
+        state.turn===state.dummy
           ?'Giliran Anda memainkan kartu DUMMY.'
-
           :'Giliran Anda memilih kartu.';
 
     }
@@ -3792,9 +3358,7 @@ function setTurnStatus(){
 
   }
 
-  if(
-    state.phase==='finished'
-  ){
+  if(state.phase==='finished'){
 
     $('statusText').textContent=
       'Board selesai — tekan BOARD BERIKUTNYA.';
@@ -3835,7 +3399,6 @@ function isHigherBid(bid){
       bid.level,
       bid.suit
     ) >
-
     bidRank(
       state.currentBid.level,
       state.currentBid.suit
@@ -3880,9 +3443,7 @@ function makeBid(bid){
     );
 
   renderAuctionHistory();
-
   render();
-
   setTurnStatus();
 
 }
@@ -3936,15 +3497,12 @@ function computerBid(){
     return;
 
   const hand=
-    state.hands[
-      state.turn
-    ];
+    state.hands[state.turn];
 
   const points=
     handHCP(hand);
 
   const longest=[
-
     ...SUITS.map(
       suit=>({
 
@@ -3958,7 +3516,6 @@ function computerBid(){
 
       })
     )
-
   ].sort(
     (a,b)=>
       b.count-a.count
@@ -4048,19 +3605,14 @@ function makeComputerBid(bid){
   state.auction.push({
 
     seat:state.turn,
-
     bid
 
   });
 
-  if(
-    bid!=='PASS'
-  )
+  if(bid!=='PASS')
     state.currentBid=bid;
 
-  if(
-    checkAuctionEnd()
-  ){
+  if(checkAuctionEnd()){
 
     finishAuction();
 
@@ -4074,9 +3626,7 @@ function makeComputerBid(bid){
     );
 
   renderAuctionHistory();
-
   render();
-
   setTurnStatus();
 
 }
@@ -4096,8 +3646,7 @@ function openBid(){
 
   renderAuctionHistory();
 
-  const grid=
-    $('bidGrid');
+  const grid=$('bidGrid');
 
   grid.innerHTML='';
 
@@ -4124,19 +3673,14 @@ function openBid(){
 
       button.className='bid';
 
-      if(
-        !isHigherBid(bid)
-      )
-        button.classList.add(
-          'disabled'
-        );
+      if(!isHigherBid(bid))
+        button.classList.add('disabled');
 
       if(
         suit==='♥' ||
         suit==='♦'
       )
-        button.style.color=
-          '#d12d3d';
+        button.style.color='#d12d3d';
 
       button.textContent=
         level+suit;
@@ -4149,9 +3693,7 @@ function openBid(){
 
       };
 
-      grid.appendChild(
-        button
-      );
+      grid.appendChild(button);
 
     }
 
@@ -4162,11 +3704,8 @@ function openBid(){
       'button'
     );
 
-  pass.className=
-    'bid pass';
-
-  pass.textContent=
-    'PASS';
+  pass.className='bid pass';
+  pass.textContent='PASS';
 
   pass.onclick=()=>{
 
@@ -4176,9 +3715,7 @@ function openBid(){
 
   };
 
-  grid.appendChild(
-    pass
-  );
+  grid.appendChild(pass);
 
   $('bidOverlay')
     .classList.add('show');
@@ -4194,27 +3731,23 @@ function closeBid(){
 
 
 /* =====================================================
-   RIWAYAT LELANG
+   RIWAYAT
 ===================================================== */
 
 function renderAuctionHistory(){
 
-  const el=
-    $('auctionHistory');
+  const el=$('auctionHistory');
 
   el.innerHTML='';
 
-  for(
-    const seat of SEATS
-  ){
+  for(const seat of SEATS){
 
     const div=
       document.createElement(
         'div'
       );
 
-    div.className=
-      'auction-seat';
+    div.className='auction-seat';
 
     const records=
       state.auction.filter(
@@ -4232,7 +3765,6 @@ function renderAuctionHistory(){
               x=>formatBid(x.bid)
             )
             .join('<br>')
-
           :'—'
       );
 
@@ -4247,8 +3779,7 @@ function formatBid(bid){
   return(
     bid==='PASS'
       ?'PASS'
-      :bid.level+
-       bid.suit
+      :bid.level+bid.suit
   );
 
 }
@@ -4283,7 +3814,6 @@ function finishAuction(){
         'Semua pemain PASS — tekan BOARD BERIKUTNYA.';
 
     updatePrimaryAction();
-
     updateRoundStatus();
 
     return;
@@ -4306,9 +3836,7 @@ function finishAuction(){
 
   let declarerRecord=null;
 
-  for(
-    const item of active
-  ){
+  for(const item of active){
 
     const side=
       isNS(item.seat)
@@ -4317,13 +3845,10 @@ function finishAuction(){
 
     if(
       side===finalSide &&
-      item.bid.suit===
-        finalBid.suit
+      item.bid.suit===finalBid.suit
     ){
 
-      declarerRecord=
-        item;
-
+      declarerRecord=item;
       break;
 
     }
@@ -4336,8 +3861,7 @@ function finishAuction(){
         active.length-1
       ];
 
-  state.contract=
-    finalBid;
+  state.contract=finalBid;
 
   state.declarer=
     declarerRecord.seat;
@@ -4357,8 +3881,7 @@ function finishAuction(){
       state.declarer
     );
 
-  state.dummyRevealed=
-    false;
+  state.dummyRevealed=false;
 
   state.phase='play';
 
@@ -4378,14 +3901,13 @@ function finishAuction(){
       state.dummy;
 
   render();
-
   setTurnStatus();
 
 }
 
 
 /* =====================================================
-   KARTU LEGAL
+   LEGAL CARD
 ===================================================== */
 
 function legalCard(card,seat){
@@ -4396,9 +3918,7 @@ function legalCard(card,seat){
     return true;
 
   const lead=
-    state.trick[
-      0
-    ].card.suit;
+    state.trick[0].card.suit;
 
   const hasLead=
     state.hands[seat].some(
@@ -4426,10 +3946,7 @@ function playCard(seat,card){
     return;
 
   if(
-    !legalCard(
-      card,
-      seat
-    )
+    !legalCard(card,seat)
   ){
 
     $('statusText')
@@ -4449,7 +3966,7 @@ function playCard(seat,card){
 
 
 /* =====================================================
-   EKSEKUSI KARTU
+   EKSEKUSI
 ===================================================== */
 
 function executeCard(seat,card){
@@ -4470,11 +3987,8 @@ function executeCard(seat,card){
     );
 
   state.trick.push({
-
     seat,
-
     card
-
   });
 
   if(
@@ -4487,8 +4001,7 @@ function executeCard(seat,card){
     if(
       state.completed===0
     )
-      state.dummyRevealed=
-        true;
+      state.dummyRevealed=true;
 
   }
 
@@ -4499,7 +4012,6 @@ function executeCard(seat,card){
   ){
 
     resolveTrick();
-
     return;
 
   }
@@ -4508,14 +4020,13 @@ function executeCard(seat,card){
     nextSeat(seat);
 
   render();
-
   setTurnStatus();
 
 }
 
 
 /* =====================================================
-   KOMPUTER MAIN
+   KOMPUTER
 ===================================================== */
 
 function computerPlay(seat){
@@ -4650,14 +4161,12 @@ function chooseComputerCard(
 
 
 /* =====================================================
-   KARTU PEMENANG
+   PEMENANG
 ===================================================== */
 
 function currentWinningCard(){
 
-  if(
-    !state.trick.length
-  )
+  if(!state.trick.length)
     return null;
 
   let winner=
@@ -4691,7 +4200,7 @@ function currentWinningCard(){
 
 
 /* =====================================================
-   BANDINGKAN KARTU
+   BANDINGKAN
 ===================================================== */
 
 function beats(
@@ -4751,7 +4260,6 @@ function resolveTrick(){
   state.completed++;
 
   state.trick=[];
-
   state.leadSuit=null;
 
   state.turn=
@@ -4764,7 +4272,6 @@ function resolveTrick(){
   ){
 
     finishBoard();
-
     return;
 
   }
@@ -4848,9 +4355,7 @@ function calculateScore(
     6+
     contract.level;
 
-  if(
-    made<target
-  ){
+  if(made<target){
 
     const down=
       target-made;
@@ -4885,9 +4390,7 @@ function calculateScore(
 
   }
 
-  if(
-    contract.suit==='NT'
-  )
+  if(contract.suit==='NT')
     trickPoints+=10;
 
   let score=
@@ -4896,13 +4399,11 @@ function calculateScore(
   score+=
 
     trickPoints>=100
-
       ?(
         vul==='None'
           ?300
           :500
        )
-
       :50;
 
   const over=
@@ -4919,7 +4420,6 @@ function calculateScore(
         contract.suit==='♣' ||
         contract.suit==='♦'
       )
-
         ?20
         :30;
 
@@ -4936,27 +4436,21 @@ function calculateScore(
 
 
 /* =====================================================
-   URUTKAN TANGAN
+   URUTKAN
 ===================================================== */
 
 function sortHand(){
 
-  state.hands[
-    state.userSeat
-  ]=
+  state.hands[state.userSeat]=
     sortCards(
-      state.hands[
-        state.userSeat
-      ]
+      state.hands[state.userSeat]
     );
 
   render();
 
   if(
     state.phase==='play' &&
-    isUserControlled(
-      state.turn
-    )
+    isUserControlled(state.turn)
   ){
 
     setTurnStatus();
@@ -5042,13 +4536,11 @@ function advanceComputerTurn(){
     ){
 
       openBid();
-
       return;
 
     }
 
     computerBid();
-
     return;
 
   }
@@ -5075,7 +4567,7 @@ function advanceComputerTurn(){
 
 
 /* =====================================================
-   TOMBOL UTAMA
+   PRIMARY ACTION
 ===================================================== */
 
 function updatePrimaryAction(){
@@ -5183,12 +4675,9 @@ function openSettings(){
       btn=>{
 
         btn.classList.toggle(
-
           'active',
-
           btn.dataset.level===
           state.level
-
         );
 
       }
@@ -5208,28 +4697,22 @@ function closeSettings(){
 
 function setLevel(level){
 
-  if(
-    !LEVELS[level]
-  )
+  if(!LEVELS[level])
     return;
 
-  state.level=
-    level;
+  state.level=level;
 
   const name=
     LEVELS[level].name;
 
   $('northLevel')
-    .textContent=
-      'PEMAIN';
+    .textContent='PEMAIN';
 
   $('eastLevel')
-    .textContent=
-      name;
+    .textContent=name;
 
   $('westLevel')
-    .textContent=
-      name;
+    .textContent=name;
 
   const southLevel=
     document.querySelector(
@@ -5237,15 +4720,13 @@ function setLevel(level){
     );
 
   if(southLevel)
-    southLevel.textContent=
-      name;
+    southLevel.textContent=name;
 
   closeSettings();
 
   $('statusText')
     .textContent=
-      'Level komputer: '+
-      name;
+      'Level komputer: '+name;
 
   updatePrimaryAction();
 
@@ -5308,9 +4789,7 @@ document.addEventListener(
   'keydown',
   e=>{
 
-    if(
-      e.key==='Escape'
-    ){
+    if(e.key==='Escape'){
 
       document
         .querySelectorAll(
@@ -5330,7 +4809,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   MULAI GAME
+   MULAI
 ===================================================== */
 
 newGame();
