@@ -535,6 +535,140 @@ a{
 
 
 /* =====================================================
+   ARSIP BERITA LAMA
+===================================================== */
+
+.archive-section{
+    margin-top:48px;
+}
+
+.archive-header{
+    margin-bottom:18px;
+}
+
+.archive-label{
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    color:#08729f;
+    margin-bottom:8px;
+}
+
+.archive-title{
+    margin:0;
+    color:#173d53;
+    font-size:clamp(22px,3vw,29px);
+    line-height:1.25;
+    font-weight:900;
+}
+
+.archive-desc{
+    margin:7px 0 0;
+    color:#70828b;
+    font-size:12px;
+    line-height:1.7;
+}
+
+
+/* Tahun */
+
+.archive-year{
+    margin-bottom:20px;
+    background:#fff;
+    border:1px solid #dfe8ee;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(6,59,92,.05);
+}
+
+.archive-year-header{
+    width:100%;
+    padding:15px 17px;
+    background:linear-gradient(135deg,#063b5c,#075f8d);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.archive-year-name{
+    font-size:17px;
+    font-weight:900;
+}
+
+.archive-year-count{
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.20);
+    border-radius:20px;
+    padding:4px 9px;
+    font-size:9px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+
+/* Daftar berita lama */
+
+.archive-list{
+    display:flex;
+    flex-direction:column;
+}
+
+.archive-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:13px 17px;
+    border-bottom:1px solid #edf1f3;
+    transition:.18s ease;
+}
+
+.archive-item:last-child{
+    border-bottom:0;
+}
+
+.archive-item:hover{
+    background:#f5fafc;
+}
+
+.archive-item-main{
+    min-width:0;
+    flex:1;
+}
+
+.archive-item-title{
+    margin:0;
+    color:#173d53;
+    font-size:13px;
+    line-height:1.45;
+    font-weight:800;
+}
+
+.archive-item-date{
+    margin-top:4px;
+    color:#8a9aa2;
+    font-size:9px;
+    line-height:1.4;
+}
+
+.archive-item-icon{
+    width:30px;
+    height:30px;
+    flex:0 0 30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    background:#edf7fc;
+    border:1px solid #d7eaf3;
+    color:#086b99;
+    font-size:13px;
+}
+
+
+/* =====================================================
    FOOTER
 ===================================================== */
 
@@ -697,6 +831,27 @@ a{
 
     .news-content{
         font-size:12px;
+    }
+
+    .archive-item{
+        padding:12px 13px;
+        gap:12px;
+    }
+
+    .archive-item-title{
+        font-size:12px;
+    }
+
+    .archive-item-date{
+        font-size:8px;
+    }
+
+    .archive-year-header{
+        padding:13px;
+    }
+
+    .archive-year-name{
+        font-size:15px;
     }
 
     .footer-main{
@@ -874,8 +1029,9 @@ const supabaseClient =
         </h2>
 
         <p class="section-desc">
-            Berita yang telah diterbitkan oleh admin
-            GABSI Kota Tanjungbalai.
+            Berita terbaru akan ditampilkan secara lengkap
+            selama satu bulan. Berita yang lebih lama tetap
+            tersimpan dan tersedia dalam arsip berdasarkan tahun.
         </p>
 
         <div id="status"
@@ -885,6 +1041,39 @@ const supabaseClient =
 
         <div id="newsContainer"
              class="news-grid">
+        </div>
+
+
+        <!-- =================================================
+             ARSIP BERITA LAMA
+        ================================================== -->
+
+        <div id="archiveSection"
+             class="archive-section"
+             style="display:none;">
+
+            <div class="archive-header">
+
+                <div class="archive-label">
+                    ARSIP BERITA
+                </div>
+
+                <h2 class="archive-title">
+                    Berita Sebelumnya
+                </h2>
+
+                <p class="archive-desc">
+                    Berita yang telah berusia lebih dari satu bulan
+                    tetap tersimpan sebagai arsip. Untuk menjaga
+                    tampilan halaman tetap rapi, arsip lama hanya
+                    menampilkan judul serta tanggal dan waktu berita.
+                </p>
+
+            </div>
+
+            <div id="archiveContainer">
+            </div>
+
         </div>
 
     </div>
@@ -1007,10 +1196,10 @@ const supabaseClient =
 <script>
 
 /* =====================================================
-   TANGGAL
+   TANGGAL DAN WAKTU INDONESIA
 ===================================================== */
 
-function formatTanggal(tanggal){
+function formatTanggalWaktu(tanggal){
 
     if(!tanggal){
         return "";
@@ -1023,14 +1212,65 @@ function formatTanggal(tanggal){
         return "";
     }
 
-    return new Intl.DateTimeFormat(
-        "id-ID",
-        {
-            day:"2-digit",
-            month:"long",
-            year:"numeric"
-        }
-    ).format(date);
+    const hasil =
+        new Intl.DateTimeFormat(
+            "id-ID",
+            {
+                day:"2-digit",
+                month:"long",
+                year:"numeric",
+                hour:"2-digit",
+                minute:"2-digit",
+                hour12:false,
+                timeZone:"Asia/Jakarta"
+            }
+        ).format(date);
+
+    return hasil + " WIB";
+
+}
+
+
+/* =====================================================
+   CEK APAKAH BERITA MASIH DALAM SATU BULAN
+===================================================== */
+
+function isBeritaTerbaru(tanggal){
+
+    if(!tanggal){
+        return false;
+    }
+
+    const tanggalBerita =
+        new Date(tanggal);
+
+    if(
+        isNaN(
+            tanggalBerita.getTime()
+        )
+    ){
+        return false;
+    }
+
+
+    /*
+       Batas dihitung berdasarkan
+       satu bulan kalender sebelumnya.
+    */
+
+    const batas =
+        new Date();
+
+    batas.setMonth(
+        batas.getMonth() - 1
+    );
+
+
+    return (
+        tanggalBerita.getTime()
+        >=
+        batas.getTime()
+    );
 
 }
 
@@ -1319,7 +1559,7 @@ function createCommentForm(
 
 
 /* =====================================================
-   KARTU BERITA
+   KARTU BERITA TERBARU
 ===================================================== */
 
 async function createNewsCard(
@@ -1458,7 +1698,7 @@ async function createNewsCard(
         "news-date";
 
     date.textContent =
-        formatTanggal(
+        formatTanggalWaktu(
             berita.dibuat_pada
         );
 
@@ -1546,6 +1786,10 @@ async function createNewsCard(
     }
 
 
+    /* =================================================
+       KOMENTAR HANYA UNTUK BERITA TERBARU
+    ================================================= */
+
     const comments =
         document.createElement(
             "div"
@@ -1615,6 +1859,306 @@ async function createNewsCard(
 
 
 /* =====================================================
+   ITEM ARSIP BERITA LAMA
+===================================================== */
+
+function createArchiveItem(
+    berita
+){
+
+    const item =
+        document.createElement(
+            "div"
+        );
+
+    item.className =
+        "archive-item";
+
+
+    const main =
+        document.createElement(
+            "div"
+        );
+
+    main.className =
+        "archive-item-main";
+
+
+    const title =
+        document.createElement(
+            "h3"
+        );
+
+    title.className =
+        "archive-item-title";
+
+    title.textContent =
+        berita.judul ||
+        "Tanpa Judul";
+
+
+    const date =
+        document.createElement(
+            "div"
+        );
+
+    date.className =
+        "archive-item-date";
+
+    date.textContent =
+        formatTanggalWaktu(
+            berita.dibuat_pada
+        );
+
+
+    main.appendChild(
+        title
+    );
+
+    main.appendChild(
+        date
+    );
+
+
+    const icon =
+        document.createElement(
+            "div"
+        );
+
+    icon.className =
+        "archive-item-icon";
+
+    icon.textContent =
+        "📰";
+
+
+    item.appendChild(
+        main
+    );
+
+    item.appendChild(
+        icon
+    );
+
+
+    return item;
+
+}
+
+
+/* =====================================================
+   MEMBUAT ARSIP BERDASARKAN TAHUN
+===================================================== */
+
+function renderArchive(
+    beritaLama
+){
+
+    const archiveSection =
+        document.getElementById(
+            "archiveSection"
+        );
+
+    const archiveContainer =
+        document.getElementById(
+            "archiveContainer"
+        );
+
+
+    archiveContainer.innerHTML =
+        "";
+
+
+    if(
+        !beritaLama ||
+        beritaLama.length === 0
+    ){
+
+        archiveSection.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    /*
+       Kelompokkan berita lama
+       berdasarkan tahun.
+    */
+
+    const kelompokTahun = {};
+
+
+    beritaLama.forEach(
+        function(berita){
+
+            const date =
+                new Date(
+                    berita.dibuat_pada
+                );
+
+
+            let tahun =
+                date.getFullYear();
+
+
+            if(
+                isNaN(
+                    date.getTime()
+                )
+            ){
+
+                tahun =
+                    "Lainnya";
+
+            }
+
+
+            if(
+                !kelompokTahun[tahun]
+            ){
+
+                kelompokTahun[tahun] =
+                    [];
+
+            }
+
+
+            kelompokTahun[tahun].push(
+                berita
+            );
+
+        }
+    );
+
+
+    const tahunList =
+        Object.keys(
+            kelompokTahun
+        ).sort(
+            function(a,b){
+
+                if(
+                    a === "Lainnya"
+                ){
+                    return 1;
+                }
+
+                if(
+                    b === "Lainnya"
+                ){
+                    return -1;
+                }
+
+                return Number(b) -
+                       Number(a);
+
+            }
+        );
+
+
+    tahunList.forEach(
+        function(tahun){
+
+            const yearBox =
+                document.createElement(
+                    "div"
+                );
+
+            yearBox.className =
+                "archive-year";
+
+
+            const yearHeader =
+                document.createElement(
+                    "div"
+                );
+
+            yearHeader.className =
+                "archive-year-header";
+
+
+            const yearName =
+                document.createElement(
+                    "div"
+                );
+
+            yearName.className =
+                "archive-year-name";
+
+            yearName.textContent =
+                "Tahun " + tahun;
+
+
+            const yearCount =
+                document.createElement(
+                    "div"
+                );
+
+            yearCount.className =
+                "archive-year-count";
+
+            yearCount.textContent =
+                kelompokTahun[tahun].length +
+                " berita";
+
+
+            yearHeader.appendChild(
+                yearName
+            );
+
+            yearHeader.appendChild(
+                yearCount
+            );
+
+
+            const list =
+                document.createElement(
+                    "div"
+                );
+
+            list.className =
+                "archive-list";
+
+
+            kelompokTahun[tahun].forEach(
+                function(berita){
+
+                    list.appendChild(
+                        createArchiveItem(
+                            berita
+                        )
+                    );
+
+                }
+            );
+
+
+            yearBox.appendChild(
+                yearHeader
+            );
+
+            yearBox.appendChild(
+                list
+            );
+
+
+            archiveContainer.appendChild(
+                yearBox
+            );
+
+        }
+    );
+
+
+    archiveSection.style.display =
+        "block";
+
+}
+
+
+/* =====================================================
    LOAD BERITA
 ===================================================== */
 
@@ -1660,6 +2204,12 @@ async function loadNews(){
             "";
 
 
+        document.getElementById(
+            "archiveContainer"
+        ).innerHTML =
+            "";
+
+
         if(
             !result.data ||
             result.data.length === 0
@@ -1686,40 +2236,150 @@ async function loadNews(){
 
                 '</div>';
 
+
+            document.getElementById(
+                "archiveSection"
+            ).style.display =
+                "none";
+
+
             return;
 
         }
 
 
+        /*
+           Pisahkan berita menjadi:
+
+           1. Berita terbaru
+              = maksimal satu bulan terakhir
+
+           2. Arsip
+              = lebih dari satu bulan
+        */
+
+        const beritaTerbaru = [];
+
+        const beritaLama = [];
+
+
+        result.data.forEach(
+            function(berita){
+
+                if(
+                    isBeritaTerbaru(
+                        berita.dibuat_pada
+                    )
+                ){
+
+                    beritaTerbaru.push(
+                        berita
+                    );
+
+                }
+                else{
+
+                    beritaLama.push(
+                        berita
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           STATUS
+        ================================================== */
+
+        let statusText =
+            beritaTerbaru.length +
+            " berita terbaru";
+
+        if(
+            beritaLama.length > 0
+        ){
+
+            statusText +=
+                " • " +
+                beritaLama.length +
+                " berita dalam arsip";
+
+        }
+
+
         status.textContent =
-            result.data.length +
-            " berita tersedia.";
+            statusText +
+            ".";
 
         status.className =
             "status success news-status";
 
 
-        for(
-            const berita
-            of result.data
+        /* =================================================
+           TAMPILKAN BERITA TERBARU
+        ================================================= */
+
+        if(
+            beritaTerbaru.length === 0
         ){
 
-            const card =
-                await createNewsCard(
-                    berita
-                );
+            container.innerHTML =
 
+                '<div class="empty">' +
 
-            container.appendChild(
-                card
-            );
+                '📰' +
+
+                '<br><br>' +
+
+                'Belum ada berita dalam ' +
+
+                'satu bulan terakhir.' +
+
+                '<br>' +
+
+                'Silakan lihat arsip berita di bawah.' +
+
+                '</div>';
 
         }
+        else{
+
+            for(
+                const berita
+                of beritaTerbaru
+            ){
+
+                const card =
+                    await createNewsCard(
+                        berita
+                    );
+
+
+                container.appendChild(
+                    card
+                );
+
+            }
+
+        }
+
+
+        /* =================================================
+           TAMPILKAN ARSIP
+        ================================================== */
+
+        renderArchive(
+            beritaLama
+        );
 
     }
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
 
 
         status.textContent =
