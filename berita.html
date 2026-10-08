@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,initial-scale=1">
+      content="width=device-width,initial-scale=1,maximum-scale=1">
 
 <meta name="theme-color" content="#063b5c">
 
@@ -22,6 +22,10 @@
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
     box-sizing:border-box;
 }
@@ -33,8 +37,8 @@ html{
 body{
     margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#f4f8fa;
-    color:#263f4d;
+    background:#eef4f7;
+    color:#263746;
     line-height:1.6;
 }
 
@@ -46,91 +50,128 @@ a{
     text-decoration:none;
 }
 
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
 .container{
-    width:min(1180px,calc(100% - 28px));
+    width:min(1100px,calc(100% - 28px));
     margin:0 auto;
 }
 
 
 /* =====================================================
-   HEADER AWAL GABSI
+   WARNA UTAMA
+===================================================== */
+
+:root{
+    --navy:#063b5c;
+    --navy2:#052e49;
+    --blue:#07558f;
+    --blue2:#087cab;
+    --light:#eaf4f9;
+    --bg:#eef4f7;
+    --card:#ffffff;
+    --ink:#263746;
+    --muted:#536673;
+    --line:#dce7ec;
+    --green:#08784e;
+    --red:#c92f3d;
+    --gold:#ffd75a;
+    --shadow:0 6px 20px rgba(0,0,0,.07);
+}
+
+
+/* =====================================================
+   HEADER
 ===================================================== */
 
 .site-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
     width:100%;
-    background:linear-gradient(180deg,#063b5c,#052e49);
-    border-bottom:1px solid rgba(233,185,73,.55);
-    position:relative;
-    z-index:100;
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 2px 12px rgba(6,59,92,.06);
+}
+
+.top-line{
+    min-height:27px;
+    background:var(--navy);
+    color:#cfe1eb;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:0 18px;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.7px;
 }
 
 .header-main{
-    width:100%;
-    padding:9px 12px 8px;
+    min-height:64px;
     display:flex;
-    flex-direction:column;
-    align-items:stretch;
-    gap:9px;
-    background:linear-gradient(180deg,#063b5c,#052e49);
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:8px 0;
 }
 
 .brand{
-    width:100%;
-    min-width:0;
+    min-width:220px;
     display:flex;
     align-items:center;
-    justify-content:flex-start;
     gap:10px;
-    text-decoration:none;
-    color:#fff;
-    position:relative;
-    z-index:5;
+    color:var(--navy);
 }
 
 .brand-logo{
     width:42px;
     height:42px;
     flex:0 0 42px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     padding:3px;
     border-radius:9px;
     background:#fff;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
     overflow:hidden;
-    box-shadow:0 3px 10px rgba(0,0,0,.5);
+    box-shadow:0 3px 10px rgba(6,59,92,.10);
 }
 
 .brand-logo img{
     width:100%;
     height:100%;
-    display:block;
     object-fit:contain;
+    display:block;
 }
 
 .brand-text{
     min-width:0;
-    overflow:hidden;
 }
 
 .brand-text strong{
     display:block;
-    color:#fff;
+    color:var(--navy);
     font-size:14px;
     line-height:1.15;
-    letter-spacing:.45px;
+    font-weight:900;
+    letter-spacing:.35px;
     white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
 }
 
 .brand-text small{
     display:block;
     margin-top:3px;
-    color:#b9d2df;
+    color:#718692;
     font-size:8px;
-    font-weight:700;
-    letter-spacing:.35px;
+    font-weight:800;
+    letter-spacing:.4px;
     white-space:nowrap;
 }
 
@@ -140,107 +181,118 @@ a{
 ===================================================== */
 
 .main-nav{
-    width:100%;
     display:flex;
-    flex-wrap:wrap;
     align-items:center;
-    justify-content:center;
-    gap:5px;
-    padding:0;
-    margin:0;
-    overflow:visible;
-    position:relative;
-    z-index:10;
+    justify-content:flex-end;
+    gap:3px;
+    min-width:0;
+    overflow-x:auto;
+    scrollbar-width:none;
+}
+
+.main-nav::-webkit-scrollbar{
+    display:none;
 }
 
 .main-nav a{
-    flex:0 1 auto;
+    position:relative;
+    flex:0 0 auto;
     display:flex;
     align-items:center;
     justify-content:center;
-    min-height:29px;
+    min-height:32px;
     padding:7px 9px;
-    border:1px solid rgba(255,255,255,.16);
     border-radius:7px;
-    color:#e4edf3;
-    background:rgba(255,255,255,.07);
-    text-decoration:none;
+    color:#536673;
     font-size:8px;
     font-weight:900;
     white-space:nowrap;
-    line-height:1;
     transition:.18s ease;
 }
 
-.main-nav a:hover,
+.main-nav a:hover{
+    color:var(--navy);
+    background:var(--light);
+}
+
 .main-nav a.active{
-    color:#153326;
-    background:#e9b949;
-    border-color:#f4d77e;
+    color:var(--navy);
+    background:#eaf4f9;
+}
+
+.main-nav a.active::after{
+    content:"";
+    position:absolute;
+    left:8px;
+    right:8px;
+    bottom:2px;
+    height:2px;
+    border-radius:5px;
+    background:var(--red);
 }
 
 
 /* =====================================================
-   PASTIKAN HANYA SATU LOGO
+   PAGE HERO
 ===================================================== */
 
-.brand::before,
-.brand::after,
-.header-main::before,
-.header-main::after,
-.header-main > img,
-.brand > img{
-    content:none!important;
-    display:none!important;
-    background:none!important;
-    background-image:none!important;
-}
-
-
-/* =====================================================
-   HEADER BERITA
-===================================================== */
-
-.page-header{
-    background:linear-gradient(135deg,#063b5c,#075f8d);
+.page-hero{
+    position:relative;
+    overflow:hidden;
+    padding:48px 0 45px;
+    background:
+        radial-gradient(circle at 88% 18%,
+            rgba(255,255,255,.13),
+            transparent 25%),
+        radial-gradient(circle at 10% 100%,
+            rgba(8,124,171,.28),
+            transparent 30%),
+        linear-gradient(135deg,#063b5c,#07558f);
     color:#fff;
-    padding:46px 0 42px;
-    border-bottom:4px solid #e9b949;
 }
 
-.page-header .container{
-    max-width:1180px;
+.page-hero::before{
+    content:"♠  ♥  ♦  ♣";
+    position:absolute;
+    right:4%;
+    bottom:-8px;
+    color:rgba(255,255,255,.07);
+    font-size:75px;
+    letter-spacing:12px;
+    transform:rotate(-5deg);
+    pointer-events:none;
 }
 
-.section-label{
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1.5px;
-    color:#08729f;
+.page-hero .container{
+    position:relative;
+    z-index:2;
+}
+
+.hero-label{
     margin-bottom:9px;
-}
-
-.page-header .section-label{
     color:#bfe8f5;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.7px;
 }
 
-.page-header h1{
+.page-hero h1{
     margin:0;
-    font-size:clamp(30px,5vw,48px);
+    font-size:clamp(30px,5vw,46px);
     line-height:1.1;
     font-weight:900;
-    letter-spacing:-.5px;
+    letter-spacing:-.7px;
 }
 
-.page-header h1 span{
-    color:#f1c95e;
+.page-hero h1 span{
+    color:var(--gold);
 }
 
-.page-header p{
-    max-width:760px;
+.page-hero p{
+    max-width:720px;
     margin:13px 0 0;
-    color:#dbeaf2;
-    font-size:14px;
+    color:#dcecf4;
+    font-size:13px;
     line-height:1.75;
 }
 
@@ -250,241 +302,31 @@ a{
 ===================================================== */
 
 .section{
-    padding:42px 0 55px;
+    padding:40px 0 55px;
+}
+
+.section-label{
+    margin-bottom:8px;
+    color:var(--blue2);
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.5px;
 }
 
 .section-title{
-    margin:0 0 7px;
+    margin:0;
     color:#173d53;
-    font-size:clamp(23px,3vw,31px);
+    font-size:clamp(23px,3vw,30px);
     line-height:1.25;
     font-weight:900;
 }
 
 .section-desc{
-    margin:0 0 25px;
+    max-width:780px;
+    margin:8px 0 24px;
     color:#70828b;
-    font-size:13px;
-    line-height:1.7;
-}
-
-
-/* =====================================================
-   BERITA
-===================================================== */
-
-.news-page{
-    min-height:60vh;
-}
-
-.news-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:24px;
-}
-
-.news-card{
-    background:#fff;
-    border:1px solid #dfe8ee;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 8px 28px rgba(6,59,92,.08);
-    transition:
-        transform .22s ease,
-        box-shadow .22s ease,
-        border-color .22s ease;
-}
-
-.news-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 16px 38px rgba(6,59,92,.14);
-    border-color:#bcd8e7;
-}
-
-.news-image,
-.no-image{
-    width:100%;
-    height:245px;
-}
-
-.news-image{
-    object-fit:cover;
-    background:#eaf2f6;
-}
-
-.no-image{
-    background:linear-gradient(135deg,#e8f3f8,#d8eaf2);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#17658b;
-    font-size:52px;
-}
-
-.news-body{
-    padding:22px;
-}
-
-.news-category{
-    display:inline-flex;
-    align-items:center;
-    background:#edf7fc;
-    color:#075f89;
-    border:1px solid #d5eaf4;
-    padding:6px 11px;
-    border-radius:30px;
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:.2px;
-    margin-bottom:11px;
-}
-
-.news-title{
-    margin:0 0 8px;
-    font-size:21px;
-    line-height:1.35;
-    color:#16394e;
-}
-
-.news-date{
-    font-size:10px;
-    color:#8496a0;
-    margin-bottom:14px;
-}
-
-.news-content{
-    font-size:13px;
-    line-height:1.75;
-    color:#5f737f;
-    white-space:pre-line;
-}
-
-.news-source{
-    margin-top:17px;
-    padding-top:13px;
-    border-top:1px solid #edf1f3;
-    font-size:10px;
-    line-height:1.6;
-    color:#748791;
-}
-
-.news-source a{
-    color:#086b99;
-    font-weight:800;
-}
-
-.news-source a:hover{
-    color:#063b5c;
-}
-
-
-/* =====================================================
-   KOMENTAR
-===================================================== */
-
-.news-comments{
-    margin-top:20px;
-    padding-top:16px;
-    border-top:1px solid #e5edf1;
-}
-
-.comments-title{
     font-size:12px;
-    font-weight:800;
-    color:#173d53;
-    margin-bottom:10px;
-}
-
-.comment-list{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-.comment{
-    background:#f5f9fb;
-    border:1px solid #e4edf1;
-    border-radius:10px;
-    padding:10px 11px;
-}
-
-.comment strong{
-    display:block;
-    color:#075a82;
-    font-size:10px;
-    margin-bottom:2px;
-}
-
-.comment span{
-    display:block;
-    color:#667983;
-    font-size:10px;
-    line-height:1.55;
-    white-space:pre-line;
-}
-
-.no-comments{
-    color:#93a1a8;
-    font-size:10px;
-}
-
-
-/* =====================================================
-   FORM KOMENTAR
-===================================================== */
-
-.comment-form{
-    margin-top:13px;
-}
-
-.form-input,
-.form-textarea{
-    width:100%;
-    border:1px solid #d5e1e6;
-    border-radius:9px;
-    padding:10px 11px;
-    font-family:inherit;
-    font-size:11px;
-    outline:none;
-    background:#fff;
-    color:#263f4d;
-    transition:.2s;
-}
-
-.form-input:focus,
-.form-textarea:focus{
-    border-color:#0780ad;
-    box-shadow:0 0 0 3px rgba(7,128,173,.08);
-}
-
-.form-textarea{
-    min-height:80px;
-    resize:vertical;
-    margin-top:8px;
-}
-
-.comment-button{
-    border:0;
-    background:linear-gradient(135deg,#07547b,#0878a8);
-    color:#fff;
-    padding:10px 15px;
-    border-radius:9px;
-    font-size:10px;
-    font-weight:800;
-    margin-top:8px;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.comment-button:hover{
-    transform:translateY(-1px);
-    box-shadow:0 5px 14px rgba(7,84,123,.18);
-}
-
-.comment-button:disabled{
-    opacity:.6;
-    cursor:not-allowed;
-    transform:none;
+    line-height:1.75;
 }
 
 
@@ -498,11 +340,12 @@ a{
 
 .status{
     background:#fff;
-    border:1px solid #dfe9ed;
+    border:1px solid var(--line);
     border-radius:12px;
-    padding:13px 16px;
-    font-size:12px;
+    padding:12px 15px;
     color:#667983;
+    font-size:11px;
+    box-shadow:0 3px 12px rgba(6,59,92,.035);
 }
 
 .status.success{
@@ -519,23 +362,241 @@ a{
 
 
 /* =====================================================
-   EMPTY
+   GRID BERITA
 ===================================================== */
 
-.empty{
-    background:#fff;
-    border:1px dashed #cbd9df;
-    border-radius:16px;
-    padding:50px 20px;
-    text-align:center;
-    color:#788b95;
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px;
+}
+
+.news-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:17px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+}
+
+.news-card:hover{
+    transform:translateY(-4px);
+    border-color:#bfd8e5;
+    box-shadow:0 14px 32px rgba(6,59,92,.11);
+}
+
+.news-image,
+.no-image{
+    width:100%;
+    height:235px;
+}
+
+.news-image{
+    display:block;
+    object-fit:cover;
+    background:#eaf2f6;
+}
+
+.no-image{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#e8f3f8,#d8eaf2);
+    color:#17658b;
+    font-size:48px;
+}
+
+.news-body{
+    padding:20px;
+}
+
+.news-category{
+    display:inline-flex;
+    align-items:center;
+    min-height:25px;
+    padding:5px 10px;
+    border-radius:20px;
+    background:#edf7fc;
+    border:1px solid #d5eaf4;
+    color:#075f89;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.25px;
+    margin-bottom:10px;
+}
+
+.news-title{
+    margin:0 0 7px;
+    color:#16394e;
+    font-size:20px;
+    line-height:1.35;
+    font-weight:900;
+}
+
+.news-date{
+    margin-bottom:13px;
+    color:#8496a0;
+    font-size:9px;
+}
+
+.news-content{
+    color:#5f737f;
     font-size:12px;
-    grid-column:1/-1;
+    line-height:1.75;
+    white-space:pre-line;
+}
+
+.news-source{
+    margin-top:16px;
+    padding-top:12px;
+    border-top:1px solid #edf1f3;
+    color:#748791;
+    font-size:9px;
+    line-height:1.6;
+}
+
+.news-source a{
+    color:#086b99;
+    font-weight:900;
+}
+
+.news-source a:hover{
+    color:var(--navy);
 }
 
 
 /* =====================================================
-   ARSIP BERITA LAMA
+   KOMENTAR
+===================================================== */
+
+.news-comments{
+    margin-top:19px;
+    padding-top:15px;
+    border-top:1px solid #e5edf1;
+}
+
+.comments-title{
+    margin-bottom:9px;
+    color:#173d53;
+    font-size:11px;
+    font-weight:900;
+}
+
+.comment-list{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.comment{
+    padding:9px 10px;
+    background:#f5f9fb;
+    border:1px solid #e4edf1;
+    border-radius:9px;
+}
+
+.comment strong{
+    display:block;
+    margin-bottom:2px;
+    color:#075a82;
+    font-size:9px;
+}
+
+.comment span{
+    display:block;
+    color:#667983;
+    font-size:9px;
+    line-height:1.55;
+    white-space:pre-line;
+}
+
+.no-comments{
+    color:#93a1a8;
+    font-size:9px;
+}
+
+
+/* =====================================================
+   FORM KOMENTAR
+===================================================== */
+
+.comment-form{
+    margin-top:12px;
+}
+
+.form-input,
+.form-textarea{
+    width:100%;
+    outline:none;
+    border:1px solid #d5e1e6;
+    border-radius:9px;
+    padding:9px 10px;
+    background:#fff;
+    color:#263f4d;
+    font-size:10px;
+    transition:.2s;
+}
+
+.form-input:focus,
+.form-textarea:focus{
+    border-color:#0780ad;
+    box-shadow:0 0 0 3px rgba(7,128,173,.08);
+}
+
+.form-textarea{
+    min-height:76px;
+    resize:vertical;
+    margin-top:7px;
+}
+
+.comment-button{
+    border:0;
+    margin-top:7px;
+    padding:9px 14px;
+    border-radius:8px;
+    background:linear-gradient(135deg,#07547b,#0878a8);
+    color:#fff;
+    font-size:9px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.comment-button:hover{
+    transform:translateY(-1px);
+    box-shadow:0 5px 14px rgba(7,84,123,.18);
+}
+
+.comment-button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+    grid-column:1/-1;
+    padding:48px 20px;
+    background:#fff;
+    border:1px dashed #cbd9df;
+    border-radius:16px;
+    text-align:center;
+    color:#788b95;
+    font-size:11px;
+    box-shadow:var(--shadow);
+}
+
+
+/* =====================================================
+   ARSIP
 ===================================================== */
 
 .archive-section{
@@ -543,15 +604,15 @@ a{
 }
 
 .archive-header{
-    margin-bottom:18px;
+    margin-bottom:17px;
 }
 
 .archive-label{
-    font-size:10px;
+    margin-bottom:7px;
+    color:var(--blue2);
+    font-size:9px;
     font-weight:900;
     letter-spacing:1.5px;
-    color:#08729f;
-    margin-bottom:8px;
 }
 
 .archive-title{
@@ -563,52 +624,46 @@ a{
 }
 
 .archive-desc{
+    max-width:760px;
     margin:7px 0 0;
     color:#70828b;
-    font-size:12px;
+    font-size:11px;
     line-height:1.7;
 }
 
-
-/* Tahun */
-
 .archive-year{
-    margin-bottom:20px;
-    background:#fff;
-    border:1px solid #dfe8ee;
-    border-radius:15px;
+    margin-bottom:18px;
     overflow:hidden;
-    box-shadow:0 6px 20px rgba(6,59,92,.05);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(6,59,92,.05);
 }
 
 .archive-year-header{
-    width:100%;
-    padding:15px 17px;
-    background:linear-gradient(135deg,#063b5c,#075f8d);
-    color:#fff;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:15px;
+    padding:14px 16px;
+    background:linear-gradient(135deg,#063b5c,#075f8d);
+    color:#fff;
 }
 
 .archive-year-name{
-    font-size:17px;
+    font-size:16px;
     font-weight:900;
 }
 
 .archive-year-count{
-    background:rgba(255,255,255,.14);
-    border:1px solid rgba(255,255,255,.20);
-    border-radius:20px;
     padding:4px 9px;
-    font-size:9px;
-    font-weight:800;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:20px;
+    background:rgba(255,255,255,.14);
+    font-size:8px;
+    font-weight:900;
     white-space:nowrap;
 }
-
-
-/* Daftar berita lama */
 
 .archive-list{
     display:flex;
@@ -619,8 +674,8 @@ a{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:18px;
-    padding:13px 17px;
+    gap:15px;
+    padding:12px 16px;
     border-bottom:1px solid #edf1f3;
     transition:.18s ease;
 }
@@ -641,16 +696,15 @@ a{
 .archive-item-title{
     margin:0;
     color:#173d53;
-    font-size:13px;
+    font-size:12px;
     line-height:1.45;
-    font-weight:800;
+    font-weight:900;
 }
 
 .archive-item-date{
     margin-top:4px;
     color:#8a9aa2;
-    font-size:9px;
-    line-height:1.4;
+    font-size:8px;
 }
 
 .archive-item-icon{
@@ -660,9 +714,9 @@ a{
     display:flex;
     align-items:center;
     justify-content:center;
+    border:1px solid #d7eaf3;
     border-radius:8px;
     background:#edf7fc;
-    border:1px solid #d7eaf3;
     color:#086b99;
     font-size:13px;
 }
@@ -673,68 +727,91 @@ a{
 ===================================================== */
 
 .footer{
+    margin-top:15px;
+    border-top:3px solid var(--gold);
     background:linear-gradient(180deg,#063b5c,#042c45);
     color:#d7e5ec;
-    margin-top:20px;
-    border-top:3px solid #e9b949;
 }
 
 .footer-main{
     display:grid;
     grid-template-columns:1.5fr 1fr 1fr;
-    gap:35px;
-    padding:38px 0 30px;
+    gap:32px;
+    padding:35px 0 28px;
 }
 
 .footer h3{
     margin:0 0 8px;
     color:#fff;
-    font-size:18px;
+    font-size:17px;
 }
 
 .footer h4{
-    margin:0 0 11px;
+    margin:0 0 10px;
     color:#f0c85d;
-    font-size:12px;
+    font-size:10px;
+    font-weight:900;
     text-transform:uppercase;
-    letter-spacing:.6px;
+    letter-spacing:.7px;
 }
 
 .footer p{
     margin:0;
     color:#b9ced8;
-    font-size:11px;
+    font-size:10px;
     line-height:1.7;
 }
 
 .footer a{
     display:block;
+    width:max-content;
+    max-width:100%;
+    margin-bottom:6px;
     color:#c9dbe3;
-    font-size:11px;
-    margin-bottom:7px;
+    font-size:10px;
     transition:.18s ease;
 }
 
 .footer a:hover{
     color:#f0c85d;
-    padding-left:3px;
+    transform:translateX(2px);
 }
 
 .footer-bottom{
-    min-height:48px;
-    border-top:1px solid rgba(255,255,255,.10);
+    min-height:46px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:15px;
+    border-top:1px solid rgba(255,255,255,.10);
     color:#94afbc;
-    font-size:9px;
+    font-size:8px;
 }
 
 
 /* =====================================================
    RESPONSIVE
 ===================================================== */
+
+@media(max-width:1000px){
+
+    .header-main{
+        align-items:stretch;
+        flex-direction:column;
+        gap:7px;
+    }
+
+    .brand{
+        min-width:0;
+    }
+
+    .main-nav{
+        justify-content:flex-start;
+        width:100%;
+    }
+
+}
+
 
 @media(max-width:850px){
 
@@ -744,7 +821,7 @@ a{
 
     .news-image,
     .no-image{
-        height:230px;
+        height:250px;
     }
 
     .footer-main{
@@ -753,19 +830,22 @@ a{
 
 }
 
-@media(max-width:760px){
+
+@media(max-width:700px){
+
+    .top-line{
+        padding:0 12px;
+        font-size:7px;
+    }
 
     .header-main{
-        padding:8px 10px 10px;
-        gap:8px;
+        padding:8px 0 9px;
     }
 
     .brand-logo{
-        width:36px;
-        height:36px;
-        flex-basis:36px;
-        border-radius:8px;
-        padding:2px;
+        width:38px;
+        height:38px;
+        flex-basis:38px;
     }
 
     .brand-text strong{
@@ -777,39 +857,62 @@ a{
     }
 
     .main-nav{
-        justify-content:flex-start;
-        gap:4px;
+        gap:3px;
     }
 
     .main-nav a{
-        min-height:28px;
+        min-height:30px;
         padding:7px 8px;
-        font-size:7.5px;
+        font-size:7px;
     }
 
-    .page-header{
-        padding:35px 0 32px;
+    .page-hero{
+        padding:38px 0 35px;
     }
 
-    .page-header p{
-        font-size:13px;
+    .page-hero p{
+        font-size:12px;
+    }
+
+    .section{
+        padding:34px 0 45px;
     }
 
 }
 
+
 @media(max-width:520px){
 
     .container{
-        width:min(100% - 20px,1180px);
+        width:calc(100% - 20px);
+    }
+
+    .top-line{
+        justify-content:center;
+        text-align:center;
+    }
+
+    .top-line span:last-child{
+        display:none;
     }
 
     .main-nav{
-        justify-content:center;
+        overflow-x:auto;
+        justify-content:flex-start;
+        padding-bottom:2px;
     }
 
     .main-nav a{
         padding:7px 7px;
-        font-size:7px;
+        font-size:6.8px;
+    }
+
+    .page-hero{
+        padding:33px 0 31px;
+    }
+
+    .page-hero h1{
+        font-size:31px;
     }
 
     .news-grid{
@@ -818,7 +921,7 @@ a{
 
     .news-image,
     .no-image{
-        height:195px;
+        height:205px;
     }
 
     .news-body{
@@ -830,42 +933,68 @@ a{
     }
 
     .news-content{
-        font-size:12px;
+        font-size:11px;
+    }
+
+    .archive-section{
+        margin-top:38px;
     }
 
     .archive-item{
-        padding:12px 13px;
-        gap:12px;
+        padding:11px 13px;
     }
 
     .archive-item-title{
-        font-size:12px;
-    }
-
-    .archive-item-date{
-        font-size:8px;
-    }
-
-    .archive-year-header{
-        padding:13px;
-    }
-
-    .archive-year-name{
-        font-size:15px;
+        font-size:11px;
     }
 
     .footer-main{
         grid-template-columns:1fr;
-        gap:24px;
+        gap:23px;
+        padding:30px 0 24px;
     }
 
     .footer-bottom{
+        min-height:60px;
         flex-direction:column;
         justify-content:center;
-        padding:13px 0;
+        padding:12px 0;
         text-align:center;
     }
 
+}
+
+
+@media(max-width:370px){
+
+    .brand-text strong{
+        font-size:11px;
+    }
+
+    .main-nav a{
+        padding:6px 6px;
+        font-size:6.3px;
+    }
+
+    .page-hero h1{
+        font-size:28px;
+    }
+
+}
+
+
+/* =====================================================
+   PASTIKAN HANYA SATU LOGO
+===================================================== */
+
+.brand::before,
+.brand::after,
+.header-main::before,
+.header-main::after,
+.header-main > img,
+.brand > img{
+    content:none!important;
+    display:none!important;
 }
 
 </style>
@@ -897,12 +1026,25 @@ const supabaseClient =
 
 
 <!-- =====================================================
-     HEADER + NAVIGASI
+     HEADER
 ===================================================== -->
 
 <header class="site-header">
 
-    <div class="header-main">
+    <div class="top-line">
+
+        <span>
+            GABSI KOTA TANJUNGBALAI
+        </span>
+
+        <span>
+            Bridge • Prestasi • Persaudaraan
+        </span>
+
+    </div>
+
+
+    <div class="container header-main">
 
         <a href="index.html"
            class="brand"
@@ -923,7 +1065,7 @@ const supabaseClient =
                 </strong>
 
                 <small>
-                    Bridge • Prestasi • Persaudaraan
+                    Gabungan Bridge Seluruh Indonesia
                 </small>
 
             </div>
@@ -985,14 +1127,14 @@ const supabaseClient =
 
 
 <!-- =====================================================
-     HEADER BERITA
+     HERO BERITA
 ===================================================== -->
 
-<header class="page-header">
+<header class="page-hero">
 
     <div class="container">
 
-        <div class="section-label">
+        <div class="hero-label">
             INFORMASI TERBARU
         </div>
 
@@ -1034,10 +1176,12 @@ const supabaseClient =
             tersimpan dan tersedia dalam arsip berdasarkan tahun.
         </p>
 
+
         <div id="status"
              class="status news-status">
             Memuat berita...
         </div>
+
 
         <div id="newsContainer"
              class="news-grid">
@@ -1045,7 +1189,7 @@ const supabaseClient =
 
 
         <!-- =================================================
-             ARSIP BERITA LAMA
+             ARSIP BERITA
         ================================================== -->
 
         <div id="archiveSection"
@@ -1070,6 +1214,7 @@ const supabaseClient =
                 </p>
 
             </div>
+
 
             <div id="archiveContainer">
             </div>
@@ -1157,10 +1302,6 @@ const supabaseClient =
                 Lainnya
             </h4>
 
-            <a href="score-sheet.html">
-                Score Sheet
-            </a>
-
             <a href="kocokan-kartu.html">
                 Kartu Pembanding
             </a>
@@ -1232,7 +1373,7 @@ function formatTanggalWaktu(tanggal){
 
 
 /* =====================================================
-   CEK APAKAH BERITA MASIH DALAM SATU BULAN
+   CEK BERITA SATU BULAN TERAKHIR
 ===================================================== */
 
 function isBeritaTerbaru(tanggal){
@@ -1252,19 +1393,12 @@ function isBeritaTerbaru(tanggal){
         return false;
     }
 
-
-    /*
-       Batas dihitung berdasarkan
-       satu bulan kalender sebelumnya.
-    */
-
     const batas =
         new Date();
 
     batas.setMonth(
         batas.getMonth() - 1
     );
-
 
     return (
         tanggalBerita.getTime()
@@ -1559,7 +1693,7 @@ function createCommentForm(
 
 
 /* =====================================================
-   KARTU BERITA TERBARU
+   KARTU BERITA
 ===================================================== */
 
 async function createNewsCard(
@@ -1787,8 +1921,8 @@ async function createNewsCard(
 
 
     /* =================================================
-       KOMENTAR HANYA UNTUK BERITA TERBARU
-    ================================================= */
+       KOMENTAR
+    ================================================== */
 
     const comments =
         document.createElement(
@@ -1859,7 +1993,7 @@ async function createNewsCard(
 
 
 /* =====================================================
-   ITEM ARSIP BERITA LAMA
+   ITEM ARSIP
 ===================================================== */
 
 function createArchiveItem(
@@ -1947,7 +2081,7 @@ function createArchiveItem(
 
 
 /* =====================================================
-   MEMBUAT ARSIP BERDASARKAN TAHUN
+   ARSIP BERDASARKAN TAHUN
 ===================================================== */
 
 function renderArchive(
@@ -1981,11 +2115,6 @@ function renderArchive(
 
     }
 
-
-    /*
-       Kelompokkan berita lama
-       berdasarkan tahun.
-    */
 
     const kelompokTahun = {};
 
@@ -2248,16 +2377,6 @@ async function loadNews(){
         }
 
 
-        /*
-           Pisahkan berita menjadi:
-
-           1. Berita terbaru
-              = maksimal satu bulan terakhir
-
-           2. Arsip
-              = lebih dari satu bulan
-        */
-
         const beritaTerbaru = [];
 
         const beritaLama = [];
@@ -2289,13 +2408,10 @@ async function loadNews(){
         );
 
 
-        /* =================================================
-           STATUS
-        ================================================== */
-
         let statusText =
             beritaTerbaru.length +
             " berita terbaru";
+
 
         if(
             beritaLama.length > 0
@@ -2316,10 +2432,6 @@ async function loadNews(){
         status.className =
             "status success news-status";
 
-
-        /* =================================================
-           TAMPILKAN BERITA TERBARU
-        ================================================= */
 
         if(
             beritaTerbaru.length === 0
@@ -2365,10 +2477,6 @@ async function loadNews(){
 
         }
 
-
-        /* =================================================
-           TAMPILKAN ARSIP
-        ================================================== */
 
         renderArchive(
             beritaLama
