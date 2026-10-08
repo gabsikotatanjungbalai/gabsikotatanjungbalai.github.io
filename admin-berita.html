@@ -70,19 +70,16 @@ a{
 
 .site-header{
     width:100%;
-    background:
-        linear-gradient(
-            180deg,
-            #063b5c,
-            #052e49
-        );
-    border-bottom:
-        1px solid rgba(233,185,73,.55);
+    background:linear-gradient(
+        180deg,
+        #063b5c,
+        #052e49
+    );
+    border-bottom:1px solid rgba(233,185,73,.55);
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:
-        0 5px 18px rgba(0,0,0,.12);
+    box-shadow:0 5px 18px rgba(0,0,0,.12);
 }
 
 .header-main{
@@ -92,12 +89,6 @@ a{
     flex-direction:column;
     align-items:stretch;
     gap:9px;
-    background:
-        linear-gradient(
-            180deg,
-            #063b5c,
-            #052e49
-        );
 }
 
 .brand{
@@ -105,12 +96,9 @@ a{
     min-width:0;
     display:flex;
     align-items:center;
-    justify-content:flex-start;
     gap:10px;
     text-decoration:none;
     color:#fff;
-    position:relative;
-    z-index:5;
 }
 
 .brand-logo{
@@ -124,8 +112,7 @@ a{
     border-radius:9px;
     background:#fff;
     overflow:hidden;
-    box-shadow:
-        0 3px 10px rgba(0,0,0,.5);
+    box-shadow:0 3px 10px rgba(0,0,0,.5);
 }
 
 .brand-logo img{
@@ -145,9 +132,6 @@ a{
     font-size:14px;
     line-height:1.15;
     letter-spacing:.45px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
 }
 
 .brand-text small{
@@ -157,12 +141,11 @@ a{
     font-size:8px;
     font-weight:700;
     letter-spacing:.35px;
-    white-space:nowrap;
 }
 
 
 /* =========================================================
-   NAVIGASI
+   NAVIGASI PUBLIK
 ========================================================= */
 
 .main-nav{
@@ -172,27 +155,18 @@ a{
     align-items:center;
     justify-content:center;
     gap:5px;
-    padding:0;
-    margin:0;
-    overflow:visible;
-    position:relative;
-    z-index:10;
 }
 
 .main-nav a{
-    flex:0 1 auto;
     display:flex;
     align-items:center;
     justify-content:center;
     min-height:29px;
     padding:7px 9px;
-    border:
-        1px solid rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.16);
     border-radius:7px;
     color:#e4edf3;
-    background:
-        rgba(255,255,255,.07);
-    text-decoration:none;
+    background:rgba(255,255,255,.07);
     font-size:8px;
     font-weight:900;
     white-space:nowrap;
@@ -205,37 +179,16 @@ a{
     color:#153326;
     background:#e9b949;
     border-color:#f4d77e;
-    box-shadow:
-        0 3px 9px rgba(0,0,0,.14);
 }
 
 
 /* =========================================================
-   PENGAMAN LOGO
-========================================================= */
-
-.brand::before,
-.brand::after,
-.header-main::before,
-.header-main::after,
-.header-main > img,
-.brand > img{
-    content:none!important;
-    display:none!important;
-    background:none!important;
-    background-image:none!important;
-}
-
-
-/* =========================================================
-   TOP BAR ADMIN
+   ADMIN STRIP
 ========================================================= */
 
 .admin-strip{
     background:#062d45;
     color:#dcecf4;
-    border-bottom:
-        1px solid rgba(255,255,255,.05);
 }
 
 .admin-strip-inner{
@@ -248,7 +201,6 @@ a{
     gap:10px;
     font-size:9px;
     font-weight:700;
-    letter-spacing:.25px;
 }
 
 .admin-strip-right{
@@ -267,10 +219,7 @@ a{
     font-size:10px;
     font-weight:bold;
     cursor:pointer;
-    transition:
-        transform .18s,
-        box-shadow .18s,
-        opacity .18s;
+    transition:.18s ease;
 }
 
 .btn:hover{
@@ -286,15 +235,11 @@ a{
 .btn-primary{
     background:#07547b;
     color:#fff;
-    box-shadow:
-        0 4px 10px rgba(7,84,123,.15);
 }
 
 .btn-success{
     background:#159653;
     color:#fff;
-    box-shadow:
-        0 4px 10px rgba(21,150,83,.12);
 }
 
 .btn-danger{
@@ -312,23 +257,14 @@ a{
     color:#16445c;
 }
 
+.btn-repost{
+    background:#6c4ab6;
+    color:#fff;
+}
+
 .btn-small{
     padding:7px 10px;
     font-size:9px;
-}
-
-
-/* =========================================================
-   HEADER ACTION
-========================================================= */
-
-.header-actions{
-    display:none;
-    align-items:center;
-    justify-content:flex-end;
-    gap:7px;
-    width:100%;
-    flex-wrap:wrap;
 }
 
 
@@ -337,8 +273,7 @@ a{
 ========================================================= */
 
 .login-page{
-    min-height:
-        calc(100vh - 150px);
+    min-height:calc(100vh - 150px);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -359,12 +294,10 @@ a{
 .login-card{
     width:min(430px,94%);
     background:#fff;
-    border:
-        1px solid #dce8ed;
+    border:1px solid #dce8ed;
     border-radius:20px;
     padding:30px;
-    box-shadow:
-        0 18px 50px rgba(20,55,75,.13);
+    box-shadow:0 18px 50px rgba(20,55,75,.13);
 }
 
 .login-logo{
@@ -404,21 +337,18 @@ a{
 
 .form-control{
     width:100%;
-    border:
-        1px solid #d5e1e6;
+    border:1px solid #d5e1e6;
     border-radius:9px;
     padding:11px 12px;
     font-size:12px;
     outline:none;
     background:#fff;
     color:#203442;
-    transition:.2s;
 }
 
 .form-control:focus{
     border-color:#0780ad;
-    box-shadow:
-        0 0 0 3px rgba(7,128,173,.08);
+    box-shadow:0 0 0 3px rgba(7,128,173,.08);
 }
 
 .form-group{
@@ -441,8 +371,7 @@ a{
 .login-error{
     display:none;
     background:#fff3f3;
-    border:
-        1px solid #efc8c8;
+    border:1px solid #efc8c8;
     color:#a52b2b;
     padding:10px;
     border-radius:8px;
@@ -452,7 +381,7 @@ a{
 
 
 /* =========================================================
-   ADMIN PAGE
+   ADMIN HEADER
 ========================================================= */
 
 #adminPage{
@@ -479,8 +408,7 @@ a{
     width:260px;
     height:260px;
     border-radius:50%;
-    background:
-        rgba(255,255,255,.05);
+    background:rgba(255,255,255,.05);
     right:-90px;
     top:-130px;
 }
@@ -490,7 +418,6 @@ a{
     z-index:1;
     margin:0;
     font-size:31px;
-    letter-spacing:.2px;
 }
 
 .admin-header p{
@@ -512,8 +439,7 @@ a{
 
 .dashboard-grid{
     display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:14px;
     margin-bottom:20px;
 }
@@ -522,12 +448,10 @@ a{
     position:relative;
     overflow:hidden;
     background:#fff;
-    border:
-        1px solid #dfe9ed;
+    border:1px solid #dfe9ed;
     border-radius:15px;
     padding:18px;
-    box-shadow:
-        0 7px 22px rgba(20,55,75,.06);
+    box-shadow:0 7px 22px rgba(20,55,75,.06);
 }
 
 .dashboard-card::after{
@@ -566,29 +490,25 @@ a{
 
 .panel{
     background:#fff;
-    border:
-        1px solid #dfe8ec;
+    border:1px solid #dfe8ec;
     border-radius:16px;
     margin-bottom:20px;
-    box-shadow:
-        0 8px 25px rgba(20,55,75,.055);
+    box-shadow:0 8px 25px rgba(20,55,75,.055);
     overflow:hidden;
 }
 
 .panel-header{
     padding:16px 20px;
-    border-bottom:
-        1px solid #e8eef1;
+    border-bottom:1px solid #e8eef1;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:10px;
-    background:
-        linear-gradient(
-            180deg,
-            #ffffff,
-            #fbfdfe
-        );
+    background:linear-gradient(
+        180deg,
+        #ffffff,
+        #fbfdfe
+    );
 }
 
 .panel-header h2{
@@ -603,13 +523,61 @@ a{
 
 
 /* =========================================================
+   MODE PILIHAN INPUT
+========================================================= */
+
+.input-mode{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.mode-card{
+    border:2px solid #dce7ec;
+    border-radius:14px;
+    padding:17px;
+    background:#fbfdfe;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.mode-card:hover{
+    border-color:#8fbfd4;
+    transform:translateY(-1px);
+}
+
+.mode-card.active{
+    border-color:#075b87;
+    background:#eef8fc;
+    box-shadow:0 5px 15px rgba(7,91,135,.08);
+}
+
+.mode-icon{
+    font-size:24px;
+    margin-bottom:5px;
+}
+
+.mode-card h3{
+    margin:0;
+    color:#063b5c;
+    font-size:14px;
+}
+
+.mode-card p{
+    margin:4px 0 0;
+    color:#7b8e98;
+    font-size:9px;
+}
+
+
+/* =========================================================
    FORM
 ========================================================= */
 
 .form-grid{
     display:grid;
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
     gap:14px;
 }
 
@@ -646,6 +614,70 @@ textarea.form-control{
 
 
 /* =========================================================
+   REPOST
+========================================================= */
+
+.repost-box{
+    display:none;
+}
+
+.repost-box.active{
+    display:block;
+}
+
+.manual-box{
+    display:block;
+}
+
+.manual-box.hidden{
+    display:none;
+}
+
+.fetch-result{
+    display:none;
+    margin-top:15px;
+    border:1px solid #cfe0e8;
+    border-radius:12px;
+    padding:15px;
+    background:#f7fbfd;
+}
+
+.fetch-result.show{
+    display:block;
+}
+
+.fetch-result h3{
+    margin:0 0 8px;
+    color:#07547b;
+    font-size:13px;
+}
+
+.fetch-preview{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:15px;
+    align-items:start;
+}
+
+.fetch-preview img{
+    width:140px;
+    height:90px;
+    object-fit:cover;
+    border-radius:9px;
+    background:#e8eef1;
+}
+
+.fetch-info{
+    font-size:10px;
+    color:#637781;
+}
+
+.fetch-info strong{
+    color:#203442;
+}
+
+
+/* =========================================================
    DAFTAR BERITA
 ========================================================= */
 
@@ -656,18 +688,10 @@ textarea.form-control{
 }
 
 .news-admin-item{
-    border:
-        1px solid #dfe8ec;
+    border:1px solid #dfe8ec;
     border-radius:13px;
     padding:15px;
     background:#fbfdfe;
-    transition:.2s;
-}
-
-.news-admin-item:hover{
-    border-color:#b9d5e2;
-    box-shadow:
-        0 5px 18px rgba(20,55,75,.05);
 }
 
 .news-admin-title{
@@ -698,14 +722,41 @@ textarea.form-control{
     margin-top:11px;
 }
 
+.badge{
+    display:inline-block;
+    padding:3px 7px;
+    border-radius:20px;
+    font-size:8px;
+    font-weight:bold;
+}
+
+.badge-manual{
+    color:#07547b;
+    background:#e7f4fa;
+}
+
+.badge-repost{
+    color:#633da0;
+    background:#f0e9fb;
+}
+
+.badge-published{
+    color:#087244;
+    background:#e9f9f0;
+}
+
+.badge-draft{
+    color:#986300;
+    background:#fff5dd;
+}
+
 
 /* =========================================================
    KOMENTAR
 ========================================================= */
 
 .comment-admin{
-    border:
-        1px solid #e0e8ec;
+    border:1px solid #e0e8ec;
     border-radius:11px;
     padding:13px;
     margin-bottom:9px;
@@ -763,16 +814,14 @@ textarea.form-control{
     display:block;
     background:#effcf5;
     color:#087244;
-    border:
-        1px solid #bfe6d0;
+    border:1px solid #bfe6d0;
 }
 
 .message.error{
     display:block;
     background:#fff4f4;
     color:#a52b2b;
-    border:
-        1px solid #efcaca;
+    border:1px solid #efcaca;
 }
 
 
@@ -800,8 +849,7 @@ textarea.form-control{
 
 .footer-grid{
     display:grid;
-    grid-template-columns:
-        1.4fr 1fr 1fr;
+    grid-template-columns:1.4fr 1fr 1fr;
     gap:25px;
     margin-bottom:18px;
 }
@@ -816,7 +864,6 @@ textarea.form-control{
 .footer-text{
     color:#9db8c5;
     font-size:9px;
-    line-height:1.7;
 }
 
 .footer-links{
@@ -836,8 +883,7 @@ textarea.form-control{
 
 .footer-bottom{
     padding-top:15px;
-    border-top:
-        1px solid rgba(255,255,255,.09);
+    border-top:1px solid rgba(255,255,255,.09);
 }
 
 .footer-bottom p{
@@ -855,13 +901,11 @@ textarea.form-control{
 @media(max-width:850px){
 
     .dashboard-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .form-grid{
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 
     .form-group.full{
@@ -869,19 +913,13 @@ textarea.form-control{
     }
 
     .footer-grid{
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
     }
 
 }
 
 
 @media(max-width:600px){
-
-    .header-main{
-        padding:8px 10px 9px;
-        gap:8px;
-    }
 
     .brand-logo{
         width:36px;
@@ -899,38 +937,28 @@ textarea.form-control{
 
     .main-nav{
         justify-content:flex-start;
-        gap:4px;
     }
 
     .main-nav a{
-        min-height:28px;
         padding:7px 8px;
         font-size:7.5px;
-    }
-
-    .admin-strip-inner{
-        min-height:27px;
-        font-size:8px;
-    }
-
-    .admin-header{
-        padding:28px 0;
-    }
-
-    .admin-header h1{
-        font-size:27px;
-    }
-
-    .admin-header p{
-        font-size:10px;
     }
 
     .dashboard-grid{
         grid-template-columns:1fr;
     }
 
-    .panel-header{
-        align-items:flex-start;
+    .input-mode{
+        grid-template-columns:1fr;
+    }
+
+    .fetch-preview{
+        grid-template-columns:1fr;
+    }
+
+    .fetch-preview img{
+        width:100%;
+        height:160px;
     }
 
     .panel-body{
@@ -945,38 +973,10 @@ textarea.form-control{
         width:100%;
     }
 
-    .news-admin-actions .btn,
-    .comment-admin-actions .btn{
-        flex:1;
-    }
-
     .footer-grid{
         grid-template-columns:1fr;
     }
 
-}
-
-
-@media(max-width:400px){
-
-    .main-nav a{
-        padding:6px 7px;
-        font-size:7px;
-    }
-
-    .login-card{
-        padding:22px;
-    }
-
-}
-
-
-/* =========================================================
-   KEAMANAN TAMBAHAN DARI CSS EKSTERNAL
-========================================================= */
-
-.site-header img:not(.brand-logo img){
-    display:none!important;
 }
 
 </style>
@@ -1023,7 +1023,7 @@ const supabaseClient =
         </span>
 
         <span class="admin-strip-right">
-            Administrasi Berita
+            ADMINISTRASI BERITA
         </span>
 
     </div>
@@ -1041,8 +1041,7 @@ const supabaseClient =
 
         <a
             href="index.html"
-            class="brand"
-            aria-label="Kembali ke Beranda">
+            class="brand">
 
             <div class="brand-logo">
 
@@ -1105,8 +1104,7 @@ const supabaseClient =
 
             <a
                 href="berita.html"
-                class="active"
-                aria-current="page">
+                class="active">
 
                 Berita
 
@@ -1160,31 +1158,24 @@ const supabaseClient =
 
             <img
                 src="logo-gabsi.png"
-                alt="Logo GABSI Kota Tanjungbalai">
+                alt="Logo GABSI">
 
         </div>
-
 
         <h1>
             Admin Berita
         </h1>
 
-
         <div class="login-subtitle">
-
             GABSI Kota Tanjungbalai
-
         </div>
-
 
         <div
             id="loginError"
             class="login-error">
         </div>
 
-
-        <form
-            id="loginForm">
+        <form id="loginForm">
 
             <div class="form-group">
 
@@ -1202,7 +1193,6 @@ const supabaseClient =
 
             </div>
 
-
             <div class="form-group">
 
                 <label class="login-label">
@@ -1219,7 +1209,6 @@ const supabaseClient =
 
             </div>
 
-
             <button
                 id="loginButton"
                 class="btn btn-primary login-button"
@@ -1230,7 +1219,6 @@ const supabaseClient =
             </button>
 
         </form>
-
 
         <div class="login-help">
 
@@ -1250,7 +1238,6 @@ const supabaseClient =
 
 <div id="adminPage">
 
-
 <header class="admin-header">
 
     <div class="container">
@@ -1260,7 +1247,8 @@ const supabaseClient =
         </h1>
 
         <p>
-            Kelola berita dan komentar GABSI Kota Tanjungbalai.
+            Kelola berita, repost sumber berita,
+            dan komentar GABSI Kota Tanjungbalai.
         </p>
 
     </div>
@@ -1297,7 +1285,6 @@ const supabaseClient =
 
     </div>
 
-
     <div class="dashboard-card">
 
         <span>
@@ -1309,7 +1296,6 @@ const supabaseClient =
         </strong>
 
     </div>
-
 
     <div class="dashboard-card">
 
@@ -1351,145 +1337,406 @@ const supabaseClient =
 
     <div class="panel-body">
 
-        <form
-            id="newsForm">
+
+        <!-- MODEL INPUT -->
+
+        <div class="input-mode">
+
+            <div
+                id="manualMode"
+                class="mode-card active"
+                onclick="selectInputMode('manual')">
+
+                <div class="mode-icon">
+                    ✍️
+                </div>
+
+                <h3>
+                    Berita Manual
+                </h3>
+
+                <p>
+                    Masukkan judul, foto dan isi berita
+                    secara langsung.
+                </p>
+
+            </div>
+
+
+            <div
+                id="repostMode"
+                class="mode-card"
+                onclick="selectInputMode('repost')">
+
+                <div class="mode-icon">
+                    🔗
+                </div>
+
+                <h3>
+                    Repost dari Link
+                </h3>
+
+                <p>
+                    Masukkan link berita dari sumber
+                    pertama untuk mengambil metadata.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form id="newsForm">
 
             <input
                 type="hidden"
                 id="newsId">
 
-
-            <div class="form-grid">
-
-                <div class="form-group full">
-
-                    <label>
-                        Judul Berita *
-                    </label>
-
-                    <input
-                        id="newsTitle"
-                        class="form-control"
-                        type="text"
-                        placeholder="Masukkan judul berita"
-                        maxlength="250"
-                        required>
-
-                </div>
+            <input
+                type="hidden"
+                id="newsType"
+                value="manual">
 
 
-                <div class="form-group">
+            <!-- =================================================
+                 FORM MANUAL
+            ================================================= -->
 
-                    <label>
-                        Kategori
-                    </label>
+            <div
+                id="manualBox"
+                class="manual-box">
 
-                    <select
-                        id="newsCategory"
-                        class="form-control">
+                <div class="form-grid">
 
-                        <option value="Berita">
-                            Berita
-                        </option>
+                    <div class="form-group full">
 
-                        <option value="Kegiatan">
-                            Kegiatan
-                        </option>
+                        <label>
+                            Judul Berita *
+                        </label>
 
-                        <option value="Pertandingan">
-                            Pertandingan
-                        </option>
+                        <input
+                            id="newsTitle"
+                            class="form-control"
+                            type="text"
+                            placeholder="Masukkan judul berita"
+                            maxlength="250"
+                            required>
 
-                        <option value="Prestasi">
-                            Prestasi
-                        </option>
-
-                        <option value="Latihan">
-                            Latihan
-                        </option>
-
-                        <option value="Organisasi">
-                            Organisasi
-                        </option>
-
-                        <option value="Pengumuman">
-                            Pengumuman
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        Nama Sumber
-                    </label>
-
-                    <input
-                        id="newsSource"
-                        class="form-control"
-                        type="text"
-                        placeholder="Contoh: GABSI Kota Tanjungbalai">
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <label>
-                        Link Sumber Berita
-                    </label>
-
-                    <input
-                        id="newsSourceLink"
-                        class="form-control"
-                        type="url"
-                        placeholder="https://contoh.com/berita">
-
-                    <div class="form-note">
-                        Kosongkan jika berita ditulis sendiri.
                     </div>
 
-                </div>
 
+                    <div class="form-group">
 
-                <div class="form-group full">
+                        <label>
+                            Kategori
+                        </label>
 
-                    <label>
-                        Link Gambar
-                    </label>
+                        <select
+                            id="newsCategory"
+                            class="form-control">
 
-                    <input
-                        id="newsImage"
-                        class="form-control"
-                        type="url"
-                        placeholder="https://alamat-gambar.jpg">
+                            <option value="Berita">
+                                Berita
+                            </option>
 
-                    <div class="form-note">
-                        Gunakan alamat gambar yang dapat diakses publik.
+                            <option value="Kegiatan">
+                                Kegiatan
+                            </option>
+
+                            <option value="Pertandingan">
+                                Pertandingan
+                            </option>
+
+                            <option value="Prestasi">
+                                Prestasi
+                            </option>
+
+                            <option value="Latihan">
+                                Latihan
+                            </option>
+
+                            <option value="Organisasi">
+                                Organisasi
+                            </option>
+
+                            <option value="Pengumuman">
+                                Pengumuman
+                            </option>
+
+                        </select>
+
                     </div>
 
-                </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Nama Sumber
+                        </label>
+
+                        <input
+                            id="newsSource"
+                            class="form-control"
+                            type="text"
+                            placeholder="Contoh: GABSI Kota Tanjungbalai">
+
+                    </div>
 
 
-                <div class="form-group full">
+                    <div class="form-group full">
 
-                    <label>
-                        Isi Berita *
-                    </label>
+                        <label>
+                            Foto / Link Gambar Berita
+                        </label>
 
-                    <textarea
-                        id="newsContent"
-                        class="form-control"
-                        placeholder="Tulis isi berita di sini..."
-                        required></textarea>
+                        <input
+                            id="newsImage"
+                            class="form-control"
+                            type="url"
+                            placeholder="https://alamat-gambar.jpg">
+
+                        <div class="form-note">
+                            Gunakan alamat gambar yang dapat
+                            diakses publik.
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Isi Berita *
+                        </label>
+
+                        <textarea
+                            id="newsContent"
+                            class="form-control"
+                            placeholder="Tulis isi berita di sini..."
+                            required></textarea>
+
+                    </div>
 
                 </div>
 
             </div>
 
+
+            <!-- =================================================
+                 FORM REPOST
+            ================================================= -->
+
+            <div
+                id="repostBox"
+                class="repost-box">
+
+                <div class="form-group">
+
+                    <label>
+                        Link Berita Sumber *
+                    </label>
+
+                    <input
+                        id="repostUrl"
+                        class="form-control"
+                        type="url"
+                        placeholder="https://contoh.com/berita">
+
+                    <div class="form-note">
+                        Masukkan alamat berita asli dari
+                        sumber pertama.
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        id="fetchButton"
+                        class="btn btn-repost"
+                        onclick="fetchRepostData()">
+
+                        🔗 AMBIL DATA DARI LINK
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="fetchResult"
+                    class="fetch-result">
+
+                    <h3>
+                        Hasil pembacaan sumber
+                    </h3>
+
+                    <div class="fetch-preview">
+
+                        <img
+                            id="fetchPreviewImage"
+                            src=""
+                            alt="Preview">
+
+                        <div
+                            id="fetchPreviewText"
+                            class="fetch-info">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="repostFields"
+                    style="margin-top:18px;">
+
+                    <div class="form-grid">
+
+                        <div class="form-group full">
+
+                            <label>
+                                Judul Berita *
+                            </label>
+
+                            <input
+                                id="repostTitle"
+                                class="form-control"
+                                type="text"
+                                maxlength="250"
+                                placeholder="Judul berita hasil repost">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Kategori
+                            </label>
+
+                            <select
+                                id="repostCategory"
+                                class="form-control">
+
+                                <option value="Berita">
+                                    Berita
+                                </option>
+
+                                <option value="Kegiatan">
+                                    Kegiatan
+                                </option>
+
+                                <option value="Pertandingan">
+                                    Pertandingan
+                                </option>
+
+                                <option value="Prestasi">
+                                    Prestasi
+                                </option>
+
+                                <option value="Latihan">
+                                    Latihan
+                                </option>
+
+                                <option value="Organisasi">
+                                    Organisasi
+                                </option>
+
+                                <option value="Pengumuman">
+                                    Pengumuman
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Nama Sumber
+                            </label>
+
+                            <input
+                                id="repostSource"
+                                class="form-control"
+                                type="text"
+                                placeholder="Nama media/sumber">
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Link Gambar
+                            </label>
+
+                            <input
+                                id="repostImage"
+                                class="form-control"
+                                type="url"
+                                placeholder="https://alamat-gambar.jpg">
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Isi / Ringkasan Berita *
+                            </label>
+
+                            <textarea
+                                id="repostContent"
+                                class="form-control"
+                                placeholder="Isi atau ringkasan berita..."></textarea>
+
+                            <div class="form-note">
+                                Gunakan ringkasan atau isi yang Anda
+                                miliki hak untuk dipublikasikan.
+                                Link sumber asli tetap dicantumkan.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TANGGAL OTOMATIS
+            ================================================= -->
+
+            <div
+                style="
+                    margin-top:15px;
+                    padding:11px 13px;
+                    border-radius:9px;
+                    background:#eef7fb;
+                    border:1px solid #d5e8f0;
+                    color:#55717e;
+                    font-size:10px;
+                ">
+
+                🕐 <strong>Tanggal & waktu:</strong>
+                otomatis saat berita disimpan.
+                Tanggal tersebut akan digunakan oleh
+                halaman <strong>berita.html</strong>.
+
+            </div>
+
+
+            <!-- =================================================
+                 ACTION
+            ================================================= -->
 
             <div class="form-actions">
 
@@ -1595,8 +1842,7 @@ const supabaseClient =
 
     <div class="panel-body">
 
-        <div
-            id="commentList">
+        <div id="commentList">
 
             <div class="loading">
                 Memuat komentar...
@@ -1627,8 +1873,6 @@ const supabaseClient =
                 </div>
 
                 <div class="footer-text">
-                    Gabungan Bridge Seluruh Indonesia
-                    Kota Tanjungbalai.
                     Bridge • Prestasi • Persaudaraan.
                 </div>
 
@@ -1643,25 +1887,15 @@ const supabaseClient =
 
                 <div class="footer-links">
 
-                    <a href="index.html">
-                        Beranda
-                    </a>
+                    <a href="index.html">Beranda</a>
 
-                    <a href="profil.html">
-                        Profil
-                    </a>
+                    <a href="profil.html">Profil</a>
 
-                    <a href="pengurus.html">
-                        Pengurus
-                    </a>
+                    <a href="pengurus.html">Pengurus</a>
 
-                    <a href="kegiatan.html">
-                        Kegiatan
-                    </a>
+                    <a href="kegiatan.html">Kegiatan</a>
 
-                    <a href="galeri.html">
-                        Galeri
-                    </a>
+                    <a href="galeri.html">Galeri</a>
 
                 </div>
 
@@ -1721,6 +1955,80 @@ const supabaseClient =
 
 
 <script>
+
+/* =========================================================
+   MODE INPUT
+========================================================= */
+
+let currentInputMode = "manual";
+
+
+function selectInputMode(mode){
+
+    currentInputMode = mode;
+
+    document
+        .getElementById("newsType")
+        .value = mode;
+
+
+    const manual =
+        document.getElementById(
+            "manualMode"
+        );
+
+    const repost =
+        document.getElementById(
+            "repostMode"
+        );
+
+    const manualBox =
+        document.getElementById(
+            "manualBox"
+        );
+
+    const repostBox =
+        document.getElementById(
+            "repostBox"
+        );
+
+
+    manual.classList.toggle(
+        "active",
+        mode === "manual"
+    );
+
+    repost.classList.toggle(
+        "active",
+        mode === "repost"
+    );
+
+
+    if(mode === "manual"){
+
+        manualBox.classList.remove(
+            "hidden"
+        );
+
+        repostBox.classList.remove(
+            "active"
+        );
+
+    }
+    else{
+
+        manualBox.classList.add(
+            "hidden"
+        );
+
+        repostBox.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
 
 /* =========================================================
    UTILITAS
@@ -1951,12 +2259,563 @@ async function logout(){
 
 
 /* =========================================================
+   REPOST:
+   AMBIL METADATA DARI LINK
+========================================================= */
+
+async function fetchRepostData(){
+
+    const url =
+        document
+            .getElementById(
+                "repostUrl"
+            )
+            .value
+            .trim();
+
+    if(!url){
+
+        alert(
+            "Masukkan link berita terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        new URL(url);
+
+    }
+    catch(error){
+
+        alert(
+            "Link berita tidak valid."
+        );
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "fetchButton"
+        );
+
+    const resultBox =
+        document.getElementById(
+            "fetchResult"
+        );
+
+    const previewImage =
+        document.getElementById(
+            "fetchPreviewImage"
+        );
+
+    const previewText =
+        document.getElementById(
+            "fetchPreviewText"
+        );
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "MEMBACA LINK...";
+
+    resultBox.classList.remove(
+        "show"
+    );
+
+
+    /*
+     * Browser tidak selalu mengizinkan
+     * pengambilan HTML situs lain karena
+     * CORS. Kita coba beberapa metode.
+     */
+
+    let data = null;
+
+
+    /* -----------------------------------------------------
+       METODE 1:
+       Jina Reader sebagai pembaca halaman
+    ----------------------------------------------------- */
+
+    try{
+
+        const readerUrl =
+            "https://r.jina.ai/http://" +
+            url.replace(
+                /^https?:\/\//i,
+                ""
+            );
+
+        const response =
+            await fetch(
+                readerUrl
+            );
+
+        if(response.ok){
+
+            const text =
+                await response.text();
+
+            data =
+                parseReaderText(
+                    text,
+                    url
+                );
+
+        }
+
+    }
+    catch(error){
+
+        console.warn(
+            "Metode reader gagal:",
+            error
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       FALLBACK:
+       Ambil judul dari URL
+    ----------------------------------------------------- */
+
+    if(!data){
+
+        data = {
+
+            title:
+                createTitleFromUrl(
+                    url
+                ),
+
+            image:"",
+            description:
+                "Berita repost dari sumber asli. " +
+                "Silakan lengkapi atau edit isi berita " +
+                "sebelum diterbitkan.",
+
+            source:
+                getDomainName(
+                    url
+                ),
+
+            url:url
+
+        };
+
+    }
+
+
+    document
+        .getElementById(
+            "repostTitle"
+        )
+        .value =
+            data.title || "";
+
+
+    document
+        .getElementById(
+            "repostSource"
+        )
+        .value =
+            data.source || "";
+
+
+    document
+        .getElementById(
+            "repostImage"
+        )
+        .value =
+            data.image || "";
+
+
+    document
+        .getElementById(
+            "repostContent"
+        )
+        .value =
+            data.description || "";
+
+
+    if(data.image){
+
+        previewImage.src =
+            data.image;
+
+        previewImage.style.display =
+            "block";
+
+    }
+    else{
+
+        previewImage.removeAttribute(
+            "src"
+        );
+
+        previewImage.style.display =
+            "none";
+
+    }
+
+
+    previewText.innerHTML =
+        "<strong>Judul:</strong> " +
+        escapeHtml(
+            data.title || "-"
+        ) +
+        "<br><br>" +
+
+        "<strong>Sumber:</strong> " +
+        escapeHtml(
+            data.source || "-"
+        ) +
+        "<br><br>" +
+
+        "<strong>Link:</strong> " +
+        escapeHtml(
+            url
+        );
+
+
+    resultBox.classList.add(
+        "show"
+    );
+
+
+    button.disabled = false;
+
+    button.textContent =
+        "✓ DATA BERHASIL DIAMBIL";
+
+
+    showMessage(
+        "Data sumber berhasil dimasukkan ke formulir. Silakan periksa sebelum diterbitkan.",
+        "success"
+    );
+
+}
+
+
+/* =========================================================
+   PARSE READER
+========================================================= */
+
+function parseReaderText(
+    text,
+    url
+){
+
+    if(!text){
+        return null;
+    }
+
+
+    const lines =
+        text
+            .split("\n")
+            .map(
+                line =>
+                    line.trim()
+            )
+            .filter(
+                line =>
+                    line.length > 0
+            );
+
+
+    if(!lines.length){
+        return null;
+    }
+
+
+    let title =
+        lines[0] || "";
+
+
+    /*
+     * Buang beberapa judul teknis
+     */
+
+    if(
+        title.startsWith("Title:")
+    ){
+
+        title =
+            title
+                .replace(
+                    /^Title:\s*/i,
+                    ""
+                )
+                .trim();
+
+    }
+
+
+    if(
+        title.length > 250
+    ){
+
+        title =
+            title.substring(
+                0,
+                250
+            );
+
+    }
+
+
+    let description = "";
+
+
+    for(
+        let i = 1;
+        i < lines.length;
+        i++
+    ){
+
+        const line =
+            lines[i];
+
+
+        if(
+            line.length > 80 &&
+            !line.startsWith("URL:")
+        ){
+
+            description =
+                line;
+
+            break;
+
+        }
+
+    }
+
+
+    if(!description){
+
+        description =
+            "Berita repost dari " +
+            getDomainName(url) +
+            ". Silakan lengkapi ringkasan berita.";
+
+    }
+
+
+    return {
+
+        title:title,
+
+        image:"",
+
+        description:
+            description,
+
+        source:
+            getDomainName(
+                url
+            ),
+
+        url:url
+
+    };
+
+}
+
+
+/* =========================================================
+   UTILITAS URL
+========================================================= */
+
+function getDomainName(
+    url
+){
+
+    try{
+
+        const host =
+            new URL(
+                url
+            ).hostname
+            .replace(
+                /^www\./,
+                ""
+            );
+
+        return host;
+
+    }
+    catch(error){
+
+        return "";
+
+    }
+
+}
+
+
+function createTitleFromUrl(
+    url
+){
+
+    try{
+
+        const u =
+            new URL(
+                url
+            );
+
+        const part =
+            u.pathname
+                .split("/")
+                .filter(Boolean)
+                .pop() || "Berita";
+
+
+        return decodeURIComponent(
+            part
+                .replace(
+                    /[-_]+/g,
+                    " "
+                )
+        )
+        .replace(
+            /\b\w/g,
+            c => c.toUpperCase()
+        )
+        .substring(
+            0,
+            250
+        );
+
+    }
+    catch(error){
+
+        return "Berita Repost";
+
+    }
+
+}
+
+
+function escapeHtml(
+    value
+){
+
+    return String(
+        value || ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =========================================================
    DATA FORM
 ========================================================= */
 
 function getNewsFormData(
     published
 ){
+
+    const type =
+        document
+            .getElementById(
+                "newsType"
+            )
+            .value;
+
+
+    if(type === "repost"){
+
+        return {
+
+            judul:
+                document
+                    .getElementById(
+                        "repostTitle"
+                    )
+                    .value
+                    .trim(),
+
+            isi:
+                document
+                    .getElementById(
+                        "repostContent"
+                    )
+                    .value
+                    .trim(),
+
+            sumber:
+                document
+                    .getElementById(
+                        "repostSource"
+                    )
+                    .value
+                    .trim() ||
+                null,
+
+            link_sumber:
+                document
+                    .getElementById(
+                        "repostUrl"
+                    )
+                    .value
+                    .trim() ||
+                null,
+
+            gambar:
+                document
+                    .getElementById(
+                        "repostImage"
+                    )
+                    .value
+                    .trim() ||
+                null,
+
+            kategori:
+                document
+                    .getElementById(
+                        "repostCategory"
+                    )
+                    .value,
+
+            diterbitkan:
+                published
+
+        };
+
+    }
+
 
     return {
 
@@ -1985,14 +2844,7 @@ function getNewsFormData(
                 .trim() ||
             null,
 
-        link_sumber:
-            document
-                .getElementById(
-                    "newsSourceLink"
-                )
-                .value
-                .trim() ||
-            null,
+        link_sumber:null,
 
         gambar:
             document
@@ -2030,7 +2882,9 @@ document
 
             event.preventDefault();
 
-            await saveNews(true);
+            await saveNews(
+                true
+            );
 
         }
     );
@@ -2042,21 +2896,57 @@ document
 
 async function saveDraft(){
 
-    const title =
+    const type =
         document
             .getElementById(
-                "newsTitle"
+                "newsType"
             )
-            .value
-            .trim();
+            .value;
 
-    const content =
-        document
-            .getElementById(
-                "newsContent"
-            )
-            .value
-            .trim();
+
+    let title = "";
+    let content = "";
+
+
+    if(type === "repost"){
+
+        title =
+            document
+                .getElementById(
+                    "repostTitle"
+                )
+                .value
+                .trim();
+
+        content =
+            document
+                .getElementById(
+                    "repostContent"
+                )
+                .value
+                .trim();
+
+    }
+    else{
+
+        title =
+            document
+                .getElementById(
+                    "newsTitle"
+                )
+                .value
+                .trim();
+
+        content =
+            document
+                .getElementById(
+                    "newsContent"
+                )
+                .value
+                .trim();
+
+    }
+
 
     if(
         !title ||
@@ -2071,7 +2961,10 @@ async function saveDraft(){
 
     }
 
-    await saveNews(false);
+
+    await saveNews(
+        false
+    );
 
 }
 
@@ -2091,10 +2984,12 @@ async function saveNews(
             )
             .value;
 
+
     const data =
         getNewsFormData(
             published
         );
+
 
     if(
         !data.judul ||
@@ -2109,9 +3004,24 @@ async function saveNews(
 
     }
 
+
+    if(
+        data.link_sumber &&
+        !data.sumber
+    ){
+
+        data.sumber =
+            getDomainName(
+                data.link_sumber
+            );
+
+    }
+
+
     try{
 
         let result;
+
 
         if(newsId){
 
@@ -2134,11 +3044,13 @@ async function saveNews(
 
         }
 
+
         if(result.error){
 
             throw result.error;
 
         }
+
 
         showMessage(
             published
@@ -2146,6 +3058,7 @@ async function saveNews(
                 : "Berita berhasil disimpan sebagai draft.",
             "success"
         );
+
 
         resetNewsForm();
 
@@ -2181,11 +3094,21 @@ function resetNewsForm(){
         )
         .reset();
 
+
     document
         .getElementById(
             "newsId"
         )
         .value = "";
+
+
+    document
+        .getElementById(
+            "newsType"
+        )
+        .value =
+            "manual";
+
 
     document
         .getElementById(
@@ -2194,12 +3117,51 @@ function resetNewsForm(){
         .value =
             "Berita";
 
+
+    document
+        .getElementById(
+            "repostCategory"
+        )
+        .value =
+            "Berita";
+
+
     document
         .getElementById(
             "formTitle"
         )
         .textContent =
             "Tambah Berita";
+
+
+    document
+        .getElementById(
+            "fetchResult"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "fetchButton"
+        )
+        .disabled =
+            false;
+
+
+    document
+        .getElementById(
+            "fetchButton"
+        )
+        .textContent =
+            "🔗 AMBIL DATA DARI LINK";
+
+
+    selectInputMode(
+        "manual"
+    );
 
 }
 
@@ -2216,8 +3178,10 @@ async function loadNews(){
                 "newsList"
             );
 
+
     container.innerHTML =
         '<div class="loading">Memuat berita...</div>';
+
 
     try{
 
@@ -2232,11 +3196,13 @@ async function loadNews(){
                     }
                 );
 
+
         if(result.error){
 
             throw result.error;
 
         }
+
 
         if(
             !result.data ||
@@ -2252,7 +3218,9 @@ async function loadNews(){
 
         }
 
+
         container.innerHTML = "";
+
 
         result.data.forEach(
             function(news){
@@ -2278,6 +3246,24 @@ async function loadNews(){
                     news.judul;
 
 
+                const type =
+                    news.link_sumber
+                        ? "Repost"
+                        : "Manual";
+
+
+                const status =
+                    news.diterbitkan
+                        ? "DITERBITKAN"
+                        : "DRAFT";
+
+
+                const date =
+                    formatDate(
+                        news.dibuat_pada
+                    );
+
+
                 const meta =
                     document.createElement(
                         "div"
@@ -2286,14 +3272,36 @@ async function loadNews(){
                 meta.className =
                     "news-admin-meta";
 
-                meta.textContent =
-                    (news.kategori ||
-                    "Berita") +
+
+                meta.innerHTML =
+                    escapeHtml(
+                        news.kategori ||
+                        "Berita"
+                    ) +
                     " • " +
+
+                    "<span class='" +
+                    (
+                        type === "Repost"
+                            ? "badge badge-repost"
+                            : "badge badge-manual"
+                    ) +
+                    "'>" +
+                    type +
+                    "</span> • " +
+
+                    "<span class='" +
                     (
                         news.diterbitkan
-                            ? "DITERBITKAN"
-                            : "DRAFT"
+                            ? "badge badge-published"
+                            : "badge badge-draft"
+                    ) +
+                    "'>" +
+                    status +
+                    "</span> • " +
+
+                    escapeHtml(
+                        date
                     );
 
 
@@ -2332,7 +3340,9 @@ async function loadNews(){
                 edit.onclick =
                     function(){
 
-                        editNews(news);
+                        editNews(
+                            news
+                        );
 
                     };
 
@@ -2353,7 +3363,9 @@ async function loadNews(){
                 publish.onclick =
                     function(){
 
-                        togglePublished(news);
+                        togglePublished(
+                            news
+                        );
 
                     };
 
@@ -2372,26 +3384,74 @@ async function loadNews(){
                 remove.onclick =
                     function(){
 
-                        deleteNews(news);
+                        deleteNews(
+                            news
+                        );
 
                     };
 
 
-                actions.appendChild(edit);
+                actions.appendChild(
+                    edit
+                );
 
-                actions.appendChild(publish);
+                actions.appendChild(
+                    publish
+                );
 
-                actions.appendChild(remove);
+                actions.appendChild(
+                    remove
+                );
 
-                item.appendChild(title);
 
-                item.appendChild(meta);
+                if(news.link_sumber){
 
-                item.appendChild(content);
+                    const source =
+                        document.createElement(
+                            "a"
+                        );
 
-                item.appendChild(actions);
+                    source.className =
+                        "btn btn-light btn-small";
 
-                container.appendChild(item);
+                    source.textContent =
+                        "Lihat Sumber";
+
+                    source.href =
+                        news.link_sumber;
+
+                    source.target =
+                        "_blank";
+
+                    source.rel =
+                        "noopener noreferrer";
+
+                    actions.appendChild(
+                        source
+                    );
+
+                }
+
+
+                item.appendChild(
+                    title
+                );
+
+                item.appendChild(
+                    meta
+                );
+
+                item.appendChild(
+                    content
+                );
+
+                item.appendChild(
+                    actions
+                );
+
+                container.appendChild(
+                    item
+                );
 
             }
         );
@@ -2405,6 +3465,44 @@ async function loadNews(){
             '<div class="loading">' +
             'Gagal memuat berita.' +
             '</div>';
+
+    }
+
+}
+
+
+/* =========================================================
+   FORMAT TANGGAL
+========================================================= */
+
+function formatDate(
+    value
+){
+
+    if(!value){
+        return "-";
+    }
+
+
+    try{
+
+        return new Intl.DateTimeFormat(
+            "id-ID",
+            {
+                day:"2-digit",
+                month:"long",
+                year:"numeric",
+                hour:"2-digit",
+                minute:"2-digit"
+            }
+        ).format(
+            new Date(value)
+        );
+
+    }
+    catch(error){
+
+        return value;
 
     }
 
@@ -2426,48 +3524,121 @@ function editNews(
         .value =
             news.id;
 
-    document
-        .getElementById(
-            "newsTitle"
-        )
-        .value =
-            news.judul || "";
+
+    const type =
+        news.link_sumber
+            ? "repost"
+            : "manual";
+
+
+    selectInputMode(
+        type
+    );
+
 
     document
         .getElementById(
-            "newsContent"
+            "newsType"
         )
         .value =
-            news.isi || "";
+            type;
 
-    document
-        .getElementById(
-            "newsSource"
-        )
-        .value =
-            news.sumber || "";
 
-    document
-        .getElementById(
-            "newsSourceLink"
-        )
-        .value =
-            news.link_sumber || "";
+    if(type === "repost"){
 
-    document
-        .getElementById(
-            "newsImage"
-        )
-        .value =
-            news.gambar || "";
+        document
+            .getElementById(
+                "repostTitle"
+            )
+            .value =
+                news.judul || "";
 
-    document
-        .getElementById(
-            "newsCategory"
-        )
-        .value =
-            news.kategori ||
-            "Berita";
+
+        document
+            .getElementById(
+                "repostContent"
+            )
+            .value =
+                news.isi || "";
+
+
+        document
+            .getElementById(
+                "repostSource"
+            )
+            .value =
+                news.sumber || "";
+
+
+        document
+            .getElementById(
+                "repostUrl"
+            )
+            .value =
+                news.link_sumber || "";
+
+
+        document
+            .getElementById(
+                "repostImage"
+            )
+            .value =
+                news.gambar || "";
+
+
+        document
+            .getElementById(
+                "repostCategory"
+            )
+            .value =
+                news.kategori ||
+                "Berita";
+
+    }
+    else{
+
+        document
+            .getElementById(
+                "newsTitle"
+            )
+            .value =
+                news.judul || "";
+
+
+        document
+            .getElementById(
+                "newsContent"
+            )
+            .value =
+                news.isi || "";
+
+
+        document
+            .getElementById(
+                "newsSource"
+            )
+            .value =
+                news.sumber || "";
+
+
+        document
+            .getElementById(
+                "newsImage"
+            )
+            .value =
+                news.gambar || "";
+
+
+        document
+            .getElementById(
+                "newsCategory"
+            )
+            .value =
+                news.kategori ||
+                "Berita";
+
+    }
+
 
     document
         .getElementById(
@@ -2475,6 +3646,7 @@ function editNews(
         )
         .textContent =
             "Edit Berita";
+
 
     window.scrollTo({
         top:0,
@@ -2506,11 +3678,13 @@ async function togglePublished(
                     news.id
                 );
 
+
         if(result.error){
 
             throw result.error;
 
         }
+
 
         showMessage(
             news.diterbitkan
@@ -2518,6 +3692,7 @@ async function togglePublished(
                 : "Berita berhasil diterbitkan.",
             "success"
         );
+
 
         loadNews();
 
@@ -2554,9 +3729,11 @@ async function deleteNews(
             "Komentar yang terkait juga akan terhapus."
         );
 
+
     if(!yes){
         return;
     }
+
 
     try{
 
@@ -2569,16 +3746,19 @@ async function deleteNews(
                     news.id
                 );
 
+
         if(result.error){
 
             throw result.error;
 
         }
 
+
         showMessage(
             "Berita berhasil dihapus.",
             "success"
         );
+
 
         resetNewsForm();
 
@@ -2615,8 +3795,10 @@ async function loadComments(){
                 "commentList"
             );
 
+
     container.innerHTML =
         '<div class="loading">Memuat komentar...</div>';
+
 
     try{
 
@@ -2633,11 +3815,13 @@ async function loadComments(){
                     }
                 );
 
+
         if(result.error){
 
             throw result.error;
 
         }
+
 
         if(
             !result.data ||
@@ -2653,7 +3837,9 @@ async function loadComments(){
 
         }
 
+
         container.innerHTML = "";
+
 
         result.data.forEach(
             function(comment){
@@ -2801,17 +3987,31 @@ async function loadComments(){
 
                     };
 
-                actions.appendChild(remove);
 
-                item.appendChild(name);
+                actions.appendChild(
+                    remove
+                );
 
-                item.appendChild(news);
 
-                item.appendChild(text);
+                item.appendChild(
+                    name
+                );
 
-                item.appendChild(actions);
+                item.appendChild(
+                    news
+                );
 
-                container.appendChild(item);
+                item.appendChild(
+                    text
+                );
+
+                item.appendChild(
+                    actions
+                );
+
+                container.appendChild(
+                    item
+                );
 
             }
         );
@@ -2852,16 +4052,19 @@ async function approveComment(
                     id
                 );
 
+
         if(result.error){
 
             throw result.error;
 
         }
 
+
         showMessage(
             "Komentar disetujui.",
             "success"
         );
+
 
         loadComments();
 
@@ -2903,16 +4106,19 @@ async function rejectComment(
                     id
                 );
 
+
         if(result.error){
 
             throw result.error;
 
         }
 
+
         showMessage(
             "Persetujuan komentar dibatalkan.",
             "success"
         );
+
 
         loadComments();
 
@@ -2951,6 +4157,7 @@ async function deleteComment(
 
     }
 
+
     try{
 
         const result =
@@ -2962,16 +4169,19 @@ async function deleteComment(
                     id
                 );
 
+
         if(result.error){
 
             throw result.error;
 
         }
 
+
         showMessage(
             "Komentar berhasil dihapus.",
             "success"
         );
+
 
         loadComments();
 
@@ -3010,6 +4220,7 @@ async function loadDashboard(){
                     }
                 );
 
+
         if(
             !newsResult.error
         ){
@@ -3017,12 +4228,14 @@ async function loadDashboard(){
             const news =
                 newsResult.data || [];
 
+
             document
                 .getElementById(
                     "totalNews"
                 )
                 .textContent =
                     news.length;
+
 
             document
                 .getElementById(
@@ -3046,6 +4259,7 @@ async function loadDashboard(){
                     "id,disetujui"
                 );
 
+
         if(
             !commentResult.error
         ){
@@ -3059,6 +4273,7 @@ async function loadDashboard(){
                         !item.disetujui
                 )
                 .length;
+
 
             document
                 .getElementById(
