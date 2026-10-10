@@ -1,3884 +1,849 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="id">
-
 <head>
-
-<meta charset="utf-8">
-
-<meta name="viewport"
-      content="width=device-width,initial-scale=1">
-
-<meta name="theme-color"
-      content="#063b5c">
-
-<meta name="description"
-      content="Kartu Pembanding Bridge — GABSI Kota Tanjungbalai">
-
-<title>Kartu Pembanding — GABSI Kota Tanjungbalai</title>
-
-<link rel="icon"
-      type="image/png"
-      href="logo-gabsi.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#063b2b">
+<meta name="description" content="GABSI Kota Tanjungbalai - Kocokan Kartu Pembanding dan Latihan Bridge Duplicate.">
+<title>Kocokan Kartu Pembanding — GABSI Kota Tanjungbalai</title>
 
 <style>
-
-:root{
-  --navy:#063b5c;
-  --blue:#07558f;
-  --blue2:#087cab;
-  --light:#eaf4f9;
-  --bg:#eef4f7;
-  --card:#ffffff;
-  --ink:#263746;
-  --muted:#536673;
-  --line:#dce7ec;
-  --green:#08784e;
-  --red:#c92f3d;
-  --gold:#ffd75a;
-  --shadow:0 6px 20px rgba(0,0,0,.07);
+:root {
+  --green:#063b2b;
+  --green2:#0b5b40;
+  --gold:#e6bd68;
+  --bg:#f1f5f2;
+  --white:#fff;
+  --text:#17251e;
+  --muted:#69776e;
+  --border:#dce5de;
+  --red:#c73737;
+  --blue:#2459a8;
+  --shadow:0 8px 28px rgba(5,40,25,.08);
 }
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  line-height:1.7;
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.5
 }
-
-a{
-  text-decoration:none;
-  color:inherit;
+button,input,select{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}
+header{
+  background:linear-gradient(135deg,#042d21,#0b6243);
+  color:white;padding:18px 16px 22px
 }
-
-button,
-input,
-select,
-textarea{
-  font:inherit;
+.head-inner,.container{max-width:1100px;margin:auto}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  display:grid;place-items:center;width:48px;height:48px;
+  background:#ffffff18;border:1px solid #ffffff38;border-radius:14px;
+  color:var(--gold);font-size:27px;font-weight:bold
 }
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-.site-header{
-  width:100%;
-  background:#fff;
-  box-shadow:0 2px 12px rgba(0,0,0,.10);
-  position:sticky;
-  top:0;
-  z-index:1000;
+.brand h1{font-size:18px;margin:0}
+.brand p{font-size:12px;color:#d2e5d9;margin:4px 0 0}
+nav{
+  display:flex;gap:8px;overflow-x:auto;margin-top:18px;
+  padding-bottom:3px
 }
-
-.top-line{
-  width:100%;
-  min-height:30px;
-  background:#063b5c;
-  color:#fff;
-  padding:6px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  font-size:9px;
-  letter-spacing:.2px;
+nav a{
+  color:white;text-decoration:none;white-space:nowrap;
+  padding:9px 12px;border-radius:9px;background:#ffffff12;
+  font-size:13px
 }
-
-.header-main{
-  width:100%;
-  min-height:68px;
-  padding:9px 20px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-  background:#fff;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-  flex:0 0 auto;
-  min-width:0;
-  position:relative;
-}
-
-.brand-logo{
-  width:40px;
-  height:40px;
-  min-width:40px;
-  min-height:40px;
-  max-width:40px;
-  max-height:40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex:0 0 40px;
-  overflow:hidden;
-  background:#fff;
-  border-radius:8px;
-  padding:0;
-  margin:0;
-}
-
-.brand-logo img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-.brand-text{
-  display:block;
-  min-width:0;
-}
-
-.brand-text strong{
-  display:block;
-  color:#063b5c;
-  font-size:13px;
-  line-height:1.2;
-  white-space:nowrap;
-}
-
-.brand-text small{
-  display:block;
-  color:#7b8790;
-  font-size:7px;
-  line-height:1.2;
-  margin-top:2px;
-  letter-spacing:.2px;
-  white-space:nowrap;
-}
-
-
-/* =====================================================
-   NAVIGASI
-===================================================== */
-
-.main-nav{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:3px;
-  flex:1;
-  min-width:0;
-  overflow-x:auto;
-  overflow-y:hidden;
-  white-space:nowrap;
-  scrollbar-width:none;
-}
-
-.main-nav::-webkit-scrollbar{
-  display:none;
-}
-
-.main-nav a{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  flex:0 0 auto;
-  padding:8px 9px;
-  border-radius:9px;
-  color:#172033;
-  font-size:10px;
-  font-weight:600;
-  white-space:nowrap;
-  transition:.2s ease;
-}
-
-.main-nav a:hover{
-  background:#eaf4f9;
-  color:#07558f;
-}
-
-.main-nav a.active{
-  background:#eaf4f9;
-  color:#07558f;
-  font-weight:700;
-  box-shadow:inset 0 -3px 0 #c92f3d;
-}
-
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-main{
-  width:100%;
-  max-width:1100px;
-  margin:auto;
-  padding:38px 20px 55px;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
+nav a.active{background:var(--gold);color:#173322;font-weight:bold}
+.container{padding:18px 13px 45px}
 .hero{
-  background:
-    linear-gradient(
-      135deg,
-      #063b5c 0%,
-      #07558f 55%,
-      #087cab 100%
-    );
-
-  color:#fff;
-  border-radius:17px;
-  padding:30px;
-  margin-bottom:20px;
-  box-shadow:var(--shadow);
-  position:relative;
-  overflow:hidden;
+  background:linear-gradient(130deg,#0b533b,#08744c);
+  color:white;border-radius:18px;padding:22px;margin-bottom:17px;
+  box-shadow:var(--shadow)
 }
-
-.hero::before{
-  content:"";
-  position:absolute;
-  width:300px;
-  height:300px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.08);
-  top:-180px;
-  right:-80px;
+.hero .eyebrow{color:#f2d995;font-size:11px;letter-spacing:1.5px;font-weight:bold}
+.hero h2{font-size:26px;line-height:1.2;margin:9px 0}
+.hero p{font-size:14px;color:#e0eee5;margin:0;max-width:650px}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;border-radius:30px;
+  padding:6px 10px;background:#ffffff17;font-size:11px;margin-top:14px
 }
-
-.hero::after{
-  content:"♠ ♥ ♦ ♣";
-  position:absolute;
-  right:18px;
-  bottom:-25px;
-  font-size:80px;
-  letter-spacing:7px;
-  color:rgba(255,255,255,.07);
-  transform:rotate(-7deg);
-  pointer-events:none;
-}
-
-.hero h1{
-  margin:0 0 8px;
-  font-size:34px;
-  line-height:1.2;
-  position:relative;
-  z-index:2;
-}
-
-.hero h1::after{
-  content:"";
-  display:block;
-  width:65px;
-  height:3px;
-  background:#ffd75a;
-  border-radius:10px;
-  margin-top:10px;
-}
-
-.hero p{
-  margin:10px 0 0;
-  max-width:760px;
-  color:rgba(255,255,255,.90);
-  font-size:11px;
-  line-height:1.8;
-  position:relative;
-  z-index:2;
-}
-
-
-/* =====================================================
-   STEPS
-===================================================== */
-
-.steps{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px;
-  margin-bottom:20px;
-}
-
-.step{
-  background:#fff;
-  border:1px solid #dce7ec;
-  border-radius:12px;
-  padding:13px;
-  box-shadow:var(--shadow);
-  font-size:10px;
-  color:#657783;
-  transition:.2s;
-}
-
-.step:hover{
-  transform:translateY(-2px);
-  box-shadow:0 9px 24px rgba(0,0,0,.10);
-}
-
-.step b{
-  display:block;
-  color:#07558f;
-  font-size:11px;
-  margin-bottom:3px;
-}
-
-
-/* =====================================================
-   CARD
-===================================================== */
-
-.card{
-  background:#fff;
-  border:1px solid #dce7ec;
-  border-radius:17px;
-  padding:25px;
-  margin-bottom:20px;
-  box-shadow:var(--shadow);
-  position:relative;
-}
-
-.card h2{
-  color:#07558f;
-  font-size:19px;
-  line-height:1.3;
-  margin:0 0 7px;
-}
-
-.card h3{
-  color:#173b50;
-  font-size:15px;
-  margin:18px 0 7px;
-}
-
-.muted{
-  color:#657783;
-  font-size:10.5px;
-  line-height:1.75;
-}
-
-
-/* =====================================================
-   FORM
-===================================================== */
-
-.form{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-
-.field label{
-  display:block;
-  color:#526673;
-  font-size:10px;
-  font-weight:bold;
-  margin-bottom:5px;
-}
-
-.field input,
-.field select,
-.field textarea{
-  width:100%;
-  border:1px solid #ccdce5;
-  border-radius:10px;
-  padding:9px 10px;
-  background:#fff;
-  color:#263746;
-  outline:none;
-  transition:.2s;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus{
-  border-color:#087cab;
-  box-shadow:0 0 0 3px rgba(8,124,171,.08);
-}
-
-.field textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.btns{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:13px;
-}
-
-.btn{
-  border:1px solid #cbdbe4;
-  background:#fff;
-  color:#334b5b;
-  border-radius:8px;
-  padding:9px 12px;
-  font-size:10px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.2s ease;
-}
-
-.btn:hover{
-  transform:translateY(-1px);
-  box-shadow:0 5px 14px rgba(14,42,75,.08);
-}
-
-.primary{
-  background:#07558f;
-  border-color:#07558f;
-  color:#fff;
-}
-
-.blue{
-  background:#087cab;
-  border-color:#087cab;
-  color:#fff;
-}
-
-.good{
-  background:#08784e;
-  border-color:#08784e;
-  color:#fff;
-}
-
-.danger{
-  color:#a42121;
-}
-
-
-/* =====================================================
-   NOTICE
-===================================================== */
-
+.pill i{width:7px;height:7px;background:#f0c968;border-radius:50%}
 .notice{
-  padding:11px 13px;
-  border:1px solid #d5e4eb;
-  background:#f5f9fb;
-  border-radius:10px;
-  font-size:10.5px;
-  line-height:1.7;
-  margin-top:11px;
-  color:#536673;
+  background:#fff7e7;border:1px solid #eed8a5;color:#624d1e;
+  border-radius:12px;padding:13px 14px;font-size:12px;margin-bottom:16px
 }
-
-
-/* =====================================================
-   LEVELS
-===================================================== */
-
-.levels{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-top:14px;
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{
+  background:white;border:1px solid var(--border);border-radius:16px;
+  padding:17px;box-shadow:var(--shadow);min-width:0;margin-bottom:14px
 }
-
-.level{
-  border:1px solid #dce7ec;
-  border-radius:12px;
-  padding:15px;
-  background:#fff;
-  cursor:pointer;
-  transition:.18s;
+.card h3{font-size:16px;margin:0 0 5px}
+.desc{font-size:12px;color:var(--muted);margin:0 0 15px}
+.field{margin-bottom:12px}
+label{display:block;font-size:12px;font-weight:bold;margin-bottom:6px}
+input,select{
+  width:100%;min-width:0;background:white;border:1px solid #d4ded6;
+  border-radius:9px;padding:11px 12px;color:var(--text);outline:none
 }
-
-.level:hover{
-  border-color:#77abc8;
-  background:#f5fbfe;
-  transform:translateY(-2px);
+input:focus,select:focus{border-color:#0b8055;box-shadow:0 0 0 3px #0b80551c}
+.btn{
+  border:0;border-radius:10px;padding:11px 14px;font-weight:bold;
+  font-size:13px;display:inline-flex;align-items:center;
+  justify-content:center;gap:7px
 }
-
-.level.active{
-  border-color:#087cab;
-  background:#eef8fc;
-  box-shadow:inset 0 0 0 1px #087cab;
+.primary{background:var(--green2);color:white}
+.secondary{background:#e9f2ec;color:#145238}
+.gold{background:var(--gold);color:#233321}
+.danger{background:#fceaea;color:#a12626}
+.outline{background:white;border:1px solid var(--border);color:var(--text)}
+.full{width:100%}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.small{font-size:11px;color:var(--muted)}
+.status{
+  display:inline-block;font-size:10px;font-weight:bold;padding:5px 8px;
+  border-radius:20px;background:#e5f4e9;color:#176139
 }
-
-.level b{
-  display:block;
-  color:#07558f;
-  font-size:13px;
+.room-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--border)
 }
-
-.level span{
-  display:block;
-  color:#657783;
-  font-size:9.5px;
-  line-height:1.6;
-  margin-top:4px;
+.room-row:last-child{border-bottom:0}
+.room-name{font-weight:bold;font-size:13px}
+.room-meta{font-size:11px;color:var(--muted);margin-top:3px}
+.room-code{font-family:monospace;color:#176139;font-weight:bold}
+.seats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.seat{
+  text-align:center;background:#f5f8f5;border:1px solid var(--border);
+  border-radius:12px;padding:12px 4px;min-width:0
 }
-
-.level small{
-  display:block;
-  color:#08784e;
-  font-weight:bold;
-  font-size:9px;
-  margin-top:7px;
+.seat .direction{font-size:11px;color:var(--muted)}
+.seat .player{font-size:11px;font-weight:bold;overflow-wrap:anywhere;margin-top:4px}
+.seat .seat-icon{font-size:22px}
+.seat.occupied{background:#e9f5ed;border-color:#b4d9c0}
+.seat.empty{border-style:dashed;color:#88958c}
+.boardbar{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
+  padding:12px;background:#f4f7f4;border-radius:12px;margin:12px 0
 }
-
-.level-note{
-  margin-top:11px;
-  padding:11px 13px;
-  border:1px solid #d5e4eb;
-  background:#f5f9fb;
-  border-radius:10px;
-  font-size:10.5px;
+.boardstat{font-size:11px;color:var(--muted)}
+.boardstat strong{display:block;color:var(--text);font-size:14px;margin-top:3px}
+.vulnerability{
+  display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0
 }
-
-
-/* =====================================================
-   SYSTEM
-===================================================== */
-
-.systems{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
+.vul{
+  border-radius:10px;padding:12px;font-size:11px;font-weight:bold
 }
-
-.sys{
-  border:1px solid #dce7ec;
-  border-radius:11px;
-  padding:12px;
-  cursor:pointer;
-  transition:.18s;
-}
-
-.sys:hover{
-  border-color:#77abc8;
-  background:#f5fbfe;
-  transform:translateY(-1px);
-}
-
-.sys.active{
-  border-color:#087cab;
-  background:#eef8fc;
-  box-shadow:inset 0 0 0 1px #087cab;
-}
-
-.sys b{
-  display:block;
-  color:#07558f;
-  font-size:11px;
-  margin-bottom:2px;
-}
-
-.sys span{
-  font-size:9px;
-  color:#657783;
-  line-height:1.5;
-}
-
-
-/* =====================================================
-   MODES
-===================================================== */
-
-.modes{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:12px;
-}
-
-.mode{
-  border:1px solid #dce7ec;
-  padding:13px;
-  border-radius:11px;
-  font-size:10px;
-  color:#536673;
-  background:#fff;
-}
-
-.mode b{
-  color:#07558f;
-}
-
-.hidden{
-  display:none!important;
-}
-
-
-/* =====================================================
-   HANDS
-===================================================== */
-
-.hands{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-top:13px;
-}
-
+.vul strong{display:block;font-size:15px;margin-top:4px}
+.vul.yes{background:#fce8e8;color:#a32626}
+.vul.no{background:#e4f3e8;color:#176139}
 .hand{
-  border:1px solid #dce7ec;
-  border-radius:12px;
-  padding:13px;
-  background:#f9fcfd;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px
 }
-
-.hand b{
-  color:#07558f;
-  font-size:12px;
-  display:block;
-  margin-bottom:5px;
+.handbox{border:1px solid var(--border);border-radius:12px;padding:10px}
+.handbox h4{margin:0 0 8px;font-size:12px}
+.suitline{font-size:13px;letter-spacing:1px;margin:6px 0;word-break:break-word}
+.suitline.red{color:#c52d38}
+.suitline.black{color:#18251e}
+.auction{
+  width:100%;border-collapse:collapse;font-size:12px;margin:12px 0
 }
-
-.cards{
-  font-size:10px;
-  line-height:1.9;
-  min-height:62px;
-  margin-top:7px;
-  color:#536673;
+.auction th,.auction td{border:1px solid var(--border);padding:8px;text-align:center}
+.auction th{background:#f2f6f2}
+.auction td{min-width:40px}
+.bid-buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.bid-buttons button{padding:11px 2px;font-weight:bold;border-radius:9px;border:1px solid var(--border);background:white}
+.bid-buttons .redbid{color:var(--red)}
+.bid-buttons .passbid{background:#eaf3ed;color:#165538}
+.bid-buttons button:active{transform:scale(.97)}
+.table-wrap{overflow-x:auto}
+table.score{width:100%;border-collapse:collapse;min-width:650px;font-size:12px}
+table.score th,table.score td{padding:10px 9px;border-bottom:1px solid var(--border);text-align:left}
+table.score th{background:#f2f6f2;white-space:nowrap}
+.empty-state{text-align:center;padding:20px 10px;color:var(--muted);font-size:12px}
+.hidden{display:none!important}
+hr{border:0;border-top:1px solid var(--border);margin:16px 0}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:22px 12px}
+.toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  background:#123c2b;color:white;padding:12px 16px;border-radius:12px;
+  font-size:12px;box-shadow:var(--shadow);z-index:100;
+  width:max-content;max-width:90%;display:none
 }
-
-.badge{
-  display:inline-block;
-  padding:3px 7px;
-  border-radius:99px;
-  background:#eaf4f9;
-  color:#07558f;
-  font-size:8px;
-  font-weight:bold;
+@media(max-width:650px){
+ .grid{grid-template-columns:1fr}
+ .hero h2{font-size:23px}
+ .card{padding:14px}
+ .seats{gap:5px}
+ .seat{padding:10px 2px}
+ .bid-buttons{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .container{padding:13px 10px 30px}
+ .brand h1{font-size:16px}
 }
-
-
-/* =====================================================
-   UPLOAD
-===================================================== */
-
-.uploads{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
+@media print{
+ header nav,.no-print,footer{display:none!important}
+ body{background:white}
+ .card,.hero{box-shadow:none;break-inside:avoid}
+ .container{max-width:none}
 }
-
-.upload{
-  border:1px dashed #b9cbd9;
-  padding:10px;
-  border-radius:11px;
-  font-size:9px;
-  background:#fbfdfe;
-}
-
-.upload input{
-  width:100%;
-  margin-top:7px;
-  font-size:9px;
-}
-
-.upload img{
-  display:none;
-  width:100%;
-  max-height:100px;
-  object-fit:contain;
-  margin-top:7px;
-  border-radius:7px;
-}
-
-
-/* =====================================================
-   RECOMMENDATION
-===================================================== */
-
-.rec{
-  background:#f3fbf7;
-  border:1px solid #b8e0cf;
-  border-radius:14px;
-  padding:17px;
-}
-
-.rec>b{
-  color:#075d3e;
-  font-size:11px;
-}
-
-.rec .bid{
-  font-size:30px;
-  line-height:1.1;
-  font-weight:900;
-  color:#075d3e;
-  margin:4px 0;
-}
-
-.rec p{
-  font-size:10.5px;
-  line-height:1.7;
-  margin:5px 0;
-  color:#3f5d50;
-}
-
-.bar{
-  height:8px;
-  background:#dcebe4;
-  border-radius:9px;
-  overflow:hidden;
-  margin-top:9px;
-}
-
-.bar i{
-  display:block;
-  height:100%;
-  background:#08784e;
-}
-
-
-/* =====================================================
-   TABLE
-===================================================== */
-
-.tablewrap{
-  overflow:auto;
-  border:1px solid #dce7ec;
-  border-radius:11px;
-  margin-top:10px;
-}
-
-.table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:650px;
-  background:#fff;
-}
-
-.table th,
-.table td{
-  padding:8px;
-  border-bottom:1px solid #dce7ec;
-  font-size:9.5px;
-  text-align:left;
-  vertical-align:top;
-}
-
-.table th{
-  background:#f4f8fb;
-  font-size:9px;
-  color:#526177;
-  font-weight:bold;
-}
-
-.table tr:last-child td{
-  border-bottom:0;
-}
-
-
-/* =====================================================
-   BID PAD
-===================================================== */
-
-.bidpad{
-  display:grid;
-  grid-template-columns:repeat(8,1fr);
-  gap:6px;
-  margin-top:10px;
-}
-
-.bidpad button{
-  padding:7px 2px;
-  border:1px solid #ccd8e5;
-  background:#fff;
-  color:#07558f;
-  border-radius:7px;
-  font-weight:bold;
-  font-size:9px;
-  cursor:pointer;
-  transition:.15s;
-}
-
-.bidpad button:hover{
-  background:#eef7fb;
-  border-color:#77abc8;
-}
-
-.bidpad button:disabled{
-  opacity:.35;
-  cursor:not-allowed;
-  background:#f1f3f5;
-}
-
-
-/* =====================================================
-   RESULT
-===================================================== */
-
-.grid{
-  display:grid;
-  grid-template-columns:1.4fr .6fr;
-  gap:20px;
-  align-items:start;
-}
-
-.result{
-  padding:20px;
-  border:1px solid #dce7ec;
-  border-radius:14px;
-  background:#f7f9fc;
-  min-height:130px;
-}
-
-.score{
-  font-size:34px;
-  line-height:1.1;
-  font-weight:900;
-}
-
-.pos{
-  color:var(--green);
-}
-
-.neg{
-  color:#c92a2a;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-.footer{
-  background:#063b5c;
-  color:#fff;
-  padding:32px 20px 18px;
-  margin-top:0;
-}
-
-.footer-inner{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.4fr 1fr 1fr;
-  gap:30px;
-}
-
-.footer h3{
-  font-size:14px;
-  margin:0 0 9px;
-}
-
-.footer p{
-  color:rgba(255,255,255,.75);
-  font-size:10px;
-  line-height:1.7;
-  margin:0;
-}
-
-.footer-links{
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-}
-
-.footer-links a{
-  color:rgba(255,255,255,.75);
-  font-size:10px;
-  transition:.2s ease;
-}
-
-.footer-links a:hover{
-  color:#fff;
-  transform:translateX(2px);
-}
-
-.footer-bottom{
-  max-width:1100px;
-  margin:23px auto 0;
-  padding-top:13px;
-  border-top:1px solid rgba(255,255,255,.15);
-  display:flex;
-  justify-content:space-between;
-  color:rgba(255,255,255,.6);
-  font-size:9px;
-}
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media(max-width:1000px){
-
-  .header-main{
-    gap:10px;
-  }
-
-  .main-nav{
-    justify-content:flex-start;
-  }
-
-  .main-nav a{
-    padding:8px;
-  }
-
-  .steps{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-@media(max-width:850px){
-
-  .header-main{
-    align-items:flex-start;
-  }
-
-  .main-nav{
-    overflow-x:auto;
-    justify-content:flex-start;
-  }
-
-  .levels{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .systems{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .hands{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .uploads{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .form{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .steps{
-    grid-template-columns:1fr 1fr;
-  }
-
-}
-
-@media(max-width:700px){
-
-  .top-line{
-    padding:6px 10px;
-    font-size:7px;
-    gap:8px;
-  }
-
-  .header-main{
-    min-height:58px;
-    padding:7px 10px;
-    gap:8px;
-  }
-
-  .brand-logo{
-    width:36px;
-    height:36px;
-    min-width:36px;
-    min-height:36px;
-    max-width:36px;
-    max-height:36px;
-    flex-basis:36px;
-  }
-
-  .brand-text strong{
-    font-size:10px;
-  }
-
-  .brand-text small{
-    font-size:5px;
-  }
-
-  .main-nav{
-    flex:1;
-    gap:2px;
-    overflow-x:auto;
-  }
-
-  .main-nav a{
-    font-size:8px;
-    padding:7px 8px;
-  }
-
-  main{
-    padding:25px 12px 38px;
-  }
-
-  .hero{
-    padding:24px 20px;
-    border-radius:15px;
-  }
-
-  .hero h1{
-    font-size:27px;
-  }
-
-  .hero p{
-    font-size:10px;
-  }
-
-  .card{
-    padding:20px;
-    border-radius:15px;
-  }
-
-  .card h2{
-    font-size:18px;
-  }
-
-  .steps{
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-  }
-
-  .step{
-    padding:11px;
-    font-size:9px;
-  }
-
-  .form{
-    grid-template-columns:1fr;
-  }
-
-  .modes{
-    grid-template-columns:1fr;
-  }
-
-  .levels{
-    grid-template-columns:1fr;
-  }
-
-  .systems{
-    grid-template-columns:1fr;
-  }
-
-  .hands{
-    grid-template-columns:1fr;
-  }
-
-  .uploads{
-    grid-template-columns:1fr;
-  }
-
-  .bidpad{
-    grid-template-columns:repeat(5,1fr);
-  }
-
-  .btn{
-    font-size:9px;
-    padding:8px 10px;
-  }
-
-  .footer{
-    padding:27px 15px 15px;
-  }
-
-  .footer-inner{
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-  }
-
-  .footer-inner > div:first-child{
-    grid-column:1 / -1;
-  }
-
-  .footer-bottom{
-    flex-direction:column;
-    gap:5px;
-  }
-
-}
-
-@media(max-width:380px){
-
-  .brand-text{
-    display:none;
-  }
-
-  .header-main{
-    gap:5px;
-  }
-
-  .main-nav a{
-    font-size:7px;
-    padding:6px 7px;
-  }
-
-  .hero h1{
-    font-size:24px;
-  }
-
-  .steps{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    padding:16px;
-  }
-
-}
-
 </style>
-
 </head>
-
 <body>
 
-<header class="site-header">
-
-  <div class="top-line">
-
-    <span>
-      GABSI KOTA TANJUNGBALAI
-    </span>
-
-    <span>
-      Bridge • Prestasi • Persaudaraan
-    </span>
-
+<header>
+ <div class="head-inner">
+  <div class="brand">
+   <div class="logo">♠</div>
+   <div>
+    <h1>GABSI KOTA TANJUNGBALAI</h1>
+    <p>Bridge Duplicate • Kocokan Kartu Pembanding</p>
+   </div>
   </div>
-
-  <div class="header-main">
-
-    <a href="index.html"
-       class="brand">
-
-      <div class="brand-logo">
-
-        <img
-          src="logo-gabsi.png"
-          alt="Logo GABSI Kota Tanjungbalai">
-
-      </div>
-
-      <div class="brand-text">
-
-        <strong>
-          GABSI KOTA TANJUNGBALAI
-        </strong>
-
-        <small>
-          GABUNGAN BRIDGE SELURUH INDONESIA
-        </small>
-
-      </div>
-
-    </a>
-
-    <nav class="main-nav">
-
-      <a href="index.html">
-        Beranda
-      </a>
-
-      <a href="profil.html">
-        Profil
-      </a>
-
-      <a href="pengurus.html">
-        Pengurus
-      </a>
-
-      <a href="kegiatan.html">
-        Kegiatan
-      </a>
-
-      <a href="galeri.html">
-        Galeri
-      </a>
-
-      <a href="aplikasi.html">
-        Aplikasi
-      </a>
-
-      <a href="kocokan-kartu.html"
-         class="active">
-        Kartu Pembanding
-      </a>
-
-      <a href="game-bridge-gabsi.html">
-        Game Bridge
-      </a>
-
-      <a href="berita.html">
-        Berita
-      </a>
-
-      <a href="kontak.html">
-        Kontak
-      </a>
-
-    </nav>
-
-  </div>
-
+  <nav>
+   <a href="index.html">Beranda</a>
+   <a href="profil.html">Profil</a>
+   <a href="aplikasi.html">Aplikasi</a>
+   <a class="active" href="kocokan-kartu.html">Kocokan Kartu</a>
+   <a href="game-bridge-gabsi.html">Game Bridge</a>
+   <a href="berita.html">Berita</a>
+  </nav>
+ </div>
 </header>
 
+<main class="container">
+ <section class="hero">
+  <div class="eyebrow">DUPLICATE BRIDGE TRAINING</div>
+  <h2>Kocokan Kartu Pembanding</h2>
+  <p>Latihan Bridge yang terstruktur. Buat room, tentukan sistem penawaran, pelajari distribusi kartu, dan catat hasil setiap board.</p>
+  <div class="pill"><i></i> MODE UJI LOKAL — BELUM TERHUBUNG KE SERVER ONLINE</div>
+ </section>
 
-<main>
+ <div class="notice">
+  <strong>Informasi koneksi:</strong> versi HTML ini bekerja secara lokal pada browser. Room belum dapat ditemukan atau dimainkan oleh perangkat lain. Multiplayer online memerlukan backend dan sinkronisasi real-time.
+ </div>
 
-<section class="hero">
-
-  <h1>
-    Kartu Pembanding
-  </h1>
-
-  <p>
-    Media latihan Bridge GABSI Kota Tanjungbalai untuk
-    membandingkan pembagian kartu, menganalisis HCP,
-    distribusi, rekomendasi penawaran, auction,
-    kalkulator skor dan score sheet.
-  </p>
-
-</section>
-
-
-<div class="steps">
-
-  <div class="step">
-    <b>1 · Sistem</b>
-    Pilih sistem penawaran
+ <section class="grid">
+  <div class="card">
+   <h3>＋ Buat Room</h3>
+   <p class="desc">Buat meja latihan dan tentukan aturan pertandingan.</p>
+   <div class="field">
+    <label for="playerName">Nama pemain Anda</label>
+    <input id="playerName" maxlength="40" placeholder="Masukkan nama pemain">
+   </div>
+   <div class="field">
+    <label for="roomName">Nama room</label>
+    <input id="roomName" maxlength="50" placeholder="Contoh: Latihan Bridge Sabtu">
+   </div>
+   <div class="field">
+    <label for="level">Tingkatan latihan</label>
+    <select id="level">
+     <option value="Pemula">Pemula</option>
+     <option value="Mahir">Mahir</option>
+     <option value="Profesional">Profesional</option>
+    </select>
+   </div>
+   <button class="btn primary full" id="createRoom">Buat Room Lokal</button>
   </div>
 
-  <div class="step">
-    <b>2 · Kartu</b>
-    Otomatis / manual / foto
+  <div class="card">
+   <h3>⇢ Bergabung ke Room</h3>
+   <p class="desc">Masukkan kode room untuk membuka room pada browser ini.</p>
+   <div class="field">
+    <label for="joinName">Nama pemain</label>
+    <input id="joinName" maxlength="40" placeholder="Nama lengkap">
+   </div>
+   <div class="field">
+    <label for="joinCode">Kode room</label>
+    <input id="joinCode" maxlength="12" placeholder="Contoh: AB12CD" style="text-transform:uppercase">
+   </div>
+   <button class="btn secondary full" id="joinRoom">Buka Room Lokal</button>
+   <hr>
+   <p class="small">Kode room lokal hanya berlaku pada data browser ini. Untuk mengundang pemain melalui internet, backend harus dikonfigurasi.</p>
+  </div>
+ </section>
+
+ <section class="card">
+  <h3>Daftar Room</h3>
+  <p class="desc">Room yang dibuat pada browser ini.</p>
+  <div id="roomList"><div class="empty-state">Belum ada room. Buat room untuk memulai.</div></div>
+ </section>
+
+ <section class="card hidden" id="roomPanel">
+  <div style="display:flex;justify-content:space-between;align-items:start;gap:10px;flex-wrap:wrap">
+   <div>
+    <span class="status">ROOM AKTIF LOKAL</span>
+    <h3 id="activeRoomName" style="margin-top:10px">Room Bridge</h3>
+    <p class="desc">Kode: <strong class="room-code" id="activeRoomCode"></strong></p>
+   </div>
+   <button class="btn outline no-print" id="copyCode">Salin Kode</button>
   </div>
 
-  <div class="step">
-    <b>3 · Rekomendasi</b>
-    Bid + alasan
+  <div class="boardbar">
+   <div class="boardstat">TINGKAT<strong id="activeLevel">Pemula</strong></div>
+   <div class="boardstat">BOARD<strong id="boardNumber">1</strong></div>
+   <div class="boardstat">DEALER<strong id="dealer">Utara</strong></div>
   </div>
 
-  <div class="step">
-    <b>4 · Kalkulator</b>
-    Kontrak & skor
-  </div>
-
-  <div class="step">
-    <b>5 · Score Sheet</b>
-    Simpan hasil
-  </div>
-
-</div>
-
-
-<section class="card"
-         id="trainingLevelCard">
-
-  <h2>
-    0. Pilih Tingkatan Latihan
-  </h2>
-
-  <p class="muted">
-    Tentukan tingkat kesulitan sebelum memilih sistem penawaran.
-    Semakin tinggi tingkatannya, semakin luas rentang latihan penawaran.
-  </p>
-
-  <div class="levels"
-       id="trainingLevels">
-
-    <div class="level"
-         data-level="beginner">
-
-      <b>Pemula</b>
-
-      <span>
-        Mengenal HCP, distribusi dan opening dasar.
-      </span>
-
-      <small>
-        Maksimum latihan: 3NT
-      </small>
-
-    </div>
-
-    <div class="level"
-         data-level="intermediate">
-
-      <b>Sedang</b>
-
-      <span>
-        Mulai mempelajari kompetisi dan kontrak lebih tinggi.
-      </span>
-
-      <small>
-        Maksimum latihan: 4NT
-      </small>
-
-    </div>
-
-    <div class="level"
-         data-level="advanced">
-
-      <b>Mahir</b>
-
-      <span>
-        Latihan penawaran lebih kompleks sampai slam.
-      </span>
-
-      <small>
-        Maksimum latihan: 6NT
-      </small>
-
-    </div>
-
-    <div class="level"
-         data-level="professional">
-
-      <b>Profesional</b>
-
-      <span>
-        Latihan penuh termasuk grand slam.
-      </span>
-
-      <small>
-        Maksimum latihan: 7NT
-      </small>
-
-    </div>
-
-  </div>
-
-  <div class="level-note"
-       id="trainingLevelNote">
-  </div>
-
-</section>
-
-
-<section class="card">
-
-  <h2>
-    1. Pilih Sistem Penawaran
-  </h2>
-
-  <p class="muted">
-    Pilih salah satu sistem. Rekomendasi akan menyesuaikan
-    sistem dan tingkat latihan.
-  </p>
-
-  <div class="systems"
-       id="systems">
-  </div>
-
-  <div class="form"
-       style="margin-top:14px">
-
-    <div class="field">
-
-      <label>
-        Sistem aktif
-      </label>
-
-      <select id="system"></select>
-
-    </div>
-
-    <div class="field">
-
-      <label>
-        Board
-      </label>
-
-      <input id="board"
-             type="number"
-             min="1"
-             value="1">
-
-    </div>
-
-    <div class="field">
-
-      <label>
-        Dealer
-      </label>
-
-      <select id="dealer">
-
-        <option>N</option>
-        <option>E</option>
-        <option>S</option>
-        <option>W</option>
-
-      </select>
-
-    </div>
-
-    <div class="field">
-
-      <label>
-        Vulnerability
-      </label>
-
-      <select id="vul">
-
-        <option>None</option>
-        <option>NS</option>
-        <option>EW</option>
-        <option>Both</option>
-
-      </select>
-
-    </div>
-
-  </div>
-
-  <div class="btns">
-
-    <button class="btn primary"
-            id="applySystem">
-      Gunakan Sistem
-    </button>
-
-    <button class="btn"
-            id="systemInfo">
-      Lihat Penjelasan Sistem
-    </button>
-
-  </div>
-
-  <div id="systemDetail"
-       class="notice">
-  </div>
-
-</section>
-
-
-<section class="card">
-
-  <h2>
-    2. Bagikan Kartu
-  </h2>
-
-  <p class="muted">
-    Gunakan pembagian otomatis untuk latihan cepat,
-    atau masukkan tangan secara manual.
-    Foto dapat disimpan sebagai referensi visual.
-  </p>
-
-  <div class="modes">
-
-    <label class="mode">
-
-      <input type="radio"
-             name="mode"
-             value="auto"
-             checked>
-
-      <b>
-        Bagikan 52 kartu otomatis
-      </b>
-
-      <br>
-
-      Empat tangan masing-masing 13 kartu.
-
-    </label>
-
-    <label class="mode">
-
-      <input type="radio"
-             name="mode"
-             value="manual">
-
-      <b>
-        Manual / foto
-      </b>
-
-      <br>
-
-      Masukkan kartu per pemain dan simpan foto kartu.
-
-    </label>
-
-  </div>
-
-  <div id="autoBox"
-       class="btns">
-
-    <button class="btn blue"
-            id="deal">
-      Bagikan Kartu Otomatis
-    </button>
-
-    <button class="btn"
-            id="reshuffle">
-      Bagikan Ulang
-    </button>
-
-  </div>
-
-  <div id="manualBox"
-       class="hidden">
-
-    <h3>
-      Tangan Manual
-    </h3>
-
-    <p class="muted">
-      Format contoh:
-      AKQ52.234.AK7.85
-      atau
-      AKQ52 234 AK7 85.
-      Simbol ♠ ♥ ♦ ♣ juga dapat digunakan.
-    </p>
-
-    <div class="form">
-
-      <div class="field">
-        <label>North</label>
-        <textarea id="N"></textarea>
-      </div>
-
-      <div class="field">
-        <label>East</label>
-        <textarea id="E"></textarea>
-      </div>
-
-      <div class="field">
-        <label>South</label>
-        <textarea id="S"></textarea>
-      </div>
-
-      <div class="field">
-        <label>West</label>
-        <textarea id="W"></textarea>
-      </div>
-
-    </div>
-
-    <div class="btns">
-
-      <button class="btn primary"
-              id="applyManual">
-        Gunakan Tangan Manual
-      </button>
-
-    </div>
-
-    <h3>
-      Foto Kartu
-    </h3>
-
-    <div class="uploads"
-         id="uploads">
-    </div>
-
-    <div class="btns">
-
-      <button class="btn"
-              id="clearPhotos">
-        Hapus Foto
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="notice"
-       id="dealStatus">
-    Belum ada pembagian kartu.
-  </div>
-
-</section>
-
-
-<section class="card">
-
-  <h2>
-    3. Analisis Kartu & Rekomendasi Komputer
-  </h2>
-
-  <div class="hands"
-       id="hands">
-  </div>
-
-  <div id="recommend"
-       style="margin-top:13px">
-  </div>
-
-  <div class="btns">
-
-    <button class="btn good"
-            id="useRec">
-      Gunakan Rekomendasi
-    </button>
-
-    <button class="btn"
-            id="explain">
-      Jelaskan Rekomendasi
-    </button>
-
-  </div>
-
-</section>
-
-
-<section class="card">
-
-  <h2>
-    4. Auction / Penawaran
-  </h2>
-
-  <div id="auctionMeta"
-       class="notice">
-  </div>
-
-  <div class="btns">
-
-    <button class="btn primary"
-            id="startAuction">
-      Mulai / Reset Auction
-    </button>
-
-    <button class="btn blue"
-            id="computerBid">
-      Komputer Beri Bid
-    </button>
-
-    <button class="btn"
-            id="clearAuction">
-      Kosongkan Auction
-    </button>
-
-  </div>
-
-  <div class="bidpad"
-       id="bidpad">
-  </div>
-
-  <div class="tablewrap">
-
-    <table class="table">
-
-      <thead>
-
-        <tr>
-          <th>No</th>
-          <th>Seat</th>
-          <th>Bid</th>
-          <th>Alasan</th>
-        </tr>
-
-      </thead>
-
-      <tbody id="auctionBody">
-      </tbody>
-
-    </table>
-
-  </div>
-
-  <div class="notice"
-       id="contractBox">
-    Belum ada kontrak akhir.
-  </div>
-
-</section>
-
-
-<section class="card">
-
-  <h2>
-    5. Bridge Calculator
-  </h2>
-
+  <h3>Posisi Pemain</h3>
+  <p class="desc">Empat kursi Bridge Duplicate.</p>
+  <div class="seats" id="seats"></div>
+
+  <hr>
+  <h3>Sistem Penawaran</h3>
+  <p class="desc">Pasangan memilih sistem masing-masing. Dalam Bridge, sistem pasangan sebaiknya disepakati bersama.</p>
   <div class="grid">
-
-    <div>
-
-      <div class="form">
-
-        <div class="field">
-
-          <label>
-            Level
-          </label>
-
-          <select id="level">
-
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label>
-            Denomination
-          </label>
-
-          <select id="strain">
-
-            <option value="C">♣</option>
-            <option value="D">♦</option>
-            <option value="H">♥</option>
-            <option value="S">♠</option>
-            <option value="N">NT</option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label>
-            Double
-          </label>
-
-          <select id="mult">
-
-            <option value="1">Normal</option>
-            <option value="2">Double</option>
-            <option value="4">Redouble</option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label>
-            Declarer
-          </label>
-
-          <select id="declarer">
-
-            <option>N</option>
-            <option>E</option>
-            <option>S</option>
-            <option>W</option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label>
-            Trick diperoleh
-          </label>
-
-          <input id="tricks"
-                 type="number"
-                 min="0"
-                 max="13"
-                 value="7">
-
-        </div>
-
-        <div class="field">
-
-          <label>
-            Vulnerability
-          </label>
-
-          <select id="calcVul">
-
-            <option>None</option>
-            <option>NS</option>
-            <option>EW</option>
-            <option>Both</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-      <div class="btns">
-
-        <button class="btn primary"
-                id="calculate">
-          Hitung Score
-        </button>
-
-        <button class="btn"
-                id="loadContract">
-          Ambil Kontrak dari Auction
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="result">
-
-      <div id="score"
-           class="score">
-        0
-      </div>
-
-      <div id="scoreExplain"
-           class="muted">
-        Masukkan kontrak dan jumlah trick.
-      </div>
-
-    </div>
-
+   <div class="field">
+    <label for="systemNS">Pasangan Utara – Selatan</label>
+    <select id="systemNS">
+     <option>Four Card Major</option>
+     <option>Five Card Major</option>
+     <option>Precision</option>
+    </select>
+   </div>
+   <div class="field">
+    <label for="systemEW">Pasangan Timur – Barat</label>
+    <select id="systemEW">
+     <option>Four Card Major</option>
+     <option>Five Card Major</option>
+     <option>Precision</option>
+    </select>
+   </div>
   </div>
 
-</section>
+  <div class="vulnerability" id="vulnerability"></div>
+  <p class="small">Vulnerability dihitung berdasarkan nomor board standar. Semua pemain dalam board yang sama harus menggunakan data board yang sama.</p>
 
-
-<section class="card">
-
-  <h2>
-    6. Score Sheet
-  </h2>
-
-  <p class="muted">
-    Hasil kalkulator dapat disimpan sebagai catatan latihan.
-  </p>
-
-  <div class="btns">
-
-    <button class="btn good"
-            id="saveScore">
-      Simpan ke Score Sheet
-    </button>
-
-    <button class="btn"
-            id="export">
-      Download CSV
-    </button>
-
-    <button class="btn danger"
-            id="clearScores">
-      Hapus Semua
-    </button>
-
+  <div class="actions no-print" style="margin-top:15px">
+   <button class="btn primary" id="dealCards">Kocok & Bagikan Kartu</button>
+   <button class="btn outline" id="nextBoard">Board Berikutnya →</button>
   </div>
+  <p class="small" style="margin-top:10px">Pengocokan di halaman ini untuk uji lokal. Pengacakan dan kerahasiaan kartu untuk pertandingan online wajib divalidasi server.</p>
+ </section>
 
-  <div class="tablewrap">
-
-    <table class="table">
-
-      <thead>
-
-        <tr>
-
-          <th>Board</th>
-          <th>Dealer</th>
-          <th>Vul</th>
-          <th>Contract</th>
-          <th>Declarer</th>
-          <th>Trick</th>
-          <th>Score</th>
-          <th></th>
-
-        </tr>
-
-      </thead>
-
-      <tbody id="scores">
-      </tbody>
-
-    </table>
-
+ <section class="card hidden" id="cardsPanel">
+  <h3>Distribusi Kartu</h3>
+  <p class="desc">Tampilan lokal untuk memeriksa kartu setiap posisi.</p>
+  <div class="actions no-print" style="margin-bottom:12px">
+   <button class="btn secondary" data-hand="N">Utara</button>
+   <button class="btn secondary" data-hand="E">Timur</button>
+   <button class="btn secondary" data-hand="S">Selatan</button>
+   <button class="btn secondary" data-hand="W">Barat</button>
   </div>
+  <div id="handView"></div>
+  <div class="boardbar">
+   <div class="boardstat">HCP UTARA<strong id="hcpN">0</strong></div>
+   <div class="boardstat">HCP TIMUR<strong id="hcpE">0</strong></div>
+   <div class="boardstat">HCP SELATAN<strong id="hcpS">0</strong></div>
+   <div class="boardstat">HCP BARAT<strong id="hcpW">0</strong></div>
+  </div>
+ </section>
 
-</section>
+ <section class="card hidden" id="auctionPanel">
+  <h3>Meja Penawaran</h3>
+  <p class="desc">Pilih penawaran untuk mencatat urutan bidding pada sesi lokal ini. Ini bukan validasi pertandingan multiplayer.</p>
+  <div class="boardbar">
+   <div class="boardstat">GILIRAN<strong id="auctionTurn">Utara</strong></div>
+   <div class="boardstat">DEALER<strong id="auctionDealer">Utara</strong></div>
+   <div class="boardstat">STATUS<strong id="auctionStatus">Berlangsung</strong></div>
+  </div>
+  <div class="bid-buttons" id="bidButtons">
+   <button data-bid="Pass" class="passbid">Pass</button>
+   <button data-bid="Double (X)" class="redbid">X</button>
+   <button data-bid="Redouble (XX)" class="redbid">XX</button>
+   <button data-bid="Undo">↶ Undo</button>
+  </div>
+  <div class="field" style="margin-top:12px">
+   <label for="contractBid">Penawaran kontrak</label>
+   <select id="contractBid">
+    <option value="">Pilih kontrak</option>
+    <option>1♣</option><option>1♦</option><option>1♥</option><option>1♠</option><option>1NT</option>
+    <option>2♣</option><option>2♦</option><option>2♥</option><option>2♠</option><option>2NT</option>
+    <option>3♣</option><option>3♦</option><option>3♥</option><option>3♠</option><option>3NT</option>
+    <option>4♣</option><option>4♦</option><option>4♥</option><option>4♠</option><option>4NT</option>
+    <option>5♣</option><option>5♦</option><option>5♥</option><option>5♠</option><option>5NT</option>
+    <option>6♣</option><option>6♦</option><option>6♥</option><option>6♠</option><option>6NT</option>
+    <option>7♣</option><option>7♦</option><option>7♥</option><option>7♠</option><option>7NT</option>
+   </select>
+   <button class="btn primary full" id="submitContract" style="margin-top:8px">Catat Kontrak (Mode Lokal)</button>
+  </div>
+  <div class="table-wrap">
+   <table class="auction">
+    <thead><tr><th>Utara</th><th>Timur</th><th>Selatan</th><th>Barat</th></tr></thead>
+    <tbody id="auctionRows"><tr><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody>
+   </table>
+  </div>
+  <p id="auctionMessage" class="small">Belum ada penawaran.</p>
+ </section>
 
+ <section class="card hidden" id="resultPanel">
+  <h3>Catat Hasil Board</h3>
+  <p class="desc">Masukkan hasil setelah permainan empat pemain selesai. Formulir ini mencatat hasil yang dimasukkan, bukan menghitung trick secara otomatis.</p>
+  <div class="grid">
+   <div class="field">
+    <label for="resultContract">Kontrak akhir</label>
+    <select id="resultContract">
+     <option>1♣</option><option>1♦</option><option>1♥</option><option>1♠</option><option>1NT</option>
+     <option>2♣</option><option>2♦</option><option>2♥</option><option>2♠</option><option>2NT</option>
+     <option>3♣</option><option>3♦</option><option>3♥</option><option>3♠</option><option>3NT</option>
+     <option>4♣</option><option>4♦</option><option>4♥</option><option>4♠</option><option>4NT</option>
+     <option>5♣</option><option>5♦</option><option>5♥</option><option>5♠</option><option>5NT</option>
+     <option>6♣</option><option>6♦</option><option>6♥</option><option>6♠</option><option>6NT</option>
+     <option>7♣</option><option>7♦</option><option>7♥</option><option>7♠</option><option>7NT</option>
+    </select>
+   </div>
+   <div class="field">
+    <label for="declarer">Declarer</label>
+    <select id="declarer"><option>Utara</option><option>Timur</option><option>Selatan</option><option>Barat</option></select>
+   </div>
+   <div class="field">
+    <label for="doubleStatus">Status kontrak</label>
+    <select id="doubleStatus"><option value="undoubled">Normal</option><option value="doubled">Double (X)</option><option value="redoubled">Redouble (XX)</option></select>
+   </div>
+   <div class="field">
+    <label for="tricks">Jumlah trick declarer (0–13)</label>
+    <input id="tricks" type="number" min="0" max="13" value="9">
+   </div>
+  </div>
+  <button class="btn primary full" id="saveResult">Simpan Hasil ke Score Sheet</button>
+ </section>
+
+ <section class="card" id="scorePanel">
+  <h3>Score Sheet</h3>
+  <p class="desc">Riwayat hasil yang dicatat di browser ini.</p>
+  <div class="actions no-print" style="margin-bottom:12px">
+   <button class="btn secondary" id="printScores">Cetak Score Sheet</button>
+   <button class="btn outline" id="exportScores">Ekspor CSV</button>
+   <button class="btn danger" id="clearScores">Hapus Riwayat</button>
+  </div>
+  <div class="table-wrap">
+   <table class="score">
+    <thead><tr>
+     <th>Board</th><th>Dealer</th><th>Vulnerability</th><th>Kontrak</th>
+     <th>Declarer</th><th>Trick</th><th>NS</th><th>EW</th>
+    </tr></thead>
+    <tbody id="scoreRows"><tr><td colspan="8" class="empty-state">Belum ada hasil pertandingan.</td></tr></tbody>
+   </table>
+  </div>
+ </section>
 </main>
 
-
-<footer class="footer">
-
-  <div class="footer-inner">
-
-    <div>
-
-      <h3>
-        GABSI Kota Tanjungbalai
-      </h3>
-
-      <p>
-        Website resmi GABSI Kota Tanjungbalai sebagai
-        pusat informasi organisasi, kegiatan, pembinaan
-        prestasi, edukasi dan aplikasi olahraga bridge.
-      </p>
-
-    </div>
-
-    <div>
-
-      <h3>
-        Menu
-      </h3>
-
-      <div class="footer-links">
-
-        <a href="index.html">Beranda</a>
-        <a href="profil.html">Profil</a>
-        <a href="pengurus.html">Pengurus</a>
-        <a href="kegiatan.html">Kegiatan</a>
-        <a href="galeri.html">Galeri</a>
-        <a href="aplikasi.html">Aplikasi</a>
-        <a href="kocokan-kartu.html">Kartu Pembanding</a>
-        <a href="game-bridge-gabsi.html">Game Bridge</a>
-        <a href="berita.html">Berita</a>
-        <a href="kontak.html">Kontak</a>
-
-      </div>
-
-    </div>
-
-    <div>
-
-      <h3>
-        Layanan
-      </h3>
-
-      <div class="footer-links">
-
-        <a href="game-bridge-gabsi.html">
-          Game Bridge
-        </a>
-
-        <a href="aplikasi.html">
-          Aplikasi Bridge
-        </a>
-
-        <a href="kocokan-kartu.html">
-          Kartu Pembanding
-        </a>
-
-        <a href="kontak.html">
-          Kontak
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-
-    <span>
-      © 2026 GABSI Kota Tanjungbalai
-    </span>
-
-    <span>
-      Bridge • Prestasi • Persaudaraan
-    </span>
-
-  </div>
-
+<footer>
+ GABSI Kota Tanjungbalai • Bridge Duplicate Training<br>
+ Aplikasi lokal — koneksi multiplayer online belum dikonfigurasi.
 </footer>
-
+<div class="toast" id="toast"></div>
 
 <script>
+(function(){
+"use strict";
 
-(()=>{
-
-'use strict';
-
-const $=id=>document.getElementById(id);
-
-const seats=['N','E','S','W'];
-
-const suits=['S','H','D','C'];
-
-const RANKS=[
-'2','3','4','5','6','7','8',
-'9','T','J','Q','K','A'
+const $ = id => document.getElementById(id);
+const names = {N:"Utara",E:"Timur",S:"Selatan",W:"Barat"};
+const dirs = ["N","E","S","W"];
+const suits = [
+ {key:"S",symbol:"♠",name:"Sekop",red:false},
+ {key:"H",symbol:"♥",name:"Hati",red:true},
+ {key:"D",symbol:"♦",name:"Wajik",red:true},
+ {key:"C",symbol:"♣",name:"Keriting",red:false}
 ];
+const ranks = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
+const hcpValue = {A:4,K:3,Q:2,J:1};
+let rooms = [];
+let activeRoom = null;
+let hands = null;
+let auction = [];
+let currentTurn = 0;
+let lastContract = null;
+let doubleState = 0;
+let passedAfterContract = 0;
+let boardFinished = false;
+let undoStack = [];
+let toastTimer = null;
 
-const TRAINING={
-
-beginner:{
-name:'Pemula',
-maxLevel:3,
-maxRank:17,
-desc:'Latihan dasar sampai 3NT. Fokus pada HCP, distribusi, opening dan kontrak dasar.'
-},
-
-intermediate:{
-name:'Sedang',
-maxLevel:4,
-maxRank:23,
-desc:'Latihan sampai 4NT dengan penawaran yang lebih kompleks.'
-},
-
-advanced:{
-name:'Mahir',
-maxLevel:6,
-maxRank:35,
-desc:'Latihan sampai 6NT termasuk kontrak slam.'
-},
-
-professional:{
-name:'Profesional',
-maxLevel:7,
-maxRank:40,
-desc:'Latihan penuh sampai 7NT termasuk grand slam.'
+function toast(message){
+ const el=$("toast");
+ el.textContent=message;
+ el.style.display="block";
+ clearTimeout(toastTimer);
+ toastTimer=setTimeout(()=>el.style.display="none",2600);
 }
-
-};
-
-let trainingLevel=
-localStorage.getItem(
-'gabsi_bridge_training_level'
-)||'beginner';
-
-const SYSTEMS={
-
-Johan:{
-name:'Johan',
-desc:'Sistem latihan kustom. Gunakan prinsip HCP, distribusi, fit dan kesepakatan pasangan.',
-rule:'Pembukaan natural disesuaikan dengan kekuatan tangan dan kesepakatan pasangan.'
-},
-
-Four:{
-name:'Four Card Major',
-desc:'Kerangka natural yang memungkinkan pembukaan major dengan empat kartu sesuai kesepakatan.',
-rule:'Cari major empat kartu atau lebih dan prioritaskan major terpanjang.'
-},
-
-Five:{
-name:'Five Card Major',
-desc:'Sistem natural dengan pembukaan 1♥ atau 1♠ umumnya membutuhkan lima kartu major.',
-rule:'Major lima kartu menjadi prioritas; balanced 15–17 HCP biasanya 1NT.'
-},
-
-SAYC:{
-name:'SAYC',
-desc:'Standard American Yellow Card, sistem natural standar yang populer untuk belajar bridge.',
-rule:'Natural opening, major lima kartu dan 1NT 15–17 sebagai aturan latihan umum.'
-},
-
-Two:{
-name:'2/1 Game Force',
-desc:'Kerangka natural dengan respons 2-over-1 yang umumnya forcing to game.',
-rule:'Pembukaan natural dan respons 2-over-1 digunakan sesuai kesepakatan pasangan.'
-},
-
-Acol:{
-name:'Acol',
-desc:'Sistem natural yang banyak menggunakan major empat kartu.',
-rule:'Gunakan HCP, distribusi dan major sesuai convention card Acol pasangan.'
-},
-
-Precision:{
-name:'Precision',
-desc:'Sistem artificial strong-club. Banyak varian menggunakan 1♣ untuk tangan kuat.',
-rule:'1♣ digunakan sebagai pembukaan kuat/artificial dalam banyak varian Precision.'
-},
-
-Natural:{
-name:'Natural Standard',
-desc:'Kerangka natural sederhana untuk memahami HCP, panjang suit dan distribusi.',
-rule:'Gunakan HCP, distribusi, suit terpanjang dan balanced hand sebagai dasar.'
+function escapeHtml(s){
+ return String(s).replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[c]));
 }
-
-};
-
-let hands={
-N:[],
-E:[],
-S:[],
-W:[]
-};
-
-let auction=[];
-let turn=0;
-let recommendation=null;
-let contract=null;
-
-let scores=JSON.parse(
-localStorage.getItem(
-'gabsi_bridge_scores'
-)||'[]'
-);
-
-function levelConfig(){
-
-return TRAINING[trainingLevel]
-||TRAINING.beginner;
-
+function randomCode(){
+ const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+ let out="";
+ for(let i=0;i<6;i++) out+=chars[Math.floor(Math.random()*chars.length)];
+ return out;
 }
-
-function setTrainingLevel(level){
-
-if(!TRAINING[level])
-level='beginner';
-
-trainingLevel=level;
-
-localStorage.setItem(
-'gabsi_bridge_training_level',
-level
-);
-
-document
-.querySelectorAll('.level')
-.forEach(x=>{
-
-x.classList.toggle(
-'active',
-x.dataset.level===level
-);
-
+function vulnerability(board){
+ const pattern=[
+  "None","NS","EW","Both","NS","EW","Both","None",
+  "EW","Both","None","NS","Both","None","NS","EW"
+ ];
+ return pattern[(Math.max(1,board)-1)%16];
+}
+function dealerFor(board){
+ return dirs[(Math.max(1,board)-1)%4];
+}
+function vulText(v){
+ if(v==="None") return "Kedua pasangan tidak bahaya";
+ if(v==="NS") return "Utara–Selatan bahaya";
+ if(v==="EW") return "Timur–Barat bahaya";
+ return "Kedua pasangan bahaya";
+}
+function isVulnerable(direction,v){
+ return v==="Both" || v===direction || v==="None" ? v==="Both" || v===direction : false;
+}
+function renderVulnerability(){
+ if(!activeRoom)return;
+ const v=vulnerability(activeRoom.board);
+ $("vulnerability").innerHTML=["NS","EW"].map(pair=>{
+  const danger=isVulnerable(pair,v);
+  const label=pair==="NS"?"UTARA – SELATAN":"TIMUR – BARAT";
+  return `<div class="vul ${danger?"yes":"no"}">${label}<strong>${danger?"BAHAYA":"TIDAK BAHAYA"}</strong></div>`;
+ }).join("");
+ $("boardNumber").textContent=activeRoom.board;
+ $("dealer").textContent=names[dealerFor(activeRoom.board)];
+ $("auctionDealer").textContent=names[dealerFor(activeRoom.board)];
+}
+function renderSeats(){
+ if(!activeRoom)return;
+ $("seats").innerHTML=dirs.map(d=>{
+  const p=activeRoom.players[d];
+  return `<div class="seat ${p?"occupied":"empty"}">
+   <div class="seat-icon">${d==="N"?"♠":d==="E"?"♦":d==="S"?"♥":"♣"}</div>
+   <div class="direction">${names[d]}</div>
+   <div class="player">${p?escapeHtml(p):"Kursi kosong"}</div>
+  </div>`;
+ }).join("");
+}
+function renderRoomList(){
+ if(!rooms.length){
+  $("roomList").innerHTML='<div class="empty-state">Belum ada room. Buat room untuk memulai.</div>';
+  return;
+ }
+ $("roomList").innerHTML=rooms.map(r=>`
+  <div class="room-row">
+   <div>
+    <div class="room-name">${escapeHtml(r.name)}</div>
+    <div class="room-meta">Kode <span class="room-code">${r.code}</span> · ${escapeHtml(r.level)} · ${Object.values(r.players).filter(Boolean).length}/4 pemain</div>
+   </div>
+   <button class="btn secondary" data-open-room="${r.code}">Buka</button>
+  </div>`).join("");
+}
+function showRoom(r){
+ activeRoom=r;
+ $("roomPanel").classList.remove("hidden");
+ $("activeRoomName").textContent=r.name;
+ $("activeRoomCode").textContent=r.code;
+ $("activeLevel").textContent=r.level;
+ $("systemNS").value=r.systemNS;
+ $("systemEW").value=r.systemEW;
+ renderSeats();
+ renderVulnerability();
+ resetBoardUI();
+ window.scrollTo({top:$("roomPanel").offsetTop-10,behavior:"smooth"});
+}
+function resetBoardUI(){
+ hands=null;auction=[];currentTurn=0;lastContract=null;
+ doubleState=0;passedAfterContract=0;boardFinished=false;undoStack=[];
+ $("cardsPanel").classList.add("hidden");
+ $("auctionPanel").classList.add("hidden");
+ $("resultPanel").classList.add("hidden");
+ $("auctionRows").innerHTML="<tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>";
+ $("auctionMessage").textContent="Belum ada penawaran.";
+ $("auctionStatus").textContent="Berlangsung";
+}
+function saveRoomSettings(){
+ if(!activeRoom)return;
+ activeRoom.systemNS=$("systemNS").value;
+ activeRoom.systemEW=$("systemEW").value;
+}
+$("createRoom").addEventListener("click",()=>{
+ const player=$("playerName").value.trim();
+ const name=$("roomName").value.trim();
+ if(!player||!name){toast("Isi nama pemain dan nama room.");return;}
+ const r={
+  code:randomCode(),name,level:$("level").value,
+  systemNS:"Four Card Major",systemEW:"Four Card Major",
+  board:1,players:{N:"",E:"",S:"",W:""}
+ };
+ r.players.S=player;
+ rooms.unshift(r);
+ renderRoomList();showRoom(r);
+ toast("Room lokal dibuat. Belum tersedia bagi perangkat lain.");
 });
+$("joinRoom").addEventListener("click",()=>{
+ const code=$("joinCode").value.trim().toUpperCase();
+ const player=$("joinName").value.trim();
+ if(!code||!player){toast("Masukkan kode room dan nama pemain.");return;}
+ const r=rooms.find(x=>x.code===code);
+ if(!r){toast("Room tidak ditemukan pada browser ini.");return;}
+ const free=dirs.find(d=>!r.players[d]);
+ if(!free && !dirs.some(d=>r.players[d]===player)){
+  toast("Room sudah penuh.");return;
+ }
+ if(!dirs.some(d=>r.players[d]===player))r.players[free]=player;
+ renderRoomList();showRoom(r);
+ toast("Anda masuk ke room lokal.");
+});
+$("roomList").addEventListener("click",e=>{
+ const btn=e.target.closest("[data-open-room]");
+ if(!btn)return;
+ const r=rooms.find(x=>x.code===btn.dataset.openRoom);
+ if(r)showRoom(r);
+});
+$("copyCode").addEventListener("click",()=>{
+ if(!activeRoom)return;
+ if(navigator.clipboard&&navigator.clipboard.writeText){
+  navigator.clipboard.writeText(activeRoom.code)
+   .then(()=>toast("Kode disalin: "+activeRoom.code))
+   .catch(()=>toast("Kode room: "+activeRoom.code));
+ }else toast("Kode room: "+activeRoom.code);
+});
+$("systemNS").addEventListener("change",saveRoomSettings);
+$("systemEW").addEventListener("change",saveRoomSettings);
 
-const c=levelConfig();
-
-$('trainingLevelNote').innerHTML=
-`<b>Tingkat aktif: ${c.name}</b> — ${c.desc}
-<br><strong>Batas latihan penawaran: ${c.maxLevel}NT.</strong>
-Kontrak yang lebih tinggi dari tingkat ini tetap tersedia di kalkulator,
-tetapi tidak dapat dipilih pada panel auction latihan.`;
-
-updateBidPad();
-
-if(recommendation)
-recommend();
-
+function makeDeck(){
+ const deck=[];
+ suits.forEach(s=>ranks.forEach(r=>deck.push({suit:s.key,rank:r,symbol:s.symbol,red:s.red})));
+ for(let i=deck.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));
+  [deck[i],deck[j]]=[deck[j],deck[i]];
+ }
+ return deck;
 }
-
-function suitSym(s){
-
-return{
-S:'♠',
-H:'♥',
-D:'♦',
-C:'♣'
-}[s]||s;
-
-}
-
-function hcp(a){
-
-return a.reduce(
-(n,c)=>
-n+
-({
-A:4,
-K:3,
-Q:2,
-J:1
-}[c.r]||0),
-0
-);
-
-}
-
-function dist(a){
-
-return suits
-.map(
-s=>
-a.filter(
-c=>c.s===s
-).length
-)
-.sort(
-(a,b)=>b-a
-);
-
-}
-
-function fmtDist(a){
-
-return dist(a).join('-');
-
-}
-
-function longest(a){
-
-return suits
-.map(
-s=>({
-s,
-n:a.filter(c=>c.s===s).length
-})
-)
-.sort(
-(x,y)=>y.n-x.n
-)[0];
-
-}
-
-function balanced(a){
-
-let d=dist(a);
-
-return d.every(
-n=>n<=5
-)&&
-d.filter(
-n=>n<=2
-).length<=2;
-
-}
-
-function cardsToText(a){
-
-return suits
-.map(
-s=>
-a
-.filter(
-c=>c.s===s
-)
-.sort(
-(x,y)=>
-RANKS.indexOf(y.r)-
-RANKS.indexOf(x.r)
-)
-.map(
-c=>c.r
-)
-.join('')
-||'-'
-)
-.join(' · ');
-
-}
-
-function buildSystems(){
-
-$('system').innerHTML=
-Object.entries(SYSTEMS)
-.map(
-([k,s])=>
-`<option value="${k}">
-${s.name}
-</option>`
-)
-.join('');
-
-$('systems').innerHTML=
-Object.entries(SYSTEMS)
-.map(
-([k,s])=>
-`<div class="sys"
-      data-sys="${k}">
-<b>${s.name}</b>
-<span>${s.desc}</span>
-</div>`
-)
-.join('');
-
-$('system').value='Johan';
-
-highlightSystem();
-
-}
-
-function highlightSystem(){
-
-document
-.querySelectorAll('.sys')
-.forEach(x=>
-x.classList.toggle(
-'active',
-x.dataset.sys===
-$('system').value
-)
-);
-
-}
-
-function renderSystem(){
-
-let s=
-SYSTEMS[
-$('system').value
-];
-
-$('systemDetail').innerHTML=
-`<b>${s.name}</b><br>
-${s.desc}<br>
-<strong>Aturan latihan:</strong> ${s.rule}`;
-
-highlightSystem();
-
-}
-
-function newDeck(){
-
-return suits.flatMap(
-s=>
-RANKS.map(
-r=>({
-s,
-r
-})
-)
-);
-
-}
-
-function shuffle(a){
-
-for(
-let i=a.length-1;
-i;
-i--
-){
-
-let j=
-Math.floor(
-Math.random()*(i+1)
-);
-
-[a[i],a[j]]=
-[a[j],a[i];
-
-}
-
-return a;
-
-}
-
 function deal(){
-
-let d=
-shuffle(
-newDeck()
-);
-
-hands={
-N:d.slice(0,13),
-E:d.slice(13,26),
-S:d.slice(26,39),
-W:d.slice(39,52)
-};
-
-showHands();
-
-$('dealStatus').textContent=
-'52 kartu berhasil dibagikan otomatis: 13 kartu untuk setiap pemain.';
-
-auction=[];
-
-turn=
-seats.indexOf(
-$('dealer').value
-);
-
-contract=null;
-
-renderAuction();
-
-recommend();
-
+ const deck=makeDeck();
+ const out={N:[],E:[],S:[],W:[]};
+ deck.forEach((c,i)=>out[dirs[i%4]].push(c));
+ dirs.forEach(d=>out[d].sort((a,b)=>{
+  const si=suits.findIndex(s=>s.key===a.suit)-suits.findIndex(s=>s.key===b.suit);
+  return si || ranks.indexOf(b.rank)-ranks.indexOf(a.rank);
+ }));
+ return out;
 }
-
-function parseHand(v){
-
-v=v
-.toUpperCase()
-.replace(/[♠♥♦♣]/g,' ')
-.replace(/[,/|;]/g,' ')
-.replace(/\./g,' ');
-
-let p=
-v.trim().split(/\s+/);
-
-if(p.length!==4)
-throw Error(
-'Gunakan 4 bagian: ♠ ♥ ♦ ♣. Contoh: AKQ52 234 AK7 85'
-);
-
-let out=[];
-
-p.forEach(
-(str,i)=>{
-
-for(
-let r of str.replace(/10/g,'T')
-){
-
-if(!RANKS.includes(r))
-throw Error(
-'Kartu tidak valid: '+r
-);
-
-out.push({
-s:suits[i],
-r
+function hcp(hand){
+ return hand.reduce((sum,c)=>sum+(hcpValue[c.rank]||0),0);
+}
+function renderHand(direction){
+ if(!hands)return;
+ const hand=hands[direction];
+ $("handView").innerHTML=`
+  <div class="hand">
+   ${suits.map(s=>{
+    const cards=hand.filter(c=>c.suit===s.key)
+     .sort((a,b)=>ranks.indexOf(b.rank)-ranks.indexOf(a.rank));
+    return `<div class="handbox">
+     <h4>${s.symbol} ${s.name} · ${cards.length} kartu</h4>
+     <div class="suitline ${s.red?"red":"black"}">${cards.length?cards.map(c=>c.rank).join(" "):"—"}</div>
+    </div>`;
+   }).join("")}
+  </div>
+  <p class="small">Posisi ${names[direction]} · ${hand.length} kartu · HCP ${hcp(hand)}</p>`;
+ dirs.forEach(d=>$("hcp"+d).textContent=hcp(hands[d]));
+}
+document.querySelectorAll("[data-hand]").forEach(btn=>{
+ btn.addEventListener("click",()=>renderHand(btn.dataset.hand));
+});
+$("dealCards").addEventListener("click",()=>{
+ if(!activeRoom){toast("Buat atau buka room terlebih dahulu.");return;}
+ saveRoomSettings();
+ hands=deal();
+ $("cardsPanel").classList.remove("hidden");
+ $("auctionPanel").classList.remove("hidden");
+ $("resultPanel").classList.remove("hidden");
+ renderHand("S");
+ toast("52 kartu dibagikan secara lokal.");
+});
+$("nextBoard").addEventListener("click",()=>{
+ if(!activeRoom){toast("Buat room terlebih dahulu.");return;}
+ activeRoom.board++;
+ renderVulnerability();
+ resetBoardUI();
+ toast("Board berikutnya: "+activeRoom.board);
 });
 
+function saveUndo(){
+ undoStack.push(JSON.stringify({
+  auction,currentTurn,lastContract,doubleState,passedAfterContract,boardFinished
+ }));
+ if(undoStack.length>40)undoStack.shift();
 }
-
+function parseLevel(bid){
+ const m=String(bid).match(/^([1-7])([♣♦♥♠]|NT)$/);
+ if(!m)return null;
+ const strain=m[2];
+ const strainOrder={"♣":0,"♦":1,"♥":2,"♠":3,"NT":4};
+ return {level:Number(m[1]),strain,order:(Number(m[1])-1)*5+strainOrder[strain]};
 }
-);
-
-if(
-out.length!==13||
-new Set(
-out.map(
-c=>c.s+c.r
-)
-).size!==13
-)
-throw Error(
-'Setiap tangan harus tepat 13 kartu tanpa kartu ganda.'
-);
-
-return out;
-
-}
-
-function applyManual(){
-
-try{
-
-let h={};
-
-for(let s of seats)
-h[s]=parseHand(
-$(s).value
-);
-
-let all=
-seats.flatMap(
-s=>
-h[s].map(
-c=>c.s+c.r
-)
-);
-
-if(
-new Set(all).size!==52
-)
-throw Error(
-'Ada kartu yang sama pada lebih dari satu pemain atau ada kartu yang hilang.'
-);
-
-hands=h;
-
-showHands();
-
-$('dealStatus').textContent=
-'Tangan manual berhasil divalidasi: 52 kartu lengkap.';
-
-auction=[];
-
-turn=
-seats.indexOf(
-$('dealer').value
-);
-
-contract=null;
-
-renderAuction();
-
-recommend();
-
-}catch(e){
-
-alert(e.message);
-
-}
-
-}
-
-function showHands(){
-
-$('hands').innerHTML=
-seats
-.map(
-s=>{
-
-let a=hands[s]||[];
-
-return`
-<div class="hand">
-
-<b>
-${
-s==='N'
-?'North'
-:s==='E'
-?'East'
-:s==='S'
-?'South'
-:'West'
-}
-</b>
-
-<span class="badge">
-${a.length} kartu · ${hcp(a)} HCP
-</span>
-
-<div class="cards">
-
-${
-a.length
-?cardsToText(a)
-:'<span class="muted">Belum ada kartu</span>'
-}
-
-</div>
-
-<small class="muted">
-
-Distribusi
-${a.length?fmtDist(a):'-'}
-
-</small>
-
-</div>
-`;
-
-}
-)
-.join('');
-
-}
-
-function recommend(){
-
-let a=
-hands[
-$('dealer').value
-]||[];
-
-if(a.length!==13){
-
-recommendation=null;
-
-$('recommend').innerHTML=
-'<div class="notice">Bagikan atau masukkan kartu terlebih dahulu.</div>';
-
-return;
-
-}
-
-let H=hcp(a);
-
-let L=longest(a);
-
-let d=dist(a);
-
-let k=$('system').value;
-
-let bid='PASS';
-
-let reason='';
-
-let conf=55;
-
-if(H>=22){
-
-bid='2♣';
-
-reason=
-'Tangan sangat kuat. 2♣ digunakan sebagai pembukaan kuat/forcing dalam banyak kerangka latihan. Detail resmi harus mengikuti convention card pasangan.';
-
-conf=82;
-
-}
-
-else if(
-balanced(a)&&
-H>=15&&
-H<=17
-){
-
-bid='1NT';
-
-reason=
-'Tangan seimbang dengan 15–17 HCP. 1NT merupakan pembukaan standar dalam banyak sistem natural.';
-
-conf=92;
-
-}
-
-else if(
-k==='Precision'&&
-H>=16
-){
-
-bid='1♣';
-
-reason=
-'Precision menggunakan 1♣ sebagai pembukaan kuat/artificial dalam banyak variannya.';
-
-conf=88;
-
-}
-
-else if(H<12){
-
-bid='PASS';
-
-reason=
-'HCP belum mencapai kekuatan pembukaan dasar pada latihan natural ini.';
-
-conf=84;
-
-}
-
-else if(
-[
-'Five',
-'SAYC',
-'Two',
-'Johan',
-'Natural'
-].includes(k)&&
-L.n>=5
-){
-
-bid=
-'1'+suitSym(L.s);
-
-reason=
-`${L.n} kartu ${suitSym(L.s)} dan ${H} HCP.
-Sistem ${SYSTEMS[k].name} menggunakan prinsip pembukaan natural dengan suit panjang.`;
-
-conf=86;
-
-}
-
-else if(
-[
-'Four',
-'Acol'
-].includes(k)&&
-L.n>=4
-){
-
-bid=
-'1'+suitSym(L.s);
-
-reason=
-`${L.n} kartu ${suitSym(L.s)} dan ${H} HCP.
-Dalam kerangka ${SYSTEMS[k].name}, major empat kartu dapat menjadi pilihan pembukaan sesuai kesepakatan.`;
-
-conf=80;
-
-}
-
-else if(H>=12){
-
-let m=
-a.filter(
-c=>c.s==='C'
-).length>=
-a.filter(
-c=>c.s==='D'
-).length
-?'C'
-:'D';
-
-bid=
-'1'+suitSym(m);
-
-reason=
-`Dengan ${H} HCP dan tidak ada major yang memenuhi prioritas,
-minor terpanjang digunakan sebagai pembukaan natural latihan.`;
-
-conf=70;
-
-}
-
-const c=levelConfig();
-
-if(
-bidRank(bid)>c.maxRank
-){
-
-reason+=
-` Pada tingkat ${c.name}, penawaran di atas batas latihan ditahan agar latihan berlangsung bertahap.`;
-
-bid='PASS';
-
-}
-
-recommendation={
-seat:$('dealer').value,
-bid,
-reason,
-hcp:H,
-distribution:d,
-confidence:conf
-};
-
-$('recommend').innerHTML=
-`<div class="rec">
-
-<b>
-Rekomendasi untuk ${$('dealer').value}
-</b>
-
-<div class="bid">
-${bid}
-</div>
-
-<p>
-${reason}
-</p>
-
-<p>
-
-<b>
-Analisis:
-</b>
-
-${H} HCP ·
-distribusi ${d.join('-')} ·
-suit terpanjang
-${L.n} ${suitSym(L.s)}.
-
-</p>
-
-<div class="bar">
-
-<i style="width:${conf}%"></i>
-
-</div>
-
-<small class="muted">
-
-Keyakinan aturan latihan:
-${conf}%
-
-· Tingkat ${c.name}
-
-· Batas ${c.maxLevel}NT
-
-</small>
-
-</div>`;
-
-}
-
-function nextSeat(){
-
-return seats[
-turn%4
-];
-
-}
-
-function startAuction(){
-
-auction=[];
-
-turn=
-seats.indexOf(
-$('dealer').value
-);
-
-contract=null;
-
-renderAuction();
-
-}
-
-function bidRank(b){
-
-if(b==='PASS')
-return 0;
-
-let m=
-b.match(
-/^([1-7])([♣♦♥♠]|NT)$/
-);
-
-if(!m)
-return 0;
-
-return Number(m[1])*5+
-({
-'♣':1,
-'♦':2,
-'♥':3,
-'♠':4,
-'NT':5
-}[m[2]]);
-
-}
-
-function legal(b){
-
-if(b==='PASS')
-return true;
-
-let m=
-b.match(/^([1-7])/);
-
-const c=levelConfig();
-
-if(
-m &&
-Number(m[1])>c.maxLevel
-){
-
-alert(
-`Bid ${b} belum dibuka untuk tingkat ${c.name}.
-Maksimum latihan saat ini ${c.maxLevel}NT.`
-);
-
-return false;
-
-}
-
-let last=
-[...auction]
-.reverse()
-.find(
-x=>x.bid!=='PASS'
-);
-
-return !last||
-bidRank(b)>bidRank(last.bid);
-
-}
-
-function addBid(
-b,
-who='Manual',
-why=''
-){
-
-if(!legal(b))
-return false;
-
-let s=
-nextSeat();
-
-auction.push({
-seat:s,
-bid:b,
-why,
-who
-});
-
-turn=
-(turn+1)%4;
-
-renderAuction();
-
-findContract();
-
-return true;
-
-}
-
-function computerBid(){
-
-if(!recommendation){
-
-recommend();
-
-return;
-
-}
-
-let s=
-nextSeat();
-
-let c=levelConfig();
-
-if(
-s!==recommendation.seat
-){
-
-let a=hands[s];
-
-if(!a.length){
-
-alert(
-'Belum ada kartu.'
-);
-
-return;
-
-}
-
-let H=hcp(a);
-
-let L=longest(a);
-
-let b=
-H>=15&&balanced(a)
-?'1NT'
-:H>=12&&L.n>=5
-?'1'+suitSym(L.s)
-:'PASS';
-
-addBid(
-b,
-'Computer',
-`Analisis komputer: ${H} HCP,
-distribusi ${fmtDist(a)}.
-Tingkat ${c.name} membatasi latihan sampai ${c.maxLevel}NT.`
-);
-
-return;
-
-}
-
-let b=
-recommendation.bid;
-
-if(
-bidRank(b)>c.maxRank
-){
-
-b='PASS';
-
-}
-
-addBid(
-b,
-'Computer',
-recommendation.reason
-);
-
-}
-
-function buildBidpad(){
-
-let arr=[
-'PASS',
-...[
-'1','2','3','4','5','6','7'
-]
-.flatMap(
-l=>
-[
-'♣','♦','♥','♠','NT'
-]
-.map(
-x=>l+x
-)
-)
-];
-
-$('bidpad').innerHTML=
-arr.map(
-b=>
-`<button data-bid="${b}">
-${b}
-</button>`
-)
-.join('');
-
-$('bidpad').onclick=e=>{
-
-let b=
-e.target.dataset.bid;
-
-if(b)
-addBid(b);
-
-};
-
-updateBidPad();
-
-}
-
-function updateBidPad(){
-
-if(!$('bidpad'))
-return;
-
-const max=
-levelConfig().maxLevel;
-
-$('bidpad')
-.querySelectorAll('button')
-.forEach(
-b=>{
-
-let bid=
-b.dataset.bid;
-
-if(
-bid==='PASS'
-){
-
-b.disabled=false;
-
-return;
-
-}
-
-let m=
-bid.match(/^([1-7])/);
-
-b.disabled=
-!!m &&
-Number(m[1])>max;
-
-}
-);
-
-}
-
 function renderAuction(){
-
-$('auctionBody').innerHTML=
-auction.length
-?
-auction.map(
-(x,i)=>
-`<tr>
-
-<td>${i+1}</td>
-
-<td>${x.seat}</td>
-
-<td><b>${x.bid}</b></td>
-
-<td>
-${x.who}
-${x.why?' — '+x.why:''}
-</td>
-
-</tr>`
-)
-.join('')
-:
-'<tr><td colspan="4" class="muted">Belum ada penawaran.</td></tr>';
-
-$('auctionMeta').textContent=
-auction.length
-?
-`Giliran: ${nextSeat()} · Dealer: ${$('dealer').value} · Sistem: ${SYSTEMS[$('system').value].name} · Tingkat: ${levelConfig().name}`
-:
-`Auction siap dimulai dari dealer ${$('dealer').value}. Tingkat latihan: ${levelConfig().name}.`;
-
+ const rows=[];
+ for(let i=0;i<auction.length;i+=4){
+  rows.push("<tr>"+dirs.map((d,j)=>{
+   const b=auction[i+j];
+   return "<td>"+(b?escapeHtml(b.bid):"—")+"</td>";
+  }).join("")+"</tr>");
+ }
+ $("auctionRows").innerHTML=rows.join("")||"<tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>";
+ $("auctionTurn").textContent=names[dirs[(dirs.indexOf(dealerFor(activeRoom.board))+auction.length)%4]];
 }
-
-function findContract(){
-
-let bids=
-auction.filter(
-x=>x.bid!=='PASS'
-);
-
-if(!bids.length){
-
-contract=null;
-
-$('contractBox').textContent=
-'Belum ada kontrak akhir.';
-
-return;
-
+function recordBid(bid){
+ if(!activeRoom||!hands){toast("Bagikan kartu sebelum bidding.");return;}
+ if(boardFinished){toast("Penawaran sudah selesai.");return;}
+ const dealer=dealerFor(activeRoom.board);
+ const seat=dirs[(dirs.indexOf(dealer)+auction.length)%4];
+ if(bid==="Double (X)"){
+  if(!lastContract||doubleState!==0){toast("Double tidak sah pada posisi ini.");return;}
+  const last=auction.filter(x=>parseLevel(x.bid));
+  if(!last.length||last[last.length-1].seat[0]===seat[0]){
+   toast("Double harus ditujukan pada kontrak pasangan lawan.");return;
+  }
+  doubleState=1;passedAfterContract=0;
+ }else if(bid==="Redouble (XX)"){
+  if(!lastContract||doubleState!==1){toast("Redouble memerlukan double yang sah.");return;}
+  const last=auction.filter(x=>parseLevel(x.bid));
+  if(!last.length||last[last.length-1].seat[0]!==seat[0]){
+   toast("Redouble harus dilakukan oleh pasangan declarer.");return;
+  }
+  doubleState=2;passedAfterContract=0;
+ }else if(bid==="Pass"){
+  if(lastContract)passedAfterContract++;
+ }else{
+  const parsed=parseLevel(bid);
+  if(!parsed){toast("Penawaran tidak dikenali.");return;}
+  if(lastContract && parsed.order<=lastContract.order){
+   toast("Kontrak baru harus lebih tinggi dari penawaran kontrak sebelumnya.");return;
+  }
+  lastContract={...parsed,bid};
+  doubleState=0;passedAfterContract=0;
+ }
+ saveUndo();
+ auction.push({seat,bid});
+ currentTurn=(currentTurn+1)%4;
+ renderAuction();
+ $("auctionMessage").textContent=names[seat]+": "+bid;
+ if(!lastContract && auction.length>=4 && auction.slice(-4).every(x=>x.bid==="Pass")){
+  boardFinished=true;$("auctionStatus").textContent="Semua Pass";
+  $("auctionMessage").textContent="Empat Pass berturut-turut: board passed out.";
+ }else if(lastContract && passedAfterContract>=3){
+  boardFinished=true;$("auctionStatus").textContent="Selesai";
+  $("auctionMessage").textContent="Penawaran selesai. Kontrak akhir: "+lastContract.bid+(doubleState===1?" X":doubleState===2?" XX":"");
+  $("resultContract").value=lastContract.bid;
+  $("doubleStatus").value=doubleState===1?"doubled":doubleState===2?"redoubled":"undoubled";
+ }
 }
-
-let last=
-bids[bids.length-1];
-
-contract={
-bid:last.bid,
-declarer:last.seat
-};
-
-$('contractBox').innerHTML=
-`Kontrak terakhir:
-<b>${last.bid}</b>
-· Declarer latihan:
-<b>${last.seat}</b>.
-Gunakan "Ambil Kontrak dari Auction"
-untuk kalkulator.`;
-
-}
-
-function parseContract(s){
-
-let m=
-s.match(
-/^([1-7])([♣♦♥♠]|NT)$/
-);
-
-return m
-?{
-level:+m[1],
-strain:m[2]
-}
-:null;
-
-}
-
-function isVul(seat,v){
-
-return(
-v==='Both'||
-(v==='NS'&&'NS'.includes(seat))||
-(v==='EW'&&'EW'.includes(seat))
-);
-
-}
-
-function scoreCalc(){
-
-let l=
-+$('level').value;
-
-let st=
-$('strain').value;
-
-let m=
-+$('mult').value;
-
-let dec=
-$('declarer').value;
-
-let tr=
-Math.max(
-0,
-Math.min(
-13,
-+$('tricks').value||0
-)
-);
-
-let v=
-$('calcVul').value;
-
-let target=l+6;
-
-let delta=tr-target;
-
-let vuln=
-isVul(dec,v);
-
-let base=
-st==='N'
-?
-40+(l-1)*30
-:
-l*(
-['H','S'].includes(st)
-?30
-:20
-);
-
-let score=0;
-
-let ex='';
-
-if(delta>=0){
-
-let cp=
-base*m;
-
-let game=
-cp>=100
-?
-(vuln?500:300)
-:
-50;
-
-let slam=
-l===6
-?
-(vuln?750:500)
-:
-l===7
-?
-(vuln?1500:1000)
-:
-0;
-
-let db=
-m===2
-?50
-:
-m===4
-?100
-:
-0;
-
-let ov=
-delta*
-(
-m===1
-?
-(
-st==='N'
-?30
-:
-(['H','S'].includes(st)?30:20)
-)
-:
-m===2
-?
-(vuln?200:100)
-:
-(vuln?400:200)
-);
-
-score=
-cp+
-game+
-slam+
-db+
-ov;
-
-ex=
-`Kontrak dibuat.
-Trick contract ${cp};
-bonus ${game}
-${slam?', slam '+slam:''}
-${db?', bonus double/redouble '+db:''}
-${ov?', overtrick '+ov:''}.`;
-
-}else{
-
-let d=-delta;
-
-let pen;
-
-if(m===1)
-
-pen=
-d*(vuln?100:50);
-
-else if(m===2)
-
-pen=
-vuln
-?
-200+(d-1)*300
-:
-100+
-Math.min(d-1,2)*200+
-Math.max(0,d-3)*300;
-
-else
-
-pen=
-vuln
-?
-400+(d-1)*600
-:
-200+
-Math.min(d-1,2)*400+
-Math.max(0,d-3)*600;
-
-score=-pen;
-
-ex=
-`Kontrak turun ${d} trick.
-Penalti ${pen}.`;
-
-}
-
-$('score').textContent=
-score>0
-?'+'+score
-:score;
-
-$('score').className=
-'score '+(
-score>=0
-?'pos'
-:'neg'
-);
-
-$('scoreExplain').textContent=ex;
-
-return{
-l,
-st,
-m,
-dec,
-tr,
-v,
-score
-};
-
-}
-
-function loadContract(){
-
-if(!contract){
-
-alert(
-'Belum ada kontrak.'
-);
-
-return;
-
-}
-
-let c=
-parseContract(
-contract.bid
-);
-
-if(!c)
-return;
-
-$('level').value=
-c.level;
-
-$('strain').value=
-c.strain==='NT'
-?
-'N'
-:
-({
-'♣':'C',
-'♦':'D',
-'♥':'H',
-'♠':'S'
-}[c.strain]);
-
-$('declarer').value=
-contract.declarer;
-
-$('calcVul').value=
-$('vul').value;
-
-scoreCalc();
-
-}
-
-function saveScore(){
-
-let x=
-scoreCalc();
-
-let ct=
-x.l+
-(
-x.st==='N'
-?'NT'
-:suitSym(x.st)
-)+
-(
-x.m===2
-?'X'
-:
-x.m===4
-?'XX'
-:''
-);
-
-scores.unshift({
-
-board:+$('board').value||1,
-
-dealer:
-$('dealer').value,
-
-vul:x.v,
-
-contract:ct,
-
-declarer:x.dec,
-
-trick:x.tr,
-
-score:x.score,
-
-system:
-SYSTEMS[
-$('system').value
-].name,
-
-training:
-levelConfig().name
-
+$("bidButtons").addEventListener("click",e=>{
+ const b=e.target.closest("[data-bid]");
+ if(!b)return;
+ if(b.dataset.bid==="Undo"){
+  const previous=undoStack.pop();
+  if(!previous){toast("Belum ada aksi untuk dibatalkan.");return;}
+  const s=JSON.parse(previous);
+  auction=s.auction;currentTurn=s.currentTurn;lastContract=s.lastContract;
+  doubleState=s.doubleState;passedAfterContract=s.passedAfterContract;
+  boardFinished=s.boardFinished;
+  renderAuction();
+  $("auctionStatus").textContent=boardFinished?"Selesai":"Berlangsung";
+  $("auctionMessage").textContent="Aksi terakhir dibatalkan.";
+  return;
+ }
+ recordBid(b.dataset.bid);
+});
+$("submitContract").addEventListener("click",()=>{
+ const value=$("contractBid").value;
+ if(!value){toast("Pilih kontrak terlebih dahulu.");return;}
+ recordBid(value);
 });
 
-scores=
-scores.slice(
-0,
-200
-);
-
-localStorage.setItem(
-'gabsi_bridge_scores',
-JSON.stringify(scores)
-);
-
-renderScores();
-
+function contractScore(contract,decl,tricks,doubled,vul){
+ const p=parseLevel(contract);
+ if(!p)return 0;
+ const required=6+p.level;
+ const over=tricks-required;
+ const vulnerable=isVulnerable(decl,vul);
+ const mult=doubled==="redoubled"?4:doubled==="doubled"?2:1;
+ if(over<0){
+  const under=-over;
+  if(mult===1)return -(vulnerable?100:50)*under;
+  let penalty=0;
+  if(vulnerable){
+   penalty=mult===2?200:400;
+   if(under>1)penalty+=(under-1)*(mult===2?300:600);
+  }else{
+   penalty=mult===2?100:200;
+   if(under>1)penalty+=(Math.min(under-1,2))*(mult===2?200:400);
+   if(under>3)penalty+=(under-3)*(mult===2?300:600);
+  }
+  return -penalty;
+ }
+ let trickPoints=0;
+ if(p.strain==="♣"||p.strain==="♦")trickPoints=p.level*20;
+ else if(p.strain==="♥"||p.strain==="♠")trickPoints=p.level*30;
+ else trickPoints=40+(p.level-1)*30;
+ trickPoints*=mult;
+ let score=trickPoints;
+ score+=trickPoints>=100?(vulnerable?500:300):50;
+ if(mult===2)score+=50;
+ if(mult===4)score+=100;
+ if(p.level===6)score+=vulnerable?750:500;
+ if(p.level===7)score+=vulnerable?1500:1000;
+ if(mult===1)score+=over*(p.strain==="NT"||p.strain==="♥"||p.strain==="♠"?30:20);
+ else score+=over*(vulnerable?200:100)* (mult===4?2:1);
+ return score;
 }
-
+$("saveResult").addEventListener("click",()=>{
+ if(!activeRoom){toast("Buat room terlebih dahulu.");return;}
+ const contract=$("resultContract").value;
+ const declarer=$("declarer").value;
+ const tricks=Number($("tricks").value);
+ if(!Number.isInteger(tricks)||tricks<0||tricks>13){toast("Trick harus antara 0 sampai 13.");return;}
+ const vul=vulnerability(activeRoom.board);
+ const status=$("doubleStatus").value;
+ const raw=contractScore(contract,declarer,tricks,status,vul);
+ const ns=(declarer==="Utara"||declarer==="Selatan")?raw:-raw;
+ const row={
+  board:activeRoom.board,dealer:names[dealerFor(activeRoom.board)],
+  vulnerability:vulText(vul),
+  contract:contract+(status==="doubled"?" X":status==="redoubled"?" XX":""),
+  declarer,tricks,ns,ew:-ns
+ };
+ let scores=[];
+ try{scores=JSON.parse(localStorage.getItem("gabsi_bridge_scores")||"[]");}catch(e){}
+ scores.push(row);
+ localStorage.setItem("gabsi_bridge_scores",JSON.stringify(scores));
+ renderScores();
+ toast("Hasil board dicatat di browser ini.");
+});
 function renderScores(){
-
-$('scores').innerHTML=
-scores.length
-?
-scores.map(
-(r,i)=>
-`<tr>
-
-<td>${r.board}</td>
-<td>${r.dealer}</td>
-<td>${r.vul}</td>
-
-<td>
-<b>${r.contract}</b>
-</td>
-
-<td>${r.declarer}</td>
-
-<td>${r.trick}</td>
-
-<td class="${
-r.score>=0
-?'pos'
-:'neg'
-}">
-
-<b>
-${r.score>0?'+':''}${r.score}
-</b>
-
-</td>
-
-<td>
-
-<button class="btn"
-        data-del="${i}">
-
-Hapus
-
-</button>
-
-</td>
-
-</tr>`
-)
-.join('')
-:
-'<tr><td colspan="8" class="muted">Belum ada score sheet.</td></tr>';
-
-document
-.querySelectorAll('[data-del]')
-.forEach(
-b=>
-b.onclick=()=>{
-
-scores.splice(
-+b.dataset.del,
-1
-);
-
-localStorage.setItem(
-'gabsi_bridge_scores',
-JSON.stringify(scores)
-);
-
-renderScores();
-
+ let scores=[];
+ try{scores=JSON.parse(localStorage.getItem("gabsi_bridge_scores")||"[]");}catch(e){}
+ $("scoreRows").innerHTML=scores.length?scores.map(s=>`
+  <tr><td>${s.board}</td><td>${escapeHtml(s.dealer)}</td>
+  <td>${escapeHtml(s.vulnerability)}</td><td>${escapeHtml(s.contract)}</td>
+  <td>${escapeHtml(s.declarer)}</td><td>${s.tricks}</td>
+  <td>${s.ns}</td><td>${s.ew}</td></tr>`).join("")
+  :'<tr><td colspan="8" class="empty-state">Belum ada hasil pertandingan.</td></tr>';
 }
-);
-
-}
-
-function exportCSV(){
-
-if(!scores.length){
-
-alert(
-'Score sheet masih kosong.'
-);
-
-return;
-
-}
-
-let rows=[
-
-[
-'Board',
-'Dealer',
-'Vulnerability',
-'Contract',
-'Declarer',
-'Trick',
-'Score',
-'System',
-'Training'
-],
-
-...scores.map(
-r=>[
-r.board,
-r.dealer,
-r.vul,
-r.contract,
-r.declarer,
-r.trick,
-r.score,
-r.system,
-r.training||''
-]
-)
-
-];
-
-let csv=
-rows
-.map(
-r=>
-r.map(
-v=>
-'"'+
-String(v)
-.replace(/"/g,'""')+
-'"'
-)
-.join(',')
-)
-.join('\n');
-
-let a=
-document.createElement('a');
-
-a.href=
-URL.createObjectURL(
-new Blob(
-[csv],
-{
-type:'text/csv'
-}
-)
-);
-
-a.download=
-'score-sheet-gabsi-tanjungbalai.csv';
-
-a.click();
-
-}
-
-const uploadSeats=[
-'N','E','S','W'
-];
-
-$('uploads').innerHTML=
-uploadSeats.map(
-s=>
-`<div class="upload">
-
-<b>${s}</b>
-
-<input
-type="file"
-accept="image/*"
-data-seat="${s}">
-
-<img>
-
-</div>`
-)
-.join('');
-
-document
-.querySelectorAll('.level')
-.forEach(
-x=>
-x.onclick=()=>
-setTrainingLevel(
-x.dataset.level
-)
-);
-
-document
-.querySelectorAll('.sys')
-.forEach(
-x=>
-x.onclick=()=>{
-
-$('system').value=
-x.dataset.sys;
-
-renderSystem();
-
-recommend();
-
-}
-);
-
-$('system').onchange=()=>{
-
-renderSystem();
-
-recommend();
-
-};
-
-$('applySystem').onclick=()=>{
-
-renderSystem();
-
-recommend();
-
-alert(
-'Sistem '+
-SYSTEMS[
-$('system').value
-].name+
-' aktif.'
-);
-
-};
-
-$('systemInfo').onclick=()=>
-document
-.getElementById(
-'systemDetail'
-)
-.scrollIntoView({
-behavior:'smooth'
+$("printScores").addEventListener("click",()=>window.print());
+$("exportScores").addEventListener("click",()=>{
+ let scores=[];
+ try{scores=JSON.parse(localStorage.getItem("gabsi_bridge_scores")||"[]");}catch(e){}
+ if(!scores.length){toast("Belum ada data untuk diekspor.");return;}
+ const cols=["board","dealer","vulnerability","contract","declarer","tricks","ns","ew"];
+ const csv=[cols.join(","),...scores.map(s=>cols.map(k=>'"'+String(s[k]).replace(/"/g,'""')+'"').join(","))].join("\r\n");
+ const url=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+ const a=document.createElement("a");a.href=url;a.download="score-sheet-gabsi.csv";a.click();
+ URL.revokeObjectURL(url);
 });
-
-document
-.querySelectorAll(
-'input[name="mode"]'
-)
-.forEach(
-r=>
-r.onchange=()=>{
-
-$('autoBox')
-.classList.toggle(
-'hidden',
-r.value!=='auto'
-);
-
-$('manualBox')
-.classList.toggle(
-'hidden',
-r.value!=='manual'
-);
-
-}
-);
-
-$('deal').onclick=deal;
-
-$('reshuffle').onclick=deal;
-
-$('applyManual').onclick=
-applyManual;
-
-document
-.querySelectorAll(
-'.upload input'
-)
-.forEach(
-i=>
-
-i.onchange=e=>{
-
-let img=
-i.parentElement
-.querySelector('img');
-
-let f=
-e.target.files[0];
-
-if(f){
-
-let rd=
-new FileReader();
-
-rd.onload=x=>{
-
-img.src=
-x.target.result;
-
-img.style.display=
-'block';
-
-};
-
-rd.readAsDataURL(f);
-
-}
-
-}
-);
-
-$('clearPhotos').onclick=()=>
-document
-.querySelectorAll(
-'.upload img'
-)
-.forEach(
-i=>{
-
-i.src='';
-
-i.style.display=
-'none';
-
-}
-);
-
-$('useRec').onclick=()=>{
-
-if(!recommendation){
-
-alert(
-'Belum ada rekomendasi.'
-);
-
-return;
-
-}
-
-if(!auction.length)
-startAuction();
-
-if(
-nextSeat()!==
-recommendation.seat
-){
-
-alert(
-'Giliran auction belum berada pada dealer rekomendasi.'
-);
-
-return;
-
-}
-
-addBid(
-recommendation.bid,
-'Computer',
-recommendation.reason
-);
-
-};
-
-$('explain').onclick=()=>{
-
-if(!recommendation)
-return;
-
-alert(
-'REKOMENDASI: '+
-recommendation.bid+
-'\n\n'+
-'Tingkat: '+
-levelConfig().name+
-'\nMaksimum: '+
-levelConfig().maxLevel+
-'NT'+
-'\n\nHCP: '+
-recommendation.hcp+
-'\nDistribusi: '+
-recommendation.distribution.join('-')+
-'\n\nAlasan: '+
-recommendation.reason
-);
-
-};
-
-$('startAuction').onclick=
-startAuction;
-
-$('computerBid').onclick=
-computerBid;
-
-$('clearAuction').onclick=
-startAuction;
-
-$('calculate').onclick=
-scoreCalc;
-
-$('loadContract').onclick=
-loadContract;
-
-$('saveScore').onclick=
-saveScore;
-
-$('export').onclick=
-exportCSV;
-
-$('clearScores').onclick=()=>{
-
-if(
-confirm(
-'Hapus semua score sheet?'
-)
-){
-
-scores=[];
-
-localStorage.removeItem(
-'gabsi_bridge_scores'
-);
-
+$("clearScores").addEventListener("click",()=>{
+ if(!confirm("Hapus semua riwayat score sheet lokal?"))return;
+ localStorage.removeItem("gabsi_bridge_scores");renderScores();
+});
+renderRoomList();
 renderScores();
-
-}
-
-};
-
-$('dealer').onchange=()=>{
-
-if(!auction.length)
-turn=
-seats.indexOf(
-$('dealer').value
-);
-
-recommend();
-
-renderAuction();
-
-};
-
-$('vul').onchange=()=>{
-
-if(contract)
-$('calcVul').value=
-$('vul').value;
-
-};
-
-buildSystems();
-
-renderSystem();
-
-buildBidpad();
-
-setTrainingLevel(
-trainingLevel
-);
-
-showHands();
-
-renderAuction();
-
-renderScores();
-
 })();
-
 </script>
-
 </body>
 </html>
