@@ -1,991 +1,780 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#063b5c">
-<meta name="description" content="GABSI Kota Tanjungbalai - Kocokan Kartu Pembanding dan Latihan Bridge Duplicate.">
-<title>Kocokan Kartu Pembanding — GABSI Kota Tanjungbalai</title>
-
+<meta name="theme-color" content="#0b3d59">
+<title>Latihan Bridge - GABSI Kota Tanjungbalai</title>
 <style>
-:root{
-  --green:#063b5c;
-  --green2:#07558f;
-  --gold:#ffd75a;
-  --bg:#eef4f7;
-  --white:#fff;
-  --text:#263746;
-  --muted:#536673;
-  --border:#dce7ec;
-  --red:#c92f3d;
-  --blue:#07558f;
-  --shadow:0 6px 20px rgba(0,0,0,.07);
+:root {
+  --navy: #0b3d59;
+  --blue: #07588a;
+  --blue2: #087eaa;
+  --gold: #e4c76a;
+  --bg: #edf4f7;
+  --white: #ffffff;
+  --text: #233947;
+  --muted: #6b7c85;
+  --line: #dce7eb;
+  --green: #e6f5ed;
+  --red: #fae9eb;
+  --shadow: 0 7px 20px rgba(20, 50, 65, .09);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--bg);color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;line-height:1.7
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
-button,input,select{font:inherit}
-button{cursor:pointer}
-button:disabled{opacity:.45;cursor:not-allowed}
-
-/* HEADER — SESUAI profil.html */
-.site-header{
-  width:100%;background:#fff;
-  box-shadow:0 2px 12px rgba(0,0,0,.10);
-  position:relative;z-index:1000
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+.topbar {
+  min-height: 76px;
+  padding: 10px 18px;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
-.top-line{
-  width:100%;min-height:30px;background:#063b5c;color:#fff;
-  padding:6px 20px;display:flex;align-items:center;
-  justify-content:space-between;font-size:9px;letter-spacing:.2px
+.topbar small { font-size: 10px; letter-spacing: .4px; }
+.topbar .right { text-align: right; }
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fff;
+  box-shadow: 0 2px 8px #183b4a18;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
-.header-main{
-  width:100%;min-height:68px;padding:9px 20px;
-  display:flex;align-items:center;gap:20px;background:#fff
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-right: 8px;
+  flex-shrink: 0;
 }
-.brand{
-  display:flex;align-items:center;gap:10px;
-  text-decoration:none;flex:0 0 auto;min-width:0
+.brand img { width: 27px; height: 27px; object-fit: contain; }
+.brand strong { font-size: 12px; color: var(--navy); }
+.brand small { display: block; font-size: 7px; color: #71838b; margin-top: 3px; }
+.navbar a {
+  font-size: 10px;
+  padding: 8px 7px;
+  border-radius: 7px;
+  font-weight: 700;
 }
-.logo{
-  width:40px;height:40px;min-width:40px;min-height:40px;
-  max-width:40px;max-height:40px;display:flex;
-  align-items:center;justify-content:center;flex:0 0 40px;
-  overflow:hidden;background:#fff;border-radius:8px;
-  padding:0;margin:0;border:0
+.navbar a:hover, .navbar a.active {
+  background: #eaf3f8;
+  color: var(--blue);
 }
-.logo img{
-  display:block;width:100%;height:100%;
-  max-width:100%;max-height:100%;object-fit:contain;
-  margin:0;padding:0
+.navbar a.active { box-shadow: inset 0 -2px #cf5360; }
+main { max-width: 1250px; margin: 0 auto; padding: 28px 18px 55px; }
+.hero {
+  color: #fff;
+  background: linear-gradient(115deg, #0b3d59, #07588a 65%, #087eaa);
+  padding: 32px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
 }
-.brand-text{display:block;min-width:0}
-.brand-text strong{
-  display:block;color:#063b5c;font-size:13px;
-  line-height:1.2;white-space:nowrap
+.eyebrow {
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 1px;
 }
-.brand-text small{
-  display:block;color:#7b8790;font-size:7px;line-height:1.2;
-  margin-top:2px;letter-spacing:.2px;white-space:nowrap
+.hero h1 { margin: 12px 0 9px; font-size: 29px; }
+.hero p { margin: 0; line-height: 1.7; color: #e3edf3; }
+.pill {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 8px 12px;
+  border: 1px solid #ffffff55;
+  border-radius: 30px;
+  font-size: 10px;
 }
-.main-nav{
-  display:flex;align-items:center;justify-content:flex-end;
-  gap:3px;flex:1;min-width:0;overflow-x:auto;
-  overflow-y:hidden;white-space:nowrap;scrollbar-width:none
+.notice {
+  padding: 13px 16px;
+  margin: 16px 0;
+  border-radius: 10px;
+  background: #fff9e9;
+  border: 1px solid #f0dfb2;
+  color: #6a5a30;
+  line-height: 1.6;
+  font-size: 12px;
 }
-.main-nav::-webkit-scrollbar{display:none}
-.main-nav a{
-  display:inline-flex;align-items:center;justify-content:center;
-  flex:0 0 auto;padding:8px 9px;border-radius:9px;
-  text-decoration:none;color:#172033;font-size:10px;
-  font-weight:600;white-space:nowrap;background:transparent;
-  transition:background .2s ease,color .2s ease
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.card {
+  background: #fff;
+  border: 1px solid #e2eaee;
+  border-radius: 16px;
+  padding: 23px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+  min-width: 0;
 }
-.main-nav a:hover{
-  background:#eaf4f9;color:#07558f
+.card h2 { margin: 0 0 12px; color: var(--blue); font-size: 18px; }
+.card h3 { color: var(--blue); margin: 0 0 12px; }
+.card p.desc { color: var(--muted); line-height: 1.6; font-size: 12px; }
+label { display: block; font-size: 11px; font-weight: 700; margin: 13px 0 7px; }
+input, select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #d6e0e5;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
 }
-.main-nav a.active{
-  background:#eaf4f9;color:#07558f;font-weight:700;
-  box-shadow:inset 0 -3px 0 #c92f3d
+input:focus, select:focus { border-color: #1682ac; box-shadow: 0 0 0 3px #1682ac1c; }
+.btn {
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 15px;
+  font-weight: 700;
+  font-size: 12px;
+  background: #eaf3f8;
+  color: var(--blue);
 }
-
-/* AREA KONTEN */
-.head-inner,.container{max-width:1100px;margin:auto}
-.container{width:100%;padding:38px 20px 55px}
-.hero{
-  background:linear-gradient(135deg,#063b5c 0%,#07558f 55%,#087cab 100%);
-  color:#fff;border-radius:17px;padding:30px;
-  margin-bottom:25px;box-shadow:var(--shadow);
-  position:relative;overflow:hidden
+.btn.primary { background: var(--blue); color: #fff; }
+.btn.secondary { background: #edf5f8; color: var(--blue); }
+.btn.danger { background: var(--red); color: #9a3540; }
+.btn.light { background: #fff; border: 1px solid var(--line); color: var(--text); }
+.btn.block { display: block; width: 100%; margin-top: 14px; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+.room-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.room-item { border: 1px solid var(--line); padding: 15px; border-radius: 11px; }
+.room-item strong { color: var(--blue); }
+.room-item p { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.empty { padding: 30px 12px; text-align: center; color: var(--muted); font-size: 12px; }
+.small { color: var(--muted); font-size: 11px; line-height: 1.6; }
+.status { font-size: 12px; margin-top: 12px; line-height: 1.6; }
+.hidden { display: none !important; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #e3ebef; white-space: nowrap; }
+th { background: #eaf3f7; color: #27495c; }
+.table-wrap { overflow-x: auto; }
+footer {
+  background: var(--navy);
+  color: #d8e5ec;
+  text-align: center;
+  padding: 27px 15px;
+  font-size: 11px;
+  line-height: 1.8;
 }
-.hero:before{
-  content:"";position:absolute;width:240px;height:240px;
-  border-radius:50%;border:1px solid rgba(255,255,255,.08);
-  top:-150px;right:-60px
-}
-.hero .eyebrow{
-  display:inline-block;color:#ffd75a;font-size:10px;
-  letter-spacing:.8px;font-weight:bold;position:relative
-}
-.hero h2{
-  position:relative;font-size:30px;line-height:1.2;margin:9px 0
-}
-.hero p{
-  position:relative;font-size:12px;
-  color:rgba(255,255,255,.90);margin:0;max-width:760px
-}
-.pill{
-  display:inline-flex;align-items:center;gap:6px;
-  border-radius:30px;padding:6px 10px;
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.25);
-  font-size:10px;margin-top:14px;position:relative
-}
-.pill i{
-  width:7px;height:7px;background:#ffd75a;border-radius:50%
-}
-.notice{
-  background:#fff7e7;border:1px solid #eed8a5;color:#624d1e;
-  border-radius:12px;padding:13px 14px;font-size:12px;margin-bottom:20px
-}
-
-/* GRID DAN KARTU */
-.grid{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px
-}
-.card{
-  background:#fff;border:1px solid #dce7ec;border-radius:17px;
-  padding:25px;box-shadow:var(--shadow);
-  min-width:0;margin-bottom:20px
-}
-.card h3{color:#07558f;font-size:18px;margin:0 0 8px}
-.desc{font-size:11px;color:#536673;margin:0 0 15px;line-height:1.8}
-.field{margin-bottom:12px}
-label{
-  display:block;font-size:11px;font-weight:bold;
-  color:#173b50;margin-bottom:6px
-}
-input,select{
-  width:100%;min-width:0;background:#fff;
-  border:1px solid #dce7ec;border-radius:9px;
-  padding:11px 12px;color:#263746;outline:none
-}
-input:focus,select:focus{
-  border-color:#07558f;box-shadow:0 0 0 3px #07558f1c
-}
-.btn{
-  border:0;border-radius:10px;padding:11px 14px;
-  font-weight:bold;font-size:12px;display:inline-flex;
-  align-items:center;justify-content:center;gap:7px
-}
-.primary{background:#07558f;color:#fff}
-.secondary{background:#eaf4f9;color:#07558f}
-.gold{background:#ffd75a;color:#173b50}
-.danger{background:#fceaea;color:#a12626}
-.outline{background:#fff;border:1px solid #dce7ec;color:#263746}
-.full{width:100%}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-.small{font-size:10px;color:#536673;line-height:1.7}
-.status{
-  display:inline-block;font-size:10px;font-weight:bold;
-  padding:5px 8px;border-radius:20px;
-  background:#eaf4f9;color:#07558f
-}
-
-/* ROOM */
-.room-row{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:12px 0;border-bottom:1px solid var(--border)
-}
-.room-row:last-child{border-bottom:0}
-.room-name{font-weight:bold;font-size:13px;color:#173b50}
-.room-meta{font-size:11px;color:var(--muted);margin-top:3px}
-.room-code{font-family:monospace;color:#07558f;font-weight:bold}
-.seats{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px
-}
-.seat{
-  text-align:center;background:#f5f9fb;border:1px solid var(--border);
-  border-radius:12px;padding:12px 4px;min-width:0
-}
-.seat .direction{font-size:11px;color:var(--muted)}
-.seat .player{
-  font-size:11px;font-weight:bold;overflow-wrap:anywhere;margin-top:4px
-}
-.seat .seat-icon{font-size:22px}
-.seat.occupied{background:#eaf4f9;border-color:#b7d4e5}
-.seat.empty{border-style:dashed;color:#8895a0}
-
-/* BOARD DAN VULNERABILITY */
-.boardbar{
-  display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
-  padding:12px;background:#f5f9fb;border-radius:12px;margin:12px 0
-}
-.boardstat{font-size:10px;color:var(--muted)}
-.boardstat strong{
-  display:block;color:#063b5c;font-size:14px;margin-top:3px
-}
-.vulnerability{
-  display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0
-}
-.vul{border-radius:10px;padding:12px;font-size:11px;font-weight:bold}
-.vul strong{display:block;font-size:15px;margin-top:4px}
-.vul.yes{background:#fce8e8;color:#a32626}
-.vul.no{background:#eaf4f9;color:#07558f}
-
-/* DISTRIBUSI KARTU */
-.hand{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px
-}
-.handbox{border:1px solid var(--border);border-radius:12px;padding:10px}
-.handbox h4{margin:0 0 8px;font-size:12px;color:#173b50}
-.suitline{
-  font-size:13px;letter-spacing:1px;margin:6px 0;word-break:break-word
-}
-.suitline.red{color:#c92f3d}
-.suitline.black{color:#18251e}
-
-/* PENAWARAN BRIDGE */
-.auction{
-  width:100%;border-collapse:collapse;font-size:12px;margin:12px 0
-}
-.auction th,.auction td{
-  border:1px solid var(--border);padding:8px;text-align:center
-}
-.auction th{background:#eaf4f9;color:#173b50}
-.auction td{min-width:40px}
-.bid-buttons{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px
-}
-.bid-buttons button{
-  padding:11px 2px;font-weight:bold;border-radius:9px;
-  border:1px solid var(--border);background:#fff;color:#173b50
-}
-.bid-buttons .redbid{color:#c92f3d}
-.bid-buttons .passbid{background:#eaf4f9;color:#07558f}
-.bid-buttons button:active{transform:scale(.97)}
-.table-wrap{overflow-x:auto}
-table.score{
-  width:100%;border-collapse:collapse;min-width:650px;font-size:12px
-}
-table.score th,table.score td{
-  padding:10px 9px;border-bottom:1px solid var(--border);text-align:left
-}
-table.score th{background:#eaf4f9;color:#173b50;white-space:nowrap}
-.empty-state{text-align:center;padding:20px 10px;color:var(--muted);font-size:12px}
-.hidden{display:none!important}
-hr{border:0;border-top:1px solid var(--border);margin:16px 0}
-
-/* FOOTER */
-footer{
-  background:#063b5c;color:rgba(255,255,255,.75);
-  text-align:center;font-size:10px;line-height:1.8;padding:25px 12px
-}
-.toast{
-  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
-  background:#063b5c;color:#fff;padding:12px 16px;
-  border-radius:12px;font-size:12px;box-shadow:var(--shadow);
-  z-index:100;width:max-content;max-width:90%;display:none
-}
-
-/* RESPONSIVE — MENIRU profil.html */
-@media(max-width:1100px){
-  .header-main{gap:10px}
-  .main-nav{justify-content:flex-start}
-  .main-nav a{padding:8px}
-}
-@media(max-width:800px){
-  .grid{grid-template-columns:1fr}
-}
-@media(max-width:700px){
-  .top-line{padding:6px 10px;font-size:7px;gap:8px}
-  .header-main{min-height:58px;padding:7px 10px;gap:8px}
-  .logo{
-    width:36px;height:36px;min-width:36px;min-height:36px;
-    max-width:36px;max-height:36px;flex-basis:36px
-  }
-  .brand-text strong{font-size:10px}
-  .brand-text small{font-size:5px}
-  .main-nav{flex:1;gap:2px;overflow-x:auto}
-  .main-nav a{font-size:8px;padding:7px 8px}
-  .hero{padding:24px 18px}
-  .hero h2{font-size:25px}
-  .hero p{font-size:10px}
-  .container{padding:25px 12px 38px}
-  .card{padding:20px}
-  .card h3{font-size:17px}
-  .seats{gap:5px}
-  .seat{padding:10px 2px}
-  .bid-buttons{grid-template-columns:repeat(4,minmax(0,1fr))}
-  footer{padding:27px 15px 15px}
-}
-@media(max-width:380px){
-  .brand-text{display:none}
-  .header-main{gap:5px}
-  .main-nav a{font-size:7px;padding:6px 7px}
-  .hero h2{font-size:22px}
-  .hand{grid-template-columns:1fr}
-  .vulnerability{grid-template-columns:1fr}
-}
-@media print{
-  header nav,.top-line,.no-print,footer{display:none!important}
-  body{background:#fff}
-  .card,.hero{box-shadow:none;break-inside:avoid}
-  .container{max-width:none}
+footer p { margin: 0; }
+@media (max-width: 700px) {
+  main { padding: 20px 12px 40px; }
+  .grid { grid-template-columns: 1fr; gap: 0; }
+  .hero { padding: 23px 20px; }
+  .hero h1 { font-size: 23px; }
+  .card { padding: 18px; }
+  .topbar { min-height: 58px; }
+  .brand strong { font-size: 11px; }
+  th, td { padding: 10px 8px; }
 }
 </style>
 </head>
-
 <body>
-
-<header class="site-header">
- <div class="top-line">
-  <span>GABSI KOTA TANJUNGBALAI</span>
-  <span>Bridge • Prestasi • Persaudaraan</span>
- </div>
- <div class="header-main">
-  <a href="index.html" class="brand">
-   <div class="logo">
-    <img src="logo-gabsi.png" alt="Logo GABSI Kota Tanjungbalai">
-   </div>
-   <div class="brand-text">
-    <strong>GABSI KOTA TANJUNGBALAI</strong>
-    <small>GABUNGAN BRIDGE SELURUH INDONESIA</small>
-   </div>
-  </a>
-  <nav class="main-nav">
-   <a href="index.html">Beranda</a>
-   <a href="profil.html">Profil</a>
-   <a href="pengurus.html">Pengurus</a>
-   <a href="kegiatan.html">Kegiatan</a>
-   <a href="galeri.html">Galeri</a>
-   <a href="aplikasi.html">Aplikasi</a>
-   <a href="kocokan-kartu.html" class="active">Kartu Pembanding</a>
-   <a href="game-bridge-gabsi.html">Game Bridge</a>
-   <a href="berita.html">Berita</a>
-   <a href="kontak.html">Kontak</a>
-  </nav>
- </div>
+<header class="topbar">
+  <div><small>GABSI KOTA TANJUNGBALAI</small></div>
+  <div class="right"><small>Bridge • Prestasi • Persaudaraan</small></div>
 </header>
 
-<main class="container">
- <section class="hero">
-  <div class="eyebrow">DUPLICATE BRIDGE TRAINING</div>
-  <h2>Kocokan Kartu Pembanding</h2>
-  <p>Latihan Bridge yang terstruktur. Buat room, tentukan sistem penawaran, pelajari distribusi kartu, dan catat hasil setiap board.</p>
-  <div class="pill"><i></i> MODE UJI LOKAL — BELUM TERHUBUNG KE SERVER ONLINE</div>
- </section>
+<nav class="navbar">
+  <a class="brand" href="index.html">
+    <img src="logo-gabsi.png" alt="Logo" onerror="this.style.display='none'">
+    <span><strong>GABSI KOTA TANJUNGBALAI</strong><small>GABUNGAN BRIDGE SELURUH INDONESIA</small></span>
+  </a>
+  <a href="index.html">Beranda</a>
+  <a href="profil.html">Profil</a>
+  <a href="pengurus.html">Pengurus</a>
+  <a href="kegiatan.html">Kegiatan</a>
+  <a href="galeri.html">Galeri</a>
+  <a href="aplikasi.html">Aplikasi</a>
+  <a class="active" href="kocokan-kartu.html">Latihan Bridge</a>
+  <a href="game-bridge-gabsi.html">Game Bridge</a>
+  <a href="berita.html">Berita</a>
+  <a href="kontak.html">Kontak</a>
+</nav>
 
- <div class="notice">
-  <strong>Informasi koneksi:</strong> versi HTML ini bekerja secara lokal pada browser. Room belum dapat ditemukan atau dimainkan oleh perangkat lain. Multiplayer online memerlukan backend dan sinkronisasi real-time.
- </div>
+<main>
+  <section class="hero">
+    <div class="eyebrow">DUPLICATE BRIDGE TRAINING</div>
+    <h1>Kocokan Latihan Bridge</h1>
+    <p>Latihan Bridge yang terstruktur. Buat room, tentukan sistem penawaran, pelajari distribusi kartu, dan catat hasil setiap board.</p>
+    <span class="pill">● ROOM ONLINE - SUPABASE</span>
+  </section>
 
- <section class="grid">
-  <div class="card">
-   <h3>＋ Buat Room</h3>
-   <p class="desc">Buat meja latihan dan tentukan aturan pertandingan.</p>
-   <div class="field">
-    <label for="playerName">Nama pemain Anda</label>
-    <input id="playerName" maxlength="40" placeholder="Masukkan nama pemain">
-   </div>
-   <div class="field">
-    <label for="roomName">Nama room</label>
-    <input id="roomName" maxlength="50" placeholder="Contoh: Latihan Bridge Sabtu">
-   </div>
-   <div class="field">
-    <label for="level">Tingkatan latihan</label>
-    <select id="level">
-     <option value="Pemula">Pemula</option>
-     <option value="Mahir">Mahir</option>
-     <option value="Profesional">Profesional</option>
-    </select>
-   </div>
-   <button class="btn primary full" id="createRoom">Buat Room Lokal</button>
+  <div class="notice">
+    <strong>Status koneksi:</strong>
+    <span id="connectionStatus">Memeriksa koneksi Supabase...</span>
   </div>
 
-  <div class="card">
-   <h3>⇢ Bergabung ke Room</h3>
-   <p class="desc">Masukkan kode room untuk membuka room pada browser ini.</p>
-   <div class="field">
-    <label for="joinName">Nama pemain</label>
-    <input id="joinName" maxlength="40" placeholder="Nama lengkap">
-   </div>
-   <div class="field">
-    <label for="joinCode">Kode room</label>
-    <input id="joinCode" maxlength="12" placeholder="Contoh: AB12CD" style="text-transform:uppercase">
-   </div>
-   <button class="btn secondary full" id="joinRoom">Buka Room Lokal</button>
-   <hr>
-   <p class="small">Kode room lokal hanya berlaku pada data browser ini. Untuk mengundang pemain melalui internet, backend harus dikonfigurasi.</p>
-  </div>
- </section>
+  <section class="grid">
+    <div class="card">
+      <h2>＋ Buat Room</h2>
+      <p class="desc">Buat meja latihan dan tentukan aturan pertandingan.</p>
+      <form id="createForm">
+        <label for="creatorName">Nama pemain Anda</label>
+        <input id="creatorName" required maxlength="40" placeholder="Masukkan nama pemain">
 
- <section class="card">
-  <h3>Daftar Room</h3>
-  <p class="desc">Room yang dibuat pada browser ini.</p>
-  <div id="roomList"><div class="empty-state">Belum ada room. Buat room untuk memulai.</div></div>
- </section>
+        <label for="roomName">Nama room</label>
+        <input id="roomName" required maxlength="60" placeholder="Contoh: Latihan Bridge Sabtu">
 
- <section class="card hidden" id="roomPanel">
-  <div style="display:flex;justify-content:space-between;align-items:start;gap:10px;flex-wrap:wrap">
-   <div>
-    <span class="status">ROOM AKTIF LOKAL</span>
-    <h3 id="activeRoomName" style="margin-top:10px">Room Bridge</h3>
-    <p class="desc">Kode: <strong class="room-code" id="activeRoomCode"></strong></p>
-   </div>
-   <button class="btn outline no-print" id="copyCode">Salin Kode</button>
-  </div>
+        <label for="level">Tingkatan latihan</label>
+        <select id="level">
+          <option value="beginner">Pemula</option>
+          <option value="intermediate">Sedang</option>
+          <option value="advanced">Mahir</option>
+          <option value="professional">Profesional</option>
+        </select>
 
-  <div class="boardbar">
-   <div class="boardstat">TINGKAT<strong id="activeLevel">Pemula</strong></div>
-   <div class="boardstat">BOARD<strong id="boardNumber">1</strong></div>
-   <div class="boardstat">DEALER<strong id="dealer">Utara</strong></div>
-  </div>
+        <label for="systemNS">Sistem penawaran Utara–Selatan</label>
+        <select id="systemNS">
+          <option>Four Card Major</option>
+          <option selected>Five Card Major</option>
+          <option>Precision</option>
+          <option>SAYC</option>
+          <option>2/1 Game Force</option>
+          <option>Acol</option>
+          <option>Johan</option>
+          <option>Natural Standard</option>
+        </select>
 
-  <h3>Posisi Pemain</h3>
-  <p class="desc">Empat kursi Bridge Duplicate.</p>
-  <div class="seats" id="seats"></div>
+        <label for="systemEW">Sistem penawaran Timur–Barat</label>
+        <select id="systemEW">
+          <option>Four Card Major</option>
+          <option>Five Card Major</option>
+          <option selected>Precision</option>
+          <option>SAYC</option>
+          <option>2/1 Game Force</option>
+          <option>Acol</option>
+          <option>Johan</option>
+          <option>Natural Standard</option>
+        </select>
 
-  <hr>
-  <h3>Sistem Penawaran</h3>
-  <p class="desc">Pasangan memilih sistem masing-masing. Dalam Bridge, sistem pasangan sebaiknya disepakati bersama.</p>
-  <div class="grid">
-   <div class="field">
-    <label for="systemNS">Pasangan Utara – Selatan</label>
-    <select id="systemNS">
-     <option>Four Card Major</option>
-     <option>Five Card Major</option>
-     <option>Precision</option>
-    </select>
-   </div>
-   <div class="field">
-    <label for="systemEW">Pasangan Timur – Barat</label>
-    <select id="systemEW">
-     <option>Four Card Major</option>
-     <option>Five Card Major</option>
-     <option>Precision</option>
-    </select>
-   </div>
-  </div>
+        <button class="btn primary block" id="createBtn" type="submit">Buat Room Online</button>
+        <div id="createStatus" class="status" role="status"></div>
+      </form>
+    </div>
 
-  <div class="vulnerability" id="vulnerability"></div>
-  <p class="small">Vulnerability dihitung berdasarkan nomor board standar. Semua pemain dalam board yang sama harus menggunakan data board yang sama.</p>
+    <div class="card">
+      <h2>→ Bergabung ke Room</h2>
+      <p class="desc">Masukkan kode room untuk bergabung dari HP lain.</p>
+      <form id="joinForm">
+        <label for="joinName">Nama pemain</label>
+        <input id="joinName" required maxlength="40" placeholder="Nama lengkap">
 
-  <div class="actions no-print" style="margin-top:15px">
-   <button class="btn primary" id="dealCards">Kocok & Bagikan Kartu</button>
-   <button class="btn outline" id="nextBoard">Board Berikutnya →</button>
-  </div>
-  <p class="small" style="margin-top:10px">Pengocokan di halaman ini untuk uji lokal. Pengacakan dan kerahasiaan kartu untuk pertandingan online wajib divalidasi server.</p>
- </section>
+        <label for="joinCode">Kode room</label>
+        <input id="joinCode" required maxlength="12" placeholder="CONTOH: AB12CD" autocapitalize="characters">
 
- <section class="card hidden" id="cardsPanel">
-  <h3>Distribusi Kartu</h3>
-  <p class="desc">Tampilan lokal untuk memeriksa kartu setiap posisi.</p>
-  <div class="actions no-print" style="margin-bottom:12px">
-   <button class="btn secondary" data-hand="N">Utara</button>
-   <button class="btn secondary" data-hand="E">Timur</button>
-   <button class="btn secondary" data-hand="S">Selatan</button>
-   <button class="btn secondary" data-hand="W">Barat</button>
-  </div>
-  <div id="handView"></div>
-  <div class="boardbar">
-   <div class="boardstat">HCP UTARA<strong id="hcpN">0</strong></div>
-   <div class="boardstat">HCP TIMUR<strong id="hcpE">0</strong></div>
-   <div class="boardstat">HCP SELATAN<strong id="hcpS">0</strong></div>
-   <div class="boardstat">HCP BARAT<strong id="hcpW">0</strong></div>
-  </div>
- </section>
+        <button class="btn secondary block" id="joinBtn" type="submit">Gabung Room Online</button>
+        <div id="joinStatus" class="status" role="status"></div>
+      </form>
+      <hr>
+      <p class="small">Room dapat dibuka dari perangkat lain menggunakan kode yang sama. Daftar pemain diperbarui setiap 5 detik.</p>
+    </div>
+  </section>
 
- <section class="card hidden" id="auctionPanel">
-  <h3>Meja Penawaran</h3>
-  <p class="desc">Pilih penawaran untuk mencatat urutan bidding pada sesi lokal ini. Ini bukan validasi pertandingan multiplayer.</p>
-  <div class="boardbar">
-   <div class="boardstat">GILIRAN<strong id="auctionTurn">Utara</strong></div>
-   <div class="boardstat">DEALER<strong id="auctionDealer">Utara</strong></div>
-   <div class="boardstat">STATUS<strong id="auctionStatus">Berlangsung</strong></div>
-  </div>
-  <div class="bid-buttons" id="bidButtons">
-   <button data-bid="Pass" class="passbid">Pass</button>
-   <button data-bid="Double (X)" class="redbid">X</button>
-   <button data-bid="Redouble (XX)" class="redbid">XX</button>
-   <button data-bid="Undo">↶ Undo</button>
-  </div>
-  <div class="field" style="margin-top:12px">
-   <label for="contractBid">Penawaran kontrak</label>
-   <select id="contractBid">
-    <option value="">Pilih kontrak</option>
-    <option>1♣</option><option>1♦</option><option>1♥</option><option>1♠</option><option>1NT</option>
-    <option>2♣</option><option>2♦</option><option>2♥</option><option>2♠</option><option>2NT</option>
-    <option>3♣</option><option>3♦</option><option>3♥</option><option>3♠</option><option>3NT</option>
-    <option>4♣</option><option>4♦</option><option>4♥</option><option>4♠</option><option>4NT</option>
-    <option>5♣</option><option>5♦</option><option>5♥</option><option>5♠</option><option>5NT</option>
-    <option>6♣</option><option>6♦</option><option>6♥</option><option>6♠</option><option>6NT</option>
-    <option>7♣</option><option>7♦</option><option>7♥</option><option>7♠</option><option>7NT</option>
-   </select>
-   <button class="btn primary full" id="submitContract" style="margin-top:8px">Catat Kontrak (Mode Lokal)</button>
-  </div>
-  <div class="table-wrap">
-   <table class="auction">
-    <thead><tr><th>Utara</th><th>Timur</th><th>Selatan</th><th>Barat</th></tr></thead>
-    <tbody id="auctionRows"><tr><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody>
-   </table>
-  </div>
-  <p id="auctionMessage" class="small">Belum ada penawaran.</p>
- </section>
+  <section class="card">
+    <h2>Daftar Room</h2>
+    <p class="desc">Room yang dibuat atau dibuka dari perangkat ini.</p>
+    <div id="roomList" class="room-list">
+      <div class="empty">Belum ada room. Buat atau bergabung untuk memulai.</div>
+    </div>
+  </section>
 
- <section class="card hidden" id="resultPanel">
-  <h3>Catat Hasil Board</h3>
-  <p class="desc">Masukkan hasil setelah permainan empat pemain selesai. Formulir ini mencatat hasil yang dimasukkan, bukan menghitung trick secara otomatis.</p>
-  <div class="grid">
-   <div class="field">
-    <label for="resultContract">Kontrak akhir</label>
-    <select id="resultContract">
-     <option>1♣</option><option>1♦</option><option>1♥</option><option>1♠</option><option>1NT</option>
-     <option>2♣</option><option>2♦</option><option>2♥</option><option>2♠</option><option>2NT</option>
-     <option>3♣</option><option>3♦</option><option>3♥</option><option>3♠</option><option>3NT</option>
-     <option>4♣</option><option>4♦</option><option>4♥</option><option>4♠</option><option>4NT</option>
-     <option>5♣</option><option>5♦</option><option>5♥</option><option>5♠</option><option>5NT</option>
-     <option>6♣</option><option>6♦</option><option>6♥</option><option>6♠</option><option>6NT</option>
-     <option>7♣</option><option>7♦</option><option>7♥</option><option>7♠</option><option>7NT</option>
-    </select>
-   </div>
-   <div class="field">
-    <label for="declarer">Declarer</label>
-    <select id="declarer"><option>Utara</option><option>Timur</option><option>Selatan</option><option>Barat</option></select>
-   </div>
-   <div class="field">
-    <label for="doubleStatus">Status kontrak</label>
-    <select id="doubleStatus"><option value="undoubled">Normal</option><option value="doubled">Double (X)</option><option value="redoubled">Redouble (XX)</option></select>
-   </div>
-   <div class="field">
-    <label for="tricks">Jumlah trick declarer (0–13)</label>
-    <input id="tricks" type="number" min="0" max="13" value="9">
-   </div>
-  </div>
-  <button class="btn primary full" id="saveResult">Simpan Hasil ke Score Sheet</button>
- </section>
+  <section id="roomPanel" class="card hidden">
+    <h2 id="roomTitle">Room Latihan Bridge</h2>
+    <p id="roomDetails" class="desc"></p>
+    <div class="notice">
+      <strong>Kode room: <span id="currentRoomCode">-</span></strong>
+      <button class="btn light" id="copyCodeBtn" type="button">Salin Kode</button>
+    </div>
 
- <section class="card" id="scorePanel">
-  <h3>Score Sheet</h3>
-  <p class="desc">Riwayat hasil yang dicatat di browser ini.</p>
-  <div class="actions no-print" style="margin-bottom:12px">
-   <button class="btn secondary" id="printScores">Cetak Score Sheet</button>
-   <button class="btn outline" id="exportScores">Ekspor CSV</button>
-   <button class="btn danger" id="clearScores">Hapus Riwayat</button>
-  </div>
-  <div class="table-wrap">
-   <table class="score">
-    <thead><tr>
-     <th>Board</th><th>Dealer</th><th>Vulnerability</th><th>Kontrak</th>
-     <th>Declarer</th><th>Trick</th><th>NS</th><th>EW</th>
-    </tr></thead>
-    <tbody id="scoreRows"><tr><td colspan="8" class="empty-state">Belum ada hasil pertandingan.</td></tr></tbody>
-   </table>
-  </div>
- </section>
+    <h3>Posisi pemain</h3>
+    <div class="grid">
+      <div class="room-item"><strong>Utara (N)</strong><p id="seatN">Menunggu pemain</p></div>
+      <div class="room-item"><strong>Timur (E)</strong><p id="seatE">Menunggu pemain</p></div>
+      <div class="room-item"><strong>Selatan (S)</strong><p id="seatS">Menunggu pemain</p></div>
+      <div class="room-item"><strong>Barat (W)</strong><p id="seatW">Menunggu pemain</p></div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="dealBtn" type="button">Bagikan Kartu</button>
+      <button class="btn light" id="refreshBtn" type="button">Perbarui Room</button>
+      <button class="btn danger" id="leaveBtn" type="button">Tutup Tampilan Room</button>
+    </div>
+    <div id="roomStatus" class="status"></div>
+
+    <hr>
+    <h3>Kartu Latihan</h3>
+    <p class="small">Catatan: pada versi ini pembagian kartu dan penawaran belum disinkronkan antarpemain. Jangan gunakan hasil lokal sebagai papan pertandingan online resmi.</p>
+    <div id="handArea" class="room-list">
+      <div class="empty">Tekan “Bagikan Kartu” untuk membuat pembagian kartu latihan pada perangkat ini.</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Score Sheet</h2>
+    <p class="desc">Riwayat hasil yang dicatat di browser ini.</p>
+    <div class="actions">
+      <button class="btn secondary" id="printBtn" type="button">Cetak Score Sheet</button>
+      <button class="btn light" id="exportBtn" type="button">Ekspor CSV</button>
+      <button class="btn danger" id="clearScoresBtn" type="button">Hapus Riwayat</button>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Board</th><th>Dealer</th><th>Vulnerability</th><th>Kontrak</th>
+            <th>Declarer</th><th>Trick</th><th>NS</th><th>EW</th>
+          </tr>
+        </thead>
+        <tbody id="scoreRows"></tbody>
+      </table>
+    </div>
+    <div id="scoreEmpty" class="empty hidden">Belum ada hasil yang dicatat.</div>
+  </section>
 </main>
 
 <footer>
- GABSI Kota Tanjungbalai • Bridge Duplicate Training<br>
- Aplikasi lokal — koneksi multiplayer online belum dikonfigurasi.
+  <p>GABSI Kota Tanjungbalai • Bridge Duplicate Training</p>
+  <p>Room dan daftar pemain terhubung ke Supabase. Kartu dan bidding masih lokal.</p>
 </footer>
-<div class="toast" id="toast"></div>
 
 <script>
-(function(){
-"use strict";
+(() => {
+  "use strict";
 
-const $ = id => document.getElementById(id);
-const names = {N:"Utara",E:"Timur",S:"Selatan",W:"Barat"};
-const dirs = ["N","E","S","W"];
-const suits = [
- {key:"S",symbol:"♠",name:"Sekop",red:false},
- {key:"H",symbol:"♥",name:"Hati",red:true},
- {key:"D",symbol:"♦",name:"Wajik",red:true},
- {key:"C",symbol:"♣",name:"Keriting",red:false}
-];
-const ranks = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
-const hcpValue = {A:4,K:3,Q:2,J:1};
-let rooms = [];
-let activeRoom = null;
-let hands = null;
-let auction = [];
-let currentTurn = 0;
-let lastContract = null;
-let doubleState = 0;
-let passedAfterContract = 0;
-let boardFinished = false;
-let undoStack = [];
-let toastTimer = null;
+  const SUPABASE_URL = "https://ykppcosauhohddanyeyx.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_uqjzyrfAs8rdJtiC_k_PZg_u_zXBN";
+  const API_URL = SUPABASE_URL + "/functions/v1/bright-api";
+  const $ = (id) => document.getElementById(id);
 
-function toast(message){
- const el=$("toast");
- el.textContent=message;
- el.style.display="block";
- clearTimeout(toastTimer);
- toastTimer=setTimeout(()=>el.style.display="none",2600);
-}
-function escapeHtml(s){
- return String(s).replace(/[&<>"']/g,c=>({
- "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- }[c]));
-}
-function randomCode(){
- const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
- let out="";
- for(let i=0;i<6;i++) out+=chars[Math.floor(Math.random()*chars.length)];
- return out;
-}
-function vulnerability(board){
- const pattern=[
-  "None","NS","EW","Both","NS","EW","Both","None",
-  "EW","Both","None","NS","Both","None","NS","EW"
- ];
- return pattern[(Math.max(1,board)-1)%16];
-}
-function dealerFor(board){
- return dirs[(Math.max(1,board)-1)%4];
-}
-function vulText(v){
- if(v==="None") return "Kedua pasangan tidak bahaya";
- if(v==="NS") return "Utara–Selatan bahaya";
- if(v==="EW") return "Timur–Barat bahaya";
- return "Kedua pasangan bahaya";
-}
-function isVulnerable(direction,v){
- return v==="Both" || v===direction || v==="None" ? v==="Both" || v===direction : false;
-}
-function renderVulnerability(){
- if(!activeRoom)return;
- const v=vulnerability(activeRoom.board);
- $("vulnerability").innerHTML=["NS","EW"].map(pair=>{
-  const danger=isVulnerable(pair,v);
-  const label=pair==="NS"?"UTARA – SELATAN":"TIMUR – BARAT";
-  return `<div class="vul ${danger?"yes":"no"}">${label}<strong>${danger?"BAHAYA":"TIDAK BAHAYA"}</strong></div>`;
- }).join("");
- $("boardNumber").textContent=activeRoom.board;
- $("dealer").textContent=names[dealerFor(activeRoom.board)];
- $("auctionDealer").textContent=names[dealerFor(activeRoom.board)];
-}
-function renderSeats(){
- if(!activeRoom)return;
- $("seats").innerHTML=dirs.map(d=>{
-  const p=activeRoom.players[d];
-  return `<div class="seat ${p?"occupied":"empty"}">
-   <div class="seat-icon">${d==="N"?"♠":d==="E"?"♦":d==="S"?"♥":"♣"}</div>
-   <div class="direction">${names[d]}</div>
-   <div class="player">${p?escapeHtml(p):"Kursi kosong"}</div>
-  </div>`;
- }).join("");
-}
-function renderRoomList(){
- if(!rooms.length){
-  $("roomList").innerHTML='<div class="empty-state">Belum ada room. Buat room untuk memulai.</div>';
-  return;
- }
- $("roomList").innerHTML=rooms.map(r=>`
-  <div class="room-row">
-   <div>
-    <div class="room-name">${escapeHtml(r.name)}</div>
-    <div class="room-meta">Kode <span class="room-code">${r.code}</span> · ${escapeHtml(r.level)} · ${Object.values(r.players).filter(Boolean).length}/4 pemain</div>
-   </div>
-   <button class="btn secondary" data-open-room="${r.code}">Buka</button>
-  </div>`).join("");
-}
-function showRoom(r){
- activeRoom=r;
- $("roomPanel").classList.remove("hidden");
- $("activeRoomName").textContent=r.name;
- $("activeRoomCode").textContent=r.code;
- $("activeLevel").textContent=r.level;
- $("systemNS").value=r.systemNS;
- $("systemEW").value=r.systemEW;
- renderSeats();
- renderVulnerability();
- resetBoardUI();
- window.scrollTo({top:$("roomPanel").offsetTop-10,behavior:"smooth"});
-}
-function resetBoardUI(){
- hands=null;auction=[];currentTurn=0;lastContract=null;
- doubleState=0;passedAfterContract=0;boardFinished=false;undoStack=[];
- $("cardsPanel").classList.add("hidden");
- $("auctionPanel").classList.add("hidden");
- $("resultPanel").classList.add("hidden");
- $("auctionRows").innerHTML="<tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>";
- $("auctionMessage").textContent="Belum ada penawaran.";
- $("auctionStatus").textContent="Berlangsung";
-}
-function saveRoomSettings(){
- if(!activeRoom)return;
- activeRoom.systemNS=$("systemNS").value;
- activeRoom.systemEW=$("systemEW").value;
-}
-$("createRoom").addEventListener("click",()=>{
- const player=$("playerName").value.trim();
- const name=$("roomName").value.trim();
- if(!player||!name){toast("Isi nama pemain dan nama room.");return;}
- const r={
-  code:randomCode(),name,level:$("level").value,
-  systemNS:"Four Card Major",systemEW:"Four Card Major",
-  board:1,players:{N:"",E:"",S:"",W:""}
- };
- r.players.S=player;
- rooms.unshift(r);
- renderRoomList();showRoom(r);
- toast("Room lokal dibuat. Belum tersedia bagi perangkat lain.");
-});
-$("joinRoom").addEventListener("click",()=>{
- const code=$("joinCode").value.trim().toUpperCase();
- const player=$("joinName").value.trim();
- if(!code||!player){toast("Masukkan kode room dan nama pemain.");return;}
- const r=rooms.find(x=>x.code===code);
- if(!r){toast("Room tidak ditemukan pada browser ini.");return;}
- const free=dirs.find(d=>!r.players[d]);
- if(!free && !dirs.some(d=>r.players[d]===player)){
-  toast("Room sudah penuh.");return;
- }
- if(!dirs.some(d=>r.players[d]===player))r.players[free]=player;
- renderRoomList();showRoom(r);
- toast("Anda masuk ke room lokal.");
-});
-$("roomList").addEventListener("click",e=>{
- const btn=e.target.closest("[data-open-room]");
- if(!btn)return;
- const r=rooms.find(x=>x.code===btn.dataset.openRoom);
- if(r)showRoom(r);
-});
-$("copyCode").addEventListener("click",()=>{
- if(!activeRoom)return;
- if(navigator.clipboard&&navigator.clipboard.writeText){
-  navigator.clipboard.writeText(activeRoom.code)
-   .then(()=>toast("Kode disalin: "+activeRoom.code))
-   .catch(()=>toast("Kode room: "+activeRoom.code));
- }else toast("Kode room: "+activeRoom.code);
-});
-$("systemNS").addEventListener("change",saveRoomSettings);
-$("systemEW").addEventListener("change",saveRoomSettings);
+  let activeRoom = null;
+  let refreshTimer = null;
+  let boardNumber = 1;
+  let scores = loadScores();
 
-function makeDeck(){
- const deck=[];
- suits.forEach(s=>ranks.forEach(r=>deck.push({suit:s.key,rank:r,symbol:s.symbol,red:s.red})));
- for(let i=deck.length-1;i>0;i--){
-  const j=Math.floor(Math.random()*(i+1));
-  [deck[i],deck[j]]=[deck[j],deck[i]];
- }
- return deck;
-}
-function deal(){
- const deck=makeDeck();
- const out={N:[],E:[],S:[],W:[]};
- deck.forEach((c,i)=>out[dirs[i%4]].push(c));
- dirs.forEach(d=>out[d].sort((a,b)=>{
-  const si=suits.findIndex(s=>s.key===a.suit)-suits.findIndex(s=>s.key===b.suit);
-  return si || ranks.indexOf(b.rank)-ranks.indexOf(a.rank);
- }));
- return out;
-}
-function hcp(hand){
- return hand.reduce((sum,c)=>sum+(hcpValue[c.rank]||0),0);
-}
-function renderHand(direction){
- if(!hands)return;
- const hand=hands[direction];
- $("handView").innerHTML=`
-  <div class="hand">
-   ${suits.map(s=>{
-    const cards=hand.filter(c=>c.suit===s.key)
-     .sort((a,b)=>ranks.indexOf(b.rank)-ranks.indexOf(a.rank));
-    return `<div class="handbox">
-     <h4>${s.symbol} ${s.name} · ${cards.length} kartu</h4>
-     <div class="suitline ${s.red?"red":"black"}">${cards.length?cards.map(c=>c.rank).join(" "):"—"}</div>
-    </div>`;
-   }).join("")}
-  </div>
-  <p class="small">Posisi ${names[direction]} · ${hand.length} kartu · HCP ${hcp(hand)}</p>`;
- dirs.forEach(d=>$("hcp"+d).textContent=hcp(hands[d]));
-}
-document.querySelectorAll("[data-hand]").forEach(btn=>{
- btn.addEventListener("click",()=>renderHand(btn.dataset.hand));
-});
-$("dealCards").addEventListener("click",()=>{
- if(!activeRoom){toast("Buat atau buka room terlebih dahulu.");return;}
- saveRoomSettings();
- hands=deal();
- $("cardsPanel").classList.remove("hidden");
- $("auctionPanel").classList.remove("hidden");
- $("resultPanel").classList.remove("hidden");
- renderHand("S");
- toast("52 kartu dibagikan secara lokal.");
-});
-$("nextBoard").addEventListener("click",()=>{
- if(!activeRoom){toast("Buat room terlebih dahulu.");return;}
- activeRoom.board++;
- renderVulnerability();
- resetBoardUI();
- toast("Board berikutnya: "+activeRoom.board);
-});
-
-function saveUndo(){
- undoStack.push(JSON.stringify({
-  auction,currentTurn,lastContract,doubleState,passedAfterContract,boardFinished
- }));
- if(undoStack.length>40)undoStack.shift();
-}
-function parseLevel(bid){
- const m=String(bid).match(/^([1-7])([♣♦♥♠]|NT)$/);
- if(!m)return null;
- const strain=m[2];
- const strainOrder={"♣":0,"♦":1,"♥":2,"♠":3,"NT":4};
- return {level:Number(m[1]),strain,order:(Number(m[1])-1)*5+strainOrder[strain]};
-}
-function renderAuction(){
- const rows=[];
- for(let i=0;i<auction.length;i+=4){
-  rows.push("<tr>"+dirs.map((d,j)=>{
-   const b=auction[i+j];
-   return "<td>"+(b?escapeHtml(b.bid):"—")+"</td>";
-  }).join("")+"</tr>");
- }
- $("auctionRows").innerHTML=rows.join("")||"<tr><td>—</td><td>—</td><td>—</td><td>—</td></tr>";
- $("auctionTurn").textContent=names[dirs[(dirs.indexOf(dealerFor(activeRoom.board))+auction.length)%4]];
-}
-function recordBid(bid){
- if(!activeRoom||!hands){toast("Bagikan kartu sebelum bidding.");return;}
- if(boardFinished){toast("Penawaran sudah selesai.");return;}
- const dealer=dealerFor(activeRoom.board);
- const seat=dirs[(dirs.indexOf(dealer)+auction.length)%4];
- if(bid==="Double (X)"){
-  if(!lastContract||doubleState!==0){toast("Double tidak sah pada posisi ini.");return;}
-  const last=auction.filter(x=>parseLevel(x.bid));
-  if(!last.length||last[last.length-1].seat[0]===seat[0]){
-   toast("Double harus ditujukan pada kontrak pasangan lawan.");return;
+  function loadScores() {
+    try {
+      const data = JSON.parse(localStorage.getItem("gabsiBridgeScores") || "[]");
+      return Array.isArray(data) ? data : [];
+    } catch (_) {
+      return [];
+    }
   }
-  doubleState=1;passedAfterContract=0;
- }else if(bid==="Redouble (XX)"){
-  if(!lastContract||doubleState!==1){toast("Redouble memerlukan double yang sah.");return;}
-  const last=auction.filter(x=>parseLevel(x.bid));
-  if(!last.length||last[last.length-1].seat[0]!==seat[0]){
-   toast("Redouble harus dilakukan oleh pasangan declarer.");return;
-  }
-  doubleState=2;passedAfterContract=0;
- }else if(bid==="Pass"){
-  if(lastContract)passedAfterContract++;
- }else{
-  const parsed=parseLevel(bid);
-  if(!parsed){toast("Penawaran tidak dikenali.");return;}
-  if(lastContract && parsed.order<=lastContract.order){
-   toast("Kontrak baru harus lebih tinggi dari penawaran kontrak sebelumnya.");return;
-  }
-  lastContract={...parsed,bid};
-  doubleState=0;passedAfterContract=0;
- }
- saveUndo();
- auction.push({seat,bid});
- currentTurn=(currentTurn+1)%4;
- renderAuction();
- $("auctionMessage").textContent=names[seat]+": "+bid;
- if(!lastContract && auction.length>=4 && auction.slice(-4).every(x=>x.bid==="Pass")){
-  boardFinished=true;$("auctionStatus").textContent="Semua Pass";
-  $("auctionMessage").textContent="Empat Pass berturut-turut: board passed out.";
- }else if(lastContract && passedAfterContract>=3){
-  boardFinished=true;$("auctionStatus").textContent="Selesai";
-  $("auctionMessage").textContent="Penawaran selesai. Kontrak akhir: "+lastContract.bid+(doubleState===1?" X":doubleState===2?" XX":"");
-  $("resultContract").value=lastContract.bid;
-  $("doubleStatus").value=doubleState===1?"doubled":doubleState===2?"redoubled":"undoubled";
- }
-}
-$("bidButtons").addEventListener("click",e=>{
- const b=e.target.closest("[data-bid]");
- if(!b)return;
- if(b.dataset.bid==="Undo"){
-  const previous=undoStack.pop();
-  if(!previous){toast("Belum ada aksi untuk dibatalkan.");return;}
-  const s=JSON.parse(previous);
-  auction=s.auction;currentTurn=s.currentTurn;lastContract=s.lastContract;
-  doubleState=s.doubleState;passedAfterContract=s.passedAfterContract;
-  boardFinished=s.boardFinished;
-  renderAuction();
-  $("auctionStatus").textContent=boardFinished?"Selesai":"Berlangsung";
-  $("auctionMessage").textContent="Aksi terakhir dibatalkan.";
-  return;
- }
- recordBid(b.dataset.bid);
-});
-$("submitContract").addEventListener("click",()=>{
- const value=$("contractBid").value;
- if(!value){toast("Pilih kontrak terlebih dahulu.");return;}
- recordBid(value);
-});
 
-function contractScore(contract,decl,tricks,doubled,vul){
- const p=parseLevel(contract);
- if(!p)return 0;
- const required=6+p.level;
- const over=tricks-required;
- const vulnerable=isVulnerable(decl,vul);
- const mult=doubled==="redoubled"?4:doubled==="doubled"?2:1;
- if(over<0){
-  const under=-over;
-  if(mult===1)return -(vulnerable?100:50)*under;
-  let penalty=0;
-  if(vulnerable){
-   penalty=mult===2?200:400;
-   if(under>1)penalty+=(under-1)*(mult===2?300:600);
-  }else{
-   penalty=mult===2?100:200;
-   if(under>1)penalty+=(Math.min(under-1,2))*(mult===2?200:400);
-   if(under>3)penalty+=(under-3)*(mult===2?300:600);
+  function saveScores() {
+    localStorage.setItem("gabsiBridgeScores", JSON.stringify(scores));
+    renderScores();
   }
-  return -penalty;
- }
- let trickPoints=0;
- if(p.strain==="♣"||p.strain==="♦")trickPoints=p.level*20;
- else if(p.strain==="♥"||p.strain==="♠")trickPoints=p.level*30;
- else trickPoints=40+(p.level-1)*30;
- trickPoints*=mult;
- let score=trickPoints;
- score+=trickPoints>=100?(vulnerable?500:300):50;
- if(mult===2)score+=50;
- if(mult===4)score+=100;
- if(p.level===6)score+=vulnerable?750:500;
- if(p.level===7)score+=vulnerable?1500:1000;
- if(mult===1)score+=over*(p.strain==="NT"||p.strain==="♥"||p.strain==="♠"?30:20);
- else score+=over*(vulnerable?200:100)*(mult===4?2:1);
- return score;
-}
-$("saveResult").addEventListener("click",()=>{
- if(!activeRoom){toast("Buat room terlebih dahulu.");return;}
- const contract=$("resultContract").value;
- const declarer=$("declarer").value;
- const tricks=Number($("tricks").value);
- if(!Number.isInteger(tricks)||tricks<0||tricks>13){toast("Trick harus antara 0 sampai 13.");return;}
- const vul=vulnerability(activeRoom.board);
- const status=$("doubleStatus").value;
- const raw=contractScore(contract,declarer,tricks,status,vul);
- const ns=(declarer==="Utara"||declarer==="Selatan")?raw:-raw;
- const row={
-  board:activeRoom.board,dealer:names[dealerFor(activeRoom.board)],
-  vulnerability:vulText(vul),
-  contract:contract+(status==="doubled"?" X":status==="redoubled"?" XX":""),
-  declarer,tricks,ns,ew:-ns
- };
- let scores=[];
- try{scores=JSON.parse(localStorage.getItem("gabsi_bridge_scores")||"[]");}catch(e){}
- scores.push(row);
- localStorage.setItem("gabsi_bridge_scores",JSON.stringify(scores));
- renderScores();
- toast("Hasil board dicatat di browser ini.");
-});
-function renderScores(){
- let scores=[];
- try{scores=JSON.parse(localStorage.getItem("gabsi_bridge_scores")||"[]");}catch(e){}
- $("scoreRows").innerHTML=scores.length?scores.map(s=>`
-  <tr><td>${s.board}</td><td>${escapeHtml(s.dealer)}</td>
-  <td>${escapeHtml(s.vulnerability)}</td><td>${escapeHtml(s.contract)}</td>
-  <td>${escapeHtml(s.declarer)}</td><td>${s.tricks}</td>
-  <td>${s.ns}</td><td>${s.ew}</td></tr>`).join("")
-  :'<tr><td colspan="8" class="empty-state">Belum ada hasil pertandingan.</td></tr>';
-}
-$("printScores").addEventListener("click",()=>window.print());
-$("exportScores").addEventListener("click",()=>{
- let scores=[];
- try{scores=JSON.parse(localStorage.getItem("gabsi_bridge_scores")||"[]");}catch(e){}
- if(!scores.length){toast("Belum ada data untuk diekspor.");return;}
- const cols=["board","dealer","vulnerability","contract","declarer","tricks","ns","ew"];
- const csv=[cols.join(","),...scores.map(s=>cols.map(k=>'"'+String(s[k]).replace(/"/g,'""')+'"').join(","))].join("\r\n");
- const url=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
- const a=document.createElement("a");a.href=url;a.download="score-sheet-gabsi.csv";a.click();
- URL.revokeObjectURL(url);
-});
-$("clearScores").addEventListener("click",()=>{
- if(!confirm("Hapus semua riwayat score sheet lokal?"))return;
- localStorage.removeItem("gabsi_bridge_scores");renderScores();
-});
-renderRoomList();
-renderScores();
+
+  function setText(id, value) {
+    $(id).textContent = value == null || value === "" ? "-" : String(value);
+  }
+
+  function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (ch) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;",
+      '"': "&quot;", "'": "&#39;"
+    })[ch]);
+  }
+
+  async function api(action, payload = {}) {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY
+      },
+      body: JSON.stringify({ action, ...payload })
+    });
+    const text = await response.text();
+    let data;
+    try { data = JSON.parse(text); }
+    catch (_) { throw new Error("Respons server tidak dapat dibaca."); }
+    if (!response.ok || data.success === false || data.error) {
+      throw new Error(data.error || data.message || ("Permintaan gagal (" + response.status + ")"));
+    }
+    return data;
+  }
+
+  async function checkConnection() {
+    try {
+      await api("ping");
+      setText("connectionStatus", "Terhubung ke Supabase. Room dan daftar pemain menggunakan server.");
+    } catch (error) {
+      setText("connectionStatus", "Koneksi gagal: " + error.message);
+    }
+  }
+
+  function getPlayers(room) {
+    if (Array.isArray(room.players)) return room.players;
+    if (Array.isArray(room.room_players)) return room.room_players;
+    return [];
+  }
+
+  function normalizeRoom(room, playerName, token, position) {
+    const normalized = {
+      id: room.id || "",
+      room_code: room.room_code || room.code || "",
+      room_name: room.room_name || room.name || "Latihan Bridge",
+      level: room.level || "Pemula",
+      status: room.status || "waiting",
+      system_ns: room.system_ns || room.systemNS || "Five Card Major",
+      system_ew: room.system_ew || room.systemEW || "Precision",
+      players: getPlayers(room),
+      playerName: playerName || "",
+      playerToken: token || "",
+      position: position || ""
+    };
+    return normalized;
+  }
+
+  function roomStore() {
+    try { return JSON.parse(localStorage.getItem("gabsiBridgeRooms") || "[]"); }
+    catch (_) { return []; }
+  }
+
+  function saveRoomStore() {
+    const store = roomStore();
+    if (activeRoom) {
+      const index = store.findIndex(r => r.room_code === activeRoom.room_code);
+      if (index >= 0) store[index] = activeRoom;
+      else store.unshift(activeRoom);
+      localStorage.setItem("gabsiBridgeRooms", JSON.stringify(store.slice(0, 20)));
+    }
+    renderRoomList();
+  }
+
+  function renderRoomList() {
+    const list = roomStore();
+    const target = $("roomList");
+    if (!list.length) {
+      target.innerHTML = '<div class="empty">Belum ada room. Buat atau bergabung untuk memulai.</div>';
+      return;
+    }
+    target.innerHTML = list.map((room, i) => `
+      <div class="room-item">
+        <strong>${escapeHTML(room.room_name || "Latihan Bridge")}</strong>
+        <p>Kode: <b>${escapeHTML(room.room_code)}</b><br>
+        Sistem NS: ${escapeHTML(room.system_ns || "-")}<br>
+        Sistem EW: ${escapeHTML(room.system_ew || "-")}</p>
+        <button class="btn secondary" data-open-room="${i}" type="button">Buka Room</button>
+      </div>`).join("");
+    target.querySelectorAll("[data-open-room]").forEach(button => {
+      button.addEventListener("click", () => {
+        const room = list[Number(button.dataset.openRoom)];
+        if (room) openSavedRoom(room);
+      });
+    });
+  }
+
+  async function createRoom(event) {
+    event.preventDefault();
+    const name = $("creatorName").value.trim();
+    const roomName = $("roomName").value.trim();
+    const level = $("level").value;
+    const systemNS = $("systemNS").value;
+    const systemEW = $("systemEW").value;
+    if (!name || !roomName) return;
+
+    const button = $("createBtn");
+    button.disabled = true;
+    setText("createStatus", "Sedang membuat room...");
+    try {
+      const result = await api("create", {
+        roomName,
+        level,
+        systemNS,
+        systemEW
+      });
+      const room = result.room || result.data || result;
+      const code = room.room_code || result.room_code;
+      if (!code) throw new Error("Room berhasil diproses tetapi kode room tidak ditemukan.");
+
+      const joined = await api("join", { roomCode: code, playerName: name });
+      const joinedRoom = joined.room || room;
+      activeRoom = normalizeRoom(
+        joinedRoom, name,
+        joined.player_token || joined.playerToken || "",
+        joined.position || ""
+      );
+      activeRoom.room_code = code;
+      saveRoomStore();
+      showActiveRoom();
+      setText("createStatus", "Room berhasil dibuat. Bagikan kode kepada pemain lain.");
+      startRefresh();
+    } catch (error) {
+      setText("createStatus", "Gagal membuat room: " + error.message);
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  async function joinRoom(event) {
+    event.preventDefault();
+    const name = $("joinName").value.trim();
+    const code = $("joinCode").value.trim().toUpperCase();
+    if (!name || !code) return;
+    const button = $("joinBtn");
+    button.disabled = true;
+    setText("joinStatus", "Sedang bergabung...");
+    try {
+      const result = await api("join", { roomCode: code, playerName: name });
+      const room = result.room || result.data || result;
+      activeRoom = normalizeRoom(
+        room, name,
+        result.player_token || result.playerToken || "",
+        result.position || ""
+      );
+      activeRoom.room_code = room.room_code || code;
+      saveRoomStore();
+      showActiveRoom();
+      setText("joinStatus", "Berhasil bergabung ke room.");
+      startRefresh();
+    } catch (error) {
+      setText("joinStatus", "Gagal bergabung: " + error.message);
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  async function openSavedRoom(room) {
+    const name = room.playerName || $("creatorName").value.trim() || $("joinName").value.trim();
+    if (!room.playerToken) {
+      $("joinCode").value = room.room_code || "";
+      setText("joinStatus", "Untuk masuk dari perangkat ini, masukkan nama lalu bergabung dengan kode room.");
+      $("joinName").focus();
+      return;
+    }
+    activeRoom = { ...room, playerName: name };
+    showActiveRoom();
+    startRefresh();
+    await refreshRoom();
+  }
+
+  function showActiveRoom() {
+    if (!activeRoom) return;
+    $("roomPanel").classList.remove("hidden");
+    setText("roomTitle", activeRoom.room_name);
+    setText("roomDetails", "Tingkatan: " + activeRoom.level +
+      " • Sistem Utara–Selatan: " + activeRoom.system_ns +
+      " • Sistem Timur–Barat: " + activeRoom.system_ew);
+    setText("currentRoomCode", activeRoom.room_code);
+    renderSeats();
+    $("roomPanel").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function renderSeats() {
+    if (!activeRoom) return;
+    const seats = { N: "Menunggu pemain", E: "Menunggu pemain", S: "Menunggu pemain", W: "Menunggu pemain" };
+    const players = getPlayers(activeRoom);
+    players.forEach(player => {
+      const pos = String(player.position || player.seat || "").toUpperCase();
+      if (seats[pos] !== undefined) {
+        seats[pos] = player.player_name || player.name || "Pemain";
+      }
+    });
+    if (activeRoom.position && seats[activeRoom.position] !== undefined) {
+      seats[activeRoom.position] = activeRoom.playerName || seats[activeRoom.position];
+    }
+    setText("seatN", seats.N);
+    setText("seatE", seats.E);
+    setText("seatS", seats.S);
+    setText("seatW", seats.W);
+  }
+
+  async function refreshRoom() {
+    if (!activeRoom || !activeRoom.playerToken) return;
+    try {
+      const result = await api("get", {
+        roomCode: activeRoom.room_code,
+        playerToken: activeRoom.playerToken
+      });
+      const room = result.room || result.data || result;
+      const players = result.players || getPlayers(room);
+      activeRoom = {
+        ...activeRoom,
+        ...normalizeRoom(room, activeRoom.playerName, activeRoom.playerToken,
+          result.position || activeRoom.position),
+        players,
+        playerName: activeRoom.playerName,
+        playerToken: activeRoom.playerToken,
+        position: result.position || activeRoom.position,
+        room_code: room.room_code || activeRoom.room_code
+      };
+      saveRoomStore();
+      showActiveRoom();
+      setText("roomStatus", "Daftar pemain diperbarui.");
+    } catch (error) {
+      setText("roomStatus", "Belum dapat memperbarui room: " + error.message);
+    }
+  }
+
+  function startRefresh() {
+    if (refreshTimer) clearInterval(refreshTimer);
+    refreshRoom();
+    refreshTimer = setInterval(refreshRoom, 5000);
+  }
+
+  function stopRefresh() {
+    if (refreshTimer) clearInterval(refreshTimer);
+    refreshTimer = null;
+  }
+
+  function dealCards() {
+    const suits = [
+      { symbol: "♠", name: "Sekop", color: "black" },
+      { symbol: "♥", name: "Hati", color: "#c93242" },
+      { symbol: "♦", name: "Wajik", color: "#c93242" },
+      { symbol: "♣", name: "Keriting", color: "black" }
+    ];
+    const ranks = ["A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"];
+    const deck = [];
+    suits.forEach(suit => ranks.forEach(rank => deck.push({
+      rank, suit: suit.symbol, color: suit.color, key: suit.name + rank
+    })));
+    for (let i = deck.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+    const hands = { N: deck.slice(0, 13), E: deck.slice(13, 26), S: deck.slice(26, 39), W: deck.slice(39, 52) };
+    Object.keys(hands).forEach(pos => {
+      hands[pos].sort((a, b) => {
+        const suitOrder = { "♠": 0, "♥": 1, "♦": 2, "♣": 3 };
+        if (suitOrder[a.suit] !== suitOrder[b.suit]) return suitOrder[a.suit] - suitOrder[b.suit];
+        return ranks.indexOf(a.rank) - ranks.indexOf(b.rank);
+      });
+    });
+    renderHands(hands);
+    const dealerList = ["N", "E", "S", "W"];
+    const dealer = dealerList[(boardNumber - 1) % 4];
+    const vulnerability = ["None", "NS", "EW", "Both"][(Math.floor((boardNumber - 1) / 4) + (boardNumber - 1) % 4) % 4];
+    const entry = {
+      board: boardNumber,
+      dealer,
+      vulnerability,
+      contract: "-",
+      declarer: "-",
+      trick: "-",
+      ns: 0,
+      ew: 0
+    };
+    scores.unshift(entry);
+    boardNumber++;
+    saveScores();
+    setText("roomStatus", "Kartu latihan dibagikan pada perangkat ini. Kartu belum dikirim ke pemain lain.");
+  }
+
+  function renderHands(hands) {
+    const target = $("handArea");
+    target.innerHTML = Object.entries(hands).map(([position, cards]) => `
+      <div class="room-item">
+        <strong>${position === "N" ? "Utara" : position === "E" ? "Timur" : position === "S" ? "Selatan" : "Barat"} (${position})</strong>
+        <p style="font-size:19px;line-height:1.9;word-break:break-word;margin-bottom:0">
+          ${cards.map(card => `<span style="color:${card.color}">${card.suit}${card.rank}</span>`).join(" ")}
+        </p>
+        <p class="small">Jumlah kartu: ${cards.length}</p>
+      </div>`).join("");
+  }
+
+  function renderScores() {
+    const tbody = $("scoreRows");
+    $("scoreEmpty").classList.toggle("hidden", scores.length > 0);
+    if (!scores.length) {
+      tbody.innerHTML = "";
+      return;
+    }
+    tbody.innerHTML = scores.map(score => `
+      <tr>
+        <td>${escapeHTML(score.board ?? "-")}</td>
+        <td>${escapeHTML(score.dealer ?? "-")}</td>
+        <td>${escapeHTML(score.vulnerability ?? "-")}</td>
+        <td>${escapeHTML(score.contract ?? "-")}</td>
+        <td>${escapeHTML(score.declarer ?? "-")}</td>
+        <td>${escapeHTML(score.trick ?? "-")}</td>
+        <td>${escapeHTML(score.ns ?? 0)}</td>
+        <td>${escapeHTML(score.ew ?? 0)}</td>
+      </tr>`).join("");
+  }
+
+  function exportCSV() {
+    const header = ["Board", "Dealer", "Vulnerability", "Kontrak", "Declarer", "Trick", "NS", "EW"];
+    const rows = scores.map(s => [
+      s.board ?? "", s.dealer ?? "", s.vulnerability ?? "",
+      s.contract ?? "", s.declarer ?? "", s.trick ?? "",
+      s.ns ?? 0, s.ew ?? 0
+    ]);
+    const csv = [header, ...rows].map(row =>
+      row.map(value => '"' + String(value).replace(/"/g, '""') + '"').join(",")
+    ).join("\r\n");
+    const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "score-sheet-latihan-bridge.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  $("createForm").addEventListener("submit", createRoom);
+  $("joinForm").addEventListener("submit", joinRoom);
+  $("dealBtn").addEventListener("click", dealCards);
+  $("refreshBtn").addEventListener("click", refreshRoom);
+  $("leaveBtn").addEventListener("click", () => {
+    stopRefresh();
+    activeRoom = null;
+    $("roomPanel").classList.add("hidden");
+  });
+  $("copyCodeBtn").addEventListener("click", async () => {
+    if (!activeRoom) return;
+    try {
+      await navigator.clipboard.writeText(activeRoom.room_code);
+      setText("roomStatus", "Kode room berhasil disalin.");
+    } catch (_) {
+      const temporary = document.createElement("textarea");
+      temporary.value = activeRoom.room_code;
+      document.body.appendChild(temporary);
+      temporary.select();
+      document.execCommand("copy");
+      temporary.remove();
+      setText("roomStatus", "Kode room disalin.");
+    }
+  });
+  $("printBtn").addEventListener("click", () => window.print());
+  $("exportBtn").addEventListener("click", exportCSV);
+  $("clearScoresBtn").addEventListener("click", () => {
+    if (confirm("Hapus seluruh riwayat Score Sheet pada browser ini?")) {
+      scores = [];
+      boardNumber = 1;
+      saveScores();
+    }
+  });
+  $("joinCode").addEventListener("input", () => {
+    $("joinCode").value = $("joinCode").value.toUpperCase().replace(/\s/g, "");
+  });
+
+  renderScores();
+  renderRoomList();
+  checkConnection();
 })();
 </script>
 </body>
