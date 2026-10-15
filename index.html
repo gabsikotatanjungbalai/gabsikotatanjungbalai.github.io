@@ -1,2130 +1,249 @@
 <!doctype html>
 <html lang="id">
-
 <head>
-
 <meta charset="utf-8">
-
-<meta name="viewport"
-      content="width=device-width,initial-scale=1">
-
-<meta name="theme-color"
-      content="#063b5c">
-
-<meta name="description"
-      content="Website resmi GABSI Kota Tanjungbalai — Bridge Duplicate Center, informasi organisasi, kegiatan, score sheet, kartu pembanding dan Game Bridge.">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#063b5c">
+<meta name="description" content="Website resmi GABSI Kota Tanjungbalai — Bridge Duplicate Center, informasi organisasi, kegiatan, score sheet, kartu pembanding dan Game Bridge.">
 <title>GABSI Kota Tanjungbalai</title>
-
-<link rel="icon"
-      type="image/png"
-      href="logo-gabsi.png">
-
-
+<link rel="icon" type="image/png" href="logo-gabsi.png">
 <style>
-
-/* =====================================================
-   DASAR
-   VISUAL MENGIKUTI profil.html
-===================================================== */
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#eef4f7;
-  color:#263746;
-  line-height:1.7;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-.site-header{
-  width:100%;
-  background:#ffffff;
-  box-shadow:0 2px 12px rgba(0,0,0,.10);
-  position:relative;
-  z-index:1000;
-}
-
-
-/* =====================================================
-   TOP LINE
-===================================================== */
-
-.top-line{
-  width:100%;
-  min-height:30px;
-
-  background:#063b5c;
-  color:#ffffff;
-
-  padding:6px 20px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  font-size:9px;
-  letter-spacing:.2px;
-}
-
-
-/* =====================================================
-   HEADER MAIN
-===================================================== */
-
-.header-main{
-  width:100%;
-  min-height:68px;
-
-  padding:9px 20px;
-
-  display:flex;
-  align-items:center;
-
-  gap:20px;
-
-  background:#ffffff;
-}
-
-
-/* =====================================================
-   BRAND
-===================================================== */
-
-.brand{
-  display:flex;
-  align-items:center;
-
-  gap:10px;
-
-  text-decoration:none;
-
-  flex:0 0 auto;
-
-  min-width:0;
-
-  position:relative;
-}
-
-.brand::before,
-.brand::after{
-  display:none !important;
-  content:none !important;
-}
-
-.brand-logo{
-  width:40px;
-  height:40px;
-
-  min-width:40px;
-  min-height:40px;
-
-  max-width:40px;
-  max-height:40px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  flex:0 0 40px;
-
-  overflow:hidden;
-
-  background:#ffffff;
-
-  border-radius:8px;
-
-  padding:0;
-  margin:0;
-}
-
-.brand-logo img{
-  display:block;
-
-  width:100%;
-  height:100%;
-
-  max-width:100%;
-  max-height:100%;
-
-  object-fit:contain;
-
-  margin:0;
-  padding:0;
-}
-
-.brand-text{
-  display:block;
-  min-width:0;
-}
-
-.brand-text strong{
-  display:block;
-
-  color:#063b5c;
-
-  font-size:13px;
-
-  line-height:1.2;
-
-  white-space:nowrap;
-}
-
-.brand-text small{
-  display:block;
-
-  color:#7b8790;
-
-  font-size:7px;
-
-  line-height:1.2;
-
-  margin-top:2px;
-
-  letter-spacing:.2px;
-
-  white-space:nowrap;
-}
-
-
-/* =====================================================
-   NAVIGASI
-===================================================== */
-
-.main-nav{
-  display:flex;
-
-  align-items:center;
-
-  justify-content:flex-end;
-
-  gap:3px;
-
-  flex:1;
-
-  min-width:0;
-
-  overflow-x:auto;
-
-  overflow-y:hidden;
-
-  white-space:nowrap;
-
-  scrollbar-width:none;
-}
-
-.main-nav::-webkit-scrollbar{
-  display:none;
-}
-
-.main-nav a{
-  display:inline-flex;
-
-  align-items:center;
-  justify-content:center;
-
-  flex:0 0 auto;
-
-  padding:8px 9px;
-
-  border-radius:9px;
-
-  text-decoration:none;
-
-  color:#172033;
-
-  font-size:10px;
-
-  font-weight:600;
-
-  white-space:nowrap;
-
-  transition:
-    background .2s ease,
-    color .2s ease,
-    box-shadow .2s ease;
-}
-
-.main-nav a:hover{
-  background:#eaf4f9;
-  color:#07558f;
-}
-
-.main-nav a.active{
-  background:#eaf4f9;
-
-  color:#07558f;
-
-  font-weight:700;
-
-  box-shadow:
-    inset 0 -3px 0 #c92f3d;
-}
-
-
-/* =====================================================
-   HERO
-   GAYA SAMA DENGAN profil.html
-===================================================== */
-
-.page-hero{
-  background:
-    linear-gradient(
-      135deg,
-      #063b5c 0%,
-      #07558f 55%,
-      #087cab 100%
-    );
-
-  color:#ffffff;
-
-  padding:48px 20px;
-
-  position:relative;
-
-  overflow:hidden;
-}
-
-.page-hero::before{
-  content:"";
-
-  position:absolute;
-
-  width:300px;
-  height:300px;
-
-  border-radius:50%;
-
-  border:1px solid rgba(255,255,255,.08);
-
-  top:-180px;
-  right:-80px;
-}
-
-.page-hero::after{
-  content:"";
-
-  position:absolute;
-
-  width:240px;
-  height:240px;
-
-  border-radius:50%;
-
-  border:1px solid rgba(255,255,255,.07);
-
-  bottom:-160px;
-  left:-70px;
-}
-
-.page-hero-inner{
-  max-width:1100px;
-
-  margin:auto;
-
-  position:relative;
-
-  z-index:2;
-
-  display:grid;
-
-  grid-template-columns:1.15fr .85fr;
-
-  align-items:center;
-
-  gap:40px;
-}
-
-
-/* =====================================================
-   HERO TEXT
-===================================================== */
-
-.hero-content{
-  min-width:0;
-}
-
-.hero-label{
-  display:inline-block;
-
-  background:rgba(255,255,255,.13);
-
-  border:1px solid rgba(255,255,255,.28);
-
-  padding:6px 14px;
-
-  border-radius:30px;
-
-  font-size:9px;
-
-  font-weight:bold;
-
-  letter-spacing:.5px;
-
-  margin-bottom:11px;
-}
-
-.page-hero h1{
-  font-size:clamp(34px,6vw,54px);
-
-  line-height:1.05;
-
-  margin:0 0 10px;
-
-  letter-spacing:-1px;
-}
-
-.page-hero h1 span{
-  color:#ffd75a;
-}
-
-.page-hero p{
-  max-width:680px;
-
-  margin:0 0 20px;
-
-  color:rgba(255,255,255,.90);
-
-  font-size:12px;
-
-  line-height:1.8;
-}
-
-
-/* =====================================================
-   HERO BUTTON
-===================================================== */
-
-.hero-buttons{
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:9px;
-}
-
-.hero-button{
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:9px 13px;
-
-  border-radius:8px;
-
-  font-size:10px;
-
-  font-weight:bold;
-
-  transition:.2s ease;
-}
-
-.hero-button:hover{
-  transform:translateY(-2px);
-}
-
-.hero-button.green{
-  background:#159653;
-  color:#ffffff;
-}
-
-.hero-button.white{
-  background:#ffffff;
-  color:#07558f;
-}
-
-.hero-button.outline{
-  border:1px solid rgba(255,255,255,.5);
-  color:#ffffff;
-  background:rgba(255,255,255,.08);
-}
-
-
-/* =====================================================
-   HERO FOTO
-===================================================== */
-
-.hero-photo{
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-}
-
-.photo-card{
-  width:min(320px,100%);
-
-  padding:9px;
-
-  background:#ffffff;
-
-  border-radius:17px;
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.20);
-
-  transform:rotate(1deg);
-}
-
-.photo-card img{
-  width:100%;
-
-  height:330px;
-
-  object-fit:cover;
-
-  object-position:center top;
-
-  border-radius:11px;
-}
-
-.photo-caption{
-  background:#063b5c;
-
-  color:#ffffff;
-
-  border-radius:9px;
-
-  padding:9px 11px;
-
-  margin-top:-48px;
-
-  position:relative;
-
-  width:90%;
-
-  margin-left:auto;
-
-  margin-right:auto;
-}
-
-.photo-caption strong{
-  display:block;
-
-  font-size:10px;
-
-  line-height:1.3;
-}
-
-.photo-caption span{
-  display:block;
-
-  font-size:8px;
-
-  color:rgba(255,255,255,.75);
-
-  line-height:1.4;
-}
-
-
-/* =====================================================
-   HERO STATS
-===================================================== */
-
-.hero-stats{
-  display:flex;
-
-  gap:0;
-
-  margin-top:20px;
-}
-
-.stat{
-  padding:0 18px;
-
-  border-left:1px solid rgba(255,255,255,.28);
-}
-
-.stat:first-child{
-  padding-left:0;
-
-  border-left:0;
-}
-
-.stat strong{
-  display:block;
-
-  color:#ffffff;
-
-  font-size:18px;
-
-  line-height:1.1;
-}
-
-.stat span{
-  display:block;
-
-  color:rgba(255,255,255,.72);
-
-  font-size:8px;
-}
-
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
-.container{
-  width:100%;
-
-  max-width:1100px;
-
-  margin:auto;
-
-  padding-left:20px;
-
-  padding-right:20px;
-}
-
-
-/* =====================================================
-   SECTION
-===================================================== */
-
-.section{
-  margin-bottom:25px;
-}
-
-.section:first-child{
-  padding-top:38px;
-}
-
-
-/* =====================================================
-   SECTION HEADER
-===================================================== */
-
-.section-heading{
-  margin-bottom:18px;
-}
-
-.section-label{
-  color:#07558f;
-
-  font-size:9px;
-
-  font-weight:bold;
-
-  letter-spacing:1px;
-
-  text-transform:uppercase;
-}
-
-.section-title{
-  color:#07558f;
-
-  font-size:22px;
-
-  line-height:1.25;
-
-  margin:3px 0 5px;
-}
-
-.section-desc{
-  color:#657783;
-
-  font-size:11px;
-
-  line-height:1.7;
-
-  margin:0;
-
-  max-width:760px;
-}
-
-
-/* =====================================================
-   QUICK MENU
-   CARD GAYA profil.html
-===================================================== */
-
-.quick-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:20px;
-}
-
-.quick-card{
-  background:#ffffff;
-
-  border:1px solid #dce7ec;
-
-  border-radius:17px;
-
-  padding:23px;
-
-  min-height:150px;
-
-  box-shadow:
-    0 6px 20px rgba(0,0,0,.07);
-
-  position:relative;
-
-  overflow:hidden;
-
-  transition:.2s ease;
-}
-
-.quick-card::before{
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:0;
-
-  width:100%;
-  height:4px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #07558f,
-      #087cab
-    );
-
-  opacity:0;
-
-  transition:.2s ease;
-}
-
-.quick-card:hover{
-  transform:translateY(-3px);
-
-  box-shadow:
-    0 10px 26px rgba(0,0,0,.10);
-}
-
-.quick-card:hover::before{
-  opacity:1;
-}
-
-.quick-icon{
-  width:46px;
-  height:46px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  background:#eaf4f9;
-
-  color:#07558f;
-
-  border-radius:12px;
-
-  font-size:22px;
-
-  margin-bottom:12px;
-}
-
-.quick-card h3{
-  color:#07558f;
-
-  font-size:16px;
-
-  margin:0 0 6px;
-}
-
-.quick-card p{
-  color:#536673;
-
-  font-size:10.5px;
-
-  line-height:1.75;
-
-  margin:0;
-}
-
-.quick-card.game{
-  background:
-    linear-gradient(
-      135deg,
-      #063b5c,
-      #07558f,
-      #087cab
-    );
-
-  border-color:#07558f;
-}
-
-.quick-card.game .quick-icon{
-  background:rgba(255,255,255,.13);
-
-  color:#ffd75a;
-}
-
-.quick-card.game h3{
-  color:#ffffff;
-}
-
-.quick-card.game p{
-  color:rgba(255,255,255,.82);
-}
-
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-.about-grid{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:20px;
-}
-
-.about-card{
-  background:#ffffff;
-
-  border:1px solid #dce7ec;
-
-  border-radius:17px;
-
-  padding:25px;
-
-  box-shadow:
-    0 6px 20px rgba(0,0,0,.07);
-}
-
-.about-card .small{
-  color:#07558f;
-
-  font-size:9px;
-
-  font-weight:bold;
-
-  letter-spacing:1px;
-
-  text-transform:uppercase;
-}
-
-.about-card h3{
-  color:#07558f;
-
-  font-size:18px;
-
-  margin:4px 0 10px;
-}
-
-.about-card p{
-  color:#536673;
-
-  font-size:10.5px;
-
-  line-height:1.8;
-
-  margin:0 0 14px;
-}
-
-.about-btn{
-  display:inline-block;
-
-  background:#07558f;
-
-  color:#ffffff;
-
-  padding:9px 12px;
-
-  border-radius:8px;
-
-  font-size:9px;
-
-  font-weight:bold;
-
-  transition:.2s ease;
-}
-
-.about-btn:hover{
-  background:#063b5c;
-
-  transform:translateY(-1px);
-}
-
-
-/* =====================================================
-   APPLICATION
-   GAYA CARD PROFIL
-===================================================== */
-
-.apps-section{
-  padding-top:38px;
-
-  padding-bottom:38px;
-
-  background:#eef4f7;
-}
-
-.apps-grid{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:20px;
-}
-
-.app-card{
-  border-radius:17px;
-
-  padding:25px;
-
-  color:#ffffff;
-
-  min-height:185px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  justify-content:space-between;
-
-  box-shadow:
-    0 6px 20px rgba(0,0,0,.10);
-
-  position:relative;
-
-  overflow:hidden;
-}
-
-.app-card::before{
-  content:"";
-
-  position:absolute;
-
-  width:170px;
-  height:170px;
-
-  right:-80px;
-  top:-80px;
-
-  border-radius:50%;
-
-  border:1px solid rgba(255,255,255,.10);
-}
-
-.app-card.blue{
-  background:
-    linear-gradient(
-      135deg,
-      #063b5c,
-      #07558f,
-      #087cab
-    );
-}
-
-.app-card.green{
-  background:
-    linear-gradient(
-      135deg,
-      #087645,
-      #149b59,
-      #087c65
-    );
-}
-
-.app-card.game{
-  grid-column:1 / -1;
-
-  min-height:205px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #063b5c,
-      #07558f,
-      #087cab
-    );
-
-  border:1px solid rgba(255,255,255,.18);
-}
-
-.app-content{
-  position:relative;
-
-  z-index:2;
-}
-
-.app-icon{
-  width:48px;
-  height:48px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  border-radius:12px;
-
-  background:rgba(255,255,255,.12);
-
-  font-size:23px;
-
-  margin-bottom:10px;
-}
-
-.app-card h3{
-  margin:0 0 5px;
-
-  font-size:17px;
-}
-
-.app-card p{
-  margin:0;
-
-  color:rgba(255,255,255,.85);
-
-  font-size:10.5px;
-
-  line-height:1.75;
-
-  max-width:680px;
-}
-
-.app-button{
-  align-self:flex-start;
-
-  display:inline-block;
-
-  margin-top:15px;
-
-  background:#ffffff;
-
-  color:#07558f;
-
-  padding:9px 13px;
-
-  border-radius:8px;
-
-  font-size:9px;
-
-  font-weight:bold;
-
-  position:relative;
-
-  z-index:3;
-
-  transition:.2s ease;
-}
-
-.app-button:hover{
-  transform:translateY(-2px);
-
-  box-shadow:
-    0 5px 14px rgba(0,0,0,.15);
-}
-
-
-/* =====================================================
-   FOOTER
-   SAMA DENGAN profil.html
-===================================================== */
-
-.footer{
-  background:#063b5c;
-
-  color:#ffffff;
-
-  padding:32px 20px 18px;
-}
-
-.footer-inner{
-  max-width:1100px;
-
-  margin:auto;
-
-  display:grid;
-
-  grid-template-columns:1.4fr 1fr 1fr;
-
-  gap:30px;
-}
-
-.footer h3{
-  font-size:14px;
-
-  margin:0 0 9px;
-}
-
-.footer p{
-  color:rgba(255,255,255,.75);
-
-  font-size:10px;
-
-  line-height:1.7;
-
-  margin:0;
-}
-
-.footer-links{
-  display:flex;
-
-  flex-direction:column;
-
-  gap:5px;
-}
-
-.footer-links a{
-  color:rgba(255,255,255,.75);
-
-  text-decoration:none;
-
-  font-size:10px;
-
-  transition:.2s ease;
-}
-
-.footer-links a:hover{
-  color:#ffffff;
-
-  transform:translateX(2px);
-}
-
-.footer-bottom{
-  max-width:1100px;
-
-  margin:23px auto 0;
-
-  padding-top:13px;
-
-  border-top:1px solid rgba(255,255,255,.15);
-
-  display:flex;
-
-  justify-content:space-between;
-
-  color:rgba(255,255,255,.6);
-
-  font-size:9px;
-}
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media(max-width:1100px){
-
-  .header-main{
-    gap:10px;
-  }
-
-  .main-nav{
-    justify-content:flex-start;
-  }
-
-  .main-nav a{
-    padding:8px 8px;
-  }
-
-}
-
-
-@media(max-width:900px){
-
-  .page-hero-inner{
-    grid-template-columns:1fr;
-
-    text-align:center;
-
-    gap:25px;
-  }
-
-  .hero-content{
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-  }
-
-  .page-hero p{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .hero-photo{
-    order:-1;
-  }
-
-  .photo-card{
-    width:260px;
-  }
-
-  .photo-card img{
-    height:280px;
-  }
-
-  .quick-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .apps-grid{
-    grid-template-columns:1fr;
-  }
-
-  .app-card.game{
-    grid-column:auto;
-  }
-
-}
-
-
-@media(max-width:800px){
-
-  .about-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-
-@media(max-width:700px){
-
-  .top-line{
-    padding:6px 10px;
-
-    font-size:7px;
-
-    gap:8px;
-  }
-
-  .header-main{
-    min-height:58px;
-
-    padding:7px 10px;
-
-    gap:8px;
-  }
-
-  .brand-logo{
-    width:36px;
-    height:36px;
-
-    min-width:36px;
-    min-height:36px;
-
-    max-width:36px;
-    max-height:36px;
-
-    flex-basis:36px;
-  }
-
-  .brand-text strong{
-    font-size:10px;
-  }
-
-  .brand-text small{
-    font-size:5px;
-  }
-
-  .main-nav{
-    flex:1;
-
-    gap:2px;
-
-    overflow-x:auto;
-  }
-
-  .main-nav a{
-    font-size:8px;
-
-    padding:7px 8px;
-  }
-
-  .page-hero{
-    padding:32px 15px;
-  }
-
-  .page-hero h1{
-    font-size:30px;
-  }
-
-  .page-hero p{
-    font-size:10px;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .hero-button{
-    font-size:9px;
-
-    padding:8px 10px;
-  }
-
-  .hero-stats{
-    justify-content:center;
-  }
-
-  .stat{
-    padding:0 10px;
-  }
-
-  .stat strong{
-    font-size:16px;
-  }
-
-  .stat span{
-    font-size:7px;
-  }
-
-  .container{
-    padding-left:12px;
-
-    padding-right:12px;
-  }
-
-  .section:first-child{
-    padding-top:25px;
-  }
-
-  .quick-grid{
-    grid-template-columns:1fr 1fr;
-
-    gap:12px;
-  }
-
-  .quick-card{
-    padding:18px;
-
-    min-height:145px;
-  }
-
-  .quick-icon{
-    width:40px;
-    height:40px;
-
-    font-size:19px;
-  }
-
-  .quick-card h3{
-    font-size:13px;
-  }
-
-  .quick-card p{
-    font-size:9px;
-  }
-
-  .about-card{
-    padding:20px;
-  }
-
-  .app-card{
-    padding:20px;
-
-    min-height:175px;
-  }
-
-  .app-card.game{
-    min-height:195px;
-  }
-
-  .footer{
-    padding:27px 15px 15px;
-  }
-
-  .footer-inner{
-    grid-template-columns:1fr 1fr;
-
-    gap:20px;
-  }
-
-  .footer-inner > div:first-child{
-    grid-column:1 / -1;
-  }
-
-  .footer-bottom{
-    flex-direction:column;
-
-    gap:5px;
-  }
-
-}
-
-
-@media(max-width:380px){
-
-  .brand-text{
-    display:none;
-  }
-
-  .header-main{
-    gap:5px;
-  }
-
-  .main-nav a{
-    font-size:7px;
-
-    padding:6px 7px;
-  }
-
-  .page-hero h1{
-    font-size:26px;
-  }
-
-  .quick-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-buttons{
-    width:100%;
-  }
-
-  .hero-button{
-    flex:1;
-  }
-
-}
-
-
-/* =====================================================
-   AKHIR RESPONSIVE
-===================================================== */
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef4f7;color:#263746;line-height:1.7}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.site-header{width:100%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.10);position:relative;z-index:1000}
+.top-line{width:100%;min-height:30px;background:#063b5c;color:#fff;padding:6px 20px;display:flex;align-items:center;justify-content:space-between;font-size:9px;letter-spacing:.2px}
+.header-main{width:100%;min-height:68px;padding:9px 20px;display:flex;align-items:center;gap:20px;background:#fff}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto;min-width:0;position:relative}
+.brand::before,.brand::after{display:none!important;content:none!important}
+.brand-logo{width:40px;height:40px;min-width:40px;min-height:40px;max-width:40px;max-height:40px;display:flex;align-items:center;justify-content:center;flex:0 0 40px;overflow:hidden;background:#fff;border-radius:8px;padding:0;margin:0}
+.brand-logo img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;margin:0;padding:0}
+.brand-text{display:block;min-width:0}
+.brand-text strong{display:block;color:#063b5c;font-size:13px;line-height:1.2;white-space:nowrap}
+.brand-text small{display:block;color:#7b8790;font-size:7px;line-height:1.2;margin-top:2px;letter-spacing:.2px;white-space:nowrap}
+.main-nav{display:flex;align-items:center;justify-content:flex-end;gap:3px;flex:1;min-width:0;overflow-x:auto;overflow-y:hidden;white-space:nowrap;scrollbar-width:none}
+.main-nav::-webkit-scrollbar{display:none}
+.main-nav a{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;padding:8px 9px;border-radius:9px;text-decoration:none;color:#172033;font-size:10px;font-weight:600;white-space:nowrap;transition:background .2s ease,color .2s ease,box-shadow .2s ease}
+.main-nav a:hover{background:#eaf4f9;color:#07558f}
+.main-nav a.active{background:#eaf4f9;color:#07558f;font-weight:700;box-shadow:inset 0 -3px 0 #c92f3d}
+.page-hero{background:linear-gradient(135deg,#063b5c 0%,#07558f 55%,#087cab 100%);color:#fff;padding:48px 20px;position:relative;overflow:hidden}
+.page-hero::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(255,255,255,.08);top:-180px;right:-80px}
+.page-hero::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;border:1px solid rgba(255,255,255,.07);bottom:-160px;left:-70px}
+.page-hero-inner{max-width:1100px;margin:auto;position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:40px}
+.hero-content{min-width:0}
+.hero-label{display:inline-block;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.28);padding:6px 14px;border-radius:30px;font-size:9px;font-weight:bold;letter-spacing:.5px;margin-bottom:11px}
+.page-hero h1{font-size:clamp(34px,6vw,54px);line-height:1.05;margin:0 0 10px;letter-spacing:-1px}
+.page-hero h1 span{color:#ffd75a}
+.page-hero p{max-width:680px;margin:0 0 20px;color:rgba(255,255,255,.90);font-size:12px;line-height:1.8}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:9px}
+.hero-button{display:inline-flex;align-items:center;justify-content:center;padding:9px 13px;border-radius:8px;font-size:10px;font-weight:bold;transition:.2s ease}
+.hero-button:hover{transform:translateY(-2px)}
+.hero-button.green{background:#159653;color:#fff}
+.hero-button.white{background:#fff;color:#07558f}
+.hero-button.outline{border:1px solid rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.08)}
+.hero-photo{display:flex;justify-content:center;align-items:center}
+.photo-card{width:min(320px,100%);padding:9px;background:#fff;border-radius:17px;box-shadow:0 10px 30px rgba(0,0,0,.20);transform:rotate(1deg)}
+.photo-card img{width:100%;height:330px;object-fit:cover;object-position:center top;border-radius:11px}
+.photo-caption{background:#063b5c;color:#fff;border-radius:9px;padding:9px 11px;margin-top:-48px;position:relative;width:90%;margin-left:auto;margin-right:auto}
+.photo-caption strong{display:block;font-size:10px;line-height:1.3}
+.photo-caption span{display:block;font-size:8px;color:rgba(255,255,255,.75);line-height:1.4}
+.hero-stats{display:flex;gap:0;margin-top:20px}
+.stat{padding:0 18px;border-left:1px solid rgba(255,255,255,.28)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat strong{display:block;color:#fff;font-size:18px;line-height:1.1}
+.stat span{display:block;color:rgba(255,255,255,.72);font-size:8px}
+.container{width:100%;max-width:1100px;margin:auto;padding-left:20px;padding-right:20px}
+.section{margin-bottom:25px}
+.section:first-child{padding-top:38px}
+.section-heading{margin-bottom:18px}
+.section-label{color:#07558f;font-size:9px;font-weight:bold;letter-spacing:1px;text-transform:uppercase}
+.section-title{color:#07558f;font-size:22px;line-height:1.25;margin:3px 0 5px}
+.section-desc{color:#657783;font-size:11px;line-height:1.7;margin:0;max-width:760px}
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.quick-card{background:#fff;border:1px solid #dce7ec;border-radius:17px;padding:23px;min-height:150px;box-shadow:0 6px 20px rgba(0,0,0,.07);position:relative;overflow:hidden;transition:.2s ease}
+.quick-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,#07558f,#087cab);opacity:0;transition:.2s ease}
+.quick-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.10)}
+.quick-card:hover::before{opacity:1}
+.quick-icon{width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:#eaf4f9;color:#07558f;border-radius:12px;font-size:22px;margin-bottom:12px}
+.quick-card h3{color:#07558f;font-size:16px;margin:0 0 6px}
+.quick-card p{color:#536673;font-size:10.5px;line-height:1.75;margin:0}
+.quick-card.game{background:linear-gradient(135deg,#063b5c,#07558f,#087cab);border-color:#07558f}
+.quick-card.game .quick-icon{background:rgba(255,255,255,.13);color:#ffd75a}
+.quick-card.game h3{color:#fff}
+.quick-card.game p{color:rgba(255,255,255,.82)}
+.bridge-navigation-section{padding-top:34px;padding-bottom:42px}
+.bridge-navigation-heading{margin-bottom:20px}
+.bridge-navigation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.bridge-navigation-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:15px;min-height:220px;padding:24px;overflow:hidden;color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:18px;box-shadow:0 9px 24px rgba(5,44,68,.13);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.bridge-navigation-card::before{content:"";position:absolute;width:180px;height:180px;right:-75px;top:-92px;border:1px solid rgba(255,255,255,.18);border-radius:50%;pointer-events:none}
+.bridge-navigation-card:hover{transform:translateY(-4px);box-shadow:0 15px 30px rgba(5,44,68,.2);filter:saturate(1.08)}
+.bridge-navigation-card:focus-visible{outline:3px solid #e4c76a;outline-offset:4px}
+.bridge-navigation-card.bidding-card{background:linear-gradient(135deg,#063b5c,#07558f 70%,#087cab)}
+.bridge-navigation-card.practice-card{background:linear-gradient(135deg,#075b3d,#128456 68%,#159b75)}
+.bridge-navigation-card.online-game-card{background:linear-gradient(135deg,#102d54,#07558f 65%,#087cab)}
+.bridge-navigation-icon{display:flex;align-items:center;justify-content:center;width:52px;height:52px;flex:0 0 52px;border:1px solid rgba(255,255,255,.2);border-radius:15px;background:rgba(255,255,255,.13);color:#ffdf78;font-size:26px;line-height:1}
+.bridge-navigation-copy{display:block;position:relative;z-index:1}
+.bridge-navigation-copy strong{display:block;margin-bottom:8px;color:#fff;font-size:15px;line-height:1.4;letter-spacing:.2px}
+.bridge-navigation-copy small{display:block;max-width:340px;color:rgba(255,255,255,.86);font-size:11px;line-height:1.7}
+.bridge-navigation-arrow{display:flex;align-items:center;justify-content:center;width:35px;height:35px;margin-top:auto;border-radius:10px;background:#fff;color:#07558f;font-size:21px;font-weight:700;transition:transform .2s ease}
+.bridge-navigation-card:hover .bridge-navigation-arrow{transform:translateX(4px)}
+@media(max-width:900px){.bridge-navigation-grid{grid-template-columns:1fr;gap:13px}.bridge-navigation-card{min-height:0;padding:20px;display:grid;grid-template-columns:52px minmax(0,1fr) 35px;align-items:center;gap:14px}.bridge-navigation-copy strong{font-size:13px}.bridge-navigation-arrow{margin-top:0}}
+@media(max-width:420px){.bridge-navigation-section{padding-top:25px;padding-bottom:30px}.bridge-navigation-card{padding:16px;grid-template-columns:43px minmax(0,1fr) 29px;gap:10px;border-radius:14px}.bridge-navigation-icon{width:43px;height:43px;flex-basis:43px;border-radius:12px;font-size:22px}.bridge-navigation-copy strong{font-size:11px}.bridge-navigation-copy small{font-size:9px}.bridge-navigation-arrow{width:29px;height:29px;font-size:18px}}
+.about-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.about-card{background:#fff;border:1px solid #dce7ec;border-radius:17px;padding:25px;box-shadow:0 6px 20px rgba(0,0,0,.07)}
+.about-card .small{color:#07558f;font-size:9px;font-weight:bold;letter-spacing:1px;text-transform:uppercase}
+.about-card h3{color:#07558f;font-size:18px;margin:4px 0 10px}
+.about-card p{color:#536673;font-size:10.5px;line-height:1.8;margin:0 0 14px}
+.about-btn{display:inline-block;background:#07558f;color:#fff;padding:9px 12px;border-radius:8px;font-size:9px;font-weight:bold;transition:.2s ease}
+.about-btn:hover{background:#063b5c;transform:translateY(-1px)}
+.apps-section{padding-top:38px;padding-bottom:38px;background:#eef4f7}
+.apps-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.app-card{border-radius:17px;padding:25px;color:#fff;min-height:185px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 6px 20px rgba(0,0,0,.10);position:relative;overflow:hidden}
+.app-card::before{content:"";position:absolute;width:170px;height:170px;right:-80px;top:-80px;border-radius:50%;border:1px solid rgba(255,255,255,.10)}
+.app-card.blue{background:linear-gradient(135deg,#063b5c,#07558f,#087cab)}
+.app-card.green{background:linear-gradient(135deg,#087645,#149b59,#087c65)}
+.app-card.game{grid-column:1 / -1;min-height:205px;background:linear-gradient(135deg,#063b5c,#07558f,#087cab);border:1px solid rgba(255,255,255,.18)}
+.app-content{position:relative;z-index:2}
+.app-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(255,255,255,.12);font-size:23px;margin-bottom:10px}
+.app-card h3{margin:0 0 5px;font-size:17px}
+.app-card p{margin:0;color:rgba(255,255,255,.85);font-size:10.5px;line-height:1.75;max-width:680px}
+.app-button{align-self:flex-start;display:inline-block;margin-top:15px;background:#fff;color:#07558f;padding:9px 13px;border-radius:8px;font-size:9px;font-weight:bold;position:relative;z-index:3;transition:.2s ease}
+.app-button:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,.15)}
+.footer{background:#063b5c;color:#fff;padding:32px 20px 18px}
+.footer-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+.footer h3{font-size:14px;margin:0 0 9px}
+.footer p{color:rgba(255,255,255,.75);font-size:10px;line-height:1.7;margin:0}
+.footer-links{display:flex;flex-direction:column;gap:5px}
+.footer-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:10px;transition:.2s ease}
+.footer-links a:hover{color:#fff;transform:translateX(2px)}
+.footer-bottom{max-width:1100px;margin:23px auto 0;padding-top:13px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;color:rgba(255,255,255,.6);font-size:9px}
+@media(max-width:1100px){.header-main{gap:10px}.main-nav{justify-content:flex-start}.main-nav a{padding:8px 8px}}
+@media(max-width:900px){.page-hero-inner{grid-template-columns:1fr;text-align:center;gap:25px}.hero-content{display:flex;flex-direction:column;align-items:center}.page-hero p{margin-left:auto;margin-right:auto}.hero-photo{order:-1}.photo-card{width:260px}.photo-card img{height:280px}.quick-grid{grid-template-columns:1fr 1fr}.apps-grid{grid-template-columns:1fr}.app-card.game{grid-column:auto}}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.top-line{padding:6px 10px;font-size:7px;gap:8px}.header-main{min-height:58px;padding:7px 10px;gap:8px}.brand-logo{width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;flex-basis:36px}.brand-text strong{font-size:10px}.brand-text small{font-size:5px}.main-nav{flex:1;gap:2px;overflow-x:auto}.main-nav a{font-size:8px;padding:7px 8px}.page-hero{padding:32px 15px}.page-hero h1{font-size:30px}.page-hero p{font-size:10px}.hero-buttons{justify-content:center}.hero-button{font-size:9px;padding:8px 10px}.hero-stats{justify-content:center}.stat{padding:0 10px}.stat strong{font-size:16px}.stat span{font-size:7px}.container{padding-left:12px;padding-right:12px}.section:first-child{padding-top:25px}.quick-grid{grid-template-columns:1fr 1fr;gap:12px}.quick-card{padding:18px;min-height:145px}.quick-icon{width:40px;height:40px;font-size:19px}.quick-card h3{font-size:13px}.quick-card p{font-size:9px}.about-card{padding:20px}.app-card{padding:20px;min-height:175px}.app-card.game{min-height:195px}.footer{padding:27px 15px 15px}.footer-inner{grid-template-columns:1fr 1fr;gap:20px}.footer-inner>div:first-child{grid-column:1 / -1}.footer-bottom{flex-direction:column;gap:5px}}
+@media(max-width:380px){.brand-text{display:none}.header-main{gap:5px}.main-nav a{font-size:7px;padding:6px 7px}.page-hero h1{font-size:26px}.quick-grid{grid-template-columns:1fr}.hero-buttons{width:100%}.hero-button{flex:1}}
 </style>
-
 </head>
-
-
 <body>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="site-header">
-
-  <div class="top-line">
-
-    <span>
-      GABSI KOTA TANJUNGBALAI
-    </span>
-
-    <span>
-      Bridge • Prestasi • Persaudaraan
-    </span>
-
-  </div>
-
-
-  <div class="header-main">
-
-
-    <a href="index.html"
-       class="brand">
-
-      <div class="brand-logo">
-
-        <img
-          src="logo-gabsi.png"
-          alt="Logo GABSI Kota Tanjungbalai">
-
-      </div>
-
-
-      <div class="brand-text">
-
-        <strong>
-          GABSI KOTA TANJUNGBALAI
-        </strong>
-
-        <small>
-          GABUNGAN BRIDGE SELURUH INDONESIA
-        </small>
-
-      </div>
-
-    </a>
-
-
-    <nav class="main-nav">
-
-      <a href="index.html"
-         class="active">
-        Beranda
-      </a>
-
-      <a href="profil.html">
-        Profil
-      </a>
-
-      <a href="pengurus.html">
-        Pengurus
-      </a>
-
-      <a href="kegiatan.html">
-        Kegiatan
-      </a>
-
-      <a href="galeri.html">
-        Galeri
-      </a>
-
-      <a href="aplikasi.html">
-        Aplikasi
-      </a>
-
-      <a href="kocokan-kartu.html">
-        Kartu Pembanding
-      </a>
-
-      <a href="game-bridge-gabsi.html">
-        Game Bridge
-      </a>
-
-      <a href="berita.html">
-        Berita
-      </a>
-
-      <a href="kontak.html">
-        Kontak
-      </a>
-
-    </nav>
-
-  </div>
-
+<div class="top-line">
+<span>GABSI KOTA TANJUNGBALAI</span>
+<span>Bridge • Prestasi • Persaudaraan</span>
+</div>
+<div class="header-main">
+<a href="index.html" class="brand">
+<div class="brand-logo">
+<img src="logo-gabsi.png" alt="Logo GABSI Kota Tanjungbalai">
+</div>
+<div class="brand-text">
+<strong>GABSI KOTA TANJUNGBALAI</strong>
+<small>GABUNGAN BRIDGE SELURUH INDONESIA</small>
+</div>
+</a>
+<nav class="main-nav">
+<a href="index.html" class="active">Beranda</a>
+<a href="profil.html">Profil</a>
+<a href="pengurus.html">Pengurus</a>
+<a href="kegiatan.html">Kegiatan</a>
+<a href="galeri.html">Galeri</a>
+<a href="berita.html">Berita</a>
+<a href="kontak.html">Kontak</a>
+</nav>
+</div>
 </header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="page-hero">
-
-  <div class="page-hero-inner">
-
-
-    <div class="hero-content">
-
-      <div class="hero-label">
-        ♠ BRIDGE CENTER • KOTA TANJUNGBALAI
-      </div>
-
-
-      <h1>
-        GABSI <span>Kota Tanjungbalai</span>
-      </h1>
-
-
-      <p>
-        Website resmi GABSI Kota Tanjungbalai sebagai pusat
-        informasi, kegiatan pembinaan, dokumentasi,
-        dan aplikasi olahraga Bridge Duplicate.
-      </p>
-
-
-      <div class="hero-buttons">
-
-        <a href="game-bridge-gabsi.html"
-           class="hero-button green">
-
-          ♠ Main Game Bridge
-
-        </a>
-
-
-        <a href="aplikasi.html"
-           class="hero-button white">
-
-          💻 Buka Aplikasi
-
-        </a>
-
-
-        <a href="profil.html"
-           class="hero-button outline">
-
-          Kenali GABSI
-
-        </a>
-
-      </div>
-
-
-      <div class="hero-stats">
-
-        <div class="stat">
-
-          <strong>
-            52
-          </strong>
-
-          <span>
-            Kartu per deal
-          </span>
-
-        </div>
-
-
-        <div class="stat">
-
-          <strong>
-            4
-          </strong>
-
-          <span>
-            Posisi pemain
-          </span>
-
-        </div>
-
-
-        <div class="stat">
-
-          <strong>
-            IMP
-          </strong>
-
-          <span>
-            Duplicate scoring
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="hero-photo">
-
-      <div class="photo-card">
-
-        <img
-          src="ketua-gabsi.jpg"
-          alt="Ketua GABSI Kota Tanjungbalai">
-
-
-        <div class="photo-caption">
-
-          <strong>
-            Erick Hariyanto Hutabarat, S.Pd.
-          </strong>
-
-          <span>
-            Ketua GABSI Kota Tanjungbalai
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
+<div class="page-hero-inner">
+<div class="hero-content">
+<div class="hero-label">♠ BRIDGE CENTER • KOTA TANJUNGBALAI</div>
+<h1>GABSI <span>Kota Tanjungbalai</span></h1>
+<p>Website resmi GABSI Kota Tanjungbalai sebagai pusat informasi, kegiatan pembinaan, dokumentasi, dan aplikasi olahraga Bridge.</p>
+</div>
+<div class="hero-photo">
+<div class="photo-card">
+<img src="ketua-gabsi.jpg" alt="Ketua GABSI Kota Tanjungbalai">
+<div class="photo-caption">
+<strong>Erick Hariyanto Hutabarat, S.Pd.</strong>
+<span>Ketua GABSI Kota Tanjungbalai</span>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-
-<!-- =====================================================
-     MENU UTAMA
-===================================================== -->
-
-<section class="section">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="section-label">
-        Menu Utama
-      </div>
-
-      <h2 class="section-title">
-        Jelajahi Website GABSI
-      </h2>
-
-      <p class="section-desc">
-
-        Informasi website dipisahkan menjadi beberapa
-        halaman agar lebih rapi dan mudah digunakan.
-
-      </p>
-
-    </div>
-
-
-    <div class="quick-grid">
-
-
-      <a href="profil.html"
-         class="quick-card">
-
-        <div class="quick-icon">
-          🏛️
-        </div>
-
-        <h3>
-          Profil GABSI
-        </h3>
-
-        <p>
-          Sejarah, visi, misi, dan informasi
-          GABSI Kota Tanjungbalai.
-        </p>
-
-      </a>
-
-
-      <a href="pengurus.html"
-         class="quick-card">
-
-        <div class="quick-icon">
-          👥
-        </div>
-
-        <h3>
-          Pengurus
-        </h3>
-
-        <p>
-          Informasi ketua dan susunan
-          kepengurusan organisasi.
-        </p>
-
-      </a>
-
-
-      <a href="kegiatan.html"
-         class="quick-card">
-
-        <div class="quick-icon">
-          🏆
-        </div>
-
-        <h3>
-          Kegiatan & Berita
-        </h3>
-
-        <p>
-          Latihan, pembinaan atlet,
-          turnamen, dan informasi terbaru.
-        </p>
-
-      </a>
-
-
-      <a href="galeri.html"
-         class="quick-card">
-
-        <div class="quick-icon">
-          📷
-        </div>
-
-        <h3>
-          Galeri GABSI
-        </h3>
-
-        <p>
-          Dokumentasi foto kegiatan
-          latihan dan pertandingan.
-        </p>
-
-      </a>
-
-
-      <a href="game-bridge-gabsi.html"
-         class="quick-card game">
-
-        <div class="quick-icon">
-          ♠️
-        </div>
-
-        <h3>
-          Game Bridge
-        </h3>
-
-        <p>
-          Main Bridge 4 pemain melawan komputer
-          langsung dari HP.
-        </p>
-
-      </a>
-
-
-      <a href="kontak.html"
-         class="quick-card">
-
-        <div class="quick-icon">
-          📞
-        </div>
-
-        <h3>
-          Kontak
-        </h3>
-
-        <p>
-          Informasi kontak dan komunikasi
-          GABSI Kota Tanjungbalai.
-        </p>
-
-      </a>
-
-    </div>
-
-  </div>
-
+<section class="section bridge-navigation-section">
+<div class="container">
+<div class="section-heading bridge-navigation-heading">
+<div class="section-label">PUSAT AKTIVITAS BRIDGE</div>
+<h2 class="section-title">Pilih Layanan Bridge</h2>
+<p class="section-desc">Mulai belajar penawaran, berlatih secara online, atau bermain Bridge melalui pilihan berikut.</p>
+</div>
+<div class="bridge-navigation-grid">
+<a href="aplikasi.html" class="bridge-navigation-card bidding-card">
+<span class="bridge-navigation-icon" aria-hidden="true">♠</span>
+<span class="bridge-navigation-copy">
+<strong>BELAJAR PENAWARAN BRIDGE</strong>
+<small>Pelajari sistem penawaran, arti bid, dan strategi komunikasi pasangan.</small>
+</span>
+<span class="bridge-navigation-arrow" aria-hidden="true">→</span>
+</a>
+<a href="kocokan-kartu.html" class="bridge-navigation-card practice-card">
+<span class="bridge-navigation-icon" aria-hidden="true">🃏</span>
+<span class="bridge-navigation-copy">
+<strong>LATIHAN BRIDGE ONLINE</strong>
+<small>Buat room latihan, bagikan kartu, dan berlatih bersama pemain lain.</small>
+</span>
+<span class="bridge-navigation-arrow" aria-hidden="true">→</span>
+</a>
+<a href="game-bridge-gabsi.html" class="bridge-navigation-card online-game-card">
+<span class="bridge-navigation-icon" aria-hidden="true">♣</span>
+<span class="bridge-navigation-copy">
+<strong>GAME BRIDGE ONLINE</strong>
+<small>Asah strategi melalui permainan Bridge interaktif.</small>
+</span>
+<span class="bridge-navigation-arrow" aria-hidden="true">→</span>
+</a>
+</div>
+</div>
 </section>
-
-
-<!-- =====================================================
-     TENTANG
-===================================================== -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="about-grid">
-
-
-      <div class="about-card">
-
-        <div class="small">
-          Tentang
-        </div>
-
-        <h3>
-          GABSI Kota Tanjungbalai
-        </h3>
-
-        <p>
-
-          GABSI Kota Tanjungbalai merupakan
-          organisasi yang menjadi wadah pengembangan
-          olahraga Bridge di Kota Tanjungbalai,
-          termasuk pembinaan pemain, latihan,
-          pertandingan dan pengembangan prestasi.
-
-        </p>
-
-        <a href="profil.html"
-           class="about-btn">
-
-          Lihat Profil Lengkap →
-
-        </a>
-
-      </div>
-
-
-      <div class="about-card">
-
-        <div class="small">
-          Bridge Center
-        </div>
-
-        <h3>
-          Bridge Duplicate Center
-        </h3>
-
-        <p>
-
-          Website menyediakan aplikasi digital
-          untuk membantu pencatatan score sheet,
-          pengaturan deal kartu Bridge,
-          serta permainan Bridge latihan.
-
-        </p>
-
-        <a href="aplikasi.html"
-           class="about-btn">
-
-          Lihat Semua Aplikasi →
-
-        </a>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     KARTU APLIKASI
-===================================================== -->
-
-<section class="apps-section">
-
-  <div class="container">
-
-    <div class="apps-grid">
-
-
-      <div class="app-card blue">
-
-        <div class="app-content">
-
-          <div class="app-icon">
-            🧮
-          </div>
-
-          <h3>
-            Bridge Score Sheet
-          </h3>
-
-          <p>
-            Pencatatan kontrak, score NS/EW,
-            HCP, board, dan perhitungan IMP.
-          </p>
-
-        </div>
-
-        <a href="score-sheet.html"
-           class="app-button">
-
-          BUKA SCORE SHEET →
-
-        </a>
-
-      </div>
-
-
-      <div class="app-card green">
-
-        <div class="app-content">
-
-          <div class="app-icon">
-            🃏
-          </div>
-
-          <h3>
-            Kocokan Kartu Pembanding
-          </h3>
-
-          <p>
-            Membuat deal 52 kartu dan board
-            pembanding untuk permainan Duplicate.
-          </p>
-
-        </div>
-
-        <a href="kocokan-kartu.html"
-           class="app-button">
-
-          BUKA KOCOKAN →
-
-        </a>
-
-      </div>
-
-
-      <div class="app-card game">
-
-        <div class="app-content">
-
-          <div class="app-icon">
-            ♠️
-          </div>
-
-          <h3>
-            Game Bridge
-          </h3>
-
-          <p>
-
-            Permainan Bridge latihan 4 pemain.
-            Anda bermain melawan komputer dengan
-            kartu 52 buah, trick, trump, kontrak,
-            dan perhitungan skor.
-
-          </p>
-
-        </div>
-
-
-        <a href="game-bridge-gabsi.html"
-           class="app-button">
-
-          🎴 MAIN GAME BRIDGE →
-
-        </a>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer class="footer">
-
-  <div class="footer-inner">
-
-
-    <div>
-
-      <h3>
-        GABSI Kota Tanjungbalai
-      </h3>
-
-      <p>
-        Website resmi GABSI Kota Tanjungbalai sebagai
-        pusat informasi organisasi, kegiatan, pembinaan
-        prestasi, edukasi dan aplikasi olahraga bridge.
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <h3>
-        Menu
-      </h3>
-
-      <div class="footer-links">
-
-        <a href="index.html">
-          Beranda
-        </a>
-
-        <a href="profil.html">
-          Profil
-        </a>
-
-        <a href="pengurus.html">
-          Pengurus
-        </a>
-
-        <a href="kegiatan.html">
-          Kegiatan
-        </a>
-
-        <a href="galeri.html">
-          Galeri
-        </a>
-
-        <a href="aplikasi.html">
-          Aplikasi
-        </a>
-
-        <a href="kocokan-kartu.html">
-          Kartu Pembanding
-        </a>
-
-        <a href="game-bridge-gabsi.html">
-          Game Bridge
-        </a>
-
-        <a href="berita.html">
-          Berita
-        </a>
-
-        <a href="kontak.html">
-          Kontak
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div>
-
-      <h3>
-        Layanan
-      </h3>
-
-      <div class="footer-links">
-
-        <a href="game-bridge-gabsi.html">
-          Game Bridge
-        </a>
-
-        <a href="aplikasi.html">
-          Aplikasi Bridge
-        </a>
-
-        <a href="kocokan-kartu.html">
-          Kartu Pembanding
-        </a>
-
-        <a href="score-sheet.html">
-          Score Sheet
-        </a>
-
-        <a href="kontak.html">
-          Kontak
-        </a>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="footer-bottom">
-
-    <span>
-      © 2026 GABSI Kota Tanjungbalai
-    </span>
-
-    <span>
-      Bridge • Prestasi • Persaudaraan
-    </span>
-
-  </div>
-
+<div class="footer-inner">
+<div>
+<h3>GABSI Kota Tanjungbalai</h3>
+<p>Website resmi GABSI Kota Tanjungbalai sebagai pusat informasi organisasi, kegiatan, pembinaan prestasi, edukasi dan aplikasi olahraga bridge.</p>
+</div>
+<div>
+<h3>Menu</h3>
+<div class="footer-links">
+<a href="index.html">Beranda</a>
+<a href="profil.html">Profil</a>
+<a href="pengurus.html">Pengurus</a>
+<a href="kegiatan.html">Kegiatan</a>
+<a href="galeri.html">Galeri</a>
+<a href="aplikasi.html">Aplikasi</a>
+<a href="kocokan-kartu.html">Kartu Pembanding</a>
+<a href="game-bridge-gabsi.html">Game Bridge</a>
+<a href="berita.html">Berita</a>
+<a href="kontak.html">Kontak</a>
+</div>
+</div>
+<div>
+<h3>Layanan</h3>
+<div class="footer-links">
+<a href="game-bridge-gabsi.html">Game Bridge</a>
+<a href="aplikasi.html">Aplikasi Bridge</a>
+<a href="kocokan-kartu.html">Kartu Pembanding</a>
+<a href="score-sheet.html">Score Sheet</a>
+<a href="kontak.html">Kontak</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 GABSI Kota Tanjungbalai</span>
+<span>Bridge • Prestasi • Persaudaraan</span>
+</div>
 </footer>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-     FUNGSI SERVICE WORKER TETAP DIPERTAHANKAN
-===================================================== -->
-
 <script>
-
 /* =====================================================
    SERVICE WORKER
 ===================================================== */
@@ -2150,9 +269,6 @@ if("serviceWorker" in navigator){
   );
 
 }
-
 </script>
-
-
 </body>
 </html>
