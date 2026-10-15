@@ -1,1764 +1,206 @@
+
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-      content="#063b5c">
-
-<meta name="description"
-      content="Kegiatan GABSI Kota Tanjungbalai — latihan, pertandingan, pembinaan, edukasi dan pengembangan prestasi Bridge.">
-
-<link rel="icon"
-      type="image/png"
-      href="logo-gabsi.png">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#063b5c">
+<meta name="description" content="Kegiatan GABSI Kota Tanjungbalai — latihan, pertandingan, pembinaan, edukasi dan pengembangan prestasi Bridge.">
+<link rel="icon" type="image/png" href="logo-gabsi.png">
 <title>Kegiatan GABSI Kota Tanjungbalai</title>
-
-
 <style>
-
-/* =====================================================
-   DASAR
-===================================================== */
-
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#eef4f7;
-    color:#263746;
-    line-height:1.6;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-.site-header{
-    width:100%;
-    background:#ffffff;
-    box-shadow:0 2px 12px rgba(0,0,0,.10);
-    position:relative;
-    z-index:1000;
-}
-
-.top-line{
-    width:100%;
-    min-height:30px;
-
-    background:#063b5c;
-    color:#ffffff;
-
-    padding:6px 20px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    font-size:9px;
-    letter-spacing:.2px;
-}
-
-
-/* =====================================================
-   HEADER MAIN
-===================================================== */
-
-.header-main{
-    width:100%;
-    min-height:68px;
-
-    padding:9px 20px;
-
-    display:flex;
-    align-items:center;
-
-    gap:20px;
-
-    background:#ffffff;
-}
-
-
-/* =====================================================
-   BRAND
-   HANYA SATU LOGO GABSI
-===================================================== */
-
-.brand{
-    display:flex;
-    align-items:center;
-
-    gap:10px;
-
-    text-decoration:none;
-
-    flex:0 0 auto;
-
-    min-width:0;
-
-    position:relative;
-}
-
-
-/* PENGAMAN LOGO TAMBAHAN */
-
-.brand::before,
-.brand::after{
-    content:none !important;
-    display:none !important;
-    background:none !important;
-    background-image:none !important;
-}
-
-
-/* =====================================================
-   SATU-SATUNYA LOGO GABSI
-===================================================== */
-
-.brand-logo{
-    width:40px;
-    height:40px;
-
-    min-width:40px;
-    min-height:40px;
-
-    max-width:40px;
-    max-height:40px;
-
-    flex:0 0 40px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
-    background:#ffffff;
-
-    border-radius:8px;
-
-    padding:0;
-    margin:0;
-
-    position:relative;
-}
-
-
-/* LOGO UTAMA */
-
-.brand-logo img{
-    display:block !important;
-
-    width:40px !important;
-    height:40px !important;
-
-    min-width:40px !important;
-    min-height:40px !important;
-
-    max-width:40px !important;
-    max-height:40px !important;
-
-    object-fit:contain;
-
-    margin:0 !important;
-    padding:0 !important;
-
-    position:static !important;
-}
-
-
-/* =====================================================
-   PENGAMAN AGAR LOGO KANAN TIDAK MUNCUL
-===================================================== */
-
-.header-main > img{
-    display:none !important;
-}
-
-.header-main::before,
-.header-main::after{
-    content:none !important;
-    display:none !important;
-    background:none !important;
-    background-image:none !important;
-}
-
-.brand > img{
-    display:none !important;
-}
-
-
-/* =====================================================
-   BRAND TEXT
-===================================================== */
-
-.brand-text{
-    display:block;
-    min-width:0;
-}
-
-.brand-text strong{
-    display:block;
-
-    color:#063b5c;
-
-    font-size:13px;
-
-    line-height:1.2;
-
-    white-space:nowrap;
-}
-
-.brand-text small{
-    display:block;
-
-    color:#7b8790;
-
-    font-size:7px;
-
-    line-height:1.2;
-
-    margin-top:2px;
-
-    letter-spacing:.2px;
-
-    white-space:nowrap;
-}
-
-
-/* =====================================================
-   NAVIGASI
-   SAMA SEPERTI PENGURUS.HTML
-===================================================== */
-
-.main-nav{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:flex-end;
-
-    gap:3px;
-
-    flex:1;
-
-    min-width:0;
-
-    overflow-x:auto;
-
-    overflow-y:hidden;
-
-    white-space:nowrap;
-
-    scrollbar-width:none;
-}
-
-.main-nav::-webkit-scrollbar{
-    display:none;
-}
-
-.main-nav a{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    flex:0 0 auto;
-
-    text-decoration:none;
-
-    color:#172033;
-
-    padding:8px 9px;
-
-    border-radius:9px;
-
-    font-size:10px;
-
-    font-weight:600;
-
-    white-space:nowrap;
-
-    transition:
-        background .2s ease,
-        color .2s ease,
-        box-shadow .2s ease;
-}
-
-.main-nav a:hover{
-    background:#eaf4f9;
-    color:#07558f;
-}
-
-.main-nav a.active{
-    background:#eaf4f9;
-
-    color:#07558f;
-
-    font-weight:700;
-
-    box-shadow:
-        inset 0 -3px 0 #c92f3d;
-}
-
-
-/* =====================================================
-   HALAMAN KEGIATAN
-===================================================== */
-
-.kegiatan-page{
-    background:#f3f7fa;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.page-hero{
-    background:
-        linear-gradient(
-            135deg,
-            #063b5c 0%,
-            #07558f 48%,
-            #087cab 100%
-        );
-
-    color:#ffffff;
-
-    padding:58px 20px;
-
-    text-align:center;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.page-hero::before{
-    content:"";
-
-    position:absolute;
-
-    width:320px;
-    height:320px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.05);
-
-    top:-180px;
-    left:-100px;
-}
-
-.page-hero::after{
-    content:"";
-
-    position:absolute;
-
-    width:380px;
-    height:380px;
-
-    border-radius:50%;
-
-    background:rgba(233,185,73,.06);
-
-    right:-150px;
-    bottom:-230px;
-}
-
-.page-hero-inner{
-    position:relative;
-
-    z-index:2;
-
-    max-width:1000px;
-
-    margin:auto;
-}
-
-.hero-label{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    background:rgba(255,255,255,.13);
-
-    border:1px solid rgba(255,255,255,.25);
-
-    padding:7px 15px;
-
-    border-radius:30px;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    letter-spacing:.5px;
-
-    margin-bottom:13px;
-}
-
-.page-hero h1{
-    font-size:clamp(28px,4vw,42px);
-
-    line-height:1.2;
-
-    margin:0 0 10px;
-
-    font-weight:800;
-}
-
-.page-hero h1 span{
-    color:#ffd84d;
-}
-
-.page-hero p{
-    font-size:13px;
-
-    color:rgba(255,255,255,.92);
-
-    max-width:720px;
-
-    margin:auto;
-}
-
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
-.container{
-    width:100%;
-
-    max-width:1120px;
-
-    margin:auto;
-
-    padding:42px 20px 55px;
-}
-
-
-/* =====================================================
-   JUDUL SECTION
-===================================================== */
-
-.section-heading{
-    margin-bottom:24px;
-}
-
-.section-heading .label{
-    display:inline-block;
-
-    color:#0874a8;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
-
-    margin-bottom:3px;
-}
-
-.section-heading h2{
-    color:#173b50;
-
-    font-size:28px;
-
-    line-height:1.25;
-
-    margin:3px 0 4px;
-}
-
-.section-heading p{
-    color:#71808b;
-
-    font-size:12px;
-}
-
-
-/* =====================================================
-   GRID KEGIATAN
-===================================================== */
-
-.kegiatan-grid{
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
-}
-
-
-/* =====================================================
-   KARTU KEGIATAN
-===================================================== */
-
-.kegiatan-card{
-    background:#ffffff;
-
-    border:1px solid #dce7ed;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 7px 24px rgba(25,60,80,.08);
-
-    transition:
-        transform .22s ease,
-        box-shadow .22s ease,
-        border-color .22s ease;
-}
-
-.kegiatan-card:hover{
-    transform:translateY(-5px);
-
-    border-color:#b9d7e7;
-
-    box-shadow:
-        0 14px 32px rgba(25,60,80,.14);
-}
-
-
-/* =====================================================
-   ICON KEGIATAN
-===================================================== */
-
-.kegiatan-icon{
-    height:160px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #063b5c,
-            #087cab
-        );
-
-    color:#ffffff;
-
-    font-size:58px;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.kegiatan-icon::after{
-    content:"";
-
-    position:absolute;
-
-    width:170px;
-    height:170px;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    border-radius:50%;
-
-    right:-70px;
-    bottom:-95px;
-}
-
-.kegiatan-card:nth-child(2) .kegiatan-icon{
-    background:
-        linear-gradient(
-            135deg,
-            #087cab,
-            #008f82
-        );
-}
-
-.kegiatan-card:nth-child(3) .kegiatan-icon{
-    background:
-        linear-gradient(
-            135deg,
-            #0b5278,
-            #063b5c
-        );
-}
-
-.kegiatan-card:nth-child(4) .kegiatan-icon{
-    background:
-        linear-gradient(
-            135deg,
-            #1687b8,
-            #07558f
-        );
-}
-
-.kegiatan-card:nth-child(5) .kegiatan-icon{
-    background:
-        linear-gradient(
-            135deg,
-            #087a75,
-            #087cab
-        );
-}
-
-.kegiatan-card:nth-child(6) .kegiatan-icon{
-    background:
-        linear-gradient(
-            135deg,
-            #063b5c,
-            #07558f
-        );
-}
-
-
-/* =====================================================
-   ISI KARTU
-===================================================== */
-
-.kegiatan-info{
-    padding:19px;
-}
-
-.kegiatan-tag{
-    display:inline-flex;
-
-    align-items:center;
-
-    background:#e9f4f9;
-
-    color:#07558f;
-
-    padding:5px 10px;
-
-    border-radius:30px;
-
-    font-size:8px;
-
-    font-weight:800;
-
-    letter-spacing:.4px;
-
-    margin-bottom:9px;
-}
-
-.kegiatan-info h3{
-    color:#173b50;
-
-    font-size:17px;
-
-    line-height:1.35;
-
-    margin:0 0 7px;
-}
-
-.kegiatan-info p{
-    color:#687883;
-
-    font-size:11px;
-
-    line-height:1.75;
-
-    margin:0 0 5px;
-}
-
-.kegiatan-info p strong{
-    color:#173b50;
-}
-
-
-/* =====================================================
-   INFORMASI
-===================================================== */
-
-.info-box{
-    margin-top:30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #f6fbfd
-        );
-
-    border:1px solid #dce7ed;
-
-    border-left:5px solid #0874a8;
-
-    border-radius:16px;
-
-    padding:24px;
-
-    box-shadow:
-        0 6px 20px rgba(25,60,80,.07);
-}
-
-.info-box h3{
-    font-size:19px;
-
-    color:#173b50;
-
-    margin:0 0 8px;
-}
-
-.info-box p{
-    color:#6e7b84;
-
-    font-size:11px;
-
-    line-height:1.85;
-
-    margin:0;
-}
-
-
-/* =====================================================
-   MENU TERKAIT
-===================================================== */
-
-.related{
-    margin-top:26px;
-
-    background:#ffffff;
-
-    border:1px solid #dce7ed;
-
-    border-radius:16px;
-
-    padding:22px;
-
-    box-shadow:
-        0 6px 20px rgba(25,60,80,.07);
-}
-
-.related-grid{
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:11px;
-}
-
-.related a{
-    text-decoration:none;
-
-    color:#07558f;
-
-    background:#eef6fa;
-
-    border:1px solid #e0edf3;
-
-    border-radius:11px;
-
-    padding:12px 7px;
-
-    text-align:center;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    line-height:1.5;
-
-    transition:.2s ease;
-}
-
-.related a:hover{
-    background:#07558f;
-
-    color:#ffffff;
-
-    border-color:#07558f;
-
-    transform:translateY(-2px);
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-.footer{
-    background:
-        linear-gradient(
-            135deg,
-            #063b5c,
-            #052e46
-        );
-
-    color:#ffffff;
-
-    padding:34px 20px 18px;
-}
-
-.footer-inner{
-    max-width:1120px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:1.4fr 1fr 1fr;
-
-    gap:32px;
-}
-
-.footer h3{
-    font-size:15px;
-
-    margin:0 0 9px;
-}
-
-.footer p{
-    color:rgba(255,255,255,.76);
-
-    font-size:10px;
-
-    line-height:1.8;
-
-    margin:0;
-}
-
-.footer-links{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:6px;
-}
-
-.footer-links a{
-    color:rgba(255,255,255,.76);
-
-    text-decoration:none;
-
-    font-size:10px;
-
-    transition:.2s;
-}
-
-.footer-links a:hover{
-    color:#ffffff;
-
-    transform:translateX(2px);
-}
-
-.footer-bottom{
-    max-width:1120px;
-
-    margin:24px auto 0;
-
-    padding-top:13px;
-
-    border-top:1px solid rgba(255,255,255,.15);
-
-    display:flex;
-
-    justify-content:space-between;
-
-    color:rgba(255,255,255,.58);
-
-    font-size:9px;
-}
-
-
-/* =====================================================
-   RESPONSIVE TABLET
-===================================================== */
-
-@media(max-width:1100px){
-
-    .header-main{
-        gap:10px;
-    }
-
-    .main-nav{
-        justify-content:flex-start;
-    }
-
-    .main-nav a{
-        padding:8px 8px;
-    }
-
-}
-
-@media(max-width:900px){
-
-    .kegiatan-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .footer-inner{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .footer-inner > div:first-child{
-        grid-column:1/-1;
-    }
-
-}
-
-
-/* =====================================================
-   RESPONSIVE HP
-===================================================== */
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef4f7;color:#263746;line-height:1.6}
+.site-header{width:100%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.10);position:relative;z-index:1000}
+.top-line{width:100%;min-height:30px;background:#063b5c;color:#fff;padding:6px 20px;display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:.2px}
+.header-main{width:100%;min-height:68px;padding:9px 20px;display:flex;align-items:center;gap:20px;background:#fff}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto;min-width:0;position:relative}
+.brand::before,.brand::after{content:none!important;display:none!important;background:none!important;background-image:none!important}
+.brand-logo{width:40px;height:40px;min-width:40px;min-height:40px;max-width:40px;max-height:40px;flex:0 0 40px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fff;border-radius:8px;padding:0;margin:0;position:relative}
+.brand-logo img{display:block!important;width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;max-width:40px!important;max-height:40px!important;object-fit:contain;margin:0!important;padding:0!important;position:static!important}
+.header-main>img,.brand>img{display:none!important}
+.header-main::before,.header-main::after{content:none!important;display:none!important;background:none!important;background-image:none!important}
+.brand-text{display:block;min-width:0}
+.brand-text strong{display:block;color:#063b5c;font-size:13px;line-height:1.2;white-space:nowrap}
+.brand-text small{display:block;color:#7b8790;font-size:7px;line-height:1.2;margin-top:2px;letter-spacing:.2px;white-space:nowrap}
+.main-nav{display:flex;align-items:center;justify-content:flex-end;gap:3px;flex:1;min-width:0;overflow-x:auto;overflow-y:hidden;white-space:nowrap;scrollbar-width:none}
+.main-nav::-webkit-scrollbar{display:none}
+.main-nav a{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;text-decoration:none;color:#172033;padding:8px 9px;border-radius:9px;font-size:10px;font-weight:600;white-space:nowrap;transition:background .2s ease,color .2s ease,box-shadow .2s ease}
+.main-nav a:hover{background:#eaf4f9;color:#07558f}
+.main-nav a.active{background:#eaf4f9;color:#07558f;font-weight:700;box-shadow:inset 0 -3px 0 #c92f3d}
+.kegiatan-page{background:#f3f7fa}
+.page-hero{background:linear-gradient(135deg,#063b5c 0%,#07558f 48%,#087cab 100%);color:#fff;padding:58px 20px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.05);top:-180px;left:-100px}
+.page-hero::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(233,185,73,.06);right:-150px;bottom:-230px}
+.page-hero-inner{position:relative;z-index:2;max-width:1000px;margin:auto}
+.hero-label{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);padding:7px 15px;border-radius:30px;font-size:10px;font-weight:800;letter-spacing:.5px;margin-bottom:13px}
+.page-hero h1{font-size:clamp(28px,4vw,42px);line-height:1.2;margin:0 0 10px;font-weight:800}
+.page-hero h1 span{color:#ffd84d}
+.page-hero p{font-size:13px;color:rgba(255,255,255,.92);max-width:720px;margin:auto}
+.container{width:100%;max-width:1120px;margin:auto;padding:42px 20px 55px}
+.section-heading{margin-bottom:24px}
+.section-heading .label{display:inline-block;color:#0874a8;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.section-heading h2{color:#173b50;font-size:28px;line-height:1.25;margin:3px 0 4px}
+.section-heading p{color:#71808b;font-size:12px}
+.kegiatan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.kegiatan-card{background:#fff;border:1px solid #dce7ed;border-radius:18px;overflow:hidden;box-shadow:0 7px 24px rgba(25,60,80,.08);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.kegiatan-card:hover{transform:translateY(-5px);border-color:#b9d7e7;box-shadow:0 14px 32px rgba(25,60,80,.14)}
+.kegiatan-icon{height:160px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#063b5c,#087cab);color:#fff;font-size:58px;position:relative;overflow:hidden}
+.kegiatan-icon::after{content:"";position:absolute;width:170px;height:170px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-70px;bottom:-95px}
+.kegiatan-card:nth-child(2) .kegiatan-icon{background:linear-gradient(135deg,#087cab,#008f82)}
+.kegiatan-card:nth-child(3) .kegiatan-icon{background:linear-gradient(135deg,#0b5278,#063b5c)}
+.kegiatan-card:nth-child(4) .kegiatan-icon{background:linear-gradient(135deg,#1687b8,#07558f)}
+.kegiatan-card:nth-child(5) .kegiatan-icon{background:linear-gradient(135deg,#087a75,#087cab)}
+.kegiatan-card:nth-child(6) .kegiatan-icon{background:linear-gradient(135deg,#063b5c,#07558f)}
+.kegiatan-info{padding:19px}
+.kegiatan-tag{display:inline-flex;align-items:center;background:#e9f4f9;color:#07558f;padding:5px 10px;border-radius:30px;font-size:8px;font-weight:800;letter-spacing:.4px;margin-bottom:9px}
+.kegiatan-info h3{color:#173b50;font-size:17px;line-height:1.35;margin:0 0 7px}
+.kegiatan-info p{color:#687883;font-size:11px;line-height:1.75;margin:0 0 5px}
+.kegiatan-info p strong{color:#173b50}
+.footer{background:linear-gradient(135deg,#063b5c,#052e46);color:#fff;padding:34px 20px 18px}
+.footer-inner{max-width:1120px;margin:auto;display:grid;grid-template-columns:1fr;gap:32px}
+.footer h3{font-size:15px;margin:0 0 9px}
+.footer p{color:rgba(255,255,255,.76);font-size:10px;line-height:1.8;margin:0}
+.footer-bottom{max-width:1120px;margin:24px auto 0;padding-top:13px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;color:rgba(255,255,255,.58);font-size:9px}
+@media(max-width:1100px){.header-main{gap:10px}.main-nav{justify-content:flex-start}.main-nav a{padding:8px}}
+@media(max-width:900px){.kegiatan-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){
-
-    .top-line{
-        padding:6px 10px;
-
-        font-size:7px;
-
-        gap:8px;
-    }
-
-    .header-main{
-        min-height:58px;
-
-        padding:7px 10px;
-
-        gap:8px;
-    }
-
-
-    /* SATU LOGO SAJA */
-
-    .brand-logo{
-        width:36px;
-        height:36px;
-
-        min-width:36px;
-        min-height:36px;
-
-        max-width:36px;
-        max-height:36px;
-
-        flex-basis:36px;
-    }
-
-    .brand-logo img{
-        width:36px !important;
-        height:36px !important;
-
-        min-width:36px !important;
-        min-height:36px !important;
-
-        max-width:36px !important;
-        max-height:36px !important;
-    }
-
-    .brand-text strong{
-        font-size:10px;
-    }
-
-    .brand-text small{
-        font-size:5px;
-    }
-
-    .main-nav{
-        flex:1;
-
-        gap:2px;
-
-        overflow-x:auto;
-    }
-
-    .main-nav a{
-        font-size:8px;
-
-        padding:7px 8px;
-    }
-
-
-    .page-hero{
-        padding:40px 15px;
-    }
-
-    .page-hero h1{
-        font-size:28px;
-    }
-
-    .page-hero p{
-        font-size:11px;
-    }
-
-
-    .container{
-        padding:30px 13px 40px;
-    }
-
-    .section-heading h2{
-        font-size:22px;
-    }
-
-    .section-heading p{
-        font-size:10px;
-    }
-
-
-    .kegiatan-grid{
-        grid-template-columns:repeat(2,1fr);
-
-        gap:12px;
-    }
-
-    .kegiatan-icon{
-        height:125px;
-
-        font-size:44px;
-    }
-
-    .kegiatan-info{
-        padding:13px;
-    }
-
-    .kegiatan-tag{
-        font-size:7px;
-
-        padding:4px 7px;
-    }
-
-    .kegiatan-info h3{
-        font-size:13px;
-    }
-
-    .kegiatan-info p{
-        font-size:9px;
-
-        line-height:1.65;
-    }
-
-
-    .info-box{
-        padding:19px 15px;
-    }
-
-    .info-box h3{
-        font-size:17px;
-    }
-
-    .info-box p{
-        font-size:10px;
-    }
-
-
-    .related{
-        padding:16px;
-    }
-
-    .related-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-
-    .footer{
-        padding:28px 15px 16px;
-    }
-
-    .footer-inner{
-        grid-template-columns:1fr 1fr;
-
-        gap:22px;
-    }
-
-    .footer-bottom{
-        flex-direction:column;
-
-        gap:6px;
-    }
-
+.top-line{padding:6px 10px;font-size:7px;gap:8px}
+.header-main{min-height:58px;padding:7px 10px;gap:8px}
+.brand-logo{width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;flex-basis:36px}
+.brand-logo img{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;max-width:36px!important;max-height:36px!important}
+.brand-text strong{font-size:10px}
+.brand-text small{font-size:5px}
+.main-nav{flex:1;gap:2px;overflow-x:auto}
+.main-nav a{font-size:8px;padding:7px 8px}
+.page-hero{padding:40px 15px}
+.page-hero h1{font-size:28px}
+.page-hero p{font-size:11px}
+.container{padding:30px 13px 40px}
+.section-heading h2{font-size:22px}
+.section-heading p{font-size:10px}
+.kegiatan-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+.kegiatan-icon{height:125px;font-size:44px}
+.kegiatan-info{padding:13px}
+.kegiatan-tag{font-size:7px;padding:4px 7px}
+.kegiatan-info h3{font-size:13px}
+.kegiatan-info p{font-size:9px;line-height:1.65}
+.footer{padding:28px 15px 16px}
+.footer-inner{grid-template-columns:1fr;gap:22px}
+.footer-bottom{flex-direction:column;gap:6px}
 }
-
-
-/* =====================================================
-   HP SANGAT KECIL
-===================================================== */
-
 @media(max-width:380px){
-
-    .brand-text{
-        display:none;
-    }
-
-    .header-main{
-        gap:5px;
-    }
-
-    .main-nav a{
-        font-size:7px;
-
-        padding:6px 7px;
-    }
-
-    .page-hero h1{
-        font-size:24px;
-    }
-
-    .kegiatan-grid{
-        grid-template-columns:1fr;
-    }
-
-    .related-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
+.brand-text{display:none}
+.header-main{gap:5px}
+.main-nav a{font-size:7px;padding:6px 7px}
+.page-hero h1{font-size:24px}
+.kegiatan-grid{grid-template-columns:1fr}
 }
-
 </style>
-
 </head>
-
-
 <body class="kegiatan-page">
-
-
-<!-- =====================================================
-     HEADER
-     SAMA DENGAN PENGURUS.HTML
-     HANYA SATU LOGO DI KIRI
-===================================================== -->
-
 <header class="site-header">
-
-
-    <div class="top-line">
-
-        <span>
-            GABSI KOTA TANJUNGBALAI
-        </span>
-
-        <span>
-            Bridge • Prestasi • Persaudaraan
-        </span>
-
-    </div>
-
-
-    <div class="header-main">
-
-
-        <!-- =================================================
-             SATU-SATUNYA LOGO GABSI
-        ================================================== -->
-
-        <a href="index.html"
-           class="brand">
-
-            <div class="brand-logo">
-
-                <img
-                    src="logo-gabsi.png"
-                    alt="Logo GABSI Kota Tanjungbalai">
-
-            </div>
-
-
-            <div class="brand-text">
-
-                <strong>
-                    GABSI KOTA TANJUNGBALAI
-                </strong>
-
-                <small>
-                    GABUNGAN BRIDGE SELURUH INDONESIA
-                </small>
-
-            </div>
-
-        </a>
-
-
-        <!-- =================================================
-             NAVIGASI
-             URUTAN SAMA DENGAN PENGURUS.HTML
-        ================================================== -->
-
-        <nav class="main-nav">
-
-            <a href="index.html">
-                Beranda
-            </a>
-
-            <a href="profil.html">
-                Profil
-            </a>
-
-            <a href="pengurus.html">
-                Pengurus
-            </a>
-
-            <a href="kegiatan.html"
-               class="active">
-                Kegiatan
-            </a>
-
-            <a href="galeri.html">
-                Galeri
-            </a>
-
-            <a href="aplikasi.html">
-                Aplikasi
-            </a>
-
-            <a href="kocokan-kartu.html">
-                Kartu Pembanding
-            </a>
-
-            <a href="game-bridge-gabsi.html">
-                Game Bridge
-            </a>
-
-            <a href="berita.html">
-                Berita
-            </a>
-
-            <a href="kontak.html">
-                Kontak
-            </a>
-
-        </nav>
-
-    </div>
-
+<div class="top-line">
+<span>GABSI KOTA TANJUNGBALAI</span>
+<span>Bridge • Prestasi • Persaudaraan</span>
+</div>
+<div class="header-main">
+<a href="index.html" class="brand">
+<div class="brand-logo">
+<img src="logo-gabsi.png" alt="Logo GABSI Kota Tanjungbalai">
+</div>
+<div class="brand-text">
+<strong>GABSI KOTA TANJUNGBALAI</strong>
+<small>GABUNGAN BRIDGE SELURUH INDONESIA</small>
+</div>
+</a>
+<nav class="main-nav">
+<a href="index.html">Beranda</a>
+<a href="profil.html">Profil</a>
+<a href="pengurus.html">Pengurus</a>
+<a href="kegiatan.html" class="active">Kegiatan</a>
+<a href="galeri.html">Galeri</a>
+<a href="berita.html">Berita</a>
+<a href="kontak.html">Kontak</a>
+</nav>
+</div>
 </header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="page-hero">
-
-    <div class="page-hero-inner">
-
-        <span class="hero-label">
-            📅 KEGIATAN GABSI
-        </span>
-
-
-        <h1>
-
-            Kegiatan
-
-            <span>
-                GABSI Kota Tanjungbalai
-            </span>
-
-        </h1>
-
-
-        <p>
-            Informasi kegiatan latihan, pembinaan,
-            pertandingan dan aktivitas olahraga Bridge
-            GABSI Kota Tanjungbalai.
-        </p>
-
-    </div>
-
+<div class="page-hero-inner">
+<span class="hero-label">📅 KEGIATAN GABSI</span>
+<h1>Kegiatan <span>GABSI Kota Tanjungbalai</span></h1>
+<p>Informasi kegiatan latihan, pembinaan, pertandingan dan aktivitas olahraga Bridge GABSI Kota Tanjungbalai.</p>
+</div>
 </section>
-
-
-<!-- =====================================================
-     KONTEN
-===================================================== -->
-
 <main class="container">
-
-
-    <div class="section-heading">
-
-        <span class="label">
-            KEGIATAN ORGANISASI
-        </span>
-
-
-        <h2>
-            Program dan Aktivitas GABSI
-        </h2>
-
-
-        <p>
-            Berbagai kegiatan yang mendukung pembinaan
-            dan pengembangan olahraga Bridge.
-        </p>
-
-    </div>
-
-
-    <!-- =================================================
-         GRID KEGIATAN
-    ================================================== -->
-
-    <section class="kegiatan-grid">
-
-
-        <!-- LATIHAN -->
-
-        <article class="kegiatan-card">
-
-            <div class="kegiatan-icon">
-                🃏
-            </div>
-
-
-            <div class="kegiatan-info">
-
-                <span class="kegiatan-tag">
-                    LATIHAN
-                </span>
-
-
-                <h3>
-                    Latihan Bridge
-                </h3>
-
-
-                <p>
-
-                    Kegiatan latihan untuk meningkatkan
-                    pemahaman pemain terhadap teknik,
-                    strategi dan permainan Bridge.
-
-                    <br><br>
-
-                    <strong>
-                        Latihan Bridge dilakukan setiap hari
-                        Senin, Rabu, Kamis dan Jumat.
-                    </strong>
-
-                    <br>
-
-                    Mulai Pkl. 21.00 WIB s.d
-                    Pkl. 23.00 WIB.
-
-                    <br>
-
-                    Latihan ini merupakan latihan rutin
-                    dan persiapan Porprovsu 2026 di Medan.
-
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- PERTANDINGAN -->
-
-        <article class="kegiatan-card">
-
-            <div class="kegiatan-icon">
-                🏆
-            </div>
-
-
-            <div class="kegiatan-info">
-
-                <span class="kegiatan-tag">
-                    PERTANDINGAN
-                </span>
-
-
-                <h3>
-                    Pertandingan Bridge
-                </h3>
-
-
-                <p>
-                    Kegiatan pertandingan sebagai sarana
-                    menguji kemampuan pemain dan membangun
-                    pengalaman kompetisi.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- PEMBINAAN -->
-
-        <article class="kegiatan-card">
-
-            <div class="kegiatan-icon">
-                👥
-            </div>
-
-
-            <div class="kegiatan-info">
-
-                <span class="kegiatan-tag">
-                    PEMBINAAN
-                </span>
-
-
-                <h3>
-                    Pembinaan Pemain
-                </h3>
-
-
-                <p>
-                    Pembinaan dilakukan untuk mendukung
-                    perkembangan kemampuan pemain Bridge
-                    secara bertahap dan berkelanjutan.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- DUPLICATE -->
-
-        <article class="kegiatan-card">
-
-            <div class="kegiatan-icon">
-                📊
-            </div>
-
-
-            <div class="kegiatan-info">
-
-                <span class="kegiatan-tag">
-                    DUPLICATE
-                </span>
-
-
-                <h3>
-                    Bridge Duplicate
-                </h3>
-
-
-                <p>
-                    Latihan dan pertandingan Duplicate
-                    menggunakan board, score sheet dan
-                    perhitungan hasil pertandingan.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- EDUKASI -->
-
-        <article class="kegiatan-card">
-
-            <div class="kegiatan-icon">
-                📚
-            </div>
-
-
-            <div class="kegiatan-info">
-
-                <span class="kegiatan-tag">
-                    EDUKASI
-                </span>
-
-
-                <h3>
-                    Edukasi Bridge
-                </h3>
-
-
-                <p>
-                    Kegiatan belajar mengenai aturan,
-                    sistem permainan, bidding, play dan
-                    pencatatan skor Bridge.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- PRESTASI -->
-
-        <article class="kegiatan-card">
-
-            <div class="kegiatan-icon">
-                🎯
-            </div>
-
-
-            <div class="kegiatan-info">
-
-                <span class="kegiatan-tag">
-                    PRESTASI
-                </span>
-
-
-                <h3>
-                    Pengembangan Prestasi
-                </h3>
-
-
-                <p>
-                    Mendukung pemain dalam meningkatkan
-                    kemampuan dan pengalaman melalui
-                    latihan serta kegiatan kompetisi.
-                </p>
-
-            </div>
-
-        </article>
-
-
-    </section>
-
-
-    <!-- =================================================
-         INFORMASI
-    ================================================== -->
-
-    <section class="info-box">
-
-        <h3>
-            Kegiatan GABSI Kota Tanjungbalai
-        </h3>
-
-
-        <p>
-            Halaman ini menjadi pusat informasi kegiatan
-            GABSI Kota Tanjungbalai. Informasi seperti
-            latihan, pertandingan, pembinaan, kegiatan
-            Duplicate Bridge dan aktivitas lainnya dapat
-            ditampilkan dan diperbarui melalui halaman ini.
-        </p>
-
-    </section>
-
-
-    <!-- =================================================
-         LINK HALAMAN LAIN
-    ================================================== -->
-
-    <section class="related">
-
-        <div class="related-grid">
-
-
-            <a href="index.html">
-                🏠<br>
-                Beranda
-            </a>
-
-
-            <a href="profil.html">
-                👤<br>
-                Profil
-            </a>
-
-
-            <a href="pengurus.html">
-                👥<br>
-                Pengurus
-            </a>
-
-
-            <a href="galeri.html">
-                📷<br>
-                Galeri
-            </a>
-
-
-            <a href="aplikasi.html">
-                💻<br>
-                Aplikasi
-            </a>
-
-
-            <a href="kocokan-kartu.html">
-                🃏<br>
-                Kartu Pembanding
-            </a>
-
-
-            <a href="game-bridge-gabsi.html">
-                ♠<br>
-                Game Bridge
-            </a>
-
-
-            <a href="score-sheet.html">
-                📊<br>
-                Score Sheet
-            </a>
-
-
-            <a href="berita.html">
-                📰<br>
-                Berita
-            </a>
-
-
-            <a href="kontak.html">
-                📞<br>
-                Kontak
-            </a>
-
-
-        </div>
-
-    </section>
-
-
+<div class="section-heading">
+<span class="label">KEGIATAN ORGANISASI</span>
+<h2>Program dan Aktivitas GABSI</h2>
+<p>Berbagai kegiatan yang mendukung pembinaan dan pengembangan olahraga Bridge.</p>
+</div>
+<section class="kegiatan-grid">
+<article class="kegiatan-card">
+<div class="kegiatan-icon">🃏</div>
+<div class="kegiatan-info">
+<span class="kegiatan-tag">LATIHAN</span>
+<h3>Latihan Bridge</h3>
+<p>Kegiatan latihan untuk meningkatkan pemahaman pemain terhadap teknik, strategi dan permainan Bridge.<br><br><strong>Latihan Bridge dilakukan setiap hari Senin, Rabu, Kamis dan Jumat.</strong><br>Mulai Pkl. 21.00 WIB s.d Pkl. 23.00 WIB.<br>Latihan ini merupakan latihan rutin dan persiapan Porprovsu 2026 di Medan.</p>
+</div>
+</article>
+<article class="kegiatan-card">
+<div class="kegiatan-icon">🏆</div>
+<div class="kegiatan-info">
+<span class="kegiatan-tag">PERTANDINGAN</span>
+<h3>Pertandingan Bridge</h3>
+<p>Kegiatan pertandingan sebagai sarana menguji kemampuan pemain dan membangun pengalaman kompetisi.</p>
+</div>
+</article>
+<article class="kegiatan-card">
+<div class="kegiatan-icon">👥</div>
+<div class="kegiatan-info">
+<span class="kegiatan-tag">PEMBINAAN</span>
+<h3>Pembinaan Pemain</h3>
+<p>Pembinaan dilakukan untuk mendukung perkembangan kemampuan pemain Bridge secara bertahap dan berkelanjutan.</p>
+</div>
+</article>
+<article class="kegiatan-card">
+<div class="kegiatan-icon">📊</div>
+<div class="kegiatan-info">
+<span class="kegiatan-tag">DUPLICATE</span>
+<h3>Bridge Duplicate</h3>
+<p>Latihan dan pertandingan Duplicate menggunakan board, score sheet dan perhitungan hasil pertandingan.</p>
+</div>
+</article>
+<article class="kegiatan-card">
+<div class="kegiatan-icon">📚</div>
+<div class="kegiatan-info">
+<span class="kegiatan-tag">EDUKASI</span>
+<h3>Edukasi Bridge</h3>
+<p>Kegiatan belajar mengenai aturan, sistem permainan, bidding, play dan pencatatan skor Bridge.</p>
+</div>
+</article>
+<article class="kegiatan-card">
+<div class="kegiatan-icon">🎯</div>
+<div class="kegiatan-info">
+<span class="kegiatan-tag">PRESTASI</span>
+<h3>Pengembangan Prestasi</h3>
+<p>Mendukung pemain dalam meningkatkan kemampuan dan pengalaman melalui latihan serta kegiatan kompetisi.</p>
+</div>
+</article>
+</section>
 </main>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer class="footer">
-
-
-    <div class="footer-inner">
-
-
-        <div>
-
-            <h3>
-                GABSI Kota Tanjungbalai
-            </h3>
-
-
-            <p>
-                Gabungan Bridge Seluruh Indonesia.
-                Website informasi, pembinaan dan
-                Bridge Duplicate Center Kota Tanjungbalai.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Navigasi
-            </h3>
-
-
-            <div class="footer-links">
-
-                <a href="index.html">
-                    Beranda
-                </a>
-
-                <a href="profil.html">
-                    Profil
-                </a>
-
-                <a href="pengurus.html">
-                    Pengurus
-                </a>
-
-                <a href="kegiatan.html">
-                    Kegiatan
-                </a>
-
-                <a href="galeri.html">
-                    Galeri
-                </a>
-
-                <a href="aplikasi.html">
-                    Aplikasi
-                </a>
-
-                <a href="kocokan-kartu.html">
-                    Kartu Pembanding
-                </a>
-
-                <a href="game-bridge-gabsi.html">
-                    Game Bridge
-                </a>
-
-                <a href="berita.html">
-                    Berita
-                </a>
-
-                <a href="kontak.html">
-                    Kontak
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Aplikasi
-            </h3>
-
-
-            <div class="footer-links">
-
-                <a href="aplikasi.html">
-                    Aplikasi Bridge
-                </a>
-
-                <a href="game-bridge-gabsi.html">
-                    Game Bridge
-                </a>
-
-                <a href="kocokan-kartu.html">
-                    Kartu Pembanding
-                </a>
-
-                <a href="score-sheet.html">
-                    Score Sheet
-                </a>
-
-                <a href="kontak.html">
-                    Kontak
-                </a>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <span>
-            © 2026 GABSI Kota Tanjungbalai
-        </span>
-
-
-        <span>
-            Bridge Duplicate Center
-        </span>
-
-    </div>
-
-
+<div class="footer-inner">
+<div>
+<h3>GABSI Kota Tanjungbalai</h3>
+<p>Gabungan Bridge Seluruh Indonesia. Website informasi, pembinaan dan Bridge Duplicate Center Kota Tanjungbalai.</p>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 GABSI Kota Tanjungbalai</span>
+<span>Bridge Duplicate Center</span>
+</div>
 </footer>
-
-
 </body>
-
 </html>
