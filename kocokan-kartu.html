@@ -113,7 +113,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
   <hr><p class="small">Empat pemain dapat bergabung dari HP masing-masing. Daftar pemain disegarkan otomatis setiap lima detik.</p>
  </div>
 </section>
-<section class="card"><h2>Daftar Room</h2><p class="desc">Daftar ini tersimpan di browser ini dan otomatis dibersihkan setelah 15 hari. Penghapusan daftar lokal tidak menghapus data room di server Supabase.</p><div id="roomList" class="room-list"><div class="empty">Belum ada room. Buat atau bergabung untuk memulai.</div></div></section>
+<section class="card"><h2>Daftar Room</h2><p class="desc">Room yang dibuat atau dibuka pada browser ini.</p><div id="roomList" class="room-list"><div class="empty">Belum ada room. Buat atau bergabung untuk memulai.</div></div></section>
 <section id="roomPanel" class="card hidden">
  <h2 id="roomTitle">Room Latihan Bridge</h2><p id="roomDetails" class="desc"></p>
  <div class="notice"><strong>Kode room: <span id="currentRoomCode">-</span></strong> <button class="btn light" id="copyCodeBtn" type="button">Salin Kode</button></div>
@@ -163,12 +163,50 @@ async function api(action,payload={}){const response=await fetch(API_URL,{method
 async function checkConnection(){try{await api("ping");setText("connectionStatus","Terhubung ke Supabase.")}catch(error){setText("connectionStatus","Koneksi belum berhasil: "+error.message)}}
 function normalizeSeat(value){const v=String(value||"").trim().toUpperCase();if(["N","NORTH","UTARA"].includes(v))return"N";if(["E","EAST","TIMUR"].includes(v))return"E";if(["S","SOUTH","SELATAN"].includes(v))return"S";if(["W","WEST","BARAT"].includes(v))return"W";return""}
 function getPlayers(room){if(Array.isArray(room?.players))return room.players;if(Array.isArray(room?.room_players))return room.room_players;return[]}
-function normalizeRoom(room,name,token,position){const normalized={id:room.id||"",room_code:room.room_code||room.code||"",room_name:room.room_name||room.name||"Latihan Bridge",level:room.level||"beginner",status:room.status||"waiting",system_ns:room.system_ns||room.systemNS||"Five Card Major",system_ew:room.system_ew||room.systemEW||"Precision",players:getPlayers(room),playerName:name||"",playerToken:token||"",position:normalizeSeat(position||room.position||room.seat)};const createdAt=room.created_at||room.createdAt||room.created_on||room.createdOn||room.inserted_at||room.insertedAt;if(createdAt)normalized.created_at=createdAt;return normalized}
-const ROOM_RETENTION_MS=15*24*60*60*1000;
-function roomCreatedTimestamp(room){const local=Number(room?.localCreatedAt||room?.local_created_at||0);if(Number.isFinite(local)&&local>0)return local;const raw=room?.created_at||room?.createdAt||room?.created_on||room?.createdOn||room?.inserted_at||room?.insertedAt;if(raw!==undefined&&raw!==null&&raw!==""){if(typeof raw==="number"||/^\d+$/.test(String(raw))){let n=Number(raw);if(n>0){if(n<1e12)n*=1000;if(Number.isFinite(n))return n}}const parsed=Date.parse(String(raw));if(Number.isFinite(parsed))return parsed}return 0}
-function roomStore(){try{const raw=JSON.parse(localStorage.getItem("gabsiBridgeRooms")||"[]");if(!Array.isArray(raw))return[];const now=Date.now(),kept=[];let changed=false;for(const entry of raw){if(!entry||typeof entry!=="object"||Array.isArray(entry)){changed=true;continue}let created=roomCreatedTimestamp(entry);if(!created){created=now;changed=true}const room=entry.localCreatedAt===created?entry:{...entry,localCreatedAt:created};if(room!==entry)changed=true;if(now-created>=ROOM_RETENTION_MS){changed=true;continue}kept.push(room)}if(changed)localStorage.setItem("gabsiBridgeRooms",JSON.stringify(kept.slice(0,20)));return kept.slice(0,20)}catch(_){return[]}}
-function saveRoomStore(){try{const list=roomStore();if(activeRoom){const index=list.findIndex(room=>room.room_code===activeRoom.room_code);const existing=index>=0?list[index]:null;const now=Date.now(),created=Number(existing?.localCreatedAt)||roomCreatedTimestamp(activeRoom)||now;activeRoom.localCreatedAt=created;if(now-created<ROOM_RETENTION_MS){const saved={...activeRoom,localCreatedAt:created};if(index>=0)list[index]=saved;else list.unshift(saved);localStorage.setItem("gabsiBridgeRooms",JSON.stringify(list.slice(0,20)))}else if(index>=0){list.splice(index,1);localStorage.setItem("gabsiBridgeRooms",JSON.stringify(list.slice(0,20)))}}}catch(_){}renderRoomList()}
-function renderRoomList(){const list=roomStore(),target=$("roomList");if(!list.length){target.innerHTML='<div class="empty">Belum ada room. Buat atau bergabung untuk memulai.</div>';return}target.innerHTML=list.map((room,index)=>'<div class="room-item"><strong>'+escapeHTML(room.room_name||"Latihan Bridge")+'</strong><p>Kode: <b>'+escapeHTML(room.room_code||"-")+'</b><br>Sistem NS: '+escapeHTML(room.system_ns||"-")+'<br>Sistem EW: '+escapeHTML(room.system_ew||"-")+'</p><button class="btn secondary" data-open-room="'+index+'" type="button">Buka Room</button></div>').join("");target.querySelectorAll("[data-open-room]").forEach(button=>button.addEventListener("click",()=>{const room=list[Number(button.dataset.openRoom)];if(room)openSavedRoom(room)}))}
+function normalizeRoom(room,name,token,position){return{id:room.id||"",room_code:room.room_code||room.code||"",room_name:room.room_name||room.name||"Latihan Bridge",level:room.level||"beginner",status:room.status||"waiting",system_ns:room.system_ns||room.systemNS||"Five Card Major",system_ew:room.system_ew||room.systemEW||"Precision",players:getPlayers(room),playerName:name||"",playerToken:token||"",position:normalizeSeat(position||room.position||room.seat)}}
+const ROOM_STORE_KEY="gabsiBridgeRooms";
+const ROOM_RETENTION_MS=15*24*60*60*1000; // 15 hari
+function roomStore(){
+ try{
+  const raw=JSON.parse(localStorage.getItem(ROOM_STORE_KEY)||"[]");
+  if(!Array.isArray(raw))return[];
+  const now=Date.now();let changed=false;
+  const retained=[];
+  for(const room of raw){
+   if(!room||typeof room!=="object"){changed=true;continue}
+   let savedAt=Number(room.local_saved_at);
+   // Room lama belum memiliki tanggal lokal; mulai hitung sejak HTML baru pertama kali membacanya.
+   if(!Number.isFinite(savedAt)||savedAt<=0){savedAt=now;room.local_saved_at=savedAt;changed=true}
+   if(now-savedAt>=ROOM_RETENTION_MS){changed=true;continue}
+   retained.push(room);
+  }
+  if(changed)localStorage.setItem(ROOM_STORE_KEY,JSON.stringify(retained));
+  return retained;
+ }catch(_){return[]}
+}
+function saveRoomStore(){
+ try{
+  const list=roomStore();
+  if(activeRoom){
+   const now=Date.now(),index=list.findIndex(room=>room.room_code===activeRoom.room_code);
+   if(index>=0){
+    const old=list[index];
+    activeRoom.local_saved_at=Number(old.local_saved_at)||Number(activeRoom.local_saved_at)||now;
+    // Jangan masukkan kembali room yang sudah kedaluwarsa ke daftar lokal.
+    if(now-activeRoom.local_saved_at>=ROOM_RETENTION_MS){list.splice(index,1);localStorage.setItem(ROOM_STORE_KEY,JSON.stringify(list));renderRoomList();return}
+    list[index]={...activeRoom};
+   }else{
+    const savedAt=Number(activeRoom.local_saved_at);
+    if(Number.isFinite(savedAt)&&savedAt>0&&now-savedAt>=ROOM_RETENTION_MS){localStorage.setItem(ROOM_STORE_KEY,JSON.stringify(list));renderRoomList();return}
+    if(!Number.isFinite(savedAt)||savedAt<=0)activeRoom.local_saved_at=now;
+    list.unshift(activeRoom);
+   }
+   localStorage.setItem(ROOM_STORE_KEY,JSON.stringify(list.slice(0,20)));
+  }
+ }catch(_){}
+ renderRoomList();
+}
+function renderRoomList(){const list=roomStore(),target=$("roomList");if(!list.length){target.innerHTML='<div class="empty">Belum ada room. Buat atau bergabung untuk memulai.</div>';return}target.innerHTML=list.map((room,index)=>'<div class="room-item"><strong>'+escapeHTML(room.room_name||"Latihan Bridge")+'</strong><p>Kode: <b>'+escapeHTML(room.room_code||"-")+'</b><br>Sistem NS: '+escapeHTML(room.system_ns||"-")+'<br>Sistem EW: '+escapeHTML(room.system_ew||"-")+'<br><span class="small">Tersimpan lokal sejak '+escapeHTML(new Date(Number(room.local_saved_at)||Date.now()).toLocaleDateString("id-ID"))+'</span></p><button class="btn secondary" data-open-room="'+index+'" type="button">Buka Room</button></div>').join("");target.querySelectorAll("[data-open-room]").forEach(button=>button.addEventListener("click",()=>{const room=list[Number(button.dataset.openRoom)];if(room)openSavedRoom(room)}))}
 function levelLabel(level){return({beginner:"Pemula",intermediate:"Sedang",advanced:"Mahir",professional:"Profesional"})[String(level||"").toLowerCase()]||level||"-"}
 async function createRoom(event){event.preventDefault();const name=$("creatorName").value.trim(),roomName=$("roomName").value.trim();if(!name||!roomName)return;const button=$("createBtn");button.disabled=true;setText("createStatus","Sedang membuat room...");try{const result=await api("create",{roomName,level:$("level").value,systemNS:$("systemNS").value,systemEW:$("systemEW").value}),room=result.room||result.data||result,code=room.room_code||room.code||result.room_code;if(!code)throw new Error("Kode room tidak ditemukan pada respons server.");const joined=await api("join",{roomCode:code,playerName:name}),joinedRoom=joined.room||joined.data?.room||room;activeRoom=normalizeRoom(joinedRoom,name,joined.player_token||joined.playerToken||joined.data?.player_token||"",joined.position||joined.data?.position||"");activeRoom.room_code=code;saveRoomStore();showActiveRoom(true);setText("createStatus","Room berhasil dibuat. Bagikan kode kepada pemain lain.");startRefresh()}catch(error){setText("createStatus","Gagal membuat room: "+error.message)}finally{button.disabled=false}}
 async function joinRoom(event){event.preventDefault();const name=$("joinName").value.trim(),code=$("joinCode").value.trim().toUpperCase();if(!name||!code)return;const button=$("joinBtn");button.disabled=true;setText("joinStatus","Sedang bergabung...");try{const result=await api("join",{roomCode:code,playerName:name}),room=result.room||result.data?.room||result.data||result;activeRoom=normalizeRoom(room,name,result.player_token||result.playerToken||result.data?.player_token||"",result.position||result.data?.position||"");activeRoom.room_code=room.room_code||room.code||code;if(!activeRoom.playerToken)throw new Error("Token pemain tidak ditemukan pada respons server.");saveRoomStore();showActiveRoom(true);setText("joinStatus","Berhasil bergabung ke room.");startRefresh()}catch(error){setText("joinStatus","Gagal bergabung: "+error.message)}finally{button.disabled=false}}
@@ -322,6 +360,8 @@ $("leaveBtn").addEventListener("click",()=>{stopRefresh();activeRoom=null;curren
 $("copyCodeBtn").addEventListener("click",async()=>{if(!activeRoom)return;try{await navigator.clipboard.writeText(activeRoom.room_code);setText("roomStatus","Kode room berhasil disalin.")}catch(_){const field=document.createElement("textarea");field.value=activeRoom.room_code;document.body.appendChild(field);field.select();document.execCommand("copy");field.remove();setText("roomStatus","Kode room disalin.")}});
 $("refreshRecommendationBtn").addEventListener("click",()=>{if(currentGame)renderRecommendation(currentGame);else setText("recommendationBox","Bagikan kartu terlebih dahulu.")});$("printBtn").addEventListener("click",()=>window.print());$("exportBtn").addEventListener("click",exportCSV);$("clearScoresBtn").addEventListener("click",()=>{if(confirm("Hapus semua riwayat score sheet dari browser ini?")){scores=[];saveScores()}});$("joinCode").addEventListener("input",()=>{$("joinCode").value=$("joinCode").value.toUpperCase().replace(/\s/g,"")});
 renderScores();renderRoomList();checkConnection();
+// Bersihkan daftar lokal berkala saat halaman tetap terbuka. Saat dibuka kembali, pembersihan juga berjalan otomatis.
+setInterval(()=>{roomStore();renderRoomList()},60*60*1000);
 })();
 </script>
 </body>
