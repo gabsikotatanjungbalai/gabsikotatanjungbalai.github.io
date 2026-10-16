@@ -2166,6 +2166,14 @@ function selectInputMode(mode){
 
     }
 
+    // Validasi hanya berlaku untuk mode yang sedang terlihat.
+    // Kolom required yang tersembunyi sebelumnya dapat menahan submit.
+    document.getElementById("newsTitle").required = mode === "manual";
+    document.getElementById("newsContent").required = mode === "manual";
+    document.getElementById("repostUrl").required = mode === "repost";
+    document.getElementById("repostTitle").required = mode === "repost";
+    document.getElementById("repostContent").required = mode === "repost";
+
 }
 
 
@@ -3026,9 +3034,30 @@ document
 
             event.preventDefault();
 
-            await saveNews(
-                true
-            );
+            const form = this;
+            const button = event.submitter || form.querySelector('button[type="submit"]');
+
+            // Pastikan browser memeriksa kolom yang aktif saja.
+            if (!form.reportValidity()) return;
+            if (button && button.disabled) return;
+
+            const originalText = button ? button.textContent : "SIMPAN & TERBITKAN";
+            if (button) {
+                button.disabled = true;
+                button.textContent = "MENYIMPAN...";
+            }
+
+            try {
+                await saveNews(true);
+            } catch (error) {
+                console.error("Gagal menerbitkan berita:", error);
+                showMessage("Terjadi kesalahan saat menyimpan berita: " + (error.message || error), "error");
+            } finally {
+                if (button) {
+                    button.disabled = false;
+                    button.textContent = originalText.trim() || "SIMPAN & TERBITKAN";
+                }
+            }
 
         }
     );
